@@ -115,13 +115,13 @@
   .overview-wrap {
     background: #fff; border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,.08);
-    overflow: hidden; margin-bottom: 36px;
+    overflow-x: auto; margin-bottom: 36px;
   }
   .overview-header {
     background: #2c3e50; color: #fff;
     padding: 12px 20px; font-size: .95rem; font-weight: 700;
   }
-  .ov-table { width: 100%; border-collapse: collapse; font-size: .83rem; }
+  .ov-table { width: 100%; min-width: 900px; border-collapse: collapse; font-size: .83rem; }
   .ov-table th {
     background: #ecf0f1; color: #34495e; font-weight: 700;
     padding: 8px 12px; text-align: center;
@@ -148,9 +148,9 @@
   .week-table-wrap {
     background: #fff; border-radius: 6px;
     box-shadow: 0 1px 6px rgba(0,0,0,.08);
-    overflow: hidden; margin-bottom: 18px;
+    overflow-x: auto; margin-bottom: 18px;
   }
-  .week-table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+  .week-table { width: 100%; min-width: 900px; border-collapse: collapse; font-size: .82rem; }
   .week-table th {
     background: #f0f4f8; color: #34495e; font-weight: 700;
     padding: 7px 11px; text-align: left;
@@ -168,6 +168,18 @@
   .week-table td:nth-child(2) { font-size: .78rem; color: #666; white-space: nowrap; }
   .week-table tr:last-child td { border-bottom: none; }
   .week-table tr:hover td { background: #fafcff; }
+
+  /* ── Frozen first two columns ────────────────── */
+  .week-table th:first-child,
+  .week-table td:first-child { position: sticky; left: 0; z-index: 3; }
+  .week-table th:nth-child(2),
+  .week-table td:nth-child(2) { position: sticky; left: 72px; z-index: 3; box-shadow: 2px 0 5px rgba(0,0,0,.07); }
+  .week-table th:first-child,
+  .week-table th:nth-child(2) { background: #f0f4f8; }
+  .week-table td:first-child,
+  .week-table td:nth-child(2) { background: #fff; }
+  .week-table tr:hover td:first-child,
+  .week-table tr:hover td:nth-child(2) { background: #fafcff; }
 
   /* subject tags */
   .tag {
@@ -190,6 +202,10 @@
   .row-exam td { background: #fff8f0 !important; }
   .row-final td { background: #fef0f0 !important; }
   .row-sim td { background: #f4f4f4 !important; }
+  /* keep frozen columns consistent in special rows */
+  .row-exam td:first-child, .row-exam td:nth-child(2) { background: #fff8f0 !important; }
+  .row-final td:first-child, .row-final td:nth-child(2) { background: #fef0f0 !important; }
+  .row-sim td:first-child, .row-sim td:nth-child(2) { background: #f4f4f4 !important; }
 
   /* time note chip */
   .time-note {
