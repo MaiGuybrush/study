@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2027 學測備考時程表｜理工組 5 科</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cn:   #c0392b;  /* 國文 */
+    --cn-l: #fdecea;
+    --en:   #1565c0;  /* 英文 */
+    --en-l: #e3effe;
+    --ma:   #6a1b9a;  /* 數學A */
+    --ma-l: #f3e8fd;
+    --ph:   #00695c;  /* 物理 */
+    --ph-l: #e0f4f1;
+    --ch:   #e65100;  /* 化學 */
+    --ch-l: #fff3e0;
+    --sim:  #37474f;  /* 模擬考 */
+    --sim-l:#eceff1;
+  }
+
+  body {
+    font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+    background: #f0f2f5;
+    color: #2c3e50;
+    line-height: 1.65;
+    font-size: 14px;
+  }
+
+  /* ── Header ─────────────────────────────── */
+  .page-header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #2e6da4 100%);
+    color: #fff;
+    padding: 36px 40px 28px;
+    text-align: center;
+  }
+  .page-header h1 { font-size: 1.9rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 6px; }
+  .page-header .sub { font-size: 0.95rem; opacity: .85; }
+  .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 14px; }
+  .badge {
+    background: rgba(255,255,255,.18);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 0.82rem;
+    border: 1px solid rgba(255,255,255,.3);
+  }
+
+  /* ── Sticky nav ─────────────────────────── */
+  .nav {
+    background: #2e6da4;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 6px;
+    padding: 10px 20px;
+    position: sticky; top: 0; z-index: 200;
+    box-shadow: 0 3px 8px rgba(0,0,0,.18);
+  }
+  .nav a {
+    color: #fff; text-decoration: none;
+    font-size: 0.82rem; padding: 4px 14px;
+    border-radius: 14px; border: 1px solid rgba(255,255,255,.4);
+    transition: background .18s;
+  }
+  .nav a:hover { background: rgba(255,255,255,.25); }
+
+  /* ── Legend ─────────────────────────────── */
+  .legend-bar {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center; align-items: center;
+    padding: 14px 24px; background: #fff;
+    border-bottom: 1px solid #dde3ea;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 6px; font-size: .82rem;
+  }
+  .dot {
+    width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0;
+  }
+
+  /* ── Container ───────────────────────────── */
+  .container { max-width: 1160px; margin: 0 auto; padding: 28px 18px 60px; }
+
+  /* ── Section headings ────────────────────── */
+  .phase-title {
+    font-size: 1.1rem; font-weight: 700; letter-spacing: 1px;
+    color: #fff; padding: 10px 22px;
+    border-radius: 8px 8px 0 0;
+    margin-top: 36px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .phase-title .phase-num {
+    background: rgba(255,255,255,.25);
+    border-radius: 50%; width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .85rem; font-weight: 700; flex-shrink: 0;
+  }
+  .phase-1 .phase-title { background: linear-gradient(90deg,#1a6e3f,#27ae60); }
+  .phase-2 .phase-title { background: linear-gradient(90deg,#c0730a,#e67e22); }
+  .phase-3 .phase-title { background: linear-gradient(90deg,#1a5276,#2980b9); }
+  .phase-4 .phase-title { background: linear-gradient(90deg,#6c3483,#9b59b6); }
+  .phase-5 .phase-title { background: linear-gradient(90deg,#922b21,#e74c3c); }
+
+  .phase-desc {
+    background: #fff; border: 1px solid #dde3ea; border-top: none;
+    padding: 14px 22px;
+    font-size: .875rem; color: #444;
+    border-radius: 0 0 6px 6px;
+    margin-bottom: 14px;
+    line-height: 1.75;
+  }
+  .phase-desc strong { color: #2c3e50; }
+
+  /* ── Overview table ──────────────────────── */
+  .overview-wrap {
+    background: #fff; border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    overflow: hidden; margin-bottom: 36px;
+  }
+  .overview-header {
+    background: #2c3e50; color: #fff;
+    padding: 12px 20px; font-size: .95rem; font-weight: 700;
+  }
+  .ov-table { width: 100%; border-collapse: collapse; font-size: .83rem; }
+  .ov-table th {
+    background: #ecf0f1; color: #34495e; font-weight: 700;
+    padding: 8px 12px; text-align: center;
+    border-bottom: 2px solid #dde3ea; border-right: 1px solid #dde3ea;
+    white-space: nowrap;
+  }
+  .ov-table td {
+    padding: 8px 12px; text-align: center;
+    border-bottom: 1px solid #ecf0f1; border-right: 1px solid #ecf0f1;
+    vertical-align: middle;
+  }
+  .ov-table tr:last-child td { border-bottom: none; }
+  .ov-table .phase-cell {
+    font-weight: 700; color: #fff; font-size: .82rem; line-height: 1.5;
+  }
+  .p1c { background: #27ae60; }
+  .p2c { background: #e67e22; }
+  .p3c { background: #2980b9; }
+  .p4c { background: #8e44ad; }
+  .p5c { background: #e74c3c; }
+
+  /* ── Week table ──────────────────────────── */
+  .week-section { margin-bottom: 10px; }
+  .week-table-wrap {
+    background: #fff; border-radius: 6px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.08);
+    overflow: hidden; margin-bottom: 18px;
+  }
+  .week-table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+  .week-table th {
+    background: #f0f4f8; color: #34495e; font-weight: 700;
+    padding: 7px 11px; text-align: left;
+    border-bottom: 2px solid #dde3ea; border-right: 1px solid #e8ecf0;
+    white-space: nowrap;
+  }
+  .week-table th:first-child { width: 72px; text-align: center; }
+  .week-table th:nth-child(2) { width: 110px; }
+  .week-table td {
+    padding: 7px 11px;
+    border-bottom: 1px solid #f0f4f8; border-right: 1px solid #f0f4f8;
+    vertical-align: top; line-height: 1.6;
+  }
+  .week-table td:first-child { text-align: center; font-weight: 700; color: #555; white-space: nowrap; }
+  .week-table td:nth-child(2) { font-size: .78rem; color: #666; white-space: nowrap; }
+  .week-table tr:last-child td { border-bottom: none; }
+  .week-table tr:hover td { background: #fafcff; }
+
+  /* subject tags */
+  .tag {
+    display: inline-block; border-radius: 4px;
+    padding: 2px 7px; font-size: .77rem; font-weight: 600;
+    margin: 2px 3px 2px 0; white-space: nowrap;
+  }
+  .t-cn  { background: var(--cn-l); color: var(--cn); border: 1px solid #f5b7b1; }
+  .t-en  { background: var(--en-l); color: var(--en); border: 1px solid #aed1f8; }
+  .t-ma  { background: var(--ma-l); color: var(--ma); border: 1px solid #d7aef8; }
+  .t-ph  { background: var(--ph-l); color: var(--ph); border: 1px solid #80cbc4; }
+  .t-ch  { background: var(--ch-l); color: var(--ch); border: 1px solid #ffcc80; }
+  .t-sim { background: var(--sim-l); color: var(--sim); border: 1px solid #b0bec5; font-weight: 700; }
+
+  .week-note {
+    font-size: .77rem; color: #888; margin-top: 3px; line-height: 1.5;
+  }
+
+  /* special rows */
+  .row-exam td { background: #fff8f0 !important; }
+  .row-final td { background: #fef0f0 !important; }
+  .row-sim td { background: #f4f4f4 !important; }
+
+  /* time note chip */
+  .time-note {
+    display: inline-block; background: #e8f5e9; color: #2e7d32;
+    border-radius: 10px; padding: 2px 10px; font-size: .74rem;
+    margin-left: 6px; font-weight: 600;
+  }
+  .time-note.hot { background: #fff3e0; color: #e65100; }
+  .time-note.red { background: #fdecea; color: #c62828; }
+
+  /* ── Footer ──────────────────────────────── */
+  footer {
+    text-align: center; padding: 22px 20px;
+    font-size: .78rem; color: #888;
+    border-top: 1px solid #dde3ea;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="page-header">
+  <h1>2027 學測備考 35 週完整時程表</h1>
+  <p class="sub">理工組｜國文・英文・數學A・物理・化學 共 5 科</p>
+  <div class="badges">
+    <span class="badge">起始日：2026/05/21</span>
+    <span class="badge">學測考期：2027/01/22–01/24</span>
+    <span class="badge">剩餘天數：約 246 天</span>
+    <span class="badge">共 35 週</span>
+    <span class="badge">111 課綱</span>
+  </div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <a href="#overview">階段總表</a>
+  <a href="#phase1">第一階段</a>
+  <a href="#phase2">第二階段</a>
+  <a href="#phase3">第三階段</a>
+  <a href="#phase4">第四階段</a>
+  <a href="#phase5">第五階段</a>
+  <a href="#tips">備考建議</a>
+</nav>
+
+<!-- ===== LEGEND ===== -->
+<div class="legend-bar">
+  <strong style="font-size:.85rem;margin-right:4px;">科目色碼：</strong>
+  <div class="legend-item"><div class="dot" style="background:var(--cn)"></div>國文</div>
+  <div class="legend-item"><div class="dot" style="background:var(--en)"></div>英文</div>
+  <div class="legend-item"><div class="dot" style="background:var(--ma)"></div>數學A</div>
+  <div class="legend-item"><div class="dot" style="background:var(--ph)"></div>物理</div>
+  <div class="legend-item"><div class="dot" style="background:var(--ch)"></div>化學</div>
+  <div class="legend-item"><div class="dot" style="background:var(--sim)"></div>模擬考/綜合</div>
+</div>
+
+<div class="container">
+
+<!-- ===== OVERVIEW ===== -->
+<div id="overview" class="overview-wrap">
+  <div class="overview-header">階段總表 — 35 週學習路線圖</div>
+  <table class="ov-table">
+    <thead>
+      <tr>
+        <th>週次</th>
+        <th>日期區間</th>
+        <th>學習階段</th>
+        <th>國文</th>
+        <th>英文</th>
+        <th>數學A</th>
+        <th>物理</th>
+        <th>化學</th>
+        <th>每日時數</th>
+        <th>備注</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>W01–W07</td>
+        <td>05/21–07/05</td>
+        <td class="phase-cell p1c">第一階段<br>在校基礎</td>
+        <td>古文 1–15 篇精讀</td>
+        <td>詞彙 1–4 級<br>基礎文法</td>
+        <td>第一冊全章<br>第二冊 ch1–4</td>
+        <td>Ch1–3 基礎</td>
+        <td>化學一 U1–6</td>
+        <td>1.5–2 hr<br>週末 3 hr</td>
+        <td>高二下在校，跟上學校進度為主</td>
+      </tr>
+      <tr>
+        <td>W08–W16</td>
+        <td>07/06–09/06</td>
+        <td class="phase-cell p2c">第二階段<br>暑假衝刺</td>
+        <td>古文 16–30 篇<br>文化教材<br>現代文學</td>
+        <td>詞彙 5–6 級<br>所有題型精練</td>
+        <td>第二冊 ch5–6<br>第三冊A全章<br>大量例題</td>
+        <td>Ch4–6 完成<br>歷屆試題</td>
+        <td>化學二全章<br>計算題強化</td>
+        <td>8–10 hr<br>（暑假黃金期）</td>
+        <td>第一輪全科系統複習完成</td>
+      </tr>
+      <tr>
+        <td>W17–W24</td>
+        <td>09/07–11/01</td>
+        <td class="phase-cell p3c">第三階段<br>第二輪主題</td>
+        <td>寫作專攻<br>國寫練習</td>
+        <td>閱讀測驗<br>長文練習</td>
+        <td>錯題複習<br>進階題型</td>
+        <td>力學深化<br>電磁複習</td>
+        <td>平衡與動力<br>有機化學</td>
+        <td>3–4 hr<br>（高三上）</td>
+        <td>每兩週一次科目模擬；高三上在校</td>
+      </tr>
+      <tr>
+        <td>W25–W31</td>
+        <td>11/02–12/20</td>
+        <td class="phase-cell p4c">第四階段<br>整合衝刺</td>
+        <td>弱點古文<br>語文知識</td>
+        <td>作文&amp;翻譯<br>計分練習</td>
+        <td>全範圍混合<br>限時練習</td>
+        <td>全科整合<br>計算練習</td>
+        <td>全科整合<br>歷屆錯題</td>
+        <td>4–6 hr</td>
+        <td>每週一次全科模擬考（100分鐘限時）</td>
+      </tr>
+      <tr>
+        <td>W32–W35</td>
+        <td>12/21–01/21</td>
+        <td class="phase-cell p5c">第五階段<br>考前決戰</td>
+        <td>重點篇章<br>快速複習</td>
+        <td>單字卡<br>錯題本</td>
+        <td>公式卡<br>錯題複習</td>
+        <td>公式整理<br>考古題</td>
+        <td>反應式整理<br>考古題</td>
+        <td>5–6 hr<br>考前週 3 hr</td>
+        <td>模擬考 2 次；最後一週輕鬆複習、調整作息</td>
+      </tr>
+    </tbody>
+  </table>
+</div><!-- /overview -->
+
+
+<!-- ===================================================
+     第一階段：W01–W07（2026/05/21–07/05）
+     高二下在校，利用課後時間做基礎複習
+==================================================== -->
+<div id="phase1" class="phase-1">
+  <div class="phase-title">
+    <span class="phase-num">1</span>
+    第一階段：基礎建立｜W01–W07（2026/05/21 – 07/05）
+    <span class="time-note">每日 1.5–2 小時 ／ 週末 3–4 小時</span>
+  </div>
+  <div class="phase-desc">
+    <strong>核心目標：</strong>高二下學期仍有新課，以<strong>跟上學校進度</strong>為首要任務。
+    每天利用下課後 1.5–2 小時做預習／複習，打好 5 科基礎骨架。
+    國文集中核心古文 15 篇；英文建立詞彙量；數學完成第一冊；物化配合學校進度。
+    <strong>不要因備考打亂在校學習節奏。</strong>
+  </div>
+  <div class="week-table-wrap">
+    <table class="week-table">
+      <thead>
+        <tr>
+          <th>週次</th>
+          <th>日期</th>
+          <th>國文 <span style="color:var(--cn)">■</span></th>
+          <th>英文 <span style="color:var(--en)">■</span></th>
+          <th>數學A <span style="color:var(--ma)">■</span></th>
+          <th>物理 <span style="color:var(--ph)">■</span></th>
+          <th>化學 <span style="color:var(--ch)">■</span></th>
+          <th>週末任務</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>W01</td><td>05/21–05/24</td>
+          <td><span class="tag t-cn">古文#1 燭之武退秦師</span><br><span class="tag t-cn">古文#2 大同與小康</span></td>
+          <td><span class="tag t-en">詞彙 Level 1–2 複習</span><br><span class="tag t-en">每日背 20 字</span></td>
+          <td><span class="tag t-ma">第一冊 Ch1 數與式（實數）</span></td>
+          <td><span class="tag t-ph">Ch1-1~1-3 科學方法、SI單位</span></td>
+          <td><span class="tag t-ch">化學一 U1 物質分類與分離</span></td>
+          <td>國文：燭之武精讀注解<br>英文：做 20 題詞彙練習</td>
+        </tr>
+        <tr>
+          <td>W02</td><td>05/25–05/31</td>
+          <td><span class="tag t-cn">古文#3 諫逐客書</span><br><span class="tag t-cn">古文#4 鴻門宴</span></td>
+          <td><span class="tag t-en">詞彙 Level 3 複習</span><br><span class="tag t-en">綜合測驗題型練習</span></td>
+          <td><span class="tag t-ma">Ch1 指數與對數運算</span></td>
+          <td><span class="tag t-ph">Ch1-4 物理學簡介<br>Ch2-1 速度與加速度</span></td>
+          <td><span class="tag t-ch">U2 道耳頓原子說<br>U3 原子量與莫耳</span></td>
+          <td>數學：Ch1 例題全做完<br>物理：速度加速度計算練習</td>
+        </tr>
+        <tr>
+          <td>W03</td><td>06/01–06/07</td>
+          <td><span class="tag t-cn">古文#5 出師表</span><br><span class="tag t-cn">古文#6 桃花源記</span></td>
+          <td><span class="tag t-en">詞彙 Level 3 繼續</span><br><span class="tag t-en">文意選填技巧</span></td>
+          <td><span class="tag t-ma">Ch2 多項式函數</span></td>
+          <td><span class="tag t-ph">Ch2-2 牛頓三大定律</span></td>
+          <td><span class="tag t-ch">U4 原子結構與週期表</span></td>
+          <td>國文：出師表默背重點段落<br>化學：週期表特性整理</td>
+        </tr>
+        <tr>
+          <td>W04</td><td>06/08–06/14</td>
+          <td><span class="tag t-cn">古文#7 虯髯客傳</span><br><span class="tag t-cn">古文#8 師說</span></td>
+          <td><span class="tag t-en">詞彙 Level 4 開始</span><br><span class="tag t-en">篇章結構題型練習</span></td>
+          <td><span class="tag t-ma">Ch3 直線與圓的方程式</span></td>
+          <td><span class="tag t-ph">Ch2-3 摩擦力與彈力</span></td>
+          <td><span class="tag t-ch">U5 化學鍵（離子、共價、金屬）</span></td>
+          <td>數學：直線方程式例題 20 題<br>物理：力學計算練習</td>
+        </tr>
+        <tr>
+          <td>W05</td><td>06/15–06/21</td>
+          <td><span class="tag t-cn">古文#9 始得西山宴遊記</span><br><span class="tag t-cn">古文#10 赤壁賦</span></td>
+          <td><span class="tag t-en">詞彙 Level 4 繼續</span><br><span class="tag t-en">閱讀測驗短文練習</span></td>
+          <td><span class="tag t-ma">Ch3 圓方程式補充練習</span></td>
+          <td><span class="tag t-ph">Ch2-4 天體運動、克卜勒定律</span></td>
+          <td><span class="tag t-ch">U6 化學式與分子結構</span></td>
+          <td>英文：閱讀測驗 2 篇完整練習<br>化學：化學式書寫練習</td>
+        </tr>
+        <tr>
+          <td>W06</td><td>06/22–06/28</td>
+          <td><span class="tag t-cn">古文#11 項脊軒志</span><br><span class="tag t-cn">古文#12 晚遊六橋待月記</span></td>
+          <td><span class="tag t-en">詞彙 Level 4 完成</span><br><span class="tag t-en">中譯英句型練習</span></td>
+          <td><span class="tag t-ma">第一冊 整冊總複習</span></td>
+          <td><span class="tag t-ph">Ch3-1~3-3 物質組成、原子結構、四力</span></td>
+          <td><span class="tag t-ch">U7 化學反應與化學計量</span></td>
+          <td>數學：第一冊歷屆試題 10 題<br>物理：Ch3 觀念複習</td>
+        </tr>
+        <tr class="row-sim">
+          <td>W07</td><td>06/29–07/05</td>
+          <td><span class="tag t-cn">古文#13–15 勞山道士・勸和論・鹿港乘桴記</span></td>
+          <td><span class="tag t-en">Level 1–4 詞彙複習</span><br><span class="tag t-en">英文作文起步練習</span></td>
+          <td><span class="tag t-ma">第二冊 Ch1 三角比</span></td>
+          <td><span class="tag t-ph">Ch4-1 電流磁效應</span></td>
+          <td><span class="tag t-ch">U8 反應熱與赫斯定律</span></td>
+          <td><span class="tag t-sim">週末小測：國文古文 #1–15 默寫作者時代<br>英文詞彙 Level 1–4 抽測 50 題</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /phase1 -->
+
+
+<!-- ===================================================
+     第二階段：W08–W16（2026/07/06–09/06）
+     暑假黃金衝刺期
+==================================================== -->
+<div id="phase2" class="phase-2">
+  <div class="phase-title">
+    <span class="phase-num">2</span>
+    第二階段：暑假黃金衝刺｜W08–W16（2026/07/06 – 09/06）
+    <span class="time-note hot">每日 8–10 小時（暑假全力衝刺）</span>
+  </div>
+  <div class="phase-desc">
+    <strong>核心目標：</strong>暑假是備考最重要的黃金時期，目標是<strong>完成 5 科第一輪全範圍系統複習</strong>。
+    每天安排早上（8–12 點）攻克數理難題，下午（13–17 點）語文與英文，晚上（19–21 點）錯題整理與抽背。
+    每週六進行一科完整限時模擬練習，週日整理錯題本。
+    數學第三冊A（向量、指對數函數）為暑假重點突破對象。
+  </div>
+  <div class="week-table-wrap">
+    <table class="week-table">
+      <thead>
+        <tr>
+          <th>週次</th>
+          <th>日期</th>
+          <th>國文 <span style="color:var(--cn)">■</span></th>
+          <th>英文 <span style="color:var(--en)">■</span></th>
+          <th>數學A <span style="color:var(--ma)">■</span></th>
+          <th>物理 <span style="color:var(--ph)">■</span></th>
+          <th>化學 <span style="color:var(--ch)">■</span></th>
+          <th>週末模擬/整合</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>W08</td><td>07/06–07/12</td>
+          <td><span class="tag t-cn">古文 #16–18 勸學・漁夫・馮諼</span><br><span class="tag t-cn">論語選讀 上</span></td>
+          <td><span class="tag t-en">詞彙 Level 5 開始</span><br><span class="tag t-en">閱讀測驗：每日 1 篇</span></td>
+          <td><span class="tag t-ma">第二冊 Ch2 廣義角與三角比</span><br><span class="tag t-ma">正弦/餘弦定理</span></td>
+          <td><span class="tag t-ph">Ch4-2 電磁感應<br>Ch4-3 電與磁統整</span></td>
+          <td><span class="tag t-ch">U9 氧化還原反應</span></td>
+          <td><span class="tag t-sim">週六：英文模擬考（90 分鐘全卷）<br>週日：整理英文錯題本</span></td>
+        </tr>
+        <tr>
+          <td>W09</td><td>07/13–07/19</td>
+          <td><span class="tag t-cn">古文 #19–21 典論論文・蘭亭集序・世說新語</span><br><span class="tag t-cn">孟子選讀 上</span></td>
+          <td><span class="tag t-en">Level 5 繼續</span><br><span class="tag t-en">綜合測驗：每日 1 回</span></td>
+          <td><span class="tag t-ma">第二冊 Ch3 數列與級數</span><br><span class="tag t-ma">等差等比數列</span></td>
+          <td><span class="tag t-ph">Ch4-4 電磁波<br>Ch4-5 都卜勒效應</span></td>
+          <td><span class="tag t-ch">U10 水溶液酸鹼反應</span></td>
+          <td><span class="tag t-sim">週六：國文模擬考（國綜 100 分鐘）<br>週日：物理 Ch4 電磁重點整理</span></td>
+        </tr>
+        <tr>
+          <td>W10</td><td>07/20–07/26</td>
+          <td><span class="tag t-cn">古文 #22–24 與陳伯之書・諫太宗十思疏・岳陽樓記</span></td>
+          <td><span class="tag t-en">Level 5 完成</span><br><span class="tag t-en">篇章結構：每日 2 回</span></td>
+          <td><span class="tag t-ma">第二冊 Ch4 數據分析</span><br><span class="tag t-ma">Ch5 排列組合</span></td>
+          <td><span class="tag t-ph">Ch5-1~5-2 能量形式與微觀能量</span></td>
+          <td><span class="tag t-ch">U11 藥物與界面活性劑<br>U12 化學現代應用</span></td>
+          <td><span class="tag t-sim">週六：數學模擬考（100 分鐘）<br>週日：化學一全冊概念整理表</span></td>
+        </tr>
+        <tr>
+          <td>W11</td><td>07/27–08/02</td>
+          <td><span class="tag t-cn">古文 #25–27 醉翁亭記・郁離子・廉恥</span><br><span class="tag t-cn">孟子選讀 下</span></td>
+          <td><span class="tag t-en">Level 6 開始</span><br><span class="tag t-en">閱讀測驗：長篇練習每日 1 篇</span></td>
+          <td><span class="tag t-ma">第二冊 Ch6 機率基礎</span><br><span class="tag t-ma">第二冊 整冊總複習</span></td>
+          <td><span class="tag t-ph">Ch5-3 能量守恆<br>Ch5-4 質能守恆 E=mc²</span></td>
+          <td><span class="tag t-ch">化學二 U1 限量試劑與產率</span><br><span class="tag t-ch">U2 溶液濃度與溶解度</span></td>
+          <td><span class="tag t-sim">週六：物理模擬考（含 Ch1–5）<br>週日：數學第二冊歷屆試題整理</span></td>
+        </tr>
+        <tr>
+          <td>W12</td><td>08/03–08/09</td>
+          <td><span class="tag t-cn">古文 #28–30 左忠毅公・原君・裨海紀遊</span><br><span class="tag t-cn">大學・中庸選讀</span></td>
+          <td><span class="tag t-en">Level 6 繼續</span><br><span class="tag t-en">中譯英：每日 3 句練習</span></td>
+          <td><span class="tag t-ma">第三冊A Ch1 三角函數圖形</span><br><span class="tag t-ma">Ch2 和差角公式</span></td>
+          <td><span class="tag t-ph">Ch6-1~6-2 量子論誕生・光電效應</span></td>
+          <td><span class="tag t-ch">U3 氣體動力論<br>U4 飽和蒸氣壓</span></td>
+          <td><span class="tag t-sim">週六：化學模擬考（化學一全範圍）<br>週日：古文 30 篇作者時代總整理</span></td>
+        </tr>
+        <tr>
+          <td>W13</td><td>08/10–08/16</td>
+          <td><span class="tag t-cn">現代詩：精讀 5–8 首</span><br><span class="tag t-cn">現代散文：精讀 3 篇</span></td>
+          <td><span class="tag t-en">Level 6 完成</span><br><span class="tag t-en">英文作文：練習 2 篇引導寫作</span></td>
+          <td><span class="tag t-ma">第三冊A Ch3 指數函數<br>Ch4 對數函數</span></td>
+          <td><span class="tag t-ph">Ch6-3 物質波動性<br>Ch6-4 波粒二象性<br>Ch6-5 原子光譜</span></td>
+          <td><span class="tag t-ch">U5 反應速率<br>U6 化學平衡（勒沙特列）</span></td>
+          <td><span class="tag t-sim">週六：物理 Ch6 量子完整測驗<br>週日：數學指對數函數練習 20 題</span></td>
+        </tr>
+        <tr>
+          <td>W14</td><td>08/17–08/23</td>
+          <td><span class="tag t-cn">現代小說選讀 2 篇</span><br><span class="tag t-cn">台灣文學作品 2 篇</span><br><span class="tag t-cn">國寫練習：知性題 1 篇</span></td>
+          <td><span class="tag t-en">文意選填：每日 2 回</span><br><span class="tag t-en">閱讀測驗：科技類 2 篇</span></td>
+          <td><span class="tag t-ma">第三冊A Ch5 平面向量運算<br>Ch6 向量內積</span></td>
+          <td><span class="tag t-ph">物理全科 第一輪複習</span><br><span class="tag t-ph">探究實作觀念整理</span></td>
+          <td><span class="tag t-ch">U7 酸鹼平衡（pH 值計算）</span></td>
+          <td><span class="tag t-sim">週六：英文全卷模擬考（90 分鐘）<br>週日：化學 pH 值計算練習 15 題</span></td>
+        </tr>
+        <tr>
+          <td>W15</td><td>08/24–08/30</td>
+          <td><span class="tag t-cn">國寫練習：感性題 1 篇</span><br><span class="tag t-cn">古文語文知識整理</span></td>
+          <td><span class="tag t-en">混合題型練習（閱讀與寫作）</span><br><span class="tag t-en">作文：看圖寫作 1 篇</span></td>
+          <td><span class="tag t-ma">第三冊A Ch7 向量應用</span><br><span class="tag t-ma">第三冊A 整冊複習</span></td>
+          <td><span class="tag t-ph">物理歷屆試題：50 題精選</span></td>
+          <td><span class="tag t-ch">U8 有機化合物分類命名<br>U9 常見有機化合物</span></td>
+          <td><span class="tag t-sim">週六：數學 A 全卷模擬考（100 分鐘）<br>週日：有機化學官能基整理表</span></td>
+        </tr>
+        <tr class="row-exam">
+          <td>W16</td><td>08/31–09/06</td>
+          <td><span class="tag t-cn">暑假國文總複習</span><br><span class="tag t-cn">古文 30 篇弱點補強</span></td>
+          <td><span class="tag t-en">暑假英文總整理</span><br><span class="tag t-en">詞彙錯字本複習</span></td>
+          <td><span class="tag t-ma">第一~三冊A 重點整理</span><br><span class="tag t-ma">數學公式卡製作</span></td>
+          <td><span class="tag t-ph">物理公式整理卡</span><br><span class="tag t-ph">Ch1–6 觀念速查</span></td>
+          <td><span class="tag t-ch">U10 高分子化合物（聚合反應）</span><br><span class="tag t-ch">化學二總複習</span></td>
+          <td><span class="tag t-sim">週六：5 科暑假成果測驗（各 30 分鐘）<br>週日：建立各科弱點清單，規劃高三補強方向</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /phase2 -->
+
+
+<!-- ===================================================
+     第三階段：W17–W24（2026/09/07–11/01）
+     高三上學期，第二輪主題強化
+==================================================== -->
+<div id="phase3" class="phase-3">
+  <div class="phase-title">
+    <span class="phase-num">3</span>
+    第三階段：第二輪主題強化｜W17–W24（2026/09/07 – 11/01）
+    <span class="time-note">每日 3–4 小時（高三上在校）</span>
+  </div>
+  <div class="phase-desc">
+    <strong>核心目標：</strong>高三上在校，每日課後 3–4 小時複習。以<strong>主題式深化</strong>為主，針對第一輪複習的弱點進行加強。
+    每兩週進行一次單科模擬練習（100 分鐘限時），同時開始累積<strong>錯題本</strong>。
+    英文加強閱讀理解；數學進行混合題型訓練；物化針對計算題強化；國文開始系統性國寫練習。
+  </div>
+  <div class="week-table-wrap">
+    <table class="week-table">
+      <thead>
+        <tr>
+          <th>週次</th>
+          <th>日期</th>
+          <th>國文 <span style="color:var(--cn)">■</span></th>
+          <th>英文 <span style="color:var(--en)">■</span></th>
+          <th>數學A <span style="color:var(--ma)">■</span></th>
+          <th>物理 <span style="color:var(--ph)">■</span></th>
+          <th>化學 <span style="color:var(--ch)">■</span></th>
+          <th>模擬/整合任務</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>W17</td><td>09/07–09/13</td>
+          <td><span class="tag t-cn">古文重讀：先秦 6 篇精析</span></td>
+          <td><span class="tag t-en">詞彙錯字本整理</span><br><span class="tag t-en">閱讀：環境科技類</span></td>
+          <td><span class="tag t-ma">Ch1 數與式 進階題</span><br><span class="tag t-ma">指數對數混合練習</span></td>
+          <td><span class="tag t-ph">Ch2 力學：計算題專攻</span></td>
+          <td><span class="tag t-ch">化學一 U7 計量計算 深化</span></td>
+          <td>各科開始建立個人弱點筆記</td>
+        </tr>
+        <tr>
+          <td>W18</td><td>09/14–09/20</td>
+          <td><span class="tag t-cn">古文重讀：漢唐 6 篇精析</span><br><span class="tag t-cn">國寫知性題練習 1</span></td>
+          <td><span class="tag t-en">篇章結構：每日 1 回</span><br><span class="tag t-en">文意選填精練</span></td>
+          <td><span class="tag t-ma">Ch2 多項式函數進階</span><br><span class="tag t-ma">因式分解深化</span></td>
+          <td><span class="tag t-ph">Ch3 物質結構：重點整理</span></td>
+          <td><span class="tag t-ch">化學一 U9 氧化還原深化</span><br><span class="tag t-ch">半反應式練習</span></td>
+          <td>週末：英文模擬考（90 分鐘全卷）</td>
+        </tr>
+        <tr>
+          <td>W19</td><td>09/21–09/27</td>
+          <td><span class="tag t-cn">古文重讀：宋明清 6 篇</span></td>
+          <td><span class="tag t-en">閱讀：文化人文類長文 2 篇</span><br><span class="tag t-en">中譯英：慣用句型整理</span></td>
+          <td><span class="tag t-ma">Ch3 直線圓進階</span><br><span class="tag t-ma">軌跡問題練習</span></td>
+          <td><span class="tag t-ph">Ch4 電磁：計算題專攻</span></td>
+          <td><span class="tag t-ch">化學二 U3 氣體計算<br>理想氣體方程式應用</span></td>
+          <td>中秋連假：安排 1 次全科自我測試</td>
+        </tr>
+        <tr>
+          <td>W20</td><td>09/28–10/04</td>
+          <td><span class="tag t-cn">文化教材：論語孟子重點章節</span><br><span class="tag t-cn">語文知識：字音字形</span></td>
+          <td><span class="tag t-en">英文作文：書信格式練習</span><br><span class="tag t-en">閱讀：健康醫療類</span></td>
+          <td><span class="tag t-ma">三角函數圖形與週期</span><br><span class="tag t-ma">和差角公式應用</span></td>
+          <td><span class="tag t-ph">Ch5 能量計算：動能、位能</span></td>
+          <td><span class="tag t-ch">化學二 U5 反應速率<br>U6 化學平衡深化</span></td>
+          <td>週末：數學模擬考（100 分鐘全卷）</td>
+        </tr>
+        <tr>
+          <td>W21</td><td>10/05–10/11</td>
+          <td><span class="tag t-cn">現代文學：詩歌精讀 6 首</span><br><span class="tag t-cn">國寫感性題練習 1</span></td>
+          <td><span class="tag t-en">閱讀測驗：歷史人物類 2 篇</span><br><span class="tag t-en">詞彙 Level 5–6 複習</span></td>
+          <td><span class="tag t-ma">向量：運算規則與應用</span><br><span class="tag t-ma">向量內積計算題</span></td>
+          <td><span class="tag t-ph">Ch6 量子現象：觀念整理</span></td>
+          <td><span class="tag t-ch">化學二 U7 pH 值計算深化<br>弱酸弱鹼平衡</span></td>
+          <td>物理全科觀念速查（做概念地圖）</td>
+        </tr>
+        <tr>
+          <td>W22</td><td>10/12–10/18</td>
+          <td><span class="tag t-cn">台灣文學：現代小說 2 篇</span><br><span class="tag t-cn">語文知識：成語、修辭</span></td>
+          <td><span class="tag t-en">混合題：長篇閱讀＋填寫</span><br><span class="tag t-en">作文：主題寫作 1 篇</span></td>
+          <td><span class="tag t-ma">排列組合與機率複習</span><br><span class="tag t-ma">數據分析進階</span></td>
+          <td><span class="tag t-ph">歷屆試題：物理 30 題精選</span></td>
+          <td><span class="tag t-ch">有機化學：官能基反應歸納</span></td>
+          <td>週末：化學模擬考（含化學一二全範圍）</td>
+        </tr>
+        <tr>
+          <td>W23</td><td>10/19–10/25</td>
+          <td><span class="tag t-cn">國寫知性題練習 2</span><br><span class="tag t-cn">古文錯題複習</span></td>
+          <td><span class="tag t-en">英文歷屆試題：選擇部分 1 回</span><br><span class="tag t-en">閱讀：教育社會類</span></td>
+          <td><span class="tag t-ma">數學歷屆試題：混合計算 15 題</span></td>
+          <td><span class="tag t-ph">物理計算錯題集中複習</span></td>
+          <td><span class="tag t-ch">化學計算題整合練習</span><br><span class="tag t-ch">高分子化合物整理</span></td>
+          <td>累積各科錯題本（每科至少 20 題）</td>
+        </tr>
+        <tr class="row-sim">
+          <td>W24</td><td>10/26–11/01</td>
+          <td><span class="tag t-cn">古文 30 篇全面複習</span></td>
+          <td><span class="tag t-en">英文全題型複習</span></td>
+          <td><span class="tag t-ma">第三冊A 全冊重點</span></td>
+          <td><span class="tag t-ph">物理全科速讀</span></td>
+          <td><span class="tag t-ch">化學全科概念整理</span></td>
+          <td><span class="tag t-sim">週末：第一次 5 科聯合模擬考（各科限時）<br>統計各科得分，調整第四階段重點</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /phase3 -->
+
+
+<!-- ===================================================
+     第四階段：W25–W31（2026/11/02–12/20）
+     整合衝刺，每週全科模擬考
+==================================================== -->
+<div id="phase4" class="phase-4">
+  <div class="phase-title">
+    <span class="phase-num">4</span>
+    第四階段：整合衝刺｜W25–W31（2026/11/02 – 12/20）
+    <span class="time-note hot">每日 4–6 小時（加強衝刺）</span>
+  </div>
+  <div class="phase-desc">
+    <strong>核心目標：</strong>距離學測約 60–80 天，進入真正的衝刺期。
+    <strong>每週進行一次全科模擬考</strong>（以學測實際考試節奏為準），並依據模擬考成績調整複習重點。
+    這個階段的重點是「查漏補缺」，優先攻克弱點科目章節，同時維持強科的穩定度。
+    建立考試節奏感，練習時間分配，確保不要在任何一題上卡太久。
+  </div>
+  <div class="week-table-wrap">
+    <table class="week-table">
+      <thead>
+        <tr>
+          <th>週次</th>
+          <th>日期</th>
+          <th>國文 <span style="color:var(--cn)">■</span></th>
+          <th>英文 <span style="color:var(--en)">■</span></th>
+          <th>數學A <span style="color:var(--ma)">■</span></th>
+          <th>物理 <span style="color:var(--ph)">■</span></th>
+          <th>化學 <span style="color:var(--ch)">■</span></th>
+          <th>模擬考安排</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>W25</td><td>11/02–11/08</td>
+          <td><span class="tag t-cn">弱點古文篇章深讀</span><br><span class="tag t-cn">國寫限時練習 45 分鐘</span></td>
+          <td><span class="tag t-en">詞彙衝刺：Level 5–6 抽測</span><br><span class="tag t-en">閱讀：每日 2 篇限時</span></td>
+          <td><span class="tag t-ma">個人弱點章節重點練習</span></td>
+          <td><span class="tag t-ph">Ch2 力學：綜合計算題 20 題</span></td>
+          <td><span class="tag t-ch">化學計量綜合計算 15 題</span></td>
+          <td><span class="tag t-sim">週六：英文全卷模擬（90 分鐘）<br>週日：對答案、整理錯題</span></td>
+        </tr>
+        <tr>
+          <td>W26</td><td>11/09–11/15</td>
+          <td><span class="tag t-cn">語文知識：字音字形字義</span><br><span class="tag t-cn">修辭手法整理</span></td>
+          <td><span class="tag t-en">英文作文：主題式 2 篇</span><br><span class="tag t-en">中譯英：每日 3 句</span></td>
+          <td><span class="tag t-ma">數學限時練習：40 分鐘 10 題</span></td>
+          <td><span class="tag t-ph">Ch4 電磁：歷屆試題 15 題</span></td>
+          <td><span class="tag t-ch">平衡計算：化學平衡＋酸鹼平衡</span></td>
+          <td><span class="tag t-sim">週六：數學A全卷模擬（100 分鐘）<br>週日：對答案、記錄得分變化</span></td>
+        </tr>
+        <tr>
+          <td>W27</td><td>11/16–11/22</td>
+          <td><span class="tag t-cn">現代文學閱讀理解練習</span><br><span class="tag t-cn">選擇題解題技巧練習</span></td>
+          <td><span class="tag t-en">篇章結構：歷屆試題 5 回</span><br><span class="tag t-en">文意選填：歷屆試題 5 回</span></td>
+          <td><span class="tag t-ma">三角函數、向量 混合題</span></td>
+          <td><span class="tag t-ph">物理歷屆試題：40 題精練</span></td>
+          <td><span class="tag t-ch">有機化學：歷屆試題練習</span></td>
+          <td><span class="tag t-sim">週六：物理化學聯合模擬（各 50 分鐘）<br>週日：整理物化共同弱點</span></td>
+        </tr>
+        <tr>
+          <td>W28</td><td>11/23–11/29</td>
+          <td><span class="tag t-cn">古文30篇 最後一輪速讀</span><br><span class="tag t-cn">文化教材重點整理</span></td>
+          <td><span class="tag t-en">混合題：完整練習 2 回</span><br><span class="tag t-en">閱讀題：圖表判讀練習</span></td>
+          <td><span class="tag t-ma">全範圍混合題：50 題限時</span></td>
+          <td><span class="tag t-ph">全科綜合：觀念 + 計算各半</span></td>
+          <td><span class="tag t-ch">全科整合：化學一二混合練習</span></td>
+          <td><span class="tag t-sim">週六：國文全卷模擬（100 分鐘）<br>週日：各科弱點清單更新</span></td>
+        </tr>
+        <tr>
+          <td>W29</td><td>11/30–12/06</td>
+          <td><span class="tag t-cn">國寫感性題 + 知性題各 1 篇</span></td>
+          <td><span class="tag t-en">英文歷屆試題：2017–2022 年份</span></td>
+          <td><span class="tag t-ma">數學歷屆試題：2018–2022</span></td>
+          <td><span class="tag t-ph">物理歷屆試題：2018–2022</span></td>
+          <td><span class="tag t-ch">化學歷屆試題：2018–2022</span></td>
+          <td><span class="tag t-sim">週六：5 科聯合模擬考（第二次）<br>週日：統計級分換算，規劃最後衝刺重點</span></td>
+        </tr>
+        <tr>
+          <td>W30</td><td>12/07–12/13</td>
+          <td><span class="tag t-cn">弱點古文 + 弱點題型集中攻克</span></td>
+          <td><span class="tag t-en">弱點題型集中練習</span></td>
+          <td><span class="tag t-ma">弱點章節集中練習</span></td>
+          <td><span class="tag t-ph">弱點單元集中練習</span></td>
+          <td><span class="tag t-ch">弱點單元集中練習</span></td>
+          <td><span class="tag t-sim">週六：英文 + 數學聯合模擬<br>週日：整理各科「必背公式/概念」清單</span></td>
+        </tr>
+        <tr class="row-sim">
+          <td>W31</td><td>12/14–12/20</td>
+          <td><span class="tag t-cn">國文總複習：選擇 + 國寫各半</span></td>
+          <td><span class="tag t-en">英文：全卷限時測試</span></td>
+          <td><span class="tag t-ma">數學：限時計算練習</span></td>
+          <td><span class="tag t-ph">物理：全科觀念速查</span></td>
+          <td><span class="tag t-ch">化學：全科公式整理</span></td>
+          <td><span class="tag t-sim">週六：第三次 5 科聯合模擬（最重要一次）<br>週日：召集弱點清單、製作考前複習卡</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /phase4 -->
+
+
+<!-- ===================================================
+     第五階段：W32–W35（2026/12/21–2027/01/21）
+     考前決戰，最終衝刺
+==================================================== -->
+<div id="phase5" class="phase-5">
+  <div class="phase-title">
+    <span class="phase-num">5</span>
+    第五階段：考前決戰｜W32–W35（2026/12/21 – 2027/01/21）
+    <span class="time-note red">每日 5–6 小時 ／ 考前一週 3 小時</span>
+  </div>
+  <div class="phase-desc">
+    <strong>核心目標：</strong>距學測不足 4 週，進入最終決戰期。重點從「學新東西」轉為「鞏固已學內容」。
+    每天以<strong>複習卡、錯題本、公式速查</strong>為主，不要看從未涉及的全新內容。
+    W35（考前一週）刻意降低讀書強度至每日 2–3 小時，調整作息與睡眠，保持最佳身心狀態迎接考試。
+    <strong>心態提醒：</strong>這個時候保持穩定比拼命衝刺更重要，維持每日規律作息，不要熬夜。
+  </div>
+  <div class="week-table-wrap">
+    <table class="week-table">
+      <thead>
+        <tr>
+          <th>週次</th>
+          <th>日期</th>
+          <th>國文 <span style="color:var(--cn)">■</span></th>
+          <th>英文 <span style="color:var(--en)">■</span></th>
+          <th>數學A <span style="color:var(--ma)">■</span></th>
+          <th>物理 <span style="color:var(--ph)">■</span></th>
+          <th>化學 <span style="color:var(--ch)">■</span></th>
+          <th>重要任務</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>W32</td><td>12/21–12/27</td>
+          <td><span class="tag t-cn">古文重點篇章快速複習</span><br><span class="tag t-cn">國寫練習 1 篇（限時）</span></td>
+          <td><span class="tag t-en">詞彙錯字本抽背</span><br><span class="tag t-en">閱讀 2 篇限時練習</span></td>
+          <td><span class="tag t-ma">公式卡每日複習 30 分鐘</span><br><span class="tag t-ma">歷屆試題錯題複習</span></td>
+          <td><span class="tag t-ph">物理公式卡複習</span><br><span class="tag t-ph">歷屆試題 20 題</span></td>
+          <td><span class="tag t-ch">化學反應式整理複習</span><br><span class="tag t-ch">歷屆試題 20 題</span></td>
+          <td><span class="tag t-sim">週六：5 科聯合模擬（第四次）<br>週日：整理最終弱點清單</span></td>
+        </tr>
+        <tr>
+          <td>W33</td><td>12/28–01/03</td>
+          <td><span class="tag t-cn">文化教材核心章句複習</span><br><span class="tag t-cn">現代文學重點作品速讀</span></td>
+          <td><span class="tag t-en">英文作文：1 篇限時 30 分鐘</span><br><span class="tag t-en">中譯英：10 句練習</span></td>
+          <td><span class="tag t-ma">全範圍錯題本複習</span><br><span class="tag t-ma">向量計算練習 10 題</span></td>
+          <td><span class="tag t-ph">物理觀念複習：概念地圖</span><br><span class="tag t-ph">量子現象重點整理</span></td>
+          <td><span class="tag t-ch">有機化學：官能基速查</span><br><span class="tag t-ch">化學二重點計算複習</span></td>
+          <td>元旦：適當休息，不要硬撐<br>每天確保 7–8 小時睡眠</td>
+        </tr>
+        <tr>
+          <td>W34</td><td>01/04–01/10</td>
+          <td><span class="tag t-cn">古文最終速讀（30篇作者、時代、主旨）</span></td>
+          <td><span class="tag t-en">詞彙最終抽背 200 字</span><br><span class="tag t-en">閱讀策略複習</span></td>
+          <td><span class="tag t-ma">數學公式全清單確認</span><br><span class="tag t-ma">弱項題型最後練習</span></td>
+          <td><span class="tag t-ph">物理歷屆試題最後 30 題</span></td>
+          <td><span class="tag t-ch">化學歷屆試題最後 30 題</span></td>
+          <td><span class="tag t-sim">週六：最後一次全科模擬考（第五次）<br>週日：確認考場位置、準備考試用品</span></td>
+        </tr>
+        <tr class="row-final">
+          <td>W35</td><td>01/11–01/21<br><small>考前最後一週</small></td>
+          <td><span class="tag t-cn">重點篇章輕鬆複習</span><br><span class="tag t-cn">不做新題目</span></td>
+          <td><span class="tag t-en">單字卡輕鬆抽背</span><br><span class="tag t-en">不做新題目</span></td>
+          <td><span class="tag t-ma">公式卡瀏覽確認</span><br><span class="tag t-ma">不做新題目</span></td>
+          <td><span class="tag t-ph">觀念速查卡瀏覽</span><br><span class="tag t-ph">不做新題目</span></td>
+          <td><span class="tag t-ch">反應式速查卡瀏覽</span><br><span class="tag t-ch">不做新題目</span></td>
+          <td>
+            <strong>每日最多讀書 2–3 小時</strong><br>
+            01/16（五）前確認考場、交通路線<br>
+            01/20（三）整理證件、鉛筆橡皮文具<br>
+            01/21（四）晚上 22:00 前入睡<br>
+            <span class="tag t-sim">01/22–24 學測考試</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /phase5 -->
+
+
+<!-- ===================================================
+     備考建議
+==================================================== -->
+<div id="tips" style="margin-top:36px;">
+  <div class="overview-wrap">
+    <div class="overview-header">備考建議與注意事項</div>
+    <div style="padding:20px 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;">
+
+      <div style="background:#e8f5e9;border-radius:8px;padding:16px;">
+        <div style="font-weight:700;color:#1b5e20;margin-bottom:8px;font-size:.9rem;">每日讀書時間安排</div>
+        <div style="font-size:.83rem;line-height:1.75;color:#2e7d32;">
+          <strong>在校期（週一至五）：</strong><br>
+          07:30–08:00 早讀（英文單字）<br>
+          課後 16:30–18:30 主要複習<br>
+          20:00–21:00 當日複習&amp;整理<br><br>
+          <strong>暑假期間：</strong><br>
+          08:00–12:00 數理衝刺（4 hr）<br>
+          13:00–17:00 語文與英文（4 hr）<br>
+          19:00–21:00 錯題整理（2 hr）
+        </div>
+      </div>
+
+      <div style="background:#e3f2fd;border-radius:8px;padding:16px;">
+        <div style="font-weight:700;color:#0d47a1;margin-bottom:8px;font-size:.9rem;">各科複習重點提示</div>
+        <div style="font-size:.83rem;line-height:1.75;color:#1565c0;">
+          <strong>國文：</strong>古文 15 篇為命題核心，必須精讀<br>
+          <strong>英文：</strong>詞彙量是關鍵，每日維持背單字<br>
+          <strong>數學A：</strong>第三冊A向量是高二新重點，需加強<br>
+          <strong>物理：</strong>以概念理解為主，計算為輔<br>
+          <strong>化學：</strong>化學二計算題與有機化學需多練習
+        </div>
+      </div>
+
+      <div style="background:#fff3e0;border-radius:8px;padding:16px;">
+        <div style="font-weight:700;color:#bf360c;margin-bottom:8px;font-size:.9rem;">模擬考時程（共 5 次）</div>
+        <div style="font-size:.83rem;line-height:1.75;color:#e65100;">
+          第 1 次：W24 週末（10/31–11/01）全科<br>
+          第 2 次：W29 週末（11/06–12/07）全科<br>
+          第 3 次：W31 週末（12/14–12/21）全科<br>
+          第 4 次：W32 週末（12/27–12/28）全科<br>
+          第 5 次：W34 週末（01/10–01/11）全科<br><br>
+          每次模擬後務必對答案、分析錯題、更新弱點清單
+        </div>
+      </div>
+
+      <div style="background:#fce4ec;border-radius:8px;padding:16px;">
+        <div style="font-weight:700;color:#880e4f;margin-bottom:8px;font-size:.9rem;">心理準備與壓力管理</div>
+        <div style="font-size:.83rem;line-height:1.75;color:#c2185b;">
+          每週至少安排一個半天完全休息<br>
+          每天睡眠確保 7–8 小時，不要熬夜<br>
+          模擬考成績波動是正常的，不要因一次失誤而氣餒<br>
+          進度落後時，調整計畫而非放棄計畫<br>
+          考前一週降低強度，維持穩定狀態最重要
+        </div>
+      </div>
+
+      <div style="background:#f3e5f5;border-radius:8px;padding:16px;">
+        <div style="font-weight:700;color:#4a148c;margin-bottom:8px;font-size:.9rem;">學測考試日程</div>
+        <div style="font-size:.83rem;line-height:1.75;color:#6a1b9a;">
+          <strong>2027/01/22（五）</strong><br>
+          08:30–10:10 國語文綜合能力（國綜）<br>
+          13:30–15:10 英文<br>
+          15:40–17:20 數學A<br><br>
+          <strong>2027/01/23（六）</strong><br>
+          08:30–10:30 自然（含物理&amp;化學）<br><br>
+          <strong>2027/01/24（日）</strong><br>
+          08:30–10:30 國語文寫作能力（國寫）<br><br>
+          ※ 考試時程以大考中心正式公告為準
+        </div>
+      </div>
+
+      <div style="background:#e8eaf6;border-radius:8px;padding:16px;">
+        <div style="font-weight:700;color:#1a237e;margin-bottom:8px;font-size:.9rem;">重要資源</div>
+        <div style="font-size:.83rem;line-height:1.75;color:#283593;">
+          大考中心官網：www.ceec.edu.tw<br>
+          歷屆試題下載（免費）：大考中心官網「試題與解答」<br>
+          建議額外資源：<br>
+          - 翰林／龍騰 學測總複習講義<br>
+          - 大學學測歷年解析（書局購買）<br>
+          - 各科筆記整理（可用 Notion 或手寫）<br>
+          - 英文單字 App（Quizlet 建立個人單字組）
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</div><!-- /container -->
+
+<footer>
+  <p>2027 學測備考時程表｜理工組 5 科（國文・英文・數學A・物理・化學）</p>
+  <p style="margin-top:4px;">製作日期：2026/05/21｜學測日期：2027/01/22–01/24｜依 111 課綱（108課綱）規劃</p>
+  <p style="margin-top:4px;">課程範圍以大考中心官方公告為準，請定期至 <a href="https://www.ceec.edu.tw" style="color:#2e6da4;">www.ceec.edu.tw</a> 確認最新資訊</p>
+</footer>
+
+</body>
+</html>
