@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W24 化學科｜全科概念整理（化學一 ＋ 化學二 ＋ 必考實驗）</title>
+  <style>
+    /* ===== CSS 變數與基礎設定 ===== */
+    :root {
+      --primary:       #e65100;
+      --primary-light: #ff8a50;
+      --primary-dark:  #b23c17;
+      --accent:        #ff6d00;
+      --bg:            #fff8f5;
+      --bg-card:       #ffffff;
+      --text:          #1a1a1a;
+      --text-light:    #555555;
+      --border:        #f0cfc0;
+      --shadow:        0 2px 8px rgba(230,81,0,.12);
+
+      --def-bg:    #fff3e0;
+      --def-border:#e65100;
+      --formula-bg:#fbe9e7;
+      --formula-border:#bf360c;
+      --example-bg:#f1f8e9;
+      --example-border:#558b2f;
+      --warn-bg:   #fff8e1;
+      --warn-border:#f9a825;
+      --link-bg:   #e8f5e9;
+      --link-border:#2e7d32;
+      --tip-bg:    #e3f2fd;
+      --tip-border:#1565c0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    /* ===== 頁首 ===== */
+    header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+      color: #fff;
+      padding: 36px 32px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "⚗";
+      position: absolute;
+      right: 40px; top: 10px;
+      font-size: 100px;
+      opacity: .12;
+      line-height: 1;
+    }
+    header .subject-tag {
+      display: inline-block;
+      background: rgba(255,255,255,.22);
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 20px;
+      padding: 3px 14px;
+      font-size: 13px;
+      letter-spacing: .05em;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: .03em;
+      margin-bottom: 6px;
+    }
+    header .subtitle {
+      font-size: 14px;
+      opacity: .88;
+      letter-spacing: .04em;
+    }
+    header .meta {
+      margin-top: 14px;
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      opacity: .80;
+      flex-wrap: wrap;
+    }
+
+    /* ===== 版面佈局 ===== */
+    .layout {
+      display: flex;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 28px 16px;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    /* ===== 側邊導覽 ===== */
+    nav.sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 16px;
+      box-shadow: var(--shadow);
+    }
+    nav.sidebar h3 {
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary);
+    }
+    nav.sidebar ol {
+      list-style: none;
+      padding: 0;
+      counter-reset: nav-counter;
+    }
+    nav.sidebar li {
+      counter-increment: nav-counter;
+      margin-bottom: 6px;
+    }
+    nav.sidebar a {
+      display: block;
+      padding: 5px 8px 5px 24px;
+      position: relative;
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 13px;
+      border-radius: 6px;
+      transition: background .2s, color .2s;
+    }
+    nav.sidebar a::before {
+      content: counter(nav-counter);
+      position: absolute;
+      left: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      color: var(--primary-light);
+      font-weight: 700;
+    }
+    nav.sidebar a:hover {
+      background: var(--def-bg);
+      color: var(--primary);
+    }
+    nav.sidebar .progress-bar {
+      margin-top: 16px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    nav.sidebar .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      border-radius: 4px;
+      transition: width .3s;
+    }
+
+    /* ===== 主內容 ===== */
+    main { flex: 1; min-width: 0; }
+
+    /* ===== 目錄卡片 ===== */
+    .toc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--primary);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow);
+    }
+    .toc-card h2 {
+      font-size: 17px;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 8px;
+    }
+    .toc-grid a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      transition: border-color .2s, color .2s;
+    }
+    .toc-grid a:hover { border-color: var(--primary); color: var(--primary); }
+    .toc-grid a .icon { font-size: 16px; }
+
+    /* ===== 章節 ===== */
+    section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 30px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow);
+    }
+    section h2 {
+      font-size: 20px;
+      color: var(--primary);
+      font-weight: 700;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section h2 .sec-num {
+      background: var(--primary);
+      color: #fff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    section h3 {
+      font-size: 16px;
+      color: var(--primary-dark);
+      font-weight: 700;
+      margin: 22px 0 10px;
+      padding-left: 10px;
+      border-left: 4px solid var(--primary-light);
+    }
+    section h4 {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 700;
+      margin: 16px 0 8px;
+    }
+    p { margin-bottom: 10px; }
+
+    /* ===== 定義/重點/例題/警告/連結/小技巧 盒子 ===== */
+    .box {
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin: 14px 0;
+      border-left: 5px solid;
+    }
+    .box-def     { background: var(--def-bg);     border-color: var(--def-border);     }
+    .box-formula { background: var(--formula-bg); border-color: var(--formula-border); }
+    .box-example { background: var(--example-bg); border-color: var(--example-border); }
+    .box-warn    { background: var(--warn-bg);     border-color: var(--warn-border);    }
+    .box-link    { background: var(--link-bg);     border-color: var(--link-border);    }
+    .box-tip     { background: var(--tip-bg);      border-color: var(--tip-border);     }
+    .box .box-title {
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ===== 視覺化樹狀圖 ===== */
+    .tree-visual {
+      background: #fffaf7;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px 16px 20px;
+      margin: 14px 0;
+      overflow-x: auto;
+    }
+    .tv-root {
+      display: inline-flex;
+      align-items: center;
+      background: var(--primary-dark);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 5px 18px;
+      border-radius: 20px;
+      margin-bottom: 6px;
+    }
+    .tv-children {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0 14px;
+      border-left: 2px solid var(--border);
+    }
+    .tv-item {
+      position: relative;
+      padding: 5px 0 4px 22px;
+    }
+    .tv-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 18px;
+      height: 2px;
+      background: var(--border);
+    }
+    .tv-node {
+      display: inline-block;
+      border-radius: 6px;
+      padding: 3px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    .tv-desc {
+      display: block;
+      font-size: 11.5px;
+      color: var(--text-light);
+      padding: 0 4px;
+      margin: 1px 0 3px;
+    }
+    .tv-node.tv-l1 {
+      background: #fff3e0;
+      color: var(--primary-dark);
+      border: 1px solid var(--primary-light);
+      font-size: 14px;
+    }
+    .tv-node.tv-l2 {
+      background: #fbe9e7;
+      color: #5d4037;
+      border: 1px solid #ffab91;
+    }
+    .tv-node.tv-l3 {
+      background: #fafafa;
+      color: var(--text);
+      border: 1px solid #e0e0e0;
+      font-weight: 400;
+    }
+
+    /* ===== 表格 ===== */
+    .table-wrap { overflow-x: auto; margin: 14px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    thead tr { background: var(--primary); color: #fff; }
+    thead th { padding: 10px 14px; text-align: left; font-weight: 700; }
+    tbody tr:nth-child(even) { background: #fff3e0; }
+    tbody tr:hover           { background: #ffe0b2; }
+    td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    td:first-child { font-weight: 600; color: var(--primary-dark); }
+
+    /* ===== 分離法卡片 ===== */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .method-card {
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 16px 18px;
+      background: #fff;
+    }
+    .method-card h4 {
+      color: var(--primary);
+      font-size: 15px;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+    .method-card .tag {
+      display: inline-block;
+      background: var(--formula-bg);
+      color: var(--primary-dark);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .method-card ul { padding-left: 18px; font-size: 13px; }
+    .method-card ul li { margin-bottom: 4px; }
+
+    /* ===== 學測考題標籤 ===== */
+    .exam-tag {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 5px;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px;
+      letter-spacing: .04em;
+    }
+    .exam-tag.high { background: #b23c17; }
+    .exam-tag.mid  { background: #e65100; }
+    .exam-tag.low  { background: #ff8a50; }
+
+    /* ===== 自我測驗 ===== */
+    .quiz-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      background: #fff;
+    }
+    .quiz-item .q-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      text-align: center;
+      line-height: 26px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+    .quiz-item .q-text {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .quiz-item details summary {
+      cursor: pointer;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 6px 10px;
+      background: var(--def-bg);
+      border-radius: 6px;
+      user-select: none;
+      list-style: none;
+    }
+    .quiz-item details summary::before { content: "▶ "; }
+    .quiz-item details[open] summary::before { content: "▼ "; }
+    .quiz-item details .answer {
+      margin-top: 10px;
+      padding: 12px 16px;
+      background: var(--example-bg);
+      border-left: 4px solid var(--example-border);
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+    }
+    .quiz-item .options { padding-left: 16px; font-size: 14px; margin-bottom: 8px; }
+    .quiz-item .options li { margin-bottom: 4px; }
+
+    /* ===== 重點整理清單 ===== */
+    .key-list {
+      list-style: none;
+      padding: 0;
+    }
+    .key-list li {
+      padding: 8px 12px 8px 36px;
+      position: relative;
+      border-bottom: 1px dashed var(--border);
+      font-size: 14px;
+    }
+    .key-list li:last-child { border-bottom: none; }
+    .key-list li::before {
+      content: "✅";
+      position: absolute;
+      left: 8px;
+      top: 8px;
+    }
+
+    /* ===== 延伸思考 ===== */
+    .extend-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 14px;
+    }
+    .extend-item:last-child { border-bottom: none; }
+    .extend-item .icon { font-size: 20px; flex-shrink: 0; }
+
+    /* ===== 實驗注意事項 ===== */
+    .lab-list {
+      list-style: none;
+      padding: 0;
+    }
+    .lab-list li {
+      padding: 8px 12px 8px 36px;
+      position: relative;
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .lab-list li::before {
+      content: "⚠️";
+      position: absolute;
+      left: 8px;
+      top: 8px;
+    }
+
+    /* ===== 頁尾 ===== */
+    footer {
+      text-align: center;
+      padding: 24px 16px;
+      color: var(--text-light);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      margin-top: 16px;
+    }
+
+    /* ===== 響應式 ===== */
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; padding: 16px 12px; }
+      nav.sidebar { width: 100%; position: static; }
+      section { padding: 20px 16px; }
+      .method-grid { grid-template-columns: 1fr; }
+      .toc-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== 平滑捲動 ===== */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+<!-- ===== 頁首 ===== -->
+<header>
+  <div class="subject-tag">化學科 Chemistry</div>
+  <h1>W24 化學全科概念整理：化學一 ＋ 化學二</h1>
+  <div class="subtitle">Comprehensive Concept Review of GSAT Chemistry</div>
+  <div class="meta">
+    <span>學測備考</span>
+    <span>高三上理工組</span>
+    <span>第 24 週講義（10/26–11/01）</span>
+    <span>第三階段最終週</span>
+    <span>週末：第一次五科聯合模擬考</span>
+  </div>
+</header>
+
+<!-- ===== 版面 ===== -->
+<div class="layout">
+
+  <!-- 側邊導覽 -->
+  <nav class="sidebar" aria-label="章節導覽">
+    <h3>章節目錄</h3>
+    <ol>
+      <li><a href="#overview">單元概述</a></li>
+      <li><a href="#prereq">先備知識</a></li>
+      <li><a href="#tree">全科架構樹</a></li>
+      <li><a href="#chem1">化學一 12 單元</a></li>
+      <li><a href="#chem2">化學二 10 單元</a></li>
+      <li><a href="#formula">必背公式總表</a></li>
+      <li><a href="#confuse">易混淆觀念對照</a></li>
+      <li><a href="#lab">必考實驗操作</a></li>
+      <li><a href="#exam">學測考題類型分析</a></li>
+      <li><a href="#summary">重點整理</a></li>
+      <li><a href="#extend">模擬考前檢查</a></li>
+      <li><a href="#quiz">自我測驗</a></li>
+    </ol>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </nav>
+
+  <!-- 主內容 -->
+  <main>
+
+    <!-- 目錄卡片 -->
+    <div class="toc-card">
+      <h2>本週學習地圖</h2>
+      <div class="toc-grid">
+        <a href="#overview"><span class="icon">📋</span>單元概述與學習目標</a>
+        <a href="#prereq"><span class="icon">🔑</span>先備知識確認</a>
+        <a href="#tree"><span class="icon">🌳</span>全科架構樹狀圖</a>
+        <a href="#chem1"><span class="icon">🧪</span>化學一：12 單元概念卡</a>
+        <a href="#chem2"><span class="icon">⚗️</span>化學二：10 單元概念卡</a>
+        <a href="#formula"><span class="icon">🧮</span>必背公式總表</a>
+        <a href="#confuse"><span class="icon">⚖️</span>易混淆觀念對照</a>
+        <a href="#lab"><span class="icon">🔬</span>必考實驗操作</a>
+        <a href="#exam"><span class="icon">📝</span>學測考題類型分析</a>
+        <a href="#summary"><span class="icon">✅</span>重點整理</a>
+        <a href="#extend"><span class="icon">💡</span>模擬考前檢查</a>
+        <a href="#quiz"><span class="icon">❓</span>自我測驗（10題）</a>
+      </div>
+    </div>
+
+    <!-- ===== 1. 單元概述 ===== -->
+    <section id="overview">
+      <h2><span class="sec-num">1</span>單元概述 Unit Overview</h2>
+      <p>
+        學測化學範圍涵蓋<strong>化學一</strong>（物質、原子、化學鍵、計量、反應熱、氧化還原、酸鹼）與<strong>化學二</strong>（溶液、氣體、反應速率、平衡、有機與高分子），以及必考的探究與實作。W17–W23 已分別深化計量、氧化還原、氣體、速率平衡、pH、有機與高分子；本週把兩冊 22 個單元整理成一張張「概念卡」，讓你在週末模擬考前完成一次<strong>全科概念掃描</strong>。
+      </p>
+
+      <h3>學習目標</h3>
+      <div class="box box-def">
+        <div class="box-title">📋 完成本週學習後，你應該能夠：</div>
+        <ul>
+          <li>依架構樹說出化學一、化學二各單元的核心觀念與彼此關係</li>
+          <li>熟練莫耳、濃度、氣體、限量試劑等計量換算</li>
+          <li>判斷週期趨勢、化學鍵類型與分子極性</li>
+          <li>判斷氧化還原、酸鹼、平衡移動的方向</li>
+          <li>辨識常見官能基與聚合反應類型</li>
+          <li>說出必考實驗的原理與操作重點</li>
+        </ul>
+      </div>
+
+      <h3>本週安排建議</h3>
+      <div class="box box-link">
+        <div class="box-title">🔗 七日規劃</div>
+        <p><strong>週一：</strong>化學一 U1–U6｜<strong>週二：</strong>化學一 U7–U12｜<strong>週三：</strong>化學二全冊｜<strong>週四：</strong>公式總表＋易混淆對照＋實驗｜<strong>週五：</strong>自我測驗＋錯題本｜<strong>週六：</strong>自然科模擬考｜<strong>週日：</strong>檢討</p>
+      </div>
+    </section>
+
+    <!-- ===== 2. 先備知識 ===== -->
+    <section id="prereq">
+      <h2><span class="sec-num">2</span>先備知識 Prerequisites</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>先備知識</th><th>重點確認</th><th>若不熟悉</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>常見原子量</td><td>H=1、C=12、N=14、O=16、Na=23、Cl=35.5、Ca=40</td><td>模擬考會附，但背熟可加速</td></tr>
+            <tr><td>常見離子</td><td>NH₄⁺、NO₃⁻、SO₄²⁻、CO₃²⁻、OH⁻、PO₄³⁻ 的電荷</td><td>回顧 W17 計量筆記</td></tr>
+            <tr><td>對數運算</td><td>log 2 ≈ 0.30、log 3 ≈ 0.48（pH 計算）</td><td>對照數學 W24 常用對數</td></tr>
+            <tr><td>科學記號</td><td>亞佛加厥數 6.02 × 10²³</td><td>回顧物理 Ch1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== 3. 全科架構樹 ===== -->
+    <section id="tree">
+      <h2><span class="sec-num">3</span>全科架構樹 Course Map</h2>
+      <div class="tree-visual">
+        <div class="tv-root">學測化學</div>
+        <ul class="tv-children">
+          <li class="tv-item">
+            <span class="tv-node tv-l1">化學一：物質與反應的基礎</span>
+            <span class="tv-desc">從「物質是什麼」到「物質如何反應」</span>
+            <ul class="tv-children">
+              <li class="tv-item"><span class="tv-node tv-l2">物質與原子</span><span class="tv-desc">分類分離 → 原子說 → 原子量與莫耳 → 原子結構與週期表</span></li>
+              <li class="tv-item"><span class="tv-node tv-l2">結構與鍵結</span><span class="tv-desc">化學鍵 → 化學式與分子結構</span></li>
+              <li class="tv-item"><span class="tv-node tv-l2">反應</span><span class="tv-desc">化學計量 → 反應熱 → 氧化還原 → 酸鹼</span></li>
+              <li class="tv-item"><span class="tv-node tv-l2">應用</span><span class="tv-desc">藥物與界面活性劑 → 現代應用</span></li>
+            </ul>
+          </li>
+          <li class="tv-item">
+            <span class="tv-node tv-l1">化學二：定量與有機</span>
+            <span class="tv-desc">把反應「量化」，並延伸到碳的化學</span>
+            <ul class="tv-children">
+              <li class="tv-item"><span class="tv-node tv-l2">計量延伸</span><span class="tv-desc">限量試劑與產率 → 溶液濃度與溶解度</span></li>
+              <li class="tv-item"><span class="tv-node tv-l2">物質狀態</span><span class="tv-desc">氣體動力論與理想氣體 → 蒸氣壓</span></li>
+              <li class="tv-item"><span class="tv-node tv-l2">反應快慢與限度</span><span class="tv-desc">反應速率 → 化學平衡 → 酸鹼平衡</span></li>
+              <li class="tv-item"><span class="tv-node tv-l2">有機化學</span><span class="tv-desc">分類命名 → 官能基 → 高分子</span></li>
+            </ul>
+          </li>
+          <li class="tv-item">
+            <span class="tv-node tv-l1">探究與實作</span>
+            <span class="tv-desc">萃取、蒸餾、TLC、溶解度、指示劑、滴定、氣體收集</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 4. 化學一 ===== -->
+    <section id="chem1">
+      <h2><span class="sec-num">4</span>化學一：12 單元概念卡</h2>
+      <div class="method-grid">
+
+        <div class="method-card">
+          <h4>U1 物質的分類與分離</h4>
+          <span class="tag">純物質 vs. 混合物</span>
+          <ul>
+            <li>純物質：元素、化合物（組成固定、有固定熔沸點）</li>
+            <li>混合物：均勻（溶液、合金、空氣）、非均勻</li>
+            <li>分離：過濾（顆粒大小）、蒸餾（沸點）、萃取（溶解度）、層析（吸附力）、再結晶</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U2 道耳頓原子說與化學定律</h4>
+          <span class="tag">質量守恆・定比・倍比</span>
+          <ul>
+            <li>質量守恆（拉瓦節）、定比定律（普魯斯特）→ 原子說</li>
+            <li>倍比定律由道耳頓提出，是原子說的有力證據</li>
+            <li>氣體化合體積定律（給呂薩克）→ 亞佛加厥分子說：同溫同壓同體積氣體含相同分子數</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U3 原子量與莫耳</h4>
+          <span class="tag">以 C-12 為基準</span>
+          <ul>
+            <li>原子量：以 ¹²C = 12 為標準的相對質量；平均原子量依同位素豐度加權</li>
+            <li>1 mol = 6.02 × 10²³ 個粒子</li>
+            <li>n = 質量 ÷ 莫耳質量 = 粒子數 ÷ Nₐ</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U4 原子結構與週期表</h4>
+          <span class="tag">質子數決定元素</span>
+          <ul>
+            <li>質量數 = 質子數 + 中子數；同位素：質子數同、中子數異</li>
+            <li>同週期左→右：原子半徑↓、游離能大致↑、電負度↑</li>
+            <li>同族上→下：原子半徑↑、游離能↓；價電子數決定化性</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U5 化學鍵</h4>
+          <span class="tag">離子・共價・金屬</span>
+          <ul>
+            <li>離子鍵：金屬 + 非金屬，熔點高；固態不導電、熔融或水溶液導電</li>
+            <li>共價鍵：非金屬間共用電子；分子物質熔點低，網狀固體（鑽石、石英）熔點極高</li>
+            <li>金屬鍵：電子海，可導電導熱、具延展性</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U6 化學式與分子結構</h4>
+          <span class="tag">實驗式・分子式・結構式</span>
+          <ul>
+            <li>實驗式：原子最簡整數比（例：葡萄糖 CH₂O）</li>
+            <li>分子形狀：CO₂ 直線、H₂O 角形、NH₃ 三角錐、CH₄ 正四面體</li>
+            <li>極性分子：鍵有極性且形狀不對稱（H₂O、NH₃、HCl）；CO₂、CH₄ 為非極性</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U7 化學反應與化學計量</h4>
+          <span class="tag">係數比 = 莫耳數比</span>
+          <ul>
+            <li>平衡係數：原子種類與數目守恆（離子方程式還要電荷守恆）</li>
+            <li>計量流程：質量 → 莫耳 → 係數比 → 莫耳 → 質量</li>
+            <li>氣體同溫同壓下：係數比 = 體積比</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U8 化學反應熱</h4>
+          <span class="tag">ΔH ＜ 0 放熱</span>
+          <ul>
+            <li>ΔH = 產物焓 − 反應物焓；ΔH ＜ 0 放熱、ΔH ＞ 0 吸熱</li>
+            <li>赫斯定律：反應熱只與始末狀態有關，可相加減</li>
+            <li>係數加倍 ΔH 加倍；反應逆向 ΔH 變號</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U9 氧化還原反應</h4>
+          <span class="tag">失電子 = 氧化</span>
+          <ul>
+            <li>氧化：失電子、氧化數增加；還原：得電子、氧化數減少</li>
+            <li>氧化劑本身被還原；還原劑本身被氧化</li>
+            <li>鋅銅電池：鋅（負極）氧化、銅（正極）上 Cu²⁺ 還原；鹽橋平衡電荷</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U10 水溶液中的酸鹼反應</h4>
+          <span class="tag">pH = −log[H⁺]</span>
+          <ul>
+            <li>阿瑞尼斯：酸在水中產生 H⁺，鹼產生 OH⁻</li>
+            <li>25°C：[H⁺][OH⁻] = 1.0 × 10⁻¹⁴，pH + pOH = 14</li>
+            <li>中和：H⁺ + OH⁻ → H₂O，當量點莫耳數相等</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U11 藥物與界面活性劑</h4>
+          <span class="tag">親水端 + 親油端</span>
+          <ul>
+            <li>界面活性劑：長碳鏈為親油（疏水）端，離子或極性基為親水端</li>
+            <li>在水中形成微胞，包覆油污而達到清潔效果</li>
+            <li>肥皂在硬水中與 Ca²⁺、Mg²⁺ 生成沉澱；合成清潔劑較不受影響</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U12 化學的現代應用</h4>
+          <span class="tag">材料・能源・綠色化學</span>
+          <ul>
+            <li>新材料：奈米材料（尺寸 1–100 nm，表面積大）、半導體、液晶</li>
+            <li>能源：燃料電池、鋰電池、太陽能電池</li>
+            <li>綠色化學：減少廢棄物、提高原子經濟、使用無毒溶劑</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== 5. 化學二 ===== -->
+    <section id="chem2">
+      <h2><span class="sec-num">5</span>化學二：10 單元概念卡</h2>
+      <div class="method-grid">
+
+        <div class="method-card">
+          <h4>U1 限量試劑與產率</h4>
+          <span class="tag">先比「莫耳數 ÷ 係數」</span>
+          <ul>
+            <li>各反應物的莫耳數除以係數，<strong>最小者</strong>為限量試劑</li>
+            <li>理論產量由限量試劑決定</li>
+            <li>產率 = 實際產量 ÷ 理論產量 × 100%</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U2 溶液濃度與溶解度</h4>
+          <span class="tag">M・ppm・%</span>
+          <ul>
+            <li>體積莫耳濃度 C<sub>M</sub> = 溶質 mol ÷ 溶液 L</li>
+            <li>重量百分率、ppm（10⁻⁶）：質量比</li>
+            <li>稀釋時溶質莫耳數不變：C₁V₁ = C₂V₂</li>
+            <li>多數固體溶解度隨溫度升高而增大；氣體溶解度隨溫度升高而減小、隨壓力增大而增大</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U3 氣體動力論與理想氣體</h4>
+          <span class="tag">PV = nRT</span>
+          <ul>
+            <li>R = 0.082 atm·L/(mol·K)；溫度必須用 K</li>
+            <li>波以耳（定溫 PV 定值）、查理（定壓 V ∝ T）</li>
+            <li>氣體分子平均動能只與絕對溫度成正比，與種類無關</li>
+            <li>分壓定律：P<sub>總</sub> = ΣP<sub>i</sub>，P<sub>i</sub> = X<sub>i</sub> · P<sub>總</sub></li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U4 飽和蒸氣壓與溶液蒸氣壓</h4>
+          <span class="tag">只與溫度有關</span>
+          <ul>
+            <li>純液體的飽和蒸氣壓只與溫度、種類有關，與液量、容器大小無關</li>
+            <li>蒸氣壓 = 外界壓力時沸騰；高山氣壓低，沸點降低</li>
+            <li>拉午耳定律：溶液蒸氣壓 P = X<sub>溶劑</sub> · P°（加入非揮發性溶質蒸氣壓下降）</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U5 反應速率</h4>
+          <span class="tag">碰撞學說・活化能</span>
+          <ul>
+            <li>有效碰撞需足夠能量（≥ 活化能）與適當方位</li>
+            <li>影響因素：本質、濃度、表面積、溫度、催化劑</li>
+            <li>升溫：超過活化能的分子比例增加，速率大增</li>
+            <li>催化劑：降低活化能，正逆反應都加快，不改變 ΔH</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U6 化學平衡</h4>
+          <span class="tag">勒沙特列原理</span>
+          <ul>
+            <li>動態平衡：正反應速率 = 逆反應速率，各物濃度不變</li>
+            <li>平衡常數 K：產物濃度冪次乘積 ÷ 反應物濃度冪次乘積（純固、液體不列入）</li>
+            <li>K 只受溫度影響；放熱反應升溫 → 平衡左移、K 變小</li>
+            <li>加壓（縮小體積）→ 往氣體分子數少的一方移動</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U7 酸鹼平衡與 pH</h4>
+          <span class="tag">強酸完全解離</span>
+          <ul>
+            <li>強酸：HCl、HNO₃、H₂SO₄；弱酸：CH₃COOH、H₂CO₃</li>
+            <li>弱酸解離常數 K<sub>a</sub> 越大酸性越強；[H⁺] ≈ √(K<sub>a</sub> · C)</li>
+            <li>強酸稀釋 10 倍，pH 增加 1（但不會超過 7）</li>
+            <li>緩衝溶液：弱酸 + 其共軛鹼，可抵抗少量酸鹼的 pH 變化</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U8 有機化合物的分類與命名</h4>
+          <span class="tag">碳數＋官能基</span>
+          <ul>
+            <li>烷 C<sub>n</sub>H<sub>2n+2</sub>（單鍵）、烯 C<sub>n</sub>H<sub>2n</sub>（雙鍵）、炔 C<sub>n</sub>H<sub>2n−2</sub>（參鍵）</li>
+            <li>碳數字首：甲、乙、丙、丁、戊、己……</li>
+            <li>同分異構物：分子式同、結構異（例：C₂H₆O 乙醇 vs. 甲醚）</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U9 常見有機化合物</h4>
+          <span class="tag">官能基決定性質</span>
+          <ul>
+            <li>醇 −OH、醚 −O−、醛 −CHO、酮 −CO−、羧酸 −COOH、酯 −COO−、胺 −NH₂、醯胺 −CONH−</li>
+            <li>酯化：羧酸 + 醇 ⇌ 酯 + 水（濃硫酸催化）；酯有果香</li>
+            <li>醇可形成氫鍵，沸點高於分子量相近的烷類</li>
+          </ul>
+        </div>
+
+        <div class="method-card">
+          <h4>U10 高分子化合物</h4>
+          <span class="tag">加成 vs. 縮合</span>
+          <ul>
+            <li>加成聚合：單體含 C=C，無副產物（聚乙烯 PE、PVC、聚苯乙烯 PS）</li>
+            <li>縮合聚合：官能基反應並脫去小分子如 H₂O（耐綸 66、PET）</li>
+            <li>熱塑性（鏈狀，可重塑）vs. 熱固性（網狀，如電木）</li>
+            <li>天然高分子：澱粉、纖維素（葡萄糖）、蛋白質（胺基酸，以肽鍵連接）</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== 6. 必背公式總表 ===== -->
+    <section id="formula">
+      <h2><span class="sec-num">6</span>必背公式總表 Formula Sheet</h2>
+      <div class="box box-formula">
+        <div class="box-title">🧮 計量與濃度</div>
+        <p>n = W ÷ M = N ÷ (6.02 × 10²³)；0°C、1 atm 時 1 mol 氣體 ≈ 22.4 L（25°C、1 atm 約 24.5 L）</p>
+        <p>C<sub>M</sub> = n ÷ V(L)；C₁V₁ = C₂V₂；產率 = 實際 ÷ 理論 × 100%</p>
+      </div>
+      <div class="box box-formula">
+        <div class="box-title">🧮 氣體與蒸氣壓</div>
+        <p>PV = nRT（R = 0.082 atm·L/mol·K）；P<sub>i</sub> = X<sub>i</sub>P<sub>總</sub>；P<sub>溶液</sub> = X<sub>溶劑</sub>P°</p>
+      </div>
+      <div class="box box-formula">
+        <div class="box-title">🧮 熱化學與平衡</div>
+        <p>ΔH = ΣH<sub>產物</sub> − ΣH<sub>反應物</sub>（赫斯定律可加減）</p>
+        <p>aA + bB ⇌ cC + dD：K = [C]<sup>c</sup>[D]<sup>d</sup> ÷ ([A]<sup>a</sup>[B]<sup>b</sup>)</p>
+      </div>
+      <div class="box box-formula">
+        <div class="box-title">🧮 酸鹼</div>
+        <p>pH = −log[H⁺]；[H⁺][OH⁻] = 1.0 × 10⁻¹⁴（25°C）；pH + pOH = 14</p>
+        <p>中和當量點：n<sub>H⁺</sub> = n<sub>OH⁻</sub>，即 C<sub>酸</sub>V<sub>酸</sub> × (酸的質子數) = C<sub>鹼</sub>V<sub>鹼</sub> × (鹼的 OH⁻ 數)</p>
+      </div>
+      <div class="box box-example">
+        <div class="box-title">✏️ 速算例題：限量試劑</div>
+        <p>2H₂ + O₂ → 2H₂O，取 H₂ 4 g、O₂ 16 g 反應，最多生成多少克水？</p>
+        <p>H₂：4 ÷ 2 = 2 mol，÷ 係數 2 = 1；O₂：16 ÷ 32 = 0.5 mol，÷ 係數 1 = 0.5 → <strong>O₂ 為限量試劑</strong></p>
+        <p>生成 H₂O = 0.5 × 2 = 1 mol = <strong>18 g</strong>（剩餘 H₂ 1 mol）</p>
+      </div>
+    </section>
+
+    <!-- ===== 7. 易混淆觀念對照 ===== -->
+    <section id="confuse">
+      <h2><span class="sec-num">7</span>易混淆觀念對照 Common Confusions</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>觀念 A</th><th>觀念 B</th><th>區分關鍵</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>氧化劑</td><td>被氧化的物質</td><td>氧化劑使別人氧化，<strong>自己被還原</strong>（氧化數下降）</td></tr>
+            <tr><td>催化劑</td><td>升高溫度</td><td>兩者都加快速率；催化劑不改變 K，升溫會改變 K</td></tr>
+            <tr><td>反應速率快</td><td>平衡常數大</td><td>速率看活化能（動力學），K 看反應限度（熱力學），兩者無必然關係</td></tr>
+            <tr><td>強酸</td><td>濃酸</td><td>強弱指解離程度；濃稀指濃度</td></tr>
+            <tr><td>加成聚合</td><td>縮合聚合</td><td>加成無副產物、單體含雙鍵；縮合脫去小分子</td></tr>
+            <tr><td>極性鍵</td><td>極性分子</td><td>CO₂ 有極性鍵，但形狀對稱，為非極性分子</td></tr>
+            <tr><td>同位素</td><td>同素異形體</td><td>同位素：中子數不同的原子；同素異形體：同元素不同結構的元素物質（鑽石、石墨）</td></tr>
+            <tr><td>沸點（蒸氣壓）</td><td>揮發性</td><td>同溫下蒸氣壓越大 → 揮發性越高 → 沸點越低</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== 8. 必考實驗 ===== -->
+    <section id="lab">
+      <h2><span class="sec-num">8</span>必考實驗操作 Key Experiments</h2>
+
+      <h3>萃取、蒸餾與薄層層析（TLC）</h3>
+      <ul class="lab-list">
+        <li>萃取：萃取劑與原溶劑<strong>互不相溶</strong>，且溶質在萃取劑中溶解度較大；分液漏斗要適時開活栓洩壓</li>
+        <li>蒸餾：溫度計球部位於<strong>支管口</strong>；冷凝水<strong>下進上出</strong>；加沸石防突沸</li>
+        <li>TLC：點樣處需高於展開液液面；R<sub>f</sub> = 物質移動距離 ÷ 展開液移動距離</li>
+      </ul>
+
+      <h3>酸鹼滴定</h3>
+      <ul class="lab-list">
+        <li>滴定管使用前以待裝溶液潤洗；錐形瓶<strong>不可</strong>潤洗</li>
+        <li>強酸滴定強鹼可用酚酞（無色 ↔ 粉紅，變色範圍約 pH 8.2–10）</li>
+        <li>終點：加入一滴後顏色改變，且搖晃 30 秒不褪色</li>
+      </ul>
+
+      <h3>氣體收集與溶解度測定</h3>
+      <ul class="lab-list">
+        <li>排水集氣法：適用於難溶於水的氣體（H₂、O₂）；向上排氣法：密度比空氣大且溶於水（CO₂）；向下排氣法：密度比空氣小（NH₃）</li>
+        <li>溶解度測定：需確認溶液已達<strong>飽和</strong>（有未溶固體），並記錄溫度</li>
+        <li>界面活性劑實驗：觀察油水乳化、表面張力下降（迴紋針下沉）</li>
+      </ul>
+    </section>
+
+    <!-- ===== 9. 學測考題類型 ===== -->
+    <section id="exam">
+      <h2><span class="sec-num">9</span>學測考題類型分析 Exam Analysis</h2>
+      <div class="box box-def">
+        <div class="box-title">📝 化學題出題重點</div>
+        <p>學測自然科化學題多以<strong>生活或實驗情境</strong>包裝，考觀念判斷與簡單計量，並常與物理、生物、地科跨科整合。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>題型類別</th><th>考點描述</th><th>頻率</th><th>難度</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>化學計量</td><td>莫耳換算、限量試劑、產率、濃度</td><td><span class="exam-tag high">高</span></td><td>中</td></tr>
+            <tr><td>週期表與化學鍵</td><td>週期趨勢、鍵結類型、分子形狀與極性</td><td><span class="exam-tag high">高</span></td><td>低~中</td></tr>
+            <tr><td>氧化還原與電池</td><td>氧化數、氧化劑判斷、電池正負極</td><td><span class="exam-tag high">高</span></td><td>中</td></tr>
+            <tr><td>酸鹼與 pH</td><td>pH 計算、稀釋、滴定曲線判讀</td><td><span class="exam-tag high">高</span></td><td>中</td></tr>
+            <tr><td>平衡與速率</td><td>勒沙特列原理、速率影響因素、能量圖</td><td><span class="exam-tag mid">中</span></td><td>中</td></tr>
+            <tr><td>氣體</td><td>PV = nRT、分壓、蒸氣壓</td><td><span class="exam-tag mid">中</span></td><td>中</td></tr>
+            <tr><td>有機與高分子</td><td>官能基辨識、聚合類型、生活材料</td><td><span class="exam-tag mid">中</span></td><td>低~中</td></tr>
+            <tr><td>實驗操作</td><td>裝置圖判讀、步驟正誤、數據分析</td><td><span class="exam-tag high">高</span></td><td>中</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== 10. 重點整理 ===== -->
+    <section id="summary">
+      <h2><span class="sec-num">10</span>重點整理 Key Points</h2>
+      <h3>化學一</h3>
+      <ul class="key-list">
+        <li>倍比定律支持原子說；亞佛加厥：同溫同壓同體積氣體分子數相同</li>
+        <li>同週期左→右半徑變小、電負度變大；同族上→下半徑變大</li>
+        <li>離子化合物固態不導電；分子形狀對稱者為非極性分子</li>
+        <li>係數比 = 莫耳數比 = 同溫同壓氣體體積比</li>
+        <li>ΔH ＜ 0 放熱；反應逆向 ΔH 變號、係數加倍 ΔH 加倍</li>
+        <li>氧化數上升 = 被氧化 = 還原劑；鋅銅電池鋅為負極</li>
+        <li>界面活性劑一端親水、一端親油，形成微胞清除油污</li>
+      </ul>
+      <h3>化學二</h3>
+      <ul class="key-list">
+        <li>限量試劑：莫耳數 ÷ 係數最小者；產率 = 實際 ÷ 理論</li>
+        <li>PV = nRT（溫度用 K）；平均動能只與絕對溫度有關</li>
+        <li>飽和蒸氣壓只與溫度和物質種類有關</li>
+        <li>催化劑降低活化能，不改變 ΔH 與 K</li>
+        <li>K 只受溫度影響；加壓往氣體莫耳數少的方向移動</li>
+        <li>強酸稀釋 10 倍 pH 增 1；弱酸 [H⁺] ≈ √(K<sub>a</sub>C)</li>
+        <li>加成聚合無副產物；縮合聚合脫去小分子（耐綸、PET）</li>
+      </ul>
+    </section>
+
+    <!-- ===== 11. 模擬考前檢查 ===== -->
+    <section id="extend">
+      <h2><span class="sec-num">11</span>模擬考前檢查 Pre-Exam Checklist</h2>
+      <div class="extend-item">
+        <div class="icon">💡</div>
+        <div><strong>計量題先寫單位：</strong>每一步都寫出 g、mol、L，最後檢查答案單位是否合理，可避免 mL 與 L、g 與 mol 混用的失誤。</div>
+      </div>
+      <div class="extend-item">
+        <div class="icon">💡</div>
+        <div><strong>平衡題先寫方程式與 ΔH：</strong>標出氣體係數總和與吸放熱，再判斷加壓、升溫的移動方向。</div>
+      </div>
+      <div class="extend-item">
+        <div class="icon">💡</div>
+        <div><strong>氧化還原題先標氧化數：</strong>找出氧化數上升與下降的元素，再判斷氧化劑、還原劑。</div>
+      </div>
+      <div class="extend-item">
+        <div class="icon">💡</div>
+        <div><strong>實驗題看「目的」：</strong>先問自己這個步驟是為了分離、純化、測量還是安全，再判斷操作是否正確。</div>
+      </div>
+    </section>
+
+    <!-- ===== 12. 自我測驗 ===== -->
+    <section id="quiz">
+      <h2><span class="sec-num">12</span>自我測驗 Self-Check（10 題）</h2>
+      <p>（原子量：H = 1、C = 12、O = 16）</p>
+
+      <div class="quiz-item">
+        <div class="q-text">
+          <span class="q-num">1</span>
+          <span>0.5 mol 的二氧化碳（CO₂）質量為多少克？</span>
+        </div>
+        <ol class="options" type="A">
+          <li>11 g</li><li>22 g</li><li>44 g</li><li>88 g</li>
+        </ol>
+        <details>
+          <summary>查看解答</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            CO₂ 莫耳質量 = 12 + 16 × 2 = 44 g/mol，0.5 × 44 = 22 g。
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text">
+          <span class="q-num">2</span>
+          <span>依反應式 N₂ + 3H₂ → 2NH₃，取 N₂ 2 mol 與 H₂ 3 mol 反應，最多可生成 NH₃ 幾 mol？</span>
+        </div>
+        <ol class="options" type="A">
+          <li>1 mol</li><li>2 mol</li><li>3 mol</li><li>4 mol</li>
+        </ol>
+        <details>
+          <summary>查看解答</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            N₂：2 ÷ 1 = 2；H₂：3 ÷ 3 = 1 → <strong>H₂ 為限量試劑</strong>。3 mol H₂ 生成 NH₃ = 3 × 2/3 = 2 mol。
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text">
+          <span class="q-num">3</span>
+          <span>下列原子中，何者的原子半徑最大？</span>
+        </div>
+        <ol class="options" type="A">
+          <li>Na</li><li>Mg</li><li>Cl</li><li>K</li>
+        </ol>
+        <details>
+          <summary>查看解答</summary>
+          <div class="answer">
+            <strong>答案：D</strong><br>
+            Na、Mg、Cl 同在第三週期，由左至右半徑變小；K 在第四週期、與 Na 同族，電子層數較多，半徑最大。
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text">
+          <span class="q-num">4</span>
+          <span>下列分子中，何者為<strong>非極性</strong>分子？</span>
+        </div>
+        <ol class="options" type="A">
+          <li>H₂O</li><li>NH₃</li><li>CO₂</li><li>HCl</li>
+        </ol>
+        <details>
+          <summary>查看解答</summary>
+          <div class="answer">
+            <strong>答案：C</strong><br>
+            CO₂ 的 C=O 鍵雖有極性，但分子為直線形、左右對稱，極性互相抵消。H₂O（角形）、NH₃（三角錐）、HCl 皆為極性分子。
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text">
+          <span class="q-num">5</span>
+          <span>反應 Zn + Cu²⁺ → Zn²⁺ + Cu 中，何者為<strong>氧化劑</strong>？</span>
+        </div>
+        <ol class="options" type="A">
+          <li>Zn</li><li>Cu²⁺</li><li>Zn²⁺</li><li>Cu</li>
+        </ol>
+        <details>
+          <summary>查看解答</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            Cu²⁺ 得電子變成 Cu（氧化數 +2 → 0，被還原），因此是氧化劑；Zn 失電子被氧化，是還原劑。
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text">
+          <span class="q-num">6</span>
+          <span>25°C 時，0.01 M 鹽酸的 pH 為多少？將其以純水稀釋 10 倍後，pH 變為多少？</span>
+        </div>
+        <ol class="options" type="A">
+          <li>1；2</li><li>2；3</li><li>2；1</li><li>12；13</li>
+        </ol>
+        <details>
+          <summary>查看解答</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            HCl 為強酸完全解離，[H⁺] = 10⁻² M → pH = 2；稀釋 10 倍 [H⁺] = 10⁻³ M → pH = 3。
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text">
+          <span class="q-num">7</span>
+          <span>定溫下，將一定量理想氣體的壓力由 1 atm 增加為 2 atm，其體積變化為何？</span>
+        </div>
+        <ol class="options" type="A">
+          <li>變為 2 倍</li><li>不變</li><li>變為 1/2 倍</li><li>變為 1/4 倍</li>
+        </ol>
+        <details>
+          <summary>查看解答</summary>
+          <div class="answer">
+            <strong>答案：C</strong><br>
+            波以耳定律：定溫定量時 PV 為定值，壓力加倍 → 體積減半。
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text">
+          <span class="q-num">8</span>
+          <span>哈柏法製氨 N₂(g) + 3H₂(g) ⇌ 2NH₃(g)，ΔH ＜ 0。下列哪一項操作能使平衡時 NH₃ 的比例增加？</span>
+        </div>
+        <ol class="options" type="A">
+          <li>升高溫度</li><li>加入催化劑</li><li>壓縮體積以增加壓力</li><li>移除部分 N₂</li>
+        </ol>
+        <details>
+          <summary>查看解答</summary>
+          <div class="answer">
+            <strong>答案：C</strong><br>
+            反應物氣體 4 mol、產物 2 mol，加壓往氣體莫耳數少的右方移動。A：放熱反應升溫使平衡左移；B：催化劑只加快達平衡的速率，不改變平衡位置；D：移除反應物使平衡左移。
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text">
+          <span class="q-num">9</span>
+          <span>CH₃COOCH₂CH₃ 屬於哪一類有機化合物？</span>
+        </div>
+        <ol class="options" type="A">
+          <li>醇</li><li>醛</li><li>羧酸</li><li>酯</li>
+        </ol>
+        <details>
+          <summary>查看解答</summary>
+          <div class="answer">
+            <strong>答案：D</strong><br>
+            含 −COO− 官能基，為乙酸乙酯，由乙酸與乙醇經酯化反應生成，具果香。
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text">
+          <span class="q-num">10</span>
+          <span>下列高分子中，何者是由<strong>加成聚合</strong>反應生成？</span>
+        </div>
+        <ol class="options" type="A">
+          <li>耐綸 66</li><li>聚乙烯（PE）</li><li>聚對苯二甲酸乙二酯（PET）</li><li>蛋白質</li>
+        </ol>
+        <details>
+          <summary>查看解答</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            乙烯含 C=C 雙鍵，經加成聚合成聚乙烯，無副產物。耐綸 66、PET、蛋白質都是縮合聚合，形成時脫去水分子。
+          </div>
+        </details>
+      </div>
+
+    </section>
+
+  </main>
+</div><!-- end layout -->
+
+<!-- ===== 頁尾 ===== -->
+<footer>
+  <p>W24 化學科｜全科概念整理（化學一 ＋ 化學二 ＋ 必考實驗）｜台灣高中學測備考講義</p>
+  <p style="margin-top:6px;">第三階段最終週｜週末第一次五科聯合模擬考｜108課綱</p>
+</footer>
+
+<!-- ===== 捲動進度條 JS ===== -->
+<script>
+  window.addEventListener('scroll', function () {
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    var fill = document.getElementById('progress-fill');
+    if (fill) fill.style.width = progress.toFixed(1) + '%';
+  });
+</script>
+
+</body>
+</html>

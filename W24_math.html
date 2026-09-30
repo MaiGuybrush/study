@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W24 數學A科｜第三冊A 全冊重點（三角函數・指數對數・平面向量）｜學測備考講義</title>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        tags: 'ams'
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+      background: #f5f0fa;
+      color: #2d2d2d;
+      line-height: 1.75;
+    }
+
+    /* ===== COLOUR PALETTE ===== */
+    :root {
+      --purple-dark:  #4a0072;
+      --purple-main:  #6a1b9a;
+      --purple-mid:   #8e24aa;
+      --purple-light: #ce93d8;
+      --purple-pale:  #f3e5f5;
+      --purple-bg:    #faf0fe;
+      --accent-gold:  #f9a825;
+      --accent-teal:  #00796b;
+      --accent-red:   #c62828;
+      --accent-blue:  #1565c0;
+      --accent-green: #2e7d32;
+      --text-main:    #2d2d2d;
+      --text-muted:   #5d5d5d;
+      --white:        #ffffff;
+      --border:       #d1c4e9;
+    }
+
+    /* ===== LAYOUT ===== */
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* ===== SIDEBAR NAV ===== */
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+      background: var(--purple-dark);
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 0 0 2rem 0;
+    }
+    .sidebar-header {
+      background: var(--purple-main);
+      padding: 1.2rem 1rem;
+      text-align: center;
+      border-bottom: 2px solid var(--purple-light);
+    }
+    .sidebar-header .week-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 0.3rem;
+    }
+    .sidebar-header h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .sidebar nav { padding: 0.8rem 0; }
+    .nav-section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      padding: 0.8rem 1rem 0.3rem;
+      opacity: 0.8;
+    }
+    .sidebar nav a {
+      display: block;
+      color: #ede7f6;
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 0.42rem 1rem 0.42rem 1.3rem;
+      border-left: 3px solid transparent;
+      transition: all 0.18s;
+    }
+    .sidebar nav a:hover,
+    .sidebar nav a:focus {
+      background: rgba(255,255,255,0.1);
+      border-left-color: var(--purple-light);
+      color: #fff;
+    }
+    .sidebar nav a.sub {
+      padding-left: 2.1rem;
+      font-size: 0.82rem;
+      color: #d1c4e9;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      flex: 1;
+      padding: 2rem 2.5rem 4rem;
+      max-width: 940px;
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-mid) 100%);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::after {
+      content: '∑√π';
+      position: absolute;
+      right: 2rem;
+      top: 1rem;
+      font-size: 4.5rem;
+      opacity: 0.08;
+      font-family: 'Georgia', serif;
+      pointer-events: none;
+    }
+    .page-header .label-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.6rem;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.9);
+    }
+    .page-header h1 { font-size: 1.9rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .page-header .subtitle { font-size: 0.95rem; color: #e1d5f5; }
+    .page-header .meta-row {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      margin-top: 1rem; font-size: 0.82rem; color: #d1c4e9;
+    }
+    .meta-row span::before { margin-right: 0.3rem; }
+
+    /* ===== SECTION HEADINGS ===== */
+    .section-block { margin-bottom: 2.5rem; }
+    h2.section-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--purple-dark);
+      border-left: 5px solid var(--purple-main);
+      padding: 0.45rem 0 0.45rem 0.9rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #f3e5f5 0%, transparent 100%);
+    }
+    h3.sub-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--purple-main);
+      margin: 1.4rem 0 0.6rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1.5px dashed var(--purple-light);
+    }
+    h4.minor-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--purple-dark);
+      margin: 1rem 0 0.4rem;
+    }
+
+    /* ===== CONTENT CARDS ===== */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ===== CALLOUT BOXES ===== */
+    .callout {
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      border-left: 5px solid;
+      position: relative;
+    }
+    .callout .callout-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .callout.def {
+      background: #e8eaf6;
+      border-color: #3f51b5;
+    }
+    .callout.def .callout-title { color: #1a237e; }
+    .callout.formula {
+      background: var(--purple-pale);
+      border-color: var(--purple-main);
+    }
+    .callout.formula .callout-title { color: var(--purple-dark); }
+    .callout.example {
+      background: #e8f5e9;
+      border-color: var(--accent-green);
+    }
+    .callout.example .callout-title { color: var(--accent-green); }
+    .callout.warning {
+      background: #fff8e1;
+      border-color: var(--accent-gold);
+    }
+    .callout.warning .callout-title { color: #e65100; }
+    .callout.tip {
+      background: #e0f2f1;
+      border-color: var(--accent-teal);
+    }
+    .callout.tip .callout-title { color: var(--accent-teal); }
+    .callout.link {
+      background: #e3f2fd;
+      border-color: var(--accent-blue);
+    }
+    .callout.link .callout-title { color: var(--accent-blue); }
+    .callout.exam {
+      background: #fce4ec;
+      border-color: #c2185b;
+    }
+    .callout.exam .callout-title { color: #880e4f; }
+
+    /* ===== FORMULA BOX ===== */
+    .formula-box {
+      background: var(--purple-pale);
+      border: 2px solid var(--purple-main);
+      border-radius: 10px;
+      padding: 1.1rem 1.5rem;
+      margin: 1rem 0;
+    }
+    .formula-box .fb-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-main);
+      margin-bottom: 0.6rem;
+    }
+    .formula-box .fb-body {
+      font-family: 'Courier New', 'Consolas', monospace;
+      font-size: 1rem;
+      color: var(--purple-dark);
+      line-height: 2;
+    }
+
+    /* ===== MATH INLINE MONO ===== */
+    .math-inline {
+      font-family: 'Courier New', 'Consolas', monospace;
+      background: #ede7f6;
+      color: var(--purple-dark);
+      padding: 0.05rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    .math-block {
+      font-family: 'Courier New', 'Consolas', monospace;
+      background: #ede7f6;
+      color: var(--purple-dark);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      overflow-x: auto;
+      display: block;
+    }
+
+    /* ===== EXAMPLE SOLUTION ===== */
+    .example-block {
+      background: #f1f8e9;
+      border: 1.5px solid #a5d6a7;
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      margin: 0.8rem 0;
+    }
+    .example-block .ex-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent-green);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .example-block .ex-q {
+      font-weight: 600;
+      color: #1b5e20;
+      margin-bottom: 0.5rem;
+    }
+    .example-block .ex-sol {
+      color: #33691e;
+      line-height: 1.9;
+    }
+    .step { margin-left: 1.2rem; margin-bottom: 0.25rem; }
+    .step::before { content: '➜ '; color: var(--accent-green); font-weight: 700; }
+
+    /* ===== ANSWER REVEAL ===== */
+    details.answer-reveal {
+      margin: 0.5rem 0;
+    }
+    details.answer-reveal summary {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--purple-main);
+      background: var(--purple-pale);
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      border: 1px solid var(--purple-light);
+      user-select: none;
+      list-style: none;
+    }
+    details.answer-reveal summary::-webkit-details-marker { display: none; }
+    details.answer-reveal summary::before { content: '▶'; font-size: 0.7rem; }
+    details.answer-reveal[open] summary::before { content: '▼'; }
+    details.answer-reveal .answer-body {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.9rem 1.2rem;
+      margin-top: 0.5rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    /* ===== TABLES ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.8rem 0;
+      font-size: 0.92rem;
+    }
+    th {
+      background: var(--purple-main);
+      color: var(--white);
+      padding: 0.55rem 0.85rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    td {
+      padding: 0.5rem 0.85rem;
+      border-bottom: 1px solid #e8eaf6;
+    }
+    tr:nth-child(even) td { background: var(--purple-bg); }
+    tr:hover td { background: #ede7f6; }
+
+    /* ===== PRACTICE QUESTIONS ===== */
+    .practice-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .practice-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.3rem;
+    }
+    .practice-item .pq-num {
+      display: inline-block;
+      background: var(--purple-main);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.8rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      line-height: 1.8rem;
+      text-align: center;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+    .practice-item .pq-header { display: flex; align-items: flex-start; }
+    .practice-item .pq-q { font-weight: 600; line-height: 1.7; flex: 1; }
+
+    /* ===== NUMBER LINE SVG ===== */
+    .number-line-container { overflow-x: auto; padding: 0.5rem 0; }
+
+    /* ===== TOC ===== */
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.6rem;
+      margin: 0.8rem 0;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.8rem;
+      text-decoration: none;
+      color: var(--purple-dark);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.18s;
+    }
+    .toc-item:hover { background: var(--purple-pale); border-color: var(--purple-main); }
+    .toc-item .toc-num {
+      background: var(--purple-main);
+      color: #fff;
+      width: 1.5rem;
+      height: 1.5rem;
+      line-height: 1.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: center;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ===== SUMMARY PILLS ===== */
+    .summary-list { list-style: none; padding: 0; }
+    .summary-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #f3e5f5;
+      font-size: 0.93rem;
+    }
+    .summary-list li::before { content: '◆'; color: var(--purple-main); flex-shrink: 0; margin-top: 0.15rem; }
+
+    /* ===== DIVIDER ===== */
+    hr.section-divider {
+      border: none;
+      border-top: 2px dashed var(--purple-light);
+      margin: 2rem 0;
+    }
+
+    /* ===== KNOWLEDGE MAP ===== */
+    .km-container {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+    .km-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .km-node {
+      background: var(--purple-pale);
+      border: 2px solid var(--purple-main);
+      border-radius: 8px;
+      padding: 0.55rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--purple-dark);
+      text-align: center;
+      position: relative;
+    }
+    .km-node.central {
+      background: var(--purple-main);
+      color: #fff;
+      font-size: 1rem;
+      padding: 0.7rem 1.4rem;
+      border-color: var(--purple-dark);
+    }
+    .km-node.linked {
+      background: #e8f5e9;
+      border-color: var(--accent-green);
+      color: #1b5e20;
+    }
+    .km-arrow {
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      color: var(--purple-mid);
+      font-weight: 700;
+    }
+
+    /* ===== VISUAL TREE ===== */
+    .tree-visual { background: var(--purple-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 18px 22px 14px 18px; margin: 1rem 0; overflow-x: auto; }
+    .tv-root { display: inline-flex; align-items: center; background: var(--purple-dark); color: #fff; font-weight: 700; font-size: 15px; padding: 5px 18px; border-radius: 20px; margin-bottom: 6px; }
+    .tv-children { list-style: none; padding: 0; margin: 0 0 0 14px; border-left: 2px solid var(--border); }
+    .tv-item { position: relative; padding: 5px 0 4px 22px; }
+    .tv-item::before { content: ''; position: absolute; left: 0; top: 14px; width: 18px; height: 2px; background: var(--border); }
+    .tv-node { display: inline-block; border-radius: 6px; padding: 3px 12px; font-size: 13px; font-weight: 600; line-height: 1.6; }
+    .tv-desc { display: block; font-size: 11.5px; color: var(--text-muted); padding: 0 4px; margin: 1px 0 3px; }
+    .tv-node.tv-l1 { background: var(--purple-pale); color: var(--purple-dark); border: 1px solid var(--purple-light); font-size: 14px; }
+    .tv-node.tv-l2 { background: #ede7f6; color: #4527a0; border: 1px solid #b39ddb; }
+    .tv-node.tv-l3 { background: #fafafa; color: var(--text-main); border: 1px solid #e0e0e0; font-weight: 400; }
+
+    /* ===== FOOTER ===== */
+    .page-footer {
+      background: var(--purple-dark);
+      color: #d1c4e9;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.82rem;
+      margin-top: 3rem;
+      border-radius: 12px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .page-wrapper { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: relative; }
+      .main-content { padding: 1.2rem 1rem 3rem; }
+      .page-header h1 { font-size: 1.4rem; }
+    }
+
+    /* ===== SCROLL BACK TO TOP ===== */
+    .back-top {
+      display: inline-block;
+      color: var(--purple-main);
+      font-size: 0.8rem;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 0.8rem;
+    }
+    .back-top:hover { color: var(--purple-dark); }
+
+    ol.solution-steps { padding-left: 1.3rem; }
+    ol.solution-steps li { margin-bottom: 0.3rem; }
+    ul.bullet { padding-left: 1.3rem; }
+    ul.bullet li { margin-bottom: 0.25rem; }
+    .highlight-text { color: var(--purple-main); font-weight: 700; }
+    .red-text { color: var(--accent-red); font-weight: 700; }
+    .green-text { color: var(--accent-green); font-weight: 700; }
+    .blue-text { color: var(--accent-blue); font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="week-tag">Week 24 &bull; 數學A科</div>
+      <h2>第三冊A<br>全冊重點總複習</h2>
+    </div>
+    <nav>
+      <div class="nav-section-label">本講義導覽</div>
+      <a href="#overview">單元概述</a>
+      <a href="#prereq">先備知識</a>
+      <div class="nav-section-label">Ch1 三角函數</div>
+      <a href="#sec1">1. 弧度與三角函數圖形</a>
+      <a class="sub" href="#sec1-1">弧度、弧長、扇形</a>
+      <a class="sub" href="#sec1-2">正弦／餘弦／正切圖形</a>
+      <a class="sub" href="#sec1-3">y = a sin(bx+c)+d</a>
+      <a href="#sec2">2. 和差角與疊合</a>
+      <a class="sub" href="#sec2-1">和差角公式</a>
+      <a class="sub" href="#sec2-2">倍角與半角</a>
+      <a class="sub" href="#sec2-3">正餘弦疊合</a>
+      <div class="nav-section-label">Ch2 指數與對數函數</div>
+      <a href="#sec3">3. 指數函數</a>
+      <a href="#sec4">4. 對數函數與應用</a>
+      <a class="sub" href="#sec4-1">對數函數圖形</a>
+      <a class="sub" href="#sec4-2">對數方程式</a>
+      <a class="sub" href="#sec4-3">常用對數：位數與首位</a>
+      <div class="nav-section-label">Ch3 平面向量</div>
+      <a href="#sec5">5. 向量運算與分點</a>
+      <a href="#sec6">6. 內積、投影、柯西</a>
+      <a href="#sec7">7. 面積、行列式、克拉瑪</a>
+      <a href="#sec8">8. 直線參數式與距離</a>
+      <div class="nav-section-label">複習與評量</div>
+      <a href="#km">知識連結圖</a>
+      <a href="#summary">重點整理</a>
+      <a href="#practice">練習題（10 題）</a>
+      <a href="#exam-tips">學測考題方向</a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main-content">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="label-row">
+        <span class="badge">W24 第二十四週</span>
+        <span class="badge">數學A科</span>
+        <span class="badge">第三冊A 全冊</span>
+        <span class="badge">高三上 &bull; 學測備考</span>
+        <span class="badge">週末：第一次五科聯合模擬考</span>
+      </div>
+      <h1>第三冊A 全冊重點 ── 三角・指對數・向量</h1>
+      <p class="subtitle">涵蓋：弧度、三角函數圖形、和差角／倍角／疊合、指數函數、對數函數與常用對數、平面向量、內積、投影、柯西不等式、面積與行列式、克拉瑪公式、直線參數式</p>
+      <div class="meta-row">
+        <span>日期：10/26–11/01</span>
+        <span>預計學習時間：6–7 小時</span>
+        <span>難度：★★★★☆（整合複習）</span>
+        <span>學測出題頻率：★★★★★</span>
+        <span>距學測約 88 天</span>
+      </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="section-block" id="toc">
+      <h2 class="section-title">目錄</h2>
+      <div class="toc-grid">
+        <a href="#overview" class="toc-item"><span class="toc-num">0</span>單元概述</a>
+        <a href="#prereq"   class="toc-item"><span class="toc-num">P</span>先備知識</a>
+        <a href="#sec1"     class="toc-item"><span class="toc-num">1</span>三角函數圖形</a>
+        <a href="#sec2"     class="toc-item"><span class="toc-num">2</span>和差角與疊合</a>
+        <a href="#sec3"     class="toc-item"><span class="toc-num">3</span>指數函數</a>
+        <a href="#sec4"     class="toc-item"><span class="toc-num">4</span>對數函數</a>
+        <a href="#sec5"     class="toc-item"><span class="toc-num">5</span>向量運算</a>
+        <a href="#sec6"     class="toc-item"><span class="toc-num">6</span>內積與柯西</a>
+        <a href="#sec7"     class="toc-item"><span class="toc-num">7</span>面積與行列式</a>
+        <a href="#sec8"     class="toc-item"><span class="toc-num">8</span>直線與距離</a>
+        <a href="#km"       class="toc-item"><span class="toc-num">K</span>知識連結圖</a>
+        <a href="#summary"  class="toc-item"><span class="toc-num">S</span>重點整理</a>
+        <a href="#practice" class="toc-item"><span class="toc-num">Q</span>練習題</a>
+        <a href="#exam-tips" class="toc-item"><span class="toc-num">L</span>學測方向</a>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== 0. UNIT OVERVIEW ===== -->
+    <div class="section-block" id="overview">
+      <h2 class="section-title">單元概述</h2>
+      <div class="card">
+        <p>第三冊A（高二上）是學測數學A 範圍中<strong>最後、也最新</strong>的一冊，內容包含三大主題：<strong>三角函數</strong>、<strong>指數與對數函數</strong>、<strong>平面向量</strong>。W20（三角函數圖形、和差角）與 W21（向量運算、內積）已各自深化過，本週將三章串成一張完整的地圖，並用「一題一核心觀念」的例題快速過完全冊。</p>
+        <br>
+        <h4 class="minor-title">學習目標</h4>
+        <ul class="bullet">
+          <li>能在弧度與度度量間換算，並求 \(y=a\sin(bx+c)+d\) 的振幅、週期、最大最小值</li>
+          <li>能熟練使用和差角、倍角、半角公式，並以疊合求三角式的極值</li>
+          <li>能畫出指數、對數函數圖形，比較大小、解方程式與不等式</li>
+          <li>能以常用對數求大數的位數與首位數字，並處理成長／衰變模型</li>
+          <li>能以分點公式、內積、投影、柯西不等式、行列式解決向量問題</li>
+        </ul>
+        <br>
+        <h4 class="minor-title">在課程脈絡中的位置</h4>
+        <p>第三冊A 的每一章都建立在第一、二冊之上：三角函數延伸自<strong>第二冊三角比</strong>；指數對數函數延伸自<strong>第一冊指數對數運算</strong>；向量則為<strong>第一冊直線與圓</strong>提供新的計算工具。第四冊A（空間向量、矩陣）屬分科測驗範圍，學測不考。</p>
+      </div>
+      <div class="callout exam">
+        <div class="callout-title">📅 本週安排建議</div>
+        <p>週一：Ch1 三角｜週二：Ch2 指對數｜週三：Ch3 向量｜週四：練習題 10 題（限時 40 分鐘）｜週五：重點整理＋錯題｜週六：<strong>數學A 模擬考 100 分鐘</strong>｜週日：檢討</p>
+      </div>
+    </div>
+
+    <!-- ===== PREREQUISITES ===== -->
+    <div class="section-block" id="prereq">
+      <h2 class="section-title">先備知識</h2>
+      <div class="callout tip">
+        <div class="callout-title">💡 學前確認</div>
+        <ul class="bullet" style="margin-top:0.5rem;">
+          <li>特殊角三角比：\(30^\circ, 45^\circ, 60^\circ\) 的 sin、cos、tan 值</li>
+          <li>廣義角：各象限三角比的正負號（「全正、正弦、正切、餘弦」）</li>
+          <li>平方關係 \(\sin^2\theta+\cos^2\theta=1\)，商數關係 \(\tan\theta=\dfrac{\sin\theta}{\cos\theta}\)</li>
+          <li>指數律與對數運算：\(\log_a MN=\log_a M+\log_a N\)、\(\log_a M^k=k\log_a M\)</li>
+          <li>直線方程式：斜率、點斜式、一般式 \(ax+by+c=0\)</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SECTION 1 ===== -->
+    <div class="section-block" id="sec1">
+      <h2 class="section-title">1. 弧度與三角函數圖形</h2>
+
+      <h3 class="sub-title" id="sec1-1">1.1 弧度、弧長、扇形面積</h3>
+      <div class="callout def">
+        <div class="callout-title">📖 定義：弧度</div>
+        <p>圓心角所對的弧長等於半徑時，此圓心角為 1 弧度（rad）。\(\pi \text{ rad} = 180^\circ\)，所以 \(1 \text{ rad} \approx 57.3^\circ\)。</p>
+      </div>
+      <div class="formula-box">
+        <div class="fb-title">核心公式（θ 必須用弧度）</div>
+        <div class="fb-body">
+          \(\text{弧長 } s = r\theta\)<br>
+          \(\text{扇形面積 } A = \dfrac{1}{2}r^2\theta = \dfrac{1}{2}rs\)
+        </div>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 1</div>
+        <div class="ex-q">(1) 將 \(150^\circ\) 化為弧度。(2) 半徑 6、圓心角 \(\dfrac{\pi}{3}\) 的扇形，求弧長與面積。</div>
+        <div class="ex-sol">
+          <div class="step">\(150^\circ \times \dfrac{\pi}{180^\circ} = \dfrac{5\pi}{6}\)</div>
+          <div class="step">弧長 \(s = 6\cdot\dfrac{\pi}{3} = 2\pi\)</div>
+          <div class="step">面積 \(A = \dfrac{1}{2}\cdot 6^2\cdot\dfrac{\pi}{3} = 6\pi\)</div>
+        </div>
+      </div>
+
+      <h3 class="sub-title" id="sec1-2">1.2 三個基本三角函數圖形</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>函數</th><th>定義域</th><th>值域</th><th>週期</th><th>對稱性</th><th>特徵</th></tr></thead>
+          <tbody>
+            <tr><td>\(y=\sin x\)</td><td>ℝ</td><td>\([-1,1]\)</td><td>\(2\pi\)</td><td>奇函數（對原點）</td><td>過原點，\(x=\dfrac{\pi}{2}\) 時最大</td></tr>
+            <tr><td>\(y=\cos x\)</td><td>ℝ</td><td>\([-1,1]\)</td><td>\(2\pi\)</td><td>偶函數（對 y 軸）</td><td>過 \((0,1)\)，為 sin 左移 \(\dfrac{\pi}{2}\)</td></tr>
+            <tr><td>\(y=\tan x\)</td><td>\(x\neq \dfrac{\pi}{2}+n\pi\)</td><td>ℝ</td><td>\(\pi\)</td><td>奇函數</td><td>有鉛直漸近線，遞增</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-title" id="sec1-3">1.3 一般式 \(y=a\sin(bx+c)+d\)</h3>
+      <div class="formula-box">
+        <div class="fb-title">四個參數的意義</div>
+        <div class="fb-body">
+          振幅 = \(|a|\)　　週期 = \(\dfrac{2\pi}{|b|}\)<br>
+          最大值 = \(d+|a|\)　　最小值 = \(d-|a|\)<br>
+          平移：由 \(bx+c=0\) 得 \(x=-\dfrac{c}{b}\)（相對 \(y=a\sin bx\) 平移）
+        </div>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 2</div>
+        <div class="ex-q">求 \(y=3\sin\left(2x-\dfrac{\pi}{3}\right)+1\) 的振幅、週期、最大值、最小值。</div>
+        <div class="ex-sol">
+          <div class="step">振幅 \(=3\)；週期 \(=\dfrac{2\pi}{2}=\pi\)</div>
+          <div class="step">最大值 \(=1+3=4\)；最小值 \(=1-3=-2\)</div>
+          <div class="step">由 \(2x-\dfrac{\pi}{3}=0\) 得 \(x=\dfrac{\pi}{6}\)：圖形由 \(y=3\sin 2x\) 向右平移 \(\dfrac{\pi}{6}\)，再上移 1</div>
+        </div>
+      </div>
+      <div class="callout warning">
+        <div class="callout-title">⚠️ 常見錯誤</div>
+        <p>\(y=\sin\left(2x-\dfrac{\pi}{3}\right)\) 是把 \(y=\sin 2x\) 右移 \(\dfrac{\pi}{6}\)，<strong>不是</strong>右移 \(\dfrac{\pi}{3}\)。先把 b 提出：\(\sin 2\left(x-\dfrac{\pi}{6}\right)\)。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SECTION 2 ===== -->
+    <div class="section-block" id="sec2">
+      <h2 class="section-title">2. 和差角公式、倍角與疊合</h2>
+
+      <h3 class="sub-title" id="sec2-1">2.1 和差角公式</h3>
+      <div class="formula-box">
+        <div class="fb-title">和差角公式（必背）</div>
+        <div class="fb-body">
+          \(\sin(\alpha\pm\beta)=\sin\alpha\cos\beta\pm\cos\alpha\sin\beta\)<br>
+          \(\cos(\alpha\pm\beta)=\cos\alpha\cos\beta\mp\sin\alpha\sin\beta\)<br>
+          \(\tan(\alpha\pm\beta)=\dfrac{\tan\alpha\pm\tan\beta}{1\mp\tan\alpha\tan\beta}\)
+        </div>
+      </div>
+      <div class="callout tip">
+        <div class="callout-title">💡 記憶口訣</div>
+        <p>sin「賽扣扣賽、符號相同」；cos「扣扣賽賽、符號相反」。</p>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 3</div>
+        <div class="ex-q">求 \(\cos 15^\circ\) 的值。</div>
+        <div class="ex-sol">
+          <div class="step">\(\cos 15^\circ=\cos(45^\circ-30^\circ)=\cos45^\circ\cos30^\circ+\sin45^\circ\sin30^\circ\)</div>
+          <div class="step">\(=\dfrac{\sqrt2}{2}\cdot\dfrac{\sqrt3}{2}+\dfrac{\sqrt2}{2}\cdot\dfrac12=\dfrac{\sqrt6+\sqrt2}{4}\)</div>
+        </div>
+      </div>
+
+      <h3 class="sub-title" id="sec2-2">2.2 倍角與半角公式</h3>
+      <div class="formula-box">
+        <div class="fb-title">倍角公式（令和角公式中 α = β）</div>
+        <div class="fb-body">
+          \(\sin2\theta=2\sin\theta\cos\theta\)<br>
+          \(\cos2\theta=\cos^2\theta-\sin^2\theta=2\cos^2\theta-1=1-2\sin^2\theta\)<br>
+          \(\tan2\theta=\dfrac{2\tan\theta}{1-\tan^2\theta}\)<br>
+          降冪（半角）：\(\sin^2\theta=\dfrac{1-\cos2\theta}{2}\)，\(\cos^2\theta=\dfrac{1+\cos2\theta}{2}\)
+        </div>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 4</div>
+        <div class="ex-q">已知 \(\sin\theta=\dfrac35\)，且 θ 為第二象限角，求 \(\sin2\theta\) 與 \(\cos2\theta\)。</div>
+        <div class="ex-sol">
+          <div class="step">第二象限 cos 為負：\(\cos\theta=-\dfrac45\)</div>
+          <div class="step">\(\sin2\theta=2\cdot\dfrac35\cdot\left(-\dfrac45\right)=-\dfrac{24}{25}\)</div>
+          <div class="step">\(\cos2\theta=1-2\sin^2\theta=1-\dfrac{18}{25}=\dfrac{7}{25}\)</div>
+        </div>
+      </div>
+
+      <h3 class="sub-title" id="sec2-3">2.3 正餘弦疊合</h3>
+      <div class="formula-box">
+        <div class="fb-title">疊合公式</div>
+        <div class="fb-body">
+          \(a\sin x+b\cos x=\sqrt{a^2+b^2}\,\sin(x+\varphi)\)<br>
+          其中 \(\cos\varphi=\dfrac{a}{\sqrt{a^2+b^2}},\ \sin\varphi=\dfrac{b}{\sqrt{a^2+b^2}}\)<br>
+          ⇒ 最大值 \(\sqrt{a^2+b^2}\)，最小值 \(-\sqrt{a^2+b^2}\)
+        </div>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 5</div>
+        <div class="ex-q">(1) 求 \(f(x)=3\sin x+4\cos x\) 的最大值與最小值。(2) 將 \(\sin x+\sqrt3\cos x\) 疊合。</div>
+        <div class="ex-sol">
+          <div class="step">(1) \(\sqrt{3^2+4^2}=5\)，最大值 5，最小值 −5</div>
+          <div class="step">(2) \(\sqrt{1+3}=2\)，\(\cos\varphi=\dfrac12,\ \sin\varphi=\dfrac{\sqrt3}{2}\Rightarrow\varphi=\dfrac{\pi}{3}\)</div>
+          <div class="step">\(\sin x+\sqrt3\cos x=2\sin\left(x+\dfrac{\pi}{3}\right)\)</div>
+        </div>
+      </div>
+      <div class="callout warning">
+        <div class="callout-title">⚠️ 常見錯誤</div>
+        <p>若題目限制 x 的範圍（如 \(0\le x\le\dfrac{\pi}{2}\)），最大最小值<strong>不一定</strong>是 \(\pm\sqrt{a^2+b^2}\)，要先求 \(x+\varphi\) 的範圍再看 sin 的值。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SECTION 3 ===== -->
+    <div class="section-block" id="sec3">
+      <h2 class="section-title">3. 指數函數 \(y=a^x\)</h2>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>性質</th><th>\(a>1\)</th><th>\(0&lt;a&lt;1\)</th></tr></thead>
+          <tbody>
+            <tr><td>定義域／值域</td><td colspan="2">定義域 ℝ；值域 \((0,\infty)\)</td></tr>
+            <tr><td>必過點</td><td colspan="2">\((0,1)\)</td></tr>
+            <tr><td>單調性</td><td>遞增</td><td>遞減</td></tr>
+            <tr><td>漸近線</td><td colspan="2">x 軸（\(y=0\)）</td></tr>
+            <tr><td>對稱</td><td colspan="2">\(y=a^x\) 與 \(y=\left(\dfrac1a\right)^x\) 對稱於 y 軸</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <div class="callout-title">💡 比較大小與解不等式的原則</div>
+        <p>先化為<strong>同底</strong>，再依底數判斷：底數 > 1 時「指數大 ⇔ 值大」；0 < 底數 < 1 時不等號<strong>反向</strong>。</p>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 6</div>
+        <div class="ex-q">比較 \(a=2^{1.2},\ b=4^{0.5},\ c=\left(\dfrac12\right)^{-1.5}\) 的大小。</div>
+        <div class="ex-sol">
+          <div class="step">\(b=(2^2)^{0.5}=2^1\)，\(c=(2^{-1})^{-1.5}=2^{1.5}\)</div>
+          <div class="step">底數 2 > 1，比指數：\(1&lt;1.2&lt;1.5\)，故 \(b&lt;a&lt;c\)</div>
+        </div>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 7</div>
+        <div class="ex-q">解 \(4^x-3\cdot2^x-4=0\)。</div>
+        <div class="ex-sol">
+          <div class="step">令 \(t=2^x>0\)，得 \(t^2-3t-4=0\Rightarrow(t-4)(t+1)=0\)</div>
+          <div class="step">\(t=4\)（\(t=-1\) 不合，因 \(t>0\)）</div>
+          <div class="step">\(2^x=4\Rightarrow x=2\)</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SECTION 4 ===== -->
+    <div class="section-block" id="sec4">
+      <h2 class="section-title">4. 對數函數與應用</h2>
+
+      <h3 class="sub-title" id="sec4-1">4.1 對數函數 \(y=\log_a x\)</h3>
+      <div class="callout def">
+        <div class="callout-title">📖 定義</div>
+        <p>\(y=\log_a x\ (a>0,\ a\neq1)\) 是 \(y=a^x\) 的反函數，兩圖形對稱於直線 \(y=x\)。定義域 \((0,\infty)\)、值域 ℝ、必過 \((1,0)\)、漸近線為 y 軸。</p>
+      </div>
+      <div class="formula-box">
+        <div class="fb-title">對數運算律</div>
+        <div class="fb-body">
+          \(\log_a MN=\log_a M+\log_a N\)　　\(\log_a \dfrac MN=\log_a M-\log_a N\)<br>
+          \(\log_a M^k=k\log_a M\)　　換底：\(\log_a b=\dfrac{\log b}{\log a}\)<br>
+          \(\log_{a^m} b^n=\dfrac nm\log_a b\)　　\(a^{\log_a b}=b\)
+        </div>
+      </div>
+
+      <h3 class="sub-title" id="sec4-2">4.2 對數方程式：記得檢查定義域</h3>
+      <div class="example-block">
+        <div class="ex-label">例題 8</div>
+        <div class="ex-q">解 \(\log_2(x-1)+\log_2(x+1)=3\)。</div>
+        <div class="ex-sol">
+          <div class="step">定義域：\(x-1>0\) 且 \(x+1>0\Rightarrow x>1\)</div>
+          <div class="step">\(\log_2(x^2-1)=3\Rightarrow x^2-1=8\Rightarrow x=\pm3\)</div>
+          <div class="step">檢查定義域：只取 \(x=3\)</div>
+        </div>
+      </div>
+
+      <h3 class="sub-title" id="sec4-3">4.3 常用對數：位數、首位數字、成長模型</h3>
+      <div class="formula-box">
+        <div class="fb-title">必背常用對數值</div>
+        <div class="fb-body">
+          \(\log2\approx0.3010\)　\(\log3\approx0.4771\)　\(\log7\approx0.8451\)<br>
+          \(\log4\approx0.6021\)　\(\log5\approx0.6990\)　\(\log6\approx0.7782\)　\(\log8\approx0.9031\)　\(\log9\approx0.9542\)
+        </div>
+      </div>
+      <div class="callout def">
+        <div class="callout-title">📖 首數與尾數</div>
+        <p>若 \(\log N=n+\alpha\)（n 為整數，\(0\le\alpha&lt;1\)），則 \(N=10^\alpha\times10^n\)。<br>
+        • \(N\ge1\) 時，N 的整數部分為 <strong>n+1 位數</strong>；<br>
+        • 由 α 落在哪兩個常用對數之間，決定<strong>首位數字</strong>。</p>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 9</div>
+        <div class="ex-q">\(3^{50}\) 是幾位數？首位數字為何？</div>
+        <div class="ex-sol">
+          <div class="step">\(\log3^{50}=50\times0.4771=23.855\)</div>
+          <div class="step">首數 23 ⇒ 24 位數</div>
+          <div class="step">尾數 0.855：\(\log7\approx0.8451&lt;0.855&lt;0.9031\approx\log8\) ⇒ 首位數字為 7</div>
+        </div>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 10（成長模型）</div>
+        <div class="ex-q">某細菌數量每 3 小時變為 2 倍。至少經過幾小時（取整數），數量會超過原來的 1000 倍？</div>
+        <div class="ex-sol">
+          <div class="step">經 t 小時後為原來的 \(2^{t/3}\) 倍，需 \(2^{t/3}>1000\)</div>
+          <div class="step">取對數：\(\dfrac t3\times0.3010>3\Rightarrow t>\dfrac{9}{0.3010}\approx29.9\)</div>
+          <div class="step">至少 30 小時</div>
+        </div>
+      </div>
+      <div class="callout warning">
+        <div class="callout-title">⚠️ 常見錯誤</div>
+        <p>\(\log(M+N)\neq\log M+\log N\)；\((\log M)^2\neq2\log M\)。另外，底數介於 0 與 1 時，對數不等式要<strong>反向</strong>。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SECTION 5 ===== -->
+    <div class="section-block" id="sec5">
+      <h2 class="section-title">5. 平面向量的運算與分點公式</h2>
+      <div class="callout def">
+        <div class="callout-title">📖 向量的表示</div>
+        <p>若 \(A(x_1,y_1)\)、\(B(x_2,y_2)\)，則 \(\overrightarrow{AB}=(x_2-x_1,\ y_2-y_1)\)，長度 \(|\overrightarrow{AB}|=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}\)。<br>
+        與 \(\vec a\) 同向的單位向量為 \(\dfrac{\vec a}{|\vec a|}\)。</p>
+      </div>
+      <div class="formula-box">
+        <div class="fb-title">分點公式與共線條件</div>
+        <div class="fb-body">
+          P 在 \(\overline{AB}\) 上且 \(\overline{AP}:\overline{PB}=m:n\)：\(\overrightarrow{OP}=\dfrac{n\,\overrightarrow{OA}+m\,\overrightarrow{OB}}{m+n}\)<br>
+          三點共線：\(\overrightarrow{OP}=\alpha\overrightarrow{OA}+\beta\overrightarrow{OB}\) 且 \(\alpha+\beta=1\)<br>
+          平行：\(\vec a\parallel\vec b\iff\vec a=t\vec b\iff a_1b_2-a_2b_1=0\)
+        </div>
+      </div>
+      <div class="callout tip">
+        <div class="callout-title">💡 分點公式的記法</div>
+        <p>「交叉相乘」：靠近 A 的比例數字 m 反而乘在 B 上。P 越靠近 A，A 的權重越大。</p>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 11</div>
+        <div class="ex-q">\(A(1,2)\)、\(B(7,5)\)，P 在 \(\overline{AB}\) 上且 \(\overline{AP}:\overline{PB}=2:1\)，求 P 點坐標。</div>
+        <div class="ex-sol">
+          <div class="step">\(P=\dfrac{1\cdot A+2\cdot B}{2+1}=\left(\dfrac{1+14}{3},\ \dfrac{2+10}{3}\right)\)</div>
+          <div class="step">\(P=(5,\ 4)\)</div>
+        </div>
+      </div>
+      <div class="callout warning">
+        <div class="callout-title">⚠️ 常見錯誤</div>
+        <p>把分點公式寫成 \(\dfrac{m\,A+n\,B}{m+n}\)（係數放反）。檢驗法：比例 \(2:1\) 表示 P 靠近 B，所以 B 的係數應較大。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SECTION 6 ===== -->
+    <div class="section-block" id="sec6">
+      <h2 class="section-title">6. 內積、正射影與柯西不等式</h2>
+      <div class="formula-box">
+        <div class="fb-title">內積的兩種算法</div>
+        <div class="fb-body">
+          幾何：\(\vec a\cdot\vec b=|\vec a||\vec b|\cos\theta\)<br>
+          坐標：\(\vec a\cdot\vec b=a_1b_1+a_2b_2\)<br>
+          垂直：\(\vec a\perp\vec b\iff\vec a\cdot\vec b=0\)<br>
+          長度：\(|\vec a|^2=\vec a\cdot\vec a\)；\(|\vec a\pm\vec b|^2=|\vec a|^2\pm2\,\vec a\cdot\vec b+|\vec b|^2\)
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="fb-title">正射影（投影）</div>
+        <div class="fb-body">
+          \(\vec a\) 在 \(\vec b\) 上的正射影向量 \(=\dfrac{\vec a\cdot\vec b}{|\vec b|^2}\,\vec b\)<br>
+          正射影長 \(=\dfrac{|\vec a\cdot\vec b|}{|\vec b|}\)
+        </div>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 12</div>
+        <div class="ex-q">\(\vec a=(3,4)\)、\(\vec b=(2,-1)\)，求 \(\vec a\cdot\vec b\)、夾角的 cos 值，以及 \(\vec a\) 在 \(\vec b\) 上的正射影。</div>
+        <div class="ex-sol">
+          <div class="step">\(\vec a\cdot\vec b=6-4=2\)；\(|\vec a|=5,\ |\vec b|=\sqrt5\)</div>
+          <div class="step">\(\cos\theta=\dfrac{2}{5\sqrt5}=\dfrac{2\sqrt5}{25}\)</div>
+          <div class="step">正射影 \(=\dfrac{2}{5}(2,-1)=\left(\dfrac45,\ -\dfrac25\right)\)</div>
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="fb-title">柯西不等式</div>
+        <div class="fb-body">
+          \((a_1b_1+a_2b_2)^2\le(a_1^2+a_2^2)(b_1^2+b_2^2)\)<br>
+          等號成立 ⇔ \(\dfrac{a_1}{b_1}=\dfrac{a_2}{b_2}\)（兩向量平行）<br>
+          向量形式：\(|\vec a\cdot\vec b|\le|\vec a||\vec b|\)
+        </div>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 13</div>
+        <div class="ex-q">實數 x、y 滿足 \(3x+4y=10\)，求 \(x^2+y^2\) 的最小值及此時的 x、y。</div>
+        <div class="ex-sol">
+          <div class="step">\((3x+4y)^2\le(3^2+4^2)(x^2+y^2)\Rightarrow100\le25(x^2+y^2)\)</div>
+          <div class="step">\(x^2+y^2\ge4\)，最小值 4</div>
+          <div class="step">等號：\(\dfrac x3=\dfrac y4=t\)，代入 \(9t+16t=10\Rightarrow t=\dfrac25\)，得 \(x=\dfrac65,\ y=\dfrac85\)</div>
+        </div>
+      </div>
+      <div class="callout tip">
+        <div class="callout-title">💡 幾何意義</div>
+        <p>例題 13 就是「原點到直線 \(3x+4y=10\) 距離的平方」：\(d=\dfrac{10}{5}=2\)，\(d^2=4\)。柯西與點到直線距離可互相驗算。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SECTION 7 ===== -->
+    <div class="section-block" id="sec7">
+      <h2 class="section-title">7. 面積、二階行列式與克拉瑪公式</h2>
+      <div class="formula-box">
+        <div class="fb-title">三角形面積（向量）</div>
+        <div class="fb-body">
+          \(\triangle=\dfrac12\sqrt{|\vec a|^2|\vec b|^2-(\vec a\cdot\vec b)^2}\)<br>
+          \(\triangle=\dfrac12\left|\begin{vmatrix}a_1&a_2\\ b_1&b_2\end{vmatrix}\right|=\dfrac12|a_1b_2-a_2b_1|\)<br>
+          平行四邊形面積 = \(|a_1b_2-a_2b_1|\)
+        </div>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 14</div>
+        <div class="ex-q">\(A(1,1)\)、\(B(4,2)\)、\(C(2,5)\)，求 \(\triangle ABC\) 面積。</div>
+        <div class="ex-sol">
+          <div class="step">\(\overrightarrow{AB}=(3,1)\)，\(\overrightarrow{AC}=(1,4)\)</div>
+          <div class="step">\(\begin{vmatrix}3&1\\1&4\end{vmatrix}=12-1=11\)</div>
+          <div class="step">面積 \(=\dfrac{11}{2}\)</div>
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="fb-title">克拉瑪公式（二元一次聯立）</div>
+        <div class="fb-body">
+          \(\begin{cases}a_1x+b_1y=c_1\\a_2x+b_2y=c_2\end{cases}\)
+          \(\Delta=\begin{vmatrix}a_1&b_1\\a_2&b_2\end{vmatrix},\ \Delta_x=\begin{vmatrix}c_1&b_1\\c_2&b_2\end{vmatrix},\ \Delta_y=\begin{vmatrix}a_1&c_1\\a_2&c_2\end{vmatrix}\)<br>
+          • \(\Delta\neq0\)：恰一解 \(x=\dfrac{\Delta_x}{\Delta},\ y=\dfrac{\Delta_y}{\Delta}\)（兩直線交於一點）<br>
+          • \(\Delta=0\) 且 \(\Delta_x,\Delta_y\) 不全為 0：無解（平行）<br>
+          • \(\Delta=\Delta_x=\Delta_y=0\)：無限多解或無解，需再判斷（通常為重合）
+        </div>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 15</div>
+        <div class="ex-q">以克拉瑪公式解 \(\begin{cases}2x+3y=7\\x-y=1\end{cases}\)。</div>
+        <div class="ex-sol">
+          <div class="step">\(\Delta=2(-1)-3(1)=-5\)</div>
+          <div class="step">\(\Delta_x=7(-1)-3(1)=-10\)，\(\Delta_y=2(1)-7(1)=-5\)</div>
+          <div class="step">\(x=\dfrac{-10}{-5}=2,\ y=\dfrac{-5}{-5}=1\)</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SECTION 8 ===== -->
+    <div class="section-block" id="sec8">
+      <h2 class="section-title">8. 直線的向量表示與點到直線距離</h2>
+      <div class="formula-box">
+        <div class="fb-title">直線的兩種向量觀點</div>
+        <div class="fb-body">
+          參數式：過 \((x_0,y_0)\)、方向向量 \((a,b)\)：\(\begin{cases}x=x_0+at\\y=y_0+bt\end{cases},\ t\in\mathbb R\)<br>
+          法向量：直線 \(ax+by+c=0\) 的法向量為 \((a,b)\)，方向向量為 \((b,-a)\)<br>
+          點到直線距離：\(d=\dfrac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}\)<br>
+          兩平行線 \(ax+by+c_1=0\)、\(ax+by+c_2=0\) 距離：\(\dfrac{|c_1-c_2|}{\sqrt{a^2+b^2}}\)
+        </div>
+      </div>
+      <div class="example-block">
+        <div class="ex-label">例題 16</div>
+        <div class="ex-q">求點 \((1,2)\) 到直線 \(3x+4y-1=0\) 的距離，並寫出過 \((1,2)\) 且垂直此直線的參數式。</div>
+        <div class="ex-sol">
+          <div class="step">\(d=\dfrac{|3+8-1|}{\sqrt{9+16}}=\dfrac{10}{5}=2\)</div>
+          <div class="step">垂直於直線 ⇒ 方向向量取原直線的法向量 \((3,4)\)</div>
+          <div class="step">\(\begin{cases}x=1+3t\\y=2+4t\end{cases},\ t\in\mathbb R\)</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== KNOWLEDGE MAP ===== -->
+    <div class="section-block" id="km">
+      <h2 class="section-title">知識連結圖</h2>
+      <div class="km-container">
+        <p style="text-align:center; font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">第三冊A 三章與第一、二冊的連結：</p>
+        <div class="km-grid" style="align-items:center;">
+          <div class="km-node">第二冊<br><small>三角比、廣義角</small></div>
+          <div class="km-arrow">→</div>
+          <div class="km-node central">Ch1 三角函數<br><small>圖形・和差角・疊合</small></div>
+        </div>
+        <div style="display:flex; justify-content:center; margin:0.6rem 0; font-size:1.2rem; color:var(--purple-main);">↓</div>
+        <div class="km-grid" style="align-items:center;">
+          <div class="km-node">第一冊<br><small>指數對數運算</small></div>
+          <div class="km-arrow">→</div>
+          <div class="km-node central">Ch2 指數・對數函數<br><small>圖形・方程・常用對數</small></div>
+        </div>
+        <div style="display:flex; justify-content:center; margin:0.6rem 0; font-size:1.2rem; color:var(--purple-main);">↓</div>
+        <div class="km-grid" style="align-items:center;">
+          <div class="km-node">第一冊<br><small>直線與圓</small></div>
+          <div class="km-arrow">→</div>
+          <div class="km-node central">Ch3 平面向量<br><small>內積・投影・行列式</small></div>
+        </div>
+        <div style="display:flex; justify-content:center; margin:0.6rem 0; font-size:1.2rem; color:var(--purple-main);">↓ 跨章整合題型</div>
+        <div class="km-grid">
+          <div class="km-node linked">內積 × 三角<br><small>\(\cos\theta\) 求夾角</small></div>
+          <div class="km-node linked">向量 × 直線<br><small>法向量、距離</small></div>
+          <div class="km-node linked">對數 × 數據<br><small>成長模型、位數</small></div>
+          <div class="km-node linked">疊合 × 圖形<br><small>週期與極值</small></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== KEY POINTS SUMMARY ===== -->
+    <div class="section-block" id="summary">
+      <h2 class="section-title">重點整理</h2>
+      <div class="card">
+        <ul class="summary-list">
+          <li>\(\pi\text{ rad}=180^\circ\)；弧長 \(s=r\theta\)、扇形面積 \(\dfrac12r^2\theta\)（θ 用弧度）</li>
+          <li>\(y=a\sin(bx+c)+d\)：振幅 \(|a|\)、週期 \(\dfrac{2\pi}{|b|}\)、最大 \(d+|a|\)、最小 \(d-|a|\)；tan 的週期為 \(\dfrac{\pi}{|b|}\)</li>
+          <li>和差角：sin 符號相同、cos 符號相反；倍角 \(\cos2\theta\) 有三種形式</li>
+          <li>疊合：\(a\sin x+b\cos x\) 的極值為 \(\pm\sqrt{a^2+b^2}\)（x 無限制時）</li>
+          <li>指數、對數函數互為反函數，圖形對稱於 \(y=x\)；底數在 0 與 1 之間時不等號反向</li>
+          <li>對數方程式最後一定要檢查<strong>真數 > 0</strong></li>
+          <li>\(\log N=n+\alpha\)：位數 \(n+1\)，首位由尾數 α 判斷</li>
+          <li>分點公式交叉相乘；三點共線 ⇔ 係數和為 1</li>
+          <li>\(\vec a\cdot\vec b=|\vec a||\vec b|\cos\theta=a_1b_1+a_2b_2\)；垂直 ⇔ 內積為 0</li>
+          <li>正射影向量 \(=\dfrac{\vec a\cdot\vec b}{|\vec b|^2}\vec b\)；柯西不等式等號在兩向量平行時成立</li>
+          <li>三角形面積 \(=\dfrac12|a_1b_2-a_2b_1|\)；克拉瑪公式 \(\Delta\neq0\) 恰一解</li>
+          <li>直線 \(ax+by+c=0\)：法向量 \((a,b)\)、方向向量 \((b,-a)\)、點到直線距離 \(\dfrac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}\)</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== PRACTICE QUESTIONS ===== -->
+    <div class="section-block" id="practice">
+      <h2 class="section-title">練習題（10 題｜建議限時 40 分鐘）</h2>
+      <div class="callout tip" style="margin-bottom:1rem;">
+        <div class="callout-title">💡 作答建議</div>
+        <p>本組題目模擬週末模擬考的節奏，請計時完成後再展開解答。計算題請詳列步驟，特別留意定義域與角度範圍。</p>
+      </div>
+
+      <div class="practice-grid">
+
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">1</span>
+            <div class="pq-q">【三角圖形】求 \(y=2\cos3x+1\) 的週期與值域。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>週期 \(=\dfrac{2\pi}{3}\)；\(\cos3x\in[-1,1]\Rightarrow y\in[-1,\ 3]\)</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">2</span>
+            <div class="pq-q">【和角】求 \(\sin75^\circ\) 的值。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>\(\sin75^\circ=\sin(45^\circ+30^\circ)=\dfrac{\sqrt2}{2}\cdot\dfrac{\sqrt3}{2}+\dfrac{\sqrt2}{2}\cdot\dfrac12=\dfrac{\sqrt6+\sqrt2}{4}\)</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">3</span>
+            <div class="pq-q">【正切和角】α、β 皆為銳角，\(\tan\alpha=2,\ \tan\beta=3\)，求 \(\alpha+\beta\)。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>\(\tan(\alpha+\beta)=\dfrac{2+3}{1-6}=-1\)。因 \(0&lt;\alpha+\beta&lt;\pi\)，且 tan 值為負，故 \(\alpha+\beta=\dfrac{3\pi}{4}\)（135°）。</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">4</span>
+            <div class="pq-q">【疊合】求 \(y=\sin x-\sqrt3\cos x+1\) 的最大值與最小值。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>\(\sin x-\sqrt3\cos x=2\left(\dfrac12\sin x-\dfrac{\sqrt3}{2}\cos x\right)=2\sin\left(x-\dfrac{\pi}{3}\right)\)</p>
+              <p>\(y=2\sin\left(x-\dfrac{\pi}{3}\right)+1\)：最大值 3，最小值 −1。</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">5</span>
+            <div class="pq-q">【指數方程】解 \(9^x-4\cdot3^x+3=0\)。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>令 \(t=3^x>0\)：\(t^2-4t+3=0\Rightarrow t=1\) 或 \(3\) ⇒ \(x=0\) 或 \(x=1\)。</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">6</span>
+            <div class="pq-q">【對數方程】解 \(\log_3(x+1)-\log_3(x-1)=1\)。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>定義域 \(x>1\)。\(\log_3\dfrac{x+1}{x-1}=1\Rightarrow\dfrac{x+1}{x-1}=3\Rightarrow x+1=3x-3\Rightarrow x=2\)（符合定義域）。</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">7</span>
+            <div class="pq-q">【常用對數】\(6^{20}\) 是幾位數？首位數字為何？（\(\log2\approx0.3010,\ \log3\approx0.4771\)）</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>\(\log6=\log2+\log3\approx0.7781\)；\(\log6^{20}\approx20\times0.7781=15.562\)</p>
+              <p>首數 15 ⇒ <strong>16 位數</strong>；尾數 0.562 介於 \(\log3\approx0.4771\) 與 \(\log4\approx0.6020\) 之間 ⇒ 首位數字 <strong>3</strong>。</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">8</span>
+            <div class="pq-q">【垂直】\(\vec a=(1,2)\)、\(\vec b=(k,-1)\)，若 \(\vec a\perp\vec b\)，求 k 與 \(|\vec a+\vec b|\)。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>\(\vec a\cdot\vec b=k-2=0\Rightarrow k=2\)；\(\vec a+\vec b=(3,1)\)，\(|\vec a+\vec b|=\sqrt{10}\)。</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">9</span>
+            <div class="pq-q">【內積與長度】\(|\vec a|=2,\ |\vec b|=3,\ \vec a\cdot\vec b=3\)，求 \(\vec a\)、\(\vec b\) 的夾角與 \(|2\vec a-\vec b|\)。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>\(\cos\theta=\dfrac{3}{2\times3}=\dfrac12\Rightarrow\theta=60^\circ\)</p>
+              <p>\(|2\vec a-\vec b|^2=4|\vec a|^2-4\,\vec a\cdot\vec b+|\vec b|^2=16-12+9=13\Rightarrow|2\vec a-\vec b|=\sqrt{13}\)</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">10</span>
+            <div class="pq-q">【面積】求由 \(\vec a=(2,3)\)、\(\vec b=(-1,4)\) 所張三角形的面積。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>\(\begin{vmatrix}2&3\\-1&4\end{vmatrix}=8-(-3)=11\) ⇒ 三角形面積 \(=\dfrac{11}{2}\)。</p>
+            </div>
+          </details>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== EXAM TIPS ===== -->
+    <div class="section-block" id="exam-tips">
+      <h2 class="section-title">學測考題方向提示</h2>
+      <div class="callout exam">
+        <div class="callout-title">學測數學A 第三冊A 出題分析</div>
+        <p>第三冊A 三章在學測中常與第一、二冊結合出題，尤其是「向量＋直線」「對數＋數據」的情境題。以下為本冊核心考點：</p>
+      </div>
+      <div class="card" style="margin-top:0.8rem;">
+        <table>
+          <thead><tr><th>考點</th><th>出題形式</th><th>重要程度</th></tr></thead>
+          <tbody>
+            <tr><td>三角函數圖形（週期、振幅、平移）</td><td>選擇題、圖形判讀</td><td>★★★★☆</td></tr>
+            <tr><td>和差角、倍角公式</td><td>求值、化簡</td><td>★★★★☆</td></tr>
+            <tr><td>疊合求極值</td><td>選填、混合題</td><td>★★★★★</td></tr>
+            <tr><td>指數、對數函數比較大小</td><td>多選題</td><td>★★★★☆</td></tr>
+            <tr><td>常用對數：位數、首位、成長模型</td><td>情境題、選填</td><td>★★★★★</td></tr>
+            <tr><td>內積、夾角、垂直</td><td>計算題、多選題</td><td>★★★★★</td></tr>
+            <tr><td>正射影、柯西不等式</td><td>最值問題</td><td>★★★★☆</td></tr>
+            <tr><td>面積、行列式、克拉瑪</td><td>計算題</td><td>★★★☆☆</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warning" style="margin-top:1rem;">
+        <div class="callout-title">⚠️ 模擬考前的最後檢查</div>
+        <ul class="bullet">
+          <li>計算機不能用：常用對數值（log2、log3、log7）務必背熟</li>
+          <li>三角題先確認角度用<strong>度</strong>還是<strong>弧度</strong></li>
+          <li>對數方程式、指數換元後，回頭檢查定義域與 \(t>0\)</li>
+          <li>多選題每個選項都要驗證，不要憑印象</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <p>W24 數學A科講義 ── 第三冊A 全冊重點（三角函數・指數對數函數・平面向量）</p>
+      <p style="margin-top:0.4rem; opacity:0.7;">台灣高中學測備考 &bull; 高三上理工組 &bull; 第三階段最終週</p>
+    </div>
+
+    <a href="#toc" class="back-top">回到目錄 ↑</a>
+
+  </main>
+</div>
+
+</body>
+</html>

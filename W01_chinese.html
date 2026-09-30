@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W01 國文科學習講義｜燭之武退秦師 ＆ 大同與小康</title>
+  <style>
+    /* ===================== CSS Reset & Base ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: "Microsoft JhengHei", "蘋方-繁", "PingFang TC", "Noto Sans TC", sans-serif;
+      background: #fdf6f0;
+      color: #2c2c2c;
+      line-height: 1.8;
+    }
+
+    /* ===================== CSS Variables ===================== */
+    :root {
+      --primary:       #c0392b;
+      --primary-dark:  #96281b;
+      --primary-light: #e74c3c;
+      --primary-bg:    #fdecea;
+      --accent:        #8e44ad;
+      --accent-bg:     #f5eef8;
+      --gold:          #b7860b;
+      --gold-bg:       #fef9e7;
+      --teal:          #1a7a6e;
+      --teal-bg:       #e8f8f5;
+      --ink:           #2c2c2c;
+      --muted:         #6b6b6b;
+      --border:        #e0d0cd;
+      --card-bg:       #ffffff;
+      --shadow:        0 2px 12px rgba(192,57,43,0.10);
+    }
+
+    /* ===================== Layout ===================== */
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      min-width: 240px;
+      background: linear-gradient(180deg, #96281b 0%, #c0392b 40%, #e74c3c 100%);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 0 0 2rem 0;
+      box-shadow: 3px 0 14px rgba(0,0,0,0.15);
+      z-index: 100;
+    }
+    .sidebar-header {
+      background: rgba(0,0,0,0.20);
+      padding: 1.4rem 1rem 1.2rem 1rem;
+      text-align: center;
+    }
+    .sidebar-header .subject-badge {
+      display: inline-block;
+      background: #fff;
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1.1rem;
+      border-radius: 20px;
+      padding: 0.2rem 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+    .sidebar-header p { font-size: 0.78rem; opacity: 0.88; line-height: 1.5; }
+    .sidebar nav { padding: 1rem 0; }
+    .sidebar nav a {
+      display: block;
+      padding: 0.45rem 1.1rem;
+      color: rgba(255,255,255,0.90);
+      text-decoration: none;
+      font-size: 0.85rem;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.15);
+      border-left-color: #fff;
+      color: #fff;
+    }
+    .nav-section {
+      padding: 0.6rem 1.1rem 0.2rem 1.1rem;
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      opacity: 0.65;
+      text-transform: uppercase;
+    }
+    .nav-indent { padding-left: 1.8rem !important; font-size: 0.80rem !important; }
+
+    /* Main content */
+    .main-content {
+      flex: 1;
+      padding: 2rem 2.5rem 4rem 2.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* ===================== Page Header ===================== */
+    .page-header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: "文";
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 9rem;
+      opacity: 0.10;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .page-header .week-tag {
+      background: rgba(255,255,255,0.22);
+      display: inline-block;
+      padding: 0.2rem 0.9rem;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1px;
+    }
+    .page-header h1 { font-size: 1.85rem; font-weight: 900; margin-bottom: 0.4rem; }
+    .page-header .subtitle { font-size: 0.95rem; opacity: 0.88; }
+    .meta-row {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.1rem;
+      flex-wrap: wrap;
+    }
+    .meta-chip {
+      background: rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 0.22rem 0.9rem;
+      font-size: 0.80rem;
+    }
+
+    /* ===================== Section Titles ===================== */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 1.30rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin: 2.5rem 0 1.2rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--primary);
+    }
+    .section-title .icon { font-size: 1.3rem; }
+
+    .sub-section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 1.6rem 0 0.8rem 0;
+      padding-left: 0.8rem;
+      border-left: 4px solid var(--primary);
+    }
+    .sub-sub-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1.2rem 0 0.5rem 0;
+    }
+
+    /* ===================== Cards ===================== */
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* ===================== Info Boxes ===================== */
+    .box {
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      font-size: 0.93rem;
+    }
+    .box-key   { background: var(--primary-bg); border-left: 5px solid var(--primary); }
+    .box-warn  { background: #fff8e1; border-left: 5px solid #f39c12; }
+    .box-tip   { background: var(--teal-bg); border-left: 5px solid var(--teal); }
+    .box-link  { background: var(--accent-bg); border-left: 5px solid var(--accent); }
+    .box-gold  { background: var(--gold-bg); border-left: 5px solid var(--gold); }
+    .box-title { font-weight: 700; margin-bottom: 0.4rem; }
+
+    /* ===================== Original Text ===================== */
+    .original-text {
+      background: #fffaf7;
+      border: 1px solid #e8d5c8;
+      border-radius: 10px;
+      padding: 1.4rem 1.8rem;
+      font-size: 1.02rem;
+      line-height: 2.2;
+      color: #2c2c2c;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .original-text::before {
+      content: "原文";
+      position: absolute;
+      top: -0.7rem;
+      left: 1.2rem;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .original-text p { margin-bottom: 0.6rem; }
+    .original-text p:last-child { margin-bottom: 0; }
+
+    /* Key terms underline */
+    .kw {
+      border-bottom: 2px solid var(--primary);
+      color: var(--primary-dark);
+      font-weight: 600;
+      cursor: default;
+    }
+    .kw-gold {
+      border-bottom: 2px solid var(--gold);
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .kw-teal {
+      border-bottom: 2px solid var(--teal);
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    /* ===================== Glossary Table ===================== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.91rem;
+      margin: 0.8rem 0;
+    }
+    thead tr {
+      background: var(--primary);
+      color: #fff;
+    }
+    thead th {
+      padding: 0.65rem 1rem;
+      text-align: left;
+      font-weight: 700;
+    }
+    tbody tr:nth-child(even) { background: #fdf2f2; }
+    tbody tr:hover { background: var(--primary-bg); }
+    tbody td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tbody td:first-child { font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+
+    /* ===================== Translation Block ===================== */
+    .translation-block {
+      background: #f0f7f5;
+      border: 1px solid #b2d8d0;
+      border-radius: 10px;
+      padding: 1.3rem 1.6rem;
+      font-size: 0.93rem;
+      line-height: 1.95;
+      color: #1c4a43;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .translation-block::before {
+      content: "白話語譯";
+      position: absolute;
+      top: -0.7rem;
+      left: 1.2rem;
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    /* ===================== Analysis Points ===================== */
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 700px) { .analysis-grid { grid-template-columns: 1fr; } }
+    .analysis-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+    .analysis-item h4 { color: var(--primary-dark); font-size: 0.92rem; margin-bottom: 0.5rem; }
+    .analysis-item p, .analysis-item ul { font-size: 0.88rem; }
+    .analysis-item ul { padding-left: 1.2rem; }
+    .analysis-item li { margin-bottom: 0.3rem; }
+
+    /* ===================== Comparison Table ===================== */
+    .compare-table thead tr { background: var(--accent); }
+    .compare-table tbody td:first-child { color: var(--accent); }
+
+    /* ===================== Quiz Section ===================== */
+    .quiz-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-item .q-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 1.8rem;
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-right: 0.5rem;
+    }
+    .quiz-item .q-text { font-size: 0.94rem; font-weight: 600; margin-bottom: 0.7rem; }
+    .quiz-item ol { padding-left: 1.5rem; font-size: 0.92rem; }
+    .quiz-item li { margin-bottom: 0.3rem; list-style-type: upper-alpha; }
+    details { margin-top: 0.7rem; }
+    summary {
+      cursor: pointer;
+      background: var(--primary-bg);
+      color: var(--primary-dark);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-block;
+      user-select: none;
+    }
+    summary:hover { background: var(--primary); color: #fff; }
+    details[open] summary { background: var(--primary); color: #fff; }
+    .answer-box {
+      background: #fef9e7;
+      border: 1px solid #f0d060;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-top: 0.6rem;
+      font-size: 0.90rem;
+    }
+    .answer-box .correct { color: #27ae60; font-weight: 700; }
+
+    /* ===================== Knowledge Map ===================== */
+    .k-map {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .k-map-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .k-node {
+      background: var(--primary-bg);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-align: center;
+    }
+    .k-node.center {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.95rem;
+      padding: 0.7rem 1.4rem;
+    }
+    .k-node.teal {
+      background: var(--teal-bg);
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+    .k-node.gold {
+      background: var(--gold-bg);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .k-arrow { font-size: 1.4rem; color: var(--muted); }
+
+    /* ===================== Tag badges ===================== */
+    .tag {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 10px;
+      margin: 0.15rem;
+    }
+    .tag-red   { background: #fdecea; color: var(--primary); border: 1px solid var(--primary); }
+    .tag-teal  { background: var(--teal-bg); color: var(--teal); border: 1px solid var(--teal); }
+    .tag-gold  { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold); }
+    .tag-purple{ background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent); }
+
+    /* ===================== Exam highlight ===================== */
+    .exam-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.5rem;
+      border-radius: 8px;
+      vertical-align: middle;
+      margin-left: 0.3rem;
+    }
+
+    /* ===================== Divider ===================== */
+    .divider {
+      border: none;
+      border-top: 2px dashed var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* ===================== TOC ===================== */
+    .toc {
+      background: var(--gold-bg);
+      border: 1px solid #f0c040;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .toc h3 { color: var(--gold); margin-bottom: 0.8rem; font-size: 1rem; }
+    .toc ol { padding-left: 1.5rem; font-size: 0.90rem; }
+    .toc li { margin-bottom: 0.3rem; }
+    .toc a { color: var(--primary-dark); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; color: var(--primary); }
+
+    /* ===================== Responsive ===================== */
+    @media (max-width: 820px) {
+      .sidebar { display: none; }
+      .main-content { padding: 1.2rem 1rem 3rem 1rem; }
+    }
+
+    /* ===================== Scrollbar ===================== */
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.35); border-radius: 4px; }
+
+    /* Print */
+    @media print {
+      .sidebar { display: none; }
+      .main-content { padding: 0; max-width: 100%; }
+      .page-header { background: #c0392b !important; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="subject-badge">國 文</div>
+      <p>W01 古文單元<br>學測備考講義<br>高二理工組</p>
+    </div>
+    <nav>
+      <div class="nav-section">Overview</div>
+      <a href="#overview">學習總覽</a>
+      <a href="#prereq">先備知識</a>
+
+      <div class="nav-section">篇一：燭之武</div>
+      <a href="#z1-text" class="nav-indent">原文全文</a>
+      <a href="#z1-glossary" class="nav-indent">字詞注釋</a>
+      <a href="#z1-trans" class="nav-indent">白話語譯</a>
+      <a href="#z1-analysis" class="nav-indent">主旨與寫作手法</a>
+      <a href="#z1-exam" class="nav-indent">學測考點</a>
+
+      <div class="nav-section">篇二：大同與小康</div>
+      <a href="#z2-text" class="nav-indent">原文全文</a>
+      <a href="#z2-glossary" class="nav-indent">字詞注釋</a>
+      <a href="#z2-trans" class="nav-indent">白話語譯</a>
+      <a href="#z2-analysis" class="nav-indent">主旨與寫作手法</a>
+      <a href="#z2-exam" class="nav-indent">學測考點</a>
+
+      <div class="nav-section">比較與整合</div>
+      <a href="#compare">兩篇比較</a>
+      <a href="#kmap">知識連結圖</a>
+      <a href="#summary">重點整理</a>
+
+      <div class="nav-section">自我測驗</div>
+      <a href="#quiz">隨堂選擇題</a>
+    </nav>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main-content">
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="week-tag">第一週學習單元</div>
+      <h1>W01 國文科古文講義</h1>
+      <div class="subtitle">燭之武退秦師 ／ 大同與小康</div>
+      <div class="meta-row">
+        <span class="meta-chip">高二 · 理工組</span>
+        <span class="meta-chip">學測備考</span>
+        <span class="meta-chip">先秦散文</span>
+        <span class="meta-chip">《左傳》《禮記》</span>
+      </div>
+    </header>
+
+    <!-- TOC -->
+    <div class="toc" id="toc">
+      <h3>目錄 Table of Contents</h3>
+      <ol>
+        <li><a href="#overview">學習總覽與目標</a></li>
+        <li><a href="#prereq">先備知識</a></li>
+        <li><a href="#z1-text">燭之武退秦師｜原文全文</a></li>
+        <li><a href="#z1-glossary">燭之武退秦師｜字詞注釋</a></li>
+        <li><a href="#z1-trans">燭之武退秦師｜白話語譯</a></li>
+        <li><a href="#z1-analysis">燭之武退秦師｜主旨與寫作手法</a></li>
+        <li><a href="#z1-exam">燭之武退秦師｜學測考點</a></li>
+        <li><a href="#z2-text">大同與小康｜原文全文</a></li>
+        <li><a href="#z2-glossary">大同與小康｜字詞注釋</a></li>
+        <li><a href="#z2-trans">大同與小康｜白話語譯</a></li>
+        <li><a href="#z2-analysis">大同與小康｜主旨與寫作手法</a></li>
+        <li><a href="#z2-exam">大同與小康｜學測考點</a></li>
+        <li><a href="#compare">兩篇比較分析</a></li>
+        <li><a href="#kmap">知識連結圖</a></li>
+        <li><a href="#summary">重點整理</a></li>
+        <li><a href="#quiz">隨堂自我測驗（5 題）</a></li>
+      </ol>
+    </div>
+
+    <!-- ========== SECTION 1: OVERVIEW ========== -->
+    <section id="overview">
+      <h2 class="section-title"><span class="icon">📖</span>學習總覽</h2>
+      <div class="card">
+        <p>本週學習先秦散文兩篇，分別來自史書《左傳》與禮學典籍《禮記》。兩篇同屬先秦文章的精華，是學測古文的核心考材，前者展現縱橫說辭之美，後者揭示儒家政治理想。</p>
+      </div>
+
+      <h3 class="sub-section-title">學習目標</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 完成本週學習後，你應能：</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li>流暢朗讀並理解兩篇原文，掌握重要字詞的音義</li>
+          <li>分析燭之武的外交策略與說辭邏輯</li>
+          <li>區辨「大同」與「小康」社會的具體內涵與差異</li>
+          <li>比較兩篇在題材、寫作目的與修辭手法上的異同</li>
+          <li>辨識學測常見的考題類型，提升作答正確率</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-section-title">單元脈絡地圖</h3>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; margin:0.5rem 0;">
+        <div style="flex:1; min-width:200px; background:var(--primary-bg); border-radius:10px; padding:1rem;">
+          <strong style="color:var(--primary);">燭之武退秦師</strong>
+          <p style="font-size:0.85rem; margin-top:0.4rem;">《左傳》· 魯僖公三十年<br>敘事散文 · 外交說辭<br>春秋時期 · 鄭國之危</p>
+        </div>
+        <div style="display:flex; align-items:center; font-size:1.5rem; color:var(--muted);">VS</div>
+        <div style="flex:1; min-width:200px; background:var(--teal-bg); border-radius:10px; padding:1rem;">
+          <strong style="color:var(--teal);">大同與小康</strong>
+          <p style="font-size:0.85rem; margin-top:0.4rem;">《禮記·禮運》· 先秦<br>論述散文 · 政治理想<br>儒家思想 · 社會願景</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 2: PREREQ ========== -->
+    <section id="prereq">
+      <h2 class="section-title"><span class="icon">📚</span>先備知識</h2>
+      <div class="box box-link">
+        <div class="box-title">🔗 學習本週前，你應已具備：</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li><strong>文言文基礎：</strong>能辨識常見文言虛詞（之、乎、者、也、而、以、於、為），掌握古今異義基本概念</li>
+          <li><strong>春秋歷史背景：</strong>知曉春秋五霸，理解諸侯爭霸的時代背景，知道晉、秦、鄭三國的地理位置</li>
+          <li><strong>儒家思想入門：</strong>了解儒家仁、義、禮的核心概念，知道孔子生平大略</li>
+          <li><strong>修辭格基礎：</strong>排比、對偶、設問等基本修辭手法</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         篇一：燭之武退秦師
+         ==================================================== -->
+    <section>
+      <div style="background:linear-gradient(90deg, var(--primary-dark), var(--primary)); color:#fff; border-radius:12px; padding:1rem 1.5rem; margin-bottom:1.5rem;">
+        <div style="font-size:0.78rem; opacity:0.8; margin-bottom:0.3rem;">第一篇｜先秦敘事散文</div>
+        <div style="font-size:1.4rem; font-weight:900; letter-spacing:2px;">燭之武退秦師</div>
+        <div style="font-size:0.88rem; opacity:0.88; margin-top:0.3rem;">作者：左丘明｜出自《左傳》魯僖公三十年｜春秋時期</div>
+      </div>
+
+      <!-- 原文 -->
+      <h3 class="sub-section-title" id="z1-text">原文全文</h3>
+      <div class="original-text">
+        <p>晉侯、秦伯圍鄭，以其無禮於晉，且貳於楚也。晉軍函陵，秦軍氾南。</p>
+        <p>佚之狐言於鄭伯曰：「國危矣！若使<span class="kw">燭之武</span>見秦君，師必退。」公從之。辭曰：「臣之壯也，猶不如人；今老矣，無能為也已。」公曰：「吾不能早用子，今急而求子，是寡人之過也。然鄭亡，子亦有不利焉。」<span class="kw">許之</span>。</p>
+        <p>夜縋而出。見秦伯，曰：「秦、晉圍鄭，鄭既知亡矣。若亡鄭而有益於君，敢以<span class="kw">煩執事</span>。越國以鄙遠，君知其難也。焉用亡鄭以陪鄰？鄰之厚，君之薄也。若<span class="kw">舍鄭以為東道主</span>，行李之往來，共其乏困，君亦無所害。且君嘗為晉君賜矣；許君焦、瑕，朝濟而夕設版焉，君之所知也。夫晉，何<span class="kw">厭</span>之有？既東封鄭，又欲肆其西封；若不闕秦，將焉取之？<span class="kw">闕秦以利晉</span>，唯君圖之。」</p>
+        <p>秦伯說，與鄭人盟。使<span class="kw">杞子、逢孫、楊孫</span>戍之，乃還。</p>
+        <p>子犯請擊之，公曰：「不可。微夫人之力不及此。因人之力而敝之，不仁；失其所與，不知；以亂易整，不武。吾其還也。」亦去之。</p>
+      </div>
+
+      <!-- 字詞注釋 -->
+      <h3 class="sub-section-title" id="z1-glossary">字詞注釋 <span class="exam-badge">學測常考</span></h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音讀</th><th>字義</th><th>補充說明</th></tr></thead>
+          <tbody>
+            <tr><td>貳於楚</td><td>ㄦˋ</td><td>二心、不忠；此指鄭國同時親附楚國</td><td>貳：有二心，古今異義。現代多指「數字二」</td></tr>
+            <tr><td>晉軍函陵</td><td></td><td>軍：駐紮（動詞）</td><td>名詞用作動詞，古文常見活用</td></tr>
+            <tr><td>縋而出</td><td>ㄓㄨㄟˋ</td><td>用繩索縛人懸放而下</td><td>顯示鄭城已被圍困，燭之武冒死出城</td></tr>
+            <tr><td>煩執事</td><td></td><td>麻煩您（謙稱，指秦伯的屬臣）</td><td>外交敬辭，不直稱君主而稱「執事」</td></tr>
+            <tr><td>越國以鄙遠</td><td>ㄅㄧˇ</td><td>鄙：以…為邊邑（意動用法）；遠：遠方的土地</td><td>鄙：名詞活用為意動詞</td></tr>
+            <tr><td>陪鄰</td><td></td><td>增益鄰國（指晉國）的土地</td><td>陪：增益</td></tr>
+            <tr><td>東道主</td><td></td><td>東方道路上的主人（鄭在秦東，可接待使者）</td><td>後世演變為泛指「款待客人的主人」，為成語出典</td></tr>
+            <tr><td>行李之往來</td><td></td><td>行李：使者、外交使節（古今異義）</td><td>現代「行李」指旅行用品，此處指使臣</td></tr>
+            <tr><td>共其乏困</td><td>ㄍㄨㄥ</td><td>共：同「供」，供給</td><td>通假字：共 = 供</td></tr>
+            <tr><td>嘗為晉君賜矣</td><td></td><td>曾對晉君有恩賜（指允諾給晉惠公焦、瑕二城）</td><td>指秦晉之間的外交往來背景</td></tr>
+            <tr><td>朝濟而夕設版焉</td><td></td><td>早上渡河得救，晚上就築城設防</td><td>形容晉惠公言而無信、忘恩負義</td></tr>
+            <tr><td>厭</td><td>ㄧㄢˋ</td><td>滿足（古今異義）</td><td>現代多指「討厭」，此處為「饜足」</td></tr>
+            <tr><td>既東封鄭</td><td></td><td>封：使…成為邊疆（使動用法）；東：向東（方位名詞作狀語）</td><td>詞類活用</td></tr>
+            <tr><td>肆其西封</td><td></td><td>肆：擴展、延伸</td><td>肆：放縱、延伸</td></tr>
+            <tr><td>闕秦</td><td>ㄑㄩㄝ</td><td>損害、削弱秦國</td><td>闕：同「缺」，削減</td></tr>
+            <tr><td>微夫人之力</td><td></td><td>微：假如沒有；夫人：那人（此指秦伯）</td><td>微：假設性否定副詞；夫人：古今異義（非妻子）</td></tr>
+            <tr><td>因人之力而敝之</td><td></td><td>依靠別人的力量卻反過來傷害他</td><td>敝：使…受損</td></tr>
+            <tr><td>失其所與</td><td></td><td>失去盟友；與：結盟（動詞）</td><td>與：結交、盟友</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-warn" style="margin-top:0.8rem;">
+        <div class="box-title">⚠️ 常見易錯字詞（古今異義整理）</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>行李</strong>：古義 = 使者，今義 = 旅行物品</li>
+          <li><strong>夫人</strong>：古義 = 那人（夫：指示代詞），今義 = 妻子</li>
+          <li><strong>東道主</strong>：古義 = 東方道路上的主人，今義 = 泛指接待方</li>
+          <li><strong>厭</strong>：古義 = 滿足，今義 = 討厭</li>
+          <li><strong>貳</strong>：古義 = 二心，今義 = 數字二</li>
+        </ul>
+      </div>
+
+      <!-- 語譯 -->
+      <h3 class="sub-section-title" id="z1-trans">白話語譯</h3>
+      <div class="translation-block">
+        <p><strong>第一段：</strong>晉文公、秦穆公聯合出兵包圍鄭國，原因是鄭國曾對晉國無禮，又同時與楚國交好（有二心）。晉軍駐紮在函陵，秦軍駐紮在氾水南岸。</p>
+        <p><strong>第二段（佚之狐舉薦）：</strong>佚之狐向鄭文公進言說：「國家危急了！如果派燭之武去見秦君，秦軍必定撤退。」鄭文公採納了這個建議。燭之武推辭說：「我壯年的時候，尚且不如別人；現在老了，已無能為力了。」鄭文公說：「我不能及早重用您，現在情況緊急才求您，這是我的過失。然而鄭國滅亡，對您也有不利之處啊。」燭之武答應了。</p>
+        <p><strong>第三段（燭之武的說辭核心）：</strong>燭之武在夜間用繩子縒城而出，去見秦穆公，說道：「秦、晉兩國圍攻鄭國，鄭國已知道自己難逃亡國了。如果滅亡鄭國對您有好處，那就冒昧地拿這件事來麻煩您的左右。但是越過別國（指晉國）以遠方（鄭國）為邊邑，您知道這是很困難的。為何要滅掉鄭國來增益鄰國（晉國）的土地？鄰國勢力增強，就是您秦國勢力的削弱。如果放棄鄭國讓它作為秦國東方道路上的主人，秦國使節往來之時，鄭國可以供應他們所缺乏的物資，對秦國也無害處。況且您曾對晉君有所恩賜，晉惠公曾答應把焦、瑕二城給您，可他一渡過黃河就立刻在那裡設版築城（拒絕兌現），這都是您所清楚知道的。晉國哪裡會有滿足的時候？已向東把鄭國設為邊界，又想要延伸它西邊的疆土；若不損害秦國，又將從哪裡取得土地呢？損害秦國來讓晉國得利，希望您好好考慮這件事。」</p>
+        <p><strong>第四段（秦國退兵）：</strong>秦穆公很高興，與鄭國訂立盟約，並派遣杞子、逢孫、楊孫留守鄭國，便帶兵撤退了。</p>
+        <p><strong>第五段（晉文公自省）：</strong>晉國大夫子犯請求趁機攻打秦軍，晉文公說：「不行。若沒有那人（秦穆公）的力量，我不能到今天這個地步。依靠別人的力量又反過來傷害他，是不仁；失去了盟友，是不智；以動亂代替整齊（師出無名），是不武。我們還是撤退吧。」晉軍也撤離了。</p>
+      </div>
+
+      <!-- 主旨與寫作手法 -->
+      <h3 class="sub-section-title" id="z1-analysis">主旨與寫作手法分析</h3>
+
+      <h4 class="sub-sub-title">一、主旨</h4>
+      <div class="box box-key">
+        <div class="box-title">✅ 本篇主旨</div>
+        <p style="font-size:0.93rem;">本篇記述燭之武奉鄭文公之命，深夜出城說服秦穆公，以精準的利害分析、高超的縱橫說辭，成功瓦解秦晉聯盟，使鄭國免於亡國之禍。文章歌頌了燭之武忠君愛國的品德，以及能言善道、胸懷大局的外交才能，同時也彰顯了「巧言可退百萬兵」的說辭力量。</p>
+      </div>
+
+      <h4 class="sub-sub-title">二、文章結構</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>段落</th><th>內容</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>第一段</td><td>交代背景：晉秦圍鄭的起因</td><td>鋪墊危機，製造緊張氣氛</td></tr>
+            <tr><td>第二段</td><td>人物出場：燭之武初辭再許</td><td>刻畫人物性格，顯示君臣對話</td></tr>
+            <tr><td>第三段</td><td>核心：燭之武說辭全文（五層說辭）</td><td>全篇高潮，展現縱橫說辭藝術</td></tr>
+            <tr><td>第四段</td><td>結果：秦國退兵，與鄭結盟</td><td>說辭成效之佐證</td></tr>
+            <tr><td>第五段</td><td>尾聲：晉文公自省退兵</td><td>豐富人物形象，展現義理思辨</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="sub-sub-title">三、燭之武說辭的五層邏輯（核心分析）</h4>
+      <div style="display:flex; flex-direction:column; gap:0.7rem; margin:0.8rem 0;">
+        <div style="background:#fff; border:1px solid var(--border); border-left:5px solid var(--primary); border-radius:8px; padding:0.8rem 1.1rem; font-size:0.91rem;">
+          <strong style="color:var(--primary);">第一層｜先示弱，建立信任</strong><br>
+          「鄭既知亡矣」— 燭之武先承認鄭國的弱勢，卸下秦穆公的戒備，以真誠姿態開場。
+        </div>
+        <div style="background:#fff; border:1px solid var(--border); border-left:5px solid var(--primary); border-radius:8px; padding:0.8rem 1.1rem; font-size:0.91rem;">
+          <strong style="color:var(--primary);">第二層｜亡鄭無益論</strong><br>
+          「越國以鄙遠，君知其難也」— 秦國若滅鄭，地理上無法管理，反而肥了晉國（鄰之厚，君之薄）。以秦的立場分析，亡鄭對秦毫無好處。
+        </div>
+        <div style="background:#fff; border:1px solid var(--border); border-left:5px solid var(--primary); border-radius:8px; padding:0.8rem 1.1rem; font-size:0.91rem;">
+          <strong style="color:var(--primary);">第三層｜存鄭有利論</strong><br>
+          「舍鄭以為東道主…君亦無所害」— 反之，保留鄭國可作為秦國往來東方的補給站，對秦有實質利益。
+        </div>
+        <div style="background:#fff; border:1px solid var(--border); border-left:5px solid var(--primary); border-radius:8px; padding:0.8rem 1.1rem; font-size:0.91rem;">
+          <strong style="color:var(--primary);">第四層｜挑撥秦晉舊怨</strong><br>
+          「朝濟而夕設版焉」— 揭露晉惠公（秦穆公的姻親）的背信棄義，激化秦對晉的不信任感。借古諷今。
+        </div>
+        <div style="background:#fff; border:1px solid var(--border); border-left:5px solid var(--primary); border-radius:8px; padding:0.8rem 1.1rem; font-size:0.91rem;">
+          <strong style="color:var(--primary);">第五層｜指晉的野心威脅論</strong><br>
+          「既東封鄭，又欲肆其西封；若不闕秦，將焉取之？」— 直言晉國將來必侵秦，以長遠利害打動秦穆公，促其與晉決裂。
+        </div>
+      </div>
+
+      <h4 class="sub-sub-title">四、寫作手法</h4>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>縱橫家說辭藝術</h4>
+          <p>燭之武完全從秦國立場出發，不提鄭國利益，以「利害分析」說服對方，展現戰國縱橫家說辭的典型技巧。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>欲揚先抑</h4>
+          <p>先說「鄭既知亡矣」，承認己方弱勢（抑），再轉入對秦有利的分析（揚），心理策略高明。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>對比與映襯</h4>
+          <ul>
+            <li>「朝濟而夕設版」對比時間，諷晉國無信</li>
+            <li>「鄰之厚，君之薄」正反對比，凸顯利害</li>
+            <li>燭之武之老驥伏櫪 vs. 臨危受命</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>人物刻畫（語言描寫）</h4>
+          <ul>
+            <li>燭之武：辭語縝密，有謙有策，老成謀國</li>
+            <li>鄭文公：從善如流，坦承過失，有明君風範</li>
+            <li>晉文公：理智自制，不因勝敗而違義</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>伏筆與照應</h4>
+          <p>第一段的「晉秦圍鄭」背景鋪墊，為第五段晉文公「微夫人之力不及此」的感念埋下伏筆。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>簡潔敘事（《左傳》特色）</h4>
+          <p>《左傳》以精煉文字記史，本篇以短短約300字交代外交大事，敘事節奏緊湊，語言洗練。</p>
+        </div>
+      </div>
+
+      <!-- 學測考點 -->
+      <h3 class="sub-section-title" id="z1-exam">學測常考重點 <span class="exam-badge">高頻考點</span></h3>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測／指考頻繁出現的考題方向：</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem; margin-top:0.4rem;">
+          <li><strong>字義辨析（古今異義）：</strong>行李、東道主、夫人、厭、貳 — 選擇題高頻</li>
+          <li><strong>詞類活用：</strong>「軍（函陵）」動詞活用、「鄙（遠）」意動用法、「封（鄭）」使動用法</li>
+          <li><strong>通假字：</strong>「共（供）其乏困」、「說（悅）」</li>
+          <li><strong>燭之武說辭的邏輯層次</strong>（分析題型）：能說明五層論點的因果關係</li>
+          <li><strong>主旨理解：</strong>本文強調人才的重要、說辭的力量、或是義理辨析（仁、知、武）</li>
+          <li><strong>成語出典：</strong>「東道主」源自本篇，考生須知典故出處</li>
+          <li><strong>《左傳》文學地位：</strong>中國第一部敘事詳盡的編年體史書，屬春秋三傳之一</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 考生最常犯的錯誤：</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>將「夫人」誤解為「妻子」（此處為指示代詞「那人」）</li>
+          <li>混淆「晉文公」和「晉惠公」：文中對晉不信任是針對<strong>晉惠公</strong>，而非晉文公</li>
+          <li>誤以為燭之武是在「求饒」，實際上是主動分析利害，立場是替秦謀利</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         篇二：大同與小康
+         ==================================================== -->
+    <section>
+      <div style="background:linear-gradient(90deg, var(--teal), #1abc9c); color:#fff; border-radius:12px; padding:1rem 1.5rem; margin-bottom:1.5rem;">
+        <div style="font-size:0.78rem; opacity:0.8; margin-bottom:0.3rem;">第二篇｜先秦論述散文</div>
+        <div style="font-size:1.4rem; font-weight:900; letter-spacing:2px;">大同與小康</div>
+        <div style="font-size:0.88rem; opacity:0.88; margin-top:0.3rem;">出自《禮記·禮運》｜先秦儒家典籍｜孔子與子游的對話體</div>
+      </div>
+
+      <!-- 原文 -->
+      <h3 class="sub-section-title" id="z2-text">原文全文</h3>
+      <div class="original-text">
+        <p>昔者仲尼與於蜡賓，事畢，出遊於觀之上，喟然而嘆。仲尼之嘆，蓋嘆魯也。言偃在側，曰：「君子何嘆？」孔子曰：「大道之行也，與三代之英，丘未之逮也，而有志焉。</p>
+        <p>「<span class="kw-teal">大道之行也，天下為公</span>，選賢與能，講信修睦。故人不獨親其親，不獨子其子，使老有所終，壯有所用，幼有所長，矜、寡、孤、獨、廢疾者，皆有所養；男有分，女有歸。貨惡其棄於地也，不必藏於己；力惡其不出於身也，不必為己。是故謀閉而不興，盜竊亂賊而不作，故外戶而不閉，是謂<span class="kw-teal">大同</span>。」</p>
+        <p>「今大道既隱，天下為家，各親其親，各子其子，貨力為己；大人世及以為禮，<span class="kw">城郭溝池以為固</span>，禮義以為紀；以正君臣，以篤父子，以睦兄弟，以和夫婦，以設制度，以立田里，以賢勇知，以功為己。<span class="kw">故謀用是作，而兵由此起</span>。禹、湯、文、武、成王、周公，由此其選也。此六君子者，未有不謹於禮者也。以著其義，以考其信，著有過，刑仁講讓，示民有常。如有不由此者，在埶者去，眾以為殃。是謂<span class="kw">小康</span>。」</p>
+      </div>
+
+      <div class="box box-tip">
+        <div class="box-title">💡 原文說明</div>
+        <p style="font-size:0.90rem;">本篇為孔子感嘆「大道已遠」，向弟子子游（言偃）描述兩種社會理想型態——「大同」與「小康」。孔子身處春秋亂世，以「大同」為最高理想，以「小康」為當世之治，反映儒家由現實出發、漸進追求理想的政治思想。</p>
+      </div>
+
+      <!-- 字詞注釋 -->
+      <h3 class="sub-section-title" id="z2-glossary">字詞注釋 <span class="exam-badge">學測常考</span></h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音讀</th><th>字義</th><th>補充說明</th></tr></thead>
+          <tbody>
+            <tr><td>蜡賓</td><td>ㄓㄚˋ</td><td>蜡祭（年終祭祀）時的賓客，孔子擔任助祭者</td><td>蜡：周代年終合祭百神之名；注意不是「蠟」</td></tr>
+            <tr><td>丘未之逮也</td><td></td><td>我（孔丘）沒有趕上那個時代</td><td>逮：及、趕上；「未之逮」為否定句賓語前置</td></tr>
+            <tr><td>喟然而嘆</td><td>ㄎㄨㄟˋ</td><td>歎息的樣子</td><td>喟：嘆氣的聲音或樣子</td></tr>
+            <tr><td>大道之行也</td><td></td><td>大道：最高的政治倫理原則（仁義之道）得以實行</td><td>「大道」是儒家最理想的政治原則</td></tr>
+            <tr><td>天下為公</td><td></td><td>天下是全體人民共有的，非一人私有</td><td>公：公共、共有。對比後文「天下為家」</td></tr>
+            <tr><td>選賢與能</td><td>ㄐㄩˇ</td><td>選拔有德行的人，推舉有能力的人</td><td>與：同「舉」（通假字）；賢指品德，能指才幹</td></tr>
+            <tr><td>講信修睦</td><td></td><td>講求誠信，培養和睦（敦睦人際關係）</td><td>修：培養、增進</td></tr>
+            <tr><td>不獨親其親</td><td></td><td>不只孝敬自己的父母（親：動詞，愛敬；第二個「親」：名詞，父母）</td><td>詞類活用：名詞「親」活用為動詞</td></tr>
+            <tr><td>不獨子其子</td><td></td><td>不只愛護自己的子女（子：動詞，撫育；第二個「子」：名詞，子女）</td><td>同上，名詞活用為動詞</td></tr>
+            <tr><td>矜、寡、孤、獨</td><td>ㄍㄨㄢ</td><td>矜（鰥）：老年喪妻的男人；寡：老年喪夫的女人；孤：幼年喪父；獨：老年無子</td><td>四者並列，代表社會弱勢群體</td></tr>
+            <tr><td>廢疾者</td><td></td><td>身有殘疾、無法自立者</td><td>廢：廢疾、殘廢</td></tr>
+            <tr><td>男有分，女有歸</td><td>ㄈㄣˋ</td><td>男子有職業本分，女子有出嫁歸宿</td><td>分：職分、職責；歸：出嫁（古義）</td></tr>
+            <tr><td>外戶而不閉</td><td></td><td>大門不必關閉</td><td>外戶：大門</td></tr>
+            <tr><td>天下為家</td><td></td><td>天下成了一家（一人）的私有財產</td><td>對比「天下為公」，體現公私之分</td></tr>
+            <tr><td>大人世及以為禮</td><td></td><td>諸侯天子將世襲傳位視為禮制</td><td>世及：父死子繼（世）或兄終弟及（及）</td></tr>
+            <tr><td>城郭溝池以為固</td><td></td><td>以城牆、壕溝作為防禦工事</td><td>小康時代需要武力防禦，不同於大同的自然和諧</td></tr>
+            <tr><td>禮義以為紀</td><td></td><td>以禮義作為社會的綱紀規範</td><td>小康依賴禮制維持秩序，非自然道德</td></tr>
+            <tr><td>以賢勇知</td><td></td><td>以才能勇武和智識（作為選人標準）</td><td>知：同「智」（通假字）</td></tr>
+            <tr><td>謀用是作</td><td></td><td>因此機謀就從這裡產生了</td><td>對比大同「謀閉而不興」</td></tr>
+            <tr><td>兵由此起</td><td></td><td>戰爭也因此而興起</td><td>對比大同「盜竊亂賊而不作」</td></tr>
+            <tr><td>由此其選也</td><td></td><td>（六君子）因此成為傑出的人物</td><td>選：傑出者；指以禮治世而脫穎而出</td></tr>
+            <tr><td>刑仁講讓</td><td></td><td>以仁為法則，倡導謙讓</td><td>刑：通「型」，典範、法式</td></tr>
+            <tr><td>在埶者去</td><td>ㄕˋ</td><td>在位掌權的人也會被罷黜</td><td>埶：通「勢」，權位</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 通假字與詞類活用整理</div>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; font-size:0.90rem;">
+          <div style="flex:1; min-width:180px;">
+            <strong style="color:var(--primary);">通假字：</strong>
+            <ul style="padding-left:1.2rem;">
+              <li>與 = 舉（選賢與能）</li>
+              <li>知 = 智（以賢勇知）</li>
+              <li>刑 = 型（刑仁講讓）</li>
+              <li>埶 = 勢（在埶者去）</li>
+            </ul>
+          </div>
+          <div style="flex:1; min-width:180px;">
+            <strong style="color:var(--teal);">詞類活用：</strong>
+            <ul style="padding-left:1.2rem;">
+              <li>親其親（名詞→動詞：孝敬）</li>
+              <li>子其子（名詞→動詞：撫育）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 語譯 -->
+      <h3 class="sub-section-title" id="z2-trans">白話語譯</h3>
+      <div class="translation-block">
+        <p><strong>引言：</strong>從前孔子曾參加蜡祭，擔任助祭的賓客，典禮結束後，到宮城門觀樓上遊覽，發出了深深的嘆息。孔子的嘆息，大概是在感嘆魯國（大道不行）的狀況吧。弟子言偃（子游）在旁邊，說：「夫子為何嘆息？」孔子說：「大道通行的時代，以及夏、商、周三代英明君主的時代，我都沒有趕上，但心中嚮往。」</p>
+
+        <p><strong>大同之世：</strong>孔子說：「大道通行的時候，天下是大家共有的（公共的），選拔有德行的人，推舉有才能的人，講求誠信，培養和睦。因此人們不只孝敬自己的父母，不只愛護自己的子女，讓老人能夠安享晚年，壯年人有所發揮，幼兒得到撫育成長；鰥夫、寡婦、孤兒、老而無子、殘廢者，都能得到照顧供養；男子有職業，女子有歸宿。對於財貨，人們討厭它被浪費丟棄，但不必據為己有；對於力氣，人們討厭不盡力去做，但不必只為了自己。因此陰謀不會興起，盜竊、叛亂之事也不會發生，所以大門不必關閉——這就叫做『大同』。」</p>
+
+        <p><strong>小康之世：</strong>「現在大道已經隱而不行，天下成了一家（一人）私有的，各人只孝敬自己的父母，各人只愛護自己的子女，財物和勞力都只為自己；諸侯天子以世襲傳位為禮制，修築城牆壕溝作為防禦，以禮義作為綱紀。因此用禮義來端正君臣名分，用禮義來加深父子情誼，用禮義來使兄弟和睦，用禮義來使夫妻和諧，以禮義設立各種制度，以禮義劃分田里，以此標榜勇智之人，以此把功績歸於個人。所以機謀因此產生，戰爭也由此興起。夏禹、商湯、周文王、周武王、周成王、周公，就是因為（以禮治世）而成為傑出的人物。這六位君子，沒有一位不謹守禮制。他們用禮來彰顯道義，用禮來成全信用，揭露過錯，以仁愛為典範，倡導謙讓，向人民昭示常規法度。如果有不遵循禮的，即使是在位掌權的人也要被罷黜，百姓都把他看作禍害——這就叫做『小康』。」</p>
+      </div>
+
+      <!-- 主旨與寫作手法 -->
+      <h3 class="sub-section-title" id="z2-analysis">主旨與寫作手法分析</h3>
+
+      <h4 class="sub-sub-title">一、主旨</h4>
+      <div class="box box-tip">
+        <div class="box-title">✅ 本篇主旨</div>
+        <p style="font-size:0.93rem;">本篇藉孔子之口描繪「大同」與「小康」兩種社會理想。「大同」是儒家最高政治理想——天下為公、選賢與能、老有所終；「小康」是以禮制維持秩序的現實之治。文章一方面表達孔子對大同之世無法實現的感嘆，一方面積極闡明儒家以「禮」治世的政治主張，寄寓了作者對太平治世的嚮往。</p>
+      </div>
+
+      <h4 class="sub-sub-title">二、大同 vs. 小康核心對比</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>比較面向</th><th style="color:#e8f8f5;">大同之世</th><th style="color:#fdecea;">小康之世</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>政治基礎</td>
+              <td>天下為公（公有）</td>
+              <td>天下為家（私有）</td>
+            </tr>
+            <tr>
+              <td>人才選拔</td>
+              <td>選賢與能（能力德行優先）</td>
+              <td>大人世及（世襲傳承）</td>
+            </tr>
+            <tr>
+              <td>社會精神</td>
+              <td>講信修睦（自然道德）</td>
+              <td>禮義以為紀（人為制度）</td>
+            </tr>
+            <tr>
+              <td>防禦需求</td>
+              <td>不需要（謀閉不興）</td>
+              <td>城郭溝池以為固</td>
+            </tr>
+            <tr>
+              <td>財貨觀念</td>
+              <td>貨惡棄，不必藏己</td>
+              <td>貨力為己</td>
+            </tr>
+            <tr>
+              <td>家庭觀</td>
+              <td>不獨親其親，不獨子其子</td>
+              <td>各親其親，各子其子</td>
+            </tr>
+            <tr>
+              <td>最終結果</td>
+              <td>謀閉而不興，外戶而不閉（自然和諧）</td>
+              <td>謀用是作，兵由此起；靠謹守禮制、罷黜失禮者維持秩序</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-warn" style="margin-top:0.5rem;">
+        <div class="box-title">⚠️ 易混淆！兩段的結論恰好相反</div>
+        <p style="font-size:0.91rem;"><strong>大同</strong>段結論是「謀閉而不興，盜竊亂賊而不作，故外戶而不閉」——道德自然內化，不需防備；<strong>小康</strong>段結論則是「謀用是作，而兵由此起」——人人為己，機謀與戰爭隨之出現，只能靠禹、湯、文、武、成王、周公等「謹於禮」的君子以禮制維持秩序。「外戶而不閉」只屬於大同，<strong>不是</strong>小康的特徵。本質上，大同是「無為而治」的理想，小康是「以禮為治」的現實。</p>
+      </div>
+
+      <h4 class="sub-sub-title">三、寫作手法</h4>
+      <div class="analysis-grid">
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">對比論述</h4>
+          <p>全篇以「大同」vs「小康」的對比結構貫穿，藉由「公vs私」、「天下vs家」、「自然道德vs人為禮制」的反差，突顯大同的優越性與小康的侷限性。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">排比句式</h4>
+          <p>「使老有所終，壯有所用，幼有所長」「以正君臣，以篤父子，以睦兄弟，以和夫婦」等排比句，節奏整齊、氣勢充沛，增強論述的說服力。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">對話體引入（借托言志）</h4>
+          <p>以孔子與子游的師生問答形式引出論述，一問一答，生動自然，且藉孔子之口表達儒家政治理想，具有更高的權威性。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">以史為鑑（嗟嘆筆法）</h4>
+          <p>孔子「喟然而嘆」，以嘆氣開篇，情感真摯。對大道已隱的感傷貫穿全文，使論述帶有強烈的感染力，非純學術論述。</p>
+        </div>
+      </div>
+
+      <!-- 學測考點 -->
+      <h3 class="sub-section-title" id="z2-exam">學測常考重點 <span class="exam-badge">高頻考點</span></h3>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測常考題型：</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>大同與小康的具體差異：</strong>各面向的精準對比是選擇題核心，尤其是「天下為公 vs 天下為家」的判斷</li>
+          <li><strong>通假字辨識：</strong>選賢與（舉）能、以賢勇知（智）</li>
+          <li><strong>詞類活用：</strong>「親其親」「子其子」的名詞動用</li>
+          <li><strong>字詞辨析：</strong>「矜（鰥）」、「男有分（ㄈㄣˋ）」、「蜡（ㄓㄚˋ）賓」</li>
+          <li><strong>主旨與寓意：</strong>孔子為何嘆息？大同理想與現實的關係</li>
+          <li><strong>《禮記》文獻背景：</strong>儒家「十三經」之一，西漢戴聖輯錄</li>
+          <li><strong>句型翻譯：</strong>「不獨親其親，不獨子其子」的翻譯考查詞類活用理解</li>
+          <li><strong>現代應用：</strong>「小康社會」一詞在現代的沿用與意涵</li>
+        </ul>
+      </div>
+      <div class="box box-link">
+        <div class="box-title">🔗 跨領域連結</div>
+        <p style="font-size:0.90rem;">「大同」理想對後世影響深遠：清末康有為著《大同書》以此為藍本描繪烏托邦；孫中山《三民主義》天下為公思想亦源於此。現代中文「小康」一詞描述「中等富裕生活水準」，直接出自本篇。社會科（公民）課亦有相關延伸。</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: COMPARE ========== -->
+    <section id="compare">
+      <h2 class="section-title"><span class="icon">⚖️</span>兩篇比較分析</h2>
+      <div class="card" style="padding:0;">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>比較面向</th>
+              <th>燭之武退秦師</th>
+              <th>大同與小康</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>文體</td>
+              <td>敘事散文（史傳體）</td>
+              <td>論述散文（哲理體）</td>
+            </tr>
+            <tr>
+              <td>出處</td>
+              <td>《左傳》（編年體史書）</td>
+              <td>《禮記·禮運》（禮學典籍）</td>
+            </tr>
+            <tr>
+              <td>作者</td>
+              <td>左丘明（春秋末期）</td>
+              <td>傳為孔子弟子記錄，西漢戴聖輯</td>
+            </tr>
+            <tr>
+              <td>時代背景</td>
+              <td>春秋晉秦鄭三國爭霸（魯僖公三十年，前630年）</td>
+              <td>春秋末年，孔子觀蜡祭後抒懷</td>
+            </tr>
+            <tr>
+              <td>題材</td>
+              <td>外交事件、人物傳記、縱橫說辭</td>
+              <td>政治哲學、社會理想、禮制討論</td>
+            </tr>
+            <tr>
+              <td>寫作目的</td>
+              <td>記述歷史事件，彰顯人才的重要性與說辭的力量</td>
+              <td>闡揚儒家政治理想，寄寓對太平治世的嚮往</td>
+            </tr>
+            <tr>
+              <td>核心主題</td>
+              <td>忠君愛國、外交智慧、個人才能的發揮</td>
+              <td>天下為公、仁政理想、大道之行的政治願景</td>
+            </tr>
+            <tr>
+              <td>結構特點</td>
+              <td>起承轉合五段式敘事結構；情節緊湊，懸念迭生</td>
+              <td>對比論述結構（大同vs小康）；排比對偶，氣勢整齊</td>
+            </tr>
+            <tr>
+              <td>主要修辭</td>
+              <td>對比、欲揚先抑、反問（何厭之有？）、伏筆照應</td>
+              <td>排比、對比、對偶、借托（孔子之口）</td>
+            </tr>
+            <tr>
+              <td>語言風格</td>
+              <td>精煉敘事，對話生動，語氣婉轉而有力</td>
+              <td>整齊典雅，句式規律，論述嚴謹而富感情</td>
+            </tr>
+            <tr>
+              <td>人物刻畫</td>
+              <td>鮮明（燭之武、鄭文公、晉文公各有性格）</td>
+              <td>孔子形象為主，藉嘆氣與問答表現情感</td>
+            </tr>
+            <tr>
+              <td>對後世影響</td>
+              <td>「東道主」成語的出典；縱橫說辭的典範文本</td>
+              <td>「小康」「大同」詞語流傳至今；影響康有為、孫中山</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">修辭手法詳細比較</h3>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; margin:0.5rem 0;">
+        <div style="flex:1; min-width:250px;">
+          <div style="background:var(--primary-bg); border:1px solid var(--primary); border-radius:10px; padding:1.1rem;">
+            <strong style="color:var(--primary);">燭之武退秦師</strong>
+            <ul style="padding-left:1.2rem; margin-top:0.6rem; font-size:0.88rem;">
+              <li><strong>對比：</strong>「鄰之厚，君之薄」正反對比；「朝濟而夕設版」時間對比</li>
+              <li><strong>反問：</strong>「夫晉，何厭之有？」強化疑問語氣</li>
+              <li><strong>設問式說理：</strong>「焉用亡鄭以陪鄰？」</li>
+              <li><strong>欲揚先抑：</strong>先承認鄭亡（抑），再提秦之利（揚）</li>
+              <li><strong>伏筆與照應：</strong>首尾呼應，晉文公「微夫人之力」照應秦伯退兵</li>
+            </ul>
+          </div>
+        </div>
+        <div style="flex:1; min-width:250px;">
+          <div style="background:var(--teal-bg); border:1px solid var(--teal); border-radius:10px; padding:1.1rem;">
+            <strong style="color:var(--teal);">大同與小康</strong>
+            <ul style="padding-left:1.2rem; margin-top:0.6rem; font-size:0.88rem;">
+              <li><strong>排比：</strong>「使老有所終，壯有所用，幼有所長」三者並列</li>
+              <li><strong>對偶：</strong>「男有分，女有歸」「不獨親其親，不獨子其子」</li>
+              <li><strong>對比：</strong>大同vs小康的全篇結構性對比</li>
+              <li><strong>四字句型：</strong>「選賢與能，講信修睦」等整齊的四言句式</li>
+              <li><strong>借托言志：</strong>藉孔子之嘆表達作者對禮崩樂壞的批判</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION: KNOWLEDGE MAP ========== -->
+    <section id="kmap">
+      <h2 class="section-title"><span class="icon">🔗</span>知識連結圖</h2>
+      <div class="k-map">
+        <div class="k-node center">W01 先秦散文</div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.4rem;">
+            <div class="k-node">燭之武退秦師</div>
+            <div style="display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center;">
+              <div class="k-node" style="font-size:0.78rem; padding:0.3rem 0.7rem;">縱橫說辭</div>
+              <div class="k-node" style="font-size:0.78rem; padding:0.3rem 0.7rem;">《左傳》史學</div>
+              <div class="k-node" style="font-size:0.78rem; padding:0.3rem 0.7rem;">詞類活用</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; font-size:1.2rem; color:var(--muted);">|</div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.4rem;">
+            <div class="k-node teal">大同與小康</div>
+            <div style="display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center;">
+              <div class="k-node teal" style="font-size:0.78rem; padding:0.3rem 0.7rem;">儒家禮治</div>
+              <div class="k-node teal" style="font-size:0.78rem; padding:0.3rem 0.7rem;">《禮記》典籍</div>
+              <div class="k-node teal" style="font-size:0.78rem; padding:0.3rem 0.7rem;">排比對偶</div>
+            </div>
+          </div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node gold">連結：歷史科</div>
+          <div class="k-node gold">連結：公民科</div>
+          <div class="k-node gold">連結：後代文學</div>
+        </div>
+        <div style="font-size:0.80rem; color:var(--muted); margin-top:0.5rem; text-align:center;">
+          歷史：春秋五霸、諸侯爭霸｜公民：政治制度、民主公共性｜文學：戰國策縱橫術、康有為大同書
+        </div>
+      </div>
+
+      <div class="box box-link" style="margin-top:1rem;">
+        <div class="box-title">🔗 課程跨單元連結提示</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>國文課內連結：</strong>燭之武說辭技巧可對比戰國策〈馮諼客孟嘗君〉的門客說辭；大同思想可對比孟子「仁政」與荀子「禮制」</li>
+          <li><strong>歷史科連結：</strong>春秋時代晉秦鄭三國關係，禮崩樂壞的時代背景</li>
+          <li><strong>公民科連結：</strong>「天下為公」可對比現代民主「公共性」概念；「大同」vs「小康」可與社會主義思想比較</li>
+          <li><strong>後續單元：</strong>下週先秦諸子（如孟子、荀子）可直接延伸本週儒家思想基礎</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== SECTION: SUMMARY ========== -->
+    <section id="summary">
+      <h2 class="section-title"><span class="icon">📝</span>重點整理</h2>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+        <div class="box box-key">
+          <div class="box-title">✅ 燭之武退秦師 重點速記</div>
+          <ul style="padding-left:1.2rem; font-size:0.88rem;">
+            <li>背景：晉秦圍鄭 → 起因：鄭對晉無禮且貳楚</li>
+            <li>核心人物：燭之武、鄭文公、秦穆公、晉文公</li>
+            <li>說辭五層：示弱→亡鄭無益→存鄭有利→挑撥舊怨→晉之威脅</li>
+            <li>成語出典：<strong>東道主</strong></li>
+            <li>文體：敘事散文、《左傳》、春秋三傳之一</li>
+            <li>詞類活用：軍（動）、鄙（意動）、封（使動）</li>
+            <li>古今異義：行李、夫人、厭、貳、東道主</li>
+            <li>通假字：共=供、說=悅</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">✅ 大同與小康 重點速記</div>
+          <ul style="padding-left:1.2rem; font-size:0.88rem;">
+            <li>出處：《禮記·禮運》，孔子與子游（言偃）對話</li>
+            <li>大同：天下為公、選賢與能、不獨親其親</li>
+            <li>小康：天下為家、世及制度、禮義為紀</li>
+            <li>大同「謀閉而不興……外戶而不閉」vs. 小康「謀用是作，而兵由此起」</li>
+            <li>小康代表人物：禹、湯、文、武、成王、周公（六君子，皆謹於禮）</li>
+            <li>通假字：與=舉、知=智、刑=型、埶=勢</li>
+            <li>詞類活用：親（動）、子（動）</li>
+            <li>重要字詞：矜（鰥）、男有分（ㄈㄣˋ）、女有歸</li>
+            <li>後世影響：小康、大同成為現代常用詞</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測作答策略</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>看到「東道主」「行李」「夫人」等詞，優先考慮古今異義</li>
+          <li>翻譯題若出現「不獨親其親」，務必說明詞類活用（親=孝敬）</li>
+          <li>辨別大同、小康時，抓關鍵詞「天下為公/家」、「禮義以為紀」</li>
+          <li>分析燭之武說辭，記住「站在秦的立場說話」這個核心策略</li>
+          <li>兩篇都屬先秦，勿混淆時代（《左傳》記春秋史事；《禮記》禮學）</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: QUIZ ========== -->
+    <section id="quiz">
+      <h2 class="section-title"><span class="icon">✏️</span>隨堂自我測驗</h2>
+      <div class="box box-warn" style="margin-bottom:1.5rem;">
+        <div class="box-title">作答說明</div>
+        <p style="font-size:0.91rem;">以下共 5 題單選題，每題閱讀後先自行作答，再點開「查看解答」確認。本測驗涵蓋兩篇重點，建議合上講義獨立作答。</p>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>下列關於「燭之武退秦師」字詞解釋，何者正確？</div>
+        <ol>
+          <li>「晉軍函陵」中的「軍」是名詞，指晉國的軍隊駐紮在函陵</li>
+          <li>「行李之往來」中的「行李」指旅行時攜帶的物品</li>
+          <li>「微夫人之力不及此」中「夫人」指秦穆公的妻子</li>
+          <li>「焉用亡鄭以陪鄰」中「陪」的意思是「增益、增加」</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：D</p>
+            <ul style="padding-left:1.2rem; font-size:0.90rem;">
+              <li><strong>A 錯誤：</strong>「軍」在此為名詞活用為動詞，意為「駐紮」，而非名詞「軍隊」</li>
+              <li><strong>B 錯誤：</strong>「行李」為古今異義，古義指「使者、外交使節」，非旅行物品</li>
+              <li><strong>C 錯誤：</strong>「夫人」古義為「那人」（夫：指示代詞），此指秦穆公本人；現代才指妻子</li>
+              <li><strong>D 正確：</strong>「陪」的意思是「增益」，即增益鄰國（晉國）的土地，對秦國不利</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>燭之武說辭中「若不闕秦，將焉取之？」這句話的主要用意是什麼？</div>
+        <ol>
+          <li>說明鄭國願意割地給秦國，以換取秦國退兵</li>
+          <li>點明晉國未來必然侵犯秦國，警示秦穆公不可助長晉國勢力</li>
+          <li>讚揚秦穆公的仁德，希望他效法前代聖君</li>
+          <li>表明燭之武對秦國的忠誠，願意效力於秦穆公</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.90rem;">「若不闕秦，將焉取之」意為：晉國若不損害秦國，又能從哪裡取得土地？燭之武以此暗示晉國的擴張之心必然指向秦國，屬於說辭第五層——「指晉的野心威脅論」。目的是讓秦穆公意識到繼續與晉合作只會養虎為患，促其與晉決裂、與鄭結盟。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span>關於「大同與小康」，下列敘述何者<strong>錯誤</strong>？</div>
+        <ol>
+          <li>大同之世的社會基礎是「天下為公」，強調財物共享、人才公選</li>
+          <li>小康之世以「禮義」作為維持社會秩序的綱紀，屬於人為制度</li>
+          <li>「選賢與能」中的「與」是通假字，通「舉」，意為「推舉」</li>
+          <li>大同之世「外戶而不閉」，是依靠嚴密的城郭防禦才達到的效果</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：D</p>
+            <p style="font-size:0.90rem;">D 錯誤：大同之世「外戶而不閉」是因為道德自然內化、謀閉不興，人們從根本上沒有犯罪動機，<strong>不需要</strong>城郭防禦。「城郭溝池以為固」是小康之世的特徵，而非大同的特徵。其餘選項 A、B、C 皆正確。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span>「不獨親其親，不獨子其子」中，前一個「親」和前一個「子」的詞性與意義，依序為何？</div>
+        <ol>
+          <li>名詞「父母」；名詞「子女」</li>
+          <li>動詞「孝敬」；動詞「撫育」</li>
+          <li>形容詞「親近的」；形容詞「孝順的」</li>
+          <li>動詞「孝敬」；名詞「子女」</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.90rem;">「不獨<strong>親（動詞）</strong>其<strong>親（名詞）</strong>，不獨<strong>子（動詞）</strong>其<strong>子（名詞）</strong>」：句中的結構是「動詞＋其＋名詞受詞」。第一個「親」活用為動詞，意為「孝敬、敬愛」；第一個「子」活用為動詞，意為「撫育、疼愛」。這是典型的名詞活用為動詞，也是學測翻譯的高頻考點。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span>下列關於「燭之武退秦師」與「大同與小康」的比較，何者<strong>正確</strong>？</div>
+        <ol>
+          <li>兩篇均屬敘事散文，前者出自《左傳》，後者出自《禮記》</li>
+          <li>「燭之武退秦師」以排比修辭為主要特色，「大同與小康」以縱橫說辭為主要特色</li>
+          <li>兩篇皆為先秦作品，前者著重人物外交才能，後者著重儒家政治理想的闡述</li>
+          <li>「大同與小康」的孔子認為小康社會比大同社會更為優越，因為小康有禮制維繫</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：C</p>
+            <ul style="padding-left:1.2rem; font-size:0.90rem;">
+              <li><strong>A 錯誤：</strong>「大同與小康」並非敘事散文，而是論述散文（哲理體）</li>
+              <li><strong>B 錯誤：</strong>描述反了。「燭之武退秦師」以縱橫說辭、對比、反問為特色；「大同與小康」以排比、對偶為特色</li>
+              <li><strong>C 正確：</strong>兩篇均屬先秦，前者彰顯燭之武外交才能，後者闡述大同/小康的儒家政治理想</li>
+              <li><strong>D 錯誤：</strong>孔子以「大同」為最高理想，「小康」為當世所能達到的次佳目標，並非認為小康更優越</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- 測驗完成 -->
+      <div class="box box-key" style="margin-top:1.5rem;">
+        <div class="box-title">✅ 測驗完成後的學習建議</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>答錯的題目，請回到對應小節重新複習（古今異義、詞類活用、兩篇比較）</li>
+          <li>建議利用紙筆默寫兩篇的字詞注釋表，強化記憶</li>
+          <li>嘗試用自己的話向同學說明「燭之武的說辭邏輯」或「大同與小康的差別」，口語表達能幫助深化理解</li>
+          <li>關注學測歷屆試題中同類型的古今異義、詞類活用考點，尤其是容易混淆的字詞</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top:3rem; padding-top:1.5rem; border-top:2px solid var(--border); text-align:center; font-size:0.82rem; color:var(--muted);">
+      <p>W01 國文科古文講義｜燭之武退秦師 ＆ 大同與小康</p>
+      <p style="margin-top:0.3rem;">高二理工組 · 學測備考 · 先秦散文單元</p>
+      <p style="margin-top:0.3rem;">本講義依據台灣108課綱高中國文學習內容編製，僅供學習參考</p>
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>

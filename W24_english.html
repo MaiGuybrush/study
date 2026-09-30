@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W24 英文科學習講義 — 全題型複習（學測英文八大題型總整理）</title>
+<style>
+  :root {
+    --primary: #1565c0;
+    --primary-light: #1976d2;
+    --primary-dark: #0d47a1;
+    --primary-bg: #e3f2fd;
+    --primary-bg2: #bbdefb;
+    --accent: #f57c00;
+    --accent-bg: #fff3e0;
+    --green: #2e7d32;
+    --green-bg: #e8f5e9;
+    --red: #c62828;
+    --red-bg: #ffebee;
+    --purple: #6a1b9a;
+    --purple-bg: #f3e5f5;
+    --gray: #546e7a;
+    --gray-bg: #f5f5f5;
+    --text: #212121;
+    --text-secondary: #546e7a;
+    --border: #e0e0e0;
+    --shadow: 0 2px 8px rgba(21,101,192,0.10);
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+    background: #f0f4f8;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  /* HEADER */
+  .site-header {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+    color: #fff;
+    padding: 32px 40px 24px;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 3px 12px rgba(13,71,161,0.25);
+  }
+  .site-header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: 1px; }
+  .site-header .meta { font-size: 0.88rem; opacity: 0.85; margin-top: 4px; }
+  /* NAV */
+  .top-nav {
+    background: var(--primary);
+    display: flex; flex-wrap: wrap; gap: 2px;
+    padding: 6px 40px;
+  }
+  .top-nav a {
+    color: #fff; text-decoration: none;
+    padding: 4px 12px; border-radius: 20px;
+    font-size: 0.82rem; font-weight: 500;
+    transition: background 0.2s;
+  }
+  .top-nav a:hover { background: rgba(255,255,255,0.2); }
+  /* LAYOUT */
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+  /* CARDS */
+  .card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 32px;
+    margin-bottom: 28px;
+  }
+  .card-title {
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--primary-dark);
+    border-left: 5px solid var(--primary);
+    padding-left: 12px; margin-bottom: 18px;
+  }
+  .card-subtitle {
+    font-size: 1rem; font-weight: 600;
+    color: var(--primary); margin: 20px 0 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  /* BOXES */
+  .box { border-radius: 8px; padding: 14px 18px; margin: 12px 0; }
+  .box-blue { background: var(--primary-bg); border-left: 4px solid var(--primary); }
+  .box-green { background: var(--green-bg); border-left: 4px solid var(--green); }
+  .box-orange { background: var(--accent-bg); border-left: 4px solid var(--accent); }
+  .box-red { background: var(--red-bg); border-left: 4px solid var(--red); }
+  .box-purple { background: var(--purple-bg); border-left: 4px solid var(--purple); }
+  .box-gray { background: var(--gray-bg); border-left: 4px solid var(--gray); }
+  .box strong { display: block; margin-bottom: 4px; }
+  /* TOC */
+  .toc { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 10px; }
+  .toc a {
+    display: block; padding: 10px 16px;
+    background: var(--primary-bg); color: var(--primary-dark);
+    border-radius: 8px; text-decoration: none; font-size: 0.9rem;
+    border: 1px solid var(--primary-bg2);
+    transition: background 0.2s, transform 0.1s;
+    font-weight: 500;
+  }
+  .toc a:hover { background: var(--primary-bg2); transform: translateY(-1px); }
+  /* VOCAB TABLE */
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .vocab-table thead tr { background: var(--primary); color: #fff; }
+  .vocab-table thead th { padding: 10px 12px; text-align: left; font-weight: 600; }
+  .vocab-table tbody tr:nth-child(even) { background: var(--primary-bg); }
+  .vocab-table tbody tr:hover { background: var(--primary-bg2); }
+  .vocab-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .word { font-weight: 700; color: var(--primary-dark); font-size: 0.95rem; }
+  .phonetic { color: var(--gray); font-size: 0.82rem; font-style: italic; }
+  .pos-badge {
+    display: inline-block; padding: 1px 7px;
+    border-radius: 10px; font-size: 0.75rem; font-weight: 600;
+  }
+  .pos-n { background: #e3f2fd; color: #1565c0; }
+  .pos-v { background: #e8f5e9; color: #2e7d32; }
+  .pos-adj { background: #fff3e0; color: #e65100; }
+  .pos-adv { background: #f3e5f5; color: #6a1b9a; }
+  .example { color: var(--text-secondary); font-size: 0.83rem; font-style: italic; margin-top: 2px; }
+  .meaning { font-weight: 500; }
+  /* SECTION HEADERS */
+  .pos-section { margin: 22px 0 10px; }
+  .pos-header {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--primary); color: #fff;
+    padding: 6px 18px; border-radius: 20px;
+    font-size: 0.9rem; font-weight: 700; margin-bottom: 8px;
+  }
+  /* DAY PLAN */
+  .day-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 16px; }
+  .day-card {
+    border: 2px solid var(--primary-bg2);
+    border-radius: 10px; overflow: hidden;
+  }
+  .day-header {
+    background: var(--primary); color: #fff;
+    padding: 8px 16px; font-weight: 700; font-size: 0.92rem;
+  }
+  .day-body { padding: 12px 14px; }
+  .day-word-list { list-style: none; }
+  .day-word-list li {
+    padding: 4px 0; border-bottom: 1px dashed var(--border);
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 0.86rem;
+  }
+  .day-word-list li:last-child { border-bottom: none; }
+  .day-word-list .en { font-weight: 600; color: var(--primary-dark); }
+  .day-word-list .zh { color: var(--text-secondary); font-size: 0.82rem; }
+  /* CONFUSION TABLE */
+  .conf-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 8px; }
+  .conf-table th { background: var(--primary); color: #fff; padding: 9px 12px; text-align: left; }
+  .conf-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .conf-table tbody tr:nth-child(even) { background: var(--gray-bg); }
+  .conf-pair { font-weight: 700; color: var(--primary-dark); }
+  /* QUIZ */
+  .quiz-item { margin-bottom: 18px; }
+  .quiz-q { font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .quiz-q .qnum {
+    display: inline-block; width: 26px; height: 26px;
+    background: var(--primary); color: #fff;
+    border-radius: 50%; text-align: center; line-height: 26px;
+    font-size: 0.82rem; margin-right: 8px;
+  }
+  .quiz-options { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-left: 34px; }
+  .quiz-options li {
+    padding: 5px 14px; border: 1.5px solid var(--primary-bg2);
+    border-radius: 20px; cursor: pointer; font-size: 0.88rem;
+  }
+  details { margin-top: 10px; margin-left: 34px; }
+  summary {
+    cursor: pointer; font-size: 0.86rem; font-weight: 600;
+    color: var(--primary); padding: 5px 0;
+    list-style: none; display: flex; align-items: center; gap: 6px;
+  }
+  summary::before { content: "▶ 顯示解答"; }
+  details[open] summary::before { content: "▼ 隱藏解答"; }
+  .answer-box {
+    background: var(--green-bg); border: 1px solid #a5d6a7;
+    border-radius: 8px; padding: 10px 14px; margin-top: 6px;
+    font-size: 0.87rem;
+  }
+  .answer-box .ans { font-weight: 700; color: var(--green); }
+  /* PROGRESS BAR */
+  .progress-bar { height: 8px; background: var(--primary-bg2); border-radius: 4px; margin: 16px 0 4px; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--primary-light)); border-radius: 4px; }
+  /* TAG */
+  .tag {
+    display: inline-block; padding: 2px 9px;
+    border-radius: 10px; font-size: 0.78rem; font-weight: 600;
+    background: var(--primary-bg2); color: var(--primary-dark);
+    margin: 2px;
+  }
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .site-header { padding: 20px 16px 14px; }
+    .top-nav { padding: 6px 12px; }
+    .container { padding: 16px 10px 40px; }
+    .card { padding: 18px 14px; }
+    .vocab-table { font-size: 0.80rem; }
+    .day-grid { grid-template-columns: 1fr; }
+  }
+  /* PRINT */
+  @media print {
+    .site-header, .top-nav { position: static; }
+    .card { box-shadow: none; border: 1px solid #ccc; }
+    details { display: block; }
+    details summary { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>W24 英文科學習講義 — 全題型複習</h1>
+  <div class="meta">高中學測備考 | 高三上理工組 | 第 24 週（10/26–11/01）| 第三階段最終週 | 週末：第一次五科聯合模擬考 | 距學測約 88 天</div>
+</header>
+
+<nav class="top-nav">
+  <a href="#overview">單元概述</a>
+  <a href="#paper">試卷結構</a>
+  <a href="#vocab">詞彙題</a>
+  <a href="#cloze">綜合測驗</a>
+  <a href="#fill">文意選填</a>
+  <a href="#struct">篇章結構</a>
+  <a href="#reading">閱讀測驗</a>
+  <a href="#mixed">混合題</a>
+  <a href="#trans">中譯英</a>
+  <a href="#writing">英文作文</a>
+  <a href="#timing">時間分配</a>
+  <a href="#quiz">隨堂測驗</a>
+</nav>
+
+<div class="container">
+
+<!-- ==================== OVERVIEW ==================== -->
+<div class="card" id="overview">
+  <div class="card-title">單元概述與學習目標</div>
+  <div class="toc">
+    <a href="#paper">學測英文試卷結構與配分</a>
+    <a href="#vocab">一、詞彙題：字根字首＋搭配詞</a>
+    <a href="#cloze">二、綜合測驗：文法＋轉承詞</a>
+    <a href="#fill">三、文意選填：詞性分類法</a>
+    <a href="#struct">四、篇章結構：線索追蹤</a>
+    <a href="#reading">五、閱讀測驗：六大題型</a>
+    <a href="#mixed">六、混合題：填表與簡答</a>
+    <a href="#trans">七、中譯英：十大句型</a>
+    <a href="#writing">八、英文作文：三種題型模板</a>
+    <a href="#timing">模擬考 100 分鐘時間分配</a>
+    <a href="#quiz">隨堂測驗 10 題</a>
+  </div>
+
+  <div class="box box-blue" style="margin-top:18px;">
+    <strong>學習目標</strong>
+    完成本週學習後，學生能夠：<br>
+    ① 說出學測英文三大部分、八種題型的題數、配分與建議作答時間<br>
+    ② 針對每一種題型，使用固定的解題步驟，而非憑感覺作答<br>
+    ③ 熟練綜合測驗高頻文法與轉承詞，減少「看得懂卻選錯」的失分<br>
+    ④ 以模板完成中譯英與英文作文，確保「體例、文法」基本分不流失
+  </div>
+  <div class="box box-orange">
+    <strong>本週定位</strong>
+    W18–W23 已分別練過篇章結構、文意選填、閱讀、混合題、作文與歷屆選擇題。本週不再開新單元，而是把七種題型的<strong>解題流程</strong>整合成一套，週末直接用在第一次五科聯合模擬考。
+  </div>
+
+  <div class="card-subtitle">本週七日計畫</div>
+  <div class="day-grid">
+    <div class="day-card">
+      <div class="day-header">Day 1（一）— 詞彙題＋綜合測驗</div>
+      <div class="day-body">
+        <ul class="day-word-list">
+          <li><span class="en">字根字首表</span><span class="zh">15 分鐘</span></li>
+          <li><span class="en">易混淆字 8 組</span><span class="zh">15 分鐘</span></li>
+          <li><span class="en">文法檢核表</span><span class="zh">20 分鐘</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">Day 2（二）— 文意選填＋篇章結構</div>
+      <div class="day-body">
+        <ul class="day-word-list">
+          <li><span class="en">詞性分類法練習</span><span class="zh">25 分鐘</span></li>
+          <li><span class="en">轉承詞與代名詞線索</span><span class="zh">25 分鐘</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">Day 3（三）— 閱讀測驗</div>
+      <div class="day-body">
+        <ul class="day-word-list">
+          <li><span class="en">六大題型辨識</span><span class="zh">15 分鐘</span></li>
+          <li><span class="en">限時 2 篇</span><span class="zh">30 分鐘</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">Day 4（四）— 混合題＋中譯英</div>
+      <div class="day-body">
+        <ul class="day-word-list">
+          <li><span class="en">填表／簡答規則</span><span class="zh">20 分鐘</span></li>
+          <li><span class="en">十大句型各造 1 句</span><span class="zh">30 分鐘</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">Day 5（五）— 英文作文</div>
+      <div class="day-body">
+        <ul class="day-word-list">
+          <li><span class="en">三種模板背誦</span><span class="zh">15 分鐘</span></li>
+          <li><span class="en">限時寫 1 篇（35 分鐘）</span><span class="zh">35 分鐘</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">Day 6–7（六、日）— 模擬考＋檢討</div>
+      <div class="day-body">
+        <ul class="day-word-list">
+          <li><span class="en">英文全卷 100 分鐘</span><span class="zh">週六</span></li>
+          <li><span class="en">錯題分類、更新錯題本</span><span class="zh">週日</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" style="width:69%"></div></div>
+  <span style="font-size:0.82rem;color:var(--gray)">Week 24 / Week 35（第三階段完成，下週起進入第四階段整合衝刺）</span>
+</div>
+
+<!-- ==================== PAPER STRUCTURE ==================== -->
+<div class="card" id="paper">
+  <div class="card-title">學測英文試卷結構與配分</div>
+  <table class="conf-table">
+    <thead><tr><th>部分</th><th>題型</th><th>題數</th><th>配分</th><th>建議時間</th><th>測驗能力</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="5"><span class="conf-pair">第壹部分<br>選擇題（62 分）</span></td><td>一、詞彙題</td><td>10</td><td>10 分</td><td>5 分鐘</td><td>字義、搭配詞</td></tr>
+      <tr><td>二、綜合測驗</td><td>10</td><td>10 分</td><td>8 分鐘</td><td>文法、語意、轉承</td></tr>
+      <tr><td>三、文意選填</td><td>10</td><td>10 分</td><td>8 分鐘</td><td>詞性、上下文</td></tr>
+      <tr><td>四、篇章結構</td><td>4</td><td>8 分</td><td>6 分鐘</td><td>段落邏輯</td></tr>
+      <tr><td>五、閱讀測驗</td><td>約 12</td><td>24 分</td><td>20 分鐘</td><td>主旨、細節、推論</td></tr>
+      <tr><td><span class="conf-pair">第貳部分<br>混合題（10 分）</span></td><td>閱讀＋填表／簡答</td><td>約 4</td><td>10 分</td><td>10 分鐘</td><td>統整、擷取資訊</td></tr>
+      <tr><td rowspan="2"><span class="conf-pair">第參部分<br>非選擇題（28 分）</span></td><td>一、中譯英</td><td>2 句</td><td>8 分</td><td>8 分鐘</td><td>句型、文法</td></tr>
+      <tr><td>二、英文作文</td><td>1 篇</td><td>20 分</td><td>30 分鐘</td><td>組織、表達</td></tr>
+    </tbody>
+  </table>
+  <div class="box box-gray" style="margin-top:14px;">
+    <strong>說明</strong>
+    題數依近年試卷整理，實際以當年大考中心公告為準；建議時間合計約 95 分鐘，保留 5 分鐘檢查答案卡與非選擇題拼字。
+  </div>
+  <div class="box box-red">
+    <strong>模擬考最常見的三種失分</strong>
+    ① 選擇題前段花太多時間，導致作文只剩 20 分鐘｜② 混合題拼錯字或未依指定字數作答｜③ 作文只寫一段、或未依題目要求分段
+  </div>
+</div>
+
+<!-- ==================== VOCAB ==================== -->
+<div class="card" id="vocab">
+  <div class="card-title">一、詞彙題（10 題｜10 分）</div>
+  <div class="box box-blue">
+    <strong>解題三步驟</strong>
+    ① <strong>先看空格前後</strong>：判斷需要的詞性與搭配（例：<em>____ the gap</em> → 動詞）<br>
+    ② <strong>找句中線索</strong>：因果（so…that、because）、對比（but、although）、同義重述（that is、or）<br>
+    ③ <strong>刪去法</strong>：四個選項通常同詞性，靠搭配詞與語意刪除
+  </div>
+
+  <div class="card-subtitle">高頻字首字根（Level 4–6 解字利器）</div>
+  <table class="vocab-table">
+    <thead><tr><th>字首／字根</th><th>意義</th><th>例字</th><th>中文</th></tr></thead>
+    <tbody>
+      <tr><td><div class="word">bene-</div></td><td class="meaning">好</td><td class="example">beneficial, benefit</td><td>有益的；利益</td></tr>
+      <tr><td><div class="word">mal-</div></td><td class="meaning">壞</td><td class="example">malfunction, malnutrition</td><td>故障；營養不良</td></tr>
+      <tr><td><div class="word">-spect-</div></td><td class="meaning">看</td><td class="example">inspect, perspective, spectator</td><td>檢查；觀點；觀眾</td></tr>
+      <tr><td><div class="word">-dict-</div></td><td class="meaning">說</td><td class="example">predict, contradict, dictate</td><td>預測；反駁；口述</td></tr>
+      <tr><td><div class="word">-rupt-</div></td><td class="meaning">破</td><td class="example">interrupt, erupt, bankrupt</td><td>打斷；爆發；破產</td></tr>
+      <tr><td><div class="word">-tain-</div></td><td class="meaning">握、持</td><td class="example">sustain, obtain, maintain</td><td>維持；獲得；保持</td></tr>
+      <tr><td><div class="word">-cede- / -ceed-</div></td><td class="meaning">走</td><td class="example">precede, proceed, exceed</td><td>在…之前；進行；超過</td></tr>
+      <tr><td><div class="word">-vis- / -vid-</div></td><td class="meaning">看</td><td class="example">visible, evident, revise</td><td>可見的；明顯的；修訂</td></tr>
+      <tr><td><div class="word">trans-</div></td><td class="meaning">跨越</td><td class="example">transform, transmit, transparent</td><td>轉變；傳送；透明的</td></tr>
+      <tr><td><div class="word">-able / -ible</div></td><td class="meaning">能…的</td><td class="example">sustainable, flexible</td><td>可持續的；有彈性的</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card-subtitle">易混淆字 8 組</div>
+  <table class="conf-table">
+    <thead><tr><th>字組</th><th>區別</th><th>例句</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">adapt / adopt</td><td>adapt 適應；adopt 採用、收養</td><td>Animals <em>adapt</em> to cold climates. / The school <em>adopted</em> a new policy.</td></tr>
+      <tr><td class="conf-pair">affect / effect</td><td>affect (v.) 影響；effect (n.) 效果</td><td>Stress can <em>affect</em> sleep. / The drug had no <em>effect</em>.</td></tr>
+      <tr><td class="conf-pair">complement / compliment</td><td>補充、相配／讚美</td><td>The wine <em>complements</em> the meal. / She <em>complimented</em> my speech.</td></tr>
+      <tr><td class="conf-pair">economic / economical</td><td>經濟上的／節省的</td><td><em>economic</em> growth / an <em>economical</em> car</td></tr>
+      <tr><td class="conf-pair">sensible / sensitive</td><td>明智的／敏感的</td><td>a <em>sensible</em> decision / <em>sensitive</em> skin</td></tr>
+      <tr><td class="conf-pair">considerable / considerate</td><td>相當多的／體貼的</td><td>a <em>considerable</em> amount / a <em>considerate</em> host</td></tr>
+      <tr><td class="conf-pair">industrial / industrious</td><td>工業的／勤勉的</td><td><em>industrial</em> waste / an <em>industrious</em> student</td></tr>
+      <tr><td class="conf-pair">imaginary / imaginative</td><td>虛構的／富想像力的</td><td>an <em>imaginary</em> friend / an <em>imaginative</em> writer</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card-subtitle">高頻搭配詞（Collocations）</div>
+  <div>
+    <span class="tag">bridge the gap</span><span class="tag">raise awareness</span><span class="tag">pose a threat</span><span class="tag">meet the demand</span>
+    <span class="tag">take measures</span><span class="tag">make progress</span><span class="tag">play a role in</span><span class="tag">shed light on</span>
+    <span class="tag">draw attention to</span><span class="tag">run the risk of</span><span class="tag">come into effect</span><span class="tag">make up for</span>
+  </div>
+</div>
+
+<!-- ==================== CLOZE ==================== -->
+<div class="card" id="cloze">
+  <div class="card-title">二、綜合測驗（10 題｜10 分）</div>
+  <div class="box box-blue">
+    <strong>四類考點</strong>
+    ① <strong>文法</strong>（時態、分詞、關代、假設、倒裝）｜② <strong>語意</strong>（上下文選字）｜③ <strong>轉承詞</strong>（however / therefore…）｜④ <strong>片語</strong>（介係詞、動詞片語）<br>
+    作答時先整段讀過一遍抓大意，再逐題判斷屬於哪一類。
+  </div>
+
+  <div class="card-subtitle">高頻文法檢核表</div>
+  <table class="conf-table">
+    <thead><tr><th>文法點</th><th>判斷關鍵</th><th>例句</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">分詞構句</td><td>主詞主動 → V-ing；被動 → p.p.</td><td><em>Seen</em> from the sky, the island looks like a heart.</td></tr>
+      <tr><td class="conf-pair">關係代名詞</td><td>逗號後不用 that；介係詞後用 which / whom</td><td>The man <em>with whom</em> I worked has retired.</td></tr>
+      <tr><td class="conf-pair">假設語氣</td><td>與過去事實相反：If + had p.p., would have p.p.</td><td>If I <em>had left</em> earlier, I <em>would have caught</em> the train.</td></tr>
+      <tr><td class="conf-pair">混合假設</td><td>過去條件、現在結果</td><td>If I <em>had studied</em> harder, I <em>would be</em> in college now.</td></tr>
+      <tr><td class="conf-pair">否定副詞倒裝</td><td>Not until / Never / Hardly / Only + 副詞 → 助動詞提前</td><td><em>Not until</em> midnight <em>did</em> he finish.</td></tr>
+      <tr><td class="conf-pair">強調句</td><td>It is/was ___ that ___</td><td><em>It was</em> his honesty <em>that</em> impressed me.</td></tr>
+      <tr><td class="conf-pair">名詞子句</td><td>whether / what / that 引導，當主詞或受詞</td><td><em>What</em> matters most is effort.</td></tr>
+      <tr><td class="conf-pair">使役動詞</td><td>make/let/have + 原形；get + to V</td><td>The coach <em>made</em> us <em>run</em> ten laps.</td></tr>
+      <tr><td class="conf-pair">比較級</td><td>the + 比較級, the + 比較級</td><td><em>The more</em> you read, <em>the better</em> you write.</td></tr>
+      <tr><td class="conf-pair">not only…but also</td><td>放句首時倒裝</td><td><em>Not only did</em> she win, <em>but</em> she <em>also</em> broke the record.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card-subtitle">轉承詞分類（綜合測驗與篇章結構共用）</div>
+  <table class="vocab-table">
+    <thead><tr><th>功能</th><th>常見轉承詞</th></tr></thead>
+    <tbody>
+      <tr><td><div class="word">轉折／對比</div></td><td>however, nevertheless, on the other hand, in contrast, instead, yet</td></tr>
+      <tr><td><div class="word">因果</div></td><td>therefore, as a result, consequently, thus, hence</td></tr>
+      <tr><td><div class="word">追加</div></td><td>moreover, furthermore, in addition, besides, what's more</td></tr>
+      <tr><td><div class="word">舉例</div></td><td>for example, for instance, such as, to illustrate</td></tr>
+      <tr><td><div class="word">讓步</div></td><td>although, even though, despite, in spite of, admittedly</td></tr>
+      <tr><td><div class="word">換句話說</div></td><td>in other words, that is, namely</td></tr>
+      <tr><td><div class="word">總結</div></td><td>in short, in conclusion, to sum up, all in all</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card-subtitle">小試身手：綜合測驗 5 題</div>
+  <div class="box box-gray" style="line-height:1.9;">
+    Plastic straws may seem harmless, but they __(1)__ a serious threat to sea life. Because they are light, they are easily carried by wind and water into the ocean, __(2)__ they can be swallowed by turtles and seabirds. In response, many cities have banned single-use straws. __(3)__, some people argue that the bans place a burden on people with disabilities, who may rely on bendable straws to drink. A better solution, they suggest, is to offer straws only __(4)__ request. __(5)__ we choose, reducing plastic waste will require both policy and personal effort.
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">1</span>(1)</div>
+    <ul class="quiz-options"><li>(A) make</li><li>(B) pose</li><li>(C) take</li><li>(D) do</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B) pose</div><div>pose a threat to 對…構成威脅，固定搭配。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">2</span>(2)</div>
+    <ul class="quiz-options"><li>(A) which</li><li>(B) that</li><li>(C) where</li><li>(D) when</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(C) where</div><div>先行詞為 the ocean（地點），且關係子句「they can be swallowed…」結構完整，需關係副詞 where；逗號後不可用 that。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">3</span>(3)</div>
+    <ul class="quiz-options"><li>(A) Therefore</li><li>(B) For example</li><li>(C) However</li><li>(D) As a result</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(C) However</div><div>前句說許多城市禁用吸管，後句提出反對意見，為轉折關係。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">4</span>(4)</div>
+    <ul class="quiz-options"><li>(A) in</li><li>(B) on</li><li>(C) by</li><li>(D) at</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B) on</div><div>on request「應要求（才提供）」，固定介係詞片語。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">5</span>(5)</div>
+    <ul class="quiz-options"><li>(A) Whatever</li><li>(B) Whether</li><li>(C) However</li><li>(D) What</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(A) Whatever</div><div>Whatever we choose = No matter what we choose「無論我們選擇什麼」，choose 缺受詞，需用 whatever。Whether 後須接完整子句並常搭配 or。</div></div></details>
+  </div>
+</div>
+
+<!-- ==================== FILL ==================== -->
+<div class="card" id="fill">
+  <div class="card-title">三、文意選填（10 題｜10 分）</div>
+  <div class="box box-blue">
+    <strong>詞性分類法（四步驟）</strong>
+    ① 先把 10 個選項依<strong>詞性</strong>分組（n. / v. / adj. / adv.），並注意動詞時態、名詞單複數<br>
+    ② 在每個空格旁標出需要的詞性（冠詞後 → n.；be 動詞後 → adj. 或 p.p.；主詞後 → v.）<br>
+    ③ 先做<strong>只有一個候選字</strong>的空格，逐步縮小範圍<br>
+    ④ 最後 2–3 格回頭整段重讀，確認語意通順
+  </div>
+  <div class="box box-orange">
+    <strong>陷阱提醒</strong>
+    文意選填 10 格配 10 個選項，選錯一個常會連鎖錯兩個。若最後剩兩格互相卡住，代表前面某一格選錯了，回頭檢查語意最勉強的那一格。
+  </div>
+
+  <div class="card-subtitle">小試身手：5 格配 7 個選項</div>
+  <div class="box box-gray" style="line-height:1.9;">
+    Bubble tea was first created in Taiwan in the 1980s. What began as a simple tea drink with chewy tapioca balls has since become a global __(1)__. Today, shops selling the drink can be found in cities from London to Los Angeles. Its __(2)__ is often explained by the fact that customers can __(3)__ almost every part of the drink, from the sweetness level to the amount of ice. However, health experts warn that a large cup may contain a __(4)__ amount of sugar. They suggest that drinkers choose less sugar and treat bubble tea as an __(5)__ treat rather than a daily habit.
+  </div>
+  <div style="margin:8px 0 14px;">
+    <span class="tag">(A) popularity</span><span class="tag">(B) customize</span><span class="tag">(C) phenomenon</span><span class="tag">(D) surprising</span><span class="tag">(E) occasional</span><span class="tag">(F) customized</span><span class="tag">(G) popular</span>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">1</span>(1)–(5) 的答案依序為？</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(1) C　(2) A　(3) B　(4) D　(5) E</div>
+      <div>(1) a global + 名詞 → phenomenon（現象）；(2) Its + 名詞 → popularity；(3) can + 原形動詞 → customize（F 為過去分詞，不可接在 can 後）；(4) a + ___ + amount → 形容詞 surprising；(5) an + 母音開頭形容詞 → occasional。G popular 與 F customized 為干擾選項。</div></div></details>
+  </div>
+</div>
+
+<!-- ==================== STRUCTURE ==================== -->
+<div class="card" id="struct">
+  <div class="card-title">四、篇章結構（4 題｜8 分）</div>
+  <div class="box box-blue">
+    <strong>四大線索</strong>
+    ① <strong>代名詞／指示詞</strong>：this、these、such、they 必須指得到前文的名詞<br>
+    ② <strong>轉承詞</strong>：選項句首的 However / For example / As a result 必須與前句邏輯相符<br>
+    ③ <strong>重複關鍵字</strong>：選項中的名詞常在空格前後句再次出現<br>
+    ④ <strong>時序與列舉</strong>：First / Then / Finally；one…another…the other
+  </div>
+  <div class="box box-green">
+    <strong>作答順序</strong>
+    先讀每個選項並圈出開頭的轉承詞與代名詞 → 再讀文章，遇到空格就比對線索 → 最後剩下的那一句（5 選 4）往往是「看似相關但缺乏銜接」的干擾句。
+  </div>
+
+  <div class="card-subtitle">小試身手：3 格配 4 個選項</div>
+  <div class="box box-gray" style="line-height:1.9;">
+    Honeybees communicate in a remarkable way. When a worker bee finds a good source of food, she returns to the hive and performs a "waggle dance." __(1)__ The angle of the dance shows the direction of the food relative to the sun, while the length of the waggle shows how far away it is. __(2)__ Scientists have even used this information to map where bees search for food across the seasons. __(3)__ Without their dances, the colony would waste much more energy looking for flowers.
+  </div>
+  <div style="margin:8px 0 14px; font-size:0.9rem; line-height:1.8;">
+    (A) This dance gives other bees surprisingly precise information.<br>
+    (B) By watching carefully, other workers can fly almost directly to the food.<br>
+    (C) Honey has been used as a medicine for thousands of years.<br>
+    (D) Such efficiency is one reason bee colonies can survive in harsh environments.
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">1</span>(1)–(3) 的答案依序為？</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(1) A　(2) B　(3) D</div>
+      <div>(1) This dance 承接前句的 waggle dance；(2) 前句說明舞蹈傳達方向與距離，接著寫其他工蜂據此飛向食物；(3) Such efficiency 總結前文，且下一句 Without their dances… 繼續談效率。C 講蜂蜜藥用，離題，為干擾句。</div></div></details>
+  </div>
+</div>
+
+<!-- ==================== READING ==================== -->
+<div class="card" id="reading">
+  <div class="card-title">五、閱讀測驗（約 12 題｜24 分）</div>
+  <div class="card-subtitle">六大題型與作答技巧</div>
+  <table class="conf-table">
+    <thead><tr><th>題型</th><th>常見問法</th><th>技巧</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">主旨題</td><td>What is the passage mainly about? / Which is the best title?</td><td>看首段末句與各段首句；刪去「太廣」或「只講一段」的選項</td></tr>
+      <tr><td class="conf-pair">細節題</td><td>According to the passage, which is true?</td><td>回原文定位關鍵字，注意選項的「同義改寫」</td></tr>
+      <tr><td class="conf-pair">推論題</td><td>What can be inferred from…?</td><td>答案「文中沒直接說但必然成立」；避免過度延伸</td></tr>
+      <tr><td class="conf-pair">字義題</td><td>The word "___" in paragraph 2 is closest in meaning to…</td><td>把選項代回原句；看前後句的解釋或對比</td></tr>
+      <tr><td class="conf-pair">指涉題</td><td>What does "it / this / they" refer to?</td><td>往前找最近、且單複數相符的名詞</td></tr>
+      <tr><td class="conf-pair">態度／目的題</td><td>What is the author's attitude toward…? / Why does the author mention…?</td><td>留意評價性形容詞與副詞（fortunately, questionable）</td></tr>
+    </tbody>
+  </table>
+  <div class="box box-red">
+    <strong>常見錯誤選項的四種樣貌</strong>
+    ① 原文的字都有，但因果關係顛倒｜② 用 always / never / all 等絕對字眼｜③ 符合常識但文中沒提｜④ 只對了一半（前半正確、後半錯）
+  </div>
+
+  <div class="card-subtitle">小試身手：限時 6 分鐘</div>
+  <div class="box box-gray" style="line-height:1.9;">
+    <p>For decades, scientists believed that sleep was simply a period of rest, a time when the brain switched off to recover from the day. Recent research, however, paints a very different picture. While we sleep, the brain is surprisingly busy, sorting through the experiences of the day and deciding what to keep.</p>
+    <p style="margin-top:8px;">During deep sleep, the hippocampus, a region that temporarily stores new information, "replays" the day's events. These signals are then sent to the cortex, where memories can be stored for the long term. In one common type of experiment, volunteers learn a list of word pairs in the evening. Those who sleep a full night usually remember more pairs the next morning than those who stay awake for the same length of time.</p>
+    <p style="margin-top:8px;">Sleep does not only help us remember; it also helps us forget. Researchers have found evidence that connections between brain cells that are rarely used become weaker during sleep. This "clean-up" process may leave room for new learning the following day.</p>
+    <p style="margin-top:8px;">These findings carry a clear message for students. Staying up late to cram before an exam may feel productive, but cutting sleep can undo much of the hard work. A regular sleep schedule, it seems, is one of the most effective study tools available.</p>
+  </div>
+
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">1</span>What is the passage mainly about?</div>
+    <ul class="quiz-options"><li>(A) Why students should study at night</li><li>(B) The active role sleep plays in processing memories</li><li>(C) How the hippocampus was discovered</li><li>(D) The dangers of sleeping too much</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B)</div><div>首段指出「睡眠不只是休息」，其後各段說明睡眠如何保存與清理記憶。C 文中未提；D 與內容相反；A 與末段建議相反。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">2</span>According to the passage, what does the hippocampus do?</div>
+    <ul class="quiz-options"><li>(A) It stores memories permanently.</li><li>(B) It shuts down during deep sleep.</li><li>(C) It holds new information for a short time before passing it on.</li><li>(D) It removes unused connections between brain cells.</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(C)</div><div>原文 "a region that temporarily stores new information"，再傳送到 cortex 長期保存。A 把 cortex 的功能錯置；D 文中未說是 hippocampus 執行。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">3</span>The word "cram" in the last paragraph is closest in meaning to ______.</div>
+    <ul class="quiz-options"><li>(A) study intensively in a short time</li><li>(B) relax before a test</li><li>(C) cheat on an exam</li><li>(D) review old notes slowly</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(A)</div><div>Staying up late to ___ before an exam「考前熬夜臨時抱佛腳」，前後文 may feel productive 也提示是「努力讀書」的行為。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">4</span>What can be inferred from the passage?</div>
+    <ul class="quiz-options"><li>(A) Forgetting is always harmful to learning.</li><li>(B) Students who cut sleep before a test may remember less of what they studied.</li><li>(C) Deep sleep is the only stage in which the brain is active.</li><li>(D) Word-pair experiments prove that sleep cures memory loss.</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B)</div><div>由 "cutting sleep can undo much of the hard work" 可推得。A 與第三段相反（遺忘有助騰出空間）；C、D 使用 only / cures 等過度延伸的說法。</div></div></details>
+  </div>
+</div>
+
+<!-- ==================== MIXED ==================== -->
+<div class="card" id="mixed">
+  <div class="card-title">六、混合題（約 4 題｜10 分）</div>
+  <div class="box box-blue">
+    <strong>作答規則（最容易因「形式」被扣分）</strong>
+    ① 依題目指定：「從文中選出一個單詞」就只能寫一個字，且必須是文中原字<br>
+    ② 題目要求改寫詞性時（如 "in its correct form"），注意單複數、時態、詞性變化<br>
+    ③ 拼字錯誤不給分；專有名詞注意大小寫<br>
+    ④ 簡答題以完整句或題目指定字數作答，避免照抄整段
+  </div>
+
+  <div class="card-subtitle">小試身手</div>
+  <div class="box box-gray" style="line-height:1.9;">
+    The Pomodoro Technique was developed in the late 1980s by Francesco Cirillo, then a university student. Named after the tomato-shaped kitchen timer he used, the method breaks work into short, focused periods. First, choose a single task. Next, set a timer for 25 minutes and work until it rings. Then take a five-minute break. After four such work periods, take a longer break of 15 to 30 minutes. Supporters say the method reduces distraction because each work period feels short enough to manage, while critics argue that fixed intervals can interrupt deep concentration on complex problems.
+  </div>
+  <table class="conf-table" style="margin-top:10px;">
+    <thead><tr><th>Step</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Choose a single ____(A)____.</td></tr>
+      <tr><td>2</td><td>Work for ____(B)____ minutes.</td></tr>
+      <tr><td>3</td><td>Take a short break.</td></tr>
+      <tr><td>4</td><td>After ____(C)____ work periods, take a longer break.</td></tr>
+    </tbody>
+  </table>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">1</span>填表：(A)(B)(C) 各填入一個英文單詞或數字。</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(A) task　(B) 25　(C) four</div><div>直接擷取原文；(A) 不可寫成 tasks（原文為 a single task）。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">2</span>簡答：According to critics, what is one weakness of the method? (Answer in no more than 12 words.)</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">參考答案：Fixed intervals can interrupt deep concentration on complex problems.（9 字）</div><div>抓 critics argue that 之後的內容，改寫成完整句並控制字數。</div></div></details>
+  </div>
+</div>
+
+<!-- ==================== TRANSLATION ==================== -->
+<div class="card" id="trans">
+  <div class="card-title">七、中譯英（2 題｜8 分）</div>
+  <div class="box box-blue">
+    <strong>五步驟</strong>
+    ① 找出主要子句的主詞與動詞 → ② 判斷時態（「已經」→ 完成式；「近年來」→ 現在完成式） → ③ 套用句型 → ④ 補齊冠詞、介係詞、單複數 → ⑤ 檢查拼字與標點
+  </div>
+  <div class="card-subtitle">十大高頻句型</div>
+  <table class="vocab-table">
+    <thead><tr><th>句型</th><th>中文</th><th>例句</th></tr></thead>
+    <tbody>
+      <tr><td><div class="word">It takes + 人 + 時間 + to V</div></td><td>某人花時間做…</td><td class="example">It took me two hours to finish the report.</td></tr>
+      <tr><td><div class="word">It is not until … that …</div></td><td>直到…才…</td><td class="example">It was not until he got sick that he realized the value of health.</td></tr>
+      <tr><td><div class="word">The + 比較級 …, the + 比較級 …</div></td><td>越…就越…</td><td class="example">The more you practice, the more confident you become.</td></tr>
+      <tr><td><div class="word">so + adj. + that …</div></td><td>如此…以致於…</td><td class="example">The movie was so moving that many people cried.</td></tr>
+      <tr><td><div class="word">Not only … but also …</div></td><td>不僅…而且…</td><td class="example">Exercise not only strengthens the body but also relieves stress.</td></tr>
+      <tr><td><div class="word">be known / famous for</div></td><td>以…聞名</td><td class="example">Tainan is famous for its traditional snacks.</td></tr>
+      <tr><td><div class="word">more and more + N</div></td><td>越來越多…</td><td class="example">More and more people have started working from home.</td></tr>
+      <tr><td><div class="word">prevent / keep + O + from V-ing</div></td><td>阻止…做…</td><td class="example">The heavy rain kept us from going hiking.</td></tr>
+      <tr><td><div class="word">It is + adj. + for 人 + to V</div></td><td>對某人而言…是…</td><td class="example">It is important for teenagers to get enough sleep.</td></tr>
+      <tr><td><div class="word">分詞構句（附帶結果）</div></td><td>…，（因而）…</td><td class="example">The typhoon hit the island, causing serious damage.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card-subtitle">練習 4 句</div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">1</span>近年來，越來越多年輕人選擇利用網路學習新的技能。</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">In recent years, more and more young people have chosen to learn new skills online.</div><div>「近年來」→ 現在完成式 have chosen；online 亦可寫作 through the Internet。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">2</span>如果我們不減少塑膠的使用，海洋生物將持續受到威脅。</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">If we do not reduce the use of plastic, marine life will continue to be threatened.</div><div>條件句 if 子句用現在式表未來；「受到威脅」用被動 to be threatened。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">3</span>直到考試結束，他才明白充足睡眠的重要性。</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">It was not until the exam was over that he realized the importance of getting enough sleep.</div><div>亦可倒裝：Not until the exam was over did he realize the importance of getting enough sleep.</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">4</span>這座城市以美食聞名，每年吸引數百萬名觀光客。</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">The city is famous for its food, attracting millions of tourists every year.</div><div>第二個動作以分詞構句 attracting 表附帶結果；「數百萬」為 millions of，不可寫 millions tourists。</div></div></details>
+  </div>
+</div>
+
+<!-- ==================== WRITING ==================== -->
+<div class="card" id="writing">
+  <div class="card-title">八、英文作文（1 篇｜20 分）</div>
+  <div class="card-subtitle">評分向度</div>
+  <table class="conf-table">
+    <thead><tr><th>向度</th><th>配分</th><th>得分關鍵</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">內容</td><td>5 分</td><td>切題、依提示回答每一個問題、有具體例子</td></tr>
+      <tr><td class="conf-pair">組織</td><td>5 分</td><td>依題目要求分段；每段有主題句、支持句、結論句</td></tr>
+      <tr><td class="conf-pair">文法句構</td><td>4 分</td><td>時態一致、主動詞一致；適度使用複句</td></tr>
+      <tr><td class="conf-pair">字彙拼字</td><td>4 分</td><td>用字精確、避免重複同一字；拼字正確</td></tr>
+      <tr><td class="conf-pair">體例</td><td>2 分</td><td>段首縮排、標點、大小寫、字數（至少 120 字）</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card-subtitle">三種題型模板</div>
+  <div class="day-grid">
+    <div class="day-card">
+      <div class="day-header">看圖寫作（連環圖片）</div>
+      <div class="day-body" style="font-size:0.86rem; line-height:1.8;">
+        <strong>第一段：</strong>依圖片順序敘事（過去式）<br>
+        One sunny Saturday morning, ___ was ___.<br>
+        Just then, ___. / To ___'s surprise, ___.<br>
+        <strong>第二段：</strong>結局＋感想／教訓<br>
+        In the end, ___. This experience taught ___ that ___.
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">主題寫作（經驗／觀點）</div>
+      <div class="day-body" style="font-size:0.86rem; line-height:1.8;">
+        <strong>第一段：</strong>回答提示一（描述經驗、現象）<br>
+        When it comes to ___, what comes to my mind is ___.<br>
+        <strong>第二段：</strong>回答提示二（原因、影響、啟示）<br>
+        There are two reasons why ___. First, ___. Second, ___.<br>
+        In short, ___.
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">信函寫作</div>
+      <div class="day-body" style="font-size:0.86rem; line-height:1.8;">
+        Dear ___,<br>
+        <strong>第一段：</strong>寫信目的<br>
+        I am writing to ___ (express my concern about / ask for ___).<br>
+        <strong>第二段：</strong>具體說明＋請求<br>
+        I would appreciate it if you could ___.<br>
+        Sincerely, / Yours truly,<br>
+        （依題目指定署名，勿寫真名）
+      </div>
+    </div>
+  </div>
+
+  <div class="card-subtitle">範例題目與大綱</div>
+  <div class="box box-purple">
+    <strong>題目：</strong>請寫一篇英文作文，文長至少 120 個單詞。第一段描述一次讓你改變想法的經驗，第二段說明這次經驗對你的影響。
+  </div>
+  <div class="box box-green">
+    <strong>大綱示範</strong>
+    <strong>P1（經驗）：</strong>I used to think that asking questions in class was embarrassing. Last semester, however, I was too confused by a physics problem to stay silent… → 被同學感謝、老師鼓勵<br>
+    <strong>P2（影響）：</strong>Since then, I have realized that asking questions is a sign of curiosity rather than weakness. First, … Second, … In short, one small act of courage changed the way I learn.
+  </div>
+  <div class="box box-orange">
+    <strong>加分句型（適度使用 2–3 個即可）</strong>
+    Not until…did I…｜It was … that…｜Looking back, I…｜What surprised me most was that…｜…, which made me realize that…
+  </div>
+</div>
+
+<!-- ==================== TIMING ==================== -->
+<div class="card" id="timing">
+  <div class="card-title">模擬考 100 分鐘時間分配</div>
+  <table class="conf-table">
+    <thead><tr><th>時間</th><th>作答內容</th><th>檢查點</th></tr></thead>
+    <tbody>
+      <tr><td>0–5 分</td><td>瀏覽全卷，先看作文題目（讓大腦背景思考）</td><td>—</td></tr>
+      <tr><td>5–27 分</td><td>詞彙、綜合測驗、文意選填</td><td>第 27 分鐘應完成第 30 題</td></tr>
+      <tr><td>27–53 分</td><td>篇章結構、閱讀測驗</td><td>第 53 分鐘應完成選擇題</td></tr>
+      <tr><td>53–63 分</td><td>混合題</td><td>確認字數、拼字</td></tr>
+      <tr><td>63–71 分</td><td>中譯英</td><td>時態、冠詞、單複數</td></tr>
+      <tr><td>71–96 分</td><td>英文作文（大綱 3 分鐘＋寫作 22 分鐘）</td><td>確認分段、字數</td></tr>
+      <tr><td>96–100 分</td><td>畫卡檢查、作文拼字</td><td>—</td></tr>
+    </tbody>
+  </table>
+  <div class="box box-red">
+    <strong>停損原則</strong>
+    單題超過 90 秒仍無法確定就先標記跳過；閱讀測驗最多留 2 題最後再回頭。作文絕對不能少於 20 分鐘。
+  </div>
+</div>
+
+<!-- ==================== QUIZ ==================== -->
+<div class="card" id="quiz">
+  <div class="card-title">隨堂測驗 10 題（全題型綜合）</div>
+  <div class="card-subtitle">詞彙題（第 1–3 題）</div>
+
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">1</span>Despite the heavy rain, the marathon went ahead as ______, and thousands of runners showed up.</div>
+    <ul class="quiz-options"><li>(A) scheduled</li><li>(B) canceled</li><li>(C) delayed</li><li>(D) excluded</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(A) scheduled</div><div>Despite 表讓步：雖然下大雨，馬拉松仍「如期」舉行（as scheduled）。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">2</span>The new policy aims to ______ the gap between urban and rural schools by sending more resources to remote areas.</div>
+    <ul class="quiz-options"><li>(A) widen</li><li>(B) bridge</li><li>(C) block</li><li>(D) ignore</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B) bridge</div><div>bridge the gap「縮小差距」，高頻搭配詞；by sending more resources 為手段線索。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">3</span>Many people find it hard to stay ______ when they are criticized in public.</div>
+    <ul class="quiz-options"><li>(A) composed</li><li>(B) exposed</li><li>(C) opposed</li><li>(D) imposed</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(A) composed</div><div>composed 鎮定的；stay composed「保持冷靜」。其餘為形近字干擾。</div></div></details>
+  </div>
+
+  <div class="card-subtitle">文法與轉承（第 4–8 題）</div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">4</span>______ from the top of the mountain, the city looks like a glittering sea of lights.</div>
+    <ul class="quiz-options"><li>(A) Seeing</li><li>(B) Seen</li><li>(C) To see</li><li>(D) Having seen</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B) Seen</div><div>主詞 the city 是「被看」，分詞構句用過去分詞 Seen。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">5</span>Not until the power came back ______ how much we depend on electricity.</div>
+    <ul class="quiz-options"><li>(A) we realized</li><li>(B) did we realize</li><li>(C) we did realize</li><li>(D) realized we</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B) did we realize</div><div>Not until 置於句首，主要子句須倒裝（助動詞 + 主詞 + 原形動詞）。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">6</span>If I ______ harder last year, I would be studying at my dream university now.</div>
+    <ul class="quiz-options"><li>(A) studied</li><li>(B) had studied</li><li>(C) have studied</li><li>(D) would study</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B) had studied</div><div>混合假設：條件與「過去」事實相反（last year）→ had p.p.；結果與「現在」事實相反（now）→ would be。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">7</span>The new phone has many impressive features. ______, its high price may keep many students from buying it.</div>
+    <ul class="quiz-options"><li>(A) Therefore</li><li>(B) Moreover</li><li>(C) However</li><li>(D) For instance</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(C) However</div><div>前句優點、後句缺點，轉折關係。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">8</span>Regular exercise improves physical health. ______, it can reduce stress and improve mood.</div>
+    <ul class="quiz-options"><li>(A) In addition</li><li>(B) Otherwise</li><li>(C) Nevertheless</li><li>(D) In contrast</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(A) In addition</div><div>兩句皆為運動的好處，追加關係。</div></div></details>
+  </div>
+
+  <div class="card-subtitle">閱讀字義與中譯英（第 9–10 題）</div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">9</span>"The museum's collection is so <em>vast</em> that visitors could spend days there without seeing everything." The word <em>vast</em> means ______.</div>
+    <ul class="quiz-options"><li>(A) huge</li><li>(B) valuable</li><li>(C) ancient</li><li>(D) crowded</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(A) huge</div><div>so…that 後的結果「花好幾天也看不完」，推知 vast 表示規模巨大。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">10</span>「他花了三個小時才完成這份報告。」It ______ him three hours to finish the report.</div>
+    <ul class="quiz-options"><li>(A) spent</li><li>(B) took</li><li>(C) cost</li><li>(D) paid</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B) took</div><div>It takes + 人 + 時間 + to V。spend 的主詞須為人（He spent three hours finishing the report.）；cost 多用於金錢或代價。</div></div></details>
+  </div>
+
+  <div class="box box-green" style="margin-top:18px;">
+    <strong>成績評估</strong>
+    9–10 題正確：題型流程已熟練，週末模擬考專注時間控制。<br>
+    7–8 題正確：回到錯題對應的題型區塊，重讀解題步驟。<br>
+    5–6 題正確：週三、週四加做一回綜合測驗與文意選填。<br>
+    4 題以下：先複習「高頻文法檢核表」與「轉承詞分類」，再進行模擬考。
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;color:var(--gray);font-size:0.82rem;padding:20px 0 0;">
+  W24 英文科學習講義 — 台灣高中學測備考 | 高三上理工組 | 全題型複習（詞彙、綜合、選填、篇章、閱讀、混合、翻譯、作文）
+</div>
+
+</div><!-- /container -->
+</body>
+</html>
