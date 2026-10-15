@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W25 英文科學習講義 — 詞彙 Level 5–6 抽測、限時閱讀與全卷模擬</title>
+<style>
+  :root {
+    --primary: #1565c0;
+    --primary-light: #1976d2;
+    --primary-dark: #0d47a1;
+    --primary-bg: #e3f2fd;
+    --primary-bg2: #bbdefb;
+    --accent: #f57c00;
+    --accent-bg: #fff3e0;
+    --green: #2e7d32;
+    --green-bg: #e8f5e9;
+    --red: #c62828;
+    --red-bg: #ffebee;
+    --purple: #6a1b9a;
+    --purple-bg: #f3e5f5;
+    --gray: #546e7a;
+    --gray-bg: #f5f5f5;
+    --text: #212121;
+    --text-secondary: #546e7a;
+    --border: #e0e0e0;
+    --shadow: 0 2px 8px rgba(21,101,192,0.10);
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+    background: #f0f4f8;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  /* HEADER */
+  .site-header {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+    color: #fff;
+    padding: 32px 40px 24px;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 3px 12px rgba(13,71,161,0.25);
+  }
+  .site-header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: 1px; }
+  .site-header .meta { font-size: 0.88rem; opacity: 0.85; margin-top: 4px; }
+  /* NAV */
+  .top-nav {
+    background: var(--primary);
+    display: flex; flex-wrap: wrap; gap: 2px;
+    padding: 6px 40px;
+  }
+  .top-nav a {
+    color: #fff; text-decoration: none;
+    padding: 4px 12px; border-radius: 20px;
+    font-size: 0.82rem; font-weight: 500;
+    transition: background 0.2s;
+  }
+  .top-nav a:hover { background: rgba(255,255,255,0.2); }
+  /* LAYOUT */
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+  /* CARDS */
+  .card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 32px;
+    margin-bottom: 28px;
+  }
+  .card-title {
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--primary-dark);
+    border-left: 5px solid var(--primary);
+    padding-left: 12px; margin-bottom: 18px;
+  }
+  .card-subtitle {
+    font-size: 1rem; font-weight: 600;
+    color: var(--primary); margin: 20px 0 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  /* BOXES */
+  .box { border-radius: 8px; padding: 14px 18px; margin: 12px 0; }
+  .box-blue { background: var(--primary-bg); border-left: 4px solid var(--primary); }
+  .box-green { background: var(--green-bg); border-left: 4px solid var(--green); }
+  .box-orange { background: var(--accent-bg); border-left: 4px solid var(--accent); }
+  .box-red { background: var(--red-bg); border-left: 4px solid var(--red); }
+  .box-purple { background: var(--purple-bg); border-left: 4px solid var(--purple); }
+  .box-gray { background: var(--gray-bg); border-left: 4px solid var(--gray); }
+  .box strong { display: block; margin-bottom: 4px; }
+  /* TOC */
+  .toc { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 10px; }
+  .toc a {
+    display: block; padding: 10px 16px;
+    background: var(--primary-bg); color: var(--primary-dark);
+    border-radius: 8px; text-decoration: none; font-size: 0.9rem;
+    border: 1px solid var(--primary-bg2);
+    transition: background 0.2s, transform 0.1s;
+    font-weight: 500;
+  }
+  .toc a:hover { background: var(--primary-bg2); transform: translateY(-1px); }
+  /* VOCAB TABLE */
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .vocab-table thead tr { background: var(--primary); color: #fff; }
+  .vocab-table thead th { padding: 10px 12px; text-align: left; font-weight: 600; }
+  .vocab-table tbody tr:nth-child(even) { background: var(--primary-bg); }
+  .vocab-table tbody tr:hover { background: var(--primary-bg2); }
+  .vocab-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .word { font-weight: 700; color: var(--primary-dark); font-size: 0.95rem; }
+  .phonetic { color: var(--gray); font-size: 0.82rem; font-style: italic; }
+  .pos-badge {
+    display: inline-block; padding: 1px 7px;
+    border-radius: 10px; font-size: 0.75rem; font-weight: 600;
+  }
+  .pos-n { background: #e3f2fd; color: #1565c0; }
+  .pos-v { background: #e8f5e9; color: #2e7d32; }
+  .pos-adj { background: #fff3e0; color: #e65100; }
+  .pos-adv { background: #f3e5f5; color: #6a1b9a; }
+  .example { color: var(--text-secondary); font-size: 0.83rem; font-style: italic; margin-top: 2px; }
+  .meaning { font-weight: 500; }
+  /* SECTION HEADERS */
+  .pos-section { margin: 22px 0 10px; }
+  .pos-header {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--primary); color: #fff;
+    padding: 6px 18px; border-radius: 20px;
+    font-size: 0.9rem; font-weight: 700; margin-bottom: 8px;
+  }
+  /* DAY PLAN */
+  .day-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 16px; }
+  .day-card {
+    border: 2px solid var(--primary-bg2);
+    border-radius: 10px; overflow: hidden;
+  }
+  .day-header {
+    background: var(--primary); color: #fff;
+    padding: 8px 16px; font-weight: 700; font-size: 0.92rem;
+  }
+  .day-body { padding: 12px 14px; }
+  .day-word-list { list-style: none; }
+  .day-word-list li {
+    padding: 4px 0; border-bottom: 1px dashed var(--border);
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 0.86rem;
+  }
+  .day-word-list li:last-child { border-bottom: none; }
+  .day-word-list .en { font-weight: 600; color: var(--primary-dark); }
+  .day-word-list .zh { color: var(--text-secondary); font-size: 0.82rem; }
+  /* CONFUSION TABLE */
+  .conf-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 8px; }
+  .conf-table th { background: var(--primary); color: #fff; padding: 9px 12px; text-align: left; }
+  .conf-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .conf-table tbody tr:nth-child(even) { background: var(--gray-bg); }
+  .conf-pair { font-weight: 700; color: var(--primary-dark); }
+  /* QUIZ */
+  .quiz-item { margin-bottom: 18px; }
+  .quiz-q { font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .quiz-q .qnum {
+    display: inline-block; width: 26px; height: 26px;
+    background: var(--primary); color: #fff;
+    border-radius: 50%; text-align: center; line-height: 26px;
+    font-size: 0.82rem; margin-right: 8px;
+  }
+  .quiz-options { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-left: 34px; }
+  .quiz-options li {
+    padding: 5px 14px; border: 1.5px solid var(--primary-bg2);
+    border-radius: 20px; cursor: pointer; font-size: 0.88rem;
+  }
+  details { margin-top: 10px; margin-left: 34px; }
+  summary {
+    cursor: pointer; font-size: 0.86rem; font-weight: 600;
+    color: var(--primary); padding: 5px 0;
+    list-style: none; display: flex; align-items: center; gap: 6px;
+  }
+  summary::before { content: "▶ 顯示解答"; }
+  details[open] summary::before { content: "▼ 隱藏解答"; }
+  .answer-box {
+    background: var(--green-bg); border: 1px solid #a5d6a7;
+    border-radius: 8px; padding: 10px 14px; margin-top: 6px;
+    font-size: 0.87rem;
+  }
+  .answer-box .ans { font-weight: 700; color: var(--green); }
+  /* PROGRESS BAR */
+  .progress-bar { height: 8px; background: var(--primary-bg2); border-radius: 4px; margin: 16px 0 4px; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--primary-light)); border-radius: 4px; }
+  /* TAG */
+  .tag {
+    display: inline-block; padding: 2px 9px;
+    border-radius: 10px; font-size: 0.78rem; font-weight: 600;
+    background: var(--primary-bg2); color: var(--primary-dark);
+    margin: 2px;
+  }
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .site-header { padding: 20px 16px 14px; }
+    .top-nav { padding: 6px 12px; }
+    .container { padding: 16px 10px 40px; }
+    .card { padding: 18px 14px; }
+    .vocab-table { font-size: 0.80rem; }
+    .day-grid { grid-template-columns: 1fr; }
+  }
+  /* PRINT */
+  @media print {
+    .site-header, .top-nav { position: static; }
+    .card { box-shadow: none; border: 1px solid #ccc; }
+    details { display: block; }
+    details summary { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<style>
+  /* W25 補充樣式：閱讀文章與字表 */
+  .passage {
+    background: #fcfcfd; border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 8px; padding: 18px 22px; margin: 14px 0;
+    font-size: 0.92rem; line-height: 1.9;
+  }
+  .passage p { margin-bottom: 10px; }
+  .passage .lineno { color: var(--gray); font-size: 0.72rem; font-weight: 700; display: inline-block; width: 26px; user-select: none; }
+  .passage .gloss { color: var(--primary-dark); font-weight: 600; border-bottom: 1px dotted var(--primary); }
+  .pool-table td { padding: 6px 10px; }
+  .pool-table .meaning { font-size: 0.84rem; }
+  .cover-hint { font-size: 0.82rem; color: var(--gray); }
+  .check-cell { text-align: center; color: var(--gray); }
+</style>
+
+<header class="site-header">
+  <h1>W25 英文科學習講義</h1>
+  <div class="meta">高三上・理工組 | 第四階段（整合衝刺）| 11/02–11/08 | 主軸：詞彙 Level 5–6 抽測 ＋ 閱讀每日 2 篇限時 ＋ 週六英文全卷模擬</div>
+</header>
+
+<nav class="top-nav">
+  <a href="#overview">單元概述</a>
+  <a href="#plan">本週計畫</a>
+  <a href="#vocab">詞彙抽測</a>
+  <a href="#setA">抽測 A（L5）</a>
+  <a href="#setB">抽測 B（L6）</a>
+  <a href="#confuse">易混淆詞</a>
+  <a href="#reading">限時閱讀</a>
+  <a href="#readA">閱讀 A</a>
+  <a href="#readB">閱讀 B</a>
+  <a href="#mock">週六全卷模擬</a>
+  <a href="#review">週日檢討</a>
+  <a href="#weak">弱點筆記</a>
+  <a href="#quiz">隨堂測驗</a>
+</nav>
+
+<div class="container">
+
+<!-- ==================== OVERVIEW ==================== -->
+<div class="card" id="overview">
+  <div class="card-title">單元概述與學習目標</div>
+  <div class="toc">
+    <a href="#plan">本週七日計畫</a>
+    <a href="#vocab">詞彙衝刺：Level 5–6 全表自測（109 + 88 字）</a>
+    <a href="#setA">抽測 A：Level 5 共 15 題</a>
+    <a href="#setB">抽測 B：Level 6 共 15 題</a>
+    <a href="#confuse">易混淆詞組 8 組</a>
+    <a href="#reading">限時閱讀：8 分鐘一篇的做法</a>
+    <a href="#readA">閱讀 A：Repair Cafés</a>
+    <a href="#readB">閱讀 B：The Planning Fallacy</a>
+    <a href="#mock">週六英文全卷模擬</a>
+    <a href="#review">週日對答案與錯題整理</a>
+    <a href="#weak">個人弱點筆記</a>
+    <a href="#quiz">隨堂測驗 8 題</a>
+  </div>
+
+  <div class="box box-blue" style="margin-top:18px;">
+    <strong>本週定位（第四階段第一週：整合衝刺）</strong>
+    W24 把八大題型的解題流程串成一套，並在週末完成第一次五科聯合模擬考。從本週起，英文進入「查漏補缺」：不再學新單元，而是<b>用抽測找出還不穩的字</b>、<b>用限時閱讀訓練速度</b>，並在週六做一次英文全卷模擬，檢驗兩者的成效。
+  </div>
+  <div class="box box-green">
+    <strong>學習目標</strong>
+    完成本週後，學生能夠：<br>
+    ① 對 Level 5–6 共約 109 + 88 個字完成全表自測，把「秒答／猶豫／不會」分開，並建立自己的詞彙錯字本<br>
+    ② 完成 30 題詞彙抽測，答對率達 80%（24 題）以上；未達標者複測至達標<br>
+    ③ 能用「先看題、再讀文、定位答案」的流程在 8 分鐘內完成 1 篇閱讀（約 4–5 題）<br>
+    ④ 區辨 8 組易混淆的 Level 5–6 詞組（如 mitigate / mediate / alleviate）<br>
+    ⑤ 週六完成英文全卷模擬，並在週日用「錯題分類表」找出主要失分來源
+  </div>
+  <div class="box box-orange">
+    <strong>學測考點提醒</strong>
+    學測詞彙題（第壹部分一）、綜合測驗與文意選填，都需要 Level 5–6 的字；閱讀測驗與混合題的選項與題幹，往往也使用這個等級的字。<b>字彙量不足不只扣詞彙題，還會拖慢整份閱讀的速度</b>，所以本週詞彙衝刺同時也是閱讀衝刺。
+  </div>
+  <div class="box box-gray">
+    <strong>本週進度與排程提醒</strong>
+    第 25 週 / 第 35 週（Phase 4：W25–W31，整合衝刺）
+    <div class="progress-bar"><div class="progress-fill" style="width:71.4%"></div></div>
+    <span style="font-size:0.82rem;color:var(--gray)">距學測 2027/01/22 約 81 天</span>
+    <p style="margin-top:10px;font-size:0.87rem;">依 35 週時程表，本週為第四階段首週：國文做弱點古文深讀與國寫限時練習，數學 A 做個人弱點章節練習，物理做第二章力學綜合計算題 20 題，化學做化學計量綜合計算 15 題；週六英文全卷模擬，週日對答案與整理錯題。</p>
+  </div>
+</div>
+
+<!-- ==================== PLAN ==================== -->
+<div class="card" id="plan">
+  <div class="card-title">本週七日計畫（英文每日約 70–80 分鐘）</div>
+  <div class="day-grid">
+    <div class="day-card">
+      <div class="day-header">Day 1（一）— L5 全表自測＋閱讀</div>
+      <div class="day-body">
+        <ul class="day-word-list">
+          <li><span class="en">Level 5 全表自測（遮中文）</span><span class="zh">25 分鐘</span></li>
+          <li><span class="en">限時閱讀 2 篇（本講義 A、B）</span><span class="zh">20 分鐘</span></li>
+          <li><span class="en">檢討、記錄 ✘ 字</span><span class="zh">15 分鐘</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">Day 2（二）— L6 全表自測＋閱讀</div>
+      <div class="day-body">
+        <ul class="day-word-list">
+          <li><span class="en">Level 6 全表自測（遮中文）</span><span class="zh">25 分鐘</span></li>
+          <li><span class="en">限時閱讀 2 篇（歷屆試題）</span><span class="zh">20 分鐘</span></li>
+          <li><span class="en">抄 ✘ 字進錯字本</span><span class="zh">15 分鐘</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">Day 3（三）— 抽測 A（L5）</div>
+      <div class="day-body">
+        <ul class="day-word-list">
+          <li><span class="en">抽測 A 15 題（限時 10 分鐘）</span><span class="zh">10 分鐘</span></li>
+          <li><span class="en">複測昨日 ✘／△ 的 L5 字</span><span class="zh">15 分鐘</span></li>
+          <li><span class="en">限時閱讀 2 篇</span><span class="zh">20 分鐘</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">Day 4（四）— 抽測 B（L6）</div>
+      <div class="day-body">
+        <ul class="day-word-list">
+          <li><span class="en">抽測 B 15 題（限時 10 分鐘）</span><span class="zh">10 分鐘</span></li>
+          <li><span class="en">複測昨日 ✘／△ 的 L6 字</span><span class="zh">15 分鐘</span></li>
+          <li><span class="en">限時閱讀 2 篇</span><span class="zh">20 分鐘</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">Day 5（五）— 易混淆詞＋總複測</div>
+      <div class="day-body">
+        <ul class="day-word-list">
+          <li><span class="en">易混淆詞 8 組：造句自測</span><span class="zh">15 分鐘</span></li>
+          <li><span class="en">錯字本全部重測</span><span class="zh">20 分鐘</span></li>
+          <li><span class="en">限時閱讀 2 篇</span><span class="zh">20 分鐘</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">Day 6（六）— 英文全卷模擬</div>
+      <div class="day-body">
+        <ul class="day-word-list">
+          <li><span class="en">全卷限時作答（時程表：90 分鐘）</span><span class="zh">90 分鐘</span></li>
+          <li><span class="en">當天不對答案，只記錄「超時處」</span><span class="zh">5 分鐘</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">Day 7（日）— 對答案＋錯題整理</div>
+      <div class="day-body">
+        <ul class="day-word-list">
+          <li><span class="en">對答案、算各大題得分</span><span class="zh">30 分鐘</span></li>
+          <li><span class="en">錯題分類表＋詞彙錯字本更新</span><span class="zh">40 分鐘</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="box box-red">
+    <strong>提醒</strong>
+    週六全卷模擬當天，國文／數學／物理／化學只做最低限度的複習，把精神留給模擬考；週五晚上不要熬夜補字，睡眠對詞彙提取的幫助比最後一次背誦更大。
+  </div>
+</div>
+
+<!-- ==================== VOCAB ==================== -->
+<div class="card" id="vocab">
+  <div class="card-title">詞彙衝刺：Level 5–6 全表自測（109 + 88 字）</div>
+
+  <div class="box box-blue">
+    <strong>三段式自測法</strong>
+    ① <b>蓋住中文釋義</b>，只看英文單字，3 秒內說出意思。<br>
+    ② 能 3 秒內說對 →「✔」；想了超過 3 秒才想到 →「△」；說不出來或說錯 →「✘」。<br>
+    ③ 只把「△」「✘」的字抄進<b>詞彙錯字本</b>（寫出單字＋詞性＋中文＋例句，不超過 2 行），隔天複測，連續兩次 ✔ 才移出。
+  </div>
+
+  <div class="card-subtitle">Level 5 字表（W08–W10 教過，共 109 字，去除重複）</div>
+  <p class="cover-hint">可用紙遮住「中文釋義」欄位，只看單字自測。</p>
+  <table class="vocab-table pool-table"><thead><tr><th>單字</th><th>中文釋義（可遮住）</th><th>單字</th><th>中文釋義（可遮住）</th></tr></thead><tbody><tr><td><span class="word">hypothesis</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">假設；假說</td><td><span class="word">empirical</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">以經驗為依據的；實證的</td></tr><tr><td><span class="word">methodology</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">方法論；研究方法</td><td><span class="word">correlate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">使相關；顯示相互關係</td></tr><tr><td><span class="word">validate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">證實；確認…有效</td><td><span class="word">paradox</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">似非而是的說法；矛盾現象</td></tr><tr><td><span class="word">discrepancy</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">差異；不一致</td><td><span class="word">synthesis</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">綜合；合成</td></tr><tr><td><span class="word">plausible</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">貌似合理的；可信的</td><td><span class="word">rigorous</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">嚴謹的；嚴格的</td></tr><tr><td><span class="word">allocate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">分配；撥出（資源）</td><td><span class="word">subsidy</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">補助金；津貼</td></tr><tr><td><span class="word">commodity</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">商品；日用品</td><td><span class="word">infrastructure</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">基礎建設</td></tr><tr><td><span class="word">mandate</span> <span class="pos-badge pos-n">n./v.</span></td><td class="meaning">授權；命令；強制規定</td><td><span class="word">autonomy</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">自治；自主權</td></tr><tr><td><span class="word">controversy</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">爭議；爭論</td><td><span class="word">incentive</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">誘因；獎勵</td></tr><tr><td><span class="word">legitimate</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">合法的；正當的</td><td><span class="word">exploit</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">剝削；（不當）利用</td></tr><tr><td><span class="word">ambivalent</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">矛盾情緒的；猶豫不決的</td><td><span class="word">discern</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">辨別；看出</td></tr><tr><td><span class="word">innate</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">天生的；固有的</td><td><span class="word">cognitive</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">認知的</td></tr><tr><td><span class="word">subtle</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">微妙的；細微的</td><td><span class="word">provoke</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">激怒；引起</td></tr><tr><td><span class="word">reciprocal</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">相互的；互惠的</td><td><span class="word">mediate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">調解；斡旋</td></tr><tr><td><span class="word">intrinsic</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">本質的；固有的</td><td><span class="word">articulate</span> <span class="pos-badge pos-n">v./adj.</span></td><td class="meaning">清楚表達（動詞）；表達清晰的（形容詞）</td></tr><tr><td><span class="word">fluctuate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">波動；起伏不定</td><td><span class="word">deteriorate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">惡化</td></tr><tr><td><span class="word">mitigate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">減輕；緩和</td><td><span class="word">erode</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">侵蝕；腐蝕</td></tr><tr><td><span class="word">unprecedented</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">前所未有的</td><td><span class="word">accumulate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">累積</td></tr><tr><td><span class="word">dwindle</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">逐漸減少</td><td><span class="word">gradient</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">坡度；梯度</td></tr><tr><td><span class="word">momentum</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">動量；氣勢</td><td><span class="word">catalyst</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">催化劑；促成因素</td></tr><tr><td><span class="word">diagnose</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">診斷</td><td><span class="word">chronic</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">慢性的；長期的</td></tr><tr><td><span class="word">immune</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">免疫的；不受影響的</td><td><span class="word">therapeutic</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">治療的；有療效的</td></tr><tr><td><span class="word">epidemic</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">流行病；蔓延</td><td><span class="word">prescribe</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">開（處方）；規定</td></tr><tr><td><span class="word">susceptible</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">易受影響的；易感染的（to）</td><td><span class="word">alleviate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">減輕；緩解</td></tr><tr><td><span class="word">sedentary</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">久坐的；缺乏運動的</td><td><span class="word">nourish</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">滋養；養育</td></tr><tr><td><span class="word">aesthetic</span> <span class="pos-badge pos-n">adj./n.</span></td><td class="meaning">美學的；審美觀</td><td><span class="word">heritage</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">文化遺產；傳承</td></tr><tr><td><span class="word">authentic</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">真實的；道地的</td><td><span class="word">portray</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">描繪；描寫；扮演</td></tr><tr><td><span class="word">narrative</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">敘事；故事情節</td><td><span class="word">eloquent</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">雄辯的；口才流利的</td></tr><tr><td><span class="word">distort</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">扭曲；曲解</td><td><span class="word">censorship</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">審查制度</td></tr><tr><td><span class="word">commemorate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">紀念；慶祝（重要事件）</td><td><span class="word">genre</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">（文學、藝術）類型；體裁</td></tr><tr><td><span class="word">innovate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">創新；革新</td><td><span class="word">automate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">使自動化</td></tr><tr><td><span class="word">algorithm</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">演算法</td><td><span class="word">simulate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">模擬</td></tr><tr><td><span class="word">versatile</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">多才多藝的；用途廣泛的</td><td><span class="word">obsolete</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">過時的；已淘汰的</td></tr><tr><td><span class="word">streamline</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">使精簡順暢；使簡化</td><td><span class="word">prototype</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">原型；雛型</td></tr><tr><td><span class="word">breakthrough</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">（重大）突破</td><td><span class="word">glitch</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">（系統或設備的）小故障</td></tr><tr><td><span class="word">curriculum</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">課程；學科</td><td><span class="word">discipline</span> <span class="pos-badge pos-n">n./v.</span></td><td class="meaning">紀律；訓練（名詞）；訓誡（動詞）</td></tr><tr><td><span class="word">diverse</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">多元的；多樣的</td><td><span class="word">stereotype</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">刻板印象</td></tr><tr><td><span class="word">prejudice</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">偏見</td><td><span class="word">tolerate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">容忍；忍受</td></tr><tr><td><span class="word">integrate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">整合；使融入</td><td><span class="word">isolate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">使隔離；使孤立</td></tr><tr><td><span class="word">underprivileged</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">弱勢的；資源不足的</td><td><span class="word">empower</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">賦權；使能夠</td></tr><tr><td><span class="word">legislate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">立法；制定法律</td><td><span class="word">violate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">違反；侵犯</td></tr><tr><td><span class="word">enforce</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">執行；強制實施</td><td><span class="word">testify</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">作證；證明</td></tr><tr><td><span class="word">verdict</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">判決；裁決</td><td><span class="word">prosecute</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">起訴；告發</td></tr><tr><td><span class="word">defendant</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">被告</td><td><span class="word">plaintiff</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">原告</td></tr><tr><td><span class="word">ethical</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">道德的；倫理的</td><td><span class="word">corrupt</span> <span class="pos-badge pos-n">adj./v.</span></td><td class="meaning">貪腐的；使腐化</td></tr><tr><td><span class="word">diplomat</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">外交官</td><td><span class="word">negotiate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">談判；協商</td></tr><tr><td><span class="word">sovereignty</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">主權</td><td><span class="word">immigrant</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">（移入的）移民</td></tr><tr><td><span class="word">refugee</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">難民</td><td><span class="word">tariff</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">關稅</td></tr><tr><td><span class="word">treaty</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">條約</td><td><span class="word">alliance</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">聯盟</td></tr><tr><td><span class="word">unify</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">統一；使一致</td><td><span class="word">globalize</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">使全球化</td></tr><tr><td><span class="word">renewable</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">可再生的</td><td><span class="word">deplete</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">耗盡；使枯竭</td></tr><tr><td><span class="word">conserve</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">節約；保育</td><td><span class="word">emission</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">排放（物）</td></tr><tr><td><span class="word">sustainable</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">永續的；可持續的</td><td><span class="word">ecosystem</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">生態系統</td></tr><tr><td><span class="word">biodiversity</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">生物多樣性</td><td><span class="word">pollutant</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">污染物</td></tr><tr><td><span class="word">degrade</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">使降解；使惡化</td><td></td><td></td></tr></tbody></table>
+
+  <div class="card-subtitle" style="margin-top:26px;">Level 6 字表（W11–W13 教過，共 88 字，去除重複）</div>
+  <p class="cover-hint">Level 6 的字抽象度更高，常出現在閱讀測驗的選項與論說文；遇到不熟的字，回想它出現過的句子，比背中文更牢。</p>
+  <table class="vocab-table pool-table"><thead><tr><th>單字</th><th>中文釋義（可遮住）</th><th>單字</th><th>中文釋義（可遮住）</th></tr></thead><tbody><tr><td><span class="word">arbitrary</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">武斷的；隨意的</td><td><span class="word">coherent</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">連貫的；條理清晰的</td></tr><tr><td><span class="word">skepticism</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">懷疑論；懷疑態度</td><td><span class="word">presuppose</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">預先假定；以…為前提</td></tr><tr><td><span class="word">dichotomy</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">二分法；截然二分</td><td><span class="word">nuance</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">細微差別</td></tr><tr><td><span class="word">inherent</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">固有的；與生俱來的</td><td><span class="word">anomaly</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">異常；反常現象</td></tr><tr><td><span class="word">substantiate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">證實；提出證據支持</td><td><span class="word">quantify</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">量化；以數字衡量</td></tr><tr><td><span class="word">subconscious</span> <span class="pos-badge pos-n">adj./n.</span></td><td class="meaning">潛意識的；潛意識</td><td><span class="word">introspect</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">內省；反省自己</td></tr><tr><td><span class="word">disposition</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">性情；傾向</td><td><span class="word">temperament</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">氣質；性情</td></tr><tr><td><span class="word">cognizant</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">意識到的；知悉的</td><td><span class="word">complacent</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">自滿的；沾沾自喜的</td></tr><tr><td><span class="word">pragmatic</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">務實的；實用主義的</td><td><span class="word">deference</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">順從；尊重</td></tr><tr><td><span class="word">discretion</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">判斷力；謹慎；斟酌權</td><td><span class="word">candor</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">坦率；直言不諱</td></tr><tr><td><span class="word">paradigm</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">典範；範式</td><td><span class="word">exacerbate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">使惡化；加劇</td></tr><tr><td><span class="word">proliferate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">激增；擴散</td><td><span class="word">entrenched</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">根深蒂固的</td></tr><tr><td><span class="word">polarize</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">使兩極化</td><td><span class="word">connotation</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">隱含意義；言外之意</td></tr><tr><td><span class="word">discourse</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">論述；言談</td><td><span class="word">constituent</span> <span class="pos-badge pos-n">n./adj.</span></td><td class="meaning">組成部分；選民；構成的</td></tr><tr><td><span class="word">prerogative</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">特權；(尤指)特有的權利</td><td><span class="word">tenuous</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">脆弱的；站不住腳的</td></tr><tr><td><span class="word">empirical</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">以經驗為依據的；實證的</td><td><span class="word">catalyst</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">催化劑；促成因素</td></tr><tr><td><span class="word">synthesize</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">合成；綜合</td><td><span class="word">rudimentary</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">基本的；初步的；未發展完全的</td></tr><tr><td><span class="word">obsolete</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">過時的；已淘汰的</td><td><span class="word">innate</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">天生的；固有的</td></tr><tr><td><span class="word">meticulous</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">一絲不苟的；極為細心的</td><td><span class="word">discrepancy</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">差異；不一致</td></tr><tr><td><span class="word">corroborate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">證實；佐證</td><td><span class="word">plausible</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">似乎合理的；可信的</td></tr><tr><td><span class="word">autonomy</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">自治；自主權</td><td><span class="word">egalitarian</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">平等主義的</td></tr><tr><td><span class="word">bureaucracy</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">官僚體制；行政機構</td><td><span class="word">subsidize</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">補貼；資助</td></tr><tr><td><span class="word">stipulate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">規定；明訂（於契約、法律中）</td><td><span class="word">coerce</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">強迫；脅迫</td></tr><tr><td><span class="word">mandate</span> <span class="pos-badge pos-n">n./v.</span></td><td class="meaning">授權；委任；強制要求</td><td><span class="word">levy</span> <span class="pos-badge pos-n">v./n.</span></td><td class="meaning">徵收（稅）；徵稅</td></tr><tr><td><span class="word">deficit</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">赤字；不足額</td><td><span class="word">circumvent</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">規避；繞過（規則、障礙）</td></tr><tr><td><span class="word">rhetoric</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">修辭；（尤指誇大而缺乏實質的）言辭</td><td><span class="word">eloquent</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">雄辯的；口才流利且有說服力的</td></tr><tr><td><span class="word">ambiguous</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">模稜兩可的；意義不明的</td><td><span class="word">articulate</span> <span class="pos-badge pos-n">adj./v.</span></td><td class="meaning">表達清晰的；清楚地表達</td></tr><tr><td><span class="word">discern</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">辨別；看出（不易察覺的事物）</td><td><span class="word">underscore</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">強調；突顯</td></tr><tr><td><span class="word">reiterate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">重申；反覆申明</td><td><span class="word">refute</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">反駁；駁斥（以證據）</td></tr><tr><td><span class="word">concede</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">讓步；(不情願地)承認</td><td><span class="word">juxtapose</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">並列；對照放置</td></tr><tr><td><span class="word">chronic</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">慢性的；長期的</td><td><span class="word">epidemic</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">流行病；疫情</td></tr><tr><td><span class="word">immune</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">免疫的；不受影響的</td><td><span class="word">metabolism</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">新陳代謝</td></tr><tr><td><span class="word">sedentary</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">久坐的；缺乏運動的</td><td><span class="word">therapeutic</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">治療的；有療效的</td></tr><tr><td><span class="word">malnutrition</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">營養不良</td><td><span class="word">sanitation</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">公共衛生；衛生設施</td></tr><tr><td><span class="word">resilient</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">有韌性的；能快速恢復的</td><td><span class="word">deteriorate</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">惡化；衰退</td></tr><tr><td><span class="word">aesthetic</span> <span class="pos-badge pos-n">adj./n.</span></td><td class="meaning">美學的；審美觀</td><td><span class="word">authentic</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">真正的；道地的</td></tr><tr><td><span class="word">improvise</span> <span class="pos-badge pos-n">v.</span></td><td class="meaning">即興創作；臨場發揮</td><td><span class="word">medium</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">媒介；手段（複數形 media）</td></tr><tr><td><span class="word">profound</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">深刻的；深奧的</td><td><span class="word">sophisticated</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">精緻的；複雜精密的；老練的</td></tr><tr><td><span class="word">subtle</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">微妙的；不易察覺的</td><td><span class="word">vivid</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">生動的；鮮明的</td></tr><tr><td><span class="word">novelty</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">新奇；新穎的事物</td><td><span class="word">ornate</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">裝飾華麗的</td></tr><tr><td><span class="word">integrity</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">正直；誠信；完整性</td><td><span class="word">legitimate</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">合法的；正當的</td></tr><tr><td><span class="word">paradox</span> <span class="pos-badge pos-n">n.</span></td><td class="meaning">矛盾；似非而是的說法</td><td><span class="word">redundant</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">多餘的；累贅的</td></tr><tr><td><span class="word">transient</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">短暫的；轉瞬即逝的</td><td><span class="word">ubiquitous</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">無所不在的</td></tr><tr><td><span class="word">viable</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">可行的；可實行的</td><td><span class="word">inevitable</span> <span class="pos-badge pos-n">adj.</span></td><td class="meaning">不可避免的；必然發生的</td></tr></tbody></table>
+
+  <div class="card-subtitle" style="margin-top:22px;">自測記錄表（建議抄在筆記本）</div>
+  <table class="conf-table">
+    <thead><tr><th>日期</th><th>範圍</th><th>✔ 秒答</th><th>△ 猶豫</th><th>✘ 不會</th><th>複測日</th></tr></thead>
+    <tbody>
+      <tr><td>11/02</td><td>Level 5 全表</td><td class="check-cell">＿</td><td class="check-cell">＿</td><td class="check-cell">＿</td><td>11/04</td></tr>
+      <tr><td>11/03</td><td>Level 6 全表</td><td class="check-cell">＿</td><td class="check-cell">＿</td><td class="check-cell">＿</td><td>11/05</td></tr>
+      <tr><td>11/05</td><td>L5 ✘△ 複測＋抽測 A</td><td class="check-cell">＿</td><td class="check-cell">＿</td><td class="check-cell">＿</td><td>11/06</td></tr>
+      <tr><td>11/06</td><td>L6 ✘△ 複測＋抽測 B</td><td class="check-cell">＿</td><td class="check-cell">＿</td><td class="check-cell">＿</td><td>11/08</td></tr>
+    </tbody>
+  </table>
+  <div class="box box-orange">
+    <strong>目標</strong>
+    ✘ 的字在週五複測後降到 <b>10 個以下</b>；剩下的字寫在小卡片上，放進口袋，利用週六、週日空檔看。
+  </div>
+</div>
+
+<!-- ==================== SET A ==================== -->
+<div class="card" id="setA">
+  <div class="card-title">抽測 A：Level 5 詞彙 15 題</div>
+  <div class="box box-blue">
+    <strong>作答說明</strong>
+    限時 10 分鐘，單選題。做完再展開解析；答錯的字，請回到上面的字表打「✘」並抄進錯字本。
+  </div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">1</span>Police must ______ the new traffic rules strictly; otherwise drivers will simply ignore them.</div><ul class="quiz-options"><li>(A) testify</li><li>(B) enforce</li><li>(C) exploit</li><li>(D) simulate</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(B) enforce</div><div>enforce 執行（法規）。testify 作證、exploit 利用、simulate 模擬，都不能搭配 rules。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">2</span>Rising sea levels and strong waves have ______ the coastline so badly that several houses had to be moved inland.</div><ul class="quiz-options"><li>(A) eroded</li><li>(B) allocated</li><li>(C) articulated</li><li>(D) nourished</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(A) eroded</div><div>erode 侵蝕。allocate 分配、articulate 清楚表達、nourish 滋養。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">3</span>His back pain is ______; it has bothered him for more than ten years and may never disappear completely.</div><ul class="quiz-options"><li>(A) immune</li><li>(B) authentic</li><li>(C) subtle</li><li>(D) chronic</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(D) chronic</div><div>chronic 慢性的、長期的。immune 免疫的、authentic 真正的、subtle 細微的。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">4</span>The government decided to ______ more funds to rural schools in order to narrow the education gap.</div><ul class="quiz-options"><li>(A) provoke</li><li>(B) distort</li><li>(C) allocate</li><li>(D) fluctuate</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(C) allocate</div><div>allocate funds 撥款、分配經費。provoke 激怒、distort 扭曲、fluctuate 波動（不及物）。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">5</span>The film ______ the life of a poor farmer so honestly that many viewers were moved to tears.</div><ul class="quiz-options"><li>(A) prescribed</li><li>(B) portrayed</li><li>(C) simulated</li><li>(D) prosecuted</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(B) portrayed</div><div>portray 描繪（人物或生活）。prescribe 開處方、simulate 模擬、prosecute 起訴。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">6</span>Because he spends most of the day sitting in front of a screen, his doctor warned that his ______ lifestyle might lead to health problems.</div><ul class="quiz-options"><li>(A) sedentary</li><li>(B) versatile</li><li>(C) reciprocal</li><li>(D) ethical</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(A) sedentary</div><div>sedentary lifestyle 久坐不動的生活方式。versatile 多才多藝、reciprocal 互惠的、ethical 倫理的。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">7</span>The scientist's ______ that plants grow faster under blue light was later supported by several experiments.</div><ul class="quiz-options"><li>(A) glitch</li><li>(B) tariff</li><li>(C) verdict</li><li>(D) hypothesis</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(D) hypothesis</div><div>hypothesis 假說，後面才會被實驗「支持」。glitch 小故障、tariff 關稅、verdict 裁決。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">8</span>Typewriters became ______ once personal computers became cheap and common.</div><ul class="quiz-options"><li>(A) therapeutic</li><li>(B) eloquent</li><li>(C) obsolete</li><li>(D) authentic</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(C) obsolete</div><div>obsolete 過時的、不再使用的。therapeutic 治療的、eloquent 雄辯的、authentic 真品的。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">9</span>Rising prices and ______ incomes make it difficult for many families to save any money.</div><ul class="quiz-options"><li>(A) streamlined</li><li>(B) dwindling</li><li>(C) integrated</li><li>(D) degraded</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(B) dwindling</div><div>dwindle 逐漸減少，dwindling incomes 日益減少的收入，與 rising prices 形成對比。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">10</span>The two countries signed a ______ promising never to attack each other.</div><ul class="quiz-options"><li>(A) treaty</li><li>(B) genre</li><li>(C) prototype</li><li>(D) gradient</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(A) treaty</div><div>treaty 條約。genre 文類、prototype 原型、gradient 斜率、梯度。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">11</span>The company introduced a cash ______ to encourage its employees to cycle to work instead of driving.</div><ul class="quiz-options"><li>(A) pollutant</li><li>(B) paradox</li><li>(C) algorithm</li><li>(D) incentive</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(D) incentive</div><div>incentive 獎勵、誘因，後面 to encourage 為線索。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">12</span>It seems a ______ that the richest city in the region has so many homeless people.</div><ul class="quiz-options"><li>(A) heritage</li><li>(B) refugee</li><li>(C) paradox</li><li>(D) commodity</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(C) paradox</div><div>paradox 看似矛盾卻存在的現象。heritage 遺產、refugee 難民、commodity 商品。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">13</span>Factories must reduce harmful ______ if the city wants to improve its air quality.</div><ul class="quiz-options"><li>(A) censorship</li><li>(B) emissions</li><li>(C) methodologies</li><li>(D) sovereignty</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(B) emissions</div><div>emission 排放（物）；harmful emissions 有害排放。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">14</span>Many people feel ______ about moving abroad: they long for new experiences but fear losing touch with their families.</div><ul class="quiz-options"><li>(A) ambivalent</li><li>(B) renewable</li><li>(C) underprivileged</li><li>(D) legitimate</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(A) ambivalent</div><div>ambivalent 矛盾的、猶豫的；冒號後的兩個對立心情是線索。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">15</span>After listening to both sides, the judge announced her ______ that the defendant was not guilty.</div><ul class="quiz-options"><li>(A) momentum</li><li>(B) curriculum</li><li>(C) diplomat</li><li>(D) verdict</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(D) verdict</div><div>verdict 裁決，與 judge、defendant 同屬法律情境。</div></div></details></div>
+  <div class="box box-green">
+    <strong>成績評估</strong>
+    13–15 題：Level 5 已穩。10–12 題：把答錯的字與其「搭配詞」一起背（如 enforce rules、allocate funds）。9 題以下：隔天重做一次，並再回到全表自測。
+  </div>
+</div>
+
+<!-- ==================== SET B ==================== -->
+<div class="card" id="setB">
+  <div class="card-title">抽測 B：Level 6 詞彙 15 題</div>
+  <div class="box box-blue">
+    <strong>作答說明</strong>
+    限時 10 分鐘，單選題。Level 6 字多為抽象詞，請優先用「句子線索」（因果、轉折、對比）判斷，而不是只靠中文意思。
+  </div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">16</span>The manager's decision seemed completely ______; he rejected the proposal without giving any reason.</div><ul class="quiz-options"><li>(A) coherent</li><li>(B) resilient</li><li>(C) arbitrary</li><li>(D) sophisticated</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(C) arbitrary</div><div>arbitrary 隨意的、武斷的。coherent 連貫的、resilient 有復原力的、sophisticated 精密的。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">17</span>Smartphones have become ______ in modern life: people use them on buses, in restaurants, and even in temples.</div><ul class="quiz-options"><li>(A) ubiquitous</li><li>(B) transient</li><li>(C) rudimentary</li><li>(D) ornate</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(A) ubiquitous</div><div>ubiquitous 無所不在的。transient 短暫的、rudimentary 初級的、ornate 華麗的。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">18</span>Instead of facing the problem directly, the company tried to ______ the new law by moving its factory overseas.</div><ul class="quiz-options"><li>(A) corroborate</li><li>(B) circumvent</li><li>(C) stipulate</li><li>(D) juxtapose</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(B) circumvent</div><div>circumvent 規避（法律、規定）。corroborate 佐證、stipulate 明訂、juxtapose 並列。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">19</span>His ______ attention to detail made him the best editor in the office; he almost never missed a mistake.</div><ul class="quiz-options"><li>(A) arbitrary</li><li>(B) transient</li><li>(C) complacent</li><li>(D) meticulous</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(D) meticulous</div><div>meticulous 一絲不苟的，與 attention to detail 呼應。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">20</span>The new fingerprints ______ the witness's story, making the police more confident that he was telling the truth.</div><ul class="quiz-options"><li>(A) corroborated</li><li>(B) refuted</li><li>(C) conceded</li><li>(D) exacerbated</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(A) corroborated</div><div>corroborate 佐證、證實；結果是警方更相信證人，所以不是 refute（駁斥）。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">21</span>Heavy traffic during rush hour has ______ the city's air pollution problem.</div><ul class="quiz-options"><li>(A) reiterated</li><li>(B) circumvented</li><li>(C) exacerbated</li><li>(D) quantified</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(C) exacerbated</div><div>exacerbate 使惡化。reiterate 重申、circumvent 規避、quantify 量化。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">22</span>The researchers tried to ______ the effect of noise on sleep by measuring how many minutes of deep sleep 200 volunteers lost.</div><ul class="quiz-options"><li>(A) refute</li><li>(B) quantify</li><li>(C) polarize</li><li>(D) subsidize</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(B) quantify</div><div>quantify 量化；by measuring 為線索。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">23</span>After winning three games in a row, the team became ______ and stopped training hard.</div><ul class="quiz-options"><li>(A) resilient</li><li>(B) cognizant</li><li>(C) pragmatic</li><li>(D) complacent</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(D) complacent</div><div>complacent 自滿的、鬆懈的。resilient 有韌性的、cognizant 意識到的、pragmatic 務實的。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">24</span>Rather than arguing about ideals, a more ______ approach to the budget crisis would be to cut unnecessary costs first.</div><ul class="quiz-options"><li>(A) ambiguous</li><li>(B) tenuous</li><li>(C) pragmatic</li><li>(D) ornate</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(C) pragmatic</div><div>pragmatic 務實的，與 arguing about ideals 對比。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">25</span>The link between the two events is so ______ that no one can say for sure that one caused the other.</div><ul class="quiz-options"><li>(A) tenuous</li><li>(B) inherent</li><li>(C) profound</li><li>(D) vivid</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(A) tenuous</div><div>tenuous 薄弱的、站不住腳的；so…that 後果是「無法確定因果」。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">26</span>The advertisement was deliberately ______, so customers could read very different meanings into it.</div><ul class="quiz-options"><li>(A) rudimentary</li><li>(B) ambiguous</li><li>(C) egalitarian</li><li>(D) redundant</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(B) ambiguous</div><div>ambiguous 模稜兩可的；結果是 different meanings。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">27</span>Although he had defended his plan for weeks, the engineer finally ______ that there might be a mistake in his calculations.</div><ul class="quiz-options"><li>(A) refuted</li><li>(B) juxtaposed</li><li>(C) polarized</li><li>(D) conceded</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(D) conceded</div><div>concede 承認、讓步；Although 表示先前堅持、現在承認。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">28</span>The use of social media has ______ public opinion, leaving little room for moderate voices.</div><ul class="quiz-options"><li>(A) polarized</li><li>(B) substantiated</li><li>(C) subsidized</li><li>(D) synthesized</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(A) polarized</div><div>polarize 使兩極化；leaving little room for moderate voices 為線索。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">29</span>Many farms in the region are ______ by the government to keep food prices low.</div><ul class="quiz-options"><li>(A) coerced</li><li>(B) levied</li><li>(C) subsidized</li><li>(D) underscored</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(C) subsidized</div><div>subsidize 補貼；被動語態 are subsidized。</div></div></details></div>
+<div class="quiz-item"><div class="quiz-q"><span class="qnum">30</span>Hospitals must maintain high standards of ______ to prevent infections from spreading.</div><ul class="quiz-options"><li>(A) metabolism</li><li>(B) sanitation</li><li>(C) bureaucracy</li><li>(D) novelty</li></ul><details><summary></summary><div class="answer-box"><div class="ans">答案：(B) sanitation</div><div>sanitation 衛生；與預防感染相關。metabolism 新陳代謝。</div></div></details></div>
+  <div class="box box-green">
+    <strong>成績評估</strong>
+    13–15 題：Level 6 已穩。10–12 題：優先處理答錯字，並把近義詞（如 corroborate / substantiate）放在一起比較。9 題以下：先看下方「易混淆詞組」，再重做一次。
+  </div>
+</div>
+
+<!-- ==================== CONFUSE ==================== -->
+<div class="card" id="confuse">
+  <div class="card-title">易混淆詞組 8 組（Level 5–6）</div>
+  <table class="conf-table">
+    <thead><tr><th style="width:24%">詞組</th><th style="width:40%">區辨</th><th>例句</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">mitigate / alleviate / mediate</td><td><strong>mitigate</strong> 減輕（風險、衝擊、嚴重程度）；<strong>alleviate</strong> 緩解（痛苦、壓力）；<strong>mediate</strong> 調解（衝突、爭端）</td><td class="en-ex">Trees help mitigate the effects of heat. / The medicine alleviated her pain. / A neutral judge mediated the dispute.</td></tr>
+      <tr><td class="conf-pair">innate / inherent / intrinsic</td><td><strong>innate</strong> 天生的（能力、性格）；<strong>inherent</strong> 本身固有的（風險、問題）；<strong>intrinsic</strong> 內在的（價值、動機）</td><td class="en-ex">an innate talent for music / the risks inherent in space travel / intrinsic motivation</td></tr>
+      <tr><td class="conf-pair">obsolete / redundant / transient</td><td><strong>obsolete</strong> 過時、不再使用；<strong>redundant</strong> 多餘的、可裁撤的；<strong>transient</strong> 短暫的、轉瞬即逝的</td><td class="en-ex">Film cameras are now obsolete. / The second paragraph is redundant. / transient fame</td></tr>
+      <tr><td class="conf-pair">ambiguous / ambivalent / arbitrary</td><td><strong>ambiguous</strong> 模稜兩可（可有不同解讀）；<strong>ambivalent</strong> 心情矛盾；<strong>arbitrary</strong> 隨意的、武斷的</td><td class="en-ex">an ambiguous answer / feel ambivalent about the offer / an arbitrary rule</td></tr>
+      <tr><td class="conf-pair">sustainable / viable / renewable</td><td><strong>sustainable</strong> 可持續的（不耗盡資源）；<strong>viable</strong> 可行的、能存活的；<strong>renewable</strong> 可再生的（能源）</td><td class="en-ex">sustainable farming / a viable plan / renewable energy such as wind power</td></tr>
+      <tr><td class="conf-pair">mandate / stipulate / enforce</td><td><strong>mandate</strong> 強制規定（動詞）、授權（名詞）；<strong>stipulate</strong> （契約、條款）明文規定；<strong>enforce</strong> 執行、強制實施</td><td class="en-ex">The law mandates seat belts. / The contract stipulates a deadline. / Police enforce the law.</td></tr>
+      <tr><td class="conf-pair">discrepancy / anomaly / paradox</td><td><strong>discrepancy</strong> 兩份資料之間的差異、不符；<strong>anomaly</strong> 反常現象；<strong>paradox</strong> 看似矛盾卻真實存在的現象</td><td class="en-ex">a discrepancy in the two reports / a statistical anomaly / the paradox of choice</td></tr>
+      <tr><td class="conf-pair">refute / concede / reiterate</td><td><strong>refute</strong> 駁斥、反證；<strong>concede</strong> 承認（讓步）；<strong>reiterate</strong> 重申</td><td class="en-ex">She refuted the claim with data. / He conceded the point. / The mayor reiterated his promise.</td></tr>
+    </tbody>
+  </table>
+  <div class="box box-purple">
+    <strong>使用方式</strong>
+    每組各造 1 個自己的句子（寫在錯字本）。週五抽 3 組，不看講義說出區別。學測詞彙題常在這類「詞義相近、用法不同」的選項中設陷阱。
+  </div>
+</div>
+
+<!-- ==================== READING METHOD ==================== -->
+<div class="card" id="reading">
+  <div class="card-title">限時閱讀：每日 2 篇，每篇 8 分鐘</div>
+
+  <div class="box box-blue">
+    <strong>本週練習目標</strong>
+    不是「讀懂每個字」，而是在 <b>8 分鐘</b>內讀完一篇約 300–400 字的文章，答對 4–5 題。學測英文閱讀測驗的整體節奏是平均 <b>1.5–2 分鐘一題</b>，本週用「每日 2 篇」練出速度與穩定度。
+  </div>
+
+  <div class="card-subtitle">8 分鐘時間表</div>
+  <table class="conf-table">
+    <thead><tr><th>時間</th><th>動作</th><th>重點</th></tr></thead>
+    <tbody>
+      <tr><td>0:00–1:00</td><td>先看題目（只看題幹，不看選項）</td><td>圈出關鍵詞、題型（主旨／細節／字義／推論）</td></tr>
+      <tr><td>1:00–4:30</td><td>讀文章，邊讀邊在段落旁寫「這段在講什麼」（3–5 個字）</td><td>遇到不認識的字，用前後文猜；不要停下來查</td></tr>
+      <tr><td>4:30–7:30</td><td>作答：先答細節題與字義題，最後答主旨與推論題</td><td>每題都要找到「原文證據」，並寫下行號</td></tr>
+      <tr><td>7:30–8:00</td><td>檢查：主旨題是否能涵蓋全文？推論題是否過度？</td><td>刪去「太極端」「文中沒有」的選項</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card-subtitle">本週 14 篇的材料安排</div>
+  <table class="conf-table">
+    <thead><tr><th>日期</th><th>2 篇的來源</th><th>備註</th></tr></thead>
+    <tbody>
+      <tr><td>11/02（一）</td><td>本講義 A（Repair Cafés）＋ B（Planning Fallacy）</td><td>先熟悉流程，嚴格計時</td></tr>
+      <tr><td>11/03（二）</td><td>學測歷屆試題閱讀測驗 2 篇（近 5 年任選）</td><td>歷屆題來源請用大考中心公布的試題</td></tr>
+      <tr><td>11/04（三）</td><td>W17–W23 講義裡做錯過的 2 篇（不看詞彙表重做）</td><td>檢驗「是否真的學會」</td></tr>
+      <tr><td>11/05（四）</td><td>學測歷屆試題 2 篇（科普或議題類）</td><td>練習科技、環境類</td></tr>
+      <tr><td>11/06（五）</td><td>學測歷屆試題 2 篇（人文、社會類）</td><td>特別留意推論題</td></tr>
+      <tr><td>11/07（六）</td><td>全卷模擬（含閱讀測驗）</td><td>不另做</td></tr>
+      <tr><td>11/08（日）</td><td>檢討週六閱讀失分題</td><td>重讀一次，不計時</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-orange">
+    <strong>四類題型的快速判斷</strong>
+    <b>主旨題</b>：選項能涵蓋全文、不只是某一段；<b>細節題</b>：必須能在原文找到對應句；<b>字義題</b>：回原句看前後文，不要只靠字典意思；<b>推論題</b>：答案必須是「文中暗示」，而不是「文中明說」或「超出文意」。
+  </div>
+</div>
+
+<!-- ==================== READING A ==================== -->
+<div class="card" id="readA">
+  <div class="card-title">閱讀 A — Repair Cafés（環境與消費文化）</div>
+  <div class="box box-blue" style="margin-bottom:12px;">
+    <strong>作答方式</strong>
+    計時 8 分鐘，作答第 1–5 題後再展開解析。畫點線的字為詞彙表中的重點字。
+  </div>
+
+  <div class="passage">
+    <p><span class="lineno">1</span>Since the first one opened in Amsterdam in 2009, repair cafés have quietly spread across the world. On a typical Saturday morning, a community hall fills with people carrying broken toasters, torn jackets and wobbly chairs. Volunteers — retired engineers, tailors and hobbyists — sit beside them, tools in hand, and help them fix the objects free of charge.</p>
+    <p><span class="lineno">5</span>The idea began as a response to <span class="gloss">throwaway</span> culture. For decades, manufacturers have designed products that are cheaper to replace than to repair; some devices are even built so that their batteries cannot be removed. As a result, millions of tons of electronic waste are produced each year, much of it still <span class="gloss">functional</span> or easily repairable. Organizers argue that fixing things is not only an environmentally friendly choice, but also a way to rebuild practical skills that modern consumers have largely lost.</p>
+    <p><span class="lineno">11</span>Participants often report benefits that go beyond saving money. Many arrive feeling helpless in front of a broken machine and leave with a sense of achievement after watching, or even helping, to bring it back to life. Strangers <span class="gloss">swap</span> stories and advice, and older volunteers discover that their experience is finally valued again. "A repaired kettle is nice," one organizer says, "but what really matters is the conversation that happens while we fix it."</p>
+    <p><span class="lineno">16</span>Critics point out that repair cafés cannot solve the waste problem on their own. Without laws that require companies to sell spare parts and publish repair manuals, volunteers are often unable to fix a device, however skilled they are. Some governments have begun to respond: a few countries now give citizens a legal "right to repair," and others offer tax reductions for repair services. Supporters hope that such measures will turn a charming neighborhood activity into a <span class="gloss">lasting</span> change in how products are made and used.</p>
+  </div>
+
+  <div class="card-subtitle">詞彙表</div>
+  <table class="vocab-table" style="margin-bottom:16px;">
+    <thead><tr><th>單字</th><th>詞性</th><th>中文釋義</th></tr></thead>
+    <tbody>
+      <tr><td><div class="word">throwaway</div></td><td><span class="pos-badge pos-adj">adj.</span></td><td class="meaning">用完即丟的、一次性的｜throwaway culture 拋棄式文化</td></tr>
+      <tr><td><div class="word">functional</div></td><td><span class="pos-badge pos-adj">adj.</span></td><td class="meaning">能正常運作的；實用的</td></tr>
+      <tr><td><div class="word">swap</div></td><td><span class="pos-badge pos-v">v.</span></td><td class="meaning">交換｜swap stories 交換故事</td></tr>
+      <tr><td><div class="word">lasting</div></td><td><span class="pos-badge pos-adj">adj.</span></td><td class="meaning">持久的、長期的</td></tr>
+      <tr><td><div class="word">spare parts</div></td><td><span class="pos-badge pos-n">n.</span></td><td class="meaning">備用零件</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">1</span>What is the main idea of this passage?</div>
+    <ul class="quiz-options">
+      <li>(A) Repair cafés are a short-lived trend that will soon disappear.</li>
+      <li>(B) Repair cafés help people fix objects and build community, but lasting change also needs supportive laws.</li>
+      <li>(C) Manufacturers have stopped making products that cannot be repaired.</li>
+      <li>(D) Most volunteers at repair cafés are professional engineers who earn money from repairs.</li>
+    </ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B)</div><div>主旨題。第 1 段介紹修理咖啡館；第 2–3 段說明環境與社群的好處；第 4 段指出需要法律（right to repair）配合。B 涵蓋全文。A 文中並未說會消失；C 與第 2 段相反；D 文中說志工是「free of charge」，並非賺錢。</div></div></details>
+  </div>
+
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">2</span>According to the second paragraph, why is so much electronic waste produced?</div>
+    <ul class="quiz-options">
+      <li>(A) Consumers refuse to buy products that can be repaired.</li>
+      <li>(B) Repair cafés encourage people to throw away broken items.</li>
+      <li>(C) Volunteers fail to repair most of the devices they receive.</li>
+      <li>(D) Many products are designed so that replacing them costs less than repairing them.</li>
+    </ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(D)</div><div>細節題。第 6–7 行：manufacturers have designed products that are cheaper to replace than to repair。其餘選項文中皆未提及，或與文意相反。</div></div></details>
+  </div>
+
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">3</span>The word <b>"functional"</b> in line 9 is closest in meaning to</div>
+    <ul class="quiz-options">
+      <li>(A) fashionable</li>
+      <li>(B) still able to work</li>
+      <li>(C) extremely expensive</li>
+      <li>(D) difficult to carry</li>
+    </ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B)</div><div>字義題。much of it still functional or easily repairable：這些廢棄電子產品「還能用或很容易修好」，functional 即「能運作的」。</div></div></details>
+  </div>
+
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">4</span>What can be inferred from the last paragraph about the limits of repair cafés?</div>
+    <ul class="quiz-options">
+      <li>(A) Skilled volunteers can fix every device if they have enough time.</li>
+      <li>(B) Governments should ban all repair cafés.</li>
+      <li>(C) Even skilled volunteers may fail when companies do not provide spare parts or repair manuals.</li>
+      <li>(D) People who bring broken devices usually do not want them repaired.</li>
+    </ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(C)</div><div>推論題。第 17–18 行：Without laws that require companies to sell spare parts and publish repair manuals, volunteers are often unable to fix a device, however skilled they are. 可推知限制在於零件與資訊，而不是技術。A、B、D 與文意不符。</div></div></details>
+  </div>
+
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">5</span>Which of the following best describes the author's attitude toward repair cafés?</div>
+    <ul class="quiz-options">
+      <li>(A) Mocking</li>
+      <li>(B) Strongly disapproving</li>
+      <li>(C) Cautiously supportive</li>
+      <li>(D) Completely indifferent</li>
+    </ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(C)</div><div>態度題。作者描述修理咖啡館的好處（第 2–3 段），也客觀指出其限制（第 4 段），並以「Supporters hope…」收尾，屬於謹慎、正面的支持態度。</div></div></details>
+  </div>
+</div>
+
+<!-- ==================== READING B ==================== -->
+<div class="card" id="readB">
+  <div class="card-title">閱讀 B — The Planning Fallacy（心理學與時間管理）</div>
+  <div class="box box-blue" style="margin-bottom:12px;">
+    <strong>作答方式</strong>
+    計時 8 分鐘，作答第 1–5 題後再展開解析。這類「現象 → 研究 → 原因 → 對策」的科普結構，是學測閱讀的常見模式。
+  </div>
+
+  <div class="passage">
+    <p><span class="lineno">1</span>Most of us have been there: you estimate that an essay will take two hours, yet it <span class="gloss">swallows</span> your entire evening. Psychologists call this tendency the planning fallacy — the habit of underestimating how long a task will take, even when we know that similar tasks have run late in the past.</p>
+    <p><span class="lineno">4</span>The idea was first introduced in 1979 by the psychologists Daniel Kahneman and Amos Tversky. In one well-known study that followed, university students who were writing a thesis were asked to predict when they would finish. On average, they predicted about five weeks; in reality, the job took nearly eight. Fewer than a third completed it within the time they had expected, and even their "worst-case" estimates turned out to be too <span class="gloss">optimistic</span>.</p>
+    <p><span class="lineno">9</span>Why does this happen? When we plan, we usually imagine the smooth path: no interruptions, no sudden illness, no computer crash. We focus on the details of the task in front of us — what researchers call the "inside view" — and tend to ignore the <span class="gloss">discrepancy</span> between our past plans and our past results. The remedy is the "outside view": instead of asking, "How long will this take if everything goes well?" we ask, "How long did similar tasks actually take me before?"</p>
+    <p><span class="lineno">15</span>Practical strategies follow naturally. Break a large project into small steps and estimate each one separately; add a time <span class="gloss">buffer</span> of at least 20 to 30 percent; and keep a simple record of how long each task really takes. Over time, such records become a personal database that is far more <span class="gloss">reliable</span> than optimism. The goal is not to plan less, but to plan with evidence.</p>
+  </div>
+
+  <div class="card-subtitle">詞彙表</div>
+  <table class="vocab-table" style="margin-bottom:16px;">
+    <thead><tr><th>單字</th><th>詞性</th><th>中文釋義</th></tr></thead>
+    <tbody>
+      <tr><td><div class="word">swallow</div></td><td><span class="pos-badge pos-v">v.</span></td><td class="meaning">吞下；（比喻）耗掉、吞沒（時間、金錢）</td></tr>
+      <tr><td><div class="word">optimistic</div></td><td><span class="pos-badge pos-adj">adj.</span></td><td class="meaning">樂觀的</td></tr>
+      <tr><td><div class="word">discrepancy</div></td><td><span class="pos-badge pos-n">n.</span></td><td class="meaning">不一致、差異（Level 5）</td></tr>
+      <tr><td><div class="word">buffer</div></td><td><span class="pos-badge pos-n">n.</span></td><td class="meaning">緩衝；預留的餘裕</td></tr>
+      <tr><td><div class="word">reliable</div></td><td><span class="pos-badge pos-adj">adj.</span></td><td class="meaning">可靠的</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">1</span>What is the main idea of this passage?</div>
+    <ul class="quiz-options">
+      <li>(A) People should avoid making plans because plans always fail.</li>
+      <li>(B) People tend to underestimate how long tasks will take, but using records of past tasks can improve planning.</li>
+      <li>(C) Writing a thesis always takes about eight weeks.</li>
+      <li>(D) Psychologists have proven that optimism is harmful to students.</li>
+    </ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B)</div><div>主旨題。全文為「現象（低估時間）→ 研究 → 原因（inside view）→ 對策（outside view、紀錄）」。A、D 過度推論（作者說「The goal is not to plan less」）；C 把個別研究結果當成通則。</div></div></details>
+  </div>
+
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">2</span>According to the second paragraph, what did the study of university students show?</div>
+    <ul class="quiz-options">
+      <li>(A) Most students finished earlier than they had predicted.</li>
+      <li>(B) The students' worst-case predictions were accurate.</li>
+      <li>(C) Most students could not finish writing their theses at all.</li>
+      <li>(D) Most students took longer than they had predicted.</li>
+    </ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(D)</div><div>細節題。第 6–8 行：預測約五週、實際近八週，且不到三分之一的人在預期時間內完成；連最壞情況的估計也太樂觀，所以 A、B 錯誤；C 文中並未說無法完成。</div></div></details>
+  </div>
+
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">3</span>The word <b>"discrepancy"</b> in line 11 is closest in meaning to</div>
+    <ul class="quiz-options">
+      <li>(A) difference</li>
+      <li>(B) agreement</li>
+      <li>(C) exchange</li>
+      <li>(D) distance</li>
+    </ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(A)</div><div>字義題。「忽略過去的計畫與過去的結果之間的 discrepancy」，指兩者不一致、有落差，即 difference。</div></div></details>
+  </div>
+
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">4</span>Which of the following is an example of using the "outside view"?</div>
+    <ul class="quiz-options">
+      <li>(A) Imagining that everything will go smoothly this time</li>
+      <li>(B) Checking how long your last three book reports actually took before setting a deadline</li>
+      <li>(C) Working faster to prove that your first estimate was correct</li>
+      <li>(D) Asking a friend to complete the task for you</li>
+    </ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B)</div><div>應用題。outside view：問「類似的任務過去實際花了多久」，即回頭看過去的紀錄。A 是 inside view 的典型；C、D 與估計方法無關。</div></div></details>
+  </div>
+
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">5</span>What is the main purpose of the last paragraph?</div>
+    <ul class="quiz-options">
+      <li>(A) To criticize people who make detailed schedules</li>
+      <li>(B) To prove that percentages are more important than records</li>
+      <li>(C) To offer practical ways to reduce the planning fallacy</li>
+      <li>(D) To describe the history of the planning fallacy</li>
+    </ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(C)</div><div>寫作目的題。末段開頭「Practical strategies follow naturally」，隨後列出拆解任務、預留緩衝、記錄實際時間，目的是提供對策。歷史背景在第 2 段。</div></div></details>
+  </div>
+</div>
+
+<!-- ==================== MOCK ==================== -->
+<div class="card" id="mock">
+  <div class="card-title">週六英文全卷模擬（11/07）</div>
+  <div class="box box-orange">
+    <strong>時間說明</strong>
+    學測英文正式考試時間為 <b>100 分鐘</b>。35 週時程表本週安排「英文全卷模擬（90 分鐘）」，比正式考試少 10 分鐘，用來練習更緊的節奏。建議這次先以 90 分鐘作答；到時間後換紅筆，繼續寫完並記錄「超時幾分鐘」，作為下次調整的依據。
+  </div>
+
+  <div class="card-subtitle">考前準備（週五晚上）</div>
+  <ul style="margin:6px 0 10px 22px; font-size:0.9rem;">
+    <li>準備好試卷（歷屆試題或模擬卷）、答案卡、計時器、藍黑筆與紅筆</li>
+    <li>把「時間分配表」抄在草稿紙上，放在桌角</li>
+    <li>固定在上午或下午，模擬正式考試的時段；手機放到另一個房間</li>
+  </ul>
+
+  <div class="card-subtitle">時間分配（兩種版本）</div>
+  <table class="conf-table">
+    <thead><tr><th>內容</th><th>90 分鐘版（本週）</th><th>100 分鐘版（正式）</th><th>檢查點</th></tr></thead>
+    <tbody>
+      <tr><td>瀏覽全卷、先看作文題</td><td>0–4</td><td>0–5</td><td>讓大腦先預想作文</td></tr>
+      <tr><td>詞彙、綜合測驗、文意選填</td><td>4–24</td><td>5–27</td><td>最慢要在第 24／27 分鐘完成</td></tr>
+      <tr><td>篇章結構、閱讀測驗</td><td>24–48</td><td>27–53</td><td>選擇題全部完成</td></tr>
+      <tr><td>混合題</td><td>48–57</td><td>53–63</td><td>確認字數與拼字</td></tr>
+      <tr><td>中譯英</td><td>57–64</td><td>63–71</td><td>時態、冠詞、單複數</td></tr>
+      <tr><td>英文作文（含大綱）</td><td>64–86</td><td>71–96</td><td>分段、字數、拼字</td></tr>
+      <tr><td>畫卡與最後檢查</td><td>86–90</td><td>96–100</td><td>答案卡是否漏畫</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-red">
+    <strong>停損原則</strong>
+    單題超過 90 秒仍無法確定，就先標記跳過；閱讀測驗最多留 2 題最後再回頭。<b>作文與中譯英不能被前面的題目擠壓</b>，時間一到就轉到下一部分。
+  </div>
+
+  <div class="box box-purple">
+    <strong>作答中要記錄的三件事</strong>
+    ① 哪一題花了超過 2 分鐘？（寫題號）　② 哪一題是「猜的」？（打圈）　③ 哪一部分最後面做不完？（寫在試卷首頁）
+  </div>
+</div>
+
+<!-- ==================== REVIEW ==================== -->
+<div class="card" id="review">
+  <div class="card-title">週日：對答案與錯題整理（11/08）</div>
+  <div class="box box-blue">
+    <strong>檢討三步驟</strong>
+    ① <b>算分</b>：各大題各得幾分？哪一大題最低？　② <b>分類</b>：每一個錯題歸入下表的一種錯因。　③ <b>處方</b>：針對最多的錯因，在 W26–W31 的每日計畫中指定固定時間補強。
+  </div>
+
+  <table class="conf-table">
+    <thead><tr><th style="width:18%">錯因類型</th><th style="width:32%">典型徵兆</th><th>處方</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">① 字彙不會</td><td>選項裡有不認識的字，或看不懂題幹</td><td>登錄詞彙錯字本；下週 W26 起每日 10 分鐘複測</td></tr>
+      <tr><td class="conf-pair">② 字彙會但沒選對</td><td>認識字，但不清楚搭配詞或語感</td><td>寫成搭配詞（如 enforce a rule）；造 1 句自己的句子</td></tr>
+      <tr><td class="conf-pair">③ 文法／轉承</td><td>時態、分詞、連接詞、關係詞出錯</td><td>回到 W24 的文法檢核表；每週專練 10 題</td></tr>
+      <tr><td class="conf-pair">④ 閱讀：定位失敗</td><td>找不到原文證據，或找錯段落</td><td>改為「先看題、再讀文」，每題標行號</td></tr>
+      <tr><td class="conf-pair">⑤ 閱讀：推論過度</td><td>選了「看起來合理」但文中沒有的選項</td><td>每個推論題必須能指出「哪一句暗示」</td></tr>
+      <tr><td class="conf-pair">⑥ 時間不足</td><td>最後幾題沒時間讀完，或作文被迫縮短</td><td>下次提前在 45 分鐘處檢查進度；先做簡單題</td></tr>
+      <tr><td class="conf-pair">⑦ 粗心</td><td>看錯題目、畫錯格、題號錯位</td><td>每 10 題核對答案卡；公式化檢查步驟</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card-subtitle">各大題得分記錄（週日填寫）</div>
+  <table class="conf-table">
+    <thead><tr><th>大題</th><th>得分／滿分</th><th>主要錯因編號</th><th>下週補強行動</th></tr></thead>
+    <tbody>
+      <tr><td>詞彙</td><td>＿／＿</td><td>＿</td><td>＿＿＿＿＿＿</td></tr>
+      <tr><td>綜合測驗</td><td>＿／＿</td><td>＿</td><td>＿＿＿＿＿＿</td></tr>
+      <tr><td>文意選填</td><td>＿／＿</td><td>＿</td><td>＿＿＿＿＿＿</td></tr>
+      <tr><td>篇章結構</td><td>＿／＿</td><td>＿</td><td>＿＿＿＿＿＿</td></tr>
+      <tr><td>閱讀測驗</td><td>＿／＿</td><td>＿</td><td>＿＿＿＿＿＿</td></tr>
+      <tr><td>混合題</td><td>＿／＿</td><td>＿</td><td>＿＿＿＿＿＿</td></tr>
+      <tr><td>中譯英</td><td>＿／＿</td><td>＿</td><td>＿＿＿＿＿＿</td></tr>
+      <tr><td>英文作文</td><td>＿／＿</td><td>＿</td><td>＿＿＿＿＿＿</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== WEAK ==================== -->
+<div class="card" id="weak">
+  <div class="card-title">個人弱點筆記模板（第四階段）</div>
+  <div class="box box-orange">
+    <strong>使用方式</strong>
+    W17 起已建立弱點筆記，本週把它更新為「整合衝刺版」：每一項寫一行，每週日重新排序，只保留最嚴重的 5 項。
+  </div>
+  <table class="conf-table">
+    <thead><tr><th style="width:22%">項目</th><th style="width:34%">我的盲點（具體寫）</th><th style="width:30%">本週處方</th><th>狀態</th></tr></thead>
+    <tbody>
+      <tr><td>Level 5 字彙</td><td style="color:var(--gray)">例：dwindle、gradient、provoke 常忘</td><td style="color:var(--gray)">錯字本＋搭配詞</td><td class="check-cell">＿</td></tr>
+      <tr><td>Level 6 字彙</td><td style="color:var(--gray)">例：tenuous、complacent 看到會猶豫</td><td style="color:var(--gray)">例句＋句子線索練習</td><td class="check-cell">＿</td></tr>
+      <tr><td>易混淆詞組</td><td style="color:var(--gray)">例：mitigate / alleviate</td><td style="color:var(--gray)">造句區分</td><td class="check-cell">＿</td></tr>
+      <tr><td>閱讀：速度</td><td style="color:var(--gray)">例：每篇超過 10 分鐘</td><td style="color:var(--gray)">8 分鐘時間表</td><td class="check-cell">＿</td></tr>
+      <tr><td>閱讀：推論題</td><td style="color:var(--gray)">例：選了「文中沒有」的選項</td><td style="color:var(--gray)">每題標行號</td><td class="check-cell">＿</td></tr>
+      <tr><td>文法／轉承</td><td style="color:var(--gray)">＿＿＿＿＿</td><td style="color:var(--gray)">＿＿＿＿＿</td><td class="check-cell">＿</td></tr>
+      <tr><td>寫作（中譯英、作文）</td><td style="color:var(--gray)">＿＿＿＿＿</td><td style="color:var(--gray)">W26 主題式作文＋每日 3 句</td><td class="check-cell">＿</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== QUIZ ==================== -->
+<div class="card" id="quiz">
+  <div class="card-title">隨堂測驗 8 題（綜合測驗與基礎文法）</div>
+  <div class="card-subtitle">綜合測驗（第 1–5 題）：請閱讀下文，選出最適當的選項</div>
+  <div class="passage">
+    <p>Many students feel anxious on Sunday evenings, <b>(1)</b> they have a long week of tests and homework ahead of them. This feeling, sometimes called the "Sunday scaries," is <b>(2)</b> common that psychologists have begun to study it. Researchers suggest that the anxiety often comes from uncertainty rather than from the work itself. When students have no clear plan, small tasks pile up in their minds, <b>(3)</b> them feel overwhelmed. One simple solution is to spend ten minutes on Friday afternoon writing down everything that needs to be done next week. <b>(4)</b> the list is written, the brain no longer has to keep reminding itself, and the weekend feels far <b>(5)</b> relaxing.</p>
+  </div>
+
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">1</span>(1)</div>
+    <ul class="quiz-options"><li>(A) as</li><li>(B) unless</li><li>(C) whether</li><li>(D) although</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(A) as</div><div>as 在此表原因（因為）；後面 they have a long week ahead 是焦慮的原因。unless 除非、whether 是否、although 雖然，語意皆不通。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">2</span>(2)</div>
+    <ul class="quiz-options"><li>(A) such</li><li>(B) so</li><li>(C) very</li><li>(D) too</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B) so</div><div>so + 形容詞 + that…（如此……以致於……）。such 後接名詞；very 後不能接 that 子句；too 需搭配 to。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">3</span>(3)</div>
+    <ul class="quiz-options"><li>(A) make</li><li>(B) to make</li><li>(C) making</li><li>(D) made</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(C) making</div><div>前面是完整子句，後面用現在分詞表示結果（……使得他們覺得不堪負荷）。make them feel 為使役動詞用法，分詞構句用 making。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">4</span>(4)</div>
+    <ul class="quiz-options"><li>(A) Once</li><li>(B) Unless</li><li>(C) Whereas</li><li>(D) Despite</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(A) Once</div><div>Once + 子句：一旦……就……。Despite 後只能接名詞；Unless 與語意相反；Whereas 表對比。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">5</span>(5)</div>
+    <ul class="quiz-options"><li>(A) more</li><li>(B) most</li><li>(C) much</li><li>(D) very</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(A) more</div><div>far more relaxing：far 修飾比較級（far more + 形容詞）。</div></div></details>
+  </div>
+
+  <div class="card-subtitle">基礎文法與轉承（第 6–8 題）</div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">6</span>The ______ of the new policy was delayed because there was not enough funding.</div>
+    <ul class="quiz-options"><li>(A) implement</li><li>(B) implementation</li><li>(C) implementing</li><li>(D) implemented</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B) implementation</div><div>the ______ of 後面要接名詞，implement 的名詞形為 implementation。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">7</span>It is high time that the government ______ stricter rules on plastic waste.</div>
+    <ul class="quiz-options"><li>(A) introduce</li><li>(B) introduces</li><li>(C) introduced</li><li>(D) will introduce</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(C) introduced</div><div>It is (high) time that + 過去式子句，表示「早該……了」，用過去式表示與現實相反的語氣（實際上還沒做）。</div></div></details>
+  </div>
+  <div class="quiz-item">
+    <div class="quiz-q"><span class="qnum">8</span>The new bus line cut commuting time by half. ______, the number of cars on the road has dropped sharply.</div>
+    <ul class="quiz-options"><li>(A) However</li><li>(B) As a result</li><li>(C) In contrast</li><li>(D) Otherwise</li></ul>
+    <details><summary></summary><div class="answer-box"><div class="ans">答案：(B) As a result</div><div>前句是原因（通勤時間縮短一半），後句是結果（車輛減少），所以用 As a result。However 與 In contrast 表轉折或對比；Otherwise 表「否則」。</div></div></details>
+  </div>
+
+  <div class="box box-green" style="margin-top:18px;">
+    <strong>成績評估</strong>
+    7–8 題正確：基礎穩定，週六模擬考把注意力放在時間分配。5–6 題正確：回頭看 W24 的文法檢核表與轉承詞分類。4 題以下：週五加做一回綜合測驗，並檢查是否因為字彙不足而判斷錯誤。
+  </div>
+
+  <div class="box box-blue">
+    <strong>下週預告：W26（11/09–11/15）</strong>
+    英文進入寫作整合：<b>英文作文：主題式 2 篇</b>、<b>中譯英：每日 3 句</b>；週六為數學 A 全卷模擬。本週詞彙錯字本裡的字，請在 W26 的寫作中至少用上 10 個。
+  </div>
+</div>
+
+<div style="text-align:center;color:var(--gray);font-size:0.82rem;padding:20px 0 0;">
+  W25 英文科學習講義 — 台灣高中學測備考 | 高三上理工組 | 詞彙 Level 5–6 抽測、限時閱讀、全卷模擬與錯題整理
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

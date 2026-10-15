@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W25 國文科學習講義｜弱點古文篇章深讀（六篇）＋國寫限時 45 分鐘</title>
+  <style>
+    /* ===================== CSS Reset & Base ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: "Microsoft JhengHei", "蘋方-繁", "PingFang TC", "Noto Sans TC", sans-serif;
+      background: #fdf6f0;
+      color: #2c2c2c;
+      line-height: 1.8;
+    }
+
+    /* ===================== CSS Variables ===================== */
+    :root {
+      --primary:       #c0392b;
+      --primary-dark:  #96281b;
+      --primary-light: #e74c3c;
+      --primary-bg:    #fdecea;
+      --accent:        #8e44ad;
+      --accent-bg:     #f5eef8;
+      --gold:          #b7860b;
+      --gold-bg:       #fef9e7;
+      --teal:          #1a7a6e;
+      --teal-bg:       #e8f8f5;
+      --ink:           #2c2c2c;
+      --muted:         #6b6b6b;
+      --border:        #e0d0cd;
+      --card-bg:       #ffffff;
+      --shadow:        0 2px 12px rgba(192,57,43,0.10);
+    }
+
+    /* ===================== Layout ===================== */
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      min-width: 240px;
+      background: linear-gradient(180deg, #96281b 0%, #c0392b 40%, #e74c3c 100%);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 0 0 2rem 0;
+      box-shadow: 3px 0 14px rgba(0,0,0,0.15);
+      z-index: 100;
+    }
+    .sidebar-header {
+      background: rgba(0,0,0,0.20);
+      padding: 1.4rem 1rem 1.2rem 1rem;
+      text-align: center;
+    }
+    .sidebar-header .subject-badge {
+      display: inline-block;
+      background: #fff;
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1.1rem;
+      border-radius: 20px;
+      padding: 0.2rem 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+    .sidebar-header p { font-size: 0.78rem; opacity: 0.88; line-height: 1.5; }
+    .sidebar nav { padding: 1rem 0; }
+    .sidebar nav a {
+      display: block;
+      padding: 0.45rem 1.1rem;
+      color: rgba(255,255,255,0.90);
+      text-decoration: none;
+      font-size: 0.85rem;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.15);
+      border-left-color: #fff;
+      color: #fff;
+    }
+    .nav-section {
+      padding: 0.6rem 1.1rem 0.2rem 1.1rem;
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      opacity: 0.65;
+      text-transform: uppercase;
+    }
+    .nav-indent { padding-left: 1.8rem !important; font-size: 0.80rem !important; }
+
+    /* Main content */
+    .main-content {
+      flex: 1;
+      padding: 2rem 2.5rem 4rem 2.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* ===================== Page Header ===================== */
+    .page-header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: "文";
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 9rem;
+      opacity: 0.10;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .page-header .week-tag {
+      background: rgba(255,255,255,0.22);
+      display: inline-block;
+      padding: 0.2rem 0.9rem;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1px;
+    }
+    .page-header h1 { font-size: 1.85rem; font-weight: 900; margin-bottom: 0.4rem; }
+    .page-header .subtitle { font-size: 0.95rem; opacity: 0.88; }
+    .meta-row {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.1rem;
+      flex-wrap: wrap;
+    }
+    .meta-chip {
+      background: rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 0.22rem 0.9rem;
+      font-size: 0.80rem;
+    }
+
+    /* ===================== Section Titles ===================== */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 1.30rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin: 2.5rem 0 1.2rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--primary);
+    }
+    .section-title .icon { font-size: 1.3rem; }
+
+    .sub-section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 1.6rem 0 0.8rem 0;
+      padding-left: 0.8rem;
+      border-left: 4px solid var(--primary);
+    }
+    .sub-sub-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1.2rem 0 0.5rem 0;
+    }
+
+    /* ===================== Cards ===================== */
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* ===================== Info Boxes ===================== */
+    .box {
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      font-size: 0.93rem;
+    }
+    .box-key   { background: var(--primary-bg); border-left: 5px solid var(--primary); }
+    .box-warn  { background: #fff8e1; border-left: 5px solid #f39c12; }
+    .box-tip   { background: var(--teal-bg); border-left: 5px solid var(--teal); }
+    .box-link  { background: var(--accent-bg); border-left: 5px solid var(--accent); }
+    .box-gold  { background: var(--gold-bg); border-left: 5px solid var(--gold); }
+    .box-title { font-weight: 700; margin-bottom: 0.4rem; }
+
+    /* ===================== Original Text ===================== */
+    .original-text {
+      background: #fffaf7;
+      border: 1px solid #e8d5c8;
+      border-radius: 10px;
+      padding: 1.4rem 1.8rem;
+      font-size: 1.02rem;
+      line-height: 2.2;
+      color: #2c2c2c;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .original-text::before {
+      content: "原文";
+      position: absolute;
+      top: -0.7rem;
+      left: 1.2rem;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .original-text p { margin-bottom: 0.6rem; }
+    .original-text p:last-child { margin-bottom: 0; }
+
+    /* Key terms underline */
+    .kw {
+      border-bottom: 2px solid var(--primary);
+      color: var(--primary-dark);
+      font-weight: 600;
+      cursor: default;
+    }
+    .kw-gold {
+      border-bottom: 2px solid var(--gold);
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .kw-teal {
+      border-bottom: 2px solid var(--teal);
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    /* ===================== Glossary Table ===================== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.91rem;
+      margin: 0.8rem 0;
+    }
+    thead tr {
+      background: var(--primary);
+      color: #fff;
+    }
+    thead th {
+      padding: 0.65rem 1rem;
+      text-align: left;
+      font-weight: 700;
+    }
+    tbody tr:nth-child(even) { background: #fdf2f2; }
+    tbody tr:hover { background: var(--primary-bg); }
+    tbody td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tbody td:first-child { font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+
+    /* ===================== Translation Block ===================== */
+    .translation-block {
+      background: #f0f7f5;
+      border: 1px solid #b2d8d0;
+      border-radius: 10px;
+      padding: 1.3rem 1.6rem;
+      font-size: 0.93rem;
+      line-height: 1.95;
+      color: #1c4a43;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .translation-block::before {
+      content: "白話語譯";
+      position: absolute;
+      top: -0.7rem;
+      left: 1.2rem;
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    /* ===================== Analysis Points ===================== */
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 700px) { .analysis-grid { grid-template-columns: 1fr; } }
+    .analysis-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+    .analysis-item h4 { color: var(--primary-dark); font-size: 0.92rem; margin-bottom: 0.5rem; }
+    .analysis-item p, .analysis-item ul { font-size: 0.88rem; }
+    .analysis-item ul { padding-left: 1.2rem; }
+    .analysis-item li { margin-bottom: 0.3rem; }
+
+    /* ===================== Comparison Table ===================== */
+    .compare-table thead tr { background: var(--accent); }
+    .compare-table tbody td:first-child { color: var(--accent); }
+
+    /* ===================== Quiz Section ===================== */
+    .quiz-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-item .q-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 1.8rem;
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-right: 0.5rem;
+    }
+    .quiz-item .q-text { font-size: 0.94rem; font-weight: 600; margin-bottom: 0.7rem; }
+    .quiz-item ol { padding-left: 1.5rem; font-size: 0.92rem; }
+    .quiz-item li { margin-bottom: 0.3rem; list-style-type: upper-alpha; }
+    details { margin-top: 0.7rem; }
+    summary {
+      cursor: pointer;
+      background: var(--primary-bg);
+      color: var(--primary-dark);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-block;
+      user-select: none;
+    }
+    summary:hover { background: var(--primary); color: #fff; }
+    details[open] summary { background: var(--primary); color: #fff; }
+    .answer-box {
+      background: #fef9e7;
+      border: 1px solid #f0d060;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-top: 0.6rem;
+      font-size: 0.90rem;
+    }
+    .answer-box .correct { color: #27ae60; font-weight: 700; }
+
+    /* ===================== Knowledge Map ===================== */
+    .k-map {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .k-map-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .k-node {
+      background: var(--primary-bg);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-align: center;
+    }
+    .k-node.center {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.95rem;
+      padding: 0.7rem 1.4rem;
+    }
+    .k-node.teal {
+      background: var(--teal-bg);
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+    .k-node.gold {
+      background: var(--gold-bg);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .k-arrow { font-size: 1.4rem; color: var(--muted); }
+
+    /* ===================== Tag badges ===================== */
+    .tag {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 10px;
+      margin: 0.15rem;
+    }
+    .tag-red   { background: #fdecea; color: var(--primary); border: 1px solid var(--primary); }
+    .tag-teal  { background: var(--teal-bg); color: var(--teal); border: 1px solid var(--teal); }
+    .tag-gold  { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold); }
+    .tag-purple{ background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent); }
+
+    /* ===================== Exam highlight ===================== */
+    .exam-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.5rem;
+      border-radius: 8px;
+      vertical-align: middle;
+      margin-left: 0.3rem;
+    }
+
+    /* ===================== Divider ===================== */
+    .divider {
+      border: none;
+      border-top: 2px dashed var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* ===================== TOC ===================== */
+    .toc {
+      background: var(--gold-bg);
+      border: 1px solid #f0c040;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .toc h3 { color: var(--gold); margin-bottom: 0.8rem; font-size: 1rem; }
+    .toc ol { padding-left: 1.5rem; font-size: 0.90rem; }
+    .toc li { margin-bottom: 0.3rem; }
+    .toc a { color: var(--primary-dark); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; color: var(--primary); }
+
+    /* ===================== Responsive ===================== */
+    @media (max-width: 820px) {
+      .sidebar { display: none; }
+      .main-content { padding: 1.2rem 1rem 3rem 1rem; }
+    }
+
+    /* ===================== Scrollbar ===================== */
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.35); border-radius: 4px; }
+
+    /* Print */
+    @media print {
+      .sidebar { display: none; }
+      .main-content { padding: 0; max-width: 100%; }
+      .page-header { background: #c0392b !important; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="subject-badge">國 文</div>
+      <p>W25 弱點古文深讀<br>＋國寫限時 45 分鐘<br>高三上 · 理工組</p>
+    </div>
+    <nav>
+      <div class="nav-section">Overview</div>
+      <a href="#overview">學習總覽</a>
+      <a href="#plan">本週七日計畫</a>
+      <a href="#diagnosis">弱點診斷表</a>
+      <a href="#method">深讀五步法</a>
+
+      <div class="nav-section">弱點古文深讀（6 篇）</div>
+      <a href="#d1" class="nav-indent">01 諫逐客書</a>
+      <a href="#d2" class="nav-indent">02 鴻門宴</a>
+      <a href="#d3" class="nav-indent">03 出師表</a>
+      <a href="#d4" class="nav-indent">04 赤壁賦</a>
+      <a href="#d5" class="nav-indent">05 項脊軒志</a>
+      <a href="#d6" class="nav-indent">06 虯髯客傳</a>
+      <a href="#others">其餘 9 篇核心快速補強</a>
+
+      <div class="nav-section">整合</div>
+      <a href="#compare">六篇比較</a>
+      <a href="#wordbank">跨篇高頻字詞</a>
+      <a href="#quotes">名句默寫清單</a>
+
+      <div class="nav-section">國寫</div>
+      <a href="#writing">限時 45 分鐘練習</a>
+      <a href="#sample">範文與評分</a>
+
+      <div class="nav-section">複習與評量</div>
+      <a href="#kmap">知識連結圖</a>
+      <a href="#summary">重點整理</a>
+      <a href="#quiz">自我測驗（8 題）</a>
+      <a href="#next">下週預告與檢核</a>
+    </nav>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main-content">
+
+    <header class="page-header">
+      <div class="week-tag">第 25 週學習單元 · 11/02–11/08</div>
+      <h1>W25 國文科｜弱點古文篇章深讀 ＋ 國寫限時 45 分鐘</h1>
+      <div class="subtitle">諫逐客書・鴻門宴・出師表・赤壁賦・項脊軒志・虯髯客傳｜原文＋語譯＋考點＋演練｜情意題限時寫作</div>
+      <div class="meta-row">
+        <span class="meta-chip">高三上 · 理工組</span>
+        <span class="meta-chip">第四階段第一週：整合衝刺</span>
+        <span class="meta-chip">週六：英文全卷模擬</span>
+        <span class="meta-chip">距學測約 81 天</span>
+      </div>
+    </header>
+
+    <div class="toc" id="toc">
+      <h3>目錄 Table of Contents</h3>
+      <ol>
+        <li><a href="#overview">學習總覽與目標</a></li>
+        <li><a href="#plan">本週七日計畫</a></li>
+        <li><a href="#diagnosis">弱點診斷表：W24 模擬考之後，我該補哪幾篇？</a></li>
+        <li><a href="#method">古文深讀五步法</a></li>
+        <li><a href="#d1">深讀 1｜諫逐客書（全文）</a></li>
+        <li><a href="#d2">深讀 2｜鴻門宴（重點段落）</a></li>
+        <li><a href="#d3">深讀 3｜出師表（全文）</a></li>
+        <li><a href="#d4">深讀 4｜赤壁賦（全文）</a></li>
+        <li><a href="#d5">深讀 5｜項脊軒志（全文）</a></li>
+        <li><a href="#d6">深讀 6｜虯髯客傳（重點段落）</a></li>
+        <li><a href="#others">其餘 9 篇核心古文：一分鐘快速補強</a></li>
+        <li><a href="#compare">六篇比較：說服策略與抒情手法</a></li>
+        <li><a href="#wordbank">跨篇高頻字詞總表</a></li>
+        <li><a href="#quotes">名句默寫清單</a></li>
+        <li><a href="#writing">國寫限時練習（45 分鐘）</a></li>
+        <li><a href="#sample">範文、評分向度與知性題備用題</a></li>
+        <li><a href="#kmap">知識連結圖</a></li>
+        <li><a href="#summary">重點整理</a></li>
+        <li><a href="#quiz">自我測驗（8 題）</a></li>
+        <li><a href="#next">下週預告與本週檢核表</a></li>
+      </ol>
+    </div>
+
+    <!-- ========== OVERVIEW ========== -->
+    <section id="overview">
+      <h2 class="section-title"><span class="icon">📖</span>學習總覽</h2>
+      <div class="card">
+        <p>W24 把古文 30 篇「串」了一遍，並在週末做了第一次五科聯合模擬考。從本週起進入第四階段（整合衝刺），每週都有一次模擬考；國文的任務變成<strong>「補洞」</strong>：不再平均用力，而是挑出自己最容易失分的篇章，回到原文深讀到「看得懂、說得出、考不倒」。</p>
+        <p style="margin-top:0.6rem;">依複習時程，W25 國文有兩個重點：①<strong>弱點古文篇章深讀</strong>；②<strong>國寫限時練習 45 分鐘</strong>。本講義預設深讀 6 篇<strong>核心 15 篇</strong>中篇幅較長、考點密度高的選文（W23 已處理過輔助篇章〈蘭亭集序〉〈典論論文〉〈諫太宗十思疏〉〈廉恥〉〈左忠毅公逸事〉〈原君〉，這週補核心篇）。你也可以依下方「弱點診斷表」換成自己真正失分的篇章。</p>
+        <p style="margin-top:0.6rem;">原文規則沿用前幾週：短篇收<strong>全文</strong>，長篇收<strong>重點段落</strong>並標示「節錄」；原文以通行課本版本為準，個別字詞（如「繆公／穆公」）各版本略有差異，作答時不影響考點。</p>
+      </div>
+
+      <h3 class="sub-section-title">學習目標</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 完成本週學習後，你應能：</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li>用「診斷表」找出自己最弱的 6 篇古文，並說明失分原因（字詞？語意？結構？）</li>
+          <li>對本週 6 篇：能不看注釋讀懂原文、說出一句話主旨、指出作者論證／敘事的層次</li>
+          <li>辨識並分類高頻字詞：通假字、古今異義、詞類活用、一字多義</li>
+          <li>比較〈諫逐客書〉〈出師表〉的說服策略，以及〈赤壁賦〉〈項脊軒志〉的抒情手法</li>
+          <li>在 45 分鐘內完成一篇結構完整、情感真摯的情意題短文（約 500–650 字）</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-section-title">本週六篇的選擇理由</h3>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>篇幅長、題材密</h4>
+          <ul><li>〈鴻門宴〉〈虯髯客傳〉情節繁複，常考人物比較與細節描寫</li><li>〈項脊軒志〉細節多，考法偏「借物抒情」</li></ul>
+        </div>
+        <div class="analysis-item">
+          <h4>論說、抒情的代表作</h4>
+          <ul><li>〈諫逐客書〉〈出師表〉：奏議，考說服技巧</li><li>〈赤壁賦〉：哲理文賦，考「變與不變」</li></ul>
+        </div>
+        <div class="analysis-item">
+          <h4>跨篇比較的主力</h4>
+          <ul><li>學測國綜常把兩篇並置（如〈出師表〉與〈諫逐客書〉）出題</li><li>本週六篇涵蓋「史傳／奏議／賦／雜記／傳奇」五種文體</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PLAN ========== -->
+    <section id="plan">
+      <h2 class="section-title"><span class="icon">🗓️</span>本週七日計畫</h2>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>日期</th><th>任務（國文每日約 60–70 分鐘）</th><th>產出</th></tr></thead>
+          <tbody>
+            <tr><td>11/02（一）</td><td>完成「弱點診斷表」（15 分鐘）→ 深讀〈諫逐客書〉＋〈鴻門宴〉</td><td>診斷表＋2 篇一句話主旨</td></tr>
+            <tr><td>11/03（二）</td><td>深讀〈出師表〉＋〈赤壁賦〉；〈出師表〉關鍵段、〈赤壁賦〉第四段默寫</td><td>默寫稿＋錯字訂正</td></tr>
+            <tr><td>11/04（三）</td><td>深讀〈項脊軒志〉＋〈虯髯客傳〉；完成「六篇比較」表空白格</td><td>比較表</td></tr>
+            <tr><td>11/05（四）</td><td><strong>國寫限時練習 45 分鐘</strong>（情意題）＋對照範文自評</td><td>1 篇完整稿</td></tr>
+            <tr><td>11/06（五）</td><td>其餘 9 篇核心古文快速補強；名句默寫清單遮字測驗；重寫昨天國寫的第二、三段</td><td>名句默寫正確率</td></tr>
+            <tr><td>11/07（六）</td><td>英文全卷模擬（90 分鐘）— 國文僅用 15 分鐘看「重點整理」，不再讀新東西</td><td>—</td></tr>
+            <tr><td>11/08（日）</td><td>對答案、整理錯題（各科）；國文錯題依「篇名」歸檔進錯題本；更新弱點清單</td><td>錯題本新增 ≥ 8 題</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 時間管理提醒</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>每篇深讀控制在 25–30 分鐘；卡在單一字詞超過 2 分鐘就先標記，下一篇再回頭查</li>
+          <li>週六是英文全卷模擬日，前一晚不要熬夜背古文——睡眠比最後一次默寫更有價值</li>
+          <li>國寫務必<strong>用計時器</strong>：45 分鐘到就停筆，練習的是「時間內完成」的能力</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== DIAGNOSIS ========== -->
+    <section id="diagnosis">
+      <h2 class="section-title"><span class="icon">🩺</span>弱點診斷表</h2>
+      <div class="card">
+        <p>W24 週末的第一次五科聯合模擬考，是你目前最新、最真實的資料。請拿出該回國綜卷，把<strong>古文相關題</strong>的失分逐題歸到下表（沒有模擬考成績時，也可憑 W23 錯題本與直覺自評）。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>核心篇章</th><th>最常見失分類型</th><th>本講義位置</th><th>我的狀況（✔穩 ／△不穩 ／✘弱）</th></tr></thead>
+          <tbody>
+            <tr><td>燭之武退秦師</td><td>說辭層次、通假與古今異義</td><td>W01 / W24</td><td>＿</td></tr>
+            <tr><td>大同與小康</td><td>大同 vs 小康對照、字詞</td><td>W01 / W24</td><td>＿</td></tr>
+            <tr><td><strong>諫逐客書</strong></td><td>類比論證、「說」通「悅」等字詞</td><td><a href="#d1">深讀 1</a></td><td>＿</td></tr>
+            <tr><td><strong>鴻門宴</strong></td><td>座次、人物比較、細節描寫</td><td><a href="#d2">深讀 2</a></td><td>＿</td></tr>
+            <tr><td><strong>出師表</strong></td><td>三大建議、敬謙詞、古今異義</td><td><a href="#d3">深讀 3</a></td><td>＿</td></tr>
+            <tr><td>桃花源記</td><td>語意題、古今異義</td><td><a href="#others">快速補強</a></td><td>＿</td></tr>
+            <tr><td><strong>虯髯客傳</strong></td><td>人物形象、傳奇特色</td><td><a href="#d6">深讀 6</a></td><td>＿</td></tr>
+            <tr><td>師說</td><td>三組對比、句式</td><td><a href="#others">快速補強</a></td><td>＿</td></tr>
+            <tr><td>始得西山宴遊記</td><td>「始」的層次、物我合一</td><td><a href="#others">快速補強</a></td><td>＿</td></tr>
+            <tr><td><strong>赤壁賦</strong></td><td>情感三變、變與不變</td><td><a href="#d4">深讀 4</a></td><td>＿</td></tr>
+            <tr><td><strong>項脊軒志</strong></td><td>借物抒情、稱謂、細節</td><td><a href="#d5">深讀 5</a></td><td>＿</td></tr>
+            <tr><td>晚遊六橋待月記</td><td>時間／空間安排、袁宏道性靈說</td><td><a href="#others">快速補強</a></td><td>＿</td></tr>
+            <tr><td>勞山道士</td><td>寓意、志怪特色</td><td><a href="#others">快速補強</a></td><td>＿</td></tr>
+            <tr><td>勸和論</td><td>勸和論點、臺灣背景</td><td><a href="#others">快速補強</a></td><td>＿</td></tr>
+            <tr><td>鹿港乘桴記</td><td>臺灣史地、洪棄生背景</td><td><a href="#others">快速補強</a></td><td>＿</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 如何使用診斷結果</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>標示「✘」的篇章優先處理；若不在本週六篇內，就用該篇在 W24 的對應段落＋「快速補強」區自行補洞，並把本週的一篇讓出來。</li>
+          <li>標示「△」多半是<strong>字詞不熟</strong>：回到每篇的字詞表，用手遮住解釋自測。</li>
+          <li>全部「✔」的人，本週把深讀改成「不看注釋、直接用白話向別人講一遍」，講不順的地方就是漏洞。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== METHOD ========== -->
+    <section id="method">
+      <h2 class="section-title"><span class="icon">🔍</span>古文深讀五步法</h2>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>步驟</th><th>做什麼</th><th>時間</th></tr></thead>
+          <tbody>
+            <tr><td>① 朗讀原文</td><td>出聲讀一遍，標出自己停頓、卡住的地方（卡住處＝不熟處）</td><td>3 分鐘</td></tr>
+            <tr><td>② 自測字詞</td><td>遮住字詞表右欄，逐一說出解釋與用法（通假？活用？古今異義？）</td><td>6 分鐘</td></tr>
+            <tr><td>③ 對照語譯</td><td>先自己在腦中翻一遍，再看白話語譯核對，修正誤解</td><td>6 分鐘</td></tr>
+            <tr><td>④ 畫結構</td><td>依段落寫「這一段在做什麼」（寫景／敘事／論證／抒情）並說出一句話主旨</td><td>5 分鐘</td></tr>
+            <tr><td>⑤ 預測考點</td><td>假裝自己是出題老師：這篇我會考哪三個點？再做演練題驗證</td><td>8 分鐘</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-tip">
+        <div class="box-title">💡 學測古文題的「三層」</div>
+        <p style="font-size:0.91rem;"><strong>第一層：字詞</strong>（解釋、通假、古今異義、詞類活用）→ <strong>第二層：語意</strong>（句子在說什麼、前後文邏輯）→ <strong>第三層：評析</strong>（手法、情感、思想、跨篇比較）。失分往往發生在第一層沒有站穩，使第二、三層跟著出錯，所以先把字詞表吃透。</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         深讀 1｜諫逐客書
+         ==================================================== -->
+    <section id="d1">
+      <div style="background:linear-gradient(90deg, var(--primary-dark), var(--primary)); color:#fff; border-radius:12px; padding:1rem 1.5rem; margin-bottom:1.5rem;">
+        <div style="font-size:0.78rem; opacity:0.8; margin-bottom:0.3rem;">深讀 1｜先秦・奏議（上書）｜核心 15 篇 #3</div>
+        <div style="font-size:1.4rem; font-weight:900; letter-spacing:2px;">諫逐客書</div>
+        <div style="font-size:0.88rem; opacity:0.88; margin-top:0.3rem;">李斯｜收於《史記・李斯列傳》（《文選》題作〈上書秦始皇〉）｜秦王政十年（前 237 年）</div>
+      </div>
+
+      <div class="box box-link">
+        <div class="box-title">📌 背景</div>
+        <p style="font-size:0.91rem;">韓國派水工鄭國入秦修渠，意圖耗損秦國國力（疲秦之計），事發後，秦國宗室大臣向秦王進言「諸侯人來事秦者，大抵為其主游間於秦耳，請一切逐客」。出身楚國的李斯亦在被逐之列，臨行上書，秦王因而收回逐客令，李斯恢復官職。</p>
+      </div>
+
+      <h3 class="sub-section-title">原文全文</h3>
+      <div class="original-text">
+        <p>臣聞吏議逐客，竊以為過矣。昔繆公求士，西取由余於戎，東得百里奚於宛，迎蹇叔於宋，來丕豹、公孫支於晉。此五子者，不產於秦，而繆公用之，并國二十，遂霸西戎。孝公用商鞅之法，移風易俗，民以殷盛，國以富彊，百姓樂用，諸侯親服，獲楚、魏之師，舉地千里，至今治彊。惠王用張儀之計，拔三川之地，西并巴、蜀，北收上郡，南取漢中，包九夷，制鄢、郢，東據成皋之險，割膏腴之壤，遂散六國之從，使之西面事秦，功施到今。昭王得范雎，廢穰侯，逐華陽，彊公室，杜私門，<span class="kw">蠶食</span>諸侯，使秦成帝業。此四君者，皆以客之功。由此觀之，<span class="kw">客何負於秦哉</span>！向使四君卻客而不內，疏士而不用，是使國無富利之實，而秦無彊大之名也。</p>
+        <p>今陛下致崑山之玉，有隨、和之寶，垂明月之珠，服太阿之劍，乘纖離之馬，建翠鳳之旗，樹靈鼉之鼓。此數寶者，秦不生一焉，而陛下<span class="kw">說</span>之，何也？必秦國之所生然後可，則是夜光之璧不飾朝廷，犀象之器不為玩好，鄭、衛之女不充後宮，而駿良駃騠不實外廄，江南金錫不為用，西蜀丹青不為采。所以飾後宮、充<span class="kw">下陳</span>、娛心意、說耳目者，必出於秦然後可，則是宛珠之簪、傅璣之珥、阿縞之衣、錦繡之飾不進於前，而隨俗雅化、佳冶窈窕趙女不立於側也。夫擊甕叩缶，彈箏搏髀，而歌呼嗚嗚快耳者，真秦之聲也；鄭、衛、桑間，昭、虞、武、象者，異國之樂也。今棄擊甕叩缶而就鄭、衛，退彈箏而取昭、虞，若是者何也？快意當前，適觀而已矣。今取人則不然，不問可否，不論曲直，非秦者去，為客者逐。然則是<span class="kw-teal">所重者在乎色樂珠玉，而所輕者在乎人民也</span>。此非所以跨海內、制諸侯之術也。</p>
+        <p>臣聞地廣者粟多，國大者人眾，兵彊則士勇。是以<span class="kw-teal">泰山不讓土壤，故能成其大；河海不擇細流，故能就其深</span>；王者不卻眾庶，故能明其德。是以地無四方，民無異國，四時充美，鬼神降福，此五帝三王之所以無敵也。今乃棄<span class="kw">黔首</span>以資敵國，卻賓客以業諸侯，使天下之士退而不敢西向，裹足不入秦，此所謂「<span class="kw">藉寇兵而齎盜糧</span>」者也。</p>
+        <p>夫物不產於秦，可寶者多；士不產於秦，而願忠者眾。今逐客以資敵國，損民以益讎，內自虛而外樹怨於諸侯，求國無危，不可得也。</p>
+      </div>
+      <p style="font-size:0.82rem; color:var(--muted);">※ 通行課本版本；「泰山」「繆公」等字在不同版本有「太山」「穆公」之別，不影響解題。</p>
+
+      <h3 class="sub-section-title">白話語譯</h3>
+      <div class="translation-block">
+        <p><strong>第一段（史實論證）：</strong>我聽說官吏在討論驅逐客卿，私下認為這是錯的。從前繆公尋求賢士，向西從戎地得到由余，向東從宛地得到百里奚，從宋國迎來蹇叔，從晉國招來丕豹、公孫支。這五個人都不是秦國出生，繆公卻重用他們，兼併了二十個國家，於是稱霸西戎。孝公採用商鞅的變法，移風易俗，人民富足興盛，國家富強，百姓樂意效命，諸侯親附歸順，打敗楚、魏的軍隊，拓地千里，直到現在仍然安定強盛。惠王採用張儀的計謀，攻下三川之地，向西吞併巴、蜀，向北收取上郡，向南奪取漢中，包羅九夷，控制鄢、郢，向東占據成皋的險要，割取肥沃的土地，於是拆散六國的合縱，使他們向西事奉秦國，功業一直延續到今天。昭王得到范雎，廢除穰侯，驅逐華陽君，加強王室，杜絕私門，蠶食諸侯，使秦成就帝業。這四位君王，都是憑藉客卿的功勞。由此看來，客卿哪裡辜負了秦國呢！假使這四位君王拒絕客卿而不接納，疏遠賢士而不任用，那就會使國家沒有富利的實質，秦國也沒有強大的名聲了。</p>
+        <p><strong>第二段（類比論證）：</strong>如今陛下蒐羅崑山的美玉，擁有隨侯珠、和氏璧這樣的寶物，佩帶明月珠，佩著太阿劍，騎著纖離駿馬，豎起翠鳳旗，擺設靈鼉鼓。這幾樣寶物，秦國一樣都不出產，陛下卻喜愛它們，為什麼呢？如果一定要秦國出產的才可以用，那麼夜光璧就不能裝飾朝廷，犀角象牙的器物就不能當玩物，鄭、衛的美女就不能充實後宮，駿馬良駒也不能養滿外廄，江南的金錫不能使用，西蜀的丹青不能當彩飾。用來裝飾後宮、充實侍妾、愉悅心意、悅耳悅目的東西，若一定要出自秦國才可以，那麼宛地珠簪、傅璣耳飾、阿縞衣裳、錦繡裝飾就不能進到您面前，而合時宜、美豔窈窕的趙國女子也不能站在您身旁。敲甕擊缶、彈箏拍腿而「嗚嗚」呼唱，使耳朵痛快的，才是真正的秦聲；鄭、衛、桑間，以及昭、虞、武、象，都是外國的音樂。如今卻拋棄敲甕擊缶而採用鄭、衛，不彈箏而取昭、虞，這是為什麼呢？不過是眼前痛快、看來合意罷了。如今用人卻不是這樣，不問是否適合，不論是非曲直，不是秦國人就辭退，是客卿就驅逐。這樣看來，您所看重的是女色、音樂、珠玉，所輕視的卻是人民。這不是跨越海內、制服諸侯的方法。</p>
+        <p><strong>第三段（正面說理＋反面警告）：</strong>我聽說土地廣大，糧食就多；國家強大，人口就眾；兵力強盛，士兵就勇敢。所以泰山不辭讓土壤，才能成就它的高大；河海不挑剔細流，才能成就它的深廣；君王不拒絕百姓，才能彰顯他的德行。因此地域不分四方，人民不分異國，四季充實美好，鬼神降下福氣，這就是五帝三王所以無敵的原因。如今卻拋棄百姓去資助敵國，拒絕賓客去成就諸侯的功業，使天下的賢士退縮不敢西來，裹足不入秦國，這就是所謂「把兵器借給敵人、把糧食送給盜賊」啊。</p>
+        <p><strong>第四段（結論）：</strong>東西不是秦國出產的，值得珍貴的很多；賢士不是秦國出生的，願意效忠的也很多。如今驅逐客卿來資助敵國，損傷人民來增益仇敵，內部自我空虛，外部又和諸侯結怨，想要國家沒有危險，是不可能的。</p>
+      </div>
+
+      <h3 class="sub-section-title">主旨與論證結構</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 一句話主旨</div>
+        <p style="font-size:0.93rem;">以秦國四君任用客卿而強盛的史實、秦王愛用異國珠玉音樂卻逐異國賢士的矛盾，以及「泰山不讓土壤」的道理，說明逐客將資敵自弱，勸秦王收回成命。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>段落</th><th>論證方法</th><th>內容</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>首段</td><td>歷史舉例</td><td>四君用客：繆公、孝公、惠王、昭王，皆以客卿之功致強</td><td>用秦人最自豪的歷史立論，反駁逐客「為過」</td></tr>
+            <tr><td>次段</td><td>類比（以物喻人）</td><td>珠玉、美人、音樂皆非秦產，而秦王喜愛；偏偏用人卻看出身</td><td>揭露矛盾：重物而輕人，不是跨海內制諸侯之術</td></tr>
+            <tr><td>三段</td><td>正反說理</td><td>正：泰山河海、五帝三王；反：棄黔首、卻賓客＝藉寇兵齎盜糧</td><td>由喻入理，上升到治國原則，再陳述利害</td></tr>
+            <tr><td>末段</td><td>歸結利害</td><td>資敵、益讎、內虛、外怨，國家難免危殆</td><td>以「求國無危，不可得也」收束，給秦王最後一擊</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="sub-sub-title">必考字詞</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>解釋</th><th>考點</th></tr></thead>
+          <tbody>
+            <tr><td>竊以為過矣</td><td>竊：私下（自謙）；過：錯誤</td><td>謙詞</td></tr>
+            <tr><td>蠶食諸侯</td><td>像蠶吃桑葉般逐步吞併</td><td>名詞作狀語</td></tr>
+            <tr><td>散六國之從</td><td>從，通「縱」，合縱</td><td>通假字</td></tr>
+            <tr><td>卻客而不內</td><td>卻：拒絕；內，通「納」</td><td>通假字</td></tr>
+            <tr><td>陛下說之</td><td>說，通「悅」，喜愛</td><td>通假字（與〈燭之武退秦師〉「秦伯說」同）</td></tr>
+            <tr><td>充下陳</td><td>下陳：後宮侍妾居處（或指侍妾）</td><td>語詞</td></tr>
+            <tr><td>棄黔首以資敵國</td><td>黔首：百姓；資：資助</td><td>稱謂；名詞作動詞</td></tr>
+            <tr><td>卻賓客以業諸侯</td><td>使諸侯成就功業</td><td>使動用法</td></tr>
+            <tr><td>藉寇兵而齎盜糧</td><td>藉，通「借」；齎（ㄐㄧ）：送</td><td>通假＋成語出處</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測考點</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>立場</strong>：李斯全篇「站在秦國利益」立論，不替客卿求情，這是說服技巧（對方在意的是國家強弱，而非客卿個人）。</li>
+          <li><strong>與〈燭之武退秦師〉比較</strong>：兩篇都是「以利害說服君主」，但燭之武是「外交辭令」、李斯是「臣下諫書」；一個是說服他國君主退兵，一個是說服自己的君主收回成命。</li>
+          <li><strong>文體</strong>：「書」（上書）屬奏議；句式整齊、排比對偶多，開後世駢文先河。</li>
+          <li><strong>易錯</strong>：「泰山不讓土壤」是用來說明<u>君王應廣納人才</u>，不是在講個人謙讓或自然風景。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 常見誤解</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>把「客」誤解成「賓客、客人」：此處指<strong>來自他國而在秦任官的人（客卿）</strong>。</li>
+          <li>以為「卻賓客以業諸侯」是「拒絕賓客、使諸侯受益」——結果對，但語法是<strong>使動</strong>：使諸侯成就功業。</li>
+          <li>把珠玉、音樂段誤判為「勸秦王節儉」：作者的目的是<strong>類比</strong>，重點在「重物輕人」的矛盾。</li>
+        </ul>
+      </div>
+
+      <h4 class="sub-sub-title">演練（2 題）</h4>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>李斯在第二段列舉崑山之玉、鄭衛之女、擊甕叩缶等例子，主要的論證目的是什麼？</div>
+        <ol>
+          <li>勸秦王節制享樂，避免奢侈</li>
+          <li>說明秦王喜愛非秦所產之物，卻要驅逐非秦所生之人，前後矛盾</li>
+          <li>證明秦國物產不足，必須依賴客卿輸入</li>
+          <li>稱讚秦王見識廣博、兼容並蓄</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B</p>
+          <p style="font-size:0.90rem;">此段用「類比論證」：秦王對物品不問產地、只求悅耳悅目，對人才卻「非秦者去」，李斯藉此點出「所重者在乎色樂珠玉，而所輕者在乎人民」的矛盾。A、C 與文意無關；D 是反話正聽。</p></div>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>下列「　」內字詞的解釋，何者<strong>錯誤</strong>？</div>
+        <ol>
+          <li>卻客而不「內」：通「納」，接納</li>
+          <li>而陛下「說」之：通「悅」，喜愛</li>
+          <li>「蠶」食諸侯：名詞作狀語，像蠶食桑葉般</li>
+          <li>此所謂「藉」寇兵而齎盜糧者也：憑藉</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：D</p>
+          <p style="font-size:0.90rem;">「藉」通「借」，是「借給」之意：把兵器借給敵人、把糧食送給盜賊。A、B 為通假字；C 為名詞作狀語，皆正確。</p></div>
+        </details>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         深讀 2｜鴻門宴
+         ==================================================== -->
+    <section id="d2">
+      <div style="background:linear-gradient(90deg, #5b2c6f, var(--accent)); color:#fff; border-radius:12px; padding:1rem 1.5rem; margin-bottom:1.5rem;">
+        <div style="font-size:0.78rem; opacity:0.8; margin-bottom:0.3rem;">深讀 2｜漢・史傳散文｜核心 15 篇 #4</div>
+        <div style="font-size:1.4rem; font-weight:900; letter-spacing:2px;">鴻門宴</div>
+        <div style="font-size:0.88rem; opacity:0.88; margin-top:0.3rem;">司馬遷｜《史記・項羽本紀》｜楚漢相爭、前 206 年</div>
+      </div>
+
+      <div class="box box-link">
+        <div class="box-title">📌 事件脈絡</div>
+        <p style="font-size:0.91rem;">劉邦（沛公）先入關破咸陽，項羽（項王）後至，聽信曹無傷「沛公欲王關中」的密告，準備攻打劉邦。項羽叔父項伯夜奔告知張良，使劉邦得以親赴鴻門「謝罪」。宴席上范增三次示意項羽除掉劉邦，項羽默然不應；項莊舞劍意在沛公，項伯以身翼蔽；樊噲闖帳，劉邦藉如廁脫身。</p>
+      </div>
+
+      <h3 class="sub-section-title">原文節錄（開頭謝罪、座次、樊噲闖帳、如廁脫身、范增怒語）</h3>
+      <div class="original-text">
+        <p>沛公旦日從百餘騎來見項王，至鴻門，謝曰：「臣與將軍<span class="kw">戮力</span>而攻秦，將軍戰河北，臣戰河南，然不自意能先入關破秦，得復見將軍於此。今者有小人之言，令將軍與臣有<span class="kw">郤</span>。」項王曰：「此沛公左司馬曹無傷言之；不然，籍何以至此！」項王即日因留沛公與飲。項王、項伯東嚮坐；亞父南嚮坐——亞父者，范增也；沛公北嚮坐；張良西嚮侍。范增數目項王，舉所佩<span class="kw">玉玦</span>以示之者三，項王默然不應。</p>
+        <p style="text-align:center; color:var(--muted);">（中略：范增召項莊舞劍，項伯亦拔劍起舞，常以身翼蔽沛公）</p>
+        <p>於是張良至軍門，見樊噲。樊噲曰：「今日之事何如？」良曰：「甚急！今者項莊拔劍舞，其意常在沛公也。」噲曰：「此迫矣！臣請入，與之同命。」噲即帶劍擁盾入軍門。交戟之衛士欲止不內，樊噲側其盾以撞，衛士仆地，噲遂入，披帷西嚮立，<span class="kw">瞋目</span>視項王，頭髮上指，目眥盡裂。項王按劍而<span class="kw">跽</span>曰：「客何為者？」張良曰：「沛公之<span class="kw">參乘</span>樊噲者也。」項王曰：「壯士！賜之卮酒。」則與斗卮酒。噲拜謝，起，立而飲之。項王曰：「賜之彘肩。」則與一生彘肩。樊噲覆其盾於地，加彘肩上，拔劍切而啗之。項王曰：「壯士！能復飲乎？」樊噲曰：「臣死且不避，卮酒安足辭！夫秦王有虎狼之心，殺人如不能舉，刑人如恐不勝，天下皆叛之。懷王與諸將約曰：『先破秦入咸陽者王之。』今沛公先破秦入咸陽，豪毛不敢有所近，封閉宮室，還軍霸上，以待大王來。故遣將守關者，備他盜出入與非常也。勞苦而功高如此，未有封侯之賞，而聽細說，欲誅有功之人，此亡秦之續耳，竊為大王不取也！」項王未有以應，曰：「坐。」樊噲從良坐。坐須臾，沛公起如廁，因招樊噲出。</p>
+        <p>沛公已出，項王使都尉陳平召沛公。沛公曰：「今者出，未辭也，為之奈何？」樊噲曰：「<span class="kw-teal">大行不顧細謹，大禮不辭小讓。如今人方為刀俎，我為魚肉</span>，何辭為？」於是遂去。</p>
+        <p style="text-align:center; color:var(--muted);">（中略：張良留謝，獻白璧、玉斗）</p>
+        <p>亞父受玉斗，置之地，拔劍撞而破之，曰：「唉！<span class="kw">豎子</span>不足與謀！奪項王天下者，必沛公也。吾屬今為之虜矣！」沛公至軍，立誅殺曹無傷。</p>
+      </div>
+
+      <h3 class="sub-section-title">白話語譯</h3>
+      <div class="translation-block">
+        <p><strong>謝罪：</strong>沛公第二天帶著一百多名騎兵來見項王，到了鴻門，道歉說：「我與將軍合力攻打秦國，將軍在黃河以北作戰，我在黃河以南作戰，沒想到自己能先入關打敗秦軍，能在這裡再見到將軍。現在有小人的謠言，使將軍與我有了嫌隙。」項王說：「這是沛公的左司馬曹無傷說的；不然，我怎麼會這樣！」項王當天就留沛公一起飲酒。</p>
+        <p><strong>座次與暗示：</strong>項王、項伯面向東坐；亞父面向南坐——亞父就是范增；沛公面向北坐；張良面向西陪侍。范增多次向項王使眼色，舉起所佩的玉玦向他示意三次，項王默然不回應。</p>
+        <p><strong>樊噲闖帳：</strong>於是張良到軍門見樊噲。樊噲問：「今天情況如何？」張良說：「非常危急！現在項莊拔劍起舞，他的用意常在沛公身上。」樊噲說：「這太緊迫了！請讓我進去，與他同生死。」樊噲就佩劍持盾闖入軍門。守衛的士兵想阻擋不讓進，樊噲側過盾牌撞去，衛士倒地，樊噲就進去了，掀開帷帳面向西站立，瞪著項王，頭髮豎起，眼眶都要裂開。項王握劍挺身跪起，問：「客人是做什麼的？」張良說：「是沛公的陪乘樊噲。」項王說：「壯士！賞他一杯酒。」就給了一大杯酒。樊噲拜謝，站起來把酒喝光。項王說：「賞他豬腿。」就給了一隻生豬腿。樊噲把盾牌扣在地上，把豬腿放在上面，拔劍切來吃。項王說：「壯士！還能再喝嗎？」樊噲說：「我死都不怕，一杯酒哪值得推辭！秦王有虎狼之心，殺人唯恐殺不完，用刑唯恐不夠重，天下人都背叛他。懷王和諸將約定說：『先打敗秦軍進入咸陽的人封王。』現在沛公先打敗秦軍進入咸陽，絲毫不敢占有什麼，封閉宮室，退軍霸上，等待大王到來。特地派將領守關，是為了防備其他盜賊出入和意外變故。如此勞苦功高，沒有得到封侯的賞賜，反而聽信小人的話，要誅殺有功的人，這是重蹈滅亡的秦朝覆轍，我私下認為大王不該這樣做！」項王沒有話回答，說：「坐。」樊噲挨著張良坐下。坐了一會兒，沛公起身上廁所，順便招呼樊噲出去。</p>
+        <p><strong>脫身：</strong>沛公出去後，項王派都尉陳平召沛公。沛公說：「現在出來，還沒告辭，怎麼辦？」樊噲說：「做大事不必顧慮小節，講大禮不必躲避小責備。現在人家是刀和砧板，我們是魚和肉，還告辭做什麼？」於是就離去了。</p>
+        <p><strong>范增怒語：</strong>亞父接過玉斗，放在地上，拔劍擊破，說：「唉！這小子不值得共謀大事！奪項王天下的，必定是沛公！我們這些人將要成為他的俘虜了！」沛公回到軍中，立刻殺了曹無傷。</p>
+      </div>
+
+      <h3 class="sub-section-title">主旨與人物分析</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 一句話主旨</div>
+        <p style="font-size:0.93rem;">透過鴻門宴的驚險過程，對比項羽的寡斷自負、輕信少謀，與劉邦的能屈能伸、善用人才，預示楚漢相爭的結局。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table class="compare-table">
+          <thead><tr><th>人物</th><th>關鍵描寫</th><th>形象</th></tr></thead>
+          <tbody>
+            <tr><td>項羽</td><td>洩露曹無傷（「不然，籍何以至此」）；坐東嚮最尊；對范增示意「默然不應」；稱樊噲「壯士」、賜酒賜肉；「未有以應，曰：坐」</td><td>坦率自負、重視面子、優柔寡斷、不聽謀臣，易被言語打動</td></tr>
+            <tr><td>劉邦</td><td>「臣與將軍戮力而攻秦」卑辭謝罪；起如廁而脫身；「今者出，未辭也，為之奈何」；歸軍立誅曹無傷</td><td>能屈能伸、善於示弱、果斷處理叛徒、善用張良樊噲</td></tr>
+            <tr><td>范增</td><td>數目項王、舉玦者三；召項莊舞劍；撞破玉斗罵「豎子」</td><td>有遠見、急於除患，卻被項羽辜負</td></tr>
+            <tr><td>張良</td><td>北嚮坐的沛公「西嚮侍」；至軍門告樊噲；留謝獻璧</td><td>沉著機智、臨事能斷</td></tr>
+            <tr><td>樊噲</td><td>「頭髮上指，目眥盡裂」；覆盾切彘肩；「臣死且不避，卮酒安足辭」；「大行不顧細謹…」</td><td>勇猛而有智，以理服人</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="sub-sub-title">必考字詞</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>解釋</th><th>考點</th></tr></thead>
+          <tbody>
+            <tr><td>戮力而攻秦</td><td>戮力：併力、合力</td><td>語詞</td></tr>
+            <tr><td>有郤</td><td>郤，通「隙」，嫌隙</td><td>通假字</td></tr>
+            <tr><td>舉所佩玉玦以示之</td><td>玦（ㄐㄩㄝˊ）諧音「決」，暗示速下決斷</td><td>雙關、暗示</td></tr>
+            <tr><td>東嚮坐／南嚮坐</td><td>東向最尊，南向次之，北向再次，西向最卑</td><td>座次尊卑</td></tr>
+            <tr><td>瞋目／目眥盡裂</td><td>瞪大眼睛；眼眶都要裂開</td><td>誇飾、動作描寫</td></tr>
+            <tr><td>按劍而跽</td><td>跽（ㄐㄧˋ）：挺直上身、雙膝著地</td><td>字音字義</td></tr>
+            <tr><td>參乘</td><td>陪乘的衛士（車右）</td><td>職稱</td></tr>
+            <tr><td>人方為刀俎，我為魚肉</td><td>俎：砧板；比喻處於被宰割的地位</td><td>譬喻、成語出處</td></tr>
+            <tr><td>豎子不足與謀</td><td>豎子：小子（罵人語），表面罵項莊，實指項羽</td><td>指桑罵槐</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測考點</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>座次</strong>：項王、項伯東嚮，范增南嚮，沛公北嚮，張良西嚮——座次排出<u>項羽自居最尊</u>，並把沛公視為臣下，也暗示項羽的自大。常考「依座次圖判斷」。</li>
+          <li><strong>敘事技巧</strong>：以「玉玦」「舞劍」「樊噲闖帳」「如廁」層層推高緊張，再用「撞破玉斗」收尾，形成高潮與餘波。</li>
+          <li><strong>史傳筆法</strong>：《史記》為紀傳體通史之祖；項羽雖敗，司馬遷仍列入「本紀」，表現史識。人物性格多以「語言＋動作」呈現，不由作者直接評論。</li>
+          <li><strong>成語</strong>：項莊舞劍，意在沛公；人為刀俎，我為魚肉；大行不顧細謹；豎子不足與謀。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 常見誤解</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>「項王、項伯東嚮坐」：項伯是項羽的叔父，與項羽同坐東向，並非「項羽讓位給項伯」。</li>
+          <li>「沛公起如廁」的「如」是「去、往」，不是「如同」。</li>
+          <li>把「項莊舞劍」解成「項莊只是在表演」：實為范增的計謀，目的是在席間擊殺沛公。</li>
+        </ul>
+      </div>
+
+      <h4 class="sub-sub-title">演練（2 題）</h4>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>下列關於〈鴻門宴〉的敘述，何者<strong>正確</strong>？</div>
+        <ol>
+          <li>項羽自坐東向，沛公北向，可看出項羽把劉邦視為平起平坐的盟友</li>
+          <li>范增「舉所佩玉玦以示之者三」是以玦諧音「決」，暗示項羽下決心殺劉邦</li>
+          <li>樊噲說「竊為大王不取也」，是附和項羽欲殺劉邦的想法</li>
+          <li>劉邦「起如廁」是真的內急，與逃走無關</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B</p>
+          <p style="font-size:0.90rem;">A：座次排出項羽自居最尊，並非平起平坐。C：樊噲的話是<u>責備項羽</u>「聽細說，欲誅有功之人」。D：「因招樊噲出」可見是藉故脫身。</p></div>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>「大行不顧細謹，大禮不辭小讓」這句話出自樊噲之口，其用意最接近下列何者？</div>
+        <ol>
+          <li>勸劉邦以大局為重，不必拘泥告辭的小節，先脫身要緊</li>
+          <li>讚美項羽不拘小節，值得追隨</li>
+          <li>批評劉邦沒有禮貌，不懂禮儀</li>
+          <li>說明做大事的人都應該不守禮法</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：A</p>
+          <p style="font-size:0.90rem;">劉邦擔心「未辭」不合禮數，樊噲以「人方為刀俎，我為魚肉」為喻，說明<u>性命相關時不該顧小節</u>。D 是過度推論。</p></div>
+        </details>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         深讀 3｜出師表
+         ==================================================== -->
+    <section id="d3">
+      <div style="background:linear-gradient(90deg, #5b2c6f, var(--accent)); color:#fff; border-radius:12px; padding:1rem 1.5rem; margin-bottom:1.5rem;">
+        <div style="font-size:0.78rem; opacity:0.8; margin-bottom:0.3rem;">深讀 3｜三國・奏議（表）｜核心 15 篇 #5</div>
+        <div style="font-size:1.4rem; font-weight:900; letter-spacing:2px;">出師表</div>
+        <div style="font-size:0.88rem; opacity:0.88; margin-top:0.3rem;">諸葛亮｜蜀漢建興五年（227 年）北伐前上後主劉禪（又稱〈前出師表〉）</div>
+      </div>
+
+      <h3 class="sub-section-title">原文全文</h3>
+      <div class="original-text">
+        <p>臣亮言：先帝創業未半，而中道<span class="kw">崩殂</span>；今天下三分，益州疲弊，<span class="kw-teal">此誠危急存亡之秋也</span>。然侍衛之臣，不懈於內；忠志之士，忘身於外者：蓋追先帝之殊遇，欲報之於陛下也。誠宜開張聖聽，以光先帝遺德，恢弘志士之氣；不宜<span class="kw">妄自菲薄</span>，引喻失義，以塞忠諫之路也。</p>
+        <p>宮中府中，俱為一體；<span class="kw">陟罰臧否</span>，不宜異同。若有作姦犯科，及為忠善者，宜付有司，論其刑賞，以昭陛下平明之治；不宜偏私，使內外異法也。</p>
+        <p>侍中、侍郎郭攸之、費禕、董允等，此皆良實，志慮忠純，是以先帝簡拔以遺陛下。愚以為宮中之事，事無大小，悉以咨之，然後施行，必能裨補闕漏，有所廣益。</p>
+        <p>將軍向寵，性行淑均，曉暢軍事，試用於昔日，先帝稱之曰能，是以眾議舉寵為督。愚以為營中之事，悉以咨之，必能使行陣和睦，優劣得所。</p>
+        <p><span class="kw-teal">親賢臣，遠小人，此先漢所以興隆也；親小人，遠賢臣，此後漢所以傾頹也</span>。先帝在時，每與臣論此事，未嘗不歎息痛恨於桓、靈也。侍中、尚書、長史、參軍，此悉貞良死節之臣，願陛下親之信之，則漢室之隆，可計日而待也。</p>
+        <p>臣本<span class="kw">布衣</span>，躬耕於南陽，苟全性命於亂世，不求聞達於諸侯。先帝不以臣<span class="kw">卑鄙</span>，<span class="kw">猥自枉屈</span>，三顧臣於草廬之中，諮臣以當世之事，由是感激，遂許先帝以驅馳。後值傾覆，受任於敗軍之際，奉命於危難之間，爾來二十有一年矣。</p>
+        <p>先帝知臣謹慎，故臨崩寄臣以大事也。受命以來，夙夜憂歎，恐託付不效，以傷先帝之明；故五月渡瀘，深入不毛。今南方已定，兵甲已足，當獎率三軍，北定中原，庶竭駑鈍，攘除姦凶，興復漢室，還於舊都：此臣所以報先帝，而忠陛下之職分也。至於斟酌損益，進盡忠言，則攸之、禕、允之任也。</p>
+        <p>願陛下託臣以討賊興復之效；不效，則治臣之罪，以告先帝之靈。若無興德之言，則責攸之、禕、允等之慢，以彰其咎。陛下亦宜自謀，以諮諏善道，察納雅言，深追先帝遺詔。臣不勝受恩感激。今當遠離，臨表涕泣，不知所云。</p>
+      </div>
+
+      <h3 class="sub-section-title">白話語譯</h3>
+      <div class="translation-block">
+        <p><strong>第一段（形勢與勸勉）：</strong>臣諸葛亮上言：先帝開創大業還沒有完成一半，就中途去世；如今天下分為三國，益州疲憊困弊，這實在是危急存亡的時刻。然而宮中侍衛的臣子在內不懈怠，外面的忠志之士不顧自身，是因為追念先帝的特別恩遇，想報答在陛下身上。陛下實在應該廣開言路，來光大先帝遺留的德業，振奮志士的氣概；不應當隨意看輕自己，說話引用不恰當的例子，而堵塞了忠臣進諫的路。</p>
+        <p><strong>第二段（賞罰公平）：</strong>宮中和丞相府，本是一體；獎懲、好壞的評斷，不應有所不同。若有為非作歹、違犯法令，或是做忠誠善事的人，應交給主管官員，評議其刑罰或獎賞，來彰顯陛下公平清明的治理；不應偏袒私心，使宮內、宮外的法度不同。</p>
+        <p><strong>第三段（薦宮中良臣）：</strong>侍中郭攸之、費禕，侍郎董允等人，都是善良誠實的人，志向思慮忠誠純正，所以先帝選拔他們留給陛下。我認為宮中的事，無論大小，都拿去詢問他們，然後再施行，必定能補足疏漏，有所增益。</p>
+        <p><strong>第四段（薦軍中良將）：</strong>將軍向寵，性情品行善良公正，通曉軍事，從前試用，先帝稱讚他有才能，所以大家商議推舉他擔任中部督。我認為軍營中的事，都拿去詢問他，必定能使軍隊和睦，優劣各得其所。</p>
+        <p><strong>第五段（親賢遠佞）：</strong>親近賢臣、疏遠小人，這是前漢興盛的原因；親近小人、疏遠賢臣，這是後漢衰敗的原因。先帝在世時，每次和我談論這件事，沒有一次不對桓帝、靈帝感到歎息痛恨。侍中、尚書、長史、參軍，這些都是忠貞善良、能為節操而死的臣子，希望陛下親近他們、信任他們，那麼漢室的興盛，就可以屈指計日而等到了。</p>
+        <p><strong>第六段（自述經歷）：</strong>我本來是平民，在南陽親自耕田，在亂世中苟且保全性命，不求在諸侯間揚名顯達。先帝不嫌我身分低微、見識淺陋，委屈自己，三次到草廬拜訪我，向我詢問當世大事，我因此感動激動，於是答應為先帝奔走效力。後來遇到兵敗，我在軍隊失敗時接受任務，在危難之際奉命行事，到現在已經二十一年了。</p>
+        <p><strong>第七段（北伐決心）：</strong>先帝知道我謹慎，所以臨終時把大事託付給我。接受遺命以來，我日夜憂慮歎息，怕託付的事沒有成效，損害先帝的知人之明；所以五月渡過瀘水，深入不毛之地。現在南方已經平定，軍備已經充足，應該獎勵率領三軍，北伐平定中原，希望竭盡我平庸的才能，除掉奸邪凶惡之徒，興復漢室，回到舊都：這就是我報答先帝、盡忠陛下的本分。至於斟酌利弊、進獻忠言，那是郭攸之、費禕、董允的責任。</p>
+        <p><strong>第八段（託付與告別）：</strong>希望陛下把討伐叛賊、興復漢室的任務交給我；若沒有成效，就治我的罪，用來告慰先帝在天之靈。若沒有振興聖德的建言，就責罰郭攸之、費禕、董允等人的怠慢，來彰顯他們的過失。陛下也應當自己謀求良策，詢問治國正道，審察採納正直的言論，深切追念先帝的遺詔。我受到恩惠，感激不盡。如今就要遠離，面對這篇表文流淚，不知說了些什麼。</p>
+      </div>
+
+      <h3 class="sub-section-title">主旨與結構</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 一句話主旨</div>
+        <p style="font-size:0.93rem;">北伐之前，向後主劉禪提出「開張聖聽、賞罰公平、親賢遠佞」三項建言，並以自述追隨先帝的經歷，表達報先帝、忠陛下的赤誠與北伐決心。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>層次</th><th>段落</th><th>內容</th><th>重點</th></tr></thead>
+          <tbody>
+            <tr><td>一、陳述形勢</td><td>第一段</td><td>先帝創業未半而崩殂；益州疲弊；仍有忠志之士</td><td>「危急存亡之秋」；勸「開張聖聽」，不可「妄自菲薄」</td></tr>
+            <tr><td>二、提出建言</td><td>二至五段</td><td>賞罰不宜異同；薦郭攸之、費禕、董允、向寵；親賢遠佞</td><td>「陟罰臧否，不宜異同」；兩漢興衰對照</td></tr>
+            <tr><td>三、自述心跡</td><td>六至七段</td><td>躬耕南陽、三顧草廬、受命敗軍之際；南方已定，當北伐</td><td>感恩、盡忠、務實；「報先帝，忠陛下之職分」</td></tr>
+            <tr><td>四、託付與告別</td><td>第八段</td><td>以「效／不效」自立責任，並要求劉禪「自謀、察納」</td><td>「臨表涕泣，不知所云」，情真而辭切</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="sub-sub-title">必考字詞</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>解釋</th><th>考點</th></tr></thead>
+          <tbody>
+            <tr><td>崩殂（ㄘㄨˊ）</td><td>帝王之死；「崩」用於天子，「殂」亦為死</td><td>死亡的等級用語</td></tr>
+            <tr><td>危急存亡之秋</td><td>秋：時候（關鍵時刻）</td><td>一字多義</td></tr>
+            <tr><td>妄自菲薄</td><td>菲薄：輕視；隨便看輕自己</td><td>成語出處</td></tr>
+            <tr><td>引喻失義</td><td>引用不恰當的比喻</td><td>語意</td></tr>
+            <tr><td>宮中府中</td><td>宮中：皇宮；府中：丞相府</td><td>常被誤解為「宮殿內外」</td></tr>
+            <tr><td>陟罰臧否（ㄗㄤ ㄆㄧˇ）</td><td>陟：升遷；罰：懲處；臧否：善惡、褒貶</td><td>字音字義</td></tr>
+            <tr><td>作姦犯科</td><td>作姦：為非作歹；犯科：違犯法令</td><td>成語出處</td></tr>
+            <tr><td>裨補闕漏</td><td>裨（ㄅㄧˋ）：補益；闕，通「缺」</td><td>通假＋字音</td></tr>
+            <tr><td>計日而待</td><td>形容期限不遠，可以屈指而待</td><td>成語出處</td></tr>
+            <tr><td>布衣／躬耕</td><td>平民／親自耕種</td><td>借代</td></tr>
+            <tr><td>卑鄙</td><td>身分低微、見識淺陋（今指品格低劣）</td><td>古今異義</td></tr>
+            <tr><td>猥自枉屈</td><td>猥：謙詞，辱；枉屈：降低身分、委屈</td><td>敬謙詞</td></tr>
+            <tr><td>爾來</td><td>從那時以來</td><td>古今異義</td></tr>
+            <tr><td>不毛</td><td>不長草木的荒地</td><td>地名／語詞</td></tr>
+            <tr><td>庶竭駑鈍</td><td>庶：希望；駑鈍：比喻才能低劣（自謙）</td><td>謙詞</td></tr>
+            <tr><td>咨諏善道</td><td>咨諏（ㄗㄡ）：詢問、諮詢；善道：好的辦法</td><td>字音字義</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測考點</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>三大建言</strong>：①開張聖聽（納諫）②陟罰臧否不宜異同（公平）③親賢遠佞（用人）。常考「以下何者是諸葛亮的建議／未提及的建議」。</li>
+          <li><strong>敬謙詞系統</strong>：「臣」「陛下」「愚以為」「駑鈍」「卑鄙」「猥自枉屈」；對先帝則用「先帝」「殊遇」「遺詔」。</li>
+          <li><strong>情與理兼顧</strong>：議論（兩漢興衰）＋敘事（三顧草廬）＋抒情（臨表涕泣）；全篇反覆說「先帝」，將後主與先帝連結，以「感恩」帶動「責任」。</li>
+          <li><strong>與〈諫逐客書〉比較</strong>：同為奏議。李斯以<u>利害</u>與類比說服（立場是「對秦有利」）；諸葛亮以<u>情義與責任</u>說服（立場是「報先帝之恩」）。</li>
+          <li><strong>成語</strong>：妄自菲薄、三顧茅廬（由「三顧臣於草廬之中」化出）、作姦犯科、計日而待、鞠躬盡瘁（出自〈後出師表〉，不在本篇）。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 常見誤解</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>「先漢」「後漢」＝西漢、東漢，不是「先前的漢朝」「後來的漢朝」這種泛稱。</li>
+          <li>「爾來二十有一年矣」：「有」通「又」，二十又一年。</li>
+          <li>「今當遠離，臨表涕泣」：並非表達後悔，而是對後主放心不下的真情流露。</li>
+        </ul>
+      </div>
+
+      <h4 class="sub-sub-title">演練（2 題）</h4>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>下列文句中，「　」內詞語的古今意義<strong>差異最大</strong>的是：</div>
+        <ol>
+          <li>先帝不以臣「卑鄙」，猥自枉屈</li>
+          <li>此誠危急存亡之「秋」也</li>
+          <li>「愚」以為宮中之事，事無大小，悉以咨之</li>
+          <li>躬「耕」於南陽</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：A</p>
+          <p style="font-size:0.90rem;">「卑鄙」古義為身分低微、見識淺陋，今義多指品格低劣，是典型古今異義。B「秋」指時候，是一字多義，不屬古今異義；C「愚」為謙稱；D「耕」古今同義。</p></div>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>「親賢臣，遠小人，此先漢所以興隆也；親小人，遠賢臣，此後漢所以傾頹也。」這段文字的主要作用是：</div>
+        <ol>
+          <li>以前後對比，證成「用人」是國家興衰的關鍵，勸劉禪任用賢臣</li>
+          <li>批評先帝在位時用人失當</li>
+          <li>說明漢朝滅亡的原因是外患</li>
+          <li>為自己北伐尋找歷史根據</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：A</p>
+          <p style="font-size:0.90rem;">此為「正反對照」的歷史論證，並緊接「先帝在時，每與臣論此事，未嘗不歎息痛恨於桓、靈也」強化說服力。B、C 與文意不合；D 的北伐理由在第七段，不在此段。</p></div>
+        </details>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         深讀 4｜赤壁賦
+         ==================================================== -->
+    <section id="d4">
+      <div style="background:linear-gradient(90deg, #7a5a06, var(--gold)); color:#fff; border-radius:12px; padding:1rem 1.5rem; margin-bottom:1.5rem;">
+        <div style="font-size:0.78rem; opacity:0.8; margin-bottom:0.3rem;">深讀 4｜北宋・文賦｜核心 15 篇 #10</div>
+        <div style="font-size:1.4rem; font-weight:900; letter-spacing:2px;">赤壁賦</div>
+        <div style="font-size:0.88rem; opacity:0.88; margin-top:0.3rem;">蘇軾｜元豐五年（1082 年），烏臺詩案後貶黃州時作（又稱〈前赤壁賦〉）</div>
+      </div>
+
+      <div class="box box-link">
+        <div class="box-title">📌 背景提醒</div>
+        <p style="font-size:0.91rem;">蘇軾當時貶任黃州團練副使。他遊的「赤壁」是黃州城外的赤鼻磯，並非三國赤壁之戰的古戰場（蘇軾自己也說「人道是，三國周郎赤壁」），所以賦中是借景懷古、抒發人生感慨。農曆七月十六（既望）夜遊，後來十月再遊，作〈後赤壁賦〉。</p>
+      </div>
+
+      <h3 class="sub-section-title">原文全文</h3>
+      <div class="original-text">
+        <p>壬戌之秋，七月<span class="kw">既望</span>，蘇子與客泛舟，遊於赤壁之下。清風徐來，水波不興。舉酒<span class="kw">屬</span>客，誦明月之詩，歌窈窕之章。少焉，月出於東山之上，徘徊於斗牛之間。白露橫江，水光接天。縱一葦之所如，凌萬頃之茫然。浩浩乎如<span class="kw">馮虛御風</span>，而不知其所止；飄飄乎如遺世獨立，羽化而登仙。</p>
+        <p>於是飲酒樂甚，扣舷而歌之。歌曰：「桂棹兮蘭槳，擊空明兮泝流光。渺渺兮予懷，望美人兮天一方。」客有吹洞簫者，倚歌而和之，其聲嗚嗚然，如怨如慕，如泣如訴；餘音嫋嫋，不絕如縷。舞幽壑之潛蛟，泣孤舟之<span class="kw">嫠婦</span>。</p>
+        <p>蘇子愀然，正襟危坐，而問客曰：「何為其然也？」客曰：「『月明星稀，烏鵲南飛』，此非曹孟德之詩乎？西望夏口，東望武昌，山川相繆，鬱乎蒼蒼，此非孟德之困於周郎者乎？方其破荊州，下江陵，順流而東也，<span class="kw">舳艫</span>千里，旌旗蔽空，釃酒臨江，橫槊賦詩，固一世之雄也，而今安在哉？況吾與子漁樵於江渚之上，侶魚蝦而友麋鹿；駕一葉之扁舟，舉匏樽以相屬；<span class="kw-teal">寄蜉蝣於天地，渺滄海之一粟</span>。哀吾生之須臾，羨長江之無窮；挾飛仙以遨遊，抱明月而長終；知不可乎驟得，託遺響於悲風。」</p>
+        <p>蘇子曰：「客亦知夫水與月乎？逝者如斯，而未嘗往也；盈虛者如彼，而卒莫消長也。蓋將<span class="kw-teal">自其變者而觀之，則天地曾不能以一瞬；自其不變者而觀之，則物與我皆無盡也</span>，而又何羨乎？且夫天地之間，物各有主，苟非吾之所有，雖一毫而莫取。惟江上之清風，與山間之明月，耳得之而為聲，目遇之而成色，取之無禁，用之不竭，是造物者之無盡藏也，而吾與子之所共適。」</p>
+        <p>客喜而笑，洗盞更酌。肴核既盡，杯盤狼籍。相與枕藉乎舟中，不知東方之既白。</p>
+      </div>
+
+      <h3 class="sub-section-title">白話語譯</h3>
+      <div class="translation-block">
+        <p><strong>第一段（泛舟之樂）：</strong>壬戌年秋天，七月十六日，我與客人泛舟遊覽赤壁之下。清風緩緩吹來，水面波浪不起。舉起酒杯勸客人喝酒，吟誦〈月出〉詩的「窈窕」一章。不久，月亮從東山上升起，徘徊在斗宿與牛宿之間。白茫茫的水氣橫鋪江面，水光連接天際。任憑一葉小舟漂去，越過萬頃茫茫的江面。浩浩蕩蕩像是凌空駕風，不知會停在哪裡；飄飄然像脫離塵世、獨立天地，生出翅膀成仙而去。</p>
+        <p><strong>第二段（樂極生悲：歌與簫）：</strong>於是喝酒喝得非常高興，敲著船邊唱起歌：「桂木做的棹啊蘭木做的槳，划動月光下清澈的江面，逆著閃動的月光上行。我心思悠遠啊，遙望美人，卻在天的另一邊。」客人中有吹洞簫的，依著歌聲伴奏，簫聲嗚嗚然，像怨恨又像思慕，像哭泣又像傾訴；餘音裊裊，細長如絲不斷絕。能使深谷裡潛藏的蛟龍起舞，使孤舟上的寡婦落淚。</p>
+        <p><strong>第三段（客言：悲）：</strong>我臉色變得憂傷，整理衣襟端正地坐著，問客人：「為什麼簫聲這樣悲涼呢？」客人說：「『月明星稀，烏鵲南飛』，這不是曹孟德的詩嗎？向西望是夏口，向東望是武昌，山川環繞，一片蒼翠，這不是曹孟德被周瑜困住的地方嗎？當他攻破荊州，攻下江陵，順著長江東下的時候，戰船首尾相連千里，旌旗遮蔽天空，面對江水斟酒，橫持長矛賦詩，本是一代的英雄，如今在哪裡呢？何況我和您在江邊捕魚砍柴，與魚蝦為伴，與麋鹿為友；駕著一葉小船，舉著葫蘆酒杯互相勸酒；就像把蜉蝣寄身在天地間，滄海中的一粒粟米那樣渺小。哀傷我們的一生短暫，羨慕長江的無窮；想與飛仙一同遨遊，抱著明月而永遠存在；知道這些不可能輕易實現，只好把這份遺憾寄託在悲涼的風聲中。」</p>
+        <p><strong>第四段（蘇子答：悟）：</strong>我說：「客人也知道水與月嗎？流逝的像這江水，卻不曾真的流走；圓缺的像那月亮，卻終究沒有增減。如果從變的一面來看，天地一眨眼都不能維持不變；如果從不變的一面來看，萬物與我們都是無窮無盡的，又何必羨慕呢？況且天地之間，東西各有主人，如果不是我所有的，即使一絲一毫也不取。只有江上的清風，山間的明月，耳朵聽到就成了聲音，眼睛看到就成了色彩，取用不受禁止，使用不會用盡，這是造物者無窮盡的寶藏，也是我和您可以共同享受的。」</p>
+        <p><strong>第五段（喜：收束）：</strong>客人高興地笑了，洗乾淨杯子重新斟酒。菜肴果品都吃完了，杯盤雜亂。大家互相枕著靠著睡在船裡，不知不覺東方已經發白了。</p>
+      </div>
+
+      <h3 class="sub-section-title">結構與情感</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 一句話主旨</div>
+        <p style="font-size:0.93rem;">藉主客問答，由樂而悲而喜，以「變與不變」的哲理化解人生短暫之悲，展現隨緣自適、曠達超然的人生觀；江上清風、山間明月，是人人可共享的造物者無盡藏。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>段落</th><th>情感</th><th>內容</th><th>手法</th></tr></thead>
+          <tbody>
+            <tr><td>一</td><td>樂（泛舟）</td><td>清風、明月、水光接天；「馮虛御風」「羽化登仙」</td><td>寫景、譬喻、對偶</td></tr>
+            <tr><td>二</td><td>樂中生悲</td><td>扣舷而歌；簫聲「如怨如慕，如泣如訴」</td><td>譬喻、排比、以聲寫情、用騷體歌辭</td></tr>
+            <tr><td>三</td><td>悲（客）</td><td>曹操英雄而今安在；人生如蜉蝣、一粟</td><td>用典（曹操〈短歌行〉）、對比（英雄 vs 漁樵）、映襯</td></tr>
+            <tr><td>四</td><td>悟（蘇子）</td><td>水月之喻；變與不變；「取之無禁，用之不竭」</td><td>設問、譬喻、辯證說理</td></tr>
+            <tr><td>五</td><td>喜（解脫）</td><td>洗盞更酌，枕藉舟中，不知東方既白</td><td>白描、餘韻（以景收束）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-tip">
+        <div class="box-title">💡 看懂「變與不變」</div>
+        <p style="font-size:0.91rem;">水、月是「變」中有「不變」：水天天流，江卻一直在；月有盈虧，月卻從未消長。若看<strong>變</strong>——天地萬物連一瞬間都無法保持；若看<strong>不變</strong>——萬物與我同樣無窮。所以不必羨慕長江，也不必悲嘆人生。「客」其實是蘇軾<u>內心悲觀的一面</u>，主客問答是自我對話。</p>
+      </div>
+
+      <h4 class="sub-sub-title">必考字詞</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>解釋</th><th>考點</th></tr></thead>
+          <tbody>
+            <tr><td>既望</td><td>農曆十六日（望為十五）</td><td>時間用語</td></tr>
+            <tr><td>舉酒屬（ㄓㄨˇ）客</td><td>屬：勸酒</td><td>一字多義／字音</td></tr>
+            <tr><td>明月之詩，窈窕之章</td><td>指《詩經．陳風．月出》</td><td>用典</td></tr>
+            <tr><td>縱一葦之所如</td><td>一葦：小船；如：往</td><td>借代</td></tr>
+            <tr><td>馮虛御風</td><td>馮，通「憑」，凌空；御：駕馭</td><td>通假字</td></tr>
+            <tr><td>桂棹兮蘭槳，擊空明兮泝流光</td><td>空明：月光映照下清澈的水面；泝：同「溯」，逆流而上</td><td>騷體、通假</td></tr>
+            <tr><td>望美人兮天一方</td><td>美人：所思慕的人（寄託理想、君王或朋友）</td><td>象徵</td></tr>
+            <tr><td>嫠婦</td><td>寡婦</td><td>字音：ㄌㄧˊ</td></tr>
+            <tr><td>愀然</td><td>容色改變的樣子</td><td>字音：ㄑㄧㄠˇ</td></tr>
+            <tr><td>山川相繆</td><td>繆，通「繚」，盤繞</td><td>通假字</td></tr>
+            <tr><td>周郎</td><td>周瑜</td><td>人物</td></tr>
+            <tr><td>舳艫千里</td><td>舳：船尾；艫：船頭；代指戰船</td><td>借代</td></tr>
+            <tr><td>釃酒臨江，橫槊賦詩</td><td>釃（ㄕ）：斟酒；槊：長矛</td><td>字音字義</td></tr>
+            <tr><td>寄蜉蝣於天地，渺滄海之一粟</td><td>喻人生短暫、渺小</td><td>譬喻</td></tr>
+            <tr><td>逝者如斯，而未嘗往也</td><td>化用《論語》「逝者如斯夫」</td><td>用典</td></tr>
+            <tr><td>造物者之無盡藏</td><td>無盡藏：佛家語，指無窮無盡的寶藏</td><td>語詞</td></tr>
+            <tr><td>杯盤狼籍／枕藉</td><td>雜亂的樣子／互相枕著而睡</td><td>成語</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測考點</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>情感三變</strong>：樂 → 悲 → 喜；常以選項問「哪一段屬於哪種情感／哪一句轉折」。</li>
+          <li><strong>主客問答</strong>是賦體傳統；「客」代表蘇軾內心的悲觀，「蘇子」是超越後的理性。</li>
+          <li><strong>文賦</strong>：宋代以散文句法寫賦，押韻自由、句式靈活，與漢大賦、六朝駢賦、唐律賦不同。</li>
+          <li><strong>哲理與取用</strong>：「物各有主」→ 只取不屬於任何人的「清風明月」，是對外物的節制與對自然的珍惜。</li>
+          <li><strong>與〈始得西山宴遊記〉比較</strong>：同為貶謫文學。柳宗元的山水帶著「幽憂」，終而「與萬化冥合」；蘇軾則以哲理「曠達」化解。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 常見誤解</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>以為蘇軾遊的是三國赤壁之戰的古戰場——實為黃州赤鼻磯。</li>
+          <li>把客人的悲說成「蘇軾的結論」：客的觀點是<u>悲觀</u>，蘇子的回答才是主旨。</li>
+          <li>把「取之無禁，用之不竭」誤解成鼓勵占有外物：恰好相反，是強調自然之美不必據為己有，人人可享。</li>
+        </ul>
+      </div>
+
+      <h4 class="sub-sub-title">演練（2 題）</h4>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>下列對「自其變者而觀之，則天地曾不能以一瞬；自其不變者而觀之，則物與我皆無盡也」的詮釋，何者最恰當？</div>
+        <ol>
+          <li>天地短暫，人生更短，所以應及時行樂</li>
+          <li>換個角度看，事物既有變化的一面，也有永恆的一面；人與萬物同樣屬於自然，不必為短暫而悲</li>
+          <li>水和月亮都沒有變化，只有人會變，所以人應該效法自然</li>
+          <li>天地一瞬就會毀滅，所以要珍惜眼前的風景</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B</p>
+          <p style="font-size:0.90rem;">蘇軾用水月為喻，說明「變」與「不變」只是觀察角度不同，人與萬物同為自然的一部分，所以不必羨慕長江。A 與文意相反（客的悲才會導向感傷）；C 誤以為水月不變；D 把「一瞬」誤解為毀滅。</p></div>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>〈赤壁賦〉中，下列何者<strong>不屬於</strong>「客」的悲嘆內容？</div>
+        <ol>
+          <li>曹操當年氣勢雄偉，而今已不復存在</li>
+          <li>人生像蜉蝣寄居天地，像滄海一粟</li>
+          <li>羨慕長江無窮，哀傷人生短暫</li>
+          <li>清風明月取之無禁，用之不竭</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：D</p>
+          <p style="font-size:0.90rem;">「取之無禁，用之不竭」是蘇子（作者）在第四段化解悲情的回答，不是客的悲嘆。A、B、C 皆出自客在第三段所說。</p></div>
+        </details>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         深讀 5｜項脊軒志
+         ==================================================== -->
+    <section id="d5">
+      <div style="background:linear-gradient(90deg, #7a5a06, var(--gold)); color:#fff; border-radius:12px; padding:1rem 1.5rem; margin-bottom:1.5rem;">
+        <div style="font-size:0.78rem; opacity:0.8; margin-bottom:0.3rem;">深讀 5｜明・雜記（軒志）｜核心 15 篇 #11</div>
+        <div style="font-size:1.4rem; font-weight:900; letter-spacing:2px;">項脊軒志</div>
+        <div style="font-size:0.88rem; opacity:0.88; margin-top:0.3rem;">歸有光｜明代「唐宋派」散文家，《震川先生集》</div>
+      </div>
+
+      <div class="box box-link">
+        <div class="box-title">📌 寫作背景</div>
+        <p style="font-size:0.91rem;">項脊軒是歸有光家中的舊南閣子，他少年時在此讀書。前半部（至「項脊生曰」一段）是早年所作；後半部「余既為此志，後五年……」是妻子魏氏去世之後補寫的，因此全文呈現「由喜轉悲」的時間層次，也形成前後兩種情感的對照。「項脊」二字一說是歸有光先祖寓居江蘇太倉的項脊涇，以此為軒名，表示不忘本。</p>
+      </div>
+
+      <h3 class="sub-section-title">原文全文</h3>
+      <div class="original-text">
+        <p>項脊軒，舊南閣子也。室僅方丈，可容一人居。百年老屋，塵泥滲漉，雨澤下注；每移案，顧視無可置者。又北向，不能得日，日過午已昏。余稍為修葺，使不上漏。前闢四窗，垣牆周庭，以當南日，日影反照，室始洞然。又雜植蘭桂竹木於庭，舊時欄楯，亦遂增勝。借書滿架，偃仰嘯歌，冥然兀坐，萬籟有聲；而庭階寂寂，小鳥時來啄食，人至不去。三五之夜，明月半牆，桂影斑駁，風移影動，珊珊可愛。</p>
+        <p><span class="kw-teal">然余居於此，多可喜，亦多可悲</span>。先是，庭中通南北為一，迨諸父<span class="kw">異爨</span>，內外多置小門牆，往往而是。東犬西吠，客踰庖而宴，雞棲於廳。庭中始為籬，已為牆，凡再變矣。家有老嫗，嘗居於此。嫗，先大母婢也，乳二世，<span class="kw">先妣</span>撫之甚厚。室西連於中閨，先妣嘗一至。嫗每謂余曰：「某所，<span class="kw">而</span>母立於茲。」嫗又曰：「汝姊在吾懷，呱呱而泣；娘以指叩門扉曰：『兒寒乎？欲食乎？』吾從板外相為應答。」語未畢，余泣，嫗亦泣。余自<span class="kw">束髮</span>讀書軒中，一日，大母過余曰：「吾兒，久不見若影，何竟日默默在此，大類女郎也？」比去，以手闔門，自語曰：「吾家讀書久不效，兒之成，則可待乎！」頃之，持一<span class="kw">象笏</span>至，曰：「此吾祖太常公宣德間執此以朝，他日汝當用之！」瞻顧遺跡，如在昨日，令人長號不自禁。</p>
+        <p>軒東故嘗為廚，人往，從軒前過。余<span class="kw">扃牖</span>而居，久之，能以足音辨人。軒凡四遭火，得不焚，殆有神護者。</p>
+        <p>項脊生曰：「蜀清守<span class="kw">丹穴</span>，利甲天下，其後秦皇帝築女懷清臺；劉玄德與曹操爭天下，諸葛孔明起隴中。方二人之昧昧於一隅也，世何足以知之？余區區處敗屋中，方揚眉瞬目，謂有奇景。人知之者，其謂與<span class="kw">坎井之蛙</span>何異？」</p>
+        <p>余既為此志，後五年，吾妻<span class="kw">來歸</span>，時至軒中，從余問古事，或憑几學書。吾妻<span class="kw">歸寧</span>，述諸小妹語曰：「聞姊家有閣子，且何謂閣子也？」其後六年，吾妻死，室壞不修。其後二年，余久臥病無聊，乃使人復葺南閣子，其制稍異於前。然自後余多在外，不常居。</p>
+        <p><span class="kw-teal">庭有枇杷樹，吾妻死之年所手植也，今已亭亭如蓋矣</span>。</p>
+      </div>
+
+      <h3 class="sub-section-title">白話語譯</h3>
+      <div class="translation-block">
+        <p><strong>第一段（軒的環境與修葺）：</strong>項脊軒，是從前的南閣子。屋子只有一丈見方，僅能容納一個人居住。這是百年老屋，泥土塵沙往下滲落，雨水從上面流下；每次移動書桌，環顧四周都沒有地方可以放。又面向北，照不到日光，太陽一過中午，屋內就昏暗了。我略加修補，使它不再漏雨。在前面開了四扇窗，沿庭院築了圍牆，用來擋住南邊來的日光，日光反射過來，屋裡才明亮起來。又在庭院裡雜種蘭花、桂樹、竹子等，舊有的欄杆也因此更顯得美好。借來的書堆滿書架，我仰臥俯伏、吟詠長嘯，或靜靜獨坐，聽見各種聲響；而庭院台階靜寂，小鳥時常飛來啄食，人走近也不飛走。每月十五的夜晚，明月照著半面牆，桂樹的影子斑斑駁駁，風一吹影子搖動，姍姍可愛。</p>
+        <p><strong>第二段（可喜亦可悲：家與親人）：</strong>然而我住在這裡，有許多讓人高興的事，也有許多讓人傷心的事。起初，庭院裡南北相通是一體的，等到伯叔們分家，內外多設了小門小牆，到處都是。東邊的狗對著西邊叫，客人要越過廚房去赴宴，雞棲息在廳堂上。庭院起先是籬笆，後來變成牆，總共變了兩次。家裡有一位老婦人，曾經住在這裡。這位老婦人，是我已故祖母的婢女，哺育過兩代人，已故的母親待她很優厚。這間屋子的西邊連著內室，母親曾經來過一次。老婦人常對我說：「那個地方，你母親曾經站在那裡。」老婦人又說：「你姊姊在我懷裡，呱呱哭泣；你母親用手指敲門板說：『孩子冷嗎？想吃東西嗎？』我就在門板外回應她。」話還沒說完，我哭了，老婦人也哭了。我從十五歲起就在軒裡讀書，有一天，祖母來看我，說：「孩子，好久沒見到你的影子了，怎麼整天默默待在這裡，很像個姑娘呢？」等到離去，用手關上門，自言自語說：「我們家讀書很久沒有成效了，孩子的成就，大概可以等到了吧！」不久，拿了一個象牙笏板來，說：「這是我的祖父太常公宣德年間上朝所用，將來你要用它！」看著這些遺物，彷彿還在昨天，使人放聲痛哭，不能自已。</p>
+        <p><strong>第三段（軒東與火災）：</strong>軒的東邊從前是廚房，人們去廚房，要從軒前經過。我關起窗戶居住，久而久之，能從腳步聲辨認是誰。項脊軒共遇到四次火災，卻都沒有燒毀，大概有神明保佑吧。</p>
+        <p><strong>第四段（項脊生曰：自況）：</strong>項脊生說：「蜀地的清守著丹穴（朱砂礦），獲利甲於天下，後來秦始皇為她築了女懷清臺；劉備與曹操爭天下，諸葛亮從隴中（隆中）崛起。當這兩個人還默默無聞地在一個角落時，世人哪裡會知道他們呢？我區區處在破屋之中，正揚眉瞬目，自以為有奇妙的景致。知道的人，大概會說我和井底之蛙有什麼不同吧？」</p>
+        <p><strong>第五段（補記：妻子）：</strong>我寫完這篇志之後，過了五年，我的妻子嫁來，時常到軒中，向我詢問古事，或靠著几案學寫字。我的妻子回娘家，轉述諸位妹妹的話說：「聽說姊姊家有閣子，什麼是閣子呢？」那以後六年，我的妻子去世，屋子損壞也沒有修理。又過了兩年，我長期臥病很無聊，於是派人重新修葺南閣子，格局和從前稍有不同。然而此後我多半在外，不常住在這裡。</p>
+        <p><strong>第六段（結尾）：</strong>庭院裡有一棵枇杷樹，是我妻子去世那年親手種的，如今已經高高挺立，像傘蓋一樣了。</p>
+      </div>
+
+      <h3 class="sub-section-title">結構與寫作手法</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 一句話主旨</div>
+        <p style="font-size:0.93rem;">以項脊軒為線索，寫書齋之可喜、與母親祖母先後離世、家族離散、妻子早逝之可悲，於平淡瑣事中寄託深摯的懷人之情，結尾以枇杷樹寫時間與思念，不言悲而悲自見。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>段落</th><th>內容</th><th>情感</th><th>手法</th></tr></thead>
+          <tbody>
+            <tr><td>一</td><td>舊閣子的陋與修葺；「借書滿架」「桂影斑駁」</td><td>喜（安適自得）</td><td>寫景、動靜相襯（「庭階寂寂」「小鳥時來」）</td></tr>
+            <tr><td>二</td><td>家族分裂；老嫗述母；祖母持象笏</td><td>悲（追思）</td><td>轉折（「然余居於此，多可喜，亦多可悲」）、細節描寫、對話</td></tr>
+            <tr><td>三</td><td>軒東故廚；軒凡四遭火</td><td>平靜中見自得</td><td>以「足音辨人」寫出專注讀書</td></tr>
+            <tr><td>四</td><td>項脊生曰：以蜀清、孔明自況</td><td>志向與自嘲</td><td>用典、自問自答</td></tr>
+            <tr><td>五、六</td><td>妻來歸、妻死、軒重修；枇杷樹</td><td>悼亡（最深）</td><td>借物抒情、今昔對照；以樹的生長寫時間，不直說悲</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-tip">
+        <div class="box-title">💡 為什麼結尾那句最動人？</div>
+        <p style="font-size:0.91rem;">「枇杷樹，吾妻死之年所手植也，今已亭亭如蓋矣」，只寫樹，不說「思念」。樹從種下到亭亭如蓋，過了多年；<u>樹長得越高大，越顯出人不在的時間之長</u>。這是學測最愛考的「借物抒情／以景結情」寫法，答題時要寫出「物（枇杷樹）→ 時間 → 思念」三層。</p>
+      </div>
+
+      <h4 class="sub-sub-title">必考字詞</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>解釋</th><th>考點</th></tr></thead>
+          <tbody>
+            <tr><td>塵泥滲漉</td><td>塵土泥沙往下滲落</td><td>語詞</td></tr>
+            <tr><td>洞然</td><td>明亮的樣子</td><td>形容詞</td></tr>
+            <tr><td>偃仰嘯歌／冥然兀坐</td><td>仰臥吟詠／靜靜獨坐</td><td>語詞</td></tr>
+            <tr><td>珊珊可愛</td><td>姍姍：形容影子搖曳美好</td><td>摹狀</td></tr>
+            <tr><td>諸父異爨</td><td>伯叔們分家各自開伙；爨（ㄘㄨㄢˋ）：燒火煮飯</td><td>字音字義</td></tr>
+            <tr><td>先妣／先大母</td><td>已故的母親／已故的祖母</td><td>稱謂</td></tr>
+            <tr><td>而母立於茲</td><td>而：你的</td><td>代詞</td></tr>
+            <tr><td>束髮</td><td>十五歲（男子成童）</td><td>年齡代稱</td></tr>
+            <tr><td>象笏</td><td>象牙做的笏板，官員上朝所持</td><td>象徵家族期許</td></tr>
+            <tr><td>扃牖</td><td>關閉窗戶；扃（ㄐㄩㄥ）</td><td>字音字義</td></tr>
+            <tr><td>來歸／歸寧</td><td>女子出嫁／已嫁女子回娘家</td><td>婚俗用語</td></tr>
+            <tr><td>坎井之蛙</td><td>井底之蛙；見識淺陋</td><td>成語</td></tr>
+            <tr><td>亭亭如蓋</td><td>高聳挺立，像傘蓋一樣</td><td>譬喻</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測考點</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>借物抒情</strong>：軒（家族與讀書志向）、象笏（祖母期望）、枇杷樹（亡妻）。常考「以下何者與該物所寄託的情感相符」。</li>
+          <li><strong>細節描寫</strong>：「以指叩門扉」「以手闔門」「以足音辨人」——寫母親的關心、祖母的期許、自己的專注，都用生活小動作，而非直接說情感。</li>
+          <li><strong>稱謂題</strong>：先妣（亡母）、先大母（亡祖母）、吾妻、諸父（伯叔）、大母（祖母）；不要把「先妣」當成「先父」。</li>
+          <li><strong>文體</strong>：「志」同「誌」，記述之意，屬雜記（亭臺樓閣記）；與〈岳陽樓記〉〈醉翁亭記〉相比，本篇以<u>家人生活與私人情感</u>為主，不談政治與民生。</li>
+          <li><strong>敘事結構</strong>：兩個時間層（早年的喜／後來的悲），以「後五年」「其後六年」「其後二年」串起，時間逐漸拉長。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 常見誤解</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>「項脊生曰」段不是在炫耀，而是<u>帶著自嘲的自我期許</u>：用蜀清、諸葛亮說明「人才未遇時，世人不知」。</li>
+          <li>「大類女郎也」是祖母疼愛的玩笑話，不是批評他懦弱，也不是不滿意他讀書。</li>
+          <li>「令人長號不自禁」的悲，指向<u>祖母與母親</u>；全文最後的悲才轉向妻子。</li>
+        </ul>
+      </div>
+
+      <h4 class="sub-sub-title">演練（2 題）</h4>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>下列關於〈項脊軒志〉結尾「庭有枇杷樹，吾妻死之年所手植也，今已亭亭如蓋矣」的賞析，何者最<strong>不恰當</strong>？</div>
+        <ol>
+          <li>藉由枇杷樹成長，暗示妻子逝去已久</li>
+          <li>全句不言悲痛，卻使悼亡之情含蓄深遠</li>
+          <li>「亭亭如蓋」呼應前文所寫「桂影斑駁」的庭院之美，表達重返舊居的喜悅</li>
+          <li>以平淡語氣收束，形成「以淡筆寫深情」的效果</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：C</p>
+          <p style="font-size:0.90rem;">結尾是<u>悼亡</u>，不是重返舊居之喜。A、B、D 都符合「以樹寫時間、以淡筆寫深情」的賞析。</p></div>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>下列「　」內詞語的解釋，何者正確？</div>
+        <ol>
+          <li>迨諸父「異爨」：改變生活方式</li>
+          <li>嫗每謂余曰：某所，「而」母立於茲：而且</li>
+          <li>余自「束髮」讀書軒中：十五歲</li>
+          <li>吾妻「歸寧」：出嫁</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：C</p>
+          <p style="font-size:0.90rem;">A「異爨」是分家各自開伙；B「而母」＝你的母親；D「歸寧」是出嫁的女子回娘家探親，出嫁是「來歸」。</p></div>
+        </details>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         深讀 6｜虯髯客傳
+         ==================================================== -->
+    <section id="d6">
+      <div style="background:linear-gradient(90deg, var(--primary-dark), var(--primary)); color:#fff; border-radius:12px; padding:1rem 1.5rem; margin-bottom:1.5rem;">
+        <div style="font-size:0.78rem; opacity:0.8; margin-bottom:0.3rem;">深讀 6｜唐・傳奇｜核心 15 篇 #7</div>
+        <div style="font-size:1.4rem; font-weight:900; letter-spacing:2px;">虯髯客傳</div>
+        <div style="font-size:0.88rem; opacity:0.88; margin-top:0.3rem;">杜光庭｜唐末五代傳奇｜與紅拂女、李靖合稱「風塵三俠」</div>
+      </div>
+
+      <h3 class="sub-section-title">情節總覽（全篇骨架）</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>階段</th><th>情節</th><th>人物表現</th></tr></thead>
+          <tbody>
+            <tr><td>① 紅拂夜奔</td><td>隋末，李靖以布衣謁見楊素；楊素府中執紅拂的侍女看中李靖，夜裡私奔相從</td><td>紅拂：慧眼識英雄、果決</td></tr>
+            <tr><td>② 靈石旅舍</td><td>途中於靈石旅舍遇虯髯客，紅拂以「妾亦姓張」認為兄妹，李靖由怒轉敬</td><td>紅拂：機智冷靜；李靖：能忍；虯髯客：豪邁不拘</td></tr>
+            <tr><td>③ 結交劉文靜、見李世民</td><td>虯髯客本有圖天下之志，在太原見李世民「神氣清朗」，心知真天子已現</td><td>虯髯客：識人、知進退</td></tr>
+            <tr><td>④ 贈財遠走</td><td>虯髯客把全部家財贈給李靖，勸他輔佐真主，自己遠赴海外</td><td>虯髯客：豁達；李靖：後成名將</td></tr>
+            <tr><td>⑤ 結局與議論</td><td>十年後傳聞海外扶餘國有人自立為王；作者歸結「真人之興，非英雄所冀」</td><td>藉傳奇肯定唐室正統</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">原文節錄（靈石旅舍相遇、結尾議論）</h3>
+      <div class="original-text">
+        <p>……將歸太原，行次靈石旅舍。既設床，爐中烹肉且熟。張氏以髮長委地，立梳床前。公方刷馬。忽有一人，中形，<span class="kw">赤髯而虯</span>，乘蹇驢而來。投革囊於爐前，取枕<span class="kw">欹臥</span>，看張氏梳頭。公怒甚，未決，猶刷馬。張熟視其面，一手握髮，一手映身搖示公，令勿怒。急急梳頭畢，<span class="kw">斂衽</span>前問其姓。臥客答曰：「姓張。」對曰：「妾亦姓張，合是妹。」遽拜之。問第幾。曰：「第三。」因問妹第幾。曰：「最長。」遂喜曰：「今夕幸逢一妹。」張氏遙呼：「李郎且來見三兄！」公驟拜之。遂環坐。</p>
+        <p style="text-align:center; color:var(--muted);">（中略：虯髯客見李世民「真天子」而心死；贈李靖家財，遠赴海外為扶餘國主）</p>
+        <p>乃知<span class="kw-teal">真人之興也，非英雄所冀</span>，況非英雄者乎？人臣之謬思亂者，乃<span class="kw">螳臂之拒走輪</span>耳。我皇家垂福萬葉，豈虛然哉！或曰：「衛公之兵法，半乃虯髯所傳耳。」</p>
+      </div>
+
+      <h3 class="sub-section-title">白話語譯</h3>
+      <div class="translation-block">
+        <p><strong>靈石旅舍：</strong>……（李靖與紅拂）將要回太原，途中住宿在靈石的旅舍。已經擺好床鋪，爐子裡燉的肉快熟了。張氏（紅拂）頭髮長到垂地，站在床前梳頭。李公正在刷馬。忽然有一個人，中等身材，紅色的鬍鬚捲曲，騎著一頭跛腳的驢子來到。他把皮囊扔在爐前，拿枕頭斜躺著，看張氏梳頭。李公非常生氣，還沒決定怎麼辦，仍然在刷馬。張氏仔細看了那人的臉，一手握著頭髮，一手在身後向李公搖手示意，要他不要生氣。她趕快梳完頭，整理衣襟上前問那人的姓。躺著的客人回答：「姓張。」張氏回答：「我也姓張，應該是你的妹妹。」立刻拜見他。問他排行第幾，他說：「第三。」又問妹妹排行第幾，她說：「最大。」那人高興地說：「今晚幸運遇到一位妹妹。」張氏遠遠呼喊：「李郎快來見三哥！」李公立刻拜見他，於是大家圍著坐下。</p>
+        <p><strong>結尾議論：</strong>由此才知道真正的帝王之興起，不是英雄所能覬覦的，更何況不是英雄的人呢？臣子中有錯誤地想作亂的人，不過是螳螂舉臂阻擋滾動的車輪罷了。我皇家享有福澤傳到萬代，難道是沒有原因的嗎！有人說：「衛公（李靖）的兵法，有一半是虯髯客傳授的。」</p>
+      </div>
+
+      <h3 class="sub-section-title">主旨與寫作手法</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 一句話主旨</div>
+        <p style="font-size:0.93rem;">藉風塵三俠的傳奇故事，宣揚「真命天子，天命所歸」，勸誡人臣勿存非分之想（晚唐藩鎮割據的時代背景），同時塑造三位各具風采的奇人形象。</p>
+      </div>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>人物形象</h4>
+          <ul>
+            <li><strong>紅拂</strong>：夜奔李靖（識人）、梳頭時搖手示意（機智）、結為兄妹化解衝突（應變）</li>
+            <li><strong>李靖</strong>：沉穩能忍，不因被冒犯而輕舉妄動</li>
+            <li><strong>虯髯客</strong>：「赤髯而虯」「欹臥看梳頭」寫豪邁，後來「讓天下」而遠走，見其格局</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>傳奇特色</h4>
+          <ul>
+            <li>「作意好奇」：有意識地虛構、經營情節，不同於六朝志怪的「粗陳梗概」</li>
+            <li>情節曲折，人物對話生動，有細節與衝突</li>
+            <li>帶有教化意味：藉故事宣揚唐室得天下為天命所歸</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 class="sub-sub-title">必考字詞</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>解釋</th><th>考點</th></tr></thead>
+          <tbody>
+            <tr><td>行次靈石旅舍</td><td>次：停留、住宿</td><td>語詞</td></tr>
+            <tr><td>赤髯而虯</td><td>紅色鬍鬚捲曲；虯（ㄑㄧㄡˊ）</td><td>外貌描寫</td></tr>
+            <tr><td>欹臥</td><td>斜躺；欹（ㄑㄧ）</td><td>字音字義</td></tr>
+            <tr><td>斂衽</td><td>整理衣襟，表示恭敬（女子行禮）</td><td>禮節動作</td></tr>
+            <tr><td>一手映身搖示公</td><td>以身體遮擋虯髯客視線，暗示李靖不要發怒</td><td>人物機智</td></tr>
+            <tr><td>遽拜之</td><td>遽：立刻、急忙</td><td>副詞</td></tr>
+            <tr><td>螳臂之拒走輪</td><td>螳臂擋車，不自量力</td><td>譬喻、成語</td></tr>
+            <tr><td>真人之興</td><td>真人：真命天子</td><td>稱謂</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測考點</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>文體演變</strong>：六朝志怪 → 唐傳奇 → 宋元話本 → 明清章回／短篇（《聊齋誌異》）。常要求依時代順序排列或配對。</li>
+          <li><strong>與〈勞山道士〉比較</strong>：一為唐傳奇（寫人事奇遇、重情節與人物），一為清代志怪（藉怪異諷世）；兩篇都有明確的「作者評論」：〈虯髯客傳〉結尾議論，〈勞山道士〉有「異史氏曰」。</li>
+          <li><strong>人物對照題</strong>：以「紅拂搖手示意」比「李靖仍刷馬」，考哪個人物冷靜、哪個人物機智。</li>
+          <li><strong>時代背景</strong>：隋末亂世、李靖與李世民，作品作於晚唐，用以暗示藩鎮不得妄想。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 常見誤解</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>「虯髯客」是人物外號：紅色鬍鬚而捲曲，並非姓名；節錄中他只自稱「姓張」，排行第三。</li>
+          <li>「妾亦姓張，合是妹」是紅拂的<u>權宜策略</u>：由陌生變兄妹，化解虯髯客的敵意與李靖的怒氣。</li>
+          <li>結尾議論的「真人」不是「真實的人」，而是指<u>真命天子</u>。</li>
+        </ul>
+      </div>
+
+      <h4 class="sub-sub-title">演練（2 題）</h4>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>「公怒甚，未決，猶刷馬。張熟視其面，一手握髮，一手映身搖示公，令勿怒。」這段描寫最能凸顯紅拂哪方面的特質？</div>
+        <ol>
+          <li>嫵媚動人，善於化妝</li>
+          <li>機智冷靜，能在緊張場面中不動聲色地化解衝突</li>
+          <li>脾氣暴躁，不願受委屈</li>
+          <li>柔弱依賴，必須李靖保護</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B</p>
+          <p style="font-size:0.90rem;">紅拂一邊梳頭、一邊用手勢阻止李靖發怒，之後再「斂衽前問其姓」「遽拜之」，全程冷靜而有策略。</p></div>
+        </details>
+      </div>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>〈虯髯客傳〉結尾說「人臣之謬思亂者，乃螳臂之拒走輪耳」，其寫作用意最可能是：</div>
+        <ol>
+          <li>讚美虯髯客勇於對抗帝王</li>
+          <li>批評唐太宗不夠英明</li>
+          <li>警告人臣不要妄想篡位，帝王之位為天命所歸</li>
+          <li>鼓勵人民起義，改朝換代</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：C</p>
+          <p style="font-size:0.90rem;">「真人之興，非英雄所冀」＋「我皇家垂福萬葉」，都是在強調唐室承天命、臣子不可妄為，這和晚唐藩鎮割據的背景有關。</p></div>
+        </details>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         其餘 9 篇快速補強
+         ==================================================== -->
+    <section id="others">
+      <h2 class="section-title"><span class="icon">⚡</span>其餘 9 篇核心古文：一分鐘快速補強</h2>
+      <div class="box box-link">
+        <div class="box-title">📌 使用方式</div>
+        <p style="font-size:0.91rem;">這 9 篇的完整原文與字詞表在 <strong>W24 講義</strong>（對應編號 p01、p02、p11、p16、p17、p23、p24、p29、p30）。診斷表上若標示「✘」，就回到 W24 讀原文；標示「△」，只要用這張表自測一輪（遮住右欄，說出主旨、字詞與名句）。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>篇名</th><th>一句話主旨</th><th>最常失分的字詞／考點</th><th>必背名句</th></tr></thead>
+          <tbody>
+            <tr><td><strong>燭之武退秦師</strong><br><span style="font-size:0.8rem;color:var(--muted);">先秦・史傳</span></td><td>燭之武以利害分析瓦解秦晉聯盟，救鄭國於危亡</td><td>軍（駐紮）、越國以鄙遠（意動）、行李／東道主（古今異義）、共=供、厭=饜、闕秦（使動）</td><td>鄰之厚，君之薄也</td></tr>
+            <tr><td><strong>大同與小康</strong><br><span style="font-size:0.8rem;color:var(--muted);">先秦・《禮記》</span></td><td>對比「天下為公」的大同與「天下為家」的小康，寄託儒家理想社會</td><td>選賢與能（與=舉）、矜寡孤獨廢疾者；大同「外戶而不閉」／小康「城郭溝池以為固」</td><td>大道之行也，天下為公</td></tr>
+            <tr><td><strong>桃花源記</strong><br><span style="font-size:0.8rem;color:var(--muted);">東晉・雜記</span></td><td>虛構與世隔絕的理想社會，寄託對亂世的不滿與淳樸生活的嚮往</td><td>交通（交錯相通）、無論（更不必說）、要=邀、黃髮垂髫（借代）、問津（典出《論語》）</td><td>不足為外人道也</td></tr>
+            <tr><td><strong>師說</strong><br><span style="font-size:0.8rem;color:var(--muted);">唐・論說</span></td><td>說明從師的必要，批評士大夫恥於從師，並提出擇師標準</td><td>受業（受=授）、句讀（ㄉㄡˋ）、或不焉（不=否）、三組對比</td><td>聞道有先後，術業有專攻</td></tr>
+            <tr><td><strong>始得西山宴遊記</strong><br><span style="font-size:0.8rem;color:var(--muted);">唐・遊記</span></td><td>發現西山後在物我合一中暫消貶謫憂懼，並以西山自況</td><td>僇人（僇=戮）、惴慄、箕踞、培塿、「始」字為文眼</td><td>然後知吾嚮之未始遊，遊於是乎始</td></tr>
+            <tr><td><strong>晚遊六橋待月記</strong><br><span style="font-size:0.8rem;color:var(--muted);">明・小品</span></td><td>寫西湖春月之美，批評杭人從俗遊湖，表現超俗審美</td><td>為寒所勒（被動）、為桃花所戀（擬人）、午未申三時、公安派「獨抒性靈」</td><td>此樂留與山僧遊客受用，安可為俗士道哉</td></tr>
+            <tr><td><strong>勞山道士</strong><br><span style="font-size:0.8rem;color:var(--muted);">清・志怪</span></td><td>諷刺不能吃苦、投機取巧者，並批評仗勢逞暴的權貴</td><td>逡巡（ㄑㄩㄣ ㄒㄩㄣˊ）、驀然而踣、揶揄、「異史氏曰」仿「太史公曰」</td><td>聞此事，未有不大笑者；而不知世之為王生者，正復不少</td></tr>
+            <tr><td><strong>勸和論</strong><br><span style="font-size:0.8rem;color:var(--muted);">清領臺灣・論說</span></td><td>痛陳分類械鬥之害，以「同為臺人」勸族群消弭成見</td><td>分類（依祖籍分群對立）、塗=途、析字說理（友從兩手、朋從兩肉）、閩粵與漳泉</td><td>是朋友如一身左右手，即吾身之肉也</td></tr>
+            <tr><td><strong>鹿港乘桴記</strong><br><span style="font-size:0.8rem;color:var(--muted);">日治臺灣・雜記</span></td><td>以今昔對比寫鹿港由繁華走向蕭條，寄寓遺民之悲</td><td>乘桴（典出《論語》）、泬寥（ㄒㄩㄝˋ ㄌㄧㄠˊ）、無懋遷（貿易）、昔之鹿港／今之鹿港對比</td><td>人煙猶是，而蕭條矣；邑里猶是，而泬寥矣</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== COMPARE ========== -->
+    <section id="compare">
+      <h2 class="section-title"><span class="icon">⚖️</span>六篇比較：說服策略、抒情手法、人物塑造</h2>
+
+      <h3 class="sub-section-title">一、奏議的說服策略：〈諫逐客書〉vs〈出師表〉</h3>
+      <div class="card" style="padding:0;">
+        <table class="compare-table">
+          <thead><tr><th>項目</th><th>諫逐客書</th><th>出師表</th></tr></thead>
+          <tbody>
+            <tr><td>作者／對象</td><td>李斯（被逐的客卿）→ 秦王政</td><td>諸葛亮（託孤重臣）→ 後主劉禪</td></tr>
+            <tr><td>處境</td><td>自身被逐，要求收回逐客令（有切身利害）</td><td>即將北伐，擔憂朝中事務（託付與叮嚀）</td></tr>
+            <tr><td>說服立場</td><td>站在<strong>秦國利益</strong>：逐客等於資敵自弱</td><td>站在<strong>先帝遺志與漢室興復</strong>：報先帝，忠陛下</td></tr>
+            <tr><td>主要論證</td><td>史實（四君用客）→ 類比（珠玉音樂）→ 說理（泰山河海）→ 利害（資敵）</td><td>形勢 → 建言（開張聖聽、賞罰公平、親賢遠佞）→ 自述（三顧草廬）→ 託付</td></tr>
+            <tr><td>語氣與風格</td><td>理性、鋪陳、排比對偶，氣勢強、利害分明</td><td>懇切、反覆叮嚀、情真意摯，以「先帝」貫串</td></tr>
+            <tr><td>收束</td><td>「求國無危，不可得也」（警告）</td><td>「臨表涕泣，不知所云」（情感）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-tip">
+        <div class="box-title">💡 一句話記憶</div>
+        <p style="font-size:0.91rem;"><strong>李斯：「這樣做對你不利」（動之以理）；諸葛亮：「請別辜負先帝」（動之以情）</strong>。兩篇都需要把「說服對象在意的事」放在最前面。</p>
+      </div>
+
+      <h3 class="sub-section-title">二、抒情手法：〈赤壁賦〉vs〈項脊軒志〉</h3>
+      <div class="card" style="padding:0;">
+        <table class="compare-table">
+          <thead><tr><th>項目</th><th>赤壁賦</th><th>項脊軒志</th></tr></thead>
+          <tbody>
+            <tr><td>抒情載體</td><td>江上的清風明月、水與月</td><td>舊閣子、象笏、枇杷樹</td></tr>
+            <tr><td>情感走向</td><td>樂 → 悲 → 喜（由哲理解脫）</td><td>喜 → 悲（悼亡之情越寫越深）</td></tr>
+            <tr><td>核心問題</td><td>人生短暫、宇宙無窮</td><td>親人離世、時光流逝</td></tr>
+            <tr><td>處理方式</td><td>以「變與不變」的哲理<strong>超越</strong>悲傷</td><td>不加論斷，以細節與物象<strong>留住</strong>悲傷</td></tr>
+            <tr><td>結尾</td><td>「不知東方之既白」（曠達，以景收束）</td><td>「今已亭亭如蓋矣」（含蓄，以物收束）</td></tr>
+            <tr><td>文體</td><td>文賦（主客問答）</td><td>雜記（軒志）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">三、人物塑造：〈鴻門宴〉vs〈虯髯客傳〉</h3>
+      <div class="card" style="padding:0;">
+        <table class="compare-table">
+          <thead><tr><th>項目</th><th>鴻門宴</th><th>虯髯客傳</th></tr></thead>
+          <tbody>
+            <tr><td>文體</td><td>史傳（紀傳體《史記》）</td><td>傳奇（唐代文言小說）</td></tr>
+            <tr><td>求真度</td><td>以史實為根據，但有文學加工</td><td>主要為虛構，重在經營情節</td></tr>
+            <tr><td>塑造方式</td><td>以對話與動作對比人物（項羽 vs 劉邦）</td><td>以場景中的動作與反應塑造人物（紅拂、李靖、虯髯客）</td></tr>
+            <tr><td>作者評論</td><td>不直接評論（敘事中見褒貶）</td><td>結尾有明確議論（宣揚天命所歸）</td></tr>
+            <tr><td>關鍵道具／細節</td><td>玉玦、劍舞、盾、彘肩、玉斗</td><td>赤髯、蹇驢、革囊、長髮、搖手</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ========== WORDBANK ========== -->
+    <section id="wordbank">
+      <h2 class="section-title"><span class="icon">📚</span>跨篇高頻字詞總表</h2>
+      <div class="box box-link">
+        <div class="box-title">📌 使用方式</div>
+        <p style="font-size:0.91rem;">學測古文選擇題超過一半在考這四種字詞現象。請用手遮住右欄，逐項說出「現象與解釋」；答錯的字詞圈起來，貼到錯題本。</p>
+      </div>
+
+      <h3 class="sub-section-title">一、通假字</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>例句</th><th>通假</th><th>解釋</th><th>出處</th></tr></thead>
+          <tbody>
+            <tr><td>散六國之<strong>從</strong></td><td>從 → 縱</td><td>合縱</td><td>諫逐客書</td></tr>
+            <tr><td>卻客而不<strong>內</strong></td><td>內 → 納</td><td>接納</td><td>諫逐客書</td></tr>
+            <tr><td>而陛下<strong>說</strong>之</td><td>說 → 悅</td><td>喜愛</td><td>諫逐客書</td></tr>
+            <tr><td><strong>藉</strong>寇兵而齎盜糧</td><td>藉 → 借</td><td>借給</td><td>諫逐客書</td></tr>
+            <tr><td>令將軍與臣有<strong>郤</strong></td><td>郤 → 隙</td><td>嫌隙</td><td>鴻門宴</td></tr>
+            <tr><td>裨補<strong>闕</strong>漏</td><td>闕 → 缺</td><td>缺失</td><td>出師表</td></tr>
+            <tr><td>爾來二十<strong>有</strong>一年矣</td><td>有 → 又</td><td>又（用於整數與零數之間）</td><td>出師表</td></tr>
+            <tr><td><strong>馮</strong>虛御風</td><td>馮 → 憑</td><td>憑空、凌空</td><td>赤壁賦</td></tr>
+            <tr><td>山川相<strong>繆</strong></td><td>繆 → 繚</td><td>盤繞</td><td>赤壁賦</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">二、古今異義</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>詞</th><th>古義</th><th>今義</th><th>出處</th></tr></thead>
+          <tbody>
+            <tr><td>卑鄙</td><td>身分低微、見識淺陋</td><td>品格低劣</td><td>出師表</td></tr>
+            <tr><td>布衣</td><td>平民</td><td>布製的衣服</td><td>出師表</td></tr>
+            <tr><td>爾來</td><td>從那時以來</td><td>（今已少用）</td><td>出師表</td></tr>
+            <tr><td>壯士</td><td>勇士</td><td>身體強壯的男子</td><td>鴻門宴</td></tr>
+            <tr><td>細說</td><td>小人的讒言</td><td>詳細述說</td><td>鴻門宴</td></tr>
+            <tr><td>行李／東道主</td><td>使者／東方路上的主人</td><td>旅行袋／請客的主人</td><td>燭之武退秦師</td></tr>
+            <tr><td>交通／無論／絕境</td><td>交錯相通／更不必說／與外界隔絕之地</td><td>運輸往來／不管／無路可走</td><td>桃花源記</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">三、詞類活用</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>例句</th><th>活用類型</th><th>解釋</th></tr></thead>
+          <tbody>
+            <tr><td><strong>蠶</strong>食諸侯</td><td>名詞作狀語</td><td>像蠶一樣</td></tr>
+            <tr><td>卻賓客以<strong>業</strong>諸侯</td><td>名詞作動詞（使動）</td><td>使諸侯成就功業</td></tr>
+            <tr><td>今逐客以<strong>資</strong>敵國</td><td>名詞作動詞</td><td>資助</td></tr>
+            <tr><td>項王、項伯<strong>東</strong>嚮坐</td><td>名詞作狀語</td><td>面向東</td></tr>
+            <tr><td>范增數<strong>目</strong>項王</td><td>名詞作動詞</td><td>用眼睛示意</td></tr>
+            <tr><td>先破秦入咸陽者<strong>王</strong>之</td><td>名詞作動詞</td><td>稱王</td></tr>
+            <tr><td><strong>侶</strong>魚蝦而<strong>友</strong>麋鹿</td><td>名詞作動詞（意動）</td><td>以魚蝦為伴、以麋鹿為友</td></tr>
+            <tr><td><strong>乳</strong>二世</td><td>名詞作動詞</td><td>哺育</td></tr>
+            <tr><td><strong>東</strong>犬<strong>西</strong>吠</td><td>名詞作狀語</td><td>在東邊／在西邊</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">四、一字多義</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字</th><th>例句與解釋</th></tr></thead>
+          <tbody>
+            <tr><td>屬（ㄓㄨˇ）</td><td>舉酒<strong>屬</strong>客：勸酒；此音義與「屬（ㄕㄨˇ）於」不同</td></tr>
+            <tr><td>如</td><td>沛公起<strong>如</strong>廁：去、往　｜　如怨<strong>如</strong>慕：好像</td></tr>
+            <tr><td>說</td><td>陛下<strong>說</strong>之：通「悅」（ㄩㄝˋ）　｜　<strong>說</strong>如此：講述（ㄕㄨㄛ）</td></tr>
+            <tr><td>次</td><td>行<strong>次</strong>靈石旅舍：停留、住宿　｜　相<strong>次</strong>開發：依次</td></tr>
+            <tr><td>秋</td><td>危急存亡之<strong>秋</strong>：時候　｜　壬戌之<strong>秋</strong>：秋季</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ========== QUOTES ========== -->
+    <section id="quotes">
+      <h2 class="section-title"><span class="icon">✒️</span>名句默寫清單（20 句）</h2>
+      <div class="box box-tip">
+        <div class="box-title">💡 遮字測驗法</div>
+        <p style="font-size:0.91rem;">用紙遮住「名句」欄，只看「提示」，默寫後對照；一次寫錯的字，用紅筆圈起來。每天 5 分鐘，週五全部跑一遍。學測的名句題多為「填空補字」或「選出與題幹意思相近的句子」。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>#</th><th>篇名</th><th>提示</th><th>名句</th><th>一句意旨</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>諫逐客書</td><td>泰山不＿＿＿</td><td>泰山不讓土壤，故能成其大；河海不擇細流，故能就其深</td><td>容納眾人，才能成就偉大</td></tr>
+            <tr><td>2</td><td>諫逐客書</td><td>藉寇兵而＿＿＿</td><td>藉寇兵而齎盜糧</td><td>資助敵人、自害自己</td></tr>
+            <tr><td>3</td><td>諫逐客書</td><td>所重者在乎＿＿＿</td><td>所重者在乎色樂珠玉，而所輕者在乎人民也</td><td>重物輕人的矛盾</td></tr>
+            <tr><td>4</td><td>鴻門宴</td><td>大行不顧＿＿＿</td><td>大行不顧細謹，大禮不辭小讓</td><td>大事不拘小節</td></tr>
+            <tr><td>5</td><td>鴻門宴</td><td>如今人方為＿＿＿</td><td>如今人方為刀俎，我為魚肉</td><td>處於被宰割的地位</td></tr>
+            <tr><td>6</td><td>鴻門宴</td><td>豎子＿＿＿</td><td>豎子不足與謀</td><td>范增怒斥項羽</td></tr>
+            <tr><td>7</td><td>出師表</td><td>此誠危急＿＿＿</td><td>此誠危急存亡之秋也</td><td>蜀漢情勢的嚴峻</td></tr>
+            <tr><td>8</td><td>出師表</td><td>不宜妄自＿＿＿</td><td>不宜妄自菲薄，引喻失義，以塞忠諫之路也</td><td>勸後主廣開言路</td></tr>
+            <tr><td>9</td><td>出師表</td><td>親賢臣，＿＿＿</td><td>親賢臣，遠小人，此先漢所以興隆也；親小人，遠賢臣，此後漢所以傾頹也</td><td>用人關乎國運</td></tr>
+            <tr><td>10</td><td>出師表</td><td>臣本布衣，＿＿＿</td><td>臣本布衣，躬耕於南陽，苟全性命於亂世，不求聞達於諸侯</td><td>自述早年志趣</td></tr>
+            <tr><td>11</td><td>赤壁賦</td><td>寄蜉蝣於＿＿＿</td><td>寄蜉蝣於天地，渺滄海之一粟</td><td>人生短暫、渺小</td></tr>
+            <tr><td>12</td><td>赤壁賦</td><td>自其變者＿＿＿</td><td>自其變者而觀之，則天地曾不能以一瞬；自其不變者而觀之，則物與我皆無盡也</td><td>變與不變，看角度</td></tr>
+            <tr><td>13</td><td>赤壁賦</td><td>惟江上之＿＿＿</td><td>惟江上之清風，與山間之明月，耳得之而為聲，目遇之而成色</td><td>自然之美取之無禁</td></tr>
+            <tr><td>14</td><td>項脊軒志</td><td>然余居於此，＿＿＿</td><td>然余居於此，多可喜，亦多可悲</td><td>全文情感的轉折</td></tr>
+            <tr><td>15</td><td>項脊軒志</td><td>庭有＿＿＿</td><td>庭有枇杷樹，吾妻死之年所手植也，今已亭亭如蓋矣</td><td>以樹寫時間與思念</td></tr>
+            <tr><td>16</td><td>虯髯客傳</td><td>真人之興，＿＿＿</td><td>真人之興也，非英雄所冀</td><td>真命天子，天命所歸</td></tr>
+            <tr><td>17</td><td>燭之武退秦師</td><td>鄰之＿＿＿</td><td>鄰之厚，君之薄也</td><td>亡鄭只會讓晉強秦弱</td></tr>
+            <tr><td>18</td><td>師說</td><td>聞道有＿＿＿</td><td>聞道有先後，術業有專攻，如是而已</td><td>從師不論貴賤長幼</td></tr>
+            <tr><td>19</td><td>始得西山宴遊記</td><td>然後知吾嚮之＿＿＿</td><td>然後知吾嚮之未始遊，遊於是乎始</td><td>真正的遊，從此開始</td></tr>
+            <tr><td>20</td><td>桃花源記</td><td>不足為＿＿＿</td><td>不足為外人道也</td><td>桃源人囑咐漁人保密</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== WRITING ========== -->
+    <section id="writing">
+      <h2 class="section-title"><span class="icon">✍️</span>國寫限時練習（45 分鐘）</h2>
+
+      <div class="box box-link">
+        <div class="box-title">📌 本週練習定位</div>
+        <p style="font-size:0.91rem;">W21 練過<strong>情意題（感性）</strong>第 1 篇、W23 練過<strong>知性題</strong>第 2 篇，本週回到<strong>情意題</strong>，重點是「在限定時間內寫出完整文章」。學測國寫共 90 分鐘，兩題各約 45 分鐘，所以本週的計時就是正式考試的時間感。W29 會各寫一篇感性與知性，作為前期總檢測。</p>
+      </div>
+
+      <h3 class="sub-section-title">題目：留下來的東西</h3>
+      <div class="box box-gold">
+        <div class="box-title">📝 題目說明（情意題）</div>
+        <p style="font-size:0.93rem; line-height:1.9;">生活裡有些東西，本身並不貴重，卻因為與某個人、某段時光有關，而被我們留了下來：一張泛黃的車票、一件洗到發白的外套、一把用了多年的傘、一本寫滿筆記的舊書……它們靜靜待在角落，有時被遺忘，有時又在某個瞬間，把記憶一下子拉回眼前。</p>
+        <p style="font-size:0.93rem; line-height:1.9; margin-top:0.5rem;"><strong>請以「留下來的東西」為題，寫一篇文章。</strong>文中須描寫那件東西的樣子或來歷，並敘寫它所連結的人、事或時光，以及這件東西帶給你的感受與思索。</p>
+      </div>
+
+      <h3 class="sub-section-title">四步驟時間表（共 45 分鐘）</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>階段</th><th>時間</th><th>要做的事</th></tr></thead>
+          <tbody>
+            <tr><td>① 審題</td><td>3 分鐘</td><td>圈出題目的三個要求：<strong>描寫東西</strong>、<strong>人事時光</strong>、<strong>感受與思索</strong>；決定寫哪一件東西（選「最有細節可寫」的，而非「最重大」的）</td></tr>
+            <tr><td>② 列綱</td><td>5 分鐘</td><td>寫五行：開頭（物的樣子）→ 來歷（人事）→ 轉折（我的改變）→ 深化（發現／領悟）→ 結尾（一句凝鍊的話）</td></tr>
+            <tr><td>③ 書寫</td><td>33 分鐘</td><td>約 500–650 字，分 4–6 段；寫第二段、第三段時，最多的力氣放在<strong>一個動作／一個畫面</strong></td></tr>
+            <tr><td>④ 檢查</td><td>4 分鐘</td><td>錯別字、標點（特別是句號與逗號）、是否有「我很感動」這類空泛句，換成具體畫面</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">本週可借用的古文寫法（從深讀篇章帶進作文）</h3>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>〈項脊軒志〉：借物抒情</h4>
+          <ul>
+            <li>用「物」承載人：象笏 → 祖母；枇杷樹 → 亡妻</li>
+            <li>用小動作寫情：「以指叩門扉」「以手闔門」</li>
+            <li>結尾不說情，只說物的變化</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>〈赤壁賦〉：轉折與領悟</h4>
+          <ul>
+            <li>先寫樂，再寫悲，最後寫悟；情感有起伏文章才有層次</li>
+            <li>用一組對比（變／不變）完成「思索」</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>〈鹿港乘桴記〉：今昔對比</h4>
+          <ul>
+            <li>「昔之…也」「今之…也」對照，使時間流逝可見</li>
+            <li>適合寫「東西還在，人已不在」</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 情意題最常見的失分點</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>只喊口號、沒有畫面</strong>：「我非常感動」「那段日子很珍貴」→ 改寫成一個動作、一句話、一個聲音。</li>
+          <li><strong>離題成議論文</strong>：情意題核心是「感受與體悟」，不要寫成「保存舊物的重要」之類的說理。</li>
+          <li><strong>敘事太長、感受太短</strong>：敘事不超過全文一半；至少留 1/3 篇幅寫「現在的我」。</li>
+          <li><strong>結尾太用力</strong>：「從此我明白了人生的意義」這類大話，不如一句收斂的話。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== SAMPLE ========== -->
+    <section id="sample">
+      <h2 class="section-title"><span class="icon">📄</span>範文、評分向度與知性題備用題</h2>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 使用規則</div>
+        <p style="font-size:0.91rem;">請先自己寫完（計時 45 分鐘）<strong>再</strong>看範文。範文是示範「結構與手法」，不是標準答案；故事可以完全不同，但要有細節、有轉折、有餘韻。</p>
+      </div>
+
+      <h3 class="sub-section-title">示範文章（約 620 字）</h3>
+      <div class="original-text" style="border-left-color: var(--teal);">
+        <p style="text-align:center; font-weight:700;">留下來的東西——一把藍傘</p>
+        <p>玄關的傘架上擠著好幾把傘，只有一把藍色的長柄傘，傘骨有些歪斜，傘面洗得發白，下雨天沒有人會去拿它。可是整個家裡，我最捨不得丟的，就是這把傘。</p>
+        <p>那是外婆的傘。小學時，每逢下雨，外婆總撐著它站在校門口。我遠遠就能認出那一點藍：在一片黑傘與花傘之間，它舊舊的、安靜的，像一個不吵人的等待。外婆很少說話，只是把傘整個傾向我，讓雨水沿著她的左肩一路滲進去。回家的路上，她的袖子總是濕的，卻從來沒喊過冷。那時我只覺得，傘本來就該往我這邊偏。</p>
+        <p>上了國中，我開始嫌它。「同學都用折疊傘了。」我說得不耐煩，把傘丟在玄關最裡面的角落。外婆什麼也沒說，只是後來下雨時，她仍然撐著那把傘，站在離校門稍遠的樹下，不讓我為難。直到去年冬天，她在一個下著雨的清晨靜靜離開，那把傘便留在傘架最裡面，彷彿還在等誰來取。</p>
+        <p>整理遺物那天，我才在傘柄上發現一圈細細的紅線，不知何時纏上去的，已褪成淡淡的粉色。母親說，那是我小時候怕傘柄冰手，外婆特地繞上去的。我握住那圈紅線，掌心忽然發燙。原來我記得的，只是傘下的雨；外婆記得的，卻是我手心的冷。</p>
+        <p>我沒有把傘丟掉。今年梅雨季，我撐著它走在放學的路上，雨聲打在傘面，比記憶中更響。傘還是那把傘，只是傘下的人，終於換成我獨自一個。我把傘微微傾向身側，那裡沒有人，卻覺得肩膀好像也被什麼輕輕護住了。</p>
+        <p>有些東西被留下來，不是因為捨不得它，而是因為它替我們收藏了來不及說出口的話。</p>
+      </div>
+
+      <h4 class="sub-sub-title">範文用了哪些手法？（對照古文）</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>段落</th><th>手法</th><th>對應的古文技巧</th></tr></thead>
+          <tbody>
+            <tr><td>一</td><td>開頭以「物」的外貌入題，並丟出懸念（為什麼捨不得？）</td><td>〈項脊軒志〉首段：先寫軒的樣貌</td></tr>
+            <tr><td>二</td><td>用動作寫情（傘傾向我、左肩濕透），不說「外婆愛我」</td><td>〈項脊軒志〉：以指叩門扉、以手闔門</td></tr>
+            <tr><td>三</td><td>轉折：我的嫌棄 → 外婆的退讓 → 離世</td><td>〈赤壁賦〉：情緒的起伏與轉折</td></tr>
+            <tr><td>四</td><td>發現紅線＝全文高潮，「原來……卻是……」對比出「我記得的」與「外婆記得的」</td><td>〈赤壁賦〉變與不變的對照；〈項脊軒志〉老嫗述母</td></tr>
+            <tr><td>五</td><td>今昔對照（「更響」「獨自一個」），並以「傘傾向身側」收束</td><td>〈鹿港乘桴記〉昔／今；〈項脊軒志〉「亭亭如蓋」以物收情</td></tr>
+            <tr><td>六</td><td>一句凝鍊的思索，點出主題而不說教</td><td>〈赤壁賦〉末段的收斂</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="sub-sub-title">自評表（1–5 分，各向度）</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>向度</th><th>5 分的樣子</th><th>常見扣分</th><th>我的分數</th></tr></thead>
+          <tbody>
+            <tr><td>立意取材</td><td>題目要求都回應；材料具體而獨特，有個人觀察與體悟</td><td>只描寫物、不寫感受；材料太籠統</td><td>＿</td></tr>
+            <tr><td>結構組織</td><td>起承轉合清楚，段落有層次，前後呼應</td><td>只有流水帳；結尾斷尾</td><td>＿</td></tr>
+            <tr><td>遣詞造句</td><td>用詞準確生動，有畫面、有節奏，修辭自然</td><td>口語化、空泛形容、重複句型</td><td>＿</td></tr>
+            <tr><td>錯別字、格式、標點</td><td>幾乎無錯字；分段、標點正確</td><td>錯字連連、整篇一段、標點用逗號到底</td><td>＿</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.82rem; color:var(--muted);">※ 以上為常見的評分向度整理，用於自我檢查；實際評分標準與配分請以大考中心公告為準。</p>
+
+      <h3 class="sub-section-title">備用題：知性題（另一天練習，限時 45 分鐘）</h3>
+      <div class="box box-gold">
+        <div class="box-title">📝 題目：經典為何還值得閱讀？</div>
+        <p style="font-size:0.92rem; line-height:1.9;">（甲）有人認為，經典作品之所以流傳千年，是因為它們回應的是人類永恆的課題——離別、孤獨、權力、自由與生死。時代雖不同，人的處境並沒有真正改變，所以讀經典，就是在讀自己。</p>
+        <p style="font-size:0.92rem; line-height:1.9; margin-top:0.4rem;">（乙）也有人認為，古人的語言、制度與價值觀，與現代生活距離太遠；與其花時間讀艱深的古文，不如多讀貼近當代生活的作品，才更能解決現代人的問題。</p>
+        <p style="font-size:0.92rem; line-height:1.9; margin-top:0.4rem;"><strong>請以「經典對現代人的意義」為題，寫一篇文章：先說明你對上述兩種看法的理解，再提出自己的主張，並舉出至少一個閱讀（可取自本週古文或其他文本）的例子加以論證。</strong></p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>結構</th><th>內容提示</th></tr></thead>
+          <tbody>
+            <tr><td>首段：立論</td><td>概述（甲）（乙）的重點，亮出自己的立場，例如「經典未必貼近生活，但能讓我們理解生活」</td></tr>
+            <tr><td>二段：例證一</td><td>〈諫逐客書〉：李斯提醒「容納不同來源的人才」，與當代組織的多元包容相通</td></tr>
+            <tr><td>三段：例證二</td><td>〈赤壁賦〉：對人生短暫的焦慮，千年後仍然真實；「變與不變」提供調適的角度</td></tr>
+            <tr><td>四段：回應反方</td><td>承認古文有距離，但距離恰恰讓我們跳出當下，看見問題的另一面</td></tr>
+            <tr><td>末段：收束</td><td>以一句話點出「讀經典＝與不同時代的人對話」，並回扣開頭</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== KMAP ========== -->
+    <section id="kmap">
+      <h2 class="section-title"><span class="icon">🔗</span>知識連結圖</h2>
+      <div class="k-map">
+        <div class="k-node center">W25 弱點古文深讀</div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.4rem;">
+            <div class="k-node">奏議（說服）</div>
+            <div style="display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center;">
+              <div class="k-node" style="font-size:0.78rem; padding:0.3rem 0.7rem;">諫逐客書：利害</div>
+              <div class="k-node" style="font-size:0.78rem; padding:0.3rem 0.7rem;">出師表：情義</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; font-size:1.2rem; color:var(--muted);">|</div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.4rem;">
+            <div class="k-node teal">抒情（物與情）</div>
+            <div style="display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center;">
+              <div class="k-node teal" style="font-size:0.78rem; padding:0.3rem 0.7rem;">赤壁賦：哲理超越</div>
+              <div class="k-node teal" style="font-size:0.78rem; padding:0.3rem 0.7rem;">項脊軒志：借物留情</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; font-size:1.2rem; color:var(--muted);">|</div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.4rem;">
+            <div class="k-node gold">敘事（人物）</div>
+            <div style="display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center;">
+              <div class="k-node gold" style="font-size:0.78rem; padding:0.3rem 0.7rem;">鴻門宴：史傳</div>
+              <div class="k-node gold" style="font-size:0.78rem; padding:0.3rem 0.7rem;">虯髯客傳：傳奇</div>
+            </div>
+          </div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node gold">字詞：通假／古今異義／活用</div>
+          <div class="k-node gold">國寫：借物抒情＋今昔對比</div>
+        </div>
+      </div>
+      <div class="box box-link" style="margin-top:1rem;">
+        <div class="box-title">🔗 跨週連結</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>W01 / W02：</strong>〈燭之武退秦師〉與〈諫逐客書〉皆為「以利害說服」，本週補完層次分析。</li>
+          <li><strong>W21 / W23：</strong>情意題（現代詩）與知性題練習；本週情意題用古文的「借物抒情」落實。</li>
+          <li><strong>W26（下週）：</strong>語文知識（字音字形字義）與修辭手法整理，本週的跨篇字詞表是前導。</li>
+          <li><strong>W28：</strong>古文 30 篇最後一輪速讀，會再用到本週的診斷結果。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== SUMMARY ========== -->
+    <section id="summary">
+      <h2 class="section-title"><span class="icon">📌</span>重點整理</h2>
+      <div class="card">
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li><strong>諫逐客書（李斯）</strong>：歷史舉例＋類比（珠玉音樂）＋說理（泰山河海）＋利害；站在秦國利益立論；「藉寇兵而齎盜糧」。</li>
+          <li><strong>鴻門宴（司馬遷）</strong>：座次、玉玦、舞劍、樊噲闖帳、如廁脫身；項羽寡斷自負，劉邦能屈能伸。</li>
+          <li><strong>出師表（諸葛亮）</strong>：開張聖聽、賞罰公平、親賢遠佞；自述三顧草廬；情理兼備；卑鄙等古今異義。</li>
+          <li><strong>赤壁賦（蘇軾）</strong>：樂→悲→喜；水月之喻；變與不變；赤鼻磯非三國古戰場。</li>
+          <li><strong>項脊軒志（歸有光）</strong>：借物抒情；喜轉悲；細節描寫；結尾以枇杷樹寫悼亡。</li>
+          <li><strong>虯髯客傳（杜光庭）</strong>：風塵三俠；紅拂機智；唐傳奇「作意好奇」；真命天子的主題。</li>
+          <li><strong>字詞四類</strong>：通假（從＝縱、內＝納、說＝悅、藉＝借、郤＝隙、馮＝憑、繆＝繚）、古今異義（卑鄙、布衣、細說）、詞類活用（蠶食、業諸侯、東嚮）、一字多義（屬、如、次）。</li>
+          <li><strong>國寫情意題</strong>：45 分鐘＝審題 3＋列綱 5＋書寫 33＋檢查 4；用動作與畫面寫情，敘事不過半，結尾收斂。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== QUIZ ========== -->
+    <section id="quiz">
+      <h2 class="section-title"><span class="icon">📝</span>自我測驗（8 題）</h2>
+      <div class="box box-link">
+        <div class="box-title">⏱️ 作答建議</div>
+        <p style="font-size:0.9rem;">限時 10 分鐘；做完再看解析。答錯的題目，在診斷表上對應篇章劃記。</p>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>下列「　」內的字，何者<strong>不是</strong>通假字？</div>
+        <ol>
+          <li>而陛下「說」之，何也</li>
+          <li>令將軍與臣有「郤」</li>
+          <li>此誠危急存亡之「秋」也</li>
+          <li>山川相「繆」，鬱乎蒼蒼</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：C</p>
+          <p style="font-size:0.90rem;">A「說」通「悅」；B「郤」通「隙」；D「繆」通「繚」；C「秋」是「時候」之意，屬一字多義，不是通假。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>下列各組「　」內的詞，何者<strong>皆為</strong>「名詞作狀語」？</div>
+        <ol>
+          <li>「蠶」食諸侯／有亭「翼」然臨於泉上</li>
+          <li>卻賓客以「業」諸侯／今逐客以「資」敵國</li>
+          <li>吾從而「師」之／「侶」魚蝦而友麋鹿</li>
+          <li>晉「軍」函陵／先破秦入咸陽者「王」之</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：A</p>
+          <p style="font-size:0.90rem;">A「蠶食」「翼然」都是名詞修飾動作，作狀語。B「業」「資」為名詞作動詞；C「師」「侶」為名詞作動詞（意動）；D「軍」「王」亦為名詞作動詞。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span>關於〈諫逐客書〉與〈出師表〉的比較，下列敘述何者<strong>最恰當</strong>？</div>
+        <ol>
+          <li>兩篇都以自己的功績作為說服的主要依據</li>
+          <li>〈諫逐客書〉以利害與類比說服，〈出師表〉除建言外，更以感恩與自述動人</li>
+          <li>兩篇都是臣子向敵國君主上書</li>
+          <li>〈出師表〉重在批評，〈諫逐客書〉重在抒情</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B</p>
+          <p style="font-size:0.90rem;">李斯不為自己辯護，而站在秦國利益立論；諸葛亮以三顧草廬、受命先帝的自述帶動後主。A、C、D 均與史實與文意不合。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span>〈赤壁賦〉末段「相與枕藉乎舟中，不知東方之既白」，其作用最可能是：</div>
+        <ol>
+          <li>表現客人因簫聲而更加悲傷，徹夜難眠</li>
+          <li>以景色收束，表現悲情化解之後的曠達與自適</li>
+          <li>說明作者因貶官而夜不能寐</li>
+          <li>批評客人不懂「變與不變」的道理</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B</p>
+          <p style="font-size:0.90rem;">蘇子開導後，「客喜而笑，洗盞更酌」，大家安然入睡直到天明，情感由悲轉喜，並以景作結，餘韻悠長。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span>依〈鴻門宴〉節錄的座次：項王、項伯東嚮坐，亞父南嚮坐，沛公北嚮坐，張良西嚮侍。下列推論何者<strong>正確</strong>？</div>
+        <ol>
+          <li>沛公位於最尊的位置，表示項羽禮遇他</li>
+          <li>東向最尊，項羽自居最尊位，沛公的位次排在范增之後</li>
+          <li>張良面向西，是主客中身分最高的人</li>
+          <li>座次只是巧合，與人物關係無關</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B</p>
+          <p style="font-size:0.90rem;">座次尊卑：東向最尊，南向次之，北向再次，西向最卑。可看出項羽自居最尊，而沛公只是北向、位在范增之後；張良西向，是侍坐。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">6</span>下列稱謂的解釋，何者全部<strong>正確</strong>？</div>
+        <ol>
+          <li>先妣：已故的父親；大母：外祖母</li>
+          <li>先妣：已故的母親；大母：祖母；諸父：伯叔們</li>
+          <li>先妣：已故的祖母；吾妻：母親</li>
+          <li>先妣：母親；諸父：父親與祖父</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B</p>
+          <p style="font-size:0.90rem;">〈項脊軒志〉中，「先妣」指已故的母親，「大母」指祖母，「諸父」指伯叔們，「吾妻」才是妻子。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">7</span>下列三篇作品，依時代先後排列，何者<strong>正確</strong>？<br>甲、《搜神記》（志怪）　乙、〈虯髯客傳〉（傳奇）　丙、〈勞山道士〉（《聊齋誌異》）</div>
+        <ol>
+          <li>甲乙丙</li>
+          <li>乙甲丙</li>
+          <li>甲丙乙</li>
+          <li>丙乙甲</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：A</p>
+          <p style="font-size:0.90rem;">《搜神記》為東晉干寶所作，屬六朝志怪；〈虯髯客傳〉為唐末五代傳奇；〈勞山道士〉出自清代蒲松齡《聊齋誌異》。文言小說演變：志怪 → 傳奇 → 清代志怪／筆記。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">8</span>在情意題寫作中，要表現「對逝去親人的懷念」，下列哪一種寫法<strong>最接近</strong>〈項脊軒志〉「庭有枇杷樹……今已亭亭如蓋矣」的手法？</div>
+        <ol>
+          <li>「我好想念外婆，我真的非常難過。」</li>
+          <li>「外婆種的茉莉，今年又開了，滿院都是她以前最愛的香。」</li>
+          <li>「外婆是世界上最好的人，沒有人比得上她。」</li>
+          <li>「人生如夢，生死無常，我們該珍惜眼前人。」</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B</p>
+          <p style="font-size:0.90rem;">B 以「物（茉莉）＋時間（今年又開）」暗示思念，不直說情感，與枇杷樹的寫法相同。A 直接抒情；C 是稱讚；D 偏向說理。</p></div>
+        </details>
+      </div>
+
+      <div class="box box-key" style="margin-top:1.5rem;">
+        <div class="box-title">✅ 測驗完成後的學習建議</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>7–8 題：本週六篇已穩，週五可把時間移到「其餘 9 篇」與名句默寫</li>
+          <li>5–6 題：答錯題目對應的篇章，重做一次「演練」與字詞表遮字測驗</li>
+          <li>4 題以下：週五加做一次「五步法」，優先複習〈出師表〉與〈赤壁賦〉</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== NEXT ========== -->
+    <section id="next">
+      <h2 class="section-title"><span class="icon">➡️</span>下週預告與本週檢核表</h2>
+      <div class="box box-link">
+        <div class="box-title">🔗 W26 預告（11/09–11/15）</div>
+        <p style="font-size:0.91rem;">國文：<strong>語文知識（字音、字形、字義）＋修辭手法整理</strong>。本週整理的「跨篇高頻字詞表」「名句默寫清單」會直接延伸到下週；週六為<strong>數學 A 全卷模擬（100 分鐘）</strong>，週日對答案。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>檢核項目</th><th>完成</th></tr></thead>
+          <tbody>
+            <tr><td>完成弱點診斷表，並決定本週深讀的 6 篇</td><td>☐</td></tr>
+            <tr><td>6 篇：能不看注釋讀懂原文、說出一句話主旨</td><td>☐</td></tr>
+            <tr><td>通假字／古今異義／詞類活用／一字多義：遮字自測正確率 ≥ 80%</td><td>☐</td></tr>
+            <tr><td>名句默寫 20 句：正確率 ≥ 80%</td><td>☐</td></tr>
+            <tr><td>完成國寫限時練習（45 分鐘），並用自評表打分</td><td>☐</td></tr>
+            <tr><td>錯題依「篇名」歸檔進錯題本，並更新弱點清單</td><td>☐</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top:3rem; padding-top:1.5rem; border-top:2px solid var(--border); text-align:center; font-size:0.82rem; color:var(--muted);">
+      <p>W25 國文科講義｜弱點古文篇章深讀 ＋ 國寫限時練習</p>
+      <p style="margin-top:0.3rem;">高三上理工組 · 學測備考 · 第四階段整合衝刺（第一週）</p>
+      <p style="margin-top:0.3rem;">本講義依據台灣108課綱高中國文學習內容編製，古文原文以通行課本版本為準，僅供學習參考</p>
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>
