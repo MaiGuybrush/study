@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W20 國文科學習講義｜論語．孟子重點章節精讀（第二輪深化）＋字音字形</title>
+  <style>
+    /* ===================== CSS Reset & Base ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: "Microsoft JhengHei", "蘋方-繁", "PingFang TC", "Noto Sans TC", sans-serif;
+      background: #fdf6f0;
+      color: #2c2c2c;
+      line-height: 1.8;
+    }
+
+    /* ===================== CSS Variables ===================== */
+    :root {
+      --primary:       #c0392b;
+      --primary-dark:  #96281b;
+      --primary-light: #e74c3c;
+      --primary-bg:    #fdecea;
+      --accent:        #8e44ad;
+      --accent-bg:     #f5eef8;
+      --gold:          #b7860b;
+      --gold-bg:       #fef9e7;
+      --teal:          #1a7a6e;
+      --teal-bg:       #e8f8f5;
+      --ink:           #2c2c2c;
+      --muted:         #6b6b6b;
+      --border:        #e0d0cd;
+      --card-bg:       #ffffff;
+      --shadow:        0 2px 12px rgba(192,57,43,0.10);
+    }
+
+    /* ===================== Layout ===================== */
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      min-width: 240px;
+      background: linear-gradient(180deg, #96281b 0%, #c0392b 40%, #e74c3c 100%);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 0 0 2rem 0;
+      box-shadow: 3px 0 14px rgba(0,0,0,0.15);
+      z-index: 100;
+    }
+    .sidebar-header {
+      background: rgba(0,0,0,0.20);
+      padding: 1.4rem 1rem 1.2rem 1rem;
+      text-align: center;
+    }
+    .sidebar-header .subject-badge {
+      display: inline-block;
+      background: #fff;
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1.1rem;
+      border-radius: 20px;
+      padding: 0.2rem 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+    .sidebar-header p { font-size: 0.78rem; opacity: 0.88; line-height: 1.5; }
+    .sidebar nav { padding: 1rem 0; }
+    .sidebar nav a {
+      display: block;
+      padding: 0.45rem 1.1rem;
+      color: rgba(255,255,255,0.90);
+      text-decoration: none;
+      font-size: 0.85rem;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.15);
+      border-left-color: #fff;
+      color: #fff;
+    }
+    .nav-section {
+      padding: 0.6rem 1.1rem 0.2rem 1.1rem;
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      opacity: 0.65;
+      text-transform: uppercase;
+    }
+    .nav-indent { padding-left: 1.8rem !important; font-size: 0.80rem !important; }
+
+    /* Main content */
+    .main-content {
+      flex: 1;
+      padding: 2rem 2.5rem 4rem 2.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* ===================== Page Header ===================== */
+    .page-header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: "文";
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 9rem;
+      opacity: 0.10;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .page-header .week-tag {
+      background: rgba(255,255,255,0.22);
+      display: inline-block;
+      padding: 0.2rem 0.9rem;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1px;
+    }
+    .page-header h1 { font-size: 1.85rem; font-weight: 900; margin-bottom: 0.4rem; }
+    .page-header .subtitle { font-size: 0.95rem; opacity: 0.88; }
+    .meta-row {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.1rem;
+      flex-wrap: wrap;
+    }
+    .meta-chip {
+      background: rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 0.22rem 0.9rem;
+      font-size: 0.80rem;
+    }
+
+    /* ===================== Section Titles ===================== */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 1.30rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin: 2.5rem 0 1.2rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--primary);
+    }
+    .section-title .icon { font-size: 1.3rem; }
+
+    .sub-section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 1.6rem 0 0.8rem 0;
+      padding-left: 0.8rem;
+      border-left: 4px solid var(--primary);
+    }
+    .sub-sub-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1.2rem 0 0.5rem 0;
+    }
+
+    /* ===================== Cards ===================== */
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* ===================== Info Boxes ===================== */
+    .box {
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      font-size: 0.93rem;
+    }
+    .box-key   { background: var(--primary-bg); border-left: 5px solid var(--primary); }
+    .box-warn  { background: #fff8e1; border-left: 5px solid #f39c12; }
+    .box-tip   { background: var(--teal-bg); border-left: 5px solid var(--teal); }
+    .box-link  { background: var(--accent-bg); border-left: 5px solid var(--accent); }
+    .box-gold  { background: var(--gold-bg); border-left: 5px solid var(--gold); }
+    .box-title { font-weight: 700; margin-bottom: 0.4rem; }
+
+    /* ===================== Original Text ===================== */
+    .original-text {
+      background: #fffaf7;
+      border: 1px solid #e8d5c8;
+      border-radius: 10px;
+      padding: 1.4rem 1.8rem;
+      font-size: 1.02rem;
+      line-height: 2.2;
+      color: #2c2c2c;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .original-text::before {
+      content: "原文";
+      position: absolute;
+      top: -0.7rem;
+      left: 1.2rem;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .original-text.excerpt::before { content: "原文（節錄重點段落）"; }
+    .original-text p { margin-bottom: 0.6rem; }
+    .original-text p:last-child { margin-bottom: 0; }
+    .original-text .om { color: var(--muted); font-size: 0.86rem; }
+
+    /* Key terms underline */
+    .kw {
+      border-bottom: 2px solid var(--primary);
+      color: var(--primary-dark);
+      font-weight: 600;
+      cursor: default;
+    }
+    .kw-gold {
+      border-bottom: 2px solid var(--gold);
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .kw-teal {
+      border-bottom: 2px solid var(--teal);
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    /* ===================== Glossary Table ===================== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.91rem;
+      margin: 0.8rem 0;
+    }
+    thead tr {
+      background: var(--primary);
+      color: #fff;
+    }
+    thead th {
+      padding: 0.65rem 1rem;
+      text-align: left;
+      font-weight: 700;
+    }
+    tbody tr:nth-child(even) { background: #fdf2f2; }
+    tbody tr:hover { background: var(--primary-bg); }
+    tbody td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tbody td:first-child { font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+
+    /* ===================== Translation Block ===================== */
+    .translation-block {
+      background: #f0f7f5;
+      border: 1px solid #b2d8d0;
+      border-radius: 10px;
+      padding: 1.3rem 1.6rem;
+      font-size: 0.93rem;
+      line-height: 1.95;
+      color: #1c4a43;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .translation-block::before {
+      content: "白話語譯（重點）";
+      position: absolute;
+      top: -0.7rem;
+      left: 1.2rem;
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    /* ===================== Analysis Points ===================== */
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 700px) { .analysis-grid { grid-template-columns: 1fr; } }
+    .analysis-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+    .analysis-item h4 { color: var(--primary-dark); font-size: 0.92rem; margin-bottom: 0.5rem; }
+    .analysis-item p, .analysis-item ul { font-size: 0.88rem; }
+    .analysis-item ul { padding-left: 1.2rem; }
+    .analysis-item li { margin-bottom: 0.3rem; }
+
+    /* ===================== Comparison Table ===================== */
+    .compare-table thead tr { background: var(--accent); }
+    .compare-table tbody td:first-child { color: var(--accent); }
+
+    /* ===================== Quiz Section ===================== */
+    .quiz-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-item .q-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 1.8rem;
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-right: 0.5rem;
+    }
+    .quiz-item .q-text { font-size: 0.94rem; font-weight: 600; margin-bottom: 0.7rem; }
+    .quiz-item ol { padding-left: 1.5rem; font-size: 0.92rem; }
+    .quiz-item li { margin-bottom: 0.3rem; list-style-type: upper-alpha; }
+    details { margin-top: 0.7rem; }
+    summary {
+      cursor: pointer;
+      background: var(--primary-bg);
+      color: var(--primary-dark);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-block;
+      user-select: none;
+    }
+    summary:hover { background: var(--primary); color: #fff; }
+    details[open] summary { background: var(--primary); color: #fff; }
+    .answer-box {
+      background: #fef9e7;
+      border: 1px solid #f0d060;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-top: 0.6rem;
+      font-size: 0.90rem;
+    }
+    .answer-box .correct { color: #27ae60; font-weight: 700; }
+
+    /* ===================== Knowledge Map ===================== */
+    .k-map {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .k-map-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .k-node {
+      background: var(--primary-bg);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-align: center;
+    }
+    .k-node.center {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.95rem;
+      padding: 0.7rem 1.4rem;
+    }
+    .k-node.teal {
+      background: var(--teal-bg);
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+    .k-node.gold {
+      background: var(--gold-bg);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .k-node.accent {
+      background: var(--accent-bg);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .k-arrow { font-size: 1.4rem; color: var(--muted); }
+
+    /* ===================== Tag badges ===================== */
+    .tag {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 10px;
+      margin: 0.15rem;
+    }
+    .tag-red   { background: #fdecea; color: var(--primary); border: 1px solid var(--primary); }
+    .tag-teal  { background: var(--teal-bg); color: var(--teal); border: 1px solid var(--teal); }
+    .tag-gold  { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold); }
+    .tag-purple{ background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent); }
+
+    /* ===================== Exam highlight ===================== */
+    .exam-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.5rem;
+      border-radius: 8px;
+      vertical-align: middle;
+      margin-left: 0.3rem;
+    }
+
+    /* ===================== Divider ===================== */
+    .divider {
+      border: none;
+      border-top: 2px dashed var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* ===================== TOC ===================== */
+    .toc {
+      background: var(--gold-bg);
+      border: 1px solid #f0c040;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .toc h3 { color: var(--gold); margin-bottom: 0.8rem; font-size: 1rem; }
+    .toc ol { padding-left: 1.5rem; font-size: 0.90rem; }
+    .toc li { margin-bottom: 0.3rem; }
+    .toc a { color: var(--primary-dark); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; color: var(--primary); }
+
+    /* ===================== Weakness note template ===================== */
+    .wk-table td:first-child { white-space: normal; }
+    .wk-blank { color: var(--muted); font-style: italic; }
+
+    /* ===================== Piece banner ===================== */
+    .piece-banner {
+      color: #fff;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .piece-banner .pb-kicker { font-size: 0.78rem; opacity: 0.8; margin-bottom: 0.3rem; }
+    .piece-banner .pb-title { font-size: 1.4rem; font-weight: 900; letter-spacing: 2px; }
+    .piece-banner .pb-meta { font-size: 0.88rem; opacity: 0.88; margin-top: 0.3rem; }
+
+    /* ===================== Responsive ===================== */
+    @media (max-width: 820px) {
+      .sidebar { display: none; }
+      .main-content { padding: 1.2rem 1rem 3rem 1rem; }
+    }
+
+    /* ===================== Scrollbar ===================== */
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.35); border-radius: 4px; }
+
+    /* Print */
+    @media print {
+      .sidebar { display: none; }
+      .main-content { padding: 0; max-width: 100%; }
+      .page-header { background: #c0392b !important; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="subject-badge">國 文</div>
+      <p>W20 論語．孟子精讀<br>＋字音字形<br>高三上・理工組</p>
+    </div>
+    <nav>
+      <div class="nav-section">Overview</div>
+      <a href="#overview">本週學習總覽</a>
+      <a href="#focus">第二輪重讀策略</a>
+
+      <div class="nav-section">論語 四章</div>
+      <a href="#p1-text" class="nav-indent">為政以德</a>
+      <a href="#p2-text" class="nav-indent">克己復禮為仁</a>
+      <a href="#p3-text" class="nav-indent">孝弟為仁之本</a>
+      <a href="#p4-text" class="nav-indent">教育觀二章</a>
+
+      <div class="nav-section">孟子 四章</div>
+      <a href="#p5-text" class="nav-indent">性善論（水喻）</a>
+      <a href="#p6-text" class="nav-indent">大丈夫之道</a>
+      <a href="#p7-text" class="nav-indent">王道民本思想</a>
+      <a href="#p8-text" class="nav-indent">生於憂患，死於安樂</a>
+
+      <div class="nav-section">整合與評量</div>
+      <a href="#compare">論孟對照與思想脈絡</a>
+      <a href="#yinxing">語文知識：字音字形字義</a>
+      <a href="#weak">個人弱點筆記模板</a>
+      <a href="#quiz">隨堂自我測驗</a>
+    </nav>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main-content">
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="week-tag">第 20 週學習單元・第三階段（第二輪主題強化）</div>
+      <h1>W20 國文科｜論語．孟子重點章節精讀</h1>
+      <div class="subtitle">文化教材第二輪深化：論語四章＋孟子四章｜語文知識：字音字形字義</div>
+      <div class="meta-row">
+        <span class="meta-chip">高三上 · 理工組</span>
+        <span class="meta-chip">日期：09/28–10/04</span>
+        <span class="meta-chip">第二輪重讀・文化教材</span>
+        <span class="meta-chip">字音字形字義專題</span>
+      </div>
+    </header>
+
+    <!-- TOC -->
+    <div class="toc" id="toc">
+      <h3>目錄 Table of Contents</h3>
+      <ol>
+        <li><a href="#overview">本週學習總覽與目標</a></li>
+        <li><a href="#focus">第二輪重讀策略與章節對照</a></li>
+        <li><a href="#p1-text">論語｜為政以德</a></li>
+        <li><a href="#p2-text">論語｜克己復禮為仁</a></li>
+        <li><a href="#p3-text">論語｜孝弟為仁之本</a></li>
+        <li><a href="#p4-text">論語｜教育觀二章</a></li>
+        <li><a href="#p5-text">孟子｜性善論（水喻）</a></li>
+        <li><a href="#p6-text">孟子｜大丈夫之道</a></li>
+        <li><a href="#p7-text">孟子｜王道民本思想</a></li>
+        <li><a href="#p8-text">孟子｜生於憂患，死於安樂</a></li>
+        <li><a href="#compare">論孟對照與思想脈絡圖</a></li>
+        <li><a href="#yinxing">語文知識：字音字形字義</a></li>
+        <li><a href="#weak">個人弱點筆記模板</a></li>
+        <li><a href="#quiz">隨堂自我測驗（8 題）</a></li>
+      </ol>
+    </div>
+
+    <!-- ========== SECTION: OVERVIEW ========== -->
+    <section id="overview">
+      <h2 class="section-title"><span class="icon">📖</span>本週學習總覽</h2>
+      <div class="card">
+        <p>本週（09/28–10/04）延續 W17～W19「古文 30 篇第二輪重讀」的節奏，正式將第二輪深化的對象轉向<strong>文化基本教材</strong>——《論語》與《孟子》。第一輪學習時，《論語》選讀上冊（W08）、《孟子》選讀上冊（W09）、《孟子》選讀下冊（W11）、《大學．中庸》選讀（W12）已依教材順序逐章讀過一次；本週不再逐篇重複，而是挑選<strong>八章最具代表性、也最常跨篇互相比較出題</strong>的章句——論語四章、孟子四章——進行「一次讀熟、精準記憶」的深化複習，並同步展開學測國文另一大命題範疇：<strong>語文知識（字音字形字義）</strong>。</p>
+      </div>
+
+      <div class="box box-link">
+        <div class="box-title">🔗 本週八章 vs. 第一輪進度對照</div>
+        <p style="font-size:0.91rem;">本週論語四章（為政以德、克己復禮、孝弟為仁之本、教育觀二章）皆為<strong>第一輪尚未精讀的新章句</strong>，用意是擴大論語涵蓋面；孟子四章中，〈大丈夫之道〉與〈生於憂患，死於安樂〉屬於<strong>第一輪已讀過的章句（重讀深化）</strong>，〈性善論〉與〈王道民本思想〉則是<strong>新增章句</strong>。完整對照如下：</p>
+        <table>
+          <thead><tr><th>本週篇章</th><th>出處</th><th>狀態</th><th>第一輪出處（如有）</th></tr></thead>
+          <tbody>
+            <tr><td>為政以德</td><td>論語．為政篇</td><td>新增章句</td><td>—</td></tr>
+            <tr><td>克己復禮為仁</td><td>論語．顏淵篇</td><td>新增章句</td><td>—</td></tr>
+            <tr><td>孝弟為仁之本</td><td>論語．學而篇</td><td>新增章句</td><td>—</td></tr>
+            <tr><td>教育觀二章</td><td>論語．述而／衛靈公篇</td><td>新增章句</td><td>—</td></tr>
+            <tr><td>性善論（水喻）</td><td>孟子．告子上</td><td>新增章句</td><td>—</td></tr>
+            <tr><td>大丈夫之道</td><td>孟子．滕文公下</td><td>重讀深化</td><td>W11_chinese.html</td></tr>
+            <tr><td>王道民本思想</td><td>孟子．梁惠王上</td><td>新增章句</td><td>—</td></tr>
+            <tr><td>生於憂患，死於安樂</td><td>孟子．告子下</td><td>重讀深化</td><td>W09_chinese.html</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">學習目標</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 完成本週學習後，你應能：</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li>準確默寫八章名句，並說明其出處篇目與思想脈絡</li>
+          <li>掌握論語「為政、論仁、孝悌、教育」四大主題與孟子「性善、修身、王道、憂患」四大主題的核心觀點</li>
+          <li>建立「論語→孟子」思想承繼與發展的整體圖像：孟子如何在孔子仁學基礎上，進一步發展出性善論與王道政治哲學</li>
+          <li>熟練至少 20 組學測常考的多音字、形似字、常見錯別字，並能在句子情境中正確判斷讀音與寫法</li>
+          <li>持續更新個人弱點筆記，鎖定本週最需補強的 3 個盲點</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-section-title">八章速覽</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>篇章</th><th>出處</th><th>主題</th><th>一句話定位</th></tr></thead>
+          <tbody>
+            <tr><td>為政以德</td><td>論語．為政 2.1</td><td>為政以德</td><td>以德治國如北辰居所而眾星拱之</td></tr>
+            <tr><td>克己復禮為仁</td><td>論語．顏淵 12.1</td><td>仁的實踐</td><td>約束自己、實踐禮制即是仁</td></tr>
+            <tr><td>孝弟為仁之本</td><td>論語．學而 1.2</td><td>孝悌與修身</td><td>孝悌是實踐仁德的根本起點</td></tr>
+            <tr><td>教育觀二章</td><td>論語．述而 7.8／衛靈公 15.39</td><td>教育觀</td><td>啟發式教學＋有教無類的平等精神</td></tr>
+            <tr><td>性善論（水喻）</td><td>孟子．告子上</td><td>性善論</td><td>以水必然就下譬喻人性本善</td></tr>
+            <tr><td>大丈夫之道</td><td>孟子．滕文公下</td><td>義利之辨與人格操守</td><td>富貴不能淫，貧賤不能移，威武不能屈</td></tr>
+            <tr><td>王道民本思想</td><td>孟子．梁惠王上</td><td>王道民本</td><td>五十步笑百步，論王道之始在於養生喪死無憾</td></tr>
+            <tr><td>生於憂患，死於安樂</td><td>孟子．告子下</td><td>逆境修養</td><td>艱困磨練心志方能成就大任</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ========== SECTION: FOCUS ========== -->
+    <section id="focus">
+      <h2 class="section-title"><span class="icon">🎯</span>第二輪重讀策略</h2>
+      <div class="box box-link">
+        <div class="box-title">🔗 承接 W17–W19：從古文轉向文化教材，方法不變</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>延續前三週的方法——每章只抓 2–3 個「第二輪重點」，力氣放在<strong>跨章比較</strong>與<strong>弱點筆記</strong>上，而非逐字重新注釋。</li>
+          <li>《論語》《孟子》命題最大特色是「主題式跨章比較」：常把不同篇章的章句放進同一題組，考「哪一章談的是修身、哪一章談的是治國」。本週八章刻意涵蓋「為政、論仁、孝悌、教育、性善、修身、王道、憂患」八個主題，正是為了因應這種命題形式。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 本週務必完成的三件事</div>
+        <ol style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>用<strong>紙筆默寫</strong>八章的核心語句各一次，錯字圈起來抄三遍（尤其「弟」通「悌」、「與」通「歟」等通假字）。</li>
+          <li>把〈為政以德〉與〈王道民本思想〉整理成對照筆記——一為孔子的「德治」理想，一為孟子的「王道」具體政策，同屬儒家治國思想的一體兩面。</li>
+          <li>把「字音字形字義」表格中的 20 組詞語逐一唸出聲音、寫出正確字形，並挑 5 組造句練習。</li>
+        </ol>
+      </div>
+      <div class="box box-tip">
+        <div class="box-title">💡 字音字形的複習心法</div>
+        <p style="font-size:0.91rem;">字音字形題最忌「死背單字表」，正確做法是<strong>放進具體詞語與句子情境中記憶</strong>（例如記「藉」的兩音，就同時記住「憑藉」與「杯盤狼藉」兩個詞，而不是只背注音符號）。本週表格特別標注了與先前週次古文選文的連結（如〈赤壁賦〉的「狼藉」、〈師說〉的「六藝經傳」），複習時可順道回顧原文。</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ==================================================== 篇一：為政以德 ==================================================== -->
+    <section>
+      <div class="piece-banner" style="background:linear-gradient(90deg, var(--primary-dark), var(--primary));">
+        <div class="pb-kicker">論語第一章｜為政篇 2.1・為政以德</div>
+        <div class="pb-title">為政以德</div>
+        <div class="pb-meta">孔子・語錄體・以「北辰」譬喻德治的核心政治理想</div>
+      </div>
+
+      <h3 class="sub-section-title" id="p1-text">原文全文</h3>
+      <div class="original-text">
+        <p>子曰：「<span class="kw">為政以德</span>，譬如<span class="kw-gold">北辰，居其所而眾星共之</span>。」</p>
+      </div>
+
+      <h3 class="sub-section-title">注釋</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音／義</th><th>重讀提醒</th></tr></thead>
+          <tbody>
+            <tr><td>為政以德</td><td>以：憑藉、用；德：德行、道德感化</td><td>與「為政以刑（法治）」對舉，是儒家德治思想的總綱</td></tr>
+            <tr><td>北辰</td><td>ㄅㄟˇ ㄔㄣˊ；北極星</td><td>古人視北極星為眾星環繞的中心，恆居其所不動</td></tr>
+            <tr><td>居其所</td><td>所：位置、處所</td><td>喻在位者安守其位、以德自持，不須刻意號令</td></tr>
+            <tr><td>共</td><td>ㄍㄨㄥˇ；通「拱」，環繞、拱衛</td><td>通假字，考點極高頻，「共」讀ㄍㄨㄥˇ非ㄍㄨㄥ</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="translation-block">
+        <p>孔子說：「用道德來治理國政，就好比北極星安居在自己的位置上，而滿天的星辰都環繞著它、拱衛著它一樣。」</p>
+      </div>
+
+      <h3 class="sub-section-title" id="p1-analysis">精析與學測考點</h3>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測高頻方向</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li><strong>「德治」與「法治」的對比</strong>：孔子主張以道德感化人民，使其心悅誠服（相對於《論語．為政》另章「道之以政，齊之以刑，民免而無恥；道之以德，齊之以禮，有恥且格」），常與法家思想對比出題。</li>
+          <li><strong>北辰之喻的邏輯</strong>：重點不在於「不動」，而在於<strong>以德服人者不必刻意號令，自然能使天下歸心</strong>，如同北辰安居本位而眾星自然環繞，是「無為而治」精神與儒家德治理想的結合。</li>
+          <li><strong>與孟子「王道」思想的呼應</strong>：本章可視為孟子後續一系列「王道民本」主張的思想源頭，兩者皆強調統治者應以德服人而非以力服人，複習時建議與本週〈王道民本思想〉一併對照。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 易錯</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li>「共」為通假字，通「拱」，讀ㄍㄨㄥˇ，義為環繞拱衛，切勿誤讀為ㄍㄨㄥ（共同）。</li>
+          <li>北辰之喻常被誤解為「統治者應消極無為、什麼都不做」，實際上強調的是<strong>以德修身為根本、自然收服人心</strong>的治理效果，並非消極怠惰。</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ==================================================== 篇二：克己復禮為仁 ==================================================== -->
+    <section>
+      <div class="piece-banner" style="background:linear-gradient(90deg, var(--accent), #a569bd);">
+        <div class="pb-kicker">論語第二章｜顏淵篇 12.1・仁的實踐</div>
+        <div class="pb-title">克己復禮為仁</div>
+        <div class="pb-meta">孔子答顏淵問仁・以「四勿」具體說明實踐仁德的工夫</div>
+      </div>
+
+      <h3 class="sub-section-title" id="p2-text">原文全文</h3>
+      <div class="original-text">
+        <p>顏淵問仁。子曰：「<span class="kw-gold">克己復禮為仁</span>。一日克己復禮，天下歸仁焉。為仁由己，而由人乎哉？」</p>
+        <p>顏淵曰：「請問其目。」子曰：「<span class="kw">非禮勿視，非禮勿聽，非禮勿言，非禮勿動</span>。」</p>
+        <p>顏淵曰：「回雖不敏，請事斯語矣。」</p>
+      </div>
+
+      <h3 class="sub-section-title">注釋</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音／義</th><th>重讀提醒</th></tr></thead>
+          <tbody>
+            <tr><td>克己</td><td>克：約束、克制；己：私欲</td><td>「克己」指戰勝、約束自己的私欲</td></tr>
+            <tr><td>復禮</td><td>復：實踐、回歸</td><td>使言行合於禮的規範</td></tr>
+            <tr><td>歸仁</td><td>歸：歸向、稱許</td><td>天下人都會稱許其為仁</td></tr>
+            <tr><td>為仁由己</td><td>由：憑藉、取決於</td><td>強調仁德的實踐完全操之在己，非他人所能給予</td></tr>
+            <tr><td>其目</td><td>目：具體條目、細項</td><td>顏淵請孔子說明「克己復禮」的具體實踐方法</td></tr>
+            <tr><td>回雖不敏</td><td>回：顏淵，名回；不敏：不聰敏，謙詞</td><td>顏淵自謙之詞，「敏」非「敏捷」而是「聰敏」</td></tr>
+            <tr><td>請事斯語</td><td>事：實踐、從事</td><td>表示願意身體力行這番教誨</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="translation-block">
+        <p>顏淵請教什麼是仁。孔子說：「能夠克制自己的私欲，使言行都回歸到禮的規範，就是仁。一旦能做到克己復禮，天下人都會稱許你為仁人。實踐仁德完全取決於自己，難道還取決於別人嗎？」</p>
+        <p>顏淵說：「請問具體該怎麼實踐？」孔子說：「不合乎禮的不要看，不合乎禮的不要聽，不合乎禮的不要說，不合乎禮的不要做。」</p>
+        <p>顏淵說：「我雖然不夠聰敏，也要努力實踐這番話。」</p>
+      </div>
+
+      <h3 class="sub-section-title" id="p2-analysis">精析與學測考點</h3>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測高頻方向</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li><strong>「仁」與「禮」的內外關係</strong>：仁是內在的道德自覺，禮是外在的行為規範，「克己復禮」說明實踐仁德的具體途徑，是<strong>由內在自覺出發、以外在禮制節制言行</strong>的修養工夫，內外並重，缺一不可。</li>
+          <li><strong>「為仁由己」的主體性</strong>：強調道德實踐的自主性——仁不假外求，完全取決於自己是否願意約束私欲，這是孔子思想中極重要的「求諸己」精神，可與「君子求諸己，小人求諸人」一併記憶。</li>
+          <li><strong>「四勿」的結構</strong>：視、聽、言、動涵蓋感官接收（視聽）與言行表現（言動）兩個層次，是仁德落實於日常生活最具體的行為準則，常考「四勿分別對應哪些生活情境」的應用題。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 易錯</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li>「克己」不是「否定自我、消滅欲望」，而是<strong>約束不合禮的私欲</strong>，切勿過度解讀為禁欲主義。</li>
+          <li>「復禮」的「禮」並非僵化的外在形式，而是孔子理想中合乎人情義理的行為規範，與後世僅重形式的「禮教」不可混為一談。</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ==================================================== 篇三：孝弟為仁之本 ==================================================== -->
+    <section>
+      <div class="piece-banner" style="background:linear-gradient(90deg, var(--teal), #1abc9c);">
+        <div class="pb-kicker">論語第三章｜學而篇 1.2・孝悌與修身</div>
+        <div class="pb-title">孝弟為仁之本</div>
+        <div class="pb-meta">有子語・以孝悌為君子務本立道的起點</div>
+      </div>
+
+      <h3 class="sub-section-title" id="p3-text">原文全文</h3>
+      <div class="original-text">
+        <p>有子曰：「其為人也孝弟，而好犯上者，鮮矣；不好犯上，而好作亂者，未之有也。<span class="kw">君子務本，本立而道生</span>。<span class="kw-gold">孝弟也者，其為仁之本與</span>！」</p>
+      </div>
+
+      <h3 class="sub-section-title">注釋</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音／義</th><th>重讀提醒</th></tr></thead>
+          <tbody>
+            <tr><td>有子</td><td>孔子弟子，姓有，名若</td><td>《論語》中少數以「子」尊稱的弟子之一</td></tr>
+            <tr><td>孝弟</td><td>ㄒㄧㄠˋ ㄊㄧˋ；弟通「悌」，敬愛兄長</td><td>通假字，孝：事親；弟（悌）：敬兄</td></tr>
+            <tr><td>犯上</td><td>冒犯居上位者</td><td>與下文「作亂」形成遞進關係</td></tr>
+            <tr><td>鮮矣</td><td>鮮：ㄒㄧㄢˇ，少</td><td>「鮮」讀上聲，義為「少」，非「新鮮」</td></tr>
+            <tr><td>未之有也</td><td>賓語前置句，即「未有之也」</td><td>文言句法常考點：否定句中代詞賓語前置</td></tr>
+            <tr><td>務本</td><td>務：致力於；本：根本</td><td>致力於根本的事務</td></tr>
+            <tr><td>與</td><td>ㄩˊ；通「歟」，表感嘆疑問語氣</td><td>通假字，句末語助詞，帶推測、感嘆語氣</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="translation-block">
+        <p>有子說：「一個人如果孝順父母、敬愛兄長，卻喜歡冒犯居上位者，這樣的人是很少見的；不喜歡冒犯上位者，卻喜歡作亂的人，那是從來沒有過的。君子致力於根本的事務，根本一旦確立，治世的正道也就由此產生了。孝順父母、敬愛兄長，這應該就是實踐仁德的根本吧！」</p>
+      </div>
+
+      <h3 class="sub-section-title" id="p3-analysis">精析與學測考點</h3>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測高頻方向</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li><strong>推論邏輯：由孝悌到不犯上、不作亂</strong>：本章以層層遞進的邏輯（孝悌者鮮犯上→不犯上者未有作亂）論證孝悌是維繫社會秩序的根本，是儒家「修身、齊家、治國、平天下」推己及人思想的雛形。</li>
+          <li><strong>「本立而道生」的結構意義</strong>：說明一切德行修養、政治理想都必須從最根本、最切近的家庭倫理（孝悌）做起，體現儒家「即家即國」由近及遠的倫理觀，常與《大學》「修身為本」一併比較（見 W12〈大學〉選讀）。</li>
+          <li><strong>孝悌「為仁之本」而非「即仁」</strong>：文中用字精確為「本」，指孝悌是實踐仁德的<strong>根本起點</strong>，而非仁德本身的全部內涵，這是命題時最常設計的細節陷阱。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 易錯</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li>「未之有也」是否定句中代詞賓語前置的文言句法，正常語序應為「未有之也」，考選擇題時常考「與哪一句句法結構相同」。</li>
+          <li>「弟」通「悌」、「與」通「歟」，兩個通假字皆為極高頻默寫易錯點，務必連字帶音一起記熟。</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ==================================================== 篇四：教育觀二章 ==================================================== -->
+    <section>
+      <div class="piece-banner" style="background:linear-gradient(90deg, var(--gold), #d4a017);">
+        <div class="pb-kicker">論語第四章｜述而 7.8．衛靈公 15.39・教育觀</div>
+        <div class="pb-title">教育觀二章</div>
+        <div class="pb-meta">啟發式教學與有教無類的平等教育精神</div>
+      </div>
+
+      <h3 class="sub-section-title" id="p4-text">原文全文</h3>
+      <div class="original-text">
+        <p><span class="om">〈述而 7.8〉</span> 子曰：「<span class="kw">不憤不啟，不悱不發</span>。舉一隅不以三隅反，則不復也。」</p>
+        <p><span class="om">〈衛靈公 15.39〉</span> 子曰：「<span class="kw-gold">有教無類</span>。」</p>
+      </div>
+
+      <h3 class="sub-section-title">注釋</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音／義</th><th>重讀提醒</th></tr></thead>
+          <tbody>
+            <tr><td>憤</td><td>ㄈㄣˋ；心中想弄明白卻想不通的鬱結狀態</td><td>非「憤怒」，指求知欲被激發卻未能貫通</td></tr>
+            <tr><td>啟</td><td>開導、啟發</td><td>教師在學生已努力思考的前提下適時點撥</td></tr>
+            <tr><td>悱</td><td>ㄈㄟˇ；想說卻說不出來的狀態</td><td>與「憤」對舉，一指思、一指言</td></tr>
+            <tr><td>發</td><td>引導說出、啟發表達</td><td>與「啟」對舉，構成完整的啟發式教學歷程</td></tr>
+            <tr><td>舉一隅不以三隅反</td><td>隅：ㄩˊ，角落；反：類推</td><td>舉出一個角落卻不能類推出其餘三個角落</td></tr>
+            <tr><td>不復也</td><td>復：再教導一次</td><td>不會再重複教導，強調學習者須主動思考</td></tr>
+            <tr><td>有教無類</td><td>類：族類、身分、資質的差異</td><td>教育機會不因出身貴賤、資質高低而有所區別</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="translation-block">
+        <p>孔子說：「教導學生，不到他努力想弄明白卻想不通的時候，不去開導他；不到他心裡想說卻說不出來的時候，不去啟發他。舉出一個角落作例子，卻不能由此類推出其餘三個角落的道理，就不再重複教導他了。」</p>
+        <p>孔子說：「教育是不分族類、身分、資質差異的。」</p>
+      </div>
+
+      <h3 class="sub-section-title" id="p4-analysis">精析與學測考點</h3>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測高頻方向</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li><strong>啟發式教學法的兩個層次</strong>：「憤／啟」對應思考層次（想不通），「悱／發」對應表達層次（說不出），孔子主張教師應等待學生主動思考、自發求知到一定程度才適時點撥，而非填鴨式灌輸，是西方「發現式學習」理論的先聲。</li>
+          <li><strong>「舉一反三」的成語出典</strong>：成語即出自本章「舉一隅不以三隅反」，強調學習應具備類推、遷移的能力，是極高頻的成語出典考點。</li>
+          <li><strong>「有教無類」的平等教育觀</strong>：孔子打破西周以來「學在官府」、教育為貴族專屬的局面，主張人人皆可受教，不因出身、資質而有差別待遇，是中國教育史上劃時代的平等思想，常與孔子「因材施教」的教學方法對照出題（因材施教見於施教方式的差異化，有教無類則指入學機會的平等，兩者層次不同）。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 易錯</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li>「有教無類」與「因材施教」常被混為一談：前者指<strong>入學機會人人平等</strong>，後者指<strong>依學生資質差異採取不同教法</strong>，兩者概念層次不同，不可等同視之。</li>
+          <li>「不憤不啟，不悱不發」不代表教師消極被動、放任不管，而是強調把握學生「準備好接受啟發」的最佳時機，教學仍具高度主動性。</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ==================================================== 篇五：性善論（水喻） ==================================================== -->
+    <section>
+      <div class="piece-banner" style="background:linear-gradient(90deg, var(--primary-dark), var(--primary));">
+        <div class="pb-kicker">孟子第一章｜告子上・性善論</div>
+        <div class="pb-title">性善論（水喻）</div>
+        <div class="pb-meta">孟子與告子辯論人性・以水必然就下譬喻人性本善</div>
+      </div>
+
+      <h3 class="sub-section-title" id="p5-text">原文全文</h3>
+      <div class="original-text">
+        <p>告子曰：「性猶湍水也，決諸東方則東流，決諸西方則西流。人性之無分於善不善也，猶水之無分於東西也。」</p>
+        <p>孟子曰：「水信無分於東西，無分於上下乎？<span class="kw-gold">人性之善也，猶水之就下也。人無有不善，水無有不下</span>。今夫水，搏而躍之，可使過顙；激而行之，可使在山。是豈水之性哉？其勢則然也。<span class="kw">人之可使為不善，其性亦猶是也</span>。」</p>
+      </div>
+
+      <h3 class="sub-section-title">注釋</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音／義</th><th>重讀提醒</th></tr></thead>
+          <tbody>
+            <tr><td>告子</td><td>戰國時人，主張「性無善無不善」</td><td>與孟子論辯人性的代表性對手</td></tr>
+            <tr><td>湍水</td><td>ㄊㄨㄢ ㄕㄨㄟˇ；急流的水</td><td>告子以急流可任意導向東西，喻人性無定向</td></tr>
+            <tr><td>決諸東方</td><td>決：疏通水道、引導；諸：之於</td><td>「諸」為「之於」的合音字，文言常考</td></tr>
+            <tr><td>信</td><td>ㄒㄧㄣˋ；誠然、的確</td><td>孟子先承認告子部分論點（水確實無分東西）</td></tr>
+            <tr><td>就下</td><td>就：趨向</td><td>水必然趨向低處流動，喻人性必然趨向善</td></tr>
+            <tr><td>搏而躍之</td><td>搏：拍擊；躍：使跳起</td><td>以人為外力使水反常地往上濺躍</td></tr>
+            <tr><td>過顙</td><td>顙：ㄙㄤˇ，額頭</td><td>形容水被拍擊後高過額頭</td></tr>
+            <tr><td>其勢則然也</td><td>勢：外在形勢、外力</td><td>強調水違反本性向上，是外力使然，非水之本性</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="translation-block">
+        <p>告子說：「人性就像湍急的水流，從東邊開缺口便向東流，從西邊開缺口便向西流。人性沒有善與不善的分別，就像水沒有向東流或向西流的固定方向一樣。」</p>
+        <p>孟子說：「水的確沒有向東或向西的固定方向，但難道也沒有向上或向下的固定方向嗎？人性的善良，就像水必然向低處流動一樣。人沒有不善良的，就像水沒有不向下流的。現在如果拍打水，使它濺起，可以讓它高過額頭；用力阻遏、激盪它，可以讓它逆流到山上去。這難道是水的本性嗎？是外在的形勢逼使它這樣的啊。人之所以可能被逼迫去做不善的事，他的本性受到扭曲的道理也是一樣的。」</p>
+      </div>
+
+      <h3 class="sub-section-title" id="p5-analysis">精析與學測考點</h3>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測高頻方向</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li><strong>論證手法：以子之矛攻子之盾</strong>：孟子先承認告子「水無分於東西」的前提，再指出水雖無分於東西，卻必然「無分於上下」——必然向下流動，藉此巧妙轉化告子的類比，論證人性必然向善，是極具邏輯技巧的駁論範例，常考「孟子如何反駁告子」的論證分析題。</li>
+          <li><strong>「性善」不等於「人不會為惡」</strong>：孟子承認人確實可能為不善，但強調這是「外力逼迫」（如同水被拍打濺起），而非人性本身的傾向，本性仍然是向善的——這是理解孟子性善論最容易誤解也最常考的細節。</li>
+          <li><strong>與論語「性相近，習相遠」的比較</strong>：孔子只說人的本性相近、後天習染使人產生差異，並未明確斷定性善或性惡；孟子則明確主張性本善，是儒家心性論的重要發展與深化，可作為論語→孟子思想演進的關鍵例證。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 易錯</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li>本章「性善論」與 W09 已讀過的「四端說」（惻隱、羞惡、辭讓、是非之心）是孟子性善論的<strong>兩種不同論證方式</strong>：四端說是從人皆有的道德情感直接舉證，本章水喻則是以類比論證的方式反駁告子，兩者互為補充，複習時應合併理解，不可視為互斥或重複的內容。</li>
+          <li>「其勢則然也」的「勢」指外在情勢、外力，不可誤解為「人性本來就包含向善與向惡兩種可能的形勢」。</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ==================================================== 篇六：大丈夫之道 ==================================================== -->
+    <section>
+      <div class="piece-banner" style="background:linear-gradient(90deg, var(--accent), #a569bd);">
+        <div class="pb-kicker">孟子第二章｜滕文公下・義利之辨與人格操守（第二輪重讀，承接 W11）</div>
+        <div class="pb-title">大丈夫之道</div>
+        <div class="pb-meta">孟子駁景春・以廣居正位大道界定真正的大丈夫</div>
+      </div>
+
+      <h3 class="sub-section-title" id="p6-text">原文全文</h3>
+      <div class="original-text">
+        <p>景春曰：「公孫衍、張儀豈不誠大丈夫哉？一怒而諸侯懼，安居而天下熄。」</p>
+        <p>孟子曰：「是焉得為大丈夫乎？子未學禮乎？丈夫之冠也，父命之；女子之嫁也，母命之，往送之門，戒之曰：『往之女家，必敬必戒，無違夫子！』以順為正者，妾婦之道也。<span class="kw">居天下之廣居，立天下之正位，行天下之大道</span>；得志，與民由之，不得志，獨行其道。<span class="kw-gold">富貴不能淫，貧賤不能移，威武不能屈</span>，此之謂大丈夫。」</p>
+      </div>
+
+      <h3 class="sub-section-title">注釋</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音／義</th><th>重讀提醒</th></tr></thead>
+          <tbody>
+            <tr><td>景春</td><td>戰國時縱橫家一派人物</td><td>崇拜公孫衍、張儀式的權謀成就</td></tr>
+            <tr><td>公孫衍、張儀</td><td>戰國著名縱橫家</td><td>以合縱連橫之術遊說諸侯，一時權傾天下</td></tr>
+            <tr><td>安居而天下熄</td><td>熄：ㄒㄧˊ，止息、平息</td><td>形容其影響力足以左右天下局勢的安危</td></tr>
+            <tr><td>冠</td><td>ㄍㄨㄢˋ；行冠禮，古代男子成年禮</td><td>動詞用法，讀去聲</td></tr>
+            <tr><td>女家</td><td>女：ㄖㄨˇ，通「汝」，你</td><td>通假字，指夫家</td></tr>
+            <tr><td>以順為正</td><td>正：正道、準則</td><td>孟子藉此批評景春推崇的縱橫家只是「以順從君主意旨為能」，如同妾婦之道，並非真正的大丈夫</td></tr>
+            <tr><td>廣居、正位、大道</td><td>依朱熹注：分別喻指仁、禮、義</td><td>三者為儒家理想人格的核心價值</td></tr>
+            <tr><td>淫、移、屈</td><td>淫：惑亂心志；移：改變節操；屈：屈服意志</td><td>三字各自對應富貴、貧賤、威武三種考驗，語意精確不可混淆</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="translation-block">
+        <p>景春說：「公孫衍、張儀難道不是真正的大丈夫嗎？他們一發怒，諸侯都感到恐懼；他們安靜下來，天下便得以平息。」</p>
+        <p>孟子說：「這樣的人怎麼稱得上是大丈夫呢？你沒有學過禮嗎？男子行冠禮時，父親會訓誡他；女子出嫁時，母親會訓誡她，送她到門口，告誡她說：『到了你丈夫家，一定要恭敬、一定要謹慎，不要違背丈夫的意旨！』把順從當作準則，這是婦人的處世之道。真正的大丈夫，應當居住在天下最寬廣的住所（仁）之中，站立在天下最正當的地位（禮）之上，行走在天下最寬廣的大道（義）之上；得志顯達時，便與百姓一同依循這條正道而行；不得志時，便獨自堅守實踐這條正道。富貴不能使他的心志被迷惑動搖，貧賤不能使他的節操被改變，威勢武力不能使他屈服意志——這樣的人，才叫做真正的大丈夫。」</p>
+      </div>
+
+      <h3 class="sub-section-title" id="p6-analysis">精析與學測考點 <span class="exam-badge">第二輪重點</span></h3>
+      <div class="box box-tip">
+        <div class="box-title">💡 第二輪只抓這三點（承接 W11 的基礎注釋）</div>
+        <ol style="padding-left:1.3rem; font-size:0.9rem;">
+          <li><strong>駁論結構</strong>：孟子不直接評論公孫衍、張儀的功業，而是先以「妾婦之道」為喻，指出「一味順從掌權者意旨」的行為模式本質上與大丈夫無關，再正面提出「廣居、正位、大道」的理想人格標準，是「先破後立」的典型論證手法。</li>
+          <li><strong>三句排比的精確語意</strong>：「淫、移、屈」分別對應「富貴、貧賤、威武」三種不同的外在考驗情境，語意各有精確所指，不是重複強調的同義字，這是本章最常設計陷阱的地方（詳見 W11 精析）。</li>
+          <li><strong>與本週〈廉恥〉士人精神系列的整合</strong>：「大丈夫」精神是後世士人「行己有恥」「富貴不能淫」等氣節論述的先秦理論源頭，複習時可與 W11 已整理過的〈廉恥〉對照表一併回顧。</li>
+        </ol>
+      </div>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測高頻方向</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li>成語出典：「富貴不能淫」「貧賤不能移」「威武不能屈」「大丈夫」皆為極高頻默寫與成語辨義考點。</li>
+          <li>「廣居、正位、大道」依朱熹注分別喻指「仁、禮、義」，常考配對題。</li>
+          <li>本章可與本週〈王道民本思想〉、〈性善論〉合併理解：孟子思想以「性善」為理論基礎，「大丈夫」為個人修養的實踐目標，「王道」為政治理想的實踐目標，三者環環相扣。</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ==================================================== 篇七：王道民本思想 ==================================================== -->
+    <section>
+      <div class="piece-banner" style="background:linear-gradient(90deg, var(--teal), #1abc9c);">
+        <div class="pb-kicker">孟子第三章｜梁惠王上・王道民本思想</div>
+        <div class="pb-title">王道民本思想</div>
+        <div class="pb-meta">五十步笑百步・論王道之始在於使民養生喪死無憾</div>
+      </div>
+
+      <h3 class="sub-section-title" id="p7-text">原文全文</h3>
+      <div class="original-text excerpt">
+        <p>梁惠王曰：「寡人之於國也，盡心焉耳矣。河內凶，則移其民於河東，移其粟於河內；河東凶，亦然。察鄰國之政，無如寡人之用心者。鄰國之民不加少，寡人之民不加多，何也？」</p>
+        <p>孟子對曰：「王好戰，請以戰喻。填然鼓之，兵刃既接，棄甲曳兵而走。或百步而後止，或五十步而後止。<span class="kw-gold">以五十步笑百步</span>，則何如？」</p>
+        <p>曰：「不可，直不百步耳，是亦走也。」</p>
+        <p>曰：「王如知此，則無望民之多於鄰國也。</p>
+        <p>不違農時，穀不可勝食也；數罟不入洿池，魚鱉不可勝食也；斧斤以時入山林，材木不可勝用也。穀與魚鱉不可勝食，材木不可勝用，是使民養生喪死無憾也。<span class="kw">養生喪死無憾，王道之始也</span>。</p>
+        <p>五畝之宅，樹之以桑，五十者可以衣帛矣。雞豚狗彘之畜，無失其時，七十者可以食肉矣。百畝之田，勿奪其時，數口之家可以無飢矣。謹庠序之教，申之以孝悌之義，頒白者不負戴於道路矣。七十者衣帛食肉，黎民不飢不寒，然而不王者，未之有也。」</p>
+      </div>
+
+      <h3 class="sub-section-title">注釋</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音／義</th><th>重讀提醒</th></tr></thead>
+          <tbody>
+            <tr><td>河內、河東</td><td>戰國魏地名，黃河流域兩岸地區</td><td>魏國都於大梁，故梁惠王即魏惠王</td></tr>
+            <tr><td>凶</td><td>荒年、饑荒</td><td>非「凶惡」，古今異義</td></tr>
+            <tr><td>填然鼓之</td><td>填：ㄊㄧㄢˊ，擬聲詞，形容擊鼓聲</td><td>鼓：名詞作動詞，擊鼓</td></tr>
+            <tr><td>棄甲曳兵</td><td>曳：ㄧㄝˋ，拖著</td><td>丟棄鎧甲、拖著兵器逃跑，形容戰敗潰逃之狀</td></tr>
+            <tr><td>直不百步耳</td><td>直：ㄓˊ，只是、僅僅</td><td>「直」通「只」，副詞，非「直接」</td></tr>
+            <tr><td>數罟不入洿池</td><td>數：ㄘㄨˋ，細密；罟：ㄍㄨˇ，漁網；洿：ㄨ，低窪積水處</td><td>不用細密的魚網在池塘中濫捕</td></tr>
+            <tr><td>斧斤以時入山林</td><td>斤：ㄐㄧㄣ，斧頭一類的工具</td><td>依照時令砍伐山林，即今日「永續」概念的先聲</td></tr>
+            <tr><td>養生喪死無憾</td><td>喪：ㄙㄤ，辦理喪事</td><td>生者得以奉養，死者得以妥善安葬，皆無所遺憾</td></tr>
+            <tr><td>豚、彘</td><td>豚：ㄊㄨㄣˊ，小豬；彘：ㄓˋ，豬</td><td>畜牧不誤其繁殖時機</td></tr>
+            <tr><td>庠序</td><td>ㄒㄧㄤˊ ㄒㄩˋ；地方學校，殷代稱序，周代稱庠</td><td>後泛指學校教育</td></tr>
+            <tr><td>頒白者不負戴於道路</td><td>頒：ㄅㄢ，通「斑」，斑白</td><td>通假字；老人不必在路上肩挑頭頂重物</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="translation-block">
+        <p>梁惠王說：「我治理國家，可算是費盡心思了。河內遇到饑荒，就把那裡的百姓遷移到河東，把河東的糧食運到河內去救濟；河東遇到饑荒，也是這樣做。我考察鄰國的政治，沒有像我這樣用心的。可是鄰國的百姓並不因此減少，我國的百姓也並不因此增多，這是為什麼呢？」</p>
+        <p>孟子回答說：「大王喜歡打仗，就讓我用打仗來作比喻。戰鼓咚咚敲響，兩軍刀槍已經接觸，戰敗的一方丟盔棄甲、拖著兵器逃跑。有人逃了一百步才停下來，有人逃了五十步才停下來。如果那個逃五十步的人譏笑逃一百步的人，你認為怎麼樣？」</p>
+        <p>梁惠王說：「不可以，他只是沒有跑到一百步罷了，這同樣也是逃跑啊。」</p>
+        <p>孟子說：「大王如果懂得這個道理，就不要再指望自己的百姓比鄰國多了。</p>
+        <p>不違背農時，糧食便會吃不完；不用細密的魚網到池塘裡濫捕，魚鱉便會吃不完；依照時令砍伐山林，木材便會用不完。糧食與魚鱉吃不完，木材用不完，這就能使百姓對生養、喪葬都沒有遺憾了。使百姓生養、喪葬都沒有遺憾，這正是王道的開端。</p>
+        <p>五畝大的住宅地，種上桑樹，五十歲的人就可以穿上絲織品了。雞、狗、豬這類家畜，飼養時不錯過牠們的繁殖時機，七十歲的人就可以吃到肉食了。百畝大的田地，不要耽誤耕作的時令，數口之家就可以不挨餓了。認真辦好學校教育，反覆用孝悌的道理教導人民，頭髮斑白的老人就不必在道路上肩挑頭頂、負重奔波了。七十歲的老人能穿絲織品、吃肉食，一般百姓不挨餓受凍，做到這樣卻不能使天下歸服稱王的，是從來沒有過的事。」</p>
+      </div>
+
+      <h3 class="sub-section-title" id="p7-analysis">精析與學測考點</h3>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測高頻方向</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li><strong>「五十步笑百步」的譬喻邏輯</strong>：梁惠王自以為救災用心優於鄰國，孟子藉戰場逃跑的比喻指出，兩國國君治國的本質其實相同（皆非行王道、仁政），只是程度上五十步與百步的差別，並非根本性的不同，這是極高頻的成語出典與論證分析考點。</li>
+          <li><strong>「王道之始」的具體政策內涵</strong>：孟子的王道並非空談仁義，而是提出「不違農時、數罟不入洿池、斧斤以時入山林」等具體、可操作的<strong>永續資源利用</strong>政策，體現儒家民本思想務實的一面，可與現代「永續發展」概念對照，是國寫知性題常見的取材方向。</li>
+          <li><strong>民本政策的兩層次結構</strong>：先滿足百姓「養生喪死無憾」的基本物質需求（王道之始），再進一步推行「庠序之教」的道德教化（王道之成），顯示孟子主張<strong>先養後教</strong>的治國順序，與孔子「庶之、富之、教之」的施政理念一脈相承。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 易錯</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li>「五十步笑百步」常被誤用為「兩者程度差距很大」，實際上孟子的原意恰好相反——是要凸顯<strong>兩者本質相同、只有程度差異，不應自滿於表面的些微優勢</strong>。</li>
+          <li>本篇為節錄，後續原文尚有「狗彘食人食而不知檢，塗有餓莩而不知發」批評當政者不知賑濟、諉過於年歲收成等段落，若考題引用超出本節錄範圍的文字，仍應掌握孟子一貫「反對諉過於天、強調當政者責任」的立場。</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ==================================================== 篇八：生於憂患，死於安樂 ==================================================== -->
+    <section>
+      <div class="piece-banner" style="background:linear-gradient(90deg, var(--gold), #d4a017);">
+        <div class="pb-kicker">孟子第四章｜告子下・逆境修養（第二輪重讀，承接 W09）</div>
+        <div class="pb-title">生於憂患，死於安樂</div>
+        <div class="pb-meta">以六位聖賢起於困頓為證，論艱困磨練成就大任的道理</div>
+      </div>
+
+      <h3 class="sub-section-title" id="p8-text">原文全文</h3>
+      <div class="original-text">
+        <p>舜發於畎畝之中，傅說舉於版築之閒，膠鬲舉於魚鹽之中，管夷吾舉於士，孫叔敖舉於海，百里奚舉於市。</p>
+        <p>故天將降大任於是人也，必先<span class="kw">苦其心志，勞其筋骨，餓其體膚，空乏其身，行拂亂其所為</span>，所以動心忍性，曾益其所不能。</p>
+        <p>人恆過，然後能改；困於心，衡於慮，而後作；徵於色，發於聲，而後喻。入則無法家拂士，出則無敵國外患者，國恆亡。然後知<span class="kw-gold">生於憂患，而死於安樂也</span>。</p>
+      </div>
+
+      <h3 class="sub-section-title">注釋</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音／義</th><th>重讀提醒</th></tr></thead>
+          <tbody>
+            <tr><td>舜發於畎畝</td><td>畎畝：ㄑㄩㄢˇ ㄇㄨˇ，田野</td><td>舜出身農耕，後受堯禪讓為帝</td></tr>
+            <tr><td>傅說舉於版築</td><td>說：ㄩㄝˋ；版築：古代築牆的苦力工作</td><td>傅說原為築牆工人，後為殷商賢相</td></tr>
+            <tr><td>膠鬲舉於魚鹽</td><td>鬲：ㄍㄜˊ</td><td>膠鬲原為販賣魚鹽的商人</td></tr>
+            <tr><td>管夷吾舉於士</td><td>士：獄官；此指獄中</td><td>管仲曾遭囚禁，後輔佐齊桓公成霸業</td></tr>
+            <tr><td>百里奚舉於市</td><td>市：市集</td><td>百里奚曾淪為奴隸，於市集中被以五張羊皮贖回</td></tr>
+            <tr><td>空乏其身</td><td>空乏：使窮困、匱乏</td><td>動詞用法，使動用法常考點</td></tr>
+            <tr><td>行拂亂其所為</td><td>拂：ㄈㄨˊ，違逆、阻撓</td><td>使他做事時屢屢受挫、不順遂</td></tr>
+            <tr><td>動心忍性</td><td>忍：使…堅忍</td><td>使動用法，使心志受到觸動、使性情變得堅忍</td></tr>
+            <tr><td>曾益其所不能</td><td>曾：ㄗㄥ，通「增」</td><td>通假字，增加他原本所欠缺的能力</td></tr>
+            <tr><td>衡於慮</td><td>衡：ㄏㄥˊ，通「橫」，梗塞、阻塞不順</td><td>通假字，思慮受到阻塞</td></tr>
+            <tr><td>徵於色，發於聲</td><td>徵：ㄓㄥ，表現；發：吐露</td><td>內心的困頓表現於臉色、吐露於言語</td></tr>
+            <tr><td>法家拂士</td><td>拂：ㄅㄧˋ，通「弼」，輔弼</td><td>通假字，指能堅守法度、輔弼君主的賢臣</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="translation-block">
+        <p>舜從田野耕作中被起用，傅說從築牆的苦力中被舉用，膠鬲從販賣魚鹽的市集中被舉用，管夷吾從獄官手中被舉用，孫叔敖從海邊隱居處被舉用，百里奚從市集中（被贖回後）被舉用。</p>
+        <p>所以上天將要把重責大任降臨在這個人身上時，一定先使他的心志遭受苦楚，使他的筋骨承受勞累，使他的身體忍受飢餓，使他的自身陷於窮困匱乏，使他所做的事屢屢受到阻撓、不能順遂，這樣做的用意，是要藉此觸動他的心志、堅忍他的性情，增加他原本所欠缺的能力。</p>
+        <p>一個人常常犯錯，然後才能夠改正；內心困頓、思慮阻塞，然後才會奮發振作；困頓的心情表現在臉色上、吐露在言語間，然後才會被人理解。一個國家，在內若沒有堅守法度的世臣與輔弼賢士，在外若沒有敵國外患的威脅，這樣的國家往往會滅亡。這樣以後才明白，憂患使人（或國家）得以生存發展，安逸享樂卻會導致滅亡啊。</p>
+      </div>
+
+      <h3 class="sub-section-title" id="p8-analysis">精析與學測考點 <span class="exam-badge">第二輪重點</span></h3>
+      <div class="box box-tip">
+        <div class="box-title">💡 第二輪只抓這三點（承接 W09 的基礎注釋）</div>
+        <ol style="padding-left:1.3rem; font-size:0.9rem;">
+          <li><strong>論證結構：舉例→歸納→推論</strong>：先列舉六位歷史人物皆出身困頓卻終成大業的具體事例（歸納論證），再以排比句式歸納磨練心志的普遍原理，最後由個人推及國家，論證「憂患／安樂」對個人與國家存亡的雙重影響，是<strong>由個別到普遍、由個人到國家</strong>的完整論證層次，比 W09 首次接觸時更應留意這個推展脈絡。</li>
+          <li><strong>「動心忍性，曾益其所不能」是磨練的目的，非磨練本身</strong>：艱苦環境只是手段，真正的目的在於<strong>觸動心志、增長原本欠缺的能力</strong>，切勿將本章簡化為「鼓勵受苦」。</li>
+          <li><strong>個人與國家的類比延伸</strong>：末段「入則無法家拂士，出則無敵國外患者，國恆亡」將前文對個人的磨練原理類推至國家治理層次，說明缺乏內部監督與外部競爭壓力的國家容易走向衰亡，是孟子論證手法「由己及人、由小及大」的典型範例。</li>
+        </ol>
+      </div>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測高頻方向</div>
+        <ul style="padding-left:1.3rem; font-size:0.9rem;">
+          <li>成語出典：「生於憂患，死於安樂」為極高頻默寫句，常整句默寫或考上下句配對。</li>
+          <li>使動用法：「苦」「勞」「餓」「空乏」「動」「忍」「曾（增）益」皆為使動用法，是本章文法考點的密集區。</li>
+          <li>通假字：曾（通增）、衡（通橫）、拂（通弼）三字通假，務必連音義一起記熟。</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: COMPARE ========== -->
+    <section id="compare">
+      <h2 class="section-title"><span class="icon">🧭</span>論孟對照與思想脈絡圖</h2>
+
+      <h3 class="sub-section-title">論語 × 孟子 主題對照表</h3>
+      <div class="card" style="padding:0;">
+        <table class="compare-table">
+          <thead><tr><th>比較主題</th><th>論語（孔子）</th><th>孟子</th><th>思想發展重點</th></tr></thead>
+          <tbody>
+            <tr><td>治國理想</td><td>為政以德——以德服人，如北辰居所而眾星拱之</td><td>王道民本——先使民養生喪死無憾（王道之始），再興學校教化（王道之成）</td><td>孔子提出「德治」的抽象理想，孟子將其具體化為可操作的民生與教育政策</td></tr>
+            <tr><td>仁的內涵</td><td>克己復禮——由外在禮制規範，約束內在私欲以達仁</td><td>性善論——仁義禮智本根於心，是人與生俱來的善性</td><td>孔子重視「工夫論」（如何做到仁），孟子則進一步論證仁德的「本體論」根源（人性本善）</td></tr>
+            <tr><td>修身起點與極致</td><td>孝弟為仁之本——修身始於家庭倫理中的孝悌</td><td>大丈夫之道——富貴不能淫，貧賤不能移，威武不能屈</td><td>由孝悌的日常實踐起點，發展至面對富貴貧賤威武考驗仍不動搖的理想人格極致</td></tr>
+            <tr><td>人才／人民的培育</td><td>教育觀——有教無類的平等教育、不憤不啟的啟發教學</td><td>生於憂患，死於安樂——艱困磨練造就人才</td><td>孔子重視外在制度性的教育機會平等，孟子重視內在心志透過逆境磨練而成長，兩者相輔相成</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">論語 → 孟子 思想脈絡圖</h3>
+      <div class="k-map">
+        <div class="k-node center">先秦儒家仁學的發展</div>
+        <div class="k-arrow">↓</div>
+        <div class="k-map-row">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.4rem;">
+            <div class="k-node">論語・孔子</div>
+            <div class="k-node" style="font-size:0.76rem; padding:0.3rem 0.6rem;">為政以德</div>
+            <div class="k-node" style="font-size:0.76rem; padding:0.3rem 0.6rem;">克己復禮為仁</div>
+            <div class="k-node" style="font-size:0.76rem; padding:0.3rem 0.6rem;">孝弟為仁之本</div>
+            <div class="k-node" style="font-size:0.76rem; padding:0.3rem 0.6rem;">有教無類</div>
+          </div>
+          <div class="k-arrow" style="align-self:center;">→</div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:0.4rem;">
+            <div class="k-node accent">孟子・繼承並深化</div>
+            <div class="k-node accent" style="font-size:0.76rem; padding:0.3rem 0.6rem;">王道民本（政治理想具體化）</div>
+            <div class="k-node accent" style="font-size:0.76rem; padding:0.3rem 0.6rem;">性善論（仁德本體論根源）</div>
+            <div class="k-node accent" style="font-size:0.76rem; padding:0.3rem 0.6rem;">大丈夫之道（人格修養極致）</div>
+            <div class="k-node accent" style="font-size:0.76rem; padding:0.3rem 0.6rem;">生於憂患死於安樂（人才培育路徑）</div>
+          </div>
+        </div>
+        <div style="font-size:0.80rem; color:var(--muted); margin-top:0.6rem; text-align:center;">
+          孔子提出「仁」的核心理念與實踐工夫，孟子在此基礎上進一步論證人性本善為仁德根源，並將德治理想具體化為王道政策，同時深化了理想人格與人才培育的論述——這是理解學測文化教材「論孟比較題」的核心框架
+        </div>
+      </div>
+
+      <div class="box box-link" style="margin-top:1rem;">
+        <div class="box-title">🔗 跨單元連結提示</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>公民科：</strong>孟子「性善論」可連結道德哲學中對人性根源的探討；「王道民本」可連結公民科「民主治理」「政府職能」等議題</li>
+          <li><strong>歷史科：</strong>戰國時期百家爭鳴的思想背景、儒家與縱橫家（公孫衍、張儀）的價值觀對比，皆可與本週選文互相印證</li>
+          <li><strong>國寫連結：</strong>「逆境成長」（生於憂患死於安樂）、「堅持原則的操守」（大丈夫之道）、「永續發展的古代智慧」（王道民本之王道之始）皆為知性題與情意題常見命題方向</li>
+          <li><strong>後續單元：</strong>後續週次將視進度安排文化教材與現代文學的統整複習，字音字形字義則會持續累積出現於各週次的隨堂測驗中</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: 語文知識 ========== -->
+    <section id="yinxing">
+      <h2 class="section-title"><span class="icon">🔤</span>語文知識：字音字形字義</h2>
+      <div class="box box-key" style="margin-bottom:1rem;">
+        <div class="box-title">✅ 為什麼要專門複習字音字形</div>
+        <p style="font-size:0.92rem;">學測國文綜合測驗第一大題常直接考「字音字形字義」的辨析，涵蓋<strong>多音字（破音字）</strong>、<strong>形似字</strong>與<strong>常見錯別字</strong>三大類型。這類題目的失分往往不是因為不會，而是因為「沒有把音、形、義三者放在具體詞語情境中一起記憶」。以下表格特別標注了與本系列先前週次古文選文的連結，複習時可順道回顧原文出處，加深記憶。</p>
+      </div>
+
+      <h3 class="sub-section-title">多音字（破音字）辨析</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字</th><th>讀音與詞例</th><th>易混淆情境</th><th>記憶提示</th></tr></thead>
+          <tbody>
+            <tr><td>累</td><td>ㄌㄟˋ 疲累／勞累／連累　｜　ㄌㄟˇ 累積／累犯</td><td>「累積成疾」與「勞累不堪」讀音不同，考卷常見誤讀陷阱</td><td>「積累」用ㄌㄟˇ，「疲累」用ㄌㄟˋ，可用「累（ㄌㄟˋ）到需要休息，才知道要累（ㄌㄟˇ）積實力」聯想</td></tr>
+            <tr><td>差</td><td>ㄔㄚ 差別／差異　｜　ㄔㄚˋ 差勁／差一點　｜　ㄔㄞ 出差／差遣　｜　ㄘ 參差不齊</td><td>四音字，「參差」讀ㄘㄣ ㄘ，極易誤讀為ㄘㄢ ㄔㄚ</td><td>「參差」二字連讀ㄘㄣ ㄘ，是最容易考的異讀，務必單獨記憶</td></tr>
+            <tr><td>藉</td><td>ㄐㄧㄝˋ 憑藉／藉口／藉此　｜　ㄐㄧˊ 狼藉／杯盤狼藉</td><td>〈赤壁賦〉「肴核既盡，杯盤狼籍」的「藉（籍）」讀ㄐㄧˊ，與「憑藉」的ㄐㄧㄝˋ不同</td><td>可與 W19〈赤壁賦〉原文一併複習：「杯盤狼藉」讀ㄐㄧˊ</td></tr>
+            <tr><td>說</td><td>ㄕㄨㄛ 說話　｜　ㄕㄨㄟˋ 遊說　｜　ㄩㄝˋ 通「悅」，如《論語》「不亦說乎」</td><td>三音字，文言文中通「悅」的用法最常被忽略</td><td>「學而時習之，不亦說（ㄩㄝˋ）乎」的「說」通「悅」，讀音與「喜悅」相同</td></tr>
+            <tr><td>傳</td><td>ㄔㄨㄢˊ 傳遞／流傳／傳授　｜　ㄓㄨㄢˋ 自傳／列傳／經傳</td><td>〈師說〉「六藝經傳皆通習之」的「傳」讀ㄓㄨㄢˋ，指解釋經書的著作</td><td>可與 W02〈師說〉原文一併複習：「經傳」讀ㄓㄨㄢˋ</td></tr>
+            <tr><td>燕</td><td>ㄧㄢˋ 燕子／宴飲（通「宴」）　｜　ㄧㄢ 燕國／燕京</td><td>作為戰國七雄之一的「燕」國名讀ㄧㄢ，與「燕子」的ㄧㄢˋ不同</td><td>「燕（ㄧㄢ）國」為地名國名讀陰平，「燕（ㄧㄢˋ）子」為鳥類讀去聲</td></tr>
+            <tr><td>相</td><td>ㄒㄧㄤ 互相／相與　｜　ㄒㄧㄤˋ 宰相／相夫子</td><td>「王侯將相」的「相」讀ㄒㄧㄤˋ，作名詞（宰相）用</td><td>作動詞（互相）讀ㄒㄧㄤ，作名詞（宰相）或「輔助」義讀ㄒㄧㄤˋ</td></tr>
+            <tr><td>泊</td><td>ㄅㄛˊ 淡泊／漂泊／停泊／湖泊</td><td>教育部《重編國語辭典修訂本》這些詞的泊都注ㄅㄛˊ，容易誤讀成ㄆㄛ</td><td>「淡泊明志」「湖泊」的泊都讀ㄅㄛˊ</td></tr>
+            <tr><td>惡</td><td>ㄜˋ 醜惡／惡人　｜　ㄨˋ 厭惡／憎惡　｜　ㄨ 惡乎（何處，文言疑問詞）</td><td>〈齊桓晉文之事〉「惡在其為民父母也」的「惡」讀ㄨ，作疑問詞「何、哪裡」</td><td>文言文中作疑問詞（何、哪裡）時讀ㄨ，是最容易被忽略的第三音</td></tr>
+            <tr><td>為</td><td>ㄨㄟˊ 作為／成為／以為／為民父母　｜　ㄨㄟˋ 為了／因為</td><td>「惡在其為民父母也」的「為」是動詞「當、作」，讀ㄨㄟˊ</td><td>作動詞（做、是）讀ㄨㄟˊ，作介詞（為了、因為）讀ㄨㄟˋ</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">形似字辨析</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字組</th><th>正確寫法與詞例</th><th>易混淆對象</th><th>記憶提示</th></tr></thead>
+          <tbody>
+            <tr><td>氾／泛</td><td>氾濫（氵＋已）　｜　泛舟／廣泛（氵＋乏）</td><td>兩字同音（ㄈㄢˋ），字形僅一筆之差，書寫時極易寫錯偏旁</td><td>「氾濫」的「氾」右邊是「已」，「泛舟」的「泛」右邊是「乏」，可對照〈赤壁賦〉「泛舟遊於赤壁之下」記憶</td></tr>
+            <tr><td>贏／羸／嬴／蠃</td><td>贏（貝部，勝利、贏得）　｜　羸（羊部，瘦弱、羸弱）　｜　嬴（女部，姓氏，如秦嬴政）　｜　蠃（虫部，螺類）</td><td>四字外形極為相似，僅部首不同，是學測極高頻的形似字組</td><td>依部首聯想部義：貝（財物）→贏；羊（体弱）→羸；女（姓氏）→嬴；虫（螺蟲）→蠃</td></tr>
+            <tr><td>戌／戍／戊</td><td>戌（ㄒㄩ，地支第十一位，戌時）　｜　戍（ㄕㄨˋ，戍守邊疆）　｜　戊（ㄨˋ，天干第五位）</td><td>三字僅一筆之差（戌有一橫、戍多一撇、戊中空），極易混淆</td><td>口訣：「戌」字有一橫、地支排老十一；「戍」字有一撇如人持戈守邊；「戊」字中空無點無撇</td></tr>
+            <tr><td>己／已／巳</td><td>己（ㄐㄧˇ，自己）　｜　已（ㄧˇ，已經）　｜　巳（ㄙˋ，地支第六位，巳時）</td><td>三字開口大小不同，「己」全開、「已」半開、「巳」全封閉</td><td>口訣：「開口己、半口已、封口巳」，依開口程度區分</td></tr>
+            <tr><td>曝／暴</td><td>曝曬（日＋暴）　｜　暴虎馮河（ㄅㄠˋ ㄏㄨˇ ㄆㄧㄥˊ ㄏㄜˊ；凶暴、急躁）</td><td>「一曝十寒」「曝曬」用「曝」，易誤寫為「暴」</td><td>「曝」是「暴」再加日字旁，音ㄆㄨˋ，比「暴」多筆畫</td></tr>
+            <tr><td>株／珠</td><td>守株待兔（木部，樹樁）　｜　字字珠璣／珍珠（玉部，珠寶）</td><td>「守株待兔」的「株」常被誤寫為玉部的「珠」</td><td>「株」是樹木的樹樁（木部），「珠」是圓形珠寶（玉部），依部首辨義即可分辨</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">常見錯別字辨析</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>正確詞語</th><th>常見錯誤寫法</th><th>正確用字解析</th></tr></thead>
+          <tbody>
+            <tr><td>罄竹難書</td><td>磬竹難書</td><td>「罄」義為器皿中空、用盡，「罄竹難書」指罪狀多到寫不完；「磬」是樂器名，字形雖相似但意義完全不同</td></tr>
+            <tr><td>一籌莫展</td><td>一愁莫展</td><td>「籌」義為計策、辦法，「一籌莫展」指毫無計策可施；「愁」是憂愁之意，與原意不符</td></tr>
+            <tr><td>無精打采</td><td>無精打彩</td><td>「采」通「神采」，指精神狀態；「彩」多指色彩、彩色，「無精打采」形容沒有精神、神情萎靡，用「采」字才正確</td></tr>
+            <tr><td>川流不息</td><td>穿流不息</td><td>「川」指河流，「川流不息」取「如河川水流般不停歇」之意；「穿」為穿越之意，字形雖近但用字錯誤</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: 弱點筆記 ========== -->
+    <section id="weak">
+      <h2 class="section-title"><span class="icon">📓</span>個人弱點筆記模板</h2>
+      <div class="box box-key">
+        <div class="box-title">✅ 承接 W17–W19：持續更新個人弱點筆記</div>
+        <p style="font-size:0.92rem;">把下表印出或抄進筆記本。每讀完一章、每做完一題，就把「不確定／記不牢／答錯」的點寫進去。每週日回顧一次，已徹底熟練的畫掉。本週新增「字音字形」類別，請特別留意。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table class="wk-table">
+          <thead><tr><th style="width:16%;">類別</th><th style="width:34%;">我的盲點（具體寫）</th><th style="width:34%;">正確內容／訂正</th><th style="width:16%;">回顧日期</th></tr></thead>
+          <tbody>
+            <tr><td>字音字形</td><td class="wk-blank">例：分不清「藉」的兩種讀音、「贏羸嬴蠃」四字寫混</td><td class="wk-blank">藉：ㄐㄧㄝˋ（憑藉）／ㄐㄧˊ（狼藉）；贏(貝)羸(羊)嬴(女)蠃(虫)依部首辨義</td><td class="wk-blank">＿＿／＿＿</td></tr>
+            <tr><td>通假字</td><td class="wk-blank">例：「共」通「拱」、「弟」通「悌」、「衡」通「橫」記不熟</td><td class="wk-blank">共(ㄍㄨㄥˇ通拱)、弟(通悌)、衡(通橫，阻塞)、曾(通增)、拂(ㄅㄧˋ通弼)</td><td class="wk-blank">＿＿／＿＿</td></tr>
+            <tr><td>論孟章句理解</td><td class="wk-blank">例：混淆〈性善論〉水喻與〈生於憂患〉磨練說的論證重點</td><td class="wk-blank">水喻論證「人性本善」；生於憂患論證「逆境磨練成就大任」，主題不同不可混淆</td><td class="wk-blank">＿＿／＿＿</td></tr>
+            <tr><td>跨篇比較</td><td class="wk-blank">例：說不清「有教無類」與「因材施教」的差異</td><td class="wk-blank">有教無類＝入學機會平等；因材施教＝依資質差異調整教法，層次不同</td><td class="wk-blank">＿＿／＿＿</td></tr>
+            <tr><td>文學常識</td><td class="wk-blank">＿＿＿＿＿</td><td class="wk-blank">＿＿＿＿＿</td><td class="wk-blank">＿＿／＿＿</td></tr>
+            <tr><td>默寫錯字</td><td class="wk-blank">＿＿＿＿＿</td><td class="wk-blank">＿＿＿＿＿</td><td class="wk-blank">＿＿／＿＿</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 本週結束前，鎖定 3 個最需補強的盲點</div>
+        <ol style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>盲點 1：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</li>
+          <li>盲點 2：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</li>
+          <li>盲點 3：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</li>
+        </ol>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: QUIZ ========== -->
+    <section id="quiz">
+      <h2 class="section-title"><span class="icon">✏️</span>隨堂自我測驗</h2>
+      <div class="box box-warn" style="margin-bottom:1.5rem;">
+        <div class="box-title">作答說明</div>
+        <p style="font-size:0.91rem;">共 8 題單選題，涵蓋本週八章論孟章句與字音字形字義。先合上講義獨立作答，再點開解析。</p>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>「為政以德，譬如北辰，居其所而眾星共之」一章，「共」字的正確讀音與意義是：</div>
+        <ol>
+          <li>ㄍㄨㄥ，共同、一起</li>
+          <li>ㄍㄨㄥˇ，通「拱」，環繞拱衛</li>
+          <li>ㄍㄨㄥˋ，供給、提供</li>
+          <li>ㄍㄨㄥ，恭敬</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.9rem;">「共」在此為通假字，通「拱」，讀ㄍㄨㄥˇ，義為環繞、拱衛，形容眾星環繞北辰的景象，用以譬喻以德服人者自然使天下歸心，不必刻意號令。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>孔子答顏淵問仁曰「克己復禮為仁」，下列敘述何者最符合本章旨意？</div>
+        <ol>
+          <li>仁德的實踐完全取決於他人的評價與認可</li>
+          <li>克己即是徹底消滅一切個人欲望</li>
+          <li>仁德的實踐須由內在自覺約束私欲，並以外在禮制節制言行，兩者並重</li>
+          <li>禮只是僵化的外在形式，與內在道德無關</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：C</p>
+            <p style="font-size:0.9rem;">「為仁由己，而由人乎哉」強調仁德實踐取決於自己而非他人（排除A）；「克己」是約束不合禮的私欲而非消滅欲望（排除B）；「復禮」的禮是孔子理想中合乎人情義理的規範，與內在道德緊密相關（排除D）。本章旨在說明仁德實踐須內外並重。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span>有子曰「孝弟也者，其為仁之本與」，句中「與」字的用法與下列何者相同？</div>
+        <ol>
+          <li>子曰：「二三子，偃之言是也，前言戲之耳。」（戲言之「戲」）</li>
+          <li>「其真無馬邪，其真不知馬也」的語氣詞「邪」</li>
+          <li>「莫春者，春服既成」的「莫」通「暮」</li>
+          <li>「靡不有初，鮮克有終」的「靡」</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.9rem;">「與」通「歟」，是句末表推測、感嘆兼疑問語氣的助詞；「其真無馬邪，其真不知馬也」中的「邪」同樣是句末表疑問、感嘆語氣的助詞，用法相近。C、D 兩項雖亦為通假字，但「莫」通「暮」是實詞通假（表時間），「靡」則是「無、沒有」之義，皆非語氣助詞，與「與」用法不同。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span>下列關於孔子「有教無類」與「不憤不啟，不悱不發」兩章的敘述，何者<strong>正確</strong>？</div>
+        <ol>
+          <li>「有教無類」指依學生資質差異採取不同教法，與「因材施教」完全同義</li>
+          <li>「不憤不啟」代表教師應消極被動、完全放任學生自行摸索</li>
+          <li>「有教無類」強調教育機會不因出身、資質而有差別待遇，「不憤不啟」則強調教師應把握學生主動思考到一定程度的最佳時機加以啟發</li>
+          <li>兩章皆與教學方法無關，僅涉及孔子的政治主張</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：C</p>
+            <p style="font-size:0.9rem;">「有教無類」指入學機會人人平等，與「因材施教」（依資質差異調整教法）層次不同，不可等同（排除A）；「不憤不啟」並非消極放任，而是強調把握教學時機，教師仍具高度主動性（排除B）；兩章皆屬孔子教育思想範疇（排除D）。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span>孟子以「水信無分於東西，無分於上下乎」反駁告子，此論證手法的核心邏輯是：</div>
+        <ol>
+          <li>直接否定告子「水無分於東西」的前提</li>
+          <li>先承認告子部分論點，再指出水必然「無分於上下」（必然向下），藉此類比人性必然向善</li>
+          <li>主張人性與水性毫無關聯，告子的類比完全不成立</li>
+          <li>證明人性與水一樣，可以被任意導向善或惡，沒有固定方向</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.9rem;">孟子先以「信」（誠然）承認告子「水無分於東西」的說法為真，再進一步指出水雖無分於東西，卻必然「無分於上下」——必然向下流動，藉此巧妙轉化告子的類比邏輯，論證人性必然趨向善，是「以子之矛攻子之盾」的駁論手法。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">6</span>孟子言「居天下之廣居，立天下之正位，行天下之大道」，依朱熹注，「廣居、正位、大道」三者依序喻指：</div>
+        <ol>
+          <li>禮、義、仁</li>
+          <li>仁、禮、義</li>
+          <li>義、仁、禮</li>
+          <li>智、仁、禮</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.9rem;">依朱熹注，「廣居」喻指「仁」（天下最寬廣的安身之所），「正位」喻指「禮」（天下最正當的立身之地），「大道」喻指「義」（天下最正確的行事準則），三者合而構成孟子理想中「大丈夫」的人格根基。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">7</span>孟子以「五十步笑百步」譬喻梁惠王，其真正用意是：</div>
+        <ol>
+          <li>肯定梁惠王的救災措施確實優於鄰國，只是差距不大</li>
+          <li>指出梁惠王與鄰國國君治國的本質其實相同（皆非行王道仁政），只是程度上的些微差異，不應自滿</li>
+          <li>批評戰場上逃跑五十步的士兵比逃跑百步的士兵更加懦弱</li>
+          <li>說明打仗時逃跑的距離與勝負無關</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.9rem;">孟子藉此譬喻指出，梁惠王雖自認救災用心優於鄰國，但兩國國君同樣未能真正施行使百姓「養生喪死無憾」的王道仁政，僅是程度上五十步與百步的差異，本質並無不同，不應因此自滿。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">8</span>下列文句「」中的字音字形，何者<strong>正確</strong>？</div>
+        <ol>
+          <li>肴核既盡，杯盤狼「藉」：讀作ㄐㄧㄝˋ</li>
+          <li>六藝經「傳」皆通習之：讀作ㄔㄨㄢˊ</li>
+          <li>「守株」待兔：正確寫法為「守珠待兔」</li>
+          <li>做事「一籌莫展」，不可誤寫為「一愁莫展」</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：D</p>
+            <ul style="padding-left:1.2rem; font-size:0.9rem;">
+              <li>A 錯：「杯盤狼藉」的「藉」讀ㄐㄧˊ，非ㄐㄧㄝˋ（ㄐㄧㄝˋ用於「憑藉」）。</li>
+              <li>B 錯：「六藝經傳」的「傳」作名詞（解經之作）讀ㄓㄨㄢˋ，非ㄔㄨㄢˊ。</li>
+              <li>C 錯：「守株待兔」的「株」是木部（樹樁），正確寫法即為「株」，不可寫成玉部的「珠」。</li>
+              <li>D 正：「一籌莫展」的「籌」義為計策，常見錯誤寫法為「一愁莫展」，D 選項正確指出此易錯點。</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="box box-key" style="margin-top:1.5rem;">
+        <div class="box-title">✅ 測驗後的學習建議</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>答錯題目對應的章句，回到「精析與學測考點」重看一次，並抄進弱點筆記。</li>
+          <li>把「論語 × 孟子 主題對照表」與「字音字形字義」三大表格各默寫一次——這是本週最高 CP 值的複習素材。</li>
+          <li>週末可安排一次 20 題左右的字音字形字義綜合小卷，並回頭複習前面週次古文選文中出現過的相關字詞，加強長期記憶。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top:3rem; padding-top:1.5rem; border-top:2px solid var(--border); text-align:center; font-size:0.82rem; color:var(--muted);">
+      <p>W20 國文科講義｜論語．孟子重點章節精讀（第二輪深化）＋語文知識：字音字形字義</p>
+      <p style="margin-top:0.3rem;">高三上・理工組｜第三階段：第二輪主題強化｜09/28–10/04</p>
+      <p style="margin-top:0.3rem;">經典引用依台灣高中國文課本與傳世文本；本講義僅供學習參考</p>
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>

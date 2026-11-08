@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W15 國文科學習講義｜國寫感性題入門 ＆ 古文語文知識整理</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: "Microsoft JhengHei", "蘋方-繁", "PingFang TC", "Noto Sans TC", sans-serif;
+      background: #fdf6f0;
+      color: #2c2c2c;
+      line-height: 1.8;
+    }
+    :root {
+      --primary:       #c0392b;
+      --primary-dark:  #96281b;
+      --primary-light: #e74c3c;
+      --primary-bg:    #fdecea;
+      --accent:        #8e44ad;
+      --accent-bg:     #f5eef8;
+      --gold:          #b7860b;
+      --gold-bg:       #fef9e7;
+      --teal:          #1a7a6e;
+      --teal-bg:       #e8f8f5;
+      --ink:           #2c2c2c;
+      --muted:         #6b6b6b;
+      --border:        #e0d0cd;
+      --card-bg:       #ffffff;
+      --shadow:        0 2px 12px rgba(192,57,43,0.10);
+    }
+    .page-wrapper { display: flex; min-height: 100vh; }
+    .sidebar {
+      width: 240px; min-width: 240px;
+      background: linear-gradient(180deg, #96281b 0%, #c0392b 40%, #e74c3c 100%);
+      color: #fff;
+      position: sticky; top: 0; height: 100vh;
+      overflow-y: auto; padding: 0 0 2rem 0;
+      box-shadow: 3px 0 14px rgba(0,0,0,0.15);
+      z-index: 100;
+    }
+    .sidebar-header {
+      background: rgba(0,0,0,0.20);
+      padding: 1.4rem 1rem 1.2rem 1rem;
+      text-align: center;
+    }
+    .sidebar-header .subject-badge {
+      display: inline-block;
+      background: #fff;
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1.1rem;
+      border-radius: 20px;
+      padding: 0.2rem 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+    .sidebar-header p { font-size: 0.78rem; opacity: 0.88; line-height: 1.5; }
+    .sidebar nav { padding: 1rem 0; }
+    .sidebar nav a {
+      display: block;
+      padding: 0.45rem 1.1rem;
+      color: rgba(255,255,255,0.90);
+      text-decoration: none;
+      font-size: 0.85rem;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.15);
+      border-left-color: #fff;
+      color: #fff;
+    }
+    .nav-section {
+      padding: 0.6rem 1.1rem 0.2rem 1.1rem;
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      opacity: 0.65;
+      text-transform: uppercase;
+    }
+    .nav-indent { padding-left: 1.8rem !important; font-size: 0.80rem !important; }
+    .main-content {
+      flex: 1;
+      padding: 2rem 2.5rem 4rem 2.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .page-header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: "文";
+      position: absolute;
+      right: 2rem; top: 50%;
+      transform: translateY(-50%);
+      font-size: 9rem;
+      opacity: 0.10;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .page-header .week-tag {
+      background: rgba(255,255,255,0.22);
+      display: inline-block;
+      padding: 0.2rem 0.9rem;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1px;
+    }
+    .page-header h1 { font-size: 1.85rem; font-weight: 900; margin-bottom: 0.4rem; }
+    .page-header .subtitle { font-size: 0.95rem; opacity: 0.88; }
+    .meta-row { display: flex; gap: 1.2rem; margin-top: 1.1rem; flex-wrap: wrap; }
+    .meta-chip {
+      background: rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 0.22rem 0.9rem;
+      font-size: 0.80rem;
+    }
+    .section-title {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 1.30rem; font-weight: 800;
+      color: var(--primary-dark);
+      margin: 2.5rem 0 1.2rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--primary);
+    }
+    .section-title .icon { font-size: 1.3rem; }
+    .sub-section-title {
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--primary);
+      margin: 1.6rem 0 0.8rem 0;
+      padding-left: 0.8rem;
+      border-left: 4px solid var(--primary);
+    }
+    .sub-sub-title {
+      font-size: 0.96rem; font-weight: 700;
+      color: var(--accent);
+      margin: 1.2rem 0 0.5rem 0;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    .box {
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      font-size: 0.93rem;
+    }
+    .box-key   { background: var(--primary-bg); border-left: 5px solid var(--primary); }
+    .box-warn  { background: #fff8e1; border-left: 5px solid #f39c12; }
+    .box-tip   { background: var(--teal-bg); border-left: 5px solid var(--teal); }
+    .box-link  { background: var(--accent-bg); border-left: 5px solid var(--accent); }
+    .box-gold  { background: var(--gold-bg); border-left: 5px solid var(--gold); }
+    .box-title { font-weight: 700; margin-bottom: 0.4rem; }
+    .original-text {
+      background: #fffaf7;
+      border: 1px solid #e8d5c8;
+      border-radius: 10px;
+      padding: 1.4rem 1.8rem;
+      font-size: 1.02rem;
+      line-height: 2.2;
+      color: #2c2c2c;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .original-text::before {
+      content: "原文";
+      position: absolute;
+      top: -0.7rem; left: 1.2rem;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .original-text.small { padding: 1rem 1.4rem; font-size: 0.96rem; line-height: 1.9; }
+    .original-text p { margin-bottom: 0.6rem; }
+    .original-text p:last-child { margin-bottom: 0; }
+    .translation-block {
+      background: #f0f7f5;
+      border: 1px solid #b2d8d0;
+      border-radius: 10px;
+      padding: 1.3rem 1.6rem;
+      font-size: 0.93rem;
+      line-height: 1.95;
+      color: #1c4a43;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .translation-block::before {
+      content: "白話語譯";
+      position: absolute;
+      top: -0.7rem; left: 1.2rem;
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .translation-block.small { padding: 1rem 1.4rem; font-size: 0.90rem; }
+    .kw { border-bottom: 2px solid var(--primary); color: var(--primary-dark); font-weight: 600; cursor: default; }
+    .kw-gold { border-bottom: 2px solid var(--gold); color: var(--gold); font-weight: 600; }
+    .kw-teal { border-bottom: 2px solid var(--teal); color: var(--teal); font-weight: 600; }
+    .kw-accent { border-bottom: 2px solid var(--accent); color: var(--accent); font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.91rem; margin: 0.8rem 0; }
+    thead tr { background: var(--primary); color: #fff; }
+    thead th { padding: 0.65rem 1rem; text-align: left; font-weight: 700; }
+    tbody tr:nth-child(even) { background: #fdf2f2; }
+    tbody tr:hover { background: var(--primary-bg); }
+    tbody td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody td:first-child { font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+    .analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+    @media (max-width: 700px) { .analysis-grid { grid-template-columns: 1fr; } }
+    .analysis-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+    .analysis-item h4 { color: var(--primary-dark); font-size: 0.92rem; margin-bottom: 0.5rem; }
+    .analysis-item p, .analysis-item ul { font-size: 0.88rem; }
+    .analysis-item ul { padding-left: 1.2rem; }
+    .analysis-item li { margin-bottom: 0.3rem; }
+    .compare-table thead tr { background: var(--accent); }
+    .compare-table tbody td:first-child { color: var(--accent); }
+    .quiz-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-item .q-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      width: 1.8rem; height: 1.8rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 1.8rem;
+      font-weight: 700; font-size: 0.88rem;
+      margin-right: 0.5rem;
+    }
+    .quiz-item .q-text { font-size: 0.94rem; font-weight: 600; margin-bottom: 0.7rem; }
+    .quiz-item ol { padding-left: 1.5rem; font-size: 0.92rem; }
+    .quiz-item li { margin-bottom: 0.3rem; list-style-type: upper-alpha; }
+    details { margin-top: 0.7rem; }
+    summary {
+      cursor: pointer;
+      background: var(--primary-bg);
+      color: var(--primary-dark);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem; font-weight: 700;
+      display: inline-block;
+      user-select: none;
+    }
+    summary:hover { background: var(--primary); color: #fff; }
+    details[open] summary { background: var(--primary); color: #fff; }
+    .answer-box {
+      background: #fef9e7;
+      border: 1px solid #f0d060;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-top: 0.6rem;
+      font-size: 0.90rem;
+    }
+    .answer-box .correct { color: #27ae60; font-weight: 700; }
+    .k-map {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.5rem; padding: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .k-map-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .k-node {
+      background: var(--primary-bg);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--primary-dark);
+      text-align: center;
+    }
+    .k-node.center { background: var(--primary); color: #fff; font-size: 0.95rem; padding: 0.7rem 1.4rem; }
+    .k-node.teal { background: var(--teal-bg); border-color: var(--teal); color: var(--teal); }
+    .k-node.gold { background: var(--gold-bg); border-color: var(--gold); color: var(--gold); }
+    .k-node.accent { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); }
+    .k-arrow { font-size: 1.4rem; color: var(--muted); }
+    .tag {
+      display: inline-block; font-size: 0.74rem; font-weight: 700;
+      padding: 0.15rem 0.55rem; border-radius: 10px; margin: 0.15rem;
+    }
+    .tag-red    { background: #fdecea; color: var(--primary); border: 1px solid var(--primary); }
+    .tag-teal   { background: var(--teal-bg); color: var(--teal); border: 1px solid var(--teal); }
+    .tag-gold   { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold); }
+    .tag-purple { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent); }
+    .exam-badge {
+      background: var(--primary); color: #fff;
+      font-size: 0.72rem; font-weight: 700;
+      padding: 0.12rem 0.5rem; border-radius: 8px;
+      vertical-align: middle; margin-left: 0.3rem;
+    }
+    .divider { border: none; border-top: 2px dashed var(--border); margin: 2.5rem 0; }
+    .toc {
+      background: var(--gold-bg);
+      border: 1px solid #f0c040;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .toc h3 { color: var(--gold); margin-bottom: 0.8rem; font-size: 1rem; }
+    .toc ol { padding-left: 1.5rem; font-size: 0.90rem; }
+    .toc li { margin-bottom: 0.3rem; }
+    .toc a { color: var(--primary-dark); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; color: var(--primary); }
+    .excerpt-note { font-size: 0.82rem; color: var(--muted); font-style: italic; margin: 0.3rem 0 0.8rem 0; }
+    .tree-visual { background:#fffaf7; border:1px solid var(--border); border-radius:10px; padding:20px 24px 16px 20px; margin:14px 0; overflow-x:auto; }
+    .tv-root { display:inline-flex; align-items:center; background:var(--primary-dark); color:#fff; font-weight:700; font-size:15px; padding:5px 18px; border-radius:20px; margin-bottom:6px; }
+    .tv-children { list-style:none; padding:0; margin:0 0 0 14px; border-left:2px solid var(--border); }
+    .tv-item { position:relative; padding:5px 0 4px 22px; }
+    .tv-item::before { content:''; position:absolute; left:0; top:14px; width:18px; height:2px; background:var(--border); }
+    .tv-node { display:inline-block; border-radius:6px; padding:3px 12px; font-size:13px; font-weight:600; line-height:1.6; }
+    .tv-desc { display:block; font-size:11.5px; color:var(--muted); padding:0 4px; margin:1px 0 3px; }
+    .tv-node.tv-l1 { background:#fff3e0; color:var(--primary-dark); border:1px solid var(--primary-light); font-size:14px; }
+    .tv-node.tv-l2 { background:#fbe9e7; color:#5d4037; border:1px solid #ffab91; }
+    .tv-node.tv-l3 { background:#fafafa; color:var(--ink); border:1px solid #e0e0e0; font-weight:400; }
+    .quote-block {
+      background: #faf5ff;
+      border: 1px dashed var(--accent);
+      border-radius: 10px;
+      padding: 1.1rem 1.6rem;
+      font-size: 1.0rem;
+      line-height: 1.95;
+      color: #4a235a;
+      margin: 1rem 0;
+    }
+    .quote-block .ql-label {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.6rem;
+      border-radius: 8px;
+      margin-bottom: 0.6rem;
+    }
+    .quote-block p { font-style: italic; }
+    .quote-block .ql-source { display: block; margin-top: 0.5rem; font-size: 0.8rem; font-style: normal; color: var(--muted); text-align: right; }
+    .essay-frame {
+      background: #fffaf7;
+      border: 1px solid #e8d5c8;
+      border-radius: 10px;
+      padding: 1.3rem 1.6rem;
+      margin: 1rem 0;
+      font-size: 0.92rem;
+    }
+    .essay-frame .ef-part { margin-bottom: 0.9rem; }
+    .essay-frame .ef-part:last-child { margin-bottom: 0; }
+    .essay-frame .ef-label {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      margin-bottom: 0.35rem;
+    }
+    .word-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--accent);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      margin: 1rem 0;
+    }
+    .word-card .wc-title { font-size: 1.0rem; font-weight: 800; color: var(--accent); margin-bottom: 0.6rem; }
+    .word-card ul { padding-left: 1.3rem; font-size: 0.90rem; }
+    .word-card li { margin-bottom: 0.45rem; }
+    .word-card .src { color: var(--muted); font-size: 0.82rem; }
+    @media (max-width: 820px) {
+      .sidebar { display: none; }
+      .main-content { padding: 1.2rem 1rem 3rem 1rem; }
+    }
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.35); border-radius: 4px; }
+    @media print {
+      .sidebar { display: none; }
+      .main-content { padding: 0; max-width: 100%; }
+      .page-header { background: #c0392b !important; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="subject-badge">國 文</div>
+      <p>W15 國寫感性題 ＆ 古文語文知識整理<br>學測備考講義<br>暑假黃金衝刺期 第8週</p>
+    </div>
+    <nav>
+      <div class="nav-section">Overview</div>
+      <a href="#overview">學習總覽</a>
+      <a href="#prereq">先備知識</a>
+
+      <div class="nav-section">國寫練習</div>
+      <a href="#sentimental-intro" class="nav-indent">感性題 vs. 知性題</a>
+      <a href="#sentimental-rubric" class="nav-indent">感性題評分規準</a>
+      <a href="#sentimental-example" class="nav-indent">範例練習與大綱示範</a>
+      <a href="#sentimental-pitfall" class="nav-indent">常見失分原因</a>
+
+      <div class="nav-section">古文語文知識整理</div>
+      <a href="#tongjia" class="nav-indent">通同字／古今字</a>
+      <a href="#polysemy" class="nav-indent">一字多義</a>
+      <a href="#syntax" class="nav-indent">特殊句法與倒裝</a>
+      <a href="#rhetoric" class="nav-indent">修辭手法舉隅</a>
+      <a href="#culture" class="nav-indent">文化與文學史常識</a>
+
+      <div class="nav-section">統整與應用</div>
+      <a href="#kmap">知識連結圖</a>
+
+      <div class="nav-section">複習與測驗</div>
+      <a href="#summary">重點整理</a>
+      <a href="#quiz">隨堂選擇題</a>
+    </nav>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main-content">
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="week-tag">第十五週學習單元｜WEEK 15｜08/24–08/30｜暑假黃金衝刺期 第 8 週</div>
+      <h1>W15 國文科國寫感性題與古文語文知識講義</h1>
+      <div class="subtitle">國寫練習：感性題（抒情性寫作）1 篇／古文 30 篇語文知識整理</div>
+      <div class="meta-row">
+        <span class="meta-chip">高二 · 理工組</span>
+        <span class="meta-chip">學測備考</span>
+        <span class="meta-chip">國寫｜感性題</span>
+        <span class="meta-chip">古文30篇（30/30）總複習</span>
+      </div>
+    </header>
+
+    <!-- TOC -->
+    <div class="toc" id="toc">
+      <h3>目錄 Table of Contents</h3>
+      <ol>
+        <li><a href="#overview">學習總覽與目標</a></li>
+        <li><a href="#prereq">先備知識</a></li>
+        <li><a href="#sentimental-intro">感性題 vs. 知性題：核心差異</a></li>
+        <li><a href="#sentimental-rubric">感性題評分四大規準</a></li>
+        <li><a href="#sentimental-example">範例練習與寫作大綱示範</a></li>
+        <li><a href="#sentimental-pitfall">感性題常見失分原因</a></li>
+        <li><a href="#tongjia">通同字／古今字</a></li>
+        <li><a href="#polysemy">一字多義</a></li>
+        <li><a href="#syntax">特殊句法與倒裝</a></li>
+        <li><a href="#rhetoric">修辭手法舉隅</a></li>
+        <li><a href="#culture">文化與文學史常識</a></li>
+        <li><a href="#kmap">知識連結圖</a></li>
+        <li><a href="#summary">重點整理</a></li>
+        <li><a href="#quiz">隨堂自我測驗（8 題）</a></li>
+      </ol>
+    </div>
+
+    <!-- ========== SECTION 1: OVERVIEW ========== -->
+    <section id="overview">
+      <h2 class="section-title"><span class="icon">📖</span>學習總覽</h2>
+      <div class="box box-gold">
+        <div class="box-title">🌱 從「讀」到「寫」的第二步：知性之後，換感性上場</div>
+        <p style="font-size:0.92rem;">上週（W14）國寫練習加入了「知性題」，本週（W15，08/24–08/30）銜接練習「<strong>感性題（抒情性寫作）</strong>」，這是國寫另一大類型，測驗的是考生對生命經驗的體察與情感表達能力。同時，古文 30 篇已在 W12 全數教授完畢（30/30），本週不再學習新的古文選文，而是回頭進行一次全面的「<strong>古文語文知識整理</strong>」——把散落在 30 篇文章中的通同字、一字多義、特殊句法與修辭手法，依類別重新歸納整理，這類語文知識題正是學測國文選擇題的固定必考題型。</p>
+      </div>
+
+      <div class="card">
+        <p>本週學習分成兩大主軸：第一，透過一組完整的感性題模擬題組，練習如何從一個具體的生活片段或物件切入，鋪陳情感與細節，最終收束於體悟；第二，以「通同字」「一字多義」「特殊句法」「修辭手法」「文化常識」五大類別，重新檢視已學過的 30 篇古文中最常被學測選擇題引用的例句，鞏固語文知識的辨識能力。兩者看似方向不同，實則互補——感性題練的是「輸出」的表達能力，古文語文知識整理練的是「輸入」的精讀與辨析能力，兩者合觀，能讓國文科的閱讀與寫作能力更緊密地相互支援。</p>
+      </div>
+
+      <h3 class="sub-section-title">本週學習範疇地圖</h3>
+      <div class="tree-visual">
+        <div class="tv-root">學測國文．國寫感性題 ＆ 古文語文知識整理</div>
+        <ul class="tv-children">
+          <li class="tv-item">
+            <span class="tv-node tv-l1">國寫｜感性題（抒情性寫作）</span>
+            <span class="tv-desc">本週首度練習｜完整模擬題組 1 組</span>
+          </li>
+          <li class="tv-item">
+            <span class="tv-node tv-l1">古文語文知識整理</span>
+            <span class="tv-desc">回顧古文30篇（W01–W12，30/30 已完成）</span>
+            <ul class="tv-children">
+              <li class="tv-item"><span class="tv-node tv-l3">通同字／古今字｜一字多義｜特殊句法與倒裝</span></li>
+              <li class="tv-item"><span class="tv-node tv-l3">修辭手法舉隅｜文化與文學史常識</span></li>
+            </ul>
+          </li>
+          <li class="tv-item">
+            <span class="tv-node tv-l2">國寫｜知性題</span>
+            <span class="tv-desc">W14 已完成入門，後續持續練習</span>
+          </li>
+        </ul>
+      </div>
+
+      <h3 class="sub-section-title">學習目標</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 完成本週學習後，你應能：</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li>理解國寫感性題與知性題在測驗目標、取材方式與評分重點上的核心差異</li>
+          <li>掌握感性題「以具體細節帶動情感」的寫作原則，能依大綱示範練習構思一篇完整的感性題文章</li>
+          <li>能辨識古文 30 篇中常見的通同字、古今字用法，並正確寫出本字與釋義</li>
+          <li>能辨析「之」「以」「而」「其」「於」等常考虛實詞在不同篇章中的多重意義</li>
+          <li>能辨識賓語前置、狀語後置、省略句等文言特殊句法，並正確還原為現代語序</li>
+          <li>能舉出古文 30 篇中對偶、排比、譬喻、引用等修辭手法的實際例句</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 2: PREREQ ========== -->
+    <section id="prereq">
+      <h2 class="section-title"><span class="icon">📚</span>先備知識</h2>
+      <div class="box box-link">
+        <div class="box-title">🔗 學習本週前，你應已具備：</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li><strong>知性題寫作經驗：</strong>W14 已練習過知性題「總—分—總」的論說結構，本週感性題雖然文類不同，但同樣需要清楚的篇章佈局</li>
+          <li><strong>古文 30 篇的基礎熟讀：</strong>W01–W12 已完整學習 30 篇古文的原文、字詞注釋與白話語譯，本週整理建立在對這些選文已有印象的基礎上，若對特定篇目已生疏，建議先快速回頭翻閱對應週次講義</li>
+          <li><strong>基礎文法概念：</strong>知道現代中文「主詞＋動詞＋受詞」的基本語序，才能理解文言文「倒裝」句法與現代語序的差異</li>
+          <li><strong>基礎修辭格：</strong>對偶、排比、譬喻、引用等修辭定義（W01–W13 已多次練習辨識）</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: 感性題 INTRO ========== -->
+    <section id="sentimental-intro">
+      <h2 class="section-title"><span class="icon">✍️</span>感性題 vs. 知性題：核心差異</h2>
+      <div class="box box-gold">
+        <div class="box-title">🌱 國寫兩大類型，各佔 25 級分</div>
+        <p style="font-size:0.92rem;">國語文寫作能力測驗（國寫）由「知性題（論說性寫作）」與「感性題（抒情性寫作）」兩大題型組成，各佔 25 級分，合計 50 級分。W14 已練習過知性題著重的是「說理」——如何針對引導材料提出清晰的論點並加以論證；本週練習的感性題著重的則是「抒情」——如何從個人生命經驗出發，透過具體的畫面、物件與細節，傳達真摯而有層次的情感體悟。</p>
+      </div>
+
+      <h3 class="sub-section-title">兩者核心差異對照</h3>
+      <div class="card" style="padding:0;">
+        <table class="compare-table">
+          <thead><tr><th>比較項目</th><th>知性題（論說性寫作）</th><th>感性題（抒情性寫作）</th></tr></thead>
+          <tbody>
+            <tr><td>測驗核心</td><td>邏輯思辨、論證與批判能力</td><td>情感體察、細節經營與感受轉化能力</td></tr>
+            <tr><td>取材依據</td><td>引導材料（文字／圖表數據）＋客觀分析</td><td>個人生命經驗、記憶片段、具體物件或場景</td></tr>
+            <tr><td>常見結構</td><td>總—分—總／問題—分析—結論，段落間需有明確論證邏輯</td><td>由具體畫面或物件切入，鋪陳細節與情感轉折，收束於體悟或轉念</td></tr>
+            <tr><td>語言風格</td><td>精確、條理分明，避免情緒化用語</td><td>講究意象經營、感官摹寫與情感節奏，可適度使用譬喻、轉化等修辭</td></tr>
+            <tr><td>最忌諱</td><td>只重述材料、缺乏個人分析與明確論點</td><td>空喊口號式的情緒詞彙（如反覆寫「我很感動」），卻沒有具體細節支撐</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-tip">
+        <div class="box-title">💡 一句話理解兩者差異</div>
+        <p style="font-size:0.91rem;">知性題要你「證明一個道理」，感性題要你「重現一段感受」——感性題的關鍵不在於情感有多濃烈，而在於能否用<strong>具體可感的細節</strong>，讓讀者「看見」你所經歷的那個當下。</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: 感性題 RUBRIC ========== -->
+    <section id="sentimental-rubric">
+      <h2 class="section-title"><span class="icon">🎯</span>感性題評分四大規準</h2>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>取材與情感真摯度</h4>
+          <p>取材是否貼近題目要求、是否為考生自身真實可信的生命經驗；情感表達是否真誠自然，避免刻意誇大或套用陳腔濫調的感人情節。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>意象經營與細節描寫</h4>
+          <p>是否善用具體的感官細節（視覺、聽覺、觸覺等）與意象，將抽象情感轉化為可感的畫面，避免空泛地直接陳述情緒。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>結構與情感層次</h4>
+          <p>全文是否有清楚的情感發展脈絡（如：由平靜到波動、由困惑到體悟），段落安排能否呈現情感或思緒的轉折與遞進，而非平鋪直敘。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>語言表達與文采</h4>
+          <p>文句是否通順優美、用詞是否精準生動，修辭手法（譬喻、轉化、摹寫等）運用是否自然貼切，而非為修辭而修辭。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: 感性題 EXAMPLE ========== -->
+    <section id="sentimental-example">
+      <h2 class="section-title"><span class="icon">📝</span>範例練習與寫作大綱示範</h2>
+
+      <h3 class="sub-section-title">模擬題組</h3>
+      <div class="essay-frame">
+        <div class="ef-part">
+          <span class="ef-label">引導材料</span>
+          <p>每個人的生命中，或許都曾擁有一件看似平凡、卻在某個時刻忽然變得意義非凡的物件——它可能是一支用了多年的筆、一張泛黃的照片、一件舊衣服，或是家中某個角落的擺設。這些物件平時並不起眼，卻悄悄承載著一段時光、一份情感，或是一個已經改變的自己。</p>
+        </div>
+        <div class="ef-part">
+          <span class="ef-label">寫作要求</span>
+          <p>請以「那件小事物」為題，寫一篇文章，記敘一件對你別具意義的物件，並抒發你從中體會到的情感與感悟。文長不限，但須有完整的起、承、轉、合結構。</p>
+        </div>
+      </div>
+
+      <h3 class="sub-section-title">寫作大綱範例（供練習參考，非完整範文）</h3>
+      <div class="box box-tip">
+        <div class="box-title">💡 「畫面切入—細節鋪陳—轉念體悟—收束呼應」結構示範</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>起（具體畫面切入）：</strong>不從「我要寫一件對我很重要的東西」這類直述句開始，而是先描繪一個具體的當下畫面——例如：翻找抽屜時，指尖無意間碰到那支筆蓋已經磨損的鋼筆，勾起一段塵封的記憶</li>
+          <li><strong>承（細節鋪陳回憶）：</strong>倒敘描寫這件物件的來歷與當時的情境（如：那是祖父教自己寫第一個字時所用的筆），運用具體的感官細節（筆身的重量、墨水的氣味、握筆時的觸感）讓回憶重現，而非籠統帶過</li>
+          <li><strong>轉（轉念與體悟）：</strong>描寫物件與現在的自己產生的呼應或落差（如：祖父已經過世，但握筆寫字的習慣卻成為自己與他之間仍然延續的連結），情感由平靜的懷念轉向更深一層的體悟</li>
+          <li><strong>合（收束呼應）：</strong>回到現在的時空，總結這件小事物對自己的意義——它提醒著自己某種被珍視的價值或情感的延續，並可與篇首畫面首尾呼應，讓文章結構完整</li>
+        </ul>
+      </div>
+
+      <div class="box box-link">
+        <div class="box-title">🔗 可運用的意象經營技巧</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>感官摹寫：</strong>不只寫「這支筆很舊」，而是具體寫出「筆蓋邊緣已磨得發亮，握在掌心還留著淡淡的木頭氣味」</li>
+          <li><strong>今昔對照：</strong>透過物件連結過去與現在兩個時空，凸顯時間流逝與情感沉澱的層次感</li>
+          <li><strong>以物寫情、以小見大：</strong>讓一件微小的物件承載較大的情感命題（如親情、成長、失去與延續），避免情感直接空泛地說出口</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: 感性題 PITFALL ========== -->
+    <section id="sentimental-pitfall">
+      <h2 class="section-title"><span class="icon">⚠️</span>感性題常見失分原因</h2>
+      <div class="box box-warn">
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>情感表述空泛，只反覆寫「我很感動」「我很難過」等抽象詞彙，卻沒有具體細節支撐，讀者難以感同身受</li>
+          <li>取材不夠具體真實，內容流於套用坊間常見的「感人故事」模板，情感顯得刻意而不自然</li>
+          <li>結構鬆散，全文平鋪直敘、缺乏情感或思緒的轉折層次，讀來像流水帳而非有機的篇章</li>
+          <li>修辭堆砌過度，為了展現文采而使用大量華麗辭藻，反而使情感顯得矯情、失真</li>
+          <li>離題或偏題，未緊扣題目要求的具體寫作對象（如題目要求寫「物件」，卻整篇只泛泛談論抽象的親情觀念）</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: 通同字／古今字 ========== -->
+    <section id="tongjia">
+      <h2 class="section-title"><span class="icon">📜</span>古文語文知識整理｜通同字／古今字</h2>
+      <div class="box box-gold">
+        <div class="box-title">🏆 古文30篇已全數完成（30/30），本週進行語文知識總複習</div>
+        <p style="font-size:0.92rem;">以下五大類別的例句，皆直接摘引自 W01–W12 已學過的古文30篇原文（公版古典文獻，全文引用），依語文知識類別重新歸納整理，是學測國文選擇題「字詞辨析」「語文常識」題型的固定必考範疇。</p>
+      </div>
+
+      <p style="font-size:0.91rem; color:var(--muted); margin-bottom:0.5rem;">通同字（通假字）指古文中借用讀音相同或相近的字來代替本字；古今字則是同一詞義因時代演變而先後使用不同字形。以下例句均取自已學篇目原句：</p>
+
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>原句（全文引用）</th><th>出處</th><th>通／本字</th><th>釋義</th></tr></thead>
+          <tbody>
+            <tr><td>「行李之往來，<span class="kw">共</span>其乏困」</td><td>燭之武退秦師</td><td>共＝供</td><td>供給、供應</td></tr>
+            <tr><td>「秦伯<span class="kw">說</span>，與鄭人盟」</td><td>燭之武退秦師</td><td>說＝悅</td><td>高興、喜悅</td></tr>
+            <tr><td>「便<span class="kw">要</span>還家，設酒殺雞作食」</td><td>桃花源記</td><td>要＝邀</td><td>邀請</td></tr>
+            <tr><td>「或師焉，或<span class="kw">不</span>焉」</td><td>師說</td><td>不＝否</td><td>不、否定（此處指不從師學習）</td></tr>
+            <tr><td>「爾來二十<span class="kw">有</span>一年矣」</td><td>出師表</td><td>有＝又</td><td>表示整數之外再加零數</td></tr>
+            <tr><td>「必能裨補<span class="kw">闕</span>漏，有所廣益」</td><td>出師表</td><td>闕＝缺</td><td>缺失、疏漏</td></tr>
+            <tr><td>「<span class="kw">蚤</span>繅而緒，<span class="kw">蚤</span>織而縷」</td><td>柳宗元〈種樹郭橐駝傳〉（非古文30篇，僅舉例）</td><td>蚤＝早</td><td>及早、盡早</td></tr>
+            <tr><td>「所守或匪親，化為狼與豺」句型中「匪」字通例｜「淇則有岸，隰則有<span class="kw">泮</span>」類推補充</td><td>語文知識延伸補充</td><td>匪＝非</td><td>不是（常見通假字，供舉一反三）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="excerpt-note">上表最後兩列為延伸補充之通假字觀念舉隅，非出自古文30篇原文，供辨析同類語文現象參考。</p>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: 一字多義 ========== -->
+    <section id="polysemy">
+      <h2 class="section-title"><span class="icon">🔤</span>一字多義</h2>
+      <p style="font-size:0.91rem; color:var(--muted); margin-bottom:0.5rem;">以下虛實詞是學測文言文閱讀最常考的「一字多義」重點，每個字皆列出至少兩個出自古文30篇原文、意義不同的例句（全文引用單句）：</p>
+
+      <div class="word-card">
+        <div class="wc-title">之</div>
+        <ul>
+          <li>「臣<span class="kw-accent">之</span>壯也，猶不如人」——<span class="src">燭之武退秦師</span>：主謂之間助詞，取消句子獨立性，無實義</li>
+          <li>「聞<span class="kw-accent">之</span>，欣然規往」——<span class="src">桃花源記</span>：代詞，代指「桃花源這件事」</li>
+          <li>「不知將軍寬<span class="kw-accent">之</span>至此也」——<span class="src">語文延伸例句</span>：代詞，代指人；另可比對「輟耕<span class="kw-accent">之</span>壟上」（動詞，往、到，出自史傳文常見句型）</li>
+          <li>「送杜少府<span class="kw-accent">之</span>任蜀州」句型中「之」作動詞「往」解，可與代詞、助詞用法對照辨析</li>
+        </ul>
+      </div>
+
+      <div class="word-card">
+        <div class="wc-title">以</div>
+        <ul>
+          <li>「以光先帝遺德」——<span class="src">出師表</span>：介詞，用來、藉以</li>
+          <li>「作師說<span class="kw-accent">以</span>貽之」——<span class="src">師說</span>：連詞，表目的，來、以便</li>
+          <li>「不<span class="kw-accent">以</span>物喜，不<span class="kw-accent">以</span>己悲」——<span class="src">岳陽樓記</span>：介詞，因為</li>
+          <li>「秦亦不<span class="kw-accent">以</span>城予趙」句型中「以」作動詞「把、將」解，屬另一常考用法</li>
+        </ul>
+      </div>
+
+      <div class="word-card">
+        <div class="wc-title">而</div>
+        <ul>
+          <li>「侶魚蝦<span class="kw-accent">而</span>友麋鹿」——<span class="src">赤壁賦</span>：連詞，表並列，可不譯</li>
+          <li>「青，取之於藍，<span class="kw-accent">而</span>青於藍」——<span class="src">勸學</span>：連詞，表轉折，卻、但是</li>
+          <li>「吾嘗終日<span class="kw-accent">而</span>思矣」——<span class="src">勸學</span>：連詞，表修飾（連接狀語與動詞），可不譯</li>
+          <li>「置之地，拔劍撞<span class="kw-accent">而</span>破之」句型中「而」表承接，然後、接著，是第四種常考用法</li>
+        </ul>
+      </div>
+
+      <div class="word-card">
+        <div class="wc-title">其</div>
+        <ul>
+          <li>「必先苦<span class="kw-accent">其</span>心志，勞<span class="kw-accent">其</span>筋骨」句型中「其」作代詞「他的」解，屬最基本用法</li>
+          <li>「<span class="kw-accent">其</span>必曰『先天下之憂而憂』歟」——<span class="src">岳陽樓記</span>：語氣副詞，表推測，大概、恐怕</li>
+          <li>「<span class="kw-accent">其</span>孰能譏之乎」句型中「其」表反詰語氣，難道，是另一種常考語氣副詞用法</li>
+          <li>「郁離子曰：『<span class="kw-accent">其</span>如是，豈不快哉』」——<span class="src">郁離子</span>：代詞，指代前文所述之事</li>
+        </ul>
+      </div>
+
+      <div class="word-card">
+        <div class="wc-title">於</div>
+        <ul>
+          <li>「移其民<span class="kw-accent">於</span>河東」句型中「於」表方向、地點，到、往</li>
+          <li>「青，取之<span class="kw-accent">於</span>藍，而青<span class="kw-accent">於</span>藍」——<span class="src">勸學</span>：前一「於」表來源（從），後一「於」表比較（比）——同句兩種用法對照，是學測極高頻考點</li>
+          <li>「議法度而修之<span class="kw-accent">於</span>朝廷」句型中「於」表處所，在</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: 特殊句法與倒裝 ========== -->
+    <section id="syntax">
+      <h2 class="section-title"><span class="icon">🔀</span>特殊句法與倒裝</h2>
+      <p style="font-size:0.91rem; color:var(--muted); margin-bottom:0.5rem;">文言文為求語氣強調或音律和諧，常將現代語序中的成分前置或後置，還原為現代語序是學測文言文理解的重要能力：</p>
+
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>句型類型</th><th>原句（全文引用）</th><th>出處</th><th>還原現代語序</th></tr></thead>
+          <tbody>
+            <tr><td>賓語前置</td><td>「夫晉，何厭<span class="kw">之</span>有？」</td><td>燭之武退秦師</td><td>夫晉，有何厭？（「之」為提賓標誌，無義）</td></tr>
+            <tr><td>賓語前置</td><td>「<span class="kw">句讀之不知，惑之不解</span>」</td><td>師說</td><td>不知句讀，不解惑</td></tr>
+            <tr><td>狀語（介詞結構）後置</td><td>「刻唐賢今人詩賦<span class="kw">於其上</span>」</td><td>岳陽樓記</td><td>於其上刻唐賢今人詩賦</td></tr>
+            <tr><td>狀語後置</td><td>「多會<span class="kw">於此</span>」</td><td>蘭亭集序</td><td>於此多會（眾人多聚會於此地）</td></tr>
+            <tr><td>省略句（省主語）</td><td>「（漁人）便舍船，從口入」</td><td>桃花源記</td><td>漁人便捨棄船隻，從洞口進入</td></tr>
+            <tr><td>省略句（省介詞受詞）</td><td>「林盡（於）水源」</td><td>桃花源記</td><td>桃花林在水源處到了盡頭</td></tr>
+            <tr><td>被動句</td><td>「而君幸<span class="kw">於</span>趙王」句型（延伸例句，供對照）</td><td>語文延伸補充</td><td>「於」表被動，被趙王寵幸</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="excerpt-note">上表倒數第二列之省略句、末列之被動句延伸例句用於補充句型概念對照，其餘均為古文30篇原文全文引用。</p>
+
+      <div class="box box-tip">
+        <div class="box-title">💡 辨識賓語前置的口訣</div>
+        <p style="font-size:0.91rem;">文言文中，當「疑問代詞（何、誰、孰等）」作賓語，或否定句中代詞作賓語時，賓語常會提到動詞之前，並可能加上「之」「是」等字作為提賓標誌（如「何厭之有」＝「有何厭」）。判讀時，先找出句中的動詞，再判斷動詞前的成分是否應該是動詞後的受詞，就能快速辨識倒裝現象。</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: 修辭手法舉隅 ========== -->
+    <section id="rhetoric">
+      <h2 class="section-title"><span class="icon">🎨</span>修辭手法舉隅</h2>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>對偶</h4>
+          <p>「白露橫江，水光接天」（赤壁賦）；「日出而林霏開，雲歸而巖穴暝」（醉翁亭記）——上下句字數相等、詞性相對，音節整齊而富音樂性。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>排比</h4>
+          <p>「東風不來，柳絮不飛」式的連續句型結構，亦見於出師表「親賢臣，遠小人，此先漢所以興隆也；親小人，遠賢臣，此後漢所以傾頹也」——三個以上結構相似的句子並列，加強語氣與說服力。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>譬喻</h4>
+          <p>「霪雨霏霏，連月不開；陰風怒號，濁浪排空」（岳陽樓記）以自然景象譬喻士人憂讒畏譏的心境；「青，取之於藍，而青於藍」（勸學）以染青之喻說明學習可超越本源。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>引用</h4>
+          <p>「其必曰『先天下之憂而憂，後天下之樂而樂』歟」（岳陽樓記）引用古仁人之言明志；「禮義廉恥，國之四維」（廉恥）引用五代史馮道傳論以立論根據。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>摹寫（感官描寫）</h4>
+          <p>「陰風怒號，濁浪排空」「薄暮冥冥，虎嘯猿啼」（岳陽樓記）以視覺、聽覺摹寫渲染登樓所見之蕭然景象，帶動讀者感官共鳴。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>映襯（對比）</h4>
+          <p>岳陽樓記以「霪雨霏霏」的悲景與「春和景明」的樂景前後對照，襯托出「不以物喜，不以己悲」的古仁人之心更為可貴。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: 文化與文學史常識 ========== -->
+    <section id="culture">
+      <h2 class="section-title"><span class="icon">🏛️</span>文化與文學史常識</h2>
+
+      <h3 class="sub-section-title">作者稱號與文學史地位速記</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>作者</th><th>篇目</th><th>稱號／地位</th></tr></thead>
+          <tbody>
+            <tr><td>韓愈</td><td>師說</td><td>唐宋古文八大家之首，與柳宗元合稱「韓柳」，提倡古文運動</td></tr>
+            <tr><td>柳宗元</td><td>始得西山宴遊記</td><td>唐宋古文八大家之一，「永州八記」代表作家</td></tr>
+            <tr><td>蘇軾</td><td>赤壁賦</td><td>唐宋古文八大家之一，號東坡居士，與父蘇洵、弟蘇轍合稱「三蘇」</td></tr>
+            <tr><td>范仲淹</td><td>岳陽樓記</td><td>北宋政治家、文學家，以「先天下之憂而憂，後天下之樂而樂」名句傳世</td></tr>
+            <tr><td>歐陽脩</td><td>醉翁亭記</td><td>唐宋古文八大家之一，北宋文壇領袖，號醉翁、六一居士</td></tr>
+            <tr><td>諸葛亮</td><td>出師表</td><td>三國蜀漢丞相，「鞠躬盡瘁，死而後已」精神之代表，出師表被譽為「讀出師表不哭者不忠」</td></tr>
+            <tr><td>陶淵明</td><td>桃花源記</td><td>東晉田園詩人之宗，不為五斗米折腰，開創田園文學傳統</td></tr>
+            <tr><td>方孝孺</td><td>指喩／郁離子相關文論脈絡</td><td>明初大儒，與劉基（郁離子作者）同為明代重要政論散文家</td></tr>
+            <tr><td>劉基</td><td>郁離子</td><td>元末明初政治家、文學家，輔佐明太祖開國，「郁離子」為其寓言體政論散文集</td></tr>
+            <tr><td>顧炎武</td><td>廉恥</td><td>明末清初三大儒之一（與黃宗羲、王夫之並稱），提出「天下興亡，匹夫有責」精神</td></tr>
+            <tr><td>黃宗羲</td><td>原君</td><td>明末清初三大儒之一，《明夷待訪錄》作者，具早期民主思想色彩</td></tr>
+            <tr><td>郁永河</td><td>裨海紀遊</td><td>清代來台採硫之文人，所著為現存最早詳細記錄台灣風土之遊記文獻</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">文化基本教材：〈大同與小康〉重點段落全文引用</h3>
+      <div class="box box-tip" style="margin-bottom:0.6rem;">
+        <div class="box-title">📌 節錄說明</div>
+        <p style="font-size:0.91rem;">〈大同與小康〉選自《禮記．禮運》，全篇連同前後文較長，此處依循「過長則節錄重點段落」原則，僅完整引用最核心、也是學測最常考的「大同」段落全文，供本週複習核對。</p>
+      </div>
+      <div class="original-text small">
+        <p>大道之行也，天下為公。選賢與能，講信修睦。故人不獨親其親，不獨子其子，使老有所終，壯有所用，幼有所長，矜寡孤獨廢疾者皆有所養。男有分，女有歸。貨惡其棄於地也，不必藏於己；力惡其不出於身也，不必為己。是故謀閉而不興，盜竊亂賊而不作，故外戶而不閉，是謂大同。</p>
+      </div>
+      <div class="translation-block small">
+        <p>在大道施行的時代，天下是公眾共有的。人們推舉德行才能兼備的人來治理天下，彼此講求誠信、修習和睦。因此人們不只親愛自己的親人，不只疼愛自己的子女，使老年人都能安享天年，壯年人都能貢獻所長，幼年人都能順利成長，鰥寡孤獨與殘疾之人都能得到供養。男子有其應盡的職分，女子有其應歸的夫家。財貨，人們厭惡它被棄置在地上無用，卻不一定要據為己有；力氣，人們厭惡它不從自己身上使出，卻不一定只為自己謀利。因此，陰謀詭計因此不會興起，盜竊、作亂、害人的事也不會發生，所以家家戶戶大門都不用關閉，這就叫做「大同」之世。</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: 知識連結圖 ========== -->
+    <section id="kmap">
+      <h2 class="section-title"><span class="icon">🔗</span>知識連結圖</h2>
+      <div class="k-map">
+        <div class="k-map-row">
+          <div class="k-node center">古文30篇（W01–W12，30/30 已完成）</div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node">通同字／古今字</div>
+          <div class="k-node">一字多義</div>
+          <div class="k-node">特殊句法與倒裝</div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node teal">修辭手法舉隅</div>
+          <div class="k-node gold">文化與文學史常識</div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node accent">學測選擇題「語文常識」「字詞辨析」題型</div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node">國寫感性題：意象經營與細節描寫能力</div>
+          <div class="k-node">國寫知性題（W14）：論證與結構能力</div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node center">國文科整體應試能力：閱讀理解＋語文知識＋寫作表達</div>
+        </div>
+      </div>
+      <div class="box box-link" style="margin-top:1rem;">
+        <div class="box-title">🔗 課程跨單元連結提示</div>
+        <p style="font-size:0.91rem;">古文語文知識整理不只是為了應付選擇題，其中修辭手法（對偶、譬喻、映襯等）的辨識能力，也能直接遷移應用到本週感性題「意象經營」的寫作練習上——多讀古人如何用具體物象承載情感（如岳陽樓記以景寫情），有助於自己下筆時跳脫空泛的抒情套語。</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: SUMMARY ========== -->
+    <section id="summary">
+      <h2 class="section-title"><span class="icon">📝</span>重點整理</h2>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+        <div class="box box-key">
+          <div class="box-title">✅ 國寫感性題 重點速記</div>
+          <ul style="padding-left:1.2rem; font-size:0.88rem;">
+            <li>感性題測情感體察與細節經營，非邏輯論證</li>
+            <li>評分四規準：取材真摯度、意象經營、結構層次、語言文采</li>
+            <li>寫作結構：畫面切入—細節鋪陳—轉念體悟—收束呼應</li>
+            <li>最忌情感空喊口號，缺乏具體細節支撐</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">✅ 古文語文知識 重點速記</div>
+          <ul style="padding-left:1.2rem; font-size:0.88rem;">
+            <li>通同字：共＝供、說＝悅、要＝邀、不＝否、有＝又、闕＝缺</li>
+            <li>一字多義高頻字：之、以、而、其、於，須依上下文判斷詞性與意義</li>
+            <li>特殊句法：賓語前置（何厭之有）、狀語後置（刻詩賦於其上）</li>
+            <li>修辭手法：對偶、排比、譬喻、引用、摹寫、映襯，皆有古文30篇實例可查</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測作答策略</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>國寫感性題落筆前，先花 3–5 分鐘構思大綱，確定「具體物件或畫面」與「情感轉折點」，避免邊寫邊想導致結構鬆散</li>
+          <li>語文知識選擇題遇到不熟悉的字詞，可先回想是否出現在古文30篇中曾學過的句子，再依上下文判斷詞性與意義</li>
+          <li>一字多義題型的解題關鍵在於「先判斷詞性（代詞／介詞／連詞／語氣詞），再determine意義」，而非死記單一意義</li>
+          <li>特殊句法題型可用「先找動詞，再判斷動詞前後成分」的方法快速還原現代語序</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: QUIZ ========== -->
+    <section id="quiz">
+      <h2 class="section-title"><span class="icon">✏️</span>隨堂自我測驗</h2>
+      <div class="box box-warn" style="margin-bottom:1.5rem;">
+        <div class="box-title">作答說明</div>
+        <p style="font-size:0.91rem;">以下共 8 題單選題，每題閱讀後先自行作答，再點開「查看解答」確認。本測驗涵蓋國寫感性題與古文語文知識整理兩大範疇，建議合上講義獨立作答。</p>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>下列關於國寫「感性題」的敘述，何者<strong>正確</strong>？</div>
+        <ol>
+          <li>感性題的評分重點在於情感是否濃烈誇張，情緒詞彙用得越多越好</li>
+          <li>感性題應著重具體細節與意象經營，讓抽象情感透過可感的畫面呈現</li>
+          <li>感性題與知性題完全相同，只是題目名稱不同</li>
+          <li>感性題不需要篇章結構，只要情感真實即可</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.90rem;">感性題重視具體細節與意象經營，避免空泛喊出情緒詞彙；仍需要有清楚的起承轉合結構，與知性題著重邏輯論證的方向明顯不同。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>「夫晉，何厭之有？」一句中，「之」字的文法作用為何？</div>
+        <ol>
+          <li>代詞，代指前文所述之事</li>
+          <li>提賓標誌，將賓語「何厭」提到動詞「有」之前，本句應理解為「有何厭」</li>
+          <li>連詞，表示轉折</li>
+          <li>語氣助詞，用於句末加強語氣</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.90rem;">本句為賓語前置句型，「之」為提賓標誌本身無實義，正常語序應為「有何厭」，意即「還有什麼可以滿足的呢」，出自〈燭之武退秦師〉。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span>「青，取之於藍，而青於藍」句中，兩個「於」字的意義，下列敘述何者<strong>正確</strong>？</div>
+        <ol>
+          <li>兩個「於」字意義相同，皆表示地點</li>
+          <li>前一個「於」表比較（比），後一個「於」表來源（從）</li>
+          <li>前一個「於」表來源（從），後一個「於」表比較（比）</li>
+          <li>兩個「於」字皆為語氣助詞，無實質意義</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：C</p>
+            <p style="font-size:0.90rem;">「取之於藍」的「於」表來源，意為「從藍草中提取」；「青於藍」的「於」表比較，意為「比藍草更青」。同句中同一字有兩種不同意義，是學測極高頻的一字多義考點，出自〈勸學〉。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span>「秦伯說，與鄭人盟」句中，「說」字應通何字？意義為何？</div>
+        <ol>
+          <li>通「悅」，高興、喜悅</li>
+          <li>通「說」，勸說</li>
+          <li>通「脫」，脫離</li>
+          <li>通「悅」，但意義為「說話」</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：A</p>
+            <p style="font-size:0.90rem;">此為通假字，「說」通「悅」，讀作「ㄩㄝˋ」，意為高興、喜悅，出自〈燭之武退秦師〉，描述秦伯聽了燭之武的說詞後感到高興，於是與鄭人結盟。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span>下列文句，何者運用了「對偶」修辭手法？</div>
+        <ol>
+          <li>「便要還家，設酒殺雞作食」</li>
+          <li>「白露橫江，水光接天」</li>
+          <li>「聞之，欣然規往」</li>
+          <li>「爾來二十有一年矣」</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.90rem;">「白露橫江，水光接天」出自〈赤壁賦〉，上下句字數相等（「白露」對「水光」、「橫江」對「接天」），詞性相對，是典型的對偶修辭。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">6</span>依本週寫作大綱示範，感性題「那件小事物」一題，最適當的開頭方式為何？</div>
+        <ol>
+          <li>直接寫「我有一件對我很重要的東西，那就是一支鋼筆」</li>
+          <li>先描繪一個具體的當下畫面（如翻找抽屜時觸碰到那支筆），再自然帶出回憶</li>
+          <li>先大篇幅論述「物件承載情感」這個抽象道理</li>
+          <li>直接列點說明這件物件的三個優點</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.90rem;">感性題宜以具體畫面切入，透過細節自然帶出回憶與情感，避免像知性題一樣直接以抽象陳述或條列式開頭，才能營造感染力。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">7</span>下列作者與其稱號或文學史地位的配對，何者<strong>錯誤</strong>？</div>
+        <ol>
+          <li>韓愈——唐宋古文八大家之首</li>
+          <li>范仲淹——「先天下之憂而憂，後天下之樂而樂」名句作者</li>
+          <li>黃宗羲——《明夷待訪錄》作者，明末清初三大儒之一</li>
+          <li>郁永河——北宋政治家，著有《岳陽樓記》</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：D</p>
+            <p style="font-size:0.90rem;">《岳陽樓記》作者為北宋范仲淹，非郁永河；郁永河是清代來台採硫的文人，著有《裨海紀遊》，是現存最早詳細記錄台灣風土的遊記文獻。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">8</span>「刻唐賢今人詩賦於其上」一句，屬於下列何種文言特殊句法？還原現代語序後應如何理解？</div>
+        <ol>
+          <li>賓語前置，還原後為「於其上刻唐賢今人詩賦」</li>
+          <li>狀語（介詞結構）後置，還原後為「於其上刻唐賢今人詩賦」</li>
+          <li>被動句，還原後為「詩賦被刻於其上」</li>
+          <li>判斷句，還原後為「其上是唐賢今人詩賦」</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.90rem;">「於其上」是介詞結構作狀語，文言文中常將此類狀語移至句末，還原現代語序時應提到動詞之前：「於其上刻唐賢今人詩賦」，出自〈岳陽樓記〉。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 測驗完成 -->
+      <div class="box box-key" style="margin-top:1.5rem;">
+        <div class="box-title">✅ 測驗完成後的學習建議</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>答錯的題目，請回到對應小節重新複習（通同字、一字多義、特殊句法或修辭手法）</li>
+          <li>建議自製一張「一字多義」總表，將「之、以、而、其、於」五字在古文30篇中出現的所有例句與意義都整理進去，考前反覆複習</li>
+          <li>依本週「寫作大綱範例」的架構，實際練習寫出一篇完整的感性題文章，並自我檢核情感是否透過具體細節呈現，而非空泛陳述</li>
+          <li>關注學測歷屆試題中「文意判讀」與「語文常識」題型的出題方式，這類題型近年比例穩定，是拉開國文科分數差距的關鍵之一</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top:3rem; padding-top:1.5rem; border-top:2px solid var(--border); text-align:center; font-size:0.82rem; color:var(--muted);">
+      <p>W15 國文科國寫感性題與古文語文知識整理講義｜古文30篇總複習（30/30）</p>
+      <p style="margin-top:0.3rem;">高二理工組 · 學測備考 · 暑假黃金衝刺期 第 8 週</p>
+      <p style="margin-top:0.3rem;">本講義依據台灣108課綱高中國文學習內容編製，僅供學習參考；古文原文為公版文獻全文引用，現代寫作範例為虛構練習題組</p>
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>

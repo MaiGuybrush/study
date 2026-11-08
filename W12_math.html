@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W12 數學A科｜第三冊A Ch1–Ch2 三角函數圖形與和差角公式｜學測備考講義</title>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        tags: 'ams'
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+      background: #f5f0fa;
+      color: #2d2d2d;
+      line-height: 1.75;
+    }
+
+    :root {
+      --purple-dark:  #4a0072;
+      --purple-main:  #6a1b9a;
+      --purple-mid:   #8e24aa;
+      --purple-light: #ce93d8;
+      --purple-pale:  #f3e5f5;
+      --purple-bg:    #faf0fe;
+      --accent-gold:  #f9a825;
+      --accent-teal:  #00796b;
+      --accent-red:   #c62828;
+      --accent-blue:  #1565c0;
+      --accent-green: #2e7d32;
+      --text-main:    #2d2d2d;
+      --text-muted:   #5d5d5d;
+      --white:        #ffffff;
+      --border:       #d1c4e9;
+    }
+
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      width: 260px; flex-shrink: 0;
+      background: var(--purple-dark);
+      color: var(--white);
+      position: sticky; top: 0; height: 100vh;
+      overflow-y: auto; padding: 0 0 2rem 0;
+    }
+    .sidebar-header {
+      background: var(--purple-main);
+      padding: 1.2rem 1rem; text-align: center;
+      border-bottom: 2px solid var(--purple-light);
+    }
+    .sidebar-header .week-tag {
+      font-size: 0.72rem; letter-spacing: 0.12em;
+      color: var(--purple-light); margin-bottom: 0.3rem; display: block;
+    }
+    .sidebar-header h2 { font-size: 1rem; font-weight: 700; line-height: 1.4; }
+    .sidebar-header p { font-size: 0.78rem; opacity: 0.80; margin-top: 0.3rem; }
+    .sidebar nav { padding: 0.5rem 0; }
+    .nav-section {
+      font-size: 0.65rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--purple-light);
+      padding: 0.9rem 1rem 0.3rem; opacity: 0.85;
+    }
+    .sidebar nav a {
+      display: block; padding: 0.4rem 1rem;
+      color: rgba(255,255,255,0.82); text-decoration: none;
+      font-size: 0.84rem; border-left: 3px solid transparent;
+      transition: all 0.18s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.12);
+      border-left-color: var(--purple-light);
+      color: var(--white);
+    }
+    .nav-indent { padding-left: 1.6rem !important; font-size: 0.80rem !important; }
+
+    /* ===== MAIN ===== */
+    .main-content { flex: 1; padding: 2rem 2.5rem 4rem; max-width: 960px; }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-main) 55%, var(--purple-mid) 100%);
+      color: var(--white);
+      border-radius: 16px; padding: 2rem 2.4rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(74,0,114,0.25);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: "sinθ"; position: absolute;
+      right: 1.8rem; top: 50%; transform: translateY(-50%);
+      font-size: 5.2rem; opacity: 0.08; font-weight: 900;
+    }
+    .page-header .week-tag {
+      background: rgba(255,255,255,0.20);
+      display: inline-block; padding: 0.18rem 0.85rem;
+      border-radius: 12px; font-size: 0.80rem;
+      margin-bottom: 0.6rem; letter-spacing: 0.05em;
+    }
+    .page-header h1 { font-size: 1.8rem; font-weight: 900; margin-bottom: 0.35rem; }
+    .page-header .subtitle { font-size: 0.92rem; opacity: 0.88; }
+    .meta-row { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+    .meta-chip {
+      background: rgba(255,255,255,0.16);
+      border-radius: 20px; padding: 0.20rem 0.85rem; font-size: 0.78rem;
+    }
+
+    /* ===== TOC ===== */
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 0.6rem;
+      margin: 0.8rem 0;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.8rem;
+      text-decoration: none;
+      color: var(--purple-dark);
+      font-size: 0.86rem;
+      font-weight: 600;
+      transition: all 0.18s;
+    }
+    .toc-item:hover { background: var(--purple-pale); border-color: var(--purple-main); }
+    .toc-item .toc-num {
+      background: var(--purple-main);
+      color: #fff;
+      width: 1.5rem; height: 1.5rem; line-height: 1.5rem;
+      font-size: 0.75rem; font-weight: 700;
+      text-align: center; border-radius: 4px; flex-shrink: 0;
+    }
+
+    /* ===== SECTION TITLES ===== */
+    .section-title {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 1.28rem; font-weight: 800;
+      color: var(--purple-dark);
+      margin: 2.4rem 0 1.1rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 3px solid var(--purple-main);
+    }
+    .sub-title {
+      font-size: 1.02rem; font-weight: 700;
+      color: var(--purple-main);
+      margin: 1.5rem 0 0.7rem;
+      padding-left: 0.75rem;
+      border-left: 4px solid var(--purple-main);
+    }
+    .sub-sub-title {
+      font-size: 0.94rem; font-weight: 700;
+      color: var(--purple-mid);
+      margin: 1.1rem 0 0.5rem;
+    }
+
+    /* ===== CARDS ===== */
+    .card {
+      background: var(--white);
+      border-radius: 12px; padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 10px rgba(74,0,114,0.08);
+      border: 1px solid var(--border);
+    }
+
+    /* ===== BOXES ===== */
+    .box { border-radius: 10px; padding: 1rem 1.2rem; margin: 1rem 0; font-size: 0.93rem; }
+    .box-def    { background: var(--purple-pale); border-left: 5px solid var(--purple-main); }
+    .box-formula{ background: #fff8e1; border-left: 5px solid var(--accent-gold); }
+    .box-example{ background: #e8f5e9; border-left: 5px solid var(--accent-green); }
+    .box-warn   { background: #fce4ec; border-left: 5px solid var(--accent-red); }
+    .box-tip    { background: #e0f2f1; border-left: 5px solid var(--accent-teal); }
+    .box-link   { background: #e3f2fd; border-left: 5px solid var(--accent-blue); }
+    .box-title  { font-weight: 700; margin-bottom: 0.5rem; }
+
+    /* ===== FORMULA DISPLAY ===== */
+    .formula-block {
+      background: #fef9e7;
+      border: 2px solid var(--accent-gold);
+      border-radius: 12px;
+      padding: 1.2rem 1.6rem;
+      margin: 1rem 0;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+    .formula-block .formula-label {
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--accent-gold); margin-bottom: 0.5rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+
+    /* ===== TABLES ===== */
+    table { width: 100%; border-collapse: collapse; font-size: 0.91rem; margin: 0.8rem 0; }
+    thead tr { background: var(--purple-main); color: var(--white); }
+    thead th { padding: 0.65rem 1rem; text-align: left; font-weight: 700; }
+    tbody tr:nth-child(even) { background: var(--purple-pale); }
+    tbody tr:hover { background: #e8d5f5; }
+    tbody td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody td:first-child { font-weight: 700; color: var(--purple-dark); white-space: nowrap; }
+
+    /* ===== WORKED EXAMPLE ===== */
+    .worked-example {
+      background: #f9fbe7;
+      border: 1px solid #c5e1a5;
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .worked-example::before {
+      content: "例題";
+      position: absolute; top: -0.65rem; left: 1rem;
+      background: var(--accent-green); color: #fff;
+      font-size: 0.72rem; padding: 0.08rem 0.6rem;
+      border-radius: 8px; font-weight: 700;
+    }
+    .worked-example .ex-q { font-weight: 700; margin-bottom: 0.7rem; color: #1b5e20; }
+    .worked-example .ex-step { font-size: 0.90rem; margin-bottom: 0.4rem; line-height: 1.9; }
+    .worked-example .ex-ans { font-weight: 700; color: var(--accent-green); margin-top: 0.5rem; }
+
+    /* ===== QUIZ ===== */
+    .quiz-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-item .q-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--purple-main); color: var(--white);
+      font-size: 0.80rem; font-weight: 700;
+      border-radius: 50%; width: 1.7rem; height: 1.7rem;
+      margin-right: 0.5rem; flex-shrink: 0;
+    }
+    .quiz-item .q-text { font-weight: 600; font-size: 0.94rem; margin-bottom: 0.5rem; }
+    .quiz-item ol { padding-left: 1.6rem; font-size: 0.92rem; }
+    .quiz-item li { margin-bottom: 0.3rem; list-style-type: upper-alpha; }
+    .diff-badge {
+      display: inline-block; font-size: 0.70rem; font-weight: 700;
+      padding: 0.1rem 0.5rem; border-radius: 8px; margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .diff-easy   { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+    .diff-medium { background: #fff8e1; color: #e65100; border: 1px solid #ffe082; }
+    .diff-hard   { background: #fce4ec; color: #c62828; border: 1px solid #f48fb1; }
+    details summary {
+      cursor: pointer; color: var(--accent-teal);
+      font-size: 0.88rem; margin-top: 0.6rem; font-weight: 600;
+    }
+    details[open] summary { margin-bottom: 0.5rem; }
+    details .answer {
+      background: #e0f2f1;
+      border-left: 4px solid var(--accent-teal);
+      border-radius: 6px;
+      padding: 0.8rem 1rem; font-size: 0.88rem; line-height: 1.9;
+    }
+
+    /* ===== CHIPS ===== */
+    .chip { display:inline-block; padding:0.18rem 0.7rem; border-radius:12px; font-size:0.80rem; font-weight:700; margin:0.15rem; }
+    .chip-purple { background:var(--purple-pale); color:var(--purple-dark); border:1px solid var(--purple-light); }
+    .chip-gold   { background:#fff8e1; color:#e65100; border:1px solid #ffe082; }
+    .chip-teal   { background:#e0f2f1; color:var(--accent-teal); border:1px solid #80cbc4; }
+    .chip-red    { background:#fce4ec; color:var(--accent-red); border:1px solid #f48fb1; }
+    .chip-green  { background:#e8f5e9; color:var(--accent-green); border:1px solid #a5d6a7; }
+
+    .analysis-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1rem 0; }
+    @media (max-width:700px) { .analysis-grid { grid-template-columns:1fr; } }
+    .analysis-item {
+      background:var(--white); border:1px solid var(--border);
+      border-top:4px solid var(--purple-main);
+      border-radius:8px; padding:1rem 1.1rem;
+    }
+    .analysis-item h4 { color:var(--purple-dark); font-size:0.92rem; margin-bottom:0.5rem; }
+    .analysis-item ul { padding-left:1.2rem; font-size:0.88rem; }
+    .analysis-item li { margin-bottom:0.3rem; }
+
+    .step-box {
+      background: #f3e5f5; border-left: 4px solid var(--purple-main);
+      border-radius: 8px; padding: 0.9rem 1.2rem; margin: 0.6rem 0;
+      font-size: 0.91rem;
+    }
+    .step-box strong { color: var(--purple-dark); }
+
+    ul.content-list { padding-left: 1.4rem; }
+    ul.content-list li { margin-bottom: 0.4rem; font-size: 0.93rem; }
+
+    .divider { border: none; border-top: 2px dashed var(--border); margin: 2.5rem 0; }
+
+    .chapter-banner {
+      border-radius: 12px; padding: 0.9rem 1.4rem; margin-bottom: 1.2rem; color: #fff;
+      font-size: 1.1rem; font-weight: 800; letter-spacing: 1px;
+    }
+    .ch1 { background: linear-gradient(90deg, #1565c0, #1e88e5); }
+    .ch2 { background: linear-gradient(90deg, #2e7d32, #43a047); }
+    .ch3 { background: linear-gradient(90deg, #e65100, #fb8c00); }
+    .ch4 { background: linear-gradient(90deg, #6a1b9a, #8e24aa); }
+    .chapter-banner .ch-sub { font-size: 0.80rem; font-weight: 400; opacity: 0.88; margin-top: 0.2rem; }
+
+    /* ===== SVG DIAGRAM ===== */
+    .tri-diagram { display:flex; justify-content:center; margin:1.2rem 0; }
+    .tri-diagram svg { max-width: 100%; height: auto; }
+    .func-graph { overflow-x: auto; padding: 0.5rem 0; text-align: center; margin: 1rem 0; }
+    .func-graph svg { max-width: 100%; height: auto; }
+    .func-graph .fg-caption { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem; }
+
+    /* ===== TREE VISUAL ===== */
+    .tree-visual { background:#faf0fe; border:1px solid var(--border); border-radius:10px; padding:20px 24px 16px 20px; margin:14px 0; overflow-x:auto; }
+    .tv-root { display:inline-flex; align-items:center; background:var(--purple-dark); color:#fff; font-weight:700; font-size:15px; padding:5px 18px; border-radius:20px; margin-bottom:6px; }
+    .tv-children { list-style:none; padding:0; margin:0 0 0 14px; border-left:2px solid var(--border); }
+    .tv-item { position:relative; padding:5px 0 4px 22px; }
+    .tv-item::before { content:''; position:absolute; left:0; top:14px; width:18px; height:2px; background:var(--border); }
+    .tv-node { display:inline-block; border-radius:6px; padding:3px 12px; font-size:13px; font-weight:600; line-height:1.6; }
+    .tv-desc { display:block; font-size:11.5px; color:var(--text-muted); padding:0 4px; margin:1px 0 3px; }
+    .tv-node.tv-l1 { background:var(--purple-pale); color:var(--purple-dark); border:1px solid var(--purple-light); font-size:14px; }
+    .tv-node.tv-l2 { background:#fff8e1; color:#e65100; border:1px solid #ffe082; }
+    .tv-node.tv-l3 { background:#fafafa; color:var(--text-main); border:1px solid #e0e0e0; font-weight:400; }
+
+    /* ===== KNOWLEDGE MAP ===== */
+    .km-container {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+    .km-grid {
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+    }
+    .km-node {
+      background: var(--purple-pale);
+      border: 2px solid var(--purple-main);
+      border-radius: 8px;
+      padding: 0.55rem 1rem;
+      font-size: 0.88rem; font-weight: 700;
+      color: var(--purple-dark); text-align: center;
+    }
+    .km-node.central {
+      background: var(--purple-main); color: #fff;
+      font-size: 1rem; padding: 0.7rem 1.4rem;
+      border-color: var(--purple-dark);
+    }
+    .km-node.linked {
+      background: #e8f5e9; border-color: var(--accent-green); color: #1b5e20;
+    }
+    .km-node.future {
+      background: #fff8e1; border-color: var(--accent-gold); color: #e65100;
+    }
+    .km-arrow { display: flex; align-items: center; font-size: 1.2rem; color: var(--purple-mid); font-weight: 700; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main-content { padding: 1.2rem 1rem 3rem; }
+      .analysis-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span class="week-tag">WEEK 12 ｜ 08/03–08/09</span>
+      <h2>數學 A 科</h2>
+      <p>第三冊A Ch1 三角函數圖形・Ch2 和差角公式</p>
+    </div>
+    <nav>
+      <div class="nav-section">導覽</div>
+      <a href="#overview">學習總覽</a>
+      <a href="#transition">暑假衝刺期銜接說明</a>
+
+      <div class="nav-section">Ch1 三角函數圖形</div>
+      <a href="#funcconcept" class="nav-indent">從三角比到三角函數</a>
+      <a href="#sinegraph" class="nav-indent">正弦函數圖形</a>
+      <a href="#cosgraph" class="nav-indent">餘弦函數圖形</a>
+      <a href="#tangraph" class="nav-indent">正切函數圖形</a>
+      <a href="#generalform" class="nav-indent">一般型：振幅・週期・相位</a>
+
+      <div class="nav-section">Ch2 和差角公式</div>
+      <a href="#derivation" class="nav-indent">和差角公式的推導</a>
+      <a href="#sumdiff" class="nav-indent">正弦・餘弦・正切和差角公式</a>
+      <a href="#doubleangle" class="nav-indent">二倍角公式</a>
+      <a href="#application" class="nav-indent">化簡・求值・輔助角公式</a>
+
+      <div class="nav-section">複習與測驗</div>
+      <a href="#km">知識連結圖</a>
+      <a href="#mistakes">常見錯誤</a>
+      <a href="#examfocus">學測考點提醒</a>
+      <a href="#summary">重點整理</a>
+      <a href="#quiz">自我檢測（10題）</a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content">
+
+    <header class="page-header" id="top">
+      <div class="week-tag">第十二週學習單元｜WEEK 12｜08/03–08/09｜暑假黃金衝刺期 第 5 週</div>
+      <h1>第三冊A Ch1–Ch2｜三角函數圖形與和差角公式</h1>
+      <p class="subtitle">數學 A｜正弦/餘弦/正切函數圖形・週期・振幅・相位・鉛直位移・和差角公式・二倍角公式・輔助角公式</p>
+      <div class="meta-row">
+        <span class="meta-chip">y=sin x 週期2π</span>
+        <span class="meta-chip">y=tan x 週期π</span>
+        <span class="meta-chip">cos(A∓B)=cosAcosB±sinAsinB</span>
+        <span class="meta-chip">sin2A=2sinAcosA</span>
+        <span class="meta-chip">週六：化學模擬考</span>
+        <span class="meta-chip">自我檢測 10 題</span>
+      </div>
+    </header>
+
+    <!-- ===== TOC ===== -->
+    <section id="toc">
+      <h2 class="section-title">&#128218; 本講義導覽</h2>
+      <div class="toc-grid">
+        <a href="#overview" class="toc-item"><span class="toc-num">0</span>學習總覽</a>
+        <a href="#transition" class="toc-item"><span class="toc-num">P</span>先備知識銜接</a>
+        <a href="#funcconcept" class="toc-item"><span class="toc-num">1</span>三角比到三角函數</a>
+        <a href="#sinegraph" class="toc-item"><span class="toc-num">2</span>正弦函數圖形</a>
+        <a href="#cosgraph" class="toc-item"><span class="toc-num">3</span>餘弦函數圖形</a>
+        <a href="#tangraph" class="toc-item"><span class="toc-num">4</span>正切函數圖形</a>
+        <a href="#generalform" class="toc-item"><span class="toc-num">5</span>振幅・週期・相位</a>
+        <a href="#derivation" class="toc-item"><span class="toc-num">6</span>和差角公式推導</a>
+        <a href="#sumdiff" class="toc-item"><span class="toc-num">7</span>和差角公式</a>
+        <a href="#doubleangle" class="toc-item"><span class="toc-num">8</span>二倍角公式</a>
+        <a href="#application" class="toc-item"><span class="toc-num">9</span>化簡・求值・輔助角</a>
+        <a href="#km" class="toc-item"><span class="toc-num">K</span>知識連結圖</a>
+        <a href="#mistakes" class="toc-item"><span class="toc-num">M</span>常見錯誤</a>
+        <a href="#examfocus" class="toc-item"><span class="toc-num">E</span>學測考點</a>
+        <a href="#summary" class="toc-item"><span class="toc-num">S</span>重點整理</a>
+        <a href="#quiz" class="toc-item"><span class="toc-num">Q</span>自我檢測</a>
+      </div>
+    </section>
+
+    <!-- ===== 學習總覽 ===== -->
+    <section id="overview">
+      <h2 class="section-title">&#128218; 學習總覽</h2>
+      <div class="card">
+        <p>上週（W11）以第二冊 Ch6 機率基礎與整冊總複習，畫下第二冊的句點。本週正式邁入<strong>第三冊A（高二上教材）</strong>，也是整個暑假衝刺期進度最重要的轉折點之一：從第二冊「三角比」的<strong>幾何觀點</strong>（角度對應一個比值），跨越到第三冊A「三角函數」的<strong>函數觀點</strong>（角度是自變數，三角比值是函數值，可以畫成圖形、討論週期性、振幅、對稱性）。這個觀點轉換，是後續學習指數函數、對數函數、乃至第四冊微積分（\((\sin x)'=\cos x\)）的共同基礎。本週後半段的<strong>和差角公式</strong>則是三角函數「代數運算」的核心工具——幾乎所有需要求非特殊角三角函數值、化簡三角函數式、證明三角恆等式的題目，都要用到和差角公式或由它衍生的二倍角公式。這兩章份量都不輕，且環環相扣，請務必按部就班，勿求快而略過推導過程。</p>
+        <div class="box box-link" style="margin-top:1rem;">
+          <div class="box-title">本週學習目標</div>
+          <ul class="content-list">
+            <li>理解「三角函數」與「三角比」觀點的差異：以角度（弧度）為自變數，函數值為 \(\sin x,\cos x,\tan x\)</li>
+            <li>能寫出 \(y=\sin x\)、\(y=\cos x\)、\(y=\tan x\) 的定義域、值域，並正確畫出一週期內的圖形</li>
+            <li>理解正弦、餘弦函數的週期為 \(2\pi\)，正切函數的週期為 \(\pi\)（且有漸近線），並能說明奇偶性</li>
+            <li>能分析一般型 \(y=a\sin(bx+c)+d\) 的振幅、週期、相位（水平位移）、鉛直位移，並據以描繪圖形</li>
+            <li>能利用單位圓上兩點的距離關係，推導出 \(\cos(A-B)=\cos A\cos B+\sin A\sin B\)，並由此衍生其餘五個和差角公式</li>
+            <li>熟記並能正確使用 \(\sin(A\pm B)\)、\(\cos(A\pm B)\)、\(\tan(A\pm B)\) 六個和差角公式</li>
+            <li>能利用和差角公式推導二倍角公式 \(\sin2A\)、\(\cos2A\)（三種形式）、\(\tan2A\)，並靈活選用</li>
+            <li>能運用和差角公式求非特殊角的三角函數值、化簡三角函數式、以及利用輔助角公式將 \(a\sin x+b\cos x\) 化為單一正弦函數</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 暑假衝刺期銜接說明 ===== -->
+    <section id="transition">
+      <h2 class="section-title">&#128293; 暑假黃金衝刺期銜接說明</h2>
+      <div class="card">
+        <div class="box box-warn">
+          <div class="box-title">進度提醒：暑假黃金衝刺期 第 5 週・正式進入第三冊A</div>
+          <p>本週（W12）是備考時程表第二階段（W08–W16，07/06–09/06）的<strong>第 5 週</strong>，也是<strong>第三冊A（高二上教材）進度的第一週</strong>。本週六（08/08）安排的是<strong>化學模擬考（化學一全範圍）</strong>，週日（08/09）則是<strong>古文 30 篇作者時代總整理</strong>——本週數學科沒有獨立的限時模擬考或指定週末任務，代表這兩章份量本身就足夠吃重，建議把平常每天的數學讀書時段，平均分配給「圖形」與「和差角公式」兩個子主題，並在週末預留 1–2 小時做本講義的練習題與自我檢測複查，確保新單元穩紮穩打，不要因為沒有强制任務就放鬆進度。</p>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">先備知識：本週建立在第二冊 Ch1–Ch2（三角比・廣義角・單位圓）之上</div>
+          <p>第二冊 Ch1 學過的<strong>直角三角形三角比</strong>、Ch2 學過的<strong>弧度制、單位圓定義、ASTC 象限法則、特殊角三角比值（\(0°,30°,45°,60°,90°,180°,270°,360°\)）</strong>，是本週三角函數圖形與和差角公式不可或缺的基礎。如果你對 \(\sin\dfrac{\pi}{6}\)、\(\cos\dfrac{\pi}{4}\)、\(\tan\dfrac{\pi}{3}\) 等特殊角數值還需要想很久才能反應，或是 ASTC 法則不熟練，建議先花 20–30 分鐘回頭複習 W07、W08 的內容，否則本週的例題與計算會處處卡關。</p>
+        </div>
+        <div class="box box-link">
+          <div class="box-title">第三冊A章節地圖（本週為起始週）</div>
+          <table>
+            <thead><tr><th>週次</th><th>章節</th><th>核心內容</th></tr></thead>
+            <tbody>
+              <tr><td>W07–W11（已完成）</td><td>第二冊 Ch1–Ch6</td><td>三角比、廣義角、數列級數、數據分析、排列組合、機率基礎</td></tr>
+              <tr><td>W12（本週）</td><td>第三冊A Ch1 三角函數圖形、Ch2 和差角公式</td><td>正弦/餘弦/正切函數圖形、振幅週期相位、和差角公式、二倍角公式</td></tr>
+              <tr><td>W13（下週）</td><td>第三冊A Ch3 指數函數、Ch4 對數函數</td><td>指數函數圖形、對數函數圖形，與第一冊指數對數運算銜接（第三冊A收官週）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">💡 與物理科的連結：簡諧運動</div>
+          <p>本週學到的振幅、週期、相位概念，與物理科「簡諧運動」（Simple Harmonic Motion）中位移公式 \(x=A\sin(\omega t+\varphi)\) 完全對應——\(A\) 是振幅、\(\omega\) 決定週期（\(T=2\pi/\omega\)）、\(\varphi\) 是相位。日後接觸波動、交流電、簡諧運動等物理主題時，本週建立的三角函數圖形直覺會直接派上用場。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================================
+         Ch1：三角函數圖形
+         ============================================================ -->
+    <section>
+      <div class="chapter-banner ch1">
+        第三冊A 第一章｜三角函數圖形
+        <div class="ch-sub">從三角比到三角函數・正弦/餘弦/正切函數圖形・振幅・週期・相位・鉛直位移</div>
+      </div>
+
+      <!-- 從三角比到三角函數 -->
+      <h3 class="sub-title" id="funcconcept">從三角比到三角函數：觀點的轉換</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">觀念轉換：三角「比」變成三角「函數」</div>
+          <p>第二冊學的三角比，是先固定一個角 \(\theta\)，再求出對應的 \(\sin\theta\)、\(\cos\theta\)、\(\tan\theta\)「一個數值」，重點在幾何圖形中的邊角關係。第三冊A起，我們把角度（通常改用弧度、以實數 \(x\) 表示）當作<strong>自變數</strong>，\(\sin x,\cos x,\tan x\) 當作<strong>應變數（函數值）</strong>，可以畫在坐標平面上，討論定義域、值域、遞增遞減、對稱性——這就是<strong>三角函數（trigonometric function）</strong>的觀點。單位圓上的定義完全沒有改變，改變的是我們看待它的角度。</p>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">畫圖的基本方法：描點法</div>
+          <p>畫三角函數圖形最直接的方法，是利用第二冊背熟的特殊角三角比值，取 \(x=0,\dfrac{\pi}{6},\dfrac{\pi}{4},\dfrac{\pi}{3},\dfrac{\pi}{2},\dots\) 等特殊角，算出對應的函數值後描點，再用平滑曲線連接。這也是為什麼「特殊角三角比值背得熟不熟」直接影響本週的學習效率。</p>
+        </div>
+      </div>
+
+      <!-- 正弦函數圖形 -->
+      <h3 class="sub-title" id="sinegraph">正弦函數 \(y=\sin x\) 的圖形</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">定義域・值域・週期・奇偶性</div>
+          <ul class="content-list">
+            <li><strong>定義域：</strong>\(x\in\mathbb{R}\)（所有實數，即所有角度都有定義）</li>
+            <li><strong>值域：</strong>\([-1,1]\)</li>
+            <li><strong>最小正週期：</strong>\(T=2\pi\)，即 \(\sin(x+2\pi)=\sin x\) 對所有 \(x\) 成立</li>
+            <li><strong>奇函數：</strong>\(\sin(-x)=-\sin x\)，圖形對稱於原點</li>
+          </ul>
+        </div>
+
+        <div class="func-graph">
+          <svg viewBox="0 0 610 250" width="610" height="250">
+            <line x1="30" y1="120" x2="600" y2="120" stroke="#999" stroke-width="1.5"/>
+            <polygon points="600,120 590,115 590,125" fill="#999"/>
+            <line x1="50" y1="15" x2="50" y2="230" stroke="#999" stroke-width="1.5"/>
+            <polygon points="50,15 45,25 55,25" fill="#999"/>
+            <line x1="183.5" y1="20" x2="183.5" y2="220" stroke="#e0d0ee" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="317" y1="20" x2="317" y2="220" stroke="#e0d0ee" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="450.5" y1="20" x2="450.5" y2="220" stroke="#e0d0ee" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="584" y1="20" x2="584" y2="220" stroke="#e0d0ee" stroke-width="1" stroke-dasharray="3,3"/>
+            <polyline points="50,120 72.3,99.3 94.5,80 116.8,63.4 139,50.7 161.3,42.7 183.5,40 205.8,42.7 228,50.7 250.3,63.4 272.5,80 294.8,99.3 317,120 339.3,140.7 361.5,160 383.8,176.6 406,189.3 428.3,197.3 450.5,200 472.8,197.3 495,189.3 517.3,176.6 539.5,160 561.8,140.7 584,120" fill="none" stroke="#6a1b9a" stroke-width="2.5"/>
+            <g font-family="monospace" font-size="12" fill="#4a0072" text-anchor="middle">
+              <text x="50" y="235">0</text>
+              <text x="183.5" y="235">π/2</text>
+              <text x="317" y="235">π</text>
+              <text x="450.5" y="235">3π/2</text>
+              <text x="584" y="235">2π</text>
+              <text x="30" y="44" text-anchor="end">1</text>
+              <text x="30" y="204" text-anchor="end">-1</text>
+            </g>
+            <circle cx="183.5" cy="40" r="3" fill="#f9a825"/>
+            <circle cx="450.5" cy="200" r="3" fill="#f9a825"/>
+          </svg>
+          <div class="fg-caption">\(y=\sin x\)：最大值 1 發生於 \(x=\pi/2\)，最小值 −1 發生於 \(x=3\pi/2\)，週期 \(2\pi\)</div>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例1：求函數 \(y=\sin x\) 在 \([0,2\pi]\) 內，函數值等於 \(\dfrac{1}{2}\) 的所有 \(x\) 值。</div>
+          <div class="ex-step">由特殊角記憶：\(\sin\dfrac{\pi}{6}=\dfrac{1}{2}\)，這是第一象限的一個解</div>
+          <div class="ex-step">正弦在第二象限也為正，且以 \(x=\dfrac{\pi}{2}\) 對稱：另一解為 \(\pi-\dfrac{\pi}{6}=\dfrac{5\pi}{6}\)</div>
+          <div class="ex-ans">答：\(x=\dfrac{\pi}{6}\) 或 \(x=\dfrac{5\pi}{6}\)</div>
+        </div>
+      </div>
+
+      <!-- 餘弦函數圖形 -->
+      <h3 class="sub-title" id="cosgraph">餘弦函數 \(y=\cos x\) 的圖形</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">定義域・值域・週期・奇偶性</div>
+          <ul class="content-list">
+            <li><strong>定義域：</strong>\(x\in\mathbb{R}\)</li>
+            <li><strong>值域：</strong>\([-1,1]\)</li>
+            <li><strong>最小正週期：</strong>\(T=2\pi\)</li>
+            <li><strong>偶函數：</strong>\(\cos(-x)=\cos x\)，圖形對稱於 \(y\) 軸</li>
+          </ul>
+        </div>
+
+        <div class="func-graph">
+          <svg viewBox="0 0 610 250" width="610" height="250">
+            <line x1="30" y1="120" x2="600" y2="120" stroke="#999" stroke-width="1.5"/>
+            <polygon points="600,120 590,115 590,125" fill="#999"/>
+            <line x1="50" y1="15" x2="50" y2="230" stroke="#999" stroke-width="1.5"/>
+            <polygon points="50,15 45,25 55,25" fill="#999"/>
+            <line x1="183.5" y1="20" x2="183.5" y2="220" stroke="#e0d0ee" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="317" y1="20" x2="317" y2="220" stroke="#e0d0ee" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="450.5" y1="20" x2="450.5" y2="220" stroke="#e0d0ee" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="584" y1="20" x2="584" y2="220" stroke="#e0d0ee" stroke-width="1" stroke-dasharray="3,3"/>
+            <polyline points="50,40 72.3,42.7 94.5,50.7 116.8,63.4 139,80 161.3,99.3 183.5,120 205.8,140.7 228,160 250.3,176.6 272.5,189.3 294.8,197.3 317,200 339.3,197.3 361.5,189.3 383.8,176.6 406,160 428.3,140.7 450.5,120 472.8,99.3 495,80 517.3,63.4 539.5,50.7 561.8,42.7 584,40" fill="none" stroke="#1565c0" stroke-width="2.5"/>
+            <g font-family="monospace" font-size="12" fill="#4a0072" text-anchor="middle">
+              <text x="50" y="235">0</text>
+              <text x="183.5" y="235">π/2</text>
+              <text x="317" y="235">π</text>
+              <text x="450.5" y="235">3π/2</text>
+              <text x="584" y="235">2π</text>
+              <text x="30" y="44" text-anchor="end">1</text>
+              <text x="30" y="204" text-anchor="end">-1</text>
+            </g>
+            <circle cx="50" cy="40" r="3" fill="#f9a825"/>
+            <circle cx="317" cy="200" r="3" fill="#f9a825"/>
+          </svg>
+          <div class="fg-caption">\(y=\cos x\)：圖形形狀與 \(\sin x\) 完全相同，只是整體向左平移 \(\dfrac{\pi}{2}\)</div>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">💡 sin 與 cos 圖形的關係</div>
+          <p>比較兩張圖可以發現：\(\cos x\) 的圖形，就是 \(\sin x\) 的圖形向左平移 \(\dfrac{\pi}{2}\) 而得，即 \(\cos x=\sin\!\left(x+\dfrac{\pi}{2}\right)\)。反過來，\(\sin x=\cos\!\left(x-\dfrac{\pi}{2}\right)\)。這個關係在第 9 節的和差角公式中可以嚴謹證明，這裡先從圖形建立直覺。</p>
+        </div>
+      </div>
+
+      <!-- 正切函數圖形 -->
+      <h3 class="sub-title" id="tangraph">正切函數 \(y=\tan x\) 的圖形</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">定義域・值域・週期・奇偶性</div>
+          <ul class="content-list">
+            <li><strong>定義域：</strong>\(x\neq\dfrac{\pi}{2}+k\pi\)（\(k\) 為整數），因為 \(\tan x=\dfrac{\sin x}{\cos x}\)，分母 \(\cos x=0\) 時無意義</li>
+            <li><strong>值域：</strong>\(\mathbb{R}\)（所有實數，可以取到任意大或任意小的值）</li>
+            <li><strong>最小正週期：</strong>\(T=\pi\)（<strong>注意！只有 \(\sin,\cos\) 週期的一半</strong>）</li>
+            <li><strong>奇函數：</strong>\(\tan(-x)=-\tan x\)</li>
+            <li><strong>漸近線：</strong>在 \(x=\dfrac{\pi}{2}+k\pi\) 處圖形無限趨近但不相交，稱為鉛直漸近線</li>
+          </ul>
+        </div>
+
+        <div class="func-graph">
+          <svg viewBox="0 0 600 250" width="600" height="250">
+            <line x1="20" y1="120" x2="580" y2="120" stroke="#999" stroke-width="1.5"/>
+            <polygon points="580,120 570,115 570,125" fill="#999"/>
+            <line x1="300" y1="10" x2="300" y2="240" stroke="#999" stroke-width="1.5"/>
+            <polygon points="300,10 295,20 305,20" fill="#999"/>
+            <line x1="95.8" y1="10" x2="95.8" y2="240" stroke="#c62828" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="504.2" y1="10" x2="504.2" y2="240" stroke="#c62828" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <polyline points="129.8,232 163.9,172 197.9,150 231.9,137.3 266,128 300,120 334,112 368.1,102.7 402.1,90 436.1,68 470.2,8" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+            <g font-family="monospace" font-size="12" fill="#4a0072" text-anchor="middle">
+              <text x="300" y="235">0</text>
+              <text x="95.8" y="250" fill="#c62828">-π/2</text>
+              <text x="504.2" y="250" fill="#c62828">π/2</text>
+              <text x="300" y="134">0</text>
+            </g>
+          </svg>
+          <div class="fg-caption">\(y=\tan x\)：在 \(\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)\) 為一個完整週期，兩側漸近線間曲線由 \(-\infty\) 遞增至 \(+\infty\)，向左右每隔 \(\pi\) 重複出現</div>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例2：求 \(\tan\dfrac{5\pi}{4}\) 之值。</div>
+          <div class="ex-step">利用週期性 \(T=\pi\)：\(\dfrac{5\pi}{4}=\dfrac{\pi}{4}+\pi\)，故 \(\tan\dfrac{5\pi}{4}=\tan\dfrac{\pi}{4}\)</div>
+          <div class="ex-step">\(\tan\dfrac{\pi}{4}=1\)</div>
+          <div class="ex-ans">答：\(1\)</div>
+        </div>
+
+        <div class="box box-warn">
+          <div class="box-title">⚠️ 常見錯誤：把 tan x 的週期誤記為 2π</div>
+          <p>受 \(\sin,\cos\) 週期 \(2\pi\) 影響，很多同學直覺認為 \(\tan x\) 的週期也是 \(2\pi\)，但 \(\tan x\) 的最小正週期其實是 \(\pi\)（可由 \(\tan(x+\pi)=\dfrac{\sin(x+\pi)}{\cos(x+\pi)}=\dfrac{-\sin x}{-\cos x}=\tan x\) 驗證）。這是本週選擇題最愛出的陷阱之一。</p>
+        </div>
+      </div>
+
+      <!-- 一般型 -->
+      <h3 class="sub-title" id="generalform">一般型 \(y=a\sin(bx+c)+d\)：振幅・週期・相位・鉛直位移</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="formula-label">一般型三角函數圖形的四個參數（設 \(a>0,\ b>0\)）</div>
+          \[y=a\sin(bx+c)+d\]
+          <table style="margin-top:0.6rem;">
+            <thead><tr><th>參數</th><th>名稱</th><th>作用</th></tr></thead>
+            <tbody>
+              <tr><td>\(|a|\)</td><td>振幅（Amplitude）</td><td>圖形垂直方向的伸縮倍率，最大值為 \(d+|a|\)，最小值為 \(d-|a|\)</td></tr>
+              <tr><td>\(\dfrac{2\pi}{|b|}\)</td><td>週期（Period）</td><td>圖形水平方向的壓縮／伸展倍率，\(b\) 越大週期越短</td></tr>
+              <tr><td>\(-\dfrac{c}{b}\)</td><td>相位（水平位移）</td><td>圖形整體向左或向右平移的量（正值向右移，需視 \(c\) 符號判斷方向）</td></tr>
+              <tr><td>\(d\)</td><td>鉛直位移</td><td>圖形整體向上或向下平移的量，即函數圖形的「中心線」\(y=d\)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例3：求函數 \(y=3\sin\!\left(2x-\dfrac{\pi}{3}\right)\) 的振幅、週期、相位（水平位移）。</div>
+          <div class="ex-step">與一般型 \(y=a\sin(bx+c)\) 比對：\(a=3,\ b=2,\ c=-\dfrac{\pi}{3}\)</div>
+          <div class="ex-step">振幅：\(|a|=3\)</div>
+          <div class="ex-step">週期：\(T=\dfrac{2\pi}{|b|}=\dfrac{2\pi}{2}=\pi\)</div>
+          <div class="ex-step">相位：\(-\dfrac{c}{b}=-\dfrac{-\pi/3}{2}=\dfrac{\pi}{6}\)，即圖形是 \(y=3\sin(2x)\) 向<strong>右</strong>平移 \(\dfrac{\pi}{6}\) 而得</div>
+          <div class="ex-ans">答：振幅 3，週期 \(\pi\)，向右平移 \(\dfrac{\pi}{6}\)</div>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例4：求函數 \(y=2\sin\!\left(2x-\dfrac{\pi}{3}\right)+1\) 在 \([0,2\pi]\) 內的最大值，並求此時 \(x\) 的其中一個值。</div>
+          <div class="ex-step">最大值發生於 \(\sin(\cdot)=1\) 時，此時 \(y=2\times1+1=3\)</div>
+          <div class="ex-step">令 \(2x-\dfrac{\pi}{3}=\dfrac{\pi}{2}\)：\(2x=\dfrac{\pi}{2}+\dfrac{\pi}{3}=\dfrac{5\pi}{6}\)，故 \(x=\dfrac{5\pi}{12}\)</div>
+          <div class="ex-ans">答：最大值為 \(3\)，發生於 \(x=\dfrac{5\pi}{12}\)（在 \([0,2\pi]\) 內）</div>
+        </div>
+
+        <div class="box box-warn">
+          <div class="box-title">⚠️ 常見錯誤：相位移方向搞反</div>
+          <p>很多同學看到 \(y=\sin(x-\pi/3)\) 直覺以為是「向左移 \(\pi/3\)」，但正確方向是<strong>向右移 \(\pi/3\)</strong>！判斷方法：令括號內 \(x-\pi/3=0\)，解得 \(x=\pi/3\)，代表原本在 \(x=0\) 發生的圖形特徵，現在要到 \(x=\pi/3\) 才發生，也就是圖形整體<strong>向右</strong>移動了。同理 \(y=\sin(x+\pi/3)\) 是向左移 \(\pi/3\)。務必用「令括號等於 0 解 x」的方法確認方向，不要單憑符號直覺判斷。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================================
+         Ch2：和差角公式
+         ============================================================ -->
+    <section>
+      <div class="chapter-banner ch2">
+        第三冊A 第二章｜和差角公式
+        <div class="ch-sub">單位圓推導・正弦/餘弦/正切和差角公式・二倍角公式・化簡求值・輔助角公式</div>
+      </div>
+
+      <!-- 推導 -->
+      <h3 class="sub-title" id="derivation">和差角公式的推導（單位圓上兩點距離法）</h3>
+      <div class="card">
+        <p>和差角公式看似繁多，其實<strong>只有一個公式需要真正推導</strong>，其餘五個都可以由它透過代換快速導出。核心公式是 \(\cos(A-B)=\cos A\cos B+\sin A\sin B\)，以下用單位圓上兩點的距離關係來推導。</p>
+
+        <div class="tri-diagram">
+          <svg viewBox="0 0 260 260" width="260" height="260">
+            <line x1="20" y1="130" x2="240" y2="130" stroke="#bbb" stroke-width="1"/>
+            <line x1="130" y1="10" x2="130" y2="250" stroke="#bbb" stroke-width="1"/>
+            <circle cx="130" cy="130" r="90" fill="none" stroke="#6a1b9a" stroke-width="2"/>
+            <line x1="130" y1="130" x2="220" y2="130" stroke="#bbb" stroke-width="1" stroke-dasharray="2,2"/>
+            <line x1="130" y1="130" x2="190.8" y2="45.4" stroke="#c62828" stroke-width="2.2"/>
+            <circle cx="190.8" cy="45.4" r="3.2" fill="#c62828"/>
+            <text x="196" y="40" font-size="12" fill="#c62828" font-weight="700">P(cosA, sinA)</text>
+            <line x1="130" y1="130" x2="214.6" y2="99.2" stroke="#1565c0" stroke-width="2.2"/>
+            <circle cx="214.6" cy="99.2" r="3.2" fill="#1565c0"/>
+            <text x="219" y="98" font-size="12" fill="#1565c0" font-weight="700">Q(cosB, sinB)</text>
+            <line x1="190.8" y1="45.4" x2="214.6" y2="99.2" stroke="#2e7d32" stroke-width="1.8" stroke-dasharray="3,2"/>
+            <path d="M 175 130 A 45 45 0 0 0 158 92" fill="none" stroke="#f9a825" stroke-width="2"/>
+            <text x="160" y="118" font-size="11" fill="#e65100" font-weight="700">A−B</text>
+            <circle cx="130" cy="130" r="2.5" fill="#4a0072"/>
+            <text x="120" y="147" font-size="11" fill="#4a0072">O</text>
+          </svg>
+        </div>
+
+        <div class="step-box">
+          <p><strong>設</strong> \(P=(\cos A,\sin A)\)、\(Q=(\cos B,\sin B)\) 為單位圓上兩點，\(\angle POQ=A-B\)，且 \(OP=OQ=1\)。</p>
+          <p style="margin-top:0.4rem;"><strong>方法一（餘弦定理）：</strong>在 \(\triangle OPQ\) 中，\(PQ^2=OP^2+OQ^2-2\cdot OP\cdot OQ\cdot\cos(A-B)=2-2\cos(A-B)\)</p>
+          <p style="margin-top:0.4rem;"><strong>方法二（距離公式）：</strong>\(PQ^2=(\cos A-\cos B)^2+(\sin A-\sin B)^2\)</p>
+          <p style="margin-left:1.2rem;">\(=(\cos^2A+\sin^2A)+(\cos^2B+\sin^2B)-2(\cos A\cos B+\sin A\sin B)\)</p>
+          <p style="margin-left:1.2rem;">\(=1+1-2(\cos A\cos B+\sin A\sin B)=2-2(\cos A\cos B+\sin A\sin B)\)</p>
+          <p style="margin-top:0.4rem;"><strong>比較兩式：</strong>\(2-2\cos(A-B)=2-2(\cos A\cos B+\sin A\sin B)\)</p>
+          <p style="margin-top:0.4rem; font-weight:700; color:var(--purple-dark);">整理得：\(\cos(A-B)=\cos A\cos B+\sin A\sin B\) ✓</p>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">💡 其餘五個公式由此快速導出</div>
+          <ul class="content-list">
+            <li>將 \(B\) 換成 \(-B\)：\(\cos(A+B)=\cos A\cos B-\sin A\sin B\)（用 \(\cos(-B)=\cos B,\ \sin(-B)=-\sin B\)）</li>
+            <li>利用 \(\sin(A+B)=\cos\!\left[\dfrac{\pi}{2}-(A+B)\right]=\cos\!\left[\left(\dfrac{\pi}{2}-A\right)-B\right]\)，展開得 \(\sin A\cos B+\cos A\sin B\)</li>
+            <li>再將 \(B\) 換成 \(-B\)，得 \(\sin(A-B)=\sin A\cos B-\cos A\sin B\)</li>
+            <li>\(\tan(A\pm B)=\dfrac{\sin(A\pm B)}{\cos(A\pm B)}\)，分子分母同除以 \(\cos A\cos B\) 即得 \(\tan\) 的和差角公式</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 六個公式 -->
+      <h3 class="sub-title" id="sumdiff">正弦・餘弦・正切和差角公式</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="formula-label">和差角公式（六式必背）</div>
+          \[\sin(A+B)=\sin A\cos B+\cos A\sin B\]
+          \[\sin(A-B)=\sin A\cos B-\cos A\sin B\]
+          \[\cos(A+B)=\cos A\cos B-\sin A\sin B\]
+          \[\cos(A-B)=\cos A\cos B+\sin A\sin B\]
+          \[\tan(A+B)=\frac{\tan A+\tan B}{1-\tan A\tan B}\]
+          \[\tan(A-B)=\frac{\tan A-\tan B}{1+\tan A\tan B}\]
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">💡 記憶口訣：sin 同號，cos／tan 分母異號</div>
+          <p><strong>正弦</strong>公式中，等號右邊兩項的正負號<strong>與括號內運算符號相同</strong>（和用加、差用減）。<strong>餘弦</strong>公式與<strong>正切分母</strong>則相反：括號內是「+」，公式中卻用「−」；括號內是「−」，公式中卻用「+」。掌握這個規律，六個公式就不需要死背，用邏輯就能推出來。</p>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例5：利用和差角公式求 \(\cos75°\) 之值。</div>
+          <div class="ex-step">拆解為特殊角組合：\(75°=45°+30°\)</div>
+          <div class="ex-step">\(\cos75°=\cos(45°+30°)=\cos45°\cos30°-\sin45°\sin30°\)</div>
+          <div class="ex-step">\(=\dfrac{\sqrt2}{2}\cdot\dfrac{\sqrt3}{2}-\dfrac{\sqrt2}{2}\cdot\dfrac{1}{2}=\dfrac{\sqrt6}{4}-\dfrac{\sqrt2}{4}=\dfrac{\sqrt6-\sqrt2}{4}\)</div>
+          <div class="ex-ans">答：\(\dfrac{\sqrt6-\sqrt2}{4}\)</div>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例6：利用和差角公式求 \(\sin15°\) 之值。</div>
+          <div class="ex-step">拆解：\(15°=45°-30°\)</div>
+          <div class="ex-step">\(\sin15°=\sin(45°-30°)=\sin45°\cos30°-\cos45°\sin30°\)</div>
+          <div class="ex-step">\(=\dfrac{\sqrt2}{2}\cdot\dfrac{\sqrt3}{2}-\dfrac{\sqrt2}{2}\cdot\dfrac{1}{2}=\dfrac{\sqrt6}{4}-\dfrac{\sqrt2}{4}=\dfrac{\sqrt6-\sqrt2}{4}\)</div>
+          <div class="ex-ans">答：\(\dfrac{\sqrt6-\sqrt2}{4}\)</div>
+        </div>
+
+        <div class="box box-warn">
+          <div class="box-title">⚠️ 常見錯誤：\(\sin(A+B)\neq\sin A+\sin B\)</div>
+          <p>和差角公式最容易被誤用成「分配律」，即誤以為 \(\sin(A+B)=\sin A+\sin B\)、\(\cos(A+B)=\cos A+\cos B\)。三角函數<strong>不是線性函數</strong>，務必套用完整的和差角公式展開，不可直接拆開相加。可用特殊角驗證：\(\sin(30°+60°)=\sin90°=1\)，但 \(\sin30°+\sin60°=\dfrac12+\dfrac{\sqrt3}{2}\approx1.37\neq1\)，兩者明顯不同。</p>
+        </div>
+      </div>
+
+      <!-- 二倍角公式 -->
+      <h3 class="sub-title" id="doubleangle">二倍角公式</h3>
+      <div class="card">
+        <p>在 \(\sin(A+B)\)、\(\cos(A+B)\) 公式中令 \(B=A\)，即可推導出二倍角公式：</p>
+
+        <div class="box box-formula">
+          <div class="formula-label">二倍角公式</div>
+          \[\sin2A=2\sin A\cos A\]
+          \[\cos2A=\cos^2A-\sin^2A=2\cos^2A-1=1-2\sin^2A\]
+          \[\tan2A=\frac{2\tan A}{1-\tan^2A}\]
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">💡 \(\cos2A\) 有三種形式，依已知條件選用</div>
+          <ul class="content-list">
+            <li>若題目已知 \(\sin A\)：優先用 \(\cos2A=1-2\sin^2A\)</li>
+            <li>若題目已知 \(\cos A\)：優先用 \(\cos2A=2\cos^2A-1\)</li>
+            <li>若題目同時已知 \(\sin A,\cos A\)：三種形式皆可，第一種 \(\cos^2A-\sin^2A\) 較少單獨使用</li>
+          </ul>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例7：已知 \(\theta\) 為銳角，\(\sin\theta=\dfrac35\)，求 \(\sin2\theta\) 與 \(\cos2\theta\)。</div>
+          <div class="ex-step">先求 \(\cos\theta\)：因 \(\theta\) 為銳角，\(\cos\theta=\sqrt{1-\sin^2\theta}=\sqrt{1-\dfrac{9}{25}}=\sqrt{\dfrac{16}{25}}=\dfrac45\)</div>
+          <div class="ex-step">\(\sin2\theta=2\sin\theta\cos\theta=2\times\dfrac35\times\dfrac45=\dfrac{24}{25}\)</div>
+          <div class="ex-step">已知 \(\sin\theta\)，優先用 \(\cos2\theta=1-2\sin^2\theta=1-2\times\dfrac{9}{25}=1-\dfrac{18}{25}=\dfrac{7}{25}\)</div>
+          <div class="ex-ans">答：\(\sin2\theta=\dfrac{24}{25}\)，\(\cos2\theta=\dfrac{7}{25}\)</div>
+        </div>
+      </div>
+
+      <!-- 化簡求值輔助角 -->
+      <h3 class="sub-title" id="application">和差角公式的應用：化簡・求值・輔助角公式</h3>
+      <div class="card">
+        <div class="worked-example">
+          <div class="ex-q">例8：化簡 \(\sin\!\left(x+\dfrac{\pi}{3}\right)+\sin\!\left(x-\dfrac{\pi}{3}\right)\)。</div>
+          <div class="ex-step">\(\sin\!\left(x+\dfrac{\pi}{3}\right)=\sin x\cos\dfrac{\pi}{3}+\cos x\sin\dfrac{\pi}{3}=\dfrac12\sin x+\dfrac{\sqrt3}{2}\cos x\)</div>
+          <div class="ex-step">\(\sin\!\left(x-\dfrac{\pi}{3}\right)=\sin x\cos\dfrac{\pi}{3}-\cos x\sin\dfrac{\pi}{3}=\dfrac12\sin x-\dfrac{\sqrt3}{2}\cos x\)</div>
+          <div class="ex-step">相加：\(\left(\dfrac12\sin x+\dfrac{\sqrt3}{2}\cos x\right)+\left(\dfrac12\sin x-\dfrac{\sqrt3}{2}\cos x\right)=\sin x\)</div>
+          <div class="ex-ans">答：\(\sin x\)（\(\cos x\) 項恰好互相抵消，這是和差角公式應用的典型計算模式）</div>
+        </div>
+
+        <div class="box box-def">
+          <div class="box-title">延伸：輔助角公式（Auxiliary Angle Formula）</div>
+          <p>形如 \(a\sin x+b\cos x\) 的式子，可以利用和差角公式「反向操作」，改寫成單一正弦函數的形式：</p>
+          \[a\sin x+b\cos x=R\sin(x+\varphi),\qquad R=\sqrt{a^2+b^2}\]
+          <p style="margin-top:0.4rem;">其中 \(\varphi\) 滿足 \(\cos\varphi=\dfrac{a}{R},\ \sin\varphi=\dfrac{b}{R}\)（需依 \(a,b\) 正負判斷 \(\varphi\) 所在象限）。這個公式在求 \(a\sin x+b\cos x\) 型函數的最大值、最小值、週期時非常好用——化為單一正弦函數後，最大值即為 \(R\)，最小值即為 \(-R\)。</p>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例9：將 \(\sin x+\sqrt3\cos x\) 化為 \(R\sin(x+\varphi)\) 的形式，並求其最大值。</div>
+          <div class="ex-step">\(R=\sqrt{1^2+(\sqrt3)^2}=\sqrt{1+3}=2\)</div>
+          <div class="ex-step">提出 \(R\)：\(\sin x+\sqrt3\cos x=2\left(\dfrac12\sin x+\dfrac{\sqrt3}{2}\cos x\right)\)</div>
+          <div class="ex-step">觀察 \(\dfrac12=\cos\dfrac{\pi}{3}\)，\(\dfrac{\sqrt3}{2}=\sin\dfrac{\pi}{3}\)，故括號內恰為 \(\sin\!\left(x+\dfrac{\pi}{3}\right)\) 的展開式</div>
+          <div class="ex-step">\(\sin x+\sqrt3\cos x=2\sin\!\left(x+\dfrac{\pi}{3}\right)\)</div>
+          <div class="ex-ans">答：\(2\sin\!\left(x+\dfrac{\pi}{3}\right)\)，最大值為 \(2\)（當 \(x+\dfrac{\pi}{3}=\dfrac{\pi}{2}\) 時取得）</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 知識連結圖 ===== -->
+    <section id="km">
+      <h2 class="section-title">&#128279; 知識連結圖</h2>
+      <div class="km-container">
+        <p style="text-align:center; font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">三角函數圖形與和差角公式在課程中的位置，以及與其他單元的銜接關係：</p>
+        <div class="km-grid" style="align-items:center; margin-bottom:1.2rem;">
+          <div class="km-node linked">第二冊 Ch1–Ch2<br><span style="font-weight:400; font-size:0.78rem;">三角比・廣義角・單位圓</span></div>
+          <div class="km-arrow">→</div>
+          <div class="km-node central">第三冊A Ch1<br>三角函數圖形</div>
+          <div class="km-arrow">→</div>
+          <div class="km-node central">第三冊A Ch2<br>和差角公式</div>
+        </div>
+        <div class="km-grid" style="align-items:center; margin-bottom:1.2rem;">
+          <div class="km-node future">第三冊A Ch3–Ch4<br><span style="font-weight:400; font-size:0.78rem;">指數函數・對數函數（W13）</span></div>
+          <div class="km-arrow">↔</div>
+          <div class="km-node central">本週內容</div>
+          <div class="km-arrow">↔</div>
+          <div class="km-node future">物理：簡諧運動<br>\(x=A\sin(\omega t+\varphi)\)</div>
+        </div>
+        <div class="tree-visual">
+          <div class="tv-root">第三冊A 數學A（本週）</div>
+          <ul class="tv-children">
+            <li class="tv-item">
+              <span class="tv-node tv-l1">函數圖形主線（Ch1）</span>
+              <span class="tv-desc">把三角比從「數值」變成「函數」來理解</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l2">正弦函數圖形</span><span class="tv-desc">週期 2π，值域 [-1,1]，奇函數</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">餘弦函數圖形</span><span class="tv-desc">與 sin 圖形相差 π/2 平移，偶函數</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">正切函數圖形</span><span class="tv-desc">週期 π（一半！），有漸近線</span></li>
+                <li class="tv-item"><span class="tv-node tv-l3">一般型 y=asin(bx+c)+d：振幅・週期・相位・鉛直位移</span></li>
+              </ul>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">代數恆等式主線（Ch2）</span>
+              <span class="tv-desc">推導自單位圓兩點距離關係</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l2">和差角公式</span><span class="tv-desc">sin/cos/tan(A±B) 六式</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">二倍角公式</span><span class="tv-desc">令 B=A 代入和角公式而得</span></li>
+                <li class="tv-item"><span class="tv-node tv-l3">輔助角公式：a sin x + b cos x = R sin(x+φ)，應用於最值問題</span></li>
+              </ul>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">後續銜接</span>
+              <span class="tv-desc">下週與更後續課程</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l3">W13：第三冊A Ch3–Ch4 指數函數・對數函數（圖形分析方法相通）</span></li>
+                <li class="tv-item"><span class="tv-node tv-l3">高三數甲（選修）：微分 \((\sin x)'=\cos x\) 的證明需要和差角公式與極限</span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 常見錯誤 ===== -->
+    <section id="mistakes">
+      <h2 class="section-title">&#9888;&#65039; 常見錯誤</h2>
+      <div class="card">
+        <div class="box box-warn">
+          <div class="box-title">錯誤1：把 \(\tan x\) 的週期誤記為 \(2\pi\)</div>
+          <p>\(\sin x,\cos x\) 的週期是 \(2\pi\)，但 \(\tan x\) 的最小正週期是 \(\boldsymbol{\pi}\)（只有前者的一半）。務必分開記憶，不要因為三者都叫「三角函數」就套用相同週期。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤2：相位移方向判斷相反</div>
+          <p>\(y=\sin(x-c)\)（\(c>0\)）是圖形向<strong>右</strong>移 \(c\)，\(y=\sin(x+c)\) 是向<strong>左</strong>移 \(c\)。判斷口訣：令括號內式子等於 0 解出 \(x\)，該 \(x\) 值就是平移後的位置，不要單憑符號直覺判斷方向。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤3：\(\sin(A+B)\) 誤用成分配律</div>
+          <p>\(\sin(A+B)\neq\sin A+\sin B\)，\(\cos(A+B)\neq\cos A+\cos B\)。三角函數不是線性函數，務必完整展開和差角公式，不可直接拆開相加。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤4：sin、cos、tan 和差角公式的正負號搞混</div>
+          <p>正弦公式兩項<strong>同號</strong>（跟著括號內的運算符號走），餘弦公式與正切分母則<strong>異號</strong>（跟括號內符號相反）。混淆這個規律是本章計算題最常見的失分原因，建議用口訣「sin 同號，cos／tan 分母異號」反覆練習到直覺反應。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤5：二倍角公式選錯形式，多繞一步</div>
+          <p>\(\cos2A\) 有三種等價形式，若題目已知 \(\sin A\) 卻選用 \(\cos2A=2\cos^2A-1\)，會被迫多算一次 \(\cos A\)，浪費時間也增加出錯機會。應依「已知什麼」直接選對形式：已知 \(\sin A\) 用 \(1-2\sin^2A\)，已知 \(\cos A\) 用 \(2\cos^2A-1\)。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤6：忘記和差角公式適用的前提</div>
+          <p>用和差角公式求「數值」時，必須能把角度拆解成兩個熟悉（特殊角）的角度之和或差，例如 \(75°=45°+30°\)、\(15°=45°-30°\)。若無法拆解成特殊角組合，則和差角公式只能用於「化簡」或「證明恆等式」，無法直接求出具體數值。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 學測考點提醒 ===== -->
+    <section id="examfocus">
+      <h2 class="section-title">&#127919; 學測考點提醒</h2>
+      <div class="card">
+        <div class="box box-link">
+          <div class="box-title">歷屆學測命題趨勢</div>
+          <ul class="content-list">
+            <li>已知函數圖形（或圖形的部分特徵，如最高點、與 x 軸交點），反推振幅、週期、相位的題型是選擇題常客</li>
+            <li>「\(\tan x\) 週期是 \(\pi\) 而非 \(2\pi\)」是選擇題的高頻陷阱敘述題，常以「是非判斷」形式出現</li>
+            <li>利用和差角公式求非特殊角三角函數值（如 \(15°,75°,105°,165°\) 等可拆解成特殊角組合的角度）幾乎<strong>每年必考</strong></li>
+            <li>二倍角公式常與「已知 \(\sin\theta\) 或 \(\cos\theta\)，求 \(\sin2\theta,\cos2\theta\)」的計算題結合，並常搭配象限判斷正負號</li>
+            <li>輔助角公式 \(a\sin x+b\cos x=R\sin(x+\varphi)\) 常用於求三角函數的最大值、最小值，是計算題的常見綜合考法</li>
+            <li>三角恆等式證明題（如證明 \(\sin(A+B)\sin(A-B)=\sin^2A-\sin^2B\)）測驗的是對六個和差角公式的靈活運用，非死背可應付</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">解題策略提醒</div>
+          <p>遇到求非特殊角三角函數值的題目，第一步永遠是<strong>把角度拆解成兩個特殊角的和或差</strong>（常見組合：\(45°\pm30°=15°/75°\)，\(45°+60°=105°\) 等）；遇到化簡或證明題，優先把所有角度展開成和差角公式的形式，再合併同類項；遇到求最大值最小值的題目，優先考慮是否能用輔助角公式化為單一正弦函數。三角函數這兩章計算量偏大，建議每天固定練習 3–5 題和差角公式應用題，直到六個公式與二倍角公式能不假思索地正確寫出。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 重點整理 ===== -->
+    <section id="summary">
+      <h2 class="section-title">&#128200; 重點整理</h2>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>主題</th><th>核心公式／概念</th><th>學測考頻</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>正弦・餘弦函數圖形</td>
+              <td>週期 \(2\pi\)，值域 \([-1,1]\)；sin 為奇函數，cos 為偶函數</td>
+              <td><span class="chip chip-gold">★★★★</span></td>
+            </tr>
+            <tr>
+              <td>正切函數圖形</td>
+              <td>週期 \(\pi\)（注意是一半！），值域 \(\mathbb{R}\)，漸近線在 \(x=\pi/2+k\pi\)</td>
+              <td><span class="chip chip-gold">★★★★</span></td>
+            </tr>
+            <tr>
+              <td>一般型 \(y=a\sin(bx+c)+d\)</td>
+              <td>振幅 \(|a|\)，週期 \(2\pi/|b|\)，相位 \(-c/b\)，鉛直位移 \(d\)</td>
+              <td><span class="chip chip-gold">★★★★★</span></td>
+            </tr>
+            <tr>
+              <td>和差角公式（六式）</td>
+              <td>sin 同號；cos、tan 分母異號；由 \(\cos(A-B)\) 單位圓推導而來</td>
+              <td><span class="chip chip-gold">★★★★★</span></td>
+            </tr>
+            <tr>
+              <td>二倍角公式</td>
+              <td>\(\sin2A=2\sin A\cos A\)；\(\cos2A\) 三種形式依已知條件選用</td>
+              <td><span class="chip chip-gold">★★★★★</span></td>
+            </tr>
+            <tr>
+              <td>輔助角公式</td>
+              <td>\(a\sin x+b\cos x=R\sin(x+\varphi)\)，\(R=\sqrt{a^2+b^2}\)，求最值必備</td>
+              <td><span class="chip chip-gold">★★★★</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 自我檢測 ===== -->
+    <section id="quiz">
+      <h2 class="section-title">&#9997; 自我檢測（共 10 題）</h2>
+      <div class="box box-link">
+        <div class="box-title">作答說明</div>
+        <p>以下 10 題涵蓋本週三角函數圖形（週期、振幅、漸近線）與和差角公式（求值、化簡、二倍角）的核心概念，建議計時作答（每題 2–3 分鐘）後再對照詳解。難度以 <span class="diff-badge diff-easy">易</span> <span class="diff-badge diff-medium">中</span> <span class="diff-badge diff-hard">難</span> 標示。</p>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>函數 \(y=\sin x\) 的最小正週期為？<span class="diff-badge diff-easy">易</span></div>
+        <ol>
+          <li>\(\dfrac{\pi}{2}\)</li>
+          <li>\(\pi\)</li>
+          <li>\(2\pi\)</li>
+          <li>\(4\pi\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：C</strong><br>
+            \(\sin(x+2\pi)=\sin x\) 對所有 \(x\) 成立，且 \(2\pi\) 為最小的正值週期。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>函數 \(y=\tan x\) 的最小正週期為？<span class="diff-badge diff-easy">易</span></div>
+        <ol>
+          <li>\(\dfrac{\pi}{2}\)</li>
+          <li>\(\pi\)</li>
+          <li>\(2\pi\)</li>
+          <li>\(4\pi\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(\tan(x+\pi)=\dfrac{-\sin x}{-\cos x}=\tan x\)，故週期為 \(\pi\)，只有 \(\sin,\cos\) 週期的一半。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span>求函數 \(y=3\cos(2x)\) 的振幅與週期。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>振幅 3，週期 \(2\pi\)</li>
+          <li>振幅 3，週期 \(\pi\)</li>
+          <li>振幅 6，週期 \(\pi\)</li>
+          <li>振幅 2，週期 \(\pi\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            振幅 \(=|a|=3\)；週期 \(=\dfrac{2\pi}{|b|}=\dfrac{2\pi}{2}=\pi\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span>函數 \(y=\tan x\) 在 \((0,2\pi)\) 內，漸近線位置為？<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\(x=0,\pi\)</li>
+          <li>\(x=\dfrac{\pi}{2},\dfrac{3\pi}{2}\)</li>
+          <li>\(x=\pi,2\pi\)</li>
+          <li>\(x=\dfrac{\pi}{4},\dfrac{3\pi}{4}\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            漸近線出現在 \(\cos x=0\) 之處，即 \(x=\dfrac{\pi}{2}+k\pi\)，在 \((0,2\pi)\) 內為 \(x=\dfrac{\pi}{2}\) 與 \(x=\dfrac{3\pi}{2}\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span>利用和差角公式，求 \(\cos15°\) 之值。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\(\dfrac{\sqrt6-\sqrt2}{4}\)</li>
+          <li>\(\dfrac{\sqrt6+\sqrt2}{4}\)</li>
+          <li>\(\dfrac{\sqrt3+1}{2\sqrt2}\)</li>
+          <li>\(\dfrac12\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(\cos15°=\cos(45°-30°)=\cos45°\cos30°+\sin45°\sin30°=\dfrac{\sqrt6}{4}+\dfrac{\sqrt2}{4}=\dfrac{\sqrt6+\sqrt2}{4}\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">6</span>利用和差角公式，求 \(\sin15°\) 之值。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\(\dfrac{\sqrt6+\sqrt2}{4}\)</li>
+          <li>\(\dfrac{\sqrt2-\sqrt6}{4}\)</li>
+          <li>\(\dfrac{\sqrt6-\sqrt2}{4}\)</li>
+          <li>\(\dfrac{\sqrt3-1}{2}\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：C</strong><br>
+            \(\sin15°=\sin(45°-30°)=\sin45°\cos30°-\cos45°\sin30°=\dfrac{\sqrt6}{4}-\dfrac{\sqrt2}{4}=\dfrac{\sqrt6-\sqrt2}{4}\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">7</span>已知 \(\cos\theta=\dfrac45\)，\(\theta\) 為銳角，求 \(\cos2\theta\)。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\(\dfrac{24}{25}\)</li>
+          <li>\(-\dfrac{7}{25}\)</li>
+          <li>\(\dfrac{9}{25}\)</li>
+          <li>\(\dfrac{7}{25}\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：D</strong><br>
+            已知 \(\cos\theta\)，優先用 \(\cos2\theta=2\cos^2\theta-1=2\times\dfrac{16}{25}-1=\dfrac{32}{25}-1=\dfrac{7}{25}\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">8</span>化簡 \(\sin\!\left(x+\dfrac{\pi}{4}\right)-\sin\!\left(x-\dfrac{\pi}{4}\right)\)。<span class="diff-badge diff-hard">難</span></div>
+        <ol>
+          <li>\(\sqrt2\sin x\)</li>
+          <li>\(2\cos x\)</li>
+          <li>\(\sqrt2\cos x\)</li>
+          <li>\(\cos x\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：C</strong><br>
+            展開：\(\sin\!\left(x+\dfrac{\pi}{4}\right)=\dfrac{\sqrt2}{2}\sin x+\dfrac{\sqrt2}{2}\cos x\)，\(\sin\!\left(x-\dfrac{\pi}{4}\right)=\dfrac{\sqrt2}{2}\sin x-\dfrac{\sqrt2}{2}\cos x\)<br>
+            相減：\(\left(\dfrac{\sqrt2}{2}\sin x+\dfrac{\sqrt2}{2}\cos x\right)-\left(\dfrac{\sqrt2}{2}\sin x-\dfrac{\sqrt2}{2}\cos x\right)=\sqrt2\cos x\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q9 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">9</span>已知 \(\tan A=\dfrac12\)，\(\tan B=\dfrac13\)，求 \(\tan(A+B)\)。<span class="diff-badge diff-hard">難</span></div>
+        <ol>
+          <li>\(\dfrac56\)</li>
+          <li>\(\dfrac57\)</li>
+          <li>\(\dfrac12\)</li>
+          <li>\(1\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：D</strong><br>
+            \(\tan(A+B)=\dfrac{\tan A+\tan B}{1-\tan A\tan B}=\dfrac{\frac12+\frac13}{1-\frac12\times\frac13}=\dfrac{\frac56}{\frac56}=1\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q10 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">10</span>函數 \(y=2\sin\!\left(2x-\dfrac{\pi}{3}\right)+1\) 的最大值為？<span class="diff-badge diff-hard">難</span></div>
+        <ol>
+          <li>\(1\)</li>
+          <li>\(2\)</li>
+          <li>\(-1\)</li>
+          <li>\(3\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：D</strong><br>
+            最大值發生於 \(\sin\!\left(2x-\dfrac{\pi}{3}\right)=1\) 時，此時 \(y=2\times1+1=3\)（此時 \(2x-\dfrac{\pi}{3}=\dfrac{\pi}{2}\)，即 \(x=\dfrac{5\pi}{12}\)）。
+          </div>
+        </details>
+      </div>
+
+      <div class="box box-tip" style="margin-top:1.5rem;">
+        <div class="box-title">訂正與複習建議</div>
+        <ul class="content-list">
+          <li>「\(\tan x\) 週期為 \(\pi\)」與「相位移方向」是本週最容易出錯的兩個觀念，建議各自舉一個具體例子驗證，直到能不假思索分辨</li>
+          <li>和差角公式的六個式子，建議每天早晚各默寫一次，直到能在 1 分鐘內全部正確寫出且不需思考正負號規律</li>
+          <li>二倍角公式的三種 \(\cos2A\) 形式，練習時養成「先看題目給了 \(\sin\) 還是 \(\cos\)，再選對應形式」的反射動作，可省下大量計算時間</li>
+          <li>本週沒有強制的數學週末任務，建議利用週末額外抽出 1–2 小時，把本講義的例題重新遮住解答獨立作答一次，確認真正理解而非只是看懂</li>
+          <li>下週（W13）將進入第三冊A Ch3–Ch4：指數函數與對數函數，屬於第三冊A的收官章節，也會與第一冊「指數運算」、後續「對數運算」直接銜接，本週務必把三角函數圖形與和差角公式練到熟練，才能專心迎接下週新進度</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

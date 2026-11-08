@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W11 數學A科｜第二冊 Ch6 機率基礎與整冊總複習｜學測備考講義</title>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        tags: 'ams'
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+      background: #f5f0fa;
+      color: #2d2d2d;
+      line-height: 1.75;
+    }
+
+    :root {
+      --purple-dark:  #4a0072;
+      --purple-main:  #6a1b9a;
+      --purple-mid:   #8e24aa;
+      --purple-light: #ce93d8;
+      --purple-pale:  #f3e5f5;
+      --purple-bg:    #faf0fe;
+      --accent-gold:  #f9a825;
+      --accent-teal:  #00796b;
+      --accent-red:   #c62828;
+      --accent-blue:  #1565c0;
+      --accent-green: #2e7d32;
+      --text-main:    #2d2d2d;
+      --text-muted:   #5d5d5d;
+      --white:        #ffffff;
+      --border:       #d1c4e9;
+    }
+
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      width: 260px; flex-shrink: 0;
+      background: var(--purple-dark);
+      color: var(--white);
+      position: sticky; top: 0; height: 100vh;
+      overflow-y: auto; padding: 0 0 2rem 0;
+    }
+    .sidebar-header {
+      background: var(--purple-main);
+      padding: 1.2rem 1rem; text-align: center;
+      border-bottom: 2px solid var(--purple-light);
+    }
+    .sidebar-header .week-tag {
+      font-size: 0.72rem; letter-spacing: 0.12em;
+      color: var(--purple-light); margin-bottom: 0.3rem; display: block;
+    }
+    .sidebar-header h2 { font-size: 1rem; font-weight: 700; line-height: 1.4; }
+    .sidebar-header p { font-size: 0.78rem; opacity: 0.80; margin-top: 0.3rem; }
+    .sidebar nav { padding: 0.5rem 0; }
+    .nav-section {
+      font-size: 0.65rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--purple-light);
+      padding: 0.9rem 1rem 0.3rem; opacity: 0.85;
+    }
+    .sidebar nav a {
+      display: block; padding: 0.4rem 1rem;
+      color: rgba(255,255,255,0.82); text-decoration: none;
+      font-size: 0.84rem; border-left: 3px solid transparent;
+      transition: all 0.18s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.12);
+      border-left-color: var(--purple-light);
+      color: var(--white);
+    }
+    .nav-indent { padding-left: 1.6rem !important; font-size: 0.80rem !important; }
+
+    /* ===== MAIN ===== */
+    .main-content { flex: 1; padding: 2rem 2.5rem 4rem; max-width: 960px; }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-main) 55%, var(--purple-mid) 100%);
+      color: var(--white);
+      border-radius: 16px; padding: 2rem 2.4rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(74,0,114,0.25);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: "P(A)"; position: absolute;
+      right: 1.8rem; top: 50%; transform: translateY(-50%);
+      font-size: 5.2rem; opacity: 0.08; font-weight: 900;
+    }
+    .page-header .week-tag {
+      background: rgba(255,255,255,0.20);
+      display: inline-block; padding: 0.18rem 0.85rem;
+      border-radius: 12px; font-size: 0.80rem;
+      margin-bottom: 0.6rem; letter-spacing: 0.05em;
+    }
+    .page-header h1 { font-size: 1.8rem; font-weight: 900; margin-bottom: 0.35rem; }
+    .page-header .subtitle { font-size: 0.92rem; opacity: 0.88; }
+    .meta-row { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+    .meta-chip {
+      background: rgba(255,255,255,0.16);
+      border-radius: 20px; padding: 0.20rem 0.85rem; font-size: 0.78rem;
+    }
+
+    /* ===== TOC ===== */
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 0.6rem;
+      margin: 0.8rem 0;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.8rem;
+      text-decoration: none;
+      color: var(--purple-dark);
+      font-size: 0.86rem;
+      font-weight: 600;
+      transition: all 0.18s;
+    }
+    .toc-item:hover { background: var(--purple-pale); border-color: var(--purple-main); }
+    .toc-item .toc-num {
+      background: var(--purple-main);
+      color: #fff;
+      width: 1.5rem; height: 1.5rem; line-height: 1.5rem;
+      font-size: 0.75rem; font-weight: 700;
+      text-align: center; border-radius: 4px; flex-shrink: 0;
+    }
+
+    /* ===== SECTION TITLES ===== */
+    .section-title {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 1.28rem; font-weight: 800;
+      color: var(--purple-dark);
+      margin: 2.4rem 0 1.1rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 3px solid var(--purple-main);
+    }
+    .sub-title {
+      font-size: 1.02rem; font-weight: 700;
+      color: var(--purple-main);
+      margin: 1.5rem 0 0.7rem;
+      padding-left: 0.75rem;
+      border-left: 4px solid var(--purple-main);
+    }
+    .sub-sub-title {
+      font-size: 0.94rem; font-weight: 700;
+      color: var(--purple-mid);
+      margin: 1.1rem 0 0.5rem;
+    }
+
+    /* ===== CARDS ===== */
+    .card {
+      background: var(--white);
+      border-radius: 12px; padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 10px rgba(74,0,114,0.08);
+      border: 1px solid var(--border);
+    }
+
+    /* ===== BOXES ===== */
+    .box { border-radius: 10px; padding: 1rem 1.2rem; margin: 1rem 0; font-size: 0.93rem; }
+    .box-def    { background: var(--purple-pale); border-left: 5px solid var(--purple-main); }
+    .box-formula{ background: #fff8e1; border-left: 5px solid var(--accent-gold); }
+    .box-example{ background: #e8f5e9; border-left: 5px solid var(--accent-green); }
+    .box-warn   { background: #fce4ec; border-left: 5px solid var(--accent-red); }
+    .box-tip    { background: #e0f2f1; border-left: 5px solid var(--accent-teal); }
+    .box-link   { background: #e3f2fd; border-left: 5px solid var(--accent-blue); }
+    .box-title  { font-weight: 700; margin-bottom: 0.5rem; }
+
+    /* ===== FORMULA DISPLAY ===== */
+    .formula-block {
+      background: #fef9e7;
+      border: 2px solid var(--accent-gold);
+      border-radius: 12px;
+      padding: 1.2rem 1.6rem;
+      margin: 1rem 0;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+    .formula-block .formula-label {
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--accent-gold); margin-bottom: 0.5rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+
+    /* ===== TABLES ===== */
+    table { width: 100%; border-collapse: collapse; font-size: 0.91rem; margin: 0.8rem 0; }
+    thead tr { background: var(--purple-main); color: var(--white); }
+    thead th { padding: 0.65rem 1rem; text-align: left; font-weight: 700; }
+    tbody tr:nth-child(even) { background: var(--purple-pale); }
+    tbody tr:hover { background: #e8d5f5; }
+    tbody td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody td:first-child { font-weight: 700; color: var(--purple-dark); white-space: nowrap; }
+
+    /* ===== WORKED EXAMPLE ===== */
+    .worked-example {
+      background: #f9fbe7;
+      border: 1px solid #c5e1a5;
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .worked-example::before {
+      content: "例題";
+      position: absolute; top: -0.65rem; left: 1rem;
+      background: var(--accent-green); color: #fff;
+      font-size: 0.72rem; padding: 0.08rem 0.6rem;
+      border-radius: 8px; font-weight: 700;
+    }
+    .worked-example .ex-q { font-weight: 700; margin-bottom: 0.7rem; color: #1b5e20; }
+    .worked-example .ex-step { font-size: 0.90rem; margin-bottom: 0.4rem; line-height: 1.9; }
+    .worked-example .ex-ans { font-weight: 700; color: var(--accent-green); margin-top: 0.5rem; }
+
+    /* ===== QUIZ ===== */
+    .quiz-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-item .q-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--purple-main); color: var(--white);
+      font-size: 0.80rem; font-weight: 700;
+      border-radius: 50%; width: 1.7rem; height: 1.7rem;
+      margin-right: 0.5rem; flex-shrink: 0;
+    }
+    .quiz-item .q-text { font-weight: 600; font-size: 0.94rem; margin-bottom: 0.5rem; }
+    .quiz-item ol { padding-left: 1.6rem; font-size: 0.92rem; }
+    .quiz-item li { margin-bottom: 0.3rem; list-style-type: upper-alpha; }
+    .diff-badge {
+      display: inline-block; font-size: 0.70rem; font-weight: 700;
+      padding: 0.1rem 0.5rem; border-radius: 8px; margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .diff-easy   { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+    .diff-medium { background: #fff8e1; color: #e65100; border: 1px solid #ffe082; }
+    .diff-hard   { background: #fce4ec; color: #c62828; border: 1px solid #f48fb1; }
+    details summary {
+      cursor: pointer; color: var(--accent-teal);
+      font-size: 0.88rem; margin-top: 0.6rem; font-weight: 600;
+    }
+    details[open] summary { margin-bottom: 0.5rem; }
+    details .answer {
+      background: #e0f2f1;
+      border-left: 4px solid var(--accent-teal);
+      border-radius: 6px;
+      padding: 0.8rem 1rem; font-size: 0.88rem; line-height: 1.9;
+    }
+
+    /* ===== CHIPS ===== */
+    .chip { display:inline-block; padding:0.18rem 0.7rem; border-radius:12px; font-size:0.80rem; font-weight:700; margin:0.15rem; }
+    .chip-purple { background:var(--purple-pale); color:var(--purple-dark); border:1px solid var(--purple-light); }
+    .chip-gold   { background:#fff8e1; color:#e65100; border:1px solid #ffe082; }
+    .chip-teal   { background:#e0f2f1; color:var(--accent-teal); border:1px solid #80cbc4; }
+    .chip-red    { background:#fce4ec; color:var(--accent-red); border:1px solid #f48fb1; }
+    .chip-green  { background:#e8f5e9; color:var(--accent-green); border:1px solid #a5d6a7; }
+
+    .analysis-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1rem 0; }
+    @media (max-width:700px) { .analysis-grid { grid-template-columns:1fr; } }
+    .analysis-item {
+      background:var(--white); border:1px solid var(--border);
+      border-top:4px solid var(--purple-main);
+      border-radius:8px; padding:1rem 1.1rem;
+    }
+    .analysis-item h4 { color:var(--purple-dark); font-size:0.92rem; margin-bottom:0.5rem; }
+    .analysis-item ul { padding-left:1.2rem; font-size:0.88rem; }
+    .analysis-item li { margin-bottom:0.3rem; }
+
+    .step-box {
+      background: #f3e5f5; border-left: 4px solid var(--purple-main);
+      border-radius: 8px; padding: 0.9rem 1.2rem; margin: 0.6rem 0;
+      font-size: 0.91rem;
+    }
+    .step-box strong { color: var(--purple-dark); }
+
+    ul.content-list { padding-left: 1.4rem; }
+    ul.content-list li { margin-bottom: 0.4rem; font-size: 0.93rem; }
+
+    .divider { border: none; border-top: 2px dashed var(--border); margin: 2.5rem 0; }
+
+    .chapter-banner {
+      border-radius: 12px; padding: 0.9rem 1.4rem; margin-bottom: 1.2rem; color: #fff;
+      font-size: 1.1rem; font-weight: 800; letter-spacing: 1px;
+    }
+    .ch1 { background: linear-gradient(90deg, #1565c0, #1e88e5); }
+    .ch2 { background: linear-gradient(90deg, #2e7d32, #43a047); }
+    .ch3 { background: linear-gradient(90deg, #e65100, #fb8c00); }
+    .ch4 { background: linear-gradient(90deg, #6a1b9a, #8e24aa); }
+    .chapter-banner .ch-sub { font-size: 0.80rem; font-weight: 400; opacity: 0.88; margin-top: 0.2rem; }
+
+    /* ===== SVG DIAGRAM ===== */
+    .tri-diagram { display:flex; justify-content:center; margin:1.2rem 0; }
+    .tri-diagram svg { max-width: 100%; height: auto; }
+
+    /* ===== TREE VISUAL ===== */
+    .tree-visual { background:#faf0fe; border:1px solid var(--border); border-radius:10px; padding:20px 24px 16px 20px; margin:14px 0; overflow-x:auto; }
+    .tv-root { display:inline-flex; align-items:center; background:var(--purple-dark); color:#fff; font-weight:700; font-size:15px; padding:5px 18px; border-radius:20px; margin-bottom:6px; }
+    .tv-children { list-style:none; padding:0; margin:0 0 0 14px; border-left:2px solid var(--border); }
+    .tv-item { position:relative; padding:5px 0 4px 22px; }
+    .tv-item::before { content:''; position:absolute; left:0; top:14px; width:18px; height:2px; background:var(--border); }
+    .tv-node { display:inline-block; border-radius:6px; padding:3px 12px; font-size:13px; font-weight:600; line-height:1.6; }
+    .tv-desc { display:block; font-size:11.5px; color:var(--text-muted); padding:0 4px; margin:1px 0 3px; }
+    .tv-node.tv-l1 { background:var(--purple-pale); color:var(--purple-dark); border:1px solid var(--purple-light); font-size:14px; }
+    .tv-node.tv-l2 { background:#fff8e1; color:#e65100; border:1px solid #ffe082; }
+    .tv-node.tv-l3 { background:#fafafa; color:var(--text-main); border:1px solid #e0e0e0; font-weight:400; }
+
+    /* ===== KNOWLEDGE MAP ===== */
+    .km-container {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+    .km-grid {
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+    }
+    .km-node {
+      background: var(--purple-pale);
+      border: 2px solid var(--purple-main);
+      border-radius: 8px;
+      padding: 0.55rem 1rem;
+      font-size: 0.88rem; font-weight: 700;
+      color: var(--purple-dark); text-align: center;
+    }
+    .km-node.central {
+      background: var(--purple-main); color: #fff;
+      font-size: 1rem; padding: 0.7rem 1.4rem;
+      border-color: var(--purple-dark);
+    }
+    .km-node.linked {
+      background: #e8f5e9; border-color: var(--accent-green); color: #1b5e20;
+    }
+    .km-node.future {
+      background: #fff8e1; border-color: var(--accent-gold); color: #e65100;
+    }
+    .km-arrow { display: flex; align-items: center; font-size: 1.2rem; color: var(--purple-mid); font-weight: 700; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main-content { padding: 1.2rem 1rem 3rem; }
+      .analysis-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span class="week-tag">WEEK 11 ｜ 07/27–08/02</span>
+      <h2>數學 A 科</h2>
+      <p>第二冊 Ch6 機率基礎・整冊總複習</p>
+    </div>
+    <nav>
+      <div class="nav-section">導覽</div>
+      <a href="#overview">學習總覽</a>
+      <a href="#transition">暑假衝刺期銜接說明</a>
+
+      <div class="nav-section">Ch6 機率基礎</div>
+      <a href="#sample" class="nav-indent">樣本空間與事件</a>
+      <a href="#classicalprob" class="nav-indent">機率的定義（古典機率）</a>
+      <a href="#addition" class="nav-indent">加法定理與餘事件</a>
+      <a href="#independent" class="nav-indent">獨立事件與乘法定理</a>
+      <a href="#conditional" class="nav-indent">條件機率初步</a>
+
+      <div class="nav-section">第二冊整冊總複習</div>
+      <a href="#reviewtable" class="nav-indent">六章總表（Ch1–Ch6）</a>
+      <a href="#synthesis" class="nav-indent">跨章綜合題</a>
+
+      <div class="nav-section">複習與測驗</div>
+      <a href="#km">知識連結圖</a>
+      <a href="#mistakes">常見錯誤</a>
+      <a href="#examfocus">學測考點提醒</a>
+      <a href="#weekend">週末任務：歷屆試題整理</a>
+      <a href="#summary">重點整理</a>
+      <a href="#quiz">自我檢測（5題）</a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content">
+
+    <header class="page-header" id="top">
+      <div class="week-tag">第十一週學習單元｜WEEK 11｜07/27–08/02｜暑假黃金衝刺期 第 4 週</div>
+      <h1>第二冊 Ch6｜機率基礎與整冊總複習</h1>
+      <p class="subtitle">數學 A｜樣本空間與事件・機率的定義・加法定理・餘事件・獨立事件・條件機率初步・第二冊 Ch1–Ch6 總複習</p>
+      <div class="meta-row">
+        <span class="meta-chip">P(A) = n(A)/n(Ω)</span>
+        <span class="meta-chip">P(A∪B) = P(A)+P(B)−P(A∩B)</span>
+        <span class="meta-chip">P(Aᶜ) = 1−P(A)</span>
+        <span class="meta-chip">獨立：P(A∩B) = P(A)P(B)</span>
+        <span class="meta-chip">P(A|B) = P(A∩B)/P(B)</span>
+        <span class="meta-chip">週日：數學第二冊歷屆試題整理</span>
+        <span class="meta-chip">自我檢測 5 題</span>
+      </div>
+    </header>
+
+    <!-- ===== TOC ===== -->
+    <section id="toc">
+      <h2 class="section-title">&#128218; 本講義導覽</h2>
+      <div class="toc-grid">
+        <a href="#overview" class="toc-item"><span class="toc-num">0</span>學習總覽</a>
+        <a href="#transition" class="toc-item"><span class="toc-num">P</span>先備知識銜接</a>
+        <a href="#sample" class="toc-item"><span class="toc-num">1</span>樣本空間與事件</a>
+        <a href="#classicalprob" class="toc-item"><span class="toc-num">2</span>機率的定義</a>
+        <a href="#addition" class="toc-item"><span class="toc-num">3</span>加法定理・餘事件</a>
+        <a href="#independent" class="toc-item"><span class="toc-num">4</span>獨立事件</a>
+        <a href="#conditional" class="toc-item"><span class="toc-num">5</span>條件機率初步</a>
+        <a href="#reviewtable" class="toc-item"><span class="toc-num">6</span>整冊總表</a>
+        <a href="#synthesis" class="toc-item"><span class="toc-num">7</span>跨章綜合題</a>
+        <a href="#km" class="toc-item"><span class="toc-num">K</span>知識連結圖</a>
+        <a href="#mistakes" class="toc-item"><span class="toc-num">M</span>常見錯誤</a>
+        <a href="#examfocus" class="toc-item"><span class="toc-num">E</span>學測考點</a>
+        <a href="#weekend" class="toc-item"><span class="toc-num">W</span>週末任務</a>
+        <a href="#summary" class="toc-item"><span class="toc-num">S</span>重點整理</a>
+        <a href="#quiz" class="toc-item"><span class="toc-num">Q</span>自我檢測</a>
+      </div>
+    </section>
+
+    <!-- ===== 學習總覽 ===== -->
+    <section id="overview">
+      <h2 class="section-title">&#128218; 學習總覽</h2>
+      <div class="card">
+        <p>本週是暑假黃金衝刺期第二階段的<strong>第 4 週</strong>，也是第二冊進度的<strong>收尾週</strong>：前半週要學完第二冊最後一章──<strong>機率基礎（Ch6）</strong>，後半週則要把第二冊六個章節（三角比、廣義角與三角比性質、數列與級數、數據分析、排列組合、機率基礎）做一次<strong>整冊總複習</strong>，為即將到來的第三冊 A（三角函數、向量）預作準備，也為之後的分科測驗銜接單元（條件機率與貝氏定理）打好基礎。機率基礎與上週的排列組合是「一對雙生單元」──機率的計算幾乎都要先用排列組合算出「所有可能情形數 \(n(\Omega)\)」與「有利情形數 \(n(A)\)」，因此上週練熟的 \(P(n,r)\) 與 \(C(n,r)\) 將在本週被大量重複使用。學測對機率單元的考法通常聚焦於「能否正確判斷該用加法定理還是乘法定理、獨立事件與互斥事件是否搞混、至少型是否想到用餘事件」，觀念的精準度比計算的複雜度更重要。</p>
+        <div class="box box-link" style="margin-top:1rem;">
+          <div class="box-title">本週學習目標</div>
+          <ul class="content-list">
+            <li>能正確描述一個隨機試驗的樣本空間 \(\Omega\)，並判斷某個結果是否屬於指定事件</li>
+            <li>理解古典機率（等可能性）的定義 \(P(A)=\dfrac{n(A)}{n(\Omega)}\)，並能結合排列組合計算 \(n(\Omega)\) 與 \(n(A)\)</li>
+            <li>熟練機率加法定理 \(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)，並理解互斥事件是其特例</li>
+            <li>熟練餘事件（補事件）\(P(A^c)=1-P(A)\)，並能在「至少」型題目中主動使用</li>
+            <li>能清楚分辨「互斥事件」與「獨立事件」的差異，不再混淆兩者</li>
+            <li>理解獨立事件的乘法定理 \(P(A\cap B)=P(A)P(B)\)</li>
+            <li>初步理解條件機率 \(P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}\) 的意義與計算方式</li>
+            <li>完成第二冊 Ch1–Ch6 的整冊總複習，能快速回憶每章的核心公式與常考角度</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 暑假衝刺期銜接說明 ===== -->
+    <section id="transition">
+      <h2 class="section-title">&#128293; 暑假黃金衝刺期銜接說明</h2>
+      <div class="card">
+        <div class="box box-warn">
+          <div class="box-title">進度提醒：暑假黃金衝刺期 第 4 週・第二冊收官週</div>
+          <p>本週（W11）是備考時程表第二階段（W08–W16，07/06–09/06）的<strong>第 4 週</strong>，也是<strong>第二冊全冊進度的最後一週</strong>。本週六（08/01）安排的是<strong>物理模擬考（含 Ch1–5）</strong>，而數學科的複習任務則排在<strong>週日（08/02）：數學第二冊歷屆試題整理</strong>——這代表本週數學科不必準備限時模擬考，而是要靜下心把第二冊六章的歷屆考題重新做一遍、抓出自己還不熟的章節，為下週進入第三冊 A（三角函數圖形、和差角公式）做好收尾。</p>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">先備知識：本週建立在上週（W10）的排列組合之上</div>
+          <p>上週（W10）學過的<strong>加法原理、乘法原理、排列 \(P(n,r)\)、組合 \(C(n,r)\)、相同物排列</strong>，是本週機率計算不可或缺的工具。機率的定義 \(P(A)=\dfrac{n(A)}{n(\Omega)}\) 中，分子 \(n(A)\) 與分母 \(n(\Omega)\) 幾乎都需要用排列組合計算出來。如果你發現自己在計算機率題時，光是「算出有幾種情形」這一步就卡關，代表需要回頭複習 W10 的內容，而不是本週的機率觀念本身有問題。</p>
+        </div>
+        <div class="box box-link">
+          <div class="box-title">第二冊章節地圖（本週為收官週）</div>
+          <table>
+            <thead><tr><th>週次</th><th>章節</th><th>核心內容</th></tr></thead>
+            <tbody>
+              <tr><td>W07（已完成）</td><td>Ch1 三角比（直角三角形）</td><td>正弦、餘弦、正切的定義，特殊角三角比</td></tr>
+              <tr><td>W08（已完成）</td><td>Ch2 廣義角與三角比性質</td><td>弧度制、單位圓定義、正弦/餘弦定理、面積公式</td></tr>
+              <tr><td>W09（已完成）</td><td>Ch3 數列與級數</td><td>等差數列、等差級數、等比數列、等比級數、Σ記號</td></tr>
+              <tr><td>W10（已完成）</td><td>Ch4 數據分析、Ch5 排列組合</td><td>集中量數、離散量數、盒狀圖、計數原理、排列、組合</td></tr>
+              <tr><td>W11（本週）</td><td>Ch6 機率基礎、第二冊總複習</td><td>樣本空間、古典機率、加法定理、餘事件、獨立事件、條件機率初步</td></tr>
+              <tr><td>W12（下週）</td><td>第三冊A Ch1 三角函數圖形、Ch2 和差角公式</td><td>正弦/餘弦函數圖形、週期與振幅、和差角公式</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================================
+         Ch6：機率基礎
+         ============================================================ -->
+    <section>
+      <div class="chapter-banner ch1">
+        第二冊 第六章｜機率基礎
+        <div class="ch-sub">樣本空間與事件・古典機率・加法定理・餘事件・獨立事件・乘法定理・條件機率初步</div>
+      </div>
+
+      <!-- 樣本空間與事件 -->
+      <h3 class="sub-title" id="sample">樣本空間與事件</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">定義：樣本空間（Sample Space）與事件（Event）</div>
+          <p>對於一個<strong>隨機試驗</strong>（結果無法事先確定，但所有可能結果都能列出的實驗），所有可能發生結果所形成的集合稱為<strong>樣本空間</strong>，記作 \(\Omega\)（或 \(S\)）。樣本空間的任一子集合稱為一個<strong>事件（event）</strong>，通常以大寫字母 \(A, B, C\ldots\) 表示。</p>
+          <ul class="content-list" style="margin-top:0.5rem;">
+            <li><strong>不可能事件</strong>：\(\varnothing\)（空集合），機率恆為 0</li>
+            <li><strong>必然事件</strong>：\(\Omega\) 本身，機率恆為 1</li>
+            <li><strong>複合事件</strong>：由多個樣本點組成的事件，例如「擲骰子出現偶數點」</li>
+          </ul>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例1：投擲一顆公正骰子一次，寫出樣本空間 \(\Omega\)，並寫出「出現偶數點」事件 \(A\) 的內容。</div>
+          <div class="ex-step">樣本空間：\(\Omega=\{1,2,3,4,5,6\}\)，共 \(n(\Omega)=6\) 個等可能結果</div>
+          <div class="ex-step">事件 \(A\)（偶數點）：\(A=\{2,4,6\}\)，\(n(A)=3\)</div>
+          <div class="ex-ans">答：\(\Omega=\{1,2,3,4,5,6\}\)，\(A=\{2,4,6\}\)</div>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">解題習慣：先寫出 \(\Omega\) 與 \(A\)，再談機率</div>
+          <p>機率問題最常見的失分原因不是公式不會，而是<strong>樣本空間數錯</strong>。養成「先確認 \(n(\Omega)\) 怎麼算、事件 \(A\) 包含哪些結果」的習慣，能大幅減少後續計算錯誤。</p>
+        </div>
+      </div>
+
+      <!-- 機率的定義 -->
+      <h3 class="sub-title" id="classicalprob">機率的定義（古典機率）</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">定義：古典機率（Classical Probability）</div>
+          <p>當一個隨機試驗的樣本空間 \(\Omega\) 中，每一個樣本點發生的可能性<strong>都相等（等可能性）</strong>時，事件 \(A\) 發生的機率定義為：</p>
+          \[P(A)=\frac{n(A)}{n(\Omega)}=\frac{\text{事件 }A\text{ 所包含的樣本點數}}{\text{樣本空間的樣本點總數}}\]
+          <p style="margin-top:0.5rem;">此定義稱為<strong>拉普拉斯（Laplace）古典機率</strong>，前提是每個結果出現的機會必須相同（例如公正骰子、公正硬幣、隨機抽取），否則不能直接套用。</p>
+        </div>
+
+        <div class="box box-formula">
+          <div class="formula-label">機率的基本性質</div>
+          \[0\leq P(A)\leq 1,\qquad P(\Omega)=1,\qquad P(\varnothing)=0\]
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例2：同時投擲兩顆公正骰子一次，求兩骰點數和為 8 的機率。</div>
+          <div class="ex-step">樣本空間：每顆骰子皆有 6 種結果，兩顆依序（可視為有序對）：\(n(\Omega)=6\times6=36\)</div>
+          <div class="ex-step">點數和為 8 的有序對：\((2,6),(3,5),(4,4),(5,3),(6,2)\)，共 5 組</div>
+          <div class="ex-step">\(P(\text{和為}8)=\dfrac{5}{36}\)</div>
+          <div class="ex-ans">答：\(\dfrac{5}{36}\)</div>
+        </div>
+
+        <div class="box box-link">
+          <div class="box-title">🔗 連結：\(n(\Omega)\)、\(n(A)\) 的計算要用上週的排列組合</div>
+          <p>當樣本空間或事件牽涉到「從一群人／物中抽取若干個」時，\(n(\Omega)\) 與 \(n(A)\) 通常要用<strong>組合 \(C(n,r)\)</strong>（不分順序抽取）或<strong>排列 \(P(n,r)\)</strong>（有順序的排法）來計算，這正是上週（W10）的核心內容。機率單元本質上是「排列組合的應用篇」。</p>
+        </div>
+      </div>
+
+      <!-- 加法定理與餘事件 -->
+      <h3 class="sub-title" id="addition">機率加法定理與餘事件</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="formula-label">機率加法定理（Addition Rule）</div>
+          \[P(A\cup B)=P(A)+P(B)-P(A\cap B)\]
+          <p style="font-size:0.85rem; margin-top:0.5rem;">直覺理解：直接把 \(P(A)\) 與 \(P(B)\) 相加，會把兩者共同的部分 \(A\cap B\) 重複算了一次，因此要扣掉一次 \(P(A\cap B)\)。</p>
+        </div>
+
+        <div class="box box-def">
+          <div class="box-title">特例：互斥事件（Mutually Exclusive Events）</div>
+          <p>若事件 \(A\) 與 \(B\) 不可能同時發生，即 \(A\cap B=\varnothing\)，則稱 \(A\)、\(B\) 為<strong>互斥事件</strong>。此時 \(P(A\cap B)=0\)，加法定理簡化為：</p>
+          \[P(A\cup B)=P(A)+P(B)\quad(\text{互斥時})\]
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例3：從一副 52 張撲克牌中隨機抽一張，求抽到「紅心」或「J」的機率。</div>
+          <div class="ex-step">設 \(A=\)「紅心」，\(B=\)「J」。紅心共 13 張，故 \(P(A)=\dfrac{13}{52}\)；J 共 4 張（黑桃J、紅心J、方塊J、梅花J），故 \(P(B)=\dfrac{4}{52}\)</div>
+          <div class="ex-step">\(A\cap B=\)「紅心J」，只有 1 張，故 \(P(A\cap B)=\dfrac{1}{52}\)（注意：\(A\)、\(B\) 不互斥，不能直接相加！）</div>
+          <div class="ex-step">\(P(A\cup B)=\dfrac{13}{52}+\dfrac{4}{52}-\dfrac{1}{52}=\dfrac{16}{52}=\dfrac{4}{13}\)</div>
+          <div class="ex-ans">答：\(\dfrac{4}{13}\)</div>
+        </div>
+
+        <div class="box box-def">
+          <div class="box-title">餘事件（補事件，Complement）</div>
+          <p>事件 \(A\) 的餘事件 \(A^c\)（也寫作 \(\bar{A}\)）是指「\(A\) 不發生」這件事，兩者機率關係為：</p>
+          \[P(A^c)=1-P(A)\]
+          <p style="margin-top:0.5rem;">餘事件是處理<strong>「至少……」型機率問題</strong>的最重要工具：「至少發生一次」的反面是「一次都沒發生」，往往比直接計算「至少」簡單得多。</p>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例4：投擲一枚公正硬幣 3 次，求至少出現一次正面的機率。</div>
+          <div class="ex-step">直接列舉「至少一次正面」情況繁瑣，改用餘事件：「至少一次正面」的反面是「三次都是反面」</div>
+          <div class="ex-step">每次反面機率 \(\dfrac{1}{2}\)，三次都反面（各次獨立）：\(\left(\dfrac{1}{2}\right)^3=\dfrac{1}{8}\)</div>
+          <div class="ex-step">\(P(\text{至少一次正面})=1-\dfrac{1}{8}=\dfrac{7}{8}\)</div>
+          <div class="ex-ans">答：\(\dfrac{7}{8}\)</div>
+        </div>
+
+        <div class="box box-link">
+          <div class="box-title">🔗 連結：「至少」型的餘事件解法，正是上週「補集法」的機率版</div>
+          <p>上週排列組合的「至少」型題目用「總數 \(-\) 完全不符合的情形數」，這裡的餘事件 \(P(A^c)=1-P(A)\) 是完全相同的邏輯，只是從「情形數」換成「機率」。同一套思維可以直接套用，不需要重新學習。</p>
+        </div>
+      </div>
+
+      <!-- 獨立事件 -->
+      <h3 class="sub-title" id="independent">獨立事件與乘法定理</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">定義：獨立事件（Independent Events）</div>
+          <p>若事件 \(A\) 是否發生，<strong>完全不影響</strong>事件 \(B\) 發生的機率（反之亦然），則稱 \(A\)、\(B\) 為<strong>獨立事件</strong>。判斷式為：</p>
+          \[P(A\cap B)=P(A)\times P(B)\]
+          <p style="margin-top:0.5rem;">此式稱為獨立事件的<strong>乘法定理</strong>：兩個獨立事件同時發生的機率，等於各自機率的乘積。</p>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例5：甲袋中有紅球 3 顆、藍球 2 顆；乙袋中有紅球 4 顆、藍球 1 顆。今分別從甲、乙兩袋中各隨機取出一球（兩袋互不影響），求兩球都是紅球的機率。</div>
+          <div class="ex-step">\(P(\text{甲紅})=\dfrac{3}{5}\)，\(P(\text{乙紅})=\dfrac{4}{5}\)</div>
+          <div class="ex-step">兩袋取球互不影響，屬於獨立事件，套用乘法定理：</div>
+          <div class="ex-step">\(P(\text{甲紅}\cap\text{乙紅})=\dfrac{3}{5}\times\dfrac{4}{5}=\dfrac{12}{25}\)</div>
+          <div class="ex-ans">答：\(\dfrac{12}{25}\)</div>
+        </div>
+
+        <div class="box box-warn">
+          <div class="box-title">⚠️ 機率單元最經典的誤解：把「互斥」與「獨立」搞混</div>
+          <p>這兩個詞聽起來相似，但意義完全不同，也是學測選擇題的高頻陷阱：</p>
+          <table style="margin-top:0.6rem;">
+            <thead><tr><th>概念</th><th>定義</th><th>判斷式</th><th>白話理解</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>互斥事件</td>
+                <td>\(A\)、\(B\) 不能同時發生</td>
+                <td>\(A\cap B=\varnothing\)，即 \(P(A\cap B)=0\)</td>
+                <td>「這個發生了，那個就絕不可能發生」──例如骰子「出現1點」和「出現2點」</td>
+              </tr>
+              <tr>
+                <td>獨立事件</td>
+                <td>\(A\) 發生與否不影響 \(B\) 發生的機率</td>
+                <td>\(P(A\cap B)=P(A)P(B)\)</td>
+                <td>「這個發不發生，跟那個完全無關」──例如「擲骰子出現偶數」和「投硬幣出現正面」</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top:0.6rem;"><strong>重要結論：</strong>若 \(A\)、\(B\) 都是機率大於 0 的事件，且兩者<strong>互斥</strong>，則它們<strong>一定不獨立</strong>！因為互斥時 \(P(A\cap B)=0\)，但若同時獨立則需 \(P(A\cap B)=P(A)P(B)>0\)，兩者矛盾。「互斥」代表兩事件有很強的關聯性（一個發生會讓另一個機率變成 0），這與「獨立（互不影響）」的精神恰好相反。</p>
+        </div>
+      </div>
+
+      <!-- 條件機率 -->
+      <h3 class="sub-title" id="conditional">條件機率初步</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">定義：條件機率（Conditional Probability）</div>
+          <p>在<strong>已知事件 \(B\) 已經發生</strong>的前提下，事件 \(A\) 也發生的機率，稱為「在 \(B\) 條件下 \(A\) 的條件機率」，記作 \(P(A\mid B)\)，定義為：</p>
+          \[P(A\mid B)=\frac{P(A\cap B)}{P(B)}\qquad(P(B)>0)\]
+          <p style="margin-top:0.5rem;"><strong>直覺理解</strong>：已知 \(B\) 發生，代表樣本空間從原本的 \(\Omega\) 「縮小」成 \(B\)；此時 \(A\) 發生的機率，就是在這個縮小後的空間中，\(A\cap B\) 所佔的比例。</p>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例6：從一副 52 張撲克牌中隨機抽一張，已知抽到的是「紅色牌」（紅心或方塊，共 26 張），求它恰好是「紅心」的機率。</div>
+          <div class="ex-step">設 \(A=\)「紅心」，\(B=\)「紅色牌」。因紅心本身就是紅色牌的一部分，\(A\subseteq B\)，故 \(A\cap B=A\)</div>
+          <div class="ex-step">\(P(A\cap B)=P(A)=\dfrac{13}{52}\)，\(P(B)=\dfrac{26}{52}\)</div>
+          <div class="ex-step">\(P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}=\dfrac{13/52}{26/52}=\dfrac{13}{26}=\dfrac{1}{2}\)</div>
+          <div class="ex-ans">答：\(\dfrac{1}{2}\)（這也符合直覺：紅色牌中紅心與方塊各半）</div>
+        </div>
+
+        <div class="box box-warn">
+          <div class="box-title">⚠️ 常見錯誤：條件機率的分母寫反</div>
+          <p>\(P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}\) 的分母是<strong>已知發生的事件 \(B\)</strong>，不是要求發生的事件 \(A\)！許多同學會誤寫成 \(\dfrac{P(A\cap B)}{P(A)}\)。記憶方式：直式讀作「在 \(B\) 之下的 \(A\)」，分母永遠對應直線 \(\mid\) 右邊的那個已知事件。</p>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">💡 提醒：條件機率 vs. 貝氏定理（第四冊A）</div>
+          <p>本週學的條件機率是<strong>基礎定義與直接計算</strong>。更進階的<strong>貝氏定理（Bayes' Theorem）</strong>——利用條件機率「反推」原因發生機率——屬於第四冊 A（高二下）內容，同樣在學測數學A範圍內（11 年級必修 A 類），W22 與 W30 會再處理；現階段先把條件機率的定義與計算練熟即可。</p>
+        </div>
+      </div>
+
+      <!-- 綜合：機率＋排列組合 -->
+      <h3 class="sub-title" id="prob-combo">機率與排列組合綜合應用</h3>
+      <div class="card">
+        <div class="worked-example">
+          <div class="ex-q">例7：袋中有 5 顆紅球、3 顆白球（共 8 顆，形狀大小相同），今一次隨機取出 3 顆，求恰好取到 2 紅 1 白的機率。</div>
+          <div class="ex-step">樣本空間（不分順序取 3 顆）：\(n(\Omega)=C(8,3)=\dfrac{8\times7\times6}{3\times2\times1}=56\)</div>
+          <div class="ex-step">有利事件（2 紅且 1 白）：先從 5 紅選 2、再從 3 白選 1，用乘法原理：\(n(A)=C(5,2)\times C(3,1)=10\times3=30\)</div>
+          <div class="ex-step">\(P(A)=\dfrac{n(A)}{n(\Omega)}=\dfrac{30}{56}=\dfrac{15}{28}\)</div>
+          <div class="ex-ans">答：\(\dfrac{15}{28}\)</div>
+        </div>
+        <div class="box box-link">
+          <div class="box-title">🔗 這是本週最典型的考法：組合算出 \(n(\Omega)\)、\(n(A)\)，再相除</div>
+          <p>「從一堆物品中抽取若干個，求恰好滿足某條件的機率」是學測機率單元最常見的出題模式，解題三步驟固定：① 用組合算出 \(n(\Omega)\)　② 用組合（配合乘法原理）算出 \(n(A)\)　③ 兩者相除得到機率。務必把上週的 \(C(n,r)\) 練到隨手可用。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================================
+         第二冊整冊總複習
+         ============================================================ -->
+    <section>
+      <div class="chapter-banner ch2">
+        第二冊 整冊總複習
+        <div class="ch-sub">Ch1 三角比・Ch2 廣義角與三角比性質・Ch3 數列與級數・Ch4 數據分析・Ch5 排列組合・Ch6 機率基礎</div>
+      </div>
+
+      <h3 class="sub-title" id="reviewtable">六章總表（Ch1–Ch6）</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>章節</th><th>核心公式／概念</th><th>常考角度</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Ch1<br>三角比</td>
+              <td>直角三角形中 \(\sin\theta,\cos\theta,\tan\theta\) 的定義；特殊角 \(30°,45°,60°\) 的三角比值</td>
+              <td>測量高度／距離的應用題；特殊角三角比值默寫</td>
+            </tr>
+            <tr>
+              <td>Ch2<br>廣義角與三角比性質</td>
+              <td>弧度制、單位圓定義、ASTC 符號判斷、誘導公式；正弦定理 \(\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R\)；餘弦定理 \(c^2=a^2+b^2-2ab\cos C\)；海龍公式 \(\text{Area}=\sqrt{s(s-a)(s-b)(s-c)}\)</td>
+              <td>已知兩邊夾角求第三邊、已知三邊求角度或面積；正弦/餘弦定理的選用時機</td>
+            </tr>
+            <tr>
+              <td>Ch3<br>數列與級數</td>
+              <td>等差數列 \(a_n=a_1+(n-1)d\)，\(S_n=\dfrac{n(a_1+a_n)}{2}\)；等比數列 \(a_n=a_1r^{n-1}\)，\(S_n=\dfrac{a_1(1-r^n)}{1-r}\)（\(r\neq1\)）；Σ 記號</td>
+              <td>求通項、求前 \(n\) 項和；數列應用題（存款、繁殖模型）</td>
+            </tr>
+            <tr>
+              <td>Ch4<br>數據分析</td>
+              <td>平均數 \(\bar{x}\)、中位數、眾數；全距、四分位距 IQR；變異數 \(\sigma^2=\dfrac{1}{n}\sum(x_i-\bar{x})^2\)，標準差 \(\sigma\)；z 分數 \(z=\dfrac{x-\bar{x}}{\sigma}\)</td>
+              <td>盒狀圖／直方圖判讀（常不需計算）；加權平均計算；比較不同分布的相對表現</td>
+            </tr>
+            <tr>
+              <td>Ch5<br>排列組合</td>
+              <td>加法原理（擇一相加）、乘法原理（依序相乘）；排列 \(P(n,r)=\dfrac{n!}{(n-r)!}\)；組合 \(C(n,r)=\dfrac{n!}{r!(n-r)!}\)；相同物排列 \(\dfrac{n!}{p!\,q!\cdots}\)</td>
+              <td>「至少」型用補集；相鄰用捆綁法、不相鄰用補集法；先選（組合）後排（排列）的綜合題</td>
+            </tr>
+            <tr>
+              <td>Ch6<br>機率基礎</td>
+              <td>\(P(A)=\dfrac{n(A)}{n(\Omega)}\)；加法定理 \(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)；餘事件 \(P(A^c)=1-P(A)\)；獨立事件 \(P(A\cap B)=P(A)P(B)\)；條件機率 \(P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}\)</td>
+              <td>互斥 vs 獨立辨析；「至少」型用餘事件；結合排列組合計算 \(n(\Omega)\)、\(n(A)\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-title" id="synthesis">跨章綜合題</h3>
+      <div class="card">
+        <div class="worked-example">
+          <div class="ex-q">例8（Ch3 數列 × Ch4 數據分析）：某等差數列的前 5 項為 \(3, 7, 11, 15, 19\)（公差 \(d=4\)），將這 5 個數視為一組資料，求其平均數與中位數，並說明兩者的關係。</div>
+          <div class="ex-step">平均數：\(\bar{x}=\dfrac{3+7+11+15+19}{5}=\dfrac{55}{5}=11\)（也可直接用等差級數公式 \(S_5=\dfrac{5(3+19)}{2}=55\)）</div>
+          <div class="ex-step">中位數：\(n=5\)（奇數，資料已排序），取正中間第 3 項，即 \(11\)</div>
+          <div class="ex-step">觀察：平均數 \(=\) 中位數 \(=11\)，兩者相等</div>
+          <div class="ex-ans">答：平均數 \(=11\)，中位數 \(=11\)；對於<strong>等差數列型資料</strong>，平均數恆等於中位數（因為資料對稱分布於中心值兩側）</div>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例9（Ch2 三角比 × 整冊複習）：三角形三邊長為 \(a=5,\ b=7,\ c=8\)，求最大角的餘弦值，並用海龍公式求此三角形面積。</div>
+          <div class="ex-step">最大角對最大邊 \(c=8\)，設此角為 \(C\)，由餘弦定理：\(\cos C=\dfrac{a^2+b^2-c^2}{2ab}=\dfrac{25+49-64}{2\times5\times7}=\dfrac{10}{70}=\dfrac{1}{7}\)</div>
+          <div class="ex-step">海龍公式：半周長 \(s=\dfrac{5+7+8}{2}=10\)</div>
+          <div class="ex-step">\(\text{Area}=\sqrt{10(10-5)(10-7)(10-8)}=\sqrt{10\times5\times3\times2}=\sqrt{300}=10\sqrt{3}\)</div>
+          <div class="ex-ans">答：\(\cos C=\dfrac{1}{7}\)；面積 \(=10\sqrt{3}\)</div>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">💡 整冊複習的讀書法：用「一句話」總結每一章</div>
+          <ul class="content-list">
+            <li>Ch1 三角比：用邊長比例描述角度</li>
+            <li>Ch2 廣義角：把三角比從直角三角形推廣到任意角、任意三角形</li>
+            <li>Ch3 數列級數：把「一串數字」用公式快速求和</li>
+            <li>Ch4 數據分析：用幾個代表數字描述一整批資料</li>
+            <li>Ch5 排列組合：不用窮舉就能算出「有幾種可能」</li>
+            <li>Ch6 機率基礎：把「有幾種可能」轉換成「發生的機會有多大」</li>
+          </ul>
+          <p style="margin-top:0.5rem;">能一句話講出每章重點，代表你已經掌握了該章的核心精神，而不只是背了一堆公式。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 知識連結圖 ===== -->
+    <section id="km">
+      <h2 class="section-title">&#128279; 知識連結圖</h2>
+      <div class="km-container">
+        <p style="text-align:center; font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">機率基礎在第二冊中的位置，以及與其他單元的銜接關係：</p>
+        <div class="km-grid" style="align-items:center; margin-bottom:1.2rem;">
+          <div class="km-node">Ch5 排列組合<br><span style="font-weight:400; font-size:0.78rem;">計算 n(Ω)、n(A)</span></div>
+          <div class="km-arrow">→</div>
+          <div class="km-node central">Ch6 機率基礎</div>
+          <div class="km-arrow">→</div>
+          <div class="km-node future">高三：常態分布<br><span style="font-weight:400; font-size:0.78rem;">z 分數對應機率</span></div>
+        </div>
+        <div class="km-grid" style="align-items:center; margin-bottom:1.2rem;">
+          <div class="km-node linked">Ch4 數據分析<br><span style="font-weight:400; font-size:0.78rem;">z 分數・變異數</span></div>
+          <div class="km-arrow">↔</div>
+          <div class="km-node central">Ch6 機率基礎</div>
+          <div class="km-arrow">↔</div>
+          <div class="km-node future">第四冊A：條件機率<br>與貝氏定理（學測範圍）</div>
+        </div>
+        <div class="tree-visual">
+          <div class="tv-root">第二冊 數學 A</div>
+          <ul class="tv-children">
+            <li class="tv-item">
+              <span class="tv-node tv-l1">計數與統計主線</span>
+              <span class="tv-desc">Ch3 → Ch4 → Ch5 → Ch6，一路累積的工具鏈</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l2">Ch3 數列與級數</span><span class="tv-desc">Σ 記號 → 加權平均公式的基礎</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">Ch4 數據分析</span><span class="tv-desc">平均數、變異數、z 分數</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">Ch5 排列組合</span><span class="tv-desc">P(n,r)、C(n,r) → 提供 n(Ω)、n(A) 的計算工具</span></li>
+                <li class="tv-item"><span class="tv-node tv-l3">Ch6 機率基礎（本週）：把「情形數」轉換成「機會大小」</span></li>
+              </ul>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">幾何與三角主線</span>
+              <span class="tv-desc">Ch1 → Ch2，獨立於計數統計主線發展</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l2">Ch1 三角比</span><span class="tv-desc">直角三角形中的邊角關係</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">Ch2 廣義角與三角比性質</span><span class="tv-desc">正弦/餘弦定理，推廣至任意三角形</span></li>
+                <li class="tv-item"><span class="tv-node tv-l3">下週銜接：第三冊A Ch1 三角函數圖形（週期、振幅）</span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 常見錯誤 ===== -->
+    <section id="mistakes">
+      <h2 class="section-title">&#9888;&#65039; 常見錯誤</h2>
+      <div class="card">
+        <div class="box box-warn">
+          <div class="box-title">錯誤1：把「互斥事件」與「獨立事件」搞混</div>
+          <p>互斥是「\(A\cap B=\varnothing\)（不能同時發生）」，獨立是「\(P(A\cap B)=P(A)P(B)\)（互不影響）」，兩者是完全不同的概念，甚至互斥的非空事件必定不獨立。務必分別記憶判斷式，不要憑直覺猜。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤2：加法定理忘記扣除交集</div>
+          <p>只要 \(A\)、\(B\) 不是互斥事件，計算 \(P(A\cup B)\) 時務必扣掉重複計算的 \(P(A\cap B)\)，否則答案會偏大。先問自己「這兩個事件有沒有可能同時發生」再決定要不要減去交集。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤3：「至少」型忘記使用餘事件</div>
+          <p>「至少一次」、「至少一個」直接窮舉計算通常很繁瑣且容易漏算，優先考慮「\(1-\)（反面情況的機率）」會快得多，尤其反面情況（例如「全部都沒發生」）通常更容易計算。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤4：條件機率 \(P(A\mid B)\) 的分母寫成 \(P(A)\)</div>
+          <p>條件機率的分母永遠是<strong>已知發生的那個事件</strong>（直線 \(\mid\) 右邊），即 \(P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}\)，寫反會導致答案完全不同。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤5：機率計算時沒有先用排列組合正確算出 \(n(\Omega)\)、\(n(A)\)</div>
+          <p>遇到「抽取若干個物品」的機率題，若直接憑感覺心算「有幾種情形」，很容易漏算或重複計算。務必先確認該用排列還是組合（有沒有順序之分），再套用機率定義。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤6：算出的機率大於 1 或為負值卻沒發現異常</div>
+          <p>機率恆介於 0 與 1 之間（\(0\leq P(A)\leq1\)），如果計算結果超出這個範圍，代表過程中一定有計算錯誤（例如分子分母算反、n(Ω) 算錯），要養成算完立刻檢查合理性的習慣。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 學測考點提醒 ===== -->
+    <section id="examfocus">
+      <h2 class="section-title">&#127919; 學測考點提醒</h2>
+      <div class="card">
+        <div class="box box-link">
+          <div class="box-title">歷屆學測命題趨勢</div>
+          <ul class="content-list">
+            <li>機率題幾乎<strong>每年必考</strong>，常包裝在抽牌、擲骰、抽球、樂透彩、投籃命中率等生活情境中</li>
+            <li>「互斥事件」與「獨立事件」的概念辨析是選擇題的<strong>經典陷阱題型</strong>，常以文字敘述（非計算）方式出題，要求判斷兩事件是否獨立／互斥</li>
+            <li>結合排列組合的機率計算題（先算 \(n(\Omega)\)、\(n(A)\)，再相除）是計算題的主流題型，配分通常較高</li>
+            <li>「至少」型機率與「至少」型排列組合的解法完全同源，都是用補集（餘事件）處理，是本週與上週共通的高頻考點</li>
+            <li>條件機率的基礎計算（不涉及貝氏定理）偶爾出現在選擇題，重點在於能否正確辨認「已知發生的事件」並代入正確分母</li>
+            <li>第二冊六章內容常在<strong>混合題型</strong>中一起出現，例如「已知一組資料是等差數列，求其變異數」（Ch3+Ch4）、「已知三角形邊長，求某事件的幾何機率」（Ch2+Ch6，較少見但曾出現）</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">解題策略提醒</div>
+          <p>遇到機率題，第一步永遠是<strong>先寫出 \(\Omega\) 與 \(A\)</strong>，確認樣本空間的計算方式（是否等可能、要用排列還是組合）；第二步判斷題目中的事件關係（互斥？獨立？條件機率？），選對定理；第三步套用公式計算，並在最後檢查答案是否落在 \([0,1]\) 之間。整冊複習時，建議每天挑一章做 5–10 題混合題，刻意練習「看到題目立刻判斷屬於哪一章、該用哪個公式」的反應速度。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 週末任務：歷屆試題整理 ===== -->
+    <section id="weekend">
+      <h2 class="section-title">&#128221; 週末任務：數學第二冊歷屆試題整理（08/02 週日）</h2>
+      <div class="card">
+        <div class="box box-warn">
+          <div class="box-title">本週末任務說明</div>
+          <p>依備考時程表安排，本週六（08/01）的模擬考是<strong>物理科</strong>，數學科則安排在<strong>週日（08/02）：數學第二冊歷屆試題整理</strong>。建議做法：找出近 5–8 年學測（或分科測驗中適用於第二冊範圍）的考題，依照 Ch1–Ch6 分類整理，統計自己在哪一章的錯誤率最高，並將錯題抄錄到專屬的「錯題本」中，註明錯誤原因（觀念不熟／計算失誤／看錯題意）。這個任務的目的不是「刷新題」，而是<strong>找出第二冊六章中最需要加強的 1–2 個章節</strong>，作為下週複習的優先順序依據。</p>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">整理歷屆試題的建議流程</div>
+          <ul class="content-list">
+            <li><strong>先分類、後統計：</strong>把蒐集到的題目依 Ch1–Ch6 分類，統計各章的題數與正確率，找出自己最弱的 1–2 章</li>
+            <li><strong>優先複習排列組合與機率：</strong>這兩章在歷屆試題中的出題比重通常最高，且互為表裡，建議優先整理</li>
+            <li><strong>統計判讀類題目（Ch4）不需大量刷題：</strong>盒狀圖、直方圖判讀題只要抓到「看圖說故事」的訣竅即可，不需要花太多時間刷題</li>
+            <li><strong>用一張 A4 整理「易混淆判斷表」：</strong>把「互斥 vs 獨立」「排列 vs 組合」「平均數 vs 中位數 vs 眾數」等易混淆概念整理成一張對照表，考前快速複習</li>
+          </ul>
+        </div>
+        <div class="box box-link">
+          <div class="box-title">自我練習：三題歷屆風格複習題</div>
+          <p style="margin-bottom:0.6rem;">以下三題涵蓋 Ch5、Ch6 的綜合應用，建議先自己動手作答，再點開解析核對。</p>
+
+          <div class="quiz-item">
+            <div class="q-text">練習1：一個箱子裡有編號 1 到 10 的球各一顆，隨機取出 2 顆（不放回），求兩球號碼皆為偶數的機率。<span class="diff-badge diff-medium">中</span></div>
+            <details>
+              <summary>查看解析</summary>
+              <div class="answer">
+                \(n(\Omega)=C(10,2)=45\)（10 顆球任取 2 顆）<br>
+                偶數球有 \(\{2,4,6,8,10\}\) 共 5 顆，\(n(A)=C(5,2)=10\)<br>
+                \(P(A)=\dfrac{10}{45}=\dfrac{2}{9}\)
+              </div>
+            </details>
+          </div>
+
+          <div class="quiz-item">
+            <div class="q-text">練習2：袋中有 4 張寫著數字 1、2、3、4 的卡片，隨機抽出 2 張（不放回），求兩張卡片數字和為奇數的機率。<span class="diff-badge diff-medium">中</span></div>
+            <details>
+              <summary>查看解析</summary>
+              <div class="answer">
+                \(n(\Omega)=C(4,2)=6\)：所有取法為 \(\{1,2\},\{1,3\},\{1,4\},\{2,3\},\{2,4\},\{3,4\}\)<br>
+                和為奇數代表「一奇一偶」：奇數牌 \(\{1,3\}\)、偶數牌 \(\{2,4\}\)，符合的取法為 \(\{1,2\},\{1,4\},\{3,2\},\{3,4\}\)，共 4 種<br>
+                \(P=\dfrac{4}{6}=\dfrac{2}{3}\)
+              </div>
+            </details>
+          </div>
+
+          <div class="quiz-item">
+            <div class="q-text">練習3：投擲一枚公正硬幣 2 次與一顆公正骰子 1 次（互不影響），求「兩次硬幣都出現正面」且「骰子點數大於 4」同時發生的機率。<span class="diff-badge diff-hard">難</span></div>
+            <details>
+              <summary>查看解析</summary>
+              <div class="answer">
+                硬幣與骰子的結果互不影響，屬於獨立事件，可分別計算再相乘：<br>
+                \(P(\text{兩次都正面})=\left(\dfrac{1}{2}\right)^2=\dfrac{1}{4}\)<br>
+                \(P(\text{骰子}>4)=P(\{5,6\})=\dfrac{2}{6}=\dfrac{1}{3}\)<br>
+                由獨立事件乘法定理：\(P=\dfrac{1}{4}\times\dfrac{1}{3}=\dfrac{1}{12}\)
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 重點整理 ===== -->
+    <section id="summary">
+      <h2 class="section-title">&#128200; 重點整理</h2>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>主題</th><th>核心公式／概念</th><th>學測考頻</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>樣本空間・事件</td>
+              <td>\(\Omega\) 為所有可能結果的集合；事件 \(A\subseteq\Omega\)</td>
+              <td><span class="chip chip-gold">★★★</span></td>
+            </tr>
+            <tr>
+              <td>古典機率</td>
+              <td>\(P(A)=\dfrac{n(A)}{n(\Omega)}\)（前提：等可能性）</td>
+              <td><span class="chip chip-gold">★★★★★</span></td>
+            </tr>
+            <tr>
+              <td>加法定理</td>
+              <td>\(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)；互斥時 \(=P(A)+P(B)\)</td>
+              <td><span class="chip chip-gold">★★★★</span></td>
+            </tr>
+            <tr>
+              <td>餘事件</td>
+              <td>\(P(A^c)=1-P(A)\)，「至少」型的關鍵工具</td>
+              <td><span class="chip chip-gold">★★★★★</span></td>
+            </tr>
+            <tr>
+              <td>獨立事件</td>
+              <td>\(P(A\cap B)=P(A)P(B)\)；與互斥事件務必區分清楚</td>
+              <td><span class="chip chip-gold">★★★★★</span></td>
+            </tr>
+            <tr>
+              <td>條件機率初步</td>
+              <td>\(P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}\)，分母是已知發生的事件</td>
+              <td><span class="chip chip-gold">★★★</span></td>
+            </tr>
+            <tr>
+              <td>機率＋排列組合綜合</td>
+              <td>先用組合／排列算 \(n(\Omega)\)、\(n(A)\)，再代入機率定義</td>
+              <td><span class="chip chip-gold">★★★★★</span></td>
+            </tr>
+            <tr>
+              <td>第二冊整冊複習</td>
+              <td>Ch1–Ch2 三角與廣義角、Ch3 數列級數、Ch4 數據分析、Ch5–Ch6 計數與機率</td>
+              <td><span class="chip chip-gold">★★★★★</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 自我檢測 ===== -->
+    <section id="quiz">
+      <h2 class="section-title">&#9997; 自我檢測（共 5 題）</h2>
+      <div class="box box-link">
+        <div class="box-title">作答說明</div>
+        <p>以下 5 題涵蓋本週機率基礎（古典機率、加法定理、餘事件、獨立事件）與跨章綜合（機率×排列組合）的核心概念，建議計時作答（每題 2–3 分鐘）後再對照詳解。難度以 <span class="diff-badge diff-easy">易</span> <span class="diff-badge diff-medium">中</span> <span class="diff-badge diff-hard">難</span> 標示。</p>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>袋中有 4 顆紅球、2 顆白球（共 6 顆），隨機取出 1 顆，求取到白球的機率。<span class="diff-badge diff-easy">易</span></div>
+        <ol>
+          <li>1/6</li>
+          <li>1/3</li>
+          <li>1/2</li>
+          <li>2/3</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(n(\Omega)=6\)，白球 2 顆，\(P(\text{白})=\dfrac{2}{6}=\dfrac{1}{3}\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>投擲一顆公正骰子一次，設 \(A=\)「出現偶數點」，\(B=\)「點數大於 4」，求 \(P(A\cup B)\)。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>1/2</li>
+          <li>2/3</li>
+          <li>5/6</li>
+          <li>1</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(A=\{2,4,6\}\)，\(P(A)=\dfrac{3}{6}\)；\(B=\{5,6\}\)，\(P(B)=\dfrac{2}{6}\)；\(A\cap B=\{6\}\)，\(P(A\cap B)=\dfrac{1}{6}\)<br>
+            \(P(A\cup B)=\dfrac{3}{6}+\dfrac{2}{6}-\dfrac{1}{6}=\dfrac{4}{6}=\dfrac{2}{3}\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span>投擲一枚公正硬幣 4 次，求至少出現一次正面的機率。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>7/8</li>
+          <li>15/16</li>
+          <li>1/16</li>
+          <li>3/4</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            餘事件「四次都反面」機率：\(\left(\dfrac{1}{2}\right)^4=\dfrac{1}{16}\)<br>
+            \(P(\text{至少一次正面})=1-\dfrac{1}{16}=\dfrac{15}{16}\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span>已知事件 \(A\)、\(B\) 為獨立事件，\(P(A)=0.4\)，\(P(B)=0.5\)，求 \(P(A\cup B)\)。<span class="diff-badge diff-hard">難</span></div>
+        <ol>
+          <li>0.6</li>
+          <li>0.65</li>
+          <li>0.7</li>
+          <li>0.9</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：C</strong><br>
+            獨立事件：\(P(A\cap B)=P(A)\times P(B)=0.4\times0.5=0.2\)<br>
+            \(P(A\cup B)=P(A)+P(B)-P(A\cap B)=0.4+0.5-0.2=0.7\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span>（跨章綜合）由 5 位男生、4 位女生（共 9 人）中隨機選出 3 人組成委員會，求恰好選到 2 男 1 女的機率。<span class="diff-badge diff-hard">難</span></div>
+        <ol>
+          <li>5/21</li>
+          <li>10/21</li>
+          <li>15/28</li>
+          <li>20/63</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(n(\Omega)=C(9,3)=\dfrac{9\times8\times7}{3\times2\times1}=84\)<br>
+            \(n(A)=C(5,2)\times C(4,1)=10\times4=40\)<br>
+            \(P(A)=\dfrac{40}{84}=\dfrac{10}{21}\)
+          </div>
+        </details>
+      </div>
+
+      <div class="box box-tip" style="margin-top:1.5rem;">
+        <div class="box-title">訂正與複習建議</div>
+        <ul class="content-list">
+          <li>「互斥 vs 獨立」是本週最容易混淆的一組概念，建議用自己的話各寫一次定義，並各舉一個生活中的例子，直到能不假思索分辨</li>
+          <li>機率計算的關鍵瓶頸通常不在機率公式本身，而在於 \(n(\Omega)\)、\(n(A)\) 算錯，若本週練習中發現這類錯誤，優先回頭複習 W10 的排列組合</li>
+          <li>「至少」型機率與排列組合的補集解法完全同源，練熟一次即可同時應用在兩章</li>
+          <li>本週日的歷屆試題整理任務，請務必依 Ch1–Ch6 分類統計正確率，找出最弱的 1–2 章作為下週複習優先順序</li>
+          <li>下週（W12）將進入第三冊 A：三角函數圖形與和差角公式，正式告別第二冊，本週務必把整冊六章的公式與判斷邏輯收斂成熟練的直覺反應</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

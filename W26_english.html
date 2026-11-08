@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W26 英文科學習講義 — 英文作文主題式 2 篇、中譯英每日 3 句</title>
+<style>
+  :root {
+    --primary: #1565c0;
+    --primary-light: #1976d2;
+    --primary-dark: #0d47a1;
+    --primary-bg: #e3f2fd;
+    --primary-bg2: #bbdefb;
+    --accent: #f57c00;
+    --accent-bg: #fff3e0;
+    --green: #2e7d32;
+    --green-bg: #e8f5e9;
+    --red: #c62828;
+    --red-bg: #ffebee;
+    --purple: #6a1b9a;
+    --purple-bg: #f3e5f5;
+    --gray: #546e7a;
+    --gray-bg: #f5f5f5;
+    --text: #212121;
+    --text-secondary: #546e7a;
+    --border: #e0e0e0;
+    --shadow: 0 2px 8px rgba(21,101,192,0.10);
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+    background: #f0f4f8;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  /* HEADER */
+  .site-header {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+    color: #fff;
+    padding: 32px 40px 24px;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 3px 12px rgba(13,71,161,0.25);
+  }
+  .site-header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: 1px; }
+  .site-header .meta { font-size: 0.88rem; opacity: 0.85; margin-top: 4px; }
+  /* NAV */
+  .top-nav {
+    background: var(--primary);
+    display: flex; flex-wrap: wrap; gap: 2px;
+    padding: 6px 40px;
+  }
+  .top-nav a {
+    color: #fff; text-decoration: none;
+    padding: 4px 12px; border-radius: 20px;
+    font-size: 0.82rem; font-weight: 500;
+    transition: background 0.2s;
+  }
+  .top-nav a:hover { background: rgba(255,255,255,0.2); }
+  /* LAYOUT */
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+  /* CARDS */
+  .card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 32px;
+    margin-bottom: 28px;
+  }
+  .card-title {
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--primary-dark);
+    border-left: 5px solid var(--primary);
+    padding-left: 12px; margin-bottom: 18px;
+  }
+  .card-subtitle {
+    font-size: 1rem; font-weight: 600;
+    color: var(--primary); margin: 20px 0 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  /* BOXES */
+  .box { border-radius: 8px; padding: 14px 18px; margin: 12px 0; }
+  .box-blue { background: var(--primary-bg); border-left: 4px solid var(--primary); }
+  .box-green { background: var(--green-bg); border-left: 4px solid var(--green); }
+  .box-orange { background: var(--accent-bg); border-left: 4px solid var(--accent); }
+  .box-red { background: var(--red-bg); border-left: 4px solid var(--red); }
+  .box-purple { background: var(--purple-bg); border-left: 4px solid var(--purple); }
+  .box-gray { background: var(--gray-bg); border-left: 4px solid var(--gray); }
+  .box strong { display: block; margin-bottom: 4px; }
+  /* TOC */
+  .toc { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 10px; }
+  .toc a {
+    display: block; padding: 10px 16px;
+    background: var(--primary-bg); color: var(--primary-dark);
+    border-radius: 8px; text-decoration: none; font-size: 0.9rem;
+    border: 1px solid var(--primary-bg2);
+    transition: background 0.2s, transform 0.1s;
+    font-weight: 500;
+  }
+  .toc a:hover { background: var(--primary-bg2); transform: translateY(-1px); }
+  /* VOCAB TABLE */
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .vocab-table thead tr { background: var(--primary); color: #fff; }
+  .vocab-table thead th { padding: 10px 12px; text-align: left; font-weight: 600; }
+  .vocab-table tbody tr:nth-child(even) { background: var(--primary-bg); }
+  .vocab-table tbody tr:hover { background: var(--primary-bg2); }
+  .vocab-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .word { font-weight: 700; color: var(--primary-dark); font-size: 0.95rem; }
+  .phonetic { color: var(--gray); font-size: 0.82rem; font-style: italic; }
+  .pos-badge {
+    display: inline-block; padding: 1px 7px;
+    border-radius: 10px; font-size: 0.75rem; font-weight: 600;
+  }
+  .pos-n { background: #e3f2fd; color: #1565c0; }
+  .pos-v { background: #e8f5e9; color: #2e7d32; }
+  .pos-adj { background: #fff3e0; color: #e65100; }
+  .pos-adv { background: #f3e5f5; color: #6a1b9a; }
+  .example { color: var(--text-secondary); font-size: 0.83rem; font-style: italic; margin-top: 2px; }
+  .meaning { font-weight: 500; }
+  /* SECTION HEADERS */
+  .pos-section { margin: 22px 0 10px; }
+  .pos-header {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--primary); color: #fff;
+    padding: 6px 18px; border-radius: 20px;
+    font-size: 0.9rem; font-weight: 700; margin-bottom: 8px;
+  }
+  /* DAY PLAN */
+  .day-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 16px; }
+  .day-card {
+    border: 2px solid var(--primary-bg2);
+    border-radius: 10px; overflow: hidden;
+  }
+  .day-header {
+    background: var(--primary); color: #fff;
+    padding: 8px 16px; font-weight: 700; font-size: 0.92rem;
+  }
+  .day-body { padding: 12px 14px; }
+  .day-word-list { list-style: none; }
+  .day-word-list li {
+    padding: 4px 0; border-bottom: 1px dashed var(--border);
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 0.86rem;
+  }
+  .day-word-list li:last-child { border-bottom: none; }
+  .day-word-list .en { font-weight: 600; color: var(--primary-dark); }
+  .day-word-list .zh { color: var(--text-secondary); font-size: 0.82rem; }
+  /* CONFUSION TABLE */
+  .conf-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 8px; }
+  .conf-table th { background: var(--primary); color: #fff; padding: 9px 12px; text-align: left; }
+  .conf-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .conf-table tbody tr:nth-child(even) { background: var(--gray-bg); }
+  .conf-pair { font-weight: 700; color: var(--primary-dark); }
+  /* QUIZ */
+  .quiz-item { margin-bottom: 18px; }
+  .quiz-q { font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .quiz-q .qnum {
+    display: inline-block; width: 26px; height: 26px;
+    background: var(--primary); color: #fff;
+    border-radius: 50%; text-align: center; line-height: 26px;
+    font-size: 0.82rem; margin-right: 8px;
+  }
+  .quiz-options { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-left: 34px; }
+  .quiz-options li {
+    padding: 5px 14px; border: 1.5px solid var(--primary-bg2);
+    border-radius: 20px; cursor: pointer; font-size: 0.88rem;
+  }
+  details { margin-top: 10px; margin-left: 34px; }
+  summary {
+    cursor: pointer; font-size: 0.86rem; font-weight: 600;
+    color: var(--primary); padding: 5px 0;
+    list-style: none; display: flex; align-items: center; gap: 6px;
+  }
+  summary::before { content: "▶ 顯示解答"; }
+  details[open] summary::before { content: "▼ 隱藏解答"; }
+  .answer-box {
+    background: var(--green-bg); border: 1px solid #a5d6a7;
+    border-radius: 8px; padding: 10px 14px; margin-top: 6px;
+    font-size: 0.87rem;
+  }
+  .answer-box .ans { font-weight: 700; color: var(--green); }
+  /* PROGRESS BAR */
+  .progress-bar { height: 8px; background: var(--primary-bg2); border-radius: 4px; margin: 16px 0 4px; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--primary-light)); border-radius: 4px; }
+  /* TAG */
+  .tag {
+    display: inline-block; padding: 2px 9px;
+    border-radius: 10px; font-size: 0.78rem; font-weight: 600;
+    background: var(--primary-bg2); color: var(--primary-dark);
+    margin: 2px;
+  }
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .site-header { padding: 20px 16px 14px; }
+    .top-nav { padding: 6px 12px; }
+    .container { padding: 16px 10px 40px; }
+    .card { padding: 18px 14px; }
+    .vocab-table { font-size: 0.80rem; }
+    .day-grid { grid-template-columns: 1fr; }
+  }
+  /* PRINT */
+  @media print {
+    .site-header, .top-nav { position: static; }
+    .card { box-shadow: none; border: 1px solid #ccc; }
+    details { display: block; }
+    details summary { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<style>
+  /* W26 補充樣式：範文、作文拆解、中譯英 */
+  .passage {
+    background: #fcfcfd; border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 8px; padding: 18px 22px; margin: 14px 0;
+    font-size: 0.94rem; line-height: 1.95;
+  }
+  .passage p { margin-bottom: 10px; }
+  .passage .hl { color: var(--primary-dark); font-weight: 600; border-bottom: 1px dotted var(--primary); }
+  .passage .tr { background: var(--accent-bg); border-radius: 3px; padding: 0 2px; }
+  .prompt-box { background: var(--gray-bg); border: 1px dashed var(--gray); border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.92rem; }
+  .sent-hint { font-size: 0.82rem; color: var(--text-secondary); margin: 4px 0 2px 34px; }
+  .model-en { font-weight: 600; color: var(--primary-dark); }
+  .check-cell { text-align: center; color: var(--gray); }
+</style>
+
+<header class="site-header">
+  <h1>W26 英文科學習講義</h1>
+  <div class="meta">高三上・理工組 | 第四階段（整合衝刺）| 11/09–11/15 | 主軸：英文作文主題式 2 篇 ＋ 中譯英每日 3 句 ＋ 週六數學 A 全卷模擬</div>
+</header>
+
+<nav class="top-nav">
+  <a href="#overview">單元概述</a>
+  <a href="#plan">本週計畫</a>
+  <a href="#exam">近五年題目</a>
+  <a href="#rubric">評分原則</a>
+  <a href="#method">作文四步驟</a>
+  <a href="#essayA">主題 A</a>
+  <a href="#essayB">主題 B</a>
+  <a href="#words">活用字</a>
+  <a href="#cn2en">中譯英方法</a>
+  <a href="#day1">Day 1–7 每日 3 句</a>
+  <a href="#real">真題中譯英</a>
+  <a href="#weak">弱點筆記</a>
+  <a href="#quiz">隨堂測驗</a>
+</nav>
+
+<div class="container">
+
+<!-- ==================== OVERVIEW ==================== -->
+<div class="card" id="overview">
+  <div class="card-title">單元概述與學習目標</div>
+  <div class="toc">
+    <a href="#plan">本週七日計畫</a>
+    <a href="#exam">近五年作文與中譯英題目</a>
+    <a href="#rubric">官方評分原則</a>
+    <a href="#method">主題式作文四步驟</a>
+    <a href="#essayA">主題 A：現象＋原因影響（AI 學習）</a>
+    <a href="#essayB">主題 B：經驗＋反思（打破刻板印象）</a>
+    <a href="#words">W25 錯字本活用字</a>
+    <a href="#cn2en">中譯英五步法與扣分地雷</a>
+    <a href="#day1">每日 3 句：Day 1–7（共 21 句）</a>
+    <a href="#real">近五年中譯英真題 10 句</a>
+    <a href="#weak">個人弱點筆記</a>
+    <a href="#quiz">隨堂測驗 8 題（改錯）</a>
+  </div>
+
+  <div class="box box-blue" style="margin-top:18px;">
+    <strong>本週定位（第四階段第二週：整合衝刺）</strong>
+    W25 用抽測與全卷模擬找出弱點；本週換成<b>非選擇題</b>的專項訓練。作文與中譯英合占 28 分（作文 20、中譯英 8），是考前最後兩個多月最容易靠練習提升的部分：寫得越多，失誤類型越固定，越能一一排除。
+  </div>
+  <div class="box box-green">
+    <strong>學習目標</strong>
+    完成本週後，學生能夠：<br>
+    ① 依近五年命題方式，在 25 分鐘內寫完兩段式、150 字以上的主題作文<br>
+    ② 完成 2 篇作文（現象＋原因影響、經驗＋反思），並用官方四項指標自評<br>
+    ③ 在作文中用上至少 10 個 W25 詞彙錯字本裡的字<br>
+    ④ 完成 21 句中譯英，寫對時態、主動詞一致與常考句構，每句失誤不超過 1 處<br>
+    ⑤ 做完近五年中譯英真題 10 句，對照官方參考答案
+  </div>
+  <div class="box box-orange">
+    <strong>學測考點提醒（依大考中心 115 學年度評分原則）</strong>
+    中譯英兩題各 4 分，<b>每個錯誤扣 0.5 分，相同錯誤只扣一次</b>；標的詞彙大致以<b>詞彙表一至四級</b>為主，所以不必追求難字，寫對最重要。作文「<b>字數明顯不足扣總分 1 分；未分段亦扣總分 1 分</b>」。
+  </div>
+  <div class="box box-gray">
+    <strong>本週進度與排程提醒</strong>
+    第 26 週 / 第 35 週（Phase 4：W25–W31，整合衝刺）
+    <div class="progress-bar"><div class="progress-fill" style="width:74.3%"></div></div>
+    <span style="font-size:0.82rem;color:var(--gray)">距學測 2027/01/22 約 74 天</span>
+    <p style="margin-top:10px;font-size:0.87rem;">依 35 週時程表，本週國文做字音字形字義與修辭，數學 A 做限時練習，物理做 Ch4 電磁歷屆試題 15 題，化學做平衡計算；週六數學 A 全卷模擬，週日對答案、記錄得分變化。英文在週六不排大塊時間，只完成當日 3 句。</p>
+  </div>
+</div>
+
+<!-- ==================== PLAN ==================== -->
+<div class="card" id="plan">
+  <div class="card-title">本週七日計畫（英文每日約 50–70 分鐘）</div>
+  <div class="day-grid">
+    <div class="day-card"><div class="day-header">Day 1（一）— 方法＋環境</div><div class="day-body"><ul class="day-word-list">
+      <li><span class="en">評分原則、作文四步驟</span><span class="zh">20 分鐘</span></li>
+      <li><span class="en">主題 A：審題與大綱</span><span class="zh">15 分鐘</span></li>
+      <li><span class="en">中譯英 Day 1（3 句）</span><span class="zh">15 分鐘</span></li>
+    </ul></div></div>
+    <div class="day-card"><div class="day-header">Day 2（二）— 主題 A 限時＋科技</div><div class="day-body"><ul class="day-word-list">
+      <li><span class="en">主題 A 限時寫作（不看範文）</span><span class="zh">25 分鐘</span></li>
+      <li><span class="en">對照範文、四項自評</span><span class="zh">20 分鐘</span></li>
+      <li><span class="en">中譯英 Day 2（3 句）</span><span class="zh">15 分鐘</span></li>
+    </ul></div></div>
+    <div class="day-card"><div class="day-header">Day 3（三）— 重寫＋健康</div><div class="day-body"><ul class="day-word-list">
+      <li><span class="en">重寫主題 A 第二段</span><span class="zh">15 分鐘</span></li>
+      <li><span class="en">活用字造句</span><span class="zh">15 分鐘</span></li>
+      <li><span class="en">中譯英 Day 3（3 句）</span><span class="zh">15 分鐘</span></li>
+    </ul></div></div>
+    <div class="day-card"><div class="day-header">Day 4（四）— 主題 B 限時＋教育</div><div class="day-body"><ul class="day-word-list">
+      <li><span class="en">主題 B 審題＋限時寫作</span><span class="zh">30 分鐘</span></li>
+      <li><span class="en">對照範文、四項自評</span><span class="zh">20 分鐘</span></li>
+      <li><span class="en">中譯英 Day 4（3 句）</span><span class="zh">15 分鐘</span></li>
+    </ul></div></div>
+    <div class="day-card"><div class="day-header">Day 5（五）— 真題＋文化</div><div class="day-body"><ul class="day-word-list">
+      <li><span class="en">中譯英真題 10 句</span><span class="zh">25 分鐘</span></li>
+      <li><span class="en">中譯英 Day 5（3 句）</span><span class="zh">15 分鐘</span></li>
+      <li><span class="en">隨堂測驗 8 題</span><span class="zh">10 分鐘</span></li>
+    </ul></div></div>
+    <div class="day-card"><div class="day-header">Day 6（六）— 數學 A 全卷模擬日</div><div class="day-body"><ul class="day-word-list">
+      <li><span class="en">數學 A 全卷模擬</span><span class="zh">100 分鐘</span></li>
+      <li><span class="en">英文只做中譯英 Day 6（3 句）</span><span class="zh">15 分鐘</span></li>
+    </ul></div></div>
+    <div class="day-card"><div class="day-header">Day 7（日）— 總整理</div><div class="day-body"><ul class="day-word-list">
+      <li><span class="en">中譯英 Day 7（3 句）</span><span class="zh">15 分鐘</span></li>
+      <li><span class="en">整理弱點筆記：列出 3 個最常犯的錯</span><span class="zh">20 分鐘</span></li>
+      <li><span class="en">備用題選 1 題寫大綱</span><span class="zh">10 分鐘</span></li>
+    </ul></div></div>
+  </div>
+</div>
+
+<!-- ==================== EXAM ==================== -->
+<div class="card" id="exam">
+  <div class="card-title">近五年學測作文與中譯英題目（大考中心試卷）</div>
+  <div class="box box-blue">
+    <strong>看題目學命題方向</strong>
+    五年來作文<b>全部是「文分兩段」的引導寫作</b>，附圖或圖示；主題貼近生活，第一段多要求描述，第二段要求個人看法、經驗或解決方法。中譯英通常同一主題兩句相連。
+  </div>
+  <table class="conf-table">
+    <thead><tr><th style="width:8%">年度</th><th style="width:44%">英文作文提示（摘要）</th><th style="width:16%">類型</th><th>中譯英主題</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">115</td><td>養寵物風氣日漸普遍。第一段描述圖片呈現的現象；第二段依經驗或觀察說明此現象的原因及可能的影響</td><td>現象＋原因影響</td><td>高中英文課用英文上課、分組活動</td></tr>
+      <tr><td class="conf-pair">114</td><td>颱風假。第一段依對比圖片描述兩種情景；第二段說明對放颱風假的看法與經驗</td><td>對比描述＋看法</td><td>想像力與科技進步、科幻成真</td></tr>
+      <tr><td class="conf-pair">113</td><td>機器人小幫手解決青少年的三種困擾。第一段選一項並解釋原因；第二段說明機器人的特質與分工</td><td>選擇＋說明</td><td>選舉季節政治人物參訪廟宇</td></tr>
+      <tr><td class="conf-pair">112</td><td>表情符號。第一段說明人們為何喜歡使用及其功能；第二段以經驗為例討論誤會與化解方法</td><td>功能＋經驗解決</td><td>戰爭的災難、追求世界和平</td></tr>
+      <tr><td class="conf-pair">111</td><td>公園。第一段描述圖 A、B 的特色；第二段說明心目中理想公園的樣貌與理由</td><td>比較描述＋理想</td><td>飼養寵物的承諾與責任</td></tr>
+    </tbody>
+  </table>
+  <div class="box box-green">
+    <strong>本週兩篇的設計</strong>
+    近年第二段常要求「原因、影響、經驗、解決」。所以本週主題 A 練<b>現象＋原因影響</b>（對應 115 年），主題 B 練<b>經驗＋反思</b>（對應 112、114 年的經驗段）。W13 看圖與主題寫作、W20 書信、W22 主題寫作已打底，本週重點放在<b>內容具體、限時完成</b>。
+  </div>
+</div>
+
+<!-- ==================== RUBRIC ==================== -->
+<div class="card" id="rubric">
+  <div class="card-title">官方評分原則與自評表</div>
+  <p style="font-size:0.9rem;">依大考中心 115 學年度評分原則：作文依「內容、組織、文法句構、字彙拼字」四項評分，再給整體分數（滿分 20 分）。下表「優」的描述節錄官方評分指標。</p>
+  <table class="conf-table">
+    <thead><tr><th style="width:14%">項目</th><th style="width:42%">官方「優」等級描述</th><th>自評問題</th><th style="width:12%">主題 A／B</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">內容</td><td>主題（句）清楚切題，並有具體、完整的相關細節支持</td><td>提示要求的每一點都寫到了嗎？有沒有一個具體例子？</td><td class="check-cell">＿／＿</td></tr>
+      <tr><td class="conf-pair">組織</td><td>重點分明，有開頭、發展、結尾，前後連貫，轉承語使用得當</td><td>每段有主題句嗎？有 2–3 個轉承語嗎？結尾有收束嗎？</td><td class="check-cell">＿／＿</td></tr>
+      <tr><td class="conf-pair">文法句構</td><td>文法、格式、標點幾乎無誤，文句結構富變化</td><td>時態一致嗎？至少用了 3 種句型嗎？</td><td class="check-cell">＿／＿</td></tr>
+      <tr><td class="conf-pair">字彙拼字</td><td>用字精確、得宜，拼字、大小寫幾乎無誤</td><td>有沒有重複同一個字太多次？有拼錯嗎？</td><td class="check-cell">＿／＿</td></tr>
+    </tbody>
+  </table>
+  <div class="box box-red">
+    <strong>直接扣分項（官方明文）</strong>
+    字數明顯不足，扣總分 1 分；未分段，扣總分 1 分；完全文不對題或離題、抄襲選文得 0 分。
+  </div>
+</div>
+
+<!-- ==================== METHOD ==================== -->
+<div class="card" id="method">
+  <div class="card-title">主題式作文四步驟（25 分鐘）</div>
+  <table class="conf-table">
+    <thead><tr><th style="width:18%">步驟</th><th style="width:12%">時間</th><th>做什麼</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">① 審題</td><td>2 分鐘</td><td>把提示圈成「第一段寫 ___；第二段寫 ___」，確認每段的任務。<b>沒寫到任務等於內容不完整。</b></td></tr>
+      <tr><td class="conf-pair">② 大綱</td><td>3 分鐘</td><td>每段寫一句主題句（中英都可）＋兩個關鍵細節，第二段至少放一個<b>具體例子</b>。</td></tr>
+      <tr><td class="conf-pair">③ 寫作</td><td>17 分鐘</td><td>第一段約 60–80 字，第二段約 80–110 字。卡住時先用簡單句，不要在一個字上耗時間。</td></tr>
+      <tr><td class="conf-pair">④ 檢查</td><td>3 分鐘</td><td>依序檢查：主詞動詞一致 → 時態 → 冠詞與單複數 → 拼字。</td></tr>
+    </tbody>
+  </table>
+  <div class="card-subtitle">常用段落工具</div>
+  <table class="conf-table">
+    <thead><tr><th style="width:24%">功能</th><th>句型</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">描述現象</td><td>Over the past few years, ___ have become part of ___. ／ It is now common to see ___ V-ing.</td></tr>
+      <tr><td class="conf-pair">說明原因</td><td>The main reason for this trend is ___. ／ This is largely because ___.</td></tr>
+      <tr><td class="conf-pair">說明影響</td><td>However, this ___ comes with risks. ／ As a result, ___ may ___.</td></tr>
+      <tr><td class="conf-pair">舉例</td><td>Last semester, a classmate of mine ___. ／ Take my own experience as an example.</td></tr>
+      <tr><td class="conf-pair">敘事轉折</td><td>To my surprise, ___. ／ That belief changed when ___.</td></tr>
+      <tr><td class="conf-pair">反思收尾</td><td>This experience made me realize ___. ／ What I thought was ___ turned out to be ___.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== ESSAY A ==================== -->
+<div class="card" id="essayA">
+  <div class="card-title">主題 A：現象＋原因影響（科技與學習）</div>
+  <div class="prompt-box">
+    <b>提示（本講義依 115 年題型自擬）：</b>近年來，許多學生使用 AI 聊天機器人協助學習。請以此為主題，寫一篇英文作文，文長至少 120 個單詞，文分兩段。第一段描述學生如何使用這類工具；第二段根據你的經驗或觀察，說明此現象的原因以及可能的影響。
+  </div>
+  <div class="box box-orange"><strong>請先自己寫</strong>限時 25 分鐘寫完再展開範文。寫好後用上方自評表打分。</div>
+
+  <div class="card-subtitle">大綱範例</div>
+  <table class="conf-table">
+    <thead><tr><th style="width:14%">段落</th><th style="width:30%">主題句</th><th>細節</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">第一段</td><td>AI 聊天機器人已成為學生日常的一部分</td><td>在哪裡用（公車、圖書館、深夜）；用來做什麼（解數學、改文法）；班上幾乎人人用過</td></tr>
+      <tr><td class="conf-pair">第二段</td><td>主因是方便，但方便帶來風險</td><td>原因：隨時可問、害羞的學生敢問。影響：同學抄到錯答案被扣分（具體例子）；思考能力退化。結尾：當夥伴，不當替代品</td></tr>
+    </tbody>
+  </table>
+
+  <details>
+    <summary></summary>
+    <div class="passage">
+      <p>Over the past few years, AI chatbots have quietly become part of students' daily routines. On the bus, in the library, or at the kitchen table late at night, teenagers type questions into their phones and receive answers within seconds. Some ask the programs to explain difficult math problems, <span class="tr">while</span> others use them to check the grammar in their English compositions. In my class, it is now unusual to find anyone who has never tried one.</p>
+      <p>In my opinion, the main reason for this trend is convenience. <span class="tr">Unlike</span> a teacher or a tutor, a chatbot is available at any hour and never gets tired of repeated questions, <span class="tr">so</span> shy students feel comfortable asking for help. <span class="tr">However</span>, this convenience comes with risks. Last semester, a classmate of mine copied an answer that sounded <span class="hl">plausible</span> but was completely wrong, and he lost points on a quiz. <span class="tr">If</span> students stop thinking for themselves, their <span class="hl">cognitive</span> skills may <span class="hl">deteriorate</span> over time. <span class="tr">Therefore</span>, I believe AI should serve as a study partner rather than a substitute for our own effort.</p>
+    </div>
+    <div class="answer-box">
+      <div class="ans">為什麼這篇能拿高分（全文 175 字）</div>
+      <div>① 兩段任務完全對應提示：第一段「如何使用」，第二段「原因」＋「影響」。② 第一段用三個地點、兩種用途，描述很具體。③ 第二段有親身觀察的例子（同學抄錯答案），避免空泛。④ 句型多變：while、unlike、關係子句 that sounded…、if 條件句、rather than。⑤ <span style="background:var(--accent-bg)">橘底</span>是轉承語，<b>藍字</b>是 W25 的 Level 5 字。</div>
+    </div>
+  </details>
+</div>
+
+<!-- ==================== ESSAY B ==================== -->
+<div class="card" id="essayB">
+  <div class="card-title">主題 B：經驗＋反思（教育與社會）</div>
+  <div class="prompt-box">
+    <b>提示（本講義依 112、114 年題型自擬）：</b>每個人都可能對某些人或事抱持刻板印象，後來才發現並非如此。請以此為主題，寫一篇英文作文，文長至少 120 個單詞，文分兩段。第一段描述一次讓你改變想法的經驗；第二段說明你的想法如何改變，以及這次經驗對你的影響。
+  </div>
+  <div class="box box-orange"><strong>請先自己寫</strong>敘事題最常見的問題是時態跳動：第一段用過去式，第二段的「現在的想法」才用現在式／現在完成式。</div>
+
+  <div class="card-subtitle">大綱範例</div>
+  <table class="conf-table">
+    <thead><tr><th style="width:14%">段落</th><th style="width:30%">主題句</th><th>細節</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">第一段</td><td>我以前認為長者學不會新科技，當志工後改觀</td><td>時間地點：高一週六、社區中心；人物：78 歲退休護理師林太太；轉折：一小時學會視訊，還問網路詐騙</td></tr>
+      <tr><td class="conf-pair">第二段</td><td>偏見會遮蔽我們對他人能力的認識</td><td>想法改變：她只是缺少機會；行動改變：先聽再判斷、每月持續當志工；收尾：一堂最寶貴的課</td></tr>
+    </tbody>
+  </table>
+
+  <details>
+    <summary></summary>
+    <div class="passage">
+      <p><span class="tr">When</span> I was in my first year of senior high school, I believed that older people could not understand modern technology. That <span class="hl">stereotype</span> changed one Saturday when I volunteered at a community center near my home. My job was to teach senior citizens how to use smartphones, and I was paired with Mrs. Lin, a seventy-eight-year-old retired nurse. <span class="tr">To my surprise</span>, she not only learned how to make video calls within an hour but also asked me sharp questions about online scams. <span class="tr">By the end of the day</span>, she was showing other learners how to send photos to their grandchildren.</p>
+      <p>This experience made me realize how easily <span class="hl">prejudice</span> can blind us to other people's abilities. Mrs. Lin did not lack intelligence; she simply had not been given the chance to practice. <span class="tr">Since then</span>, I have tried to listen before I judge, whether I am talking with my grandparents or with classmates I barely know. I have also kept volunteering at the center once a month, because helping others has <span class="hl">empowered</span> me as much as it has empowered them. What I thought was a simple Saturday job turned out to be one of the most valuable lessons of my high school life.</p>
+    </div>
+    <div class="answer-box">
+      <div class="ans">為什麼這篇能拿高分（全文 201 字）</div>
+      <div>① 時態清楚：第一段過去式敘事；第二段 Since then 接現在完成式。② 細節具體到人物年齡、職業與動作。③ 主旨句 how easily prejudice can blind us 是全文的反思核心。④ 善用 not only…but also、分號、whether…or…、What I thought was… 等句型。⑤ 結尾呼應開頭的 Saturday，有收束感。</div>
+    </div>
+  </details>
+
+  <div class="card-subtitle">備用題（週日選 1 題寫大綱，考前再寫完）</div>
+  <table class="conf-table">
+    <thead><tr><th style="width:12%">編號</th><th>提示（自擬）</th><th style="width:22%">類型</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">C1</td><td>許多人開始自備環保杯與餐具。第一段描述這個現象；第二段說明原因與你認為的影響。</td><td>現象＋原因影響</td></tr>
+      <tr><td class="conf-pair">C2</td><td>假如學校要增設一個空間（如自習室、運動區、創客教室），你會選哪一個？第一段說明選擇與理由；第二段描述它的樣貌與使用方式。</td><td>選擇＋說明</td></tr>
+      <tr><td class="conf-pair">C3</td><td>手機讓人際溝通更便利，也可能帶來誤解。第一段說明人們為何依賴文字訊息；第二段以經驗為例討論誤會與化解方法。</td><td>功能＋經驗解決</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== WORDS ==================== -->
+<div class="card" id="words">
+  <div class="card-title">W25 詞彙錯字本活用字（作文至少用上 10 個）</div>
+  <div class="box box-blue"><strong>使用原則</strong>下列字都來自 W25 的 Level 5–6 字表，已附常用搭配。優先用你錯字本中的字；<b>確定用法才用</b>，難字用錯不如簡單字用對。</div>
+  <table class="conf-table">
+    <thead><tr><th style="width:18%">單字</th><th style="width:30%">常用搭配</th><th>例句</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">plausible</td><td>a plausible explanation／answer</td><td>The answer sounded plausible, but it was wrong.</td></tr>
+      <tr><td class="conf-pair">cognitive</td><td>cognitive skills／development</td><td>Reading improves children's cognitive development.</td></tr>
+      <tr><td class="conf-pair">deteriorate</td><td>health／skills deteriorate</td><td>Her eyesight deteriorated after years of night reading.</td></tr>
+      <tr><td class="conf-pair">stereotype</td><td>break／challenge a stereotype</td><td>The film challenges the stereotype of lazy teenagers.</td></tr>
+      <tr><td class="conf-pair">prejudice</td><td>prejudice against sb.</td><td>We should not hold prejudice against newcomers.</td></tr>
+      <tr><td class="conf-pair">empower</td><td>empower sb. to V</td><td>Education empowers young people to change their lives.</td></tr>
+      <tr><td class="conf-pair">alleviate</td><td>alleviate pain／stress</td><td>A short walk can alleviate stress.</td></tr>
+      <tr><td class="conf-pair">mitigate</td><td>mitigate the impact／effects</td><td>Planting trees can mitigate the effects of heat waves.</td></tr>
+      <tr><td class="conf-pair">sedentary</td><td>a sedentary lifestyle</td><td>A sedentary lifestyle is harmful to teenagers.</td></tr>
+      <tr><td class="conf-pair">sustainable</td><td>sustainable development／living</td><td>Reusing cups is a small step toward sustainable living.</td></tr>
+      <tr><td class="conf-pair">incentive</td><td>an incentive to V</td><td>Rewards give students an incentive to read more.</td></tr>
+      <tr><td class="conf-pair">obsolete</td><td>become obsolete</td><td>Old skills may become obsolete as technology advances.</td></tr>
+      <tr><td class="conf-pair">integrate</td><td>integrate A into B</td><td>Schools are integrating technology into their lessons.</td></tr>
+      <tr><td class="conf-pair">accumulate</td><td>accumulate knowledge／wealth</td><td>Knowledge accumulates slowly through daily practice.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== CN2EN METHOD ==================== -->
+<div class="card" id="cn2en">
+  <div class="card-title">中譯英五步法與扣分地雷</div>
+  <table class="conf-table">
+    <thead><tr><th style="width:18%">步驟</th><th>做什麼</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">① 找主幹</td><td>先抓「誰＋做什麼」，把修飾語先放一邊。</td></tr>
+      <tr><td class="conf-pair">② 定時態</td><td>看時間線索：「現在已經／近年來」→ 現在完成式；「過去」→ 過去式；「如果當時」→ 假設語氣。</td></tr>
+      <tr><td class="conf-pair">③ 選句型</td><td>中文有「不只……也」「越……越」「直到……才」就對應固定句構。</td></tr>
+      <tr><td class="conf-pair">④ 填詞彙</td><td>想不到的字用簡單字代換（不知道 utensils 就寫 spoons and chopsticks），<b>別空白</b>。</td></tr>
+      <tr><td class="conf-pair">⑤ 檢查</td><td>主動詞一致、冠詞、單複數、介系詞、句首大寫與句尾句點。</td></tr>
+    </tbody>
+  </table>
+  <div class="box box-red">
+    <strong>最常見的扣分地雷</strong>
+    ① 一句兩個動詞沒連接（<i>People use phones check news.</i>）② 動名詞主詞用複數動詞（<i>Getting up early are…</i> → <b>is</b>）③ 不可數名詞加 s（informations, advices, equipments）④ 中文「讓」直譯（<i>let him happy</i> → <b>make him happy</b>）⑤ although 與 but 並用、because 與 so 並用 ⑥ 忘了句首大寫或句尾句點（官方明列扣 0.5 分）。
+  </div>
+</div>
+
+<!-- ==================== DAILY ==================== -->
+<div class="card" id="day1">
+  <div class="card-title">Day 1（一）環境｜現在完成式、不定詞表目的</div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">1</span>近年來，越來越多人已經開始自備餐具，以減少一次性塑膠的使用。</div>
+    <div class="sent-hint">提示：自備 bring one's own；餐具 utensils；一次性 single-use；「近年來」→ 現在完成式</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">In recent years, more and more people have started bringing their own utensils to reduce the use of single-use plastics.</div><div style="margin-top:4px;">「more and more＋複數名詞」後接複數動詞 have started。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">2</span>氣候變遷不只影響環境，也改變了我們的生活方式。</div>
+    <div class="sent-hint">提示：氣候變遷 climate change；not only…but also…</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Climate change not only affects the environment but also changes the way we live.</div><div style="margin-top:4px;">the way we live 中不可再加 how。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">3</span>如果我們現在不採取行動，下一代將付出更高的代價。</div>
+    <div class="sent-hint">提示：採取行動 take action；付出代價 pay a price；下一代 the next generation</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">If we do not take action now, the next generation will pay a higher price.</div><div style="margin-top:4px;">if 子句用現在式代替未來，主要子句才用 will。</div></div></details></div>
+</div>
+<div class="card" id="day2">
+  <div class="card-title">Day 2（二）科技｜關係子句、使役句</div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">4</span>許多學生使用人工智慧工具來整理筆記，但他們仍須自行判斷資訊是否正確。</div>
+    <div class="sent-hint">提示：人工智慧 artificial intelligence；判斷 judge；是否 whether</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Many students use artificial intelligence tools to organize their notes, but they still have to judge for themselves whether the information is correct.</div><div style="margin-top:4px;">information 不可數，動詞用 is。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">5</span>智慧型手機讓我們能隨時取得資訊，卻也使我們更難專心。</div>
+    <div class="sent-hint">提示：allow sb. to V；隨時 at any time；make it harder for sb. to V</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Smartphones allow us to access information at any time, but they also make it harder for us to concentrate.</div><div style="margin-top:4px;">make it＋形容詞＋for sb. to V，it 不可省。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">6</span>這款由臺灣學生設計的應用程式，已經幫助數千名長者學會使用網路。</div>
+    <div class="sent-hint">提示：應用程式 app；由…設計 designed by；長者 senior citizens；數千 thousands of</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">This app, which was designed by Taiwanese students, has helped thousands of senior citizens learn to use the Internet.</div><div style="margin-top:4px;">主詞 This app 單數，動詞用 has helped；Internet 大寫。</div></div></details></div>
+</div>
+<div class="card" id="day3">
+  <div class="card-title">Day 3（三）健康｜動名詞當主詞、suggest 句型</div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">7</span>每天睡足七到八小時，對青少年的身心健康至關重要。</div>
+    <div class="sent-hint">提示：be essential to；身心健康 physical and mental health</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Getting seven to eight hours of sleep every day is essential to teenagers' physical and mental health.</div><div style="margin-top:4px;">動名詞當主詞視為單數，用 is。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">8</span>醫生建議我們少喝含糖飲料，多吃蔬菜水果。</div>
+    <div class="sent-hint">提示：suggest that＋S＋(should) V；含糖飲料 sugary drinks</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Doctors suggest that we (should) drink fewer sugary drinks and eat more fruits and vegetables.</div><div style="margin-top:4px;">suggest 後的 that 子句用原形動詞；不寫 suggest us to。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">9</span>長時間盯著螢幕不但傷害視力，也可能導致睡眠品質下降。</div>
+    <div class="sent-hint">提示：盯著 stare at；視力 eyesight；導致 lead to</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Staring at screens for long periods of time not only harms our eyesight but may also lead to poor sleep quality.</div><div style="margin-top:4px;">lead to 的 to 是介系詞，後接名詞。</div></div></details></div>
+</div>
+<div class="card" id="day4">
+  <div class="card-title">Day 4（四）教育｜the more…、so…that…、instead of</div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">10</span>我們讀得越多，就越能理解不同的文化與觀點。</div>
+    <div class="sent-hint">提示：The＋比較級…, the＋比較級…；觀點 perspectives</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">The more we read, the better we can understand different cultures and perspectives.</div><div style="margin-top:4px;">兩邊的 the 都不可省。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">11</span>許多高中生課業壓力太大，以致沒有時間培養興趣。</div>
+    <div class="sent-hint">提示：be under pressure；so much…that…；培養興趣 develop interests</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Many senior high school students are under so much academic pressure that they have no time to develop their interests.</div><div style="margin-top:4px;">pressure 不可數，用 so much，不用 so many。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">12</span>老師鼓勵學生勇於提問，而不是只背誦課本上的答案。</div>
+    <div class="sent-hint">提示：encourage sb. to V；instead of＋V-ing；背誦 memorize</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Teachers encourage students to ask questions bravely instead of just memorizing the answers in textbooks.</div><div style="margin-top:4px;">instead of 是介系詞片語，後接 V-ing。</div></div></details></div>
+</div>
+<div class="card" id="day5">
+  <div class="card-title">Day 5（五）文化｜分詞構句、Not until 倒裝</div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">13</span>走在老街上，遊客可以品嚐傳統小吃並欣賞古老建築。</div>
+    <div class="sent-hint">提示：分詞構句 V-ing；小吃 snacks；欣賞 admire</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Walking along the old street, tourists can taste traditional snacks and admire ancient buildings.</div><div style="margin-top:4px;">分詞構句的主詞要與主要子句相同（遊客走路）。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">14</span>直到出國留學，他才了解自己的文化有多麼珍貴。</div>
+    <div class="sent-hint">提示：Not until＋子句＋倒裝；珍貴 precious</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Not until he studied abroad did he realize how precious his own culture was.</div><div style="margin-top:4px;">Not until 放句首，主要子句要倒裝（did he realize）。也可寫 He did not realize … until he studied abroad.</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">15</span>每年都有成千上萬的人來到臺灣，體驗這裡的節慶與美食。</div>
+    <div class="sent-hint">提示：thousands of；體驗 experience；節慶 festivals</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Every year, thousands of people come to Taiwan to experience its festivals and delicious food.</div><div style="margin-top:4px;">thousands of 後接複數名詞；不寫 thousand of。</div></div></details></div>
+</div>
+<div class="card" id="day6">
+  <div class="card-title">Day 6（六）歷史｜與過去事實相反的假設、分詞片語</div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">16</span>歷史告訴我們，任何重大的改變都需要時間和耐心。</div>
+    <div class="sent-hint">提示：重大的 major；take time and patience</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">History tells us that any major change takes time and patience.</div><div style="margin-top:4px;">any＋單數名詞，動詞用 takes；history、patience 不可數。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">17</span>如果當時政府早一點採取行動，這場災難或許就能避免。</div>
+    <div class="sent-hint">提示：If＋had p.p., S＋might have p.p.；避免 avoid</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">If the government had taken action earlier, this disaster might have been avoided.</div><div style="margin-top:4px;">與過去事實相反用過去完成式；災難被避免要用被動。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">18</span>這座博物館保存了許多珍貴的文物，使我們得以一窺過去的生活。</div>
+    <div class="sent-hint">提示：保存 preserve；文物 artifacts；一窺 catch a glimpse of</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">This museum preserves many precious artifacts, allowing us to catch a glimpse of life in the past.</div><div style="margin-top:4px;">逗號後用分詞 allowing 表結果，不可接 allows。</div></div></details></div>
+</div>
+<div class="card" id="day7">
+  <div class="card-title">Day 7（日）社會與旅遊｜no matter、with 片語</div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">19</span>無論結果如何，重要的是我們從失敗中學到了什麼。</div>
+    <div class="sent-hint">提示：No matter what；what matters is…；失敗 failure</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">No matter what the result is, what matters is what we have learned from failure.</div><div style="margin-top:4px;">no matter what 的子句用直述語序（the result is）。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">20</span>隨著高齡化社會來臨，照顧長者已成為每個家庭必須面對的問題。</div>
+    <div class="sent-hint">提示：with the arrival of；高齡化社會 an aging society；the elderly</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">With the arrival of an aging society, taking care of the elderly has become a problem every family must face.</div><div style="margin-top:4px;">the elderly 指長者全體，視為複數，不加 s；動名詞主詞用 has。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">21</span>旅行不只讓我們看見世界，也讓我們更了解自己。</div>
+    <div class="sent-hint">提示：not only…but also…；help sb. V</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Traveling not only lets us see the world but also helps us understand ourselves better.</div><div style="margin-top:4px;">let、help 後接原形動詞。</div></div></details></div>
+</div>
+
+<!-- ==================== REAL ==================== -->
+<div class="card" id="real">
+  <div class="card-title">近五年中譯英真題 10 句（大考中心）</div>
+  <div class="box box-blue"><strong>作答方式</strong>每題限時 2 分鐘，自己寫完再展開官方滿分參考答案。答案可有多種寫法，官方均列出同義替換，這裡節錄一種，可替換的字列在括號中。</div>
+    <div class="quiz-item"><div class="quiz-q"><span class="qnum">1</span><b>115-1</b>　現在越來越多高中英文老師已經增加在課堂上使用英文的百分比。</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Now, more and more senior high school English teachers have increased the percentage of English use in class.</div><div style="margin-top:4px;">可替換：Now（Nowadays）；English use（using English）</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">2</span><b>115-2</b>　他們將學生依英語能力分成不同組別，進行多樣的聽、說活動。</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">They divide students into different groups based on their English ability and conduct various listening and speaking activities.</div><div style="margin-top:4px;">可替換：ability（proficiency）；various（diverse, a variety of）</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">3</span><b>114-1</b>　人類的想像和創意是科技進步最大的驅動力。</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Human imagination and creativity is the biggest driving force for technological advancement.</div><div style="margin-top:4px;">可替換：biggest（strongest）；force（power）；advancement（advances, advance）</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">4</span><b>114-2</b>　過去在科幻電影中出現的神奇物件，現在正逐一成真。</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Amazing objects that appeared in science-fiction movies in the past are now becoming reality one by one.</div><div style="margin-top:4px;">可替換：Amazing（Fantastic）；objects（things）；movies（films）；reality（real）</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">5</span><b>113-1</b>　每逢選舉季節，總會看到政治人物造訪各地著名廟宇。</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">During election season, politicians can be seen visiting famous temples in different places.</div><div style="margin-top:4px;">可替換：During（Every）；can（will）；visiting（making visits to）；places（areas）</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">6</span><b>113-2</b>　除了祈求好的選舉結果，他們也希望展現對在地文化與習俗的尊重。</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Besides praying for good election results, they also hope to show respect to local culture and customs.</div><div style="margin-top:4px;">可替換：Besides（Aside from, Apart from, In addition to）</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">7</span><b>112-1</b>　歷史一再證明，戰爭會造成極為可怕的災難。</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">History has proved repeatedly that wars will cause extremely terrible disasters.</div><div style="margin-top:4px;">可替換：has proved（proves, has proven）；repeatedly（time and again）；cause（lead to）；terrible（horrible）</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">8</span><b>112-2</b>　避免衝突、確保世界和平應該是所有人類追求的目標。</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">To avoid conflicts and ensure world peace should be the goal pursued by all human beings.</div><div style="margin-top:4px;">可替換：To avoid…ensure（Avoiding…ensuring）</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">9</span><b>111-1</b>　飼養寵物並非一項短暫的人生體驗，而是一個對動物的終生承諾。</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">Keeping a pet is not a short-term life experience, but a lifelong commitment to an animal.</div><div style="margin-top:4px;">可替換：Keeping（Raising）；short-term life experience（temporary experience in life）；commitment（promise）</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">10</span><b>111-2</b>　在享受寵物所帶來的歡樂時，我們不該忽略要善盡照顧他們的責任。</div>
+    <details><summary></summary><div class="answer-box"><div class="model-en">When enjoying the joy pets bring (to) us, we should not ignore the responsibility of taking good care of them.</div><div style="margin-top:4px;">可替換：joy（fun, pleasure）；ignore（neglect, overlook）</div></div></details></div>
+</div>
+
+<!-- ==================== WEAK ==================== -->
+<div class="card" id="weak">
+  <div class="card-title">個人弱點筆記</div>
+  <table class="conf-table">
+    <thead><tr><th style="width:24%">失誤類型</th><th>我的錯句</th><th>訂正</th><th style="width:10%">次數</th></tr></thead>
+    <tbody>
+      <tr><td class="conf-pair">時態</td><td style="color:var(--gray)">例：I have volunteered there last year.</td><td style="color:var(--gray)">I volunteered there last year.</td><td class="check-cell">＿</td></tr>
+      <tr><td class="conf-pair">主動詞一致</td><td style="color:var(--gray)">例：Using phones make me tired.</td><td style="color:var(--gray)">Using phones makes me tired.</td><td class="check-cell">＿</td></tr>
+      <tr><td class="conf-pair">冠詞／單複數</td><td>＿＿＿＿＿</td><td>＿＿＿＿＿</td><td class="check-cell">＿</td></tr>
+      <tr><td class="conf-pair">介系詞／搭配</td><td>＿＿＿＿＿</td><td>＿＿＿＿＿</td><td class="check-cell">＿</td></tr>
+      <tr><td class="conf-pair">句構（連接詞）</td><td>＿＿＿＿＿</td><td>＿＿＿＿＿</td><td class="check-cell">＿</td></tr>
+      <tr><td class="conf-pair">拼字</td><td>＿＿＿＿＿</td><td>＿＿＿＿＿</td><td class="check-cell">＿</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== QUIZ ==================== -->
+<div class="card" id="quiz">
+  <div class="card-title">隨堂測驗 8 題：找出錯誤並訂正</div>
+  <div class="box box-blue"><strong>作答說明</strong>每句有一處主要錯誤，都是常見的失分點。先自己訂正，再展開解答。</div>
+    <div class="quiz-item"><div class="quiz-q"><span class="qnum">1</span>Using smartphones before bed make it hard for many teenagers to fall asleep.</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">make → makes</div><div>動名詞片語當主詞視為單數。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">2</span>Doctors suggest us to exercise for thirty minutes every day.</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">suggest us to exercise → suggest that we (should) exercise</div><div>suggest 不接「人＋不定詞」。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">3</span>Many students have no time to develop their interests because of too many pressure.</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">too many pressure → too much pressure</div><div>pressure 不可數，用 much。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">4</span>I have volunteered at the community center last summer.</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">have volunteered → volunteered</div><div>有明確過去時間（last summer）用過去式。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">5</span>Although it rained heavily, but we still finished the beach cleanup.</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">刪除 but</div><div>although 與 but 不可並用。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">6</span>Walking along the old street, the traditional snacks attracted me.</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">the traditional snacks attracted me → I was attracted by the traditional snacks</div><div>分詞構句主詞須與主要子句相同（走路的是「我」）。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">7</span>The teacher gave us many useful informations about the exam.</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">many useful informations → a lot of useful information</div><div>information 不可數。</div></div></details></div>
+  <div class="quiz-item"><div class="quiz-q"><span class="qnum">8</span>Not until he went abroad he realized how precious his culture was.</div>
+    <details><summary></summary><div class="answer-box"><div class="ans">he realized → did he realize</div><div>Not until 放句首，主要子句要倒裝。</div></div></details></div>
+  <div class="box box-green" style="margin-top:14px;">
+    <strong>成績判讀</strong>
+    7–8 題正確：文法地雷已能自己抓出。5–6 題正確：把錯的類型寫進弱點筆記。4 題以下：回頭看「扣分地雷」，週五多做 5 句中譯英。
+  </div>
+</div>
+
+<div class="box box-purple">
+  <strong>下週預告：W27（11/16–11/22）</strong>
+  英文進入篇章結構歷屆試題 5 回與文意選填歷屆試題 5 回；週六為物理化學聯合模擬。本週累積的作文句型請繼續每週用一次，弱點筆記留到 W31 全卷測試前總複習。
+</div>
+<div style="text-align:center;color:var(--gray);font-size:0.82rem;padding:20px 0;">
+  W26 英文科學習講義 — 台灣高中學測備考 | 高三上理工組 | 英文作文主題式 2 篇、中譯英每日 3 句｜真題與評分原則引自大考中心 111–115 學年度試卷
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

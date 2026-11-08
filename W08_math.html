@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W08 數學A科｜第二冊 廣義角與三角比性質・正弦餘弦定理｜學測備考講義</title>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        tags: 'ams'
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+      background: #f5f0fa;
+      color: #2d2d2d;
+      line-height: 1.75;
+    }
+
+    :root {
+      --purple-dark:  #4a0072;
+      --purple-main:  #6a1b9a;
+      --purple-mid:   #8e24aa;
+      --purple-light: #ce93d8;
+      --purple-pale:  #f3e5f5;
+      --purple-bg:    #faf0fe;
+      --accent-gold:  #f9a825;
+      --accent-teal:  #00796b;
+      --accent-red:   #c62828;
+      --accent-blue:  #1565c0;
+      --accent-green: #2e7d32;
+      --text-main:    #2d2d2d;
+      --text-muted:   #5d5d5d;
+      --white:        #ffffff;
+      --border:       #d1c4e9;
+    }
+
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      width: 260px; flex-shrink: 0;
+      background: var(--purple-dark);
+      color: var(--white);
+      position: sticky; top: 0; height: 100vh;
+      overflow-y: auto; padding: 0 0 2rem 0;
+    }
+    .sidebar-header {
+      background: var(--purple-main);
+      padding: 1.2rem 1rem; text-align: center;
+      border-bottom: 2px solid var(--purple-light);
+    }
+    .sidebar-header .week-tag {
+      font-size: 0.72rem; letter-spacing: 0.12em;
+      color: var(--purple-light); margin-bottom: 0.3rem; display: block;
+    }
+    .sidebar-header h2 { font-size: 1rem; font-weight: 700; line-height: 1.4; }
+    .sidebar-header p { font-size: 0.78rem; opacity: 0.80; margin-top: 0.3rem; }
+    .sidebar nav { padding: 0.5rem 0; }
+    .nav-section {
+      font-size: 0.65rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--purple-light);
+      padding: 0.9rem 1rem 0.3rem; opacity: 0.85;
+    }
+    .sidebar nav a {
+      display: block; padding: 0.4rem 1rem;
+      color: rgba(255,255,255,0.82); text-decoration: none;
+      font-size: 0.84rem; border-left: 3px solid transparent;
+      transition: all 0.18s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.12);
+      border-left-color: var(--purple-light);
+      color: var(--white);
+    }
+    .nav-indent { padding-left: 1.6rem !important; font-size: 0.80rem !important; }
+
+    /* ===== MAIN ===== */
+    .main-content { flex: 1; padding: 2rem 2.5rem 4rem; max-width: 960px; }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-main) 55%, var(--purple-mid) 100%);
+      color: var(--white);
+      border-radius: 16px; padding: 2rem 2.4rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(74,0,114,0.25);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: "△"; position: absolute;
+      right: 1.8rem; top: 50%; transform: translateY(-50%);
+      font-size: 8rem; opacity: 0.08; font-weight: 900;
+    }
+    .page-header .week-tag {
+      background: rgba(255,255,255,0.20);
+      display: inline-block; padding: 0.18rem 0.85rem;
+      border-radius: 12px; font-size: 0.80rem;
+      margin-bottom: 0.6rem; letter-spacing: 0.08em;
+    }
+    .page-header h1 { font-size: 1.8rem; font-weight: 900; margin-bottom: 0.35rem; }
+    .page-header .subtitle { font-size: 0.92rem; opacity: 0.88; }
+    .meta-row { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+    .meta-chip {
+      background: rgba(255,255,255,0.16);
+      border-radius: 20px; padding: 0.20rem 0.85rem; font-size: 0.78rem;
+    }
+
+    /* ===== SECTION TITLES ===== */
+    .section-title {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 1.28rem; font-weight: 800;
+      color: var(--purple-dark);
+      margin: 2.4rem 0 1.1rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 3px solid var(--purple-main);
+    }
+    .sub-title {
+      font-size: 1.02rem; font-weight: 700;
+      color: var(--purple-main);
+      margin: 1.5rem 0 0.7rem;
+      padding-left: 0.75rem;
+      border-left: 4px solid var(--purple-main);
+    }
+    .sub-sub-title {
+      font-size: 0.94rem; font-weight: 700;
+      color: var(--purple-mid);
+      margin: 1.1rem 0 0.5rem;
+    }
+
+    /* ===== CARDS ===== */
+    .card {
+      background: var(--white);
+      border-radius: 12px; padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 10px rgba(74,0,114,0.08);
+      border: 1px solid var(--border);
+    }
+
+    /* ===== BOXES ===== */
+    .box { border-radius: 10px; padding: 1rem 1.2rem; margin: 1rem 0; font-size: 0.93rem; }
+    .box-def    { background: var(--purple-pale); border-left: 5px solid var(--purple-main); }
+    .box-formula{ background: #fff8e1; border-left: 5px solid var(--accent-gold); }
+    .box-example{ background: #e8f5e9; border-left: 5px solid var(--accent-green); }
+    .box-warn   { background: #fce4ec; border-left: 5px solid var(--accent-red); }
+    .box-tip    { background: #e0f2f1; border-left: 5px solid var(--accent-teal); }
+    .box-link   { background: #e3f2fd; border-left: 5px solid var(--accent-blue); }
+    .box-title  { font-weight: 700; margin-bottom: 0.5rem; }
+
+    /* ===== FORMULA DISPLAY ===== */
+    .formula-block {
+      background: #fef9e7;
+      border: 2px solid var(--accent-gold);
+      border-radius: 12px;
+      padding: 1.2rem 1.6rem;
+      margin: 1rem 0;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+    .formula-block .formula-label {
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--accent-gold); margin-bottom: 0.5rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+
+    /* ===== TABLES ===== */
+    table { width: 100%; border-collapse: collapse; font-size: 0.91rem; margin: 0.8rem 0; }
+    thead tr { background: var(--purple-main); color: var(--white); }
+    thead th { padding: 0.65rem 1rem; text-align: left; font-weight: 700; }
+    tbody tr:nth-child(even) { background: var(--purple-pale); }
+    tbody tr:hover { background: #e8d5f5; }
+    tbody td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody td:first-child { font-weight: 700; color: var(--purple-dark); white-space: nowrap; }
+
+    /* ===== WORKED EXAMPLE ===== */
+    .worked-example {
+      background: #f9fbe7;
+      border: 1px solid #c5e1a5;
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .worked-example::before {
+      content: "例題";
+      position: absolute; top: -0.65rem; left: 1rem;
+      background: var(--accent-green); color: #fff;
+      font-size: 0.72rem; padding: 0.08rem 0.6rem;
+      border-radius: 8px; font-weight: 700;
+    }
+    .worked-example .ex-q { font-weight: 700; margin-bottom: 0.7rem; color: #1b5e20; }
+    .worked-example .ex-step { font-size: 0.90rem; margin-bottom: 0.4rem; line-height: 1.9; }
+    .worked-example .ex-ans { font-weight: 700; color: var(--accent-green); margin-top: 0.5rem; }
+
+    /* ===== QUIZ ===== */
+    .quiz-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-item .q-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--purple-main); color: var(--white);
+      font-size: 0.80rem; font-weight: 700;
+      border-radius: 50%; width: 1.7rem; height: 1.7rem;
+      margin-right: 0.5rem; flex-shrink: 0;
+    }
+    .quiz-item .q-text { font-weight: 600; font-size: 0.94rem; margin-bottom: 0.5rem; }
+    .quiz-item ol { padding-left: 1.6rem; font-size: 0.92rem; }
+    .quiz-item li { margin-bottom: 0.3rem; list-style-type: upper-alpha; }
+    .diff-badge {
+      display: inline-block; font-size: 0.70rem; font-weight: 700;
+      padding: 0.1rem 0.5rem; border-radius: 8px; margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .diff-easy   { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+    .diff-medium { background: #fff8e1; color: #e65100; border: 1px solid #ffe082; }
+    .diff-hard   { background: #fce4ec; color: #c62828; border: 1px solid #f48fb1; }
+    details summary {
+      cursor: pointer; color: var(--accent-teal);
+      font-size: 0.88rem; margin-top: 0.6rem; font-weight: 600;
+    }
+    details[open] summary { margin-bottom: 0.5rem; }
+    details .answer {
+      background: #e0f2f1;
+      border-left: 4px solid var(--accent-teal);
+      border-radius: 6px;
+      padding: 0.8rem 1rem; font-size: 0.88rem; line-height: 1.9;
+    }
+
+    /* ===== CHIPS ===== */
+    .chip { display:inline-block; padding:0.18rem 0.7rem; border-radius:12px; font-size:0.80rem; font-weight:700; margin:0.15rem; }
+    .chip-purple { background:var(--purple-pale); color:var(--purple-dark); border:1px solid var(--purple-light); }
+    .chip-gold   { background:#fff8e1; color:#e65100; border:1px solid #ffe082; }
+    .chip-teal   { background:#e0f2f1; color:var(--accent-teal); border:1px solid #80cbc4; }
+    .chip-red    { background:#fce4ec; color:var(--accent-red); border:1px solid #f48fb1; }
+    .chip-green  { background:#e8f5e9; color:var(--accent-green); border:1px solid #a5d6a7; }
+
+    .analysis-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1rem 0; }
+    @media (max-width:700px) { .analysis-grid { grid-template-columns:1fr; } }
+    .analysis-item {
+      background:var(--white); border:1px solid var(--border);
+      border-top:4px solid var(--purple-main);
+      border-radius:8px; padding:1rem 1.1rem;
+    }
+    .analysis-item h4 { color:var(--purple-dark); font-size:0.92rem; margin-bottom:0.5rem; }
+    .analysis-item ul { padding-left:1.2rem; font-size:0.88rem; }
+    .analysis-item li { margin-bottom:0.3rem; }
+
+    .step-box {
+      background: #f3e5f5; border-left: 4px solid var(--purple-main);
+      border-radius: 8px; padding: 0.9rem 1.2rem; margin: 0.6rem 0;
+      font-size: 0.91rem;
+    }
+    .step-box strong { color: var(--purple-dark); }
+
+    ul.content-list { padding-left: 1.4rem; }
+    ul.content-list li { margin-bottom: 0.4rem; font-size: 0.93rem; }
+
+    .divider { border: none; border-top: 2px dashed var(--border); margin: 2.5rem 0; }
+
+    .chapter-banner {
+      border-radius: 12px; padding: 0.9rem 1.4rem; margin-bottom: 1.2rem; color: #fff;
+      font-size: 1.1rem; font-weight: 800; letter-spacing: 1px;
+    }
+    .ch1 { background: linear-gradient(90deg, #1565c0, #1e88e5); }
+    .ch2 { background: linear-gradient(90deg, #2e7d32, #43a047); }
+    .ch3 { background: linear-gradient(90deg, #e65100, #fb8c00); }
+    .ch4 { background: linear-gradient(90deg, #6a1b9a, #8e24aa); }
+    .chapter-banner .ch-sub { font-size: 0.80rem; font-weight: 400; opacity: 0.88; margin-top: 0.2rem; }
+
+    /* ===== TRIANGLE DIAGRAM ===== */
+    .tri-diagram { display:flex; justify-content:center; margin:1.2rem 0; }
+    .tri-diagram svg { max-width: 100%; height: auto; }
+
+    /* ===== TREE VISUAL (per style guide) ===== */
+    .tree-visual { background:#faf0fe; border:1px solid var(--border); border-radius:10px; padding:20px 24px 16px 20px; margin:14px 0; overflow-x:auto; }
+    .tv-root { display:inline-flex; align-items:center; background:var(--purple-dark); color:#fff; font-weight:700; font-size:15px; padding:5px 18px; border-radius:20px; margin-bottom:6px; }
+    .tv-children { list-style:none; padding:0; margin:0 0 0 14px; border-left:2px solid var(--border); }
+    .tv-item { position:relative; padding:5px 0 4px 22px; }
+    .tv-item::before { content:''; position:absolute; left:0; top:14px; width:18px; height:2px; background:var(--border); }
+    .tv-node { display:inline-block; border-radius:6px; padding:3px 12px; font-size:13px; font-weight:600; line-height:1.6; }
+    .tv-desc { display:block; font-size:11.5px; color:var(--text-muted); padding:0 4px; margin:1px 0 3px; }
+    .tv-node.tv-l1 { background:var(--purple-pale); color:var(--purple-dark); border:1px solid var(--purple-light); font-size:14px; }
+    .tv-node.tv-l2 { background:#fff8e1; color:#e65100; border:1px solid #ffe082; }
+    .tv-node.tv-l3 { background:#fafafa; color:var(--text-main); border:1px solid #e0e0e0; font-weight:400; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main-content { padding: 1.2rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span class="week-tag">WEEK 08 ｜ 07/06–07/12</span>
+      <h2>數學 A 科</h2>
+      <p>第二冊 Ch2 廣義角與三角比性質・正弦/餘弦定理</p>
+    </div>
+    <nav>
+      <div class="nav-section">導覽</div>
+      <a href="#overview">學習總覽</a>
+      <a href="#transition">暑假衝刺期銜接說明</a>
+
+      <div class="nav-section">Ch2 廣義角與三角比</div>
+      <a href="#genangle" class="nav-indent">廣義角的定義</a>
+      <a href="#radian" class="nav-indent">弧度制</a>
+      <a href="#unitcircle" class="nav-indent">單位圓上的三角函數定義</a>
+      <a href="#quadrant" class="nav-indent">三角函數的正負與象限</a>
+      <a href="#specialangle" class="nav-indent">特別角三角比</a>
+      <a href="#identity2" class="nav-indent">基本恆等式（推廣）</a>
+      <a href="#reduction" class="nav-indent">誘導公式（化為銳角）</a>
+
+      <div class="nav-section">正弦定理與餘弦定理</div>
+      <a href="#sinelaw" class="nav-indent">正弦定理</a>
+      <a href="#cosinelaw" class="nav-indent">餘弦定理</a>
+      <a href="#whichlaw" class="nav-indent">如何選用定理</a>
+      <a href="#area" class="nav-indent">三角形面積公式・海龍公式</a>
+
+      <div class="nav-section">複習與測驗</div>
+      <a href="#mistakes">常見錯誤</a>
+      <a href="#examfocus">學測考點提醒</a>
+      <a href="#summary">重點整理</a>
+      <a href="#quiz">自我檢測 10 題</a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content">
+
+    <header class="page-header" id="top">
+      <div class="week-tag">Week 08 ｜ 07/06–07/12 ｜ 暑假黃金衝刺期 第 1 週</div>
+      <h1>第二冊 Ch2｜廣義角與三角比性質・正弦定理・餘弦定理</h1>
+      <p class="subtitle">數學 A｜弧度制・單位圓定義・象限正負・誘導公式・正弦定理・餘弦定理・三角形面積</p>
+      <div class="meta-row">
+        <span class="meta-chip">弧度 ↔ 度</span>
+        <span class="meta-chip">單位圓定義</span>
+        <span class="meta-chip">ASTC 象限法則</span>
+        <span class="meta-chip">a/sinA=b/sinB=c/sinC</span>
+        <span class="meta-chip">c²=a²+b²−2ab cosC</span>
+        <span class="meta-chip">自我檢測 10 題</span>
+      </div>
+    </header>
+
+    <!-- ===== 學習總覽 ===== -->
+    <section id="overview">
+      <h2 class="section-title">&#128218; 學習總覽</h2>
+      <div class="card">
+        <p>上週學會了直角三角形中的三角比（僅限 0°~90° 的銳角）。本週要把三角比的定義<strong>推廣到任意角度</strong>——這就是「廣義角」，並引入弧度制作為角度的另一種度量方式。有了廣義角的定義後，三角比就不再侷限於直角三角形，而可以應用到<strong>任意三角形</strong>：正弦定理與餘弦定理正是處理一般三角形邊角關係的核心工具，也是三角學單元中學測考最頻繁、綜合難度最高的部分之一。</p>
+        <div class="box box-link" style="margin-top:1rem;">
+          <div class="box-title">本週學習目標</div>
+          <ul class="content-list">
+            <li>理解廣義角的定義（旋轉角、始邊、終邊）與正負角、象限角的判斷</li>
+            <li>熟練弧度制與角度制的互換，理解弧度制的本質（弧長 ÷ 半徑）</li>
+            <li>能用單位圓定義任意角 \(\theta\) 的六種三角比，並判斷各象限的正負號（ASTC 法則）</li>
+            <li>熟記特別角（0°, 30°, 45°, 60°, 90°, 180°, 270°, 360° 及其弧度）的三角比數值</li>
+            <li>能利用誘導公式將任意角三角比化為銳角三角比求值</li>
+            <li>能運用<strong>正弦定理</strong>與<strong>餘弦定理</strong>求解一般三角形（非直角三角形）的邊角</li>
+            <li>能用三角形面積公式（\(\frac12 ab\sin C\)）與海龍公式求三角形面積</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 暑假衝刺期銜接說明 ===== -->
+    <section id="transition">
+      <h2 class="section-title">&#128293; 暑假黃金衝刺期銜接說明</h2>
+      <div class="card">
+        <div class="box box-warn">
+          <div class="box-title">階段轉換：進入第二階段「暑假黃金衝刺」</div>
+          <p>本週（W08）是備考時程表<strong>第二階段（W08–W16，07/06–09/06）</strong>的第一週。第一階段（W01–W07）是利用在校期間課後時間做基礎複習，每日 1.5–2 小時；從本週起正式放暑假，進入<strong>每日 8–10 小時</strong>的全力衝刺期。讀書節奏、進度密度都會明顯加快，數學科將在本週正式進入三角學的「一般三角形」處理——正弦、餘弦定理，難度與計算量都比第一冊明顯提升，請務必調整讀書步調並確實跟上進度。</p>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">承接上週：從「直角三角形」到「任意三角形」</div>
+          <p>上週（W07）學的三角比只能處理直角三角形，且角度限制在 0°~90° 之間。本週的核心突破是：<strong>三角比不再需要直角三角形</strong>——透過單位圓，任何角度（包含負角、大於 360° 的角）都能定義三角比；而正弦定理、餘弦定理則讓我們能處理<strong>任意形狀的三角形</strong>（銳角三角形、鈍角三角形皆適用），是三角學應用最廣的部分。</p>
+        </div>
+        <div class="box box-link">
+          <div class="box-title">第二冊章節地圖（後續進度預告）</div>
+          <table>
+            <thead><tr><th>週次</th><th>章節</th><th>核心內容</th></tr></thead>
+            <tbody>
+              <tr><td>W07（已完成）</td><td>Ch1 三角比</td><td>直角三角形三角比定義、特殊角、解三角形</td></tr>
+              <tr><td>W08（本週）</td><td>Ch2 廣義角與三角比性質</td><td>弧度制、單位圓定義、正弦/餘弦定理、面積公式</td></tr>
+              <tr><td>W09</td><td>Ch3 數列與級數</td><td>等差數列、等比數列、Σ 記號</td></tr>
+              <tr><td>W10</td><td>Ch4 數據分析、Ch5 排列組合</td><td>統計基礎、計數原理</td></tr>
+              <tr><td>W11</td><td>Ch6 機率基礎</td><td>機率運算、第二冊總複習</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================================
+         Ch2：廣義角與三角比性質
+         ============================================================ -->
+    <section>
+      <div class="chapter-banner ch2">
+        第二冊 第二章｜廣義角與三角比性質
+        <div class="ch-sub">弧度制・單位圓定義・象限正負・誘導公式</div>
+      </div>
+
+      <!-- 廣義角的定義 -->
+      <h3 class="sub-title" id="genangle">廣義角的定義</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">定義：廣義角（Generalized Angle）</div>
+          <p>將角視為一條射線繞頂點<strong>旋轉</strong>所形成，固定不動的射線稱為<strong>始邊</strong>，旋轉後的射線稱為<strong>終邊</strong>。逆時針旋轉為<strong>正角</strong>，順時針旋轉為<strong>負角</strong>。旋轉角度可以超過 360°，也可以是負值，這樣定義出來的角就是廣義角。</p>
+          <ul class="content-list" style="margin-top:0.5rem;">
+            <li><strong>標準位置角：</strong>始邊置於 x 軸正向、頂點置於原點的角</li>
+            <li><strong>象限角：</strong>終邊落在第幾象限，就稱為第幾象限角；若終邊剛好落在座標軸上，稱為<strong>象限界角</strong>（如 90°, 180°, 270°, 360°）</li>
+            <li><strong>同界角（共終邊角）：</strong>終邊相同的角，彼此相差 360° 的整數倍，即 \(\theta + k \times 360°\)（\(k\) 為整數）都與 \(\theta\) 同界</li>
+          </ul>
+        </div>
+
+        <div class="tri-diagram">
+          <svg viewBox="0 0 300 220" width="300" height="220">
+            <line x1="20" y1="150" x2="280" y2="150" stroke="#bbb" stroke-width="1"/>
+            <line x1="150" y1="20" x2="150" y2="200" stroke="#bbb" stroke-width="1"/>
+            <circle cx="150" cy="150" r="70" fill="none" stroke="#ce93d8" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <line x1="150" y1="150" x2="230" y2="150" stroke="#6a1b9a" stroke-width="2.5"/>
+            <text x="235" y="155" font-size="12" fill="#6a1b9a" font-weight="700">始邊</text>
+            <line x1="150" y1="150" x2="205" y2="95" stroke="#c62828" stroke-width="2.5"/>
+            <text x="208" y="88" font-size="12" fill="#c62828" font-weight="700">終邊</text>
+            <path d="M 195 150 A 45 45 0 0 0 173 112" fill="none" stroke="#00796b" stroke-width="2"/>
+            <text x="175" y="135" font-size="13" fill="#00796b" font-weight="700">θ</text>
+            <circle cx="150" cy="150" r="2.5" fill="#4a0072"/>
+            <text x="140" y="168" font-size="11" fill="#4a0072">頂點（原點）</text>
+          </svg>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例1：求與 400° 同界（終邊相同）的角中，介於 −360° 到 0° 之間的角。</div>
+          <div class="ex-step">同界角公式：\(\theta = 400° + k \times 360°\)（\(k\) 為整數）</div>
+          <div class="ex-step">取 \(k=-1\)：\(400° - 360° = 40°\)（不在範圍內）</div>
+          <div class="ex-step">取 \(k=-2\)：\(400° - 720° = -320°\)（在 −360°~0° 之間）</div>
+          <div class="ex-ans">答：−320°</div>
+        </div>
+      </div>
+
+      <!-- 弧度制 -->
+      <h3 class="sub-title" id="radian">弧度制（Radian Measure）</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">定義：弧度（radian, rad）</div>
+          <p>在圓中，若弧長恰等於半徑長，則該弧所對的圓心角稱為 <strong>1 弧度</strong>。一般地，圓心角 \(\theta\)（弧度）\(=\dfrac{\text{弧長}}{\text{半徑}} = \dfrac{s}{r}\)。弧度是「比值」，本質上沒有單位，但習慣上仍標記為 rad（常省略不寫）。</p>
+        </div>
+
+        <div class="box box-formula">
+          <div class="formula-label">度與弧度互換</div>
+          \[180° = \pi \text{ (rad)} \quad\Longrightarrow\quad 1° = \frac{\pi}{180}\text{ rad}, \qquad 1\text{ rad} = \frac{180°}{\pi}\]
+        </div>
+
+        <div class="box box-formula">
+          <div class="formula-label">常用角度與弧度對照表</div>
+          <table style="margin-top:0.3rem;">
+            <thead><tr><th>度</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th><th>180°</th><th>270°</th><th>360°</th></tr></thead>
+            <tbody>
+              <tr><td>弧度</td><td>\(0\)</td><td>\(\dfrac{\pi}{6}\)</td><td>\(\dfrac{\pi}{4}\)</td><td>\(\dfrac{\pi}{3}\)</td><td>\(\dfrac{\pi}{2}\)</td><td>\(\pi\)</td><td>\(\dfrac{3\pi}{2}\)</td><td>\(2\pi\)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">換算技巧</div>
+          <p>度數換弧度：<strong>乘以 \(\dfrac{\pi}{180}\)</strong>；弧度換度數：<strong>乘以 \(\dfrac{180}{\pi}\)</strong>。建議直接記住上表中八個常用角，考試時能快速反應，不需每次重新計算。</p>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例2：(a) 將 210° 換算為弧度。(b) 將 \(\dfrac{5\pi}{4}\) 弧度換算為度。</div>
+          <div class="ex-step">(a) \(210° \times \dfrac{\pi}{180} = \dfrac{210\pi}{180} = \dfrac{7\pi}{6}\)</div>
+          <div class="ex-step">(b) \(\dfrac{5\pi}{4} \times \dfrac{180}{\pi} = \dfrac{5 \times 180}{4} = 225°\)</div>
+          <div class="ex-ans">答：(a) \(\dfrac{7\pi}{6}\)　(b) 225°</div>
+        </div>
+
+        <div class="box box-formula">
+          <div class="formula-label">扇形弧長與面積公式（弧度制下最簡潔）</div>
+          \[s = r\theta, \qquad A = \frac{1}{2}r^2\theta\]
+          <p style="font-size:0.85rem; margin-top:0.5rem;">（\(\theta\) 須以弧度為單位；此為弧度制的最大優點——公式不含 180 或 \(\pi\) 的繁瑣係數）</p>
+        </div>
+      </div>
+
+      <!-- 單位圓上的三角函數定義 -->
+      <h3 class="sub-title" id="unitcircle">單位圓上的三角函數定義</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">定義：任意角三角比（單位圓定義）</div>
+          <p>設 \(\theta\) 為標準位置角，終邊與<strong>單位圓</strong>（圓心在原點、半徑為 1 的圓）的交點為 \(P(x, y)\)，則定義：</p>
+          \[\sin\theta = y, \qquad \cos\theta = x, \qquad \tan\theta = \frac{y}{x}\ (x \neq 0)\]
+          <p style="margin-top:0.5rem;">更一般地，若終邊上任一點為 \(P(x,y)\)，\(r=\sqrt{x^2+y^2}\)（不限單位圓），則：</p>
+          \[\sin\theta=\frac{y}{r},\quad \cos\theta=\frac{x}{r},\quad \tan\theta=\frac{y}{x}\ (x\neq0)\]
+        </div>
+
+        <div class="tri-diagram">
+          <svg viewBox="0 0 260 260" width="260" height="260">
+            <line x1="20" y1="130" x2="240" y2="130" stroke="#bbb" stroke-width="1"/>
+            <line x1="130" y1="10" x2="130" y2="250" stroke="#bbb" stroke-width="1"/>
+            <circle cx="130" cy="130" r="90" fill="none" stroke="#6a1b9a" stroke-width="2"/>
+            <line x1="130" y1="130" x2="193" y2="76" stroke="#c62828" stroke-width="2.5"/>
+            <circle cx="193" cy="76" r="3.5" fill="#c62828"/>
+            <text x="198" y="70" font-size="13" fill="#c62828" font-weight="700">P(x, y)</text>
+            <line x1="193" y1="76" x2="193" y2="130" stroke="#00796b" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <text x="197" y="108" font-size="11" fill="#00796b">y = sinθ</text>
+            <line x1="130" y1="130" x2="193" y2="130" stroke="#1565c0" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <text x="145" y="145" font-size="11" fill="#1565c0">x = cosθ</text>
+            <path d="M 170 130 A 40 40 0 0 0 156 100" fill="none" stroke="#f9a825" stroke-width="2"/>
+            <text x="158" y="122" font-size="12" fill="#e65100" font-weight="700">θ</text>
+          </svg>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">與直角三角形定義的銜接</div>
+          <p>當 \(\theta\) 為銳角時，單位圓定義與上週的「對邊/斜邊」定義完全一致（此時 \(r=1\) 即斜邊，\(x, y\) 分別對應鄰邊、對邊的帶號長度）。單位圓定義的優勢在於能自然推廣到<strong>鈍角、負角、大於 360° 的角</strong>，因為 \(x, y\) 可以是負值。</p>
+        </div>
+      </div>
+
+      <!-- 三角函數的正負與象限 -->
+      <h3 class="sub-title" id="quadrant">三角函數的正負與象限（ASTC 法則）</h3>
+      <div class="card">
+        <p>由於 \(\sin\theta=y/r\)、\(\cos\theta=x/r\)（\(r>0\) 恆成立），三角比的正負完全由終邊所在象限的 \(x, y\) 正負決定。</p>
+
+        <div class="analysis-grid">
+          <div class="analysis-item">
+            <h4>第一象限（All）</h4>
+            <p>\(x>0, y>0\)：\(\sin\theta, \cos\theta, \tan\theta\) <strong>全部為正</strong></p>
+          </div>
+          <div class="analysis-item">
+            <h4>第二象限（Sin）</h4>
+            <p>\(x<0, y>0\)：只有 \(\sin\theta\) <strong>為正</strong>（\(\cos,\tan\) 為負）</p>
+          </div>
+          <div class="analysis-item">
+            <h4>第三象限（Tan）</h4>
+            <p>\(x<0, y<0\)：只有 \(\tan\theta\) <strong>為正</strong>（\(\sin,\cos\) 為負）</p>
+          </div>
+          <div class="analysis-item">
+            <h4>第四象限（Cos）</h4>
+            <p>\(x>0, y<0\)：只有 \(\cos\theta\) <strong>為正</strong>（\(\sin,\tan\) 為負）</p>
+          </div>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">記憶口訣：All Students Take Calculus（ASTC）</div>
+          <p>從第一象限開始逆時針：<strong>A</strong>(全正) → <strong>S</strong>(正弦正) → <strong>T</strong>(正切正) → <strong>C</strong>(餘弦正)。中文口訣可記「<strong>一全正、二正弦、三正切、四餘弦</strong>」。</p>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例3：已知 \(\theta\) 為第三象限角，且 \(\sin\theta = -\dfrac{5}{13}\)，求 \(\cos\theta\) 與 \(\tan\theta\)。</div>
+          <div class="ex-step">設終邊上一點 \(P(x,y)\)，\(r=13\)，\(y=-5\)（因 \(\sin\theta=y/r=-5/13\)）</div>
+          <div class="ex-step">由 \(x^2+y^2=r^2\)：\(x^2 = 13^2-5^2=169-25=144 \Rightarrow x=\pm12\)</div>
+          <div class="ex-step">\(\theta\) 為第三象限角，\(x<0\)，故 \(x=-12\)</div>
+          <div class="ex-step">\(\cos\theta = \dfrac{x}{r}=\dfrac{-12}{13}\)，\(\tan\theta=\dfrac{y}{x}=\dfrac{-5}{-12}=\dfrac{5}{12}\)</div>
+          <div class="ex-ans">答：\(\cos\theta=-\dfrac{12}{13}\)，\(\tan\theta=\dfrac{5}{12}\)（驗證：第三象限 tan 為正，符合 ASTC）</div>
+        </div>
+      </div>
+
+      <!-- 特別角三角比 -->
+      <h3 class="sub-title" id="specialangle">特別角三角比（含 0°、90°、180°、270°、360°）</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="formula-label">象限界角三角比對照表</div>
+          <table style="margin-top:0.3rem;">
+            <thead><tr><th>\(\theta\)</th><th>0（0°）</th><th>\(\pi/2\)（90°）</th><th>\(\pi\)（180°）</th><th>\(3\pi/2\)（270°）</th><th>\(2\pi\)（360°）</th></tr></thead>
+            <tbody>
+              <tr><td>\(\sin\theta\)</td><td>0</td><td>1</td><td>0</td><td>−1</td><td>0</td></tr>
+              <tr><td>\(\cos\theta\)</td><td>1</td><td>0</td><td>−1</td><td>0</td><td>1</td></tr>
+              <tr><td>\(\tan\theta\)</td><td>0</td><td>未定義</td><td>0</td><td>未定義</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">推導方式（不需死背）</div>
+          <p>把單位圓上對應點 \((\cos\theta,\sin\theta)\) 直接畫出來：0° 為 \((1,0)\)、90° 為 \((0,1)\)、180° 為 \((-1,0)\)、270° 為 \((0,-1)\)、360° 又回到 \((1,0)\)。\(\tan\theta\) 在 \(x=0\) 時（即 90°、270°）分母為零，故未定義。</p>
+        </div>
+      </div>
+
+      <!-- 基本恆等式（推廣） -->
+      <h3 class="sub-title" id="identity2">基本三角恆等式（推廣至任意角）</h3>
+      <div class="card">
+        <p>上週學過的三個基本恆等式（畢氏恆等式、商數關係、倒數關係）在單位圓定義下，對<strong>任意角</strong> \(\theta\)（使函數有定義處）依然成立：</p>
+        <div class="box box-formula">
+          \[\sin^2\theta+\cos^2\theta=1, \qquad \tan\theta=\frac{\sin\theta}{\cos\theta}, \qquad \sec\theta=\frac1{\cos\theta},\ \csc\theta=\frac1{\sin\theta},\ \cot\theta=\frac1{\tan\theta}\]
+        </div>
+        <div class="worked-example">
+          <div class="ex-q">例4：已知 \(\theta\) 為第二象限角，且 \(\cos\theta=-\dfrac35\)，求 \(\sin\theta\)。</div>
+          <div class="ex-step">\(\sin^2\theta = 1-\cos^2\theta = 1-\dfrac{9}{25}=\dfrac{16}{25}\)</div>
+          <div class="ex-step">第二象限 \(\sin\theta>0\)（依 ASTC），故 \(\sin\theta=\dfrac45\)</div>
+          <div class="ex-ans">答：\(\sin\theta=\dfrac45\)</div>
+        </div>
+      </div>
+
+      <!-- 誘導公式 -->
+      <h3 class="sub-title" id="reduction">誘導公式（化為銳角三角比）</h3>
+      <div class="card">
+        <p>誘導公式（reduction formula）的用途是：把任意角的三角比，轉換成 0°~90° 銳角的三角比，方便查表或代入特殊角數值。核心原則只有兩步：<strong>①先定正負號（用 ASTC 判斷原角所在象限）②再看角度是 \(90°\pm\theta\)、\(180°\pm\theta\) 還是 \(360°-\theta\) 型，決定函數名稱是否互換</strong>。</p>
+
+        <div class="box box-formula">
+          <div class="formula-label">常用誘導公式（\(\theta\) 為銳角）</div>
+          <table style="margin-top:0.3rem;">
+            <thead><tr><th>類型</th><th>\(\sin\)</th><th>\(\cos\)</th><th>\(\tan\)</th><th>函數名稱</th></tr></thead>
+            <tbody>
+              <tr><td>\(180°-\theta\)</td><td>\(\sin\theta\)</td><td>\(-\cos\theta\)</td><td>\(-\tan\theta\)</td><td>不變</td></tr>
+              <tr><td>\(180°+\theta\)</td><td>\(-\sin\theta\)</td><td>\(-\cos\theta\)</td><td>\(\tan\theta\)</td><td>不變</td></tr>
+              <tr><td>\(360°-\theta\)（即 \(-\theta\)）</td><td>\(-\sin\theta\)</td><td>\(\cos\theta\)</td><td>\(-\tan\theta\)</td><td>不變</td></tr>
+              <tr><td>\(90°-\theta\)</td><td>\(\cos\theta\)</td><td>\(\sin\theta\)</td><td>\(\cot\theta\)</td><td><strong>互換</strong></td></tr>
+              <tr><td>\(90°+\theta\)</td><td>\(\cos\theta\)</td><td>\(-\sin\theta\)</td><td>\(-\cot\theta\)</td><td><strong>互換</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">口訣：「奇變偶不變，符號看象限」</div>
+          <p>將角度寫成 \(k\times90°\pm\theta\) 的形式：若 \(k\) 為<strong>奇數</strong>（如 90°、270°），\(\sin\) 與 \(\cos\) 互換（函數名稱「變」）；若 \(k\) 為<strong>偶數</strong>（如 180°、360°），函數名稱不變。正負號則<strong>把 \(\theta\) 當銳角</strong>，看原角落在哪個象限，用 ASTC 判斷。</p>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例5：求 \(\sin150°\) 與 \(\cos210°\) 之值。</div>
+          <div class="ex-step">\(150°=180°-30°\)，屬「\(180°-\theta\)」型（偶數個 90°，函數不變）；150° 在第二象限，\(\sin\) 為正</div>
+          <div class="ex-step">\(\sin150° = \sin30° = \dfrac12\)</div>
+          <div class="ex-step">\(210°=180°+30°\)，屬「\(180°+\theta\)」型（函數不變）；210° 在第三象限，\(\cos\) 為負</div>
+          <div class="ex-step">\(\cos210° = -\cos30° = -\dfrac{\sqrt3}{2}\)</div>
+          <div class="ex-ans">答：\(\sin150°=\dfrac12\)，\(\cos210°=-\dfrac{\sqrt3}{2}\)</div>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例6：求 \(\tan(-45°)\) 與 \(\sin300°\) 之值。</div>
+          <div class="ex-step">\(\tan(-45°)\)：屬 \(360°-\theta\) 型（即負角），\(-45°\) 相當於第四象限，\(\tan\) 為負；\(\tan(-45°)=-\tan45°=-1\)</div>
+          <div class="ex-step">\(300°=360°-60°\)，第四象限，\(\sin\) 為負；\(\sin300°=-\sin60°=-\dfrac{\sqrt3}{2}\)</div>
+          <div class="ex-ans">答：\(\tan(-45°)=-1\)，\(\sin300°=-\dfrac{\sqrt3}{2}\)</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================================
+         正弦定理與餘弦定理
+         ============================================================ -->
+    <section>
+      <div class="chapter-banner ch3">
+        正弦定理與餘弦定理
+        <div class="ch-sub">一般三角形（非直角）的邊角關係・三角形面積公式</div>
+      </div>
+
+      <!-- 正弦定理 -->
+      <h3 class="sub-title" id="sinelaw">正弦定理（Law of Sines）</h3>
+      <div class="card">
+        <p>設 \(\triangle ABC\) 三邊 \(a, b, c\) 分別對角 \(A, B, C\)，外接圓半徑為 \(R\)：</p>
+
+        <div class="tri-diagram">
+          <svg viewBox="0 0 300 200" width="300" height="200">
+            <polygon points="60,170 250,170 150,30" fill="#f3e5f5" stroke="#6a1b9a" stroke-width="2"/>
+            <text x="45" y="185" font-size="14" fill="#4a0072" font-weight="700">B</text>
+            <text x="255" y="185" font-size="14" fill="#4a0072" font-weight="700">C</text>
+            <text x="145" y="22" font-size="14" fill="#4a0072" font-weight="700">A</text>
+            <text x="150" y="185" font-size="13" fill="#c62828">a</text>
+            <text x="90" y="105" font-size="13" fill="#1565c0">c</text>
+            <text x="210" y="105" font-size="13" fill="#00796b">b</text>
+          </svg>
+        </div>
+
+        <div class="box box-formula">
+          <div class="formula-label">正弦定理</div>
+          \[\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} = 2R\]
+        </div>
+
+        <div class="box box-def">
+          <div class="box-title">使用時機</div>
+          <ul class="content-list">
+            <li><strong>AAS / ASA</strong>（已知兩角一邊）：求其餘邊</li>
+            <li><strong>SSA</strong>（已知兩邊及其中一邊的對角）：求另一邊的對角（注意可能有「兩解、一解、無解」的模稜兩可情形）</li>
+            <li>求三角形<strong>外接圓半徑</strong> \(R\)</li>
+          </ul>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例7：\(\triangle ABC\) 中，\(A=45°\)，\(B=60°\)，\(a=8\)。求 \(b\)。</div>
+          <div class="ex-step">由正弦定理：\(\dfrac{a}{\sin A}=\dfrac{b}{\sin B} \Rightarrow \dfrac{8}{\sin45°}=\dfrac{b}{\sin60°}\)</div>
+          <div class="ex-step">\(b = \dfrac{8\sin60°}{\sin45°} = \dfrac{8\times\frac{\sqrt3}{2}}{\frac{\sqrt2}{2}} = \dfrac{4\sqrt3}{\frac{\sqrt2}{2}} = \dfrac{8\sqrt3}{\sqrt2}=4\sqrt6\)</div>
+          <div class="ex-ans">答：\(b=4\sqrt6\)</div>
+        </div>
+
+        <div class="box box-warn">
+          <div class="box-title">SSA 模稜兩可情形（重要！）</div>
+          <p>已知兩邊及非夾角（SSA）時，可能對應<strong>兩個、一個或零個</strong>三角形，需檢查求出的角是否讓內角和超過 180°，或需分別討論銳角、鈍角兩種可能解。這是學測與課堂上常出的陷阱題型。</p>
+        </div>
+      </div>
+
+      <!-- 餘弦定理 -->
+      <h3 class="sub-title" id="cosinelaw">餘弦定理（Law of Cosines）</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="formula-label">餘弦定理（三個等價式）</div>
+          \[a^2 = b^2+c^2-2bc\cos A\]
+          \[b^2 = a^2+c^2-2ac\cos B\]
+          \[c^2 = a^2+b^2-2ab\cos C\]
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">推導概念</div>
+          <p>餘弦定理可視為<strong>畢氏定理的推廣</strong>：當 \(C=90°\) 時，\(\cos C=0\)，\(c^2=a^2+b^2-2ab\times0=a^2+b^2\)，正是畢氏定理。因此餘弦定理在直角三角形會自動退化為畢氏定理。</p>
+        </div>
+
+        <div class="box box-def">
+          <div class="box-title">使用時機</div>
+          <ul class="content-list">
+            <li><strong>SAS</strong>（已知兩邊及夾角）：求第三邊</li>
+            <li><strong>SSS</strong>（已知三邊）：求任一角（把公式反解 \(\cos\theta\)）</li>
+          </ul>
+        </div>
+
+        <div class="box box-formula">
+          <div class="formula-label">求角公式（由 SSS 反解）</div>
+          \[\cos A = \frac{b^2+c^2-a^2}{2bc}, \qquad \cos B = \frac{a^2+c^2-b^2}{2ac}, \qquad \cos C=\frac{a^2+b^2-c^2}{2ab}\]
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例8：\(\triangle ABC\) 中，\(b=7\)，\(c=5\)，\(A=60°\)。求 \(a\)。</div>
+          <div class="ex-step">\(a^2 = b^2+c^2-2bc\cos A = 7^2+5^2-2\times7\times5\times\cos60°\)</div>
+          <div class="ex-step">\(=49+25-70\times\dfrac12 = 74-35=39\)</div>
+          <div class="ex-ans">答：\(a=\sqrt{39}\)</div>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例9：\(\triangle ABC\) 中，\(a=5\)，\(b=6\)，\(c=7\)。求 \(\cos C\)（\(C\) 為 \(c\) 的對角）並判斷 \(C\) 為銳角或鈍角。</div>
+          <div class="ex-step">\(\cos C = \dfrac{a^2+b^2-c^2}{2ab} = \dfrac{25+36-49}{2\times5\times6}=\dfrac{12}{60}=\dfrac15\)</div>
+          <div class="ex-ans">答：\(\cos C=\dfrac15 &gt; 0\)，故 \(C\) 為<strong>銳角</strong>（\(\cos\) 為正對應 0°~90°）</div>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">判斷三角形形狀的技巧</div>
+          <p>由 \(\cos\theta\) 的正負可直接判斷該角銳鈍：\(\cos\theta&gt;0\) → 銳角；\(\cos\theta=0\) → 直角；\(\cos\theta&lt;0\) → 鈍角。只需檢查<strong>最大邊所對的角</strong>即可判斷整個三角形是銳角、直角還是鈍角三角形。</p>
+        </div>
+      </div>
+
+      <!-- 如何選用定理 -->
+      <h3 class="sub-title" id="whichlaw">如何選用正弦定理或餘弦定理？</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="formula-label">選用判斷表</div>
+          <table style="margin-top:0.3rem;">
+            <thead><tr><th>已知條件</th><th>代號</th><th>建議使用</th></tr></thead>
+            <tbody>
+              <tr><td>兩角一邊</td><td>AAS / ASA</td><td>正弦定理</td></tr>
+              <tr><td>兩邊及非夾角</td><td>SSA</td><td>正弦定理（注意模稜兩可）</td></tr>
+              <tr><td>兩邊及夾角</td><td>SAS</td><td>餘弦定理</td></tr>
+              <tr><td>三邊</td><td>SSS</td><td>餘弦定理</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">記憶技巧</div>
+          <p>正弦定理處理「<strong>角對角</strong>」型態的關係（一邊配它的對角）；餘弦定理處理「<strong>夾角</strong>」型態的關係（兩邊夾一個角，或已知三邊求任一角）。若已知條件中沒有「一組邊角對應好的完整比例」，通常就是餘弦定理的天下。</p>
+        </div>
+      </div>
+
+      <!-- 三角形面積公式 -->
+      <h3 class="sub-title" id="area">三角形面積公式與海龍公式</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="formula-label">面積公式一：兩邊夾角型（SAS 型）</div>
+          \[\text{面積} = \frac12 ab\sin C = \frac12 bc\sin A = \frac12 ac\sin B\]
+          <p style="font-size:0.85rem; margin-top:0.5rem;">（任取兩邊，乘上其夾角的正弦，再除以 2）</p>
+        </div>
+
+        <div class="box box-formula">
+          <div class="formula-label">面積公式二：海龍公式（Heron's Formula，SSS 型）</div>
+          \[s = \frac{a+b+c}{2}\ (\text{半周長}), \qquad \text{面積} = \sqrt{s(s-a)(s-b)(s-c)}\]
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例10：\(\triangle ABC\) 中，\(a=6\)，\(b=8\)，\(C=30°\)。求面積。</div>
+          <div class="ex-step">面積 \(=\dfrac12 ab\sin C = \dfrac12 \times6\times8\times\sin30° = 24\times\dfrac12=12\)</div>
+          <div class="ex-ans">答：面積為 12</div>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例11：三邊長為 \(5, 6, 7\) 的三角形，求其面積（海龍公式）。</div>
+          <div class="ex-step">半周長：\(s=\dfrac{5+6+7}{2}=9\)</div>
+          <div class="ex-step">面積 \(=\sqrt{9(9-5)(9-6)(9-7)}=\sqrt{9\times4\times3\times2}=\sqrt{216}\)</div>
+          <div class="ex-step">\(\sqrt{216}=\sqrt{36\times6}=6\sqrt6\)</div>
+          <div class="ex-ans">答：面積為 \(6\sqrt6\)</div>
+        </div>
+
+        <div class="box box-link">
+          <div class="box-title">🔗 連結：與正弦定理的關係</div>
+          <p>面積公式 \(\frac12 ab\sin C\) 搭配正弦定理 \(\dfrac{c}{\sin C}=2R\)，可推導出「面積 \(=\dfrac{abc}{4R}\)」（\(R\) 為外接圓半徑），是進階題型中常出現的綜合公式，可視個人程度延伸學習。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 常見錯誤 ===== -->
+    <section id="mistakes">
+      <h2 class="section-title">&#9888;&#65039; 常見錯誤</h2>
+      <div class="card">
+        <div class="box box-warn">
+          <div class="box-title">錯誤1：弧度與角度混用，忘記轉換</div>
+          <p>計算機或公式中若未統一單位，\(\sin(3)\) 這種輸入是把 3 當成「3 弧度」而非「3 度」，兩者數值天差地遠。考試中若題目給的是弧度（含 \(\pi\)），計算全程都要用弧度，不可中途換回度數又忘記轉換。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤2：誘導公式的正負號判斷錯誤</div>
+          <p>誘導公式最容易出錯的地方不是「函數名稱變不變」，而是<strong>正負號</strong>。務必先想清楚原角落在哪個象限（把 \(\theta\) 當成銳角去畫圖），再用 ASTC 判斷正負，不要憑記憶硬套公式表。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤3：SSA 情形直接套正弦定理，忽略模稜兩可</div>
+          <p>已知兩邊一夾其中一邊的對角（SSA）時，求出的角可能有<strong>兩個解</strong>（一銳角一鈍角，因為 \(\sin\theta=\sin(180°-\theta)\)）。若忽略這點，容易漏解或誤解。務必檢查兩個角是否都能使三角形內角和為 180°。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤4：餘弦定理公式中的邊角對應搞混</div>
+          <p>\(a^2=b^2+c^2-2bc\cos A\) 中，\(a\) 必須是 \(A\) 的<strong>對邊</strong>，等號右側是「另外兩邊」及它們的夾角 \(A\)。很多學生會把邊角對應弄反，建議套用前先明確標出三角形的邊角對應關係。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤5：海龍公式的 s 誤用為周長而非半周長</div>
+          <p>\(s\) 是<strong>半周長</strong> \(\dfrac{a+b+c}{2}\)，而非三邊和本身。代錯會導致面積公式整個算錯，務必先算出 \(s\) 再代入。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 學測考點提醒 ===== -->
+    <section id="examfocus">
+      <h2 class="section-title">&#127919; 學測考點提醒</h2>
+      <div class="card">
+        <div class="box box-link">
+          <div class="box-title">歷屆學測命題趨勢</div>
+          <ul class="content-list">
+            <li><strong>正弦定理、餘弦定理</strong>是學測數學A科最常考的三角學主題之一，常以「測量問題」（山高、船位、兩地距離）包裝，需要學生自行判斷該用哪個定理</li>
+            <li>誘導公式常與「化簡三角函數表達式」結合，考驗學生對 ASTC 與奇變偶不變口訣的熟練度</li>
+            <li>弧度制常搭配<strong>扇形弧長、面積</strong>出題，或與後續的三角函數圖形（第三冊A）銜接</li>
+            <li><strong>海龍公式</strong>與「三角形面積 \(\frac12ab\sin C\)」常被要求交叉驗證，或反過來由面積求某邊、某角</li>
+            <li>SSA 模稜兩可情形是進階選擇題常見陷阱，務必練習判斷「兩解、一解、無解」三種情況</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">解題策略提醒</div>
+          <p>遇到一般三角形問題，第一步永遠是<strong>畫圖並標出已知的邊角</strong>，接著對照「選用判斷表」（AAS/ASA→正弦；SAS/SSS→餘弦），選定策略後再代公式，可大幅降低套錯公式的機率。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 重點整理 ===== -->
+    <section id="summary">
+      <h2 class="section-title">&#128200; 重點整理</h2>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>主題</th><th>核心公式／概念</th><th>學測考頻</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>弧度制</td>
+              <td>\(180°=\pi\)；\(1°=\dfrac{\pi}{180}\)rad；扇形 \(s=r\theta,\ A=\frac12r^2\theta\)</td>
+              <td><span class="chip chip-gold">★★★</span></td>
+            </tr>
+            <tr>
+              <td>單位圓定義</td>
+              <td>\(\sin\theta=y/r,\ \cos\theta=x/r,\ \tan\theta=y/x\)</td>
+              <td><span class="chip chip-gold">★★★★</span></td>
+            </tr>
+            <tr>
+              <td>ASTC 象限法則</td>
+              <td>一全正、二正弦、三正切、四餘弦</td>
+              <td><span class="chip chip-gold">★★★★★</span></td>
+            </tr>
+            <tr>
+              <td>誘導公式</td>
+              <td>奇變偶不變，符號看象限</td>
+              <td><span class="chip chip-gold">★★★★</span></td>
+            </tr>
+            <tr>
+              <td>正弦定理</td>
+              <td>\(\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R\)（AAS/ASA/SSA）</td>
+              <td><span class="chip chip-gold">★★★★★</span></td>
+            </tr>
+            <tr>
+              <td>餘弦定理</td>
+              <td>\(a^2=b^2+c^2-2bc\cos A\)（SAS/SSS）</td>
+              <td><span class="chip chip-gold">★★★★★</span></td>
+            </tr>
+            <tr>
+              <td>三角形面積</td>
+              <td>\(\frac12ab\sin C\)（SAS）；海龍公式 \(\sqrt{s(s-a)(s-b)(s-c)}\)（SSS）</td>
+              <td><span class="chip chip-gold">★★★★</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 自我檢測 ===== -->
+    <section id="quiz">
+      <h2 class="section-title">&#9997; 自我檢測（共 10 題）</h2>
+      <div class="box box-link">
+        <div class="box-title">作答說明</div>
+        <p>以下 10 題涵蓋本週廣義角、正弦定理與餘弦定理核心概念，建議先自行作答再對照詳解。難度以 <span class="diff-badge diff-easy">易</span> <span class="diff-badge diff-medium">中</span> <span class="diff-badge diff-hard">難</span> 標示。</p>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>將 \(135°\) 換算為弧度。<span class="diff-badge diff-easy">易</span></div>
+        <ol>
+          <li>\(\dfrac{\pi}{4}\)</li>
+          <li>\(\dfrac{3\pi}{4}\)</li>
+          <li>\(\dfrac{5\pi}{4}\)</li>
+          <li>\(\dfrac{3\pi}{2}\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(135° \times \dfrac{\pi}{180} = \dfrac{135\pi}{180}=\dfrac{3\pi}{4}\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>\(\theta\) 為第三象限角，下列敘述何者正確？<span class="diff-badge diff-easy">易</span></div>
+        <ol>
+          <li>\(\sin\theta&gt;0,\cos\theta&gt;0\)</li>
+          <li>\(\sin\theta&gt;0,\cos\theta&lt;0\)</li>
+          <li>\(\sin\theta&lt;0,\cos\theta&lt;0\)</li>
+          <li>\(\sin\theta&lt;0,\cos\theta&gt;0\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：C</strong><br>
+            第三象限依 ASTC 法則，只有 \(\tan\theta\) 為正，\(\sin\theta,\cos\theta\) 皆為負。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span>求 \(\cos120°\) 之值。<span class="diff-badge diff-easy">易</span></div>
+        <ol>
+          <li>\(\dfrac12\)</li>
+          <li>\(-\dfrac12\)</li>
+          <li>\(\dfrac{\sqrt3}{2}\)</li>
+          <li>\(-\dfrac{\sqrt3}{2}\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(120°=180°-60°\)，第二象限 \(\cos\) 為負：\(\cos120° = -\cos60° = -\dfrac12\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span>已知銳角 \(\theta\) 之終邊上一點為 \((3,4)\)（未在單位圓上），求 \(\sin\theta\)。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\(\dfrac35\)</li>
+          <li>\(\dfrac45\)</li>
+          <li>\(\dfrac34\)</li>
+          <li>\(\dfrac43\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(r=\sqrt{3^2+4^2}=5\)，\(\sin\theta=\dfrac{y}{r}=\dfrac45\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span>\(\triangle ABC\) 中，\(A=30°\)，\(B=45°\)，\(b=10\)。求 \(a\)。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\(5\sqrt2\)</li>
+          <li>\(5\)</li>
+          <li>\(10\sqrt2\)</li>
+          <li>\(5\sqrt3\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：A</strong><br>
+            由正弦定理：\(\dfrac{a}{\sin A}=\dfrac{b}{\sin B} \Rightarrow \dfrac{a}{\sin30°}=\dfrac{10}{\sin45°}\)<br>
+            \(a = \dfrac{10\sin30°}{\sin45°} = \dfrac{10\times\frac12}{\frac{\sqrt2}{2}} = \dfrac{5}{\frac{\sqrt2}{2}}=\dfrac{10}{\sqrt2}=5\sqrt2\)<br>
+            此類題型的標準流程：已知兩角一邊（AAS/ASA）時，若第三角未給，先用內角和 180° 求出第三角，再套正弦定理求邊。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">6</span>\(\triangle ABC\) 中，\(b=4\)，\(c=6\)，\(A=60°\)。求 \(a\)。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\(\sqrt{28}=2\sqrt7\)</li>
+          <li>\(\sqrt{52}\)</li>
+          <li>\(2\)</li>
+          <li>\(\sqrt{40}\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：A</strong><br>
+            \(a^2=4^2+6^2-2\times4\times6\times\cos60°=16+36-48\times\dfrac12=52-24=28\)<br>
+            \(a=\sqrt{28}=2\sqrt7\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">7</span>\(\triangle ABC\) 中，\(a=3\)，\(b=4\)，\(c=6\)。判斷此三角形形狀（求最大角 \(C\) 之 \(\cos C\) 並判斷銳鈍）。<span class="diff-badge diff-hard">難</span></div>
+        <ol>
+          <li>\(\cos C&gt;0\)，銳角三角形</li>
+          <li>\(\cos C=0\)，直角三角形</li>
+          <li>\(\cos C&lt;0\)，鈍角三角形</li>
+          <li>無法判斷</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：C</strong><br>
+            最大邊為 \(c=6\)，其對角 \(C\) 必為最大角。<br>
+            \(\cos C = \dfrac{a^2+b^2-c^2}{2ab} = \dfrac{9+16-36}{2\times3\times4}=\dfrac{-11}{24}&lt;0\)<br>
+            \(\cos C&lt;0\)，故 \(C\) 為鈍角，此三角形為<strong>鈍角三角形</strong>。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">8</span>\(\triangle ABC\) 中，\(a=8\)，\(b=5\)，\(C=60°\)。求三角形面積。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\(10\)</li>
+          <li>\(20\)</li>
+          <li>\(10\sqrt3\)</li>
+          <li>\(20\sqrt3\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：C</strong><br>
+            面積 \(=\dfrac12 ab\sin C = \dfrac12\times8\times5\times\sin60° = 20\times\dfrac{\sqrt3}{2}=10\sqrt3\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q9 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">9</span>三邊長為 \(4,13,15\) 的三角形，求其面積（海龍公式）。<span class="diff-badge diff-hard">難</span></div>
+        <ol>
+          <li>\(24\)</li>
+          <li>\(26\)</li>
+          <li>\(30\)</li>
+          <li>\(36\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：A</strong><br>
+            \(s=\dfrac{4+13+15}{2}=16\)<br>
+            面積 \(=\sqrt{16(16-4)(16-13)(16-15)}=\sqrt{16\times12\times3\times1}=\sqrt{576}=24\)
+          </div>
+        </details>
+      </div>
+
+      <!-- Q10 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">10</span>甲、乙兩船同時從港口 \(O\) 出發，甲船以方位角（正北為 0°，順時針量）\(N30°E\) 方向航行 40 浬，乙船以 \(N90°E\)（即正東）方向航行 30 浬。兩船之間的夾角為 60°，求此時兩船的距離。<span class="diff-badge diff-hard">難</span></div>
+        <ol>
+          <li>\(10\sqrt7\) 浬</li>
+          <li>\(10\sqrt{13}\) 浬</li>
+          <li>\(35\) 浬</li>
+          <li>\(50\) 浬</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            設兩船距離為 \(d\)，港口 \(O\) 與甲、乙兩船構成三角形，\(O\) 處夾角為 60°，兩邊為 40、30（SAS 型）。<br>
+            由餘弦定理：\(d^2 = 40^2+30^2-2\times40\times30\times\cos60°\)<br>
+            \(=1600+900-2400\times\dfrac12 = 2500-1200=1300\)<br>
+            \(d=\sqrt{1300}=\sqrt{100\times13}=10\sqrt{13}\) 浬
+          </div>
+        </details>
+      </div>
+
+      <div class="box box-tip" style="margin-top:1.5rem;">
+        <div class="box-title">訂正與複習建議</div>
+        <ul class="content-list">
+          <li>誘導公式不熟：每天練習 5 題「化任意角為銳角」的題目，反覆用 ASTC 檢查符號，直到能秒判</li>
+          <li>正弦/餘弦定理選用猶豫：牢記判斷表，看到「角對邊完整比例」用正弦，看到「夾角」或「三邊」用餘弦</li>
+          <li>SSA 模稜兩可情形容易漏解：務必檢查求出的角加上其餘已知角是否超過 180°</li>
+          <li>下週（W09）將學習數列與級數（等差、等比數列），與三角學暫時脫鉤，但本週正弦餘弦定理是應用題與物理向量分解的重要基礎，務必先鞏固</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

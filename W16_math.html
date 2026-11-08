@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W16 數學A科｜第一~三冊A 重點整理 ＋ 數學公式卡製作｜學測備考講義</title>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        tags: 'ams'
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+      background: #f5f0fa;
+      color: #2d2d2d;
+      line-height: 1.75;
+    }
+
+    :root {
+      --purple-dark:  #4a0072;
+      --purple-main:  #6a1b9a;
+      --purple-mid:   #8e24aa;
+      --purple-light: #ce93d8;
+      --purple-pale:  #f3e5f5;
+      --purple-bg:    #faf0fe;
+      --accent-gold:  #f9a825;
+      --accent-teal:  #00796b;
+      --accent-red:   #c62828;
+      --accent-blue:  #1565c0;
+      --accent-green: #2e7d32;
+      --text-main:    #2d2d2d;
+      --text-muted:   #5d5d5d;
+      --white:        #ffffff;
+      --border:       #d1c4e9;
+    }
+
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      width: 260px; flex-shrink: 0;
+      background: var(--purple-dark);
+      color: var(--white);
+      position: sticky; top: 0; height: 100vh;
+      overflow-y: auto; padding: 0 0 2rem 0;
+    }
+    .sidebar-header {
+      background: var(--purple-main);
+      padding: 1.2rem 1rem; text-align: center;
+      border-bottom: 2px solid var(--purple-light);
+    }
+    .sidebar-header .week-tag {
+      font-size: 0.72rem; letter-spacing: 0.12em;
+      color: var(--purple-light); margin-bottom: 0.3rem; display: block;
+    }
+    .sidebar-header h2 { font-size: 1rem; font-weight: 700; line-height: 1.4; }
+    .sidebar-header p { font-size: 0.78rem; opacity: 0.80; margin-top: 0.3rem; }
+    .sidebar nav { padding: 0.5rem 0; }
+    .nav-section {
+      font-size: 0.65rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--purple-light);
+      padding: 0.9rem 1rem 0.3rem; opacity: 0.85;
+    }
+    .sidebar nav a {
+      display: block; padding: 0.4rem 1rem;
+      color: rgba(255,255,255,0.82); text-decoration: none;
+      font-size: 0.84rem; border-left: 3px solid transparent;
+      transition: all 0.18s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.12);
+      border-left-color: var(--purple-light);
+      color: var(--white);
+    }
+    .nav-indent { padding-left: 1.6rem !important; font-size: 0.80rem !important; }
+
+    /* ===== MAIN ===== */
+    .main-content { flex: 1; padding: 2rem 2.5rem 4rem; max-width: 960px; }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-main) 55%, var(--purple-mid) 100%);
+      color: var(--white);
+      border-radius: 16px; padding: 2rem 2.4rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(74,0,114,0.25);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: "\03A3";
+      position: absolute;
+      right: 1.8rem; top: 50%; transform: translateY(-50%);
+      font-size: 6rem; opacity: 0.10; font-weight: 900;
+    }
+    .page-header .week-tag {
+      background: rgba(255,255,255,0.20);
+      display: inline-block; padding: 0.18rem 0.85rem;
+      border-radius: 12px; font-size: 0.80rem;
+      margin-bottom: 0.6rem; letter-spacing: 0.05em;
+    }
+    .page-header h1 { font-size: 1.8rem; font-weight: 900; margin-bottom: 0.35rem; }
+    .page-header .subtitle { font-size: 0.92rem; opacity: 0.88; }
+    .meta-row { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+    .meta-chip {
+      background: rgba(255,255,255,0.16);
+      border-radius: 20px; padding: 0.20rem 0.85rem; font-size: 0.78rem;
+    }
+
+    /* ===== TOC ===== */
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 0.6rem;
+      margin: 0.8rem 0;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.8rem;
+      text-decoration: none;
+      color: var(--purple-dark);
+      font-size: 0.86rem;
+      font-weight: 600;
+      transition: all 0.18s;
+    }
+    .toc-item:hover { background: var(--purple-pale); border-color: var(--purple-main); }
+    .toc-item .toc-num {
+      background: var(--purple-main);
+      color: #fff;
+      width: 1.5rem; height: 1.5rem; line-height: 1.5rem;
+      font-size: 0.75rem; font-weight: 700;
+      text-align: center; border-radius: 4px; flex-shrink: 0;
+    }
+
+    /* ===== SECTION TITLES ===== */
+    .section-title {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 1.28rem; font-weight: 800;
+      color: var(--purple-dark);
+      margin: 2.4rem 0 1.1rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 3px solid var(--purple-main);
+    }
+    .sub-title {
+      font-size: 1.02rem; font-weight: 700;
+      color: var(--purple-main);
+      margin: 1.5rem 0 0.7rem;
+      padding-left: 0.75rem;
+      border-left: 4px solid var(--purple-main);
+    }
+    .sub-sub-title {
+      font-size: 0.94rem; font-weight: 700;
+      color: var(--purple-mid);
+      margin: 1.1rem 0 0.5rem;
+    }
+
+    /* ===== CARDS ===== */
+    .card {
+      background: var(--white);
+      border-radius: 12px; padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 10px rgba(74,0,114,0.08);
+      border: 1px solid var(--border);
+    }
+
+    /* ===== BOXES ===== */
+    .box { border-radius: 10px; padding: 1rem 1.2rem; margin: 1rem 0; font-size: 0.93rem; }
+    .box-def    { background: var(--purple-pale); border-left: 5px solid var(--purple-main); }
+    .box-formula{ background: #fff8e1; border-left: 5px solid var(--accent-gold); }
+    .box-example{ background: #e8f5e9; border-left: 5px solid var(--accent-green); }
+    .box-warn   { background: #fce4ec; border-left: 5px solid var(--accent-red); }
+    .box-tip    { background: #e0f2f1; border-left: 5px solid var(--accent-teal); }
+    .box-link   { background: #e3f2fd; border-left: 5px solid var(--accent-blue); }
+    .box-title  { font-weight: 700; margin-bottom: 0.5rem; }
+
+    /* ===== FORMULA DISPLAY ===== */
+    .formula-block {
+      background: #fef9e7;
+      border: 2px solid var(--accent-gold);
+      border-radius: 12px;
+      padding: 1.2rem 1.6rem;
+      margin: 1rem 0;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+    .formula-block .formula-label {
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--accent-gold); margin-bottom: 0.5rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+
+    /* ===== TABLES ===== */
+    table { width: 100%; border-collapse: collapse; font-size: 0.91rem; margin: 0.8rem 0; }
+    thead tr { background: var(--purple-main); color: var(--white); }
+    thead th { padding: 0.65rem 1rem; text-align: left; font-weight: 700; }
+    tbody tr:nth-child(even) { background: var(--purple-pale); }
+    tbody tr:hover { background: #e8d5f5; }
+    tbody td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody td:first-child { font-weight: 700; color: var(--purple-dark); white-space: nowrap; }
+    .table-wrap { overflow-x: auto; }
+
+    /* ===== WORKED EXAMPLE ===== */
+    .worked-example {
+      background: #f9fbe7;
+      border: 1px solid #c5e1a5;
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .worked-example::before {
+      content: "例題";
+      position: absolute; top: -0.65rem; left: 1rem;
+      background: var(--accent-green); color: #fff;
+      font-size: 0.72rem; padding: 0.08rem 0.6rem;
+      border-radius: 8px; font-weight: 700;
+    }
+    .worked-example .ex-q { font-weight: 700; margin-bottom: 0.7rem; color: #1b5e20; }
+    .worked-example .ex-step { font-size: 0.90rem; margin-bottom: 0.4rem; line-height: 1.9; }
+    .worked-example .ex-ans { font-weight: 700; color: var(--accent-green); margin-top: 0.5rem; }
+
+    /* ===== QUIZ ===== */
+    .quiz-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-item .q-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--purple-main); color: var(--white);
+      font-size: 0.80rem; font-weight: 700;
+      border-radius: 50%; width: 1.7rem; height: 1.7rem;
+      margin-right: 0.5rem; flex-shrink: 0;
+    }
+    .quiz-item .q-text { font-weight: 600; font-size: 0.94rem; margin-bottom: 0.5rem; }
+    .quiz-item ol { padding-left: 1.6rem; font-size: 0.92rem; }
+    .quiz-item li { margin-bottom: 0.3rem; list-style-type: upper-alpha; }
+    .diff-badge {
+      display: inline-block; font-size: 0.70rem; font-weight: 700;
+      padding: 0.1rem 0.5rem; border-radius: 8px; margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .diff-easy   { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+    .diff-medium { background: #fff8e1; color: #e65100; border: 1px solid #ffe082; }
+    .diff-hard   { background: #fce4ec; color: #c62828; border: 1px solid #f48fb1; }
+    details summary {
+      cursor: pointer; color: var(--accent-teal);
+      font-size: 0.88rem; margin-top: 0.6rem; font-weight: 600;
+    }
+    details[open] summary { margin-bottom: 0.5rem; }
+    details .answer {
+      background: #e0f2f1;
+      border-left: 4px solid var(--accent-teal);
+      border-radius: 6px;
+      padding: 0.8rem 1rem; font-size: 0.88rem; line-height: 1.9;
+    }
+
+    /* ===== CHIPS ===== */
+    .chip { display:inline-block; padding:0.18rem 0.7rem; border-radius:12px; font-size:0.80rem; font-weight:700; margin:0.15rem; }
+    .chip-purple { background:var(--purple-pale); color:var(--purple-dark); border:1px solid var(--purple-light); }
+    .chip-gold   { background:#fff8e1; color:#e65100; border:1px solid #ffe082; }
+    .chip-teal   { background:#e0f2f1; color:var(--accent-teal); border:1px solid #80cbc4; }
+    .chip-red    { background:#fce4ec; color:var(--accent-red); border:1px solid #f48fb1; }
+    .chip-green  { background:#e8f5e9; color:var(--accent-green); border:1px solid #a5d6a7; }
+
+    .analysis-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1rem 0; }
+    @media (max-width:700px) { .analysis-grid { grid-template-columns:1fr; } }
+    .analysis-item {
+      background:var(--white); border:1px solid var(--border);
+      border-top:4px solid var(--purple-main);
+      border-radius:8px; padding:1rem 1.1rem;
+    }
+    .analysis-item h4 { color:var(--purple-dark); font-size:0.92rem; margin-bottom:0.5rem; }
+    .analysis-item ul { padding-left:1.2rem; font-size:0.88rem; }
+    .analysis-item li { margin-bottom:0.3rem; }
+
+    .step-box {
+      background: #f3e5f5; border-left: 4px solid var(--purple-main);
+      border-radius: 8px; padding: 0.9rem 1.2rem; margin: 0.6rem 0;
+      font-size: 0.91rem;
+    }
+    .step-box strong { color: var(--purple-dark); }
+
+    ul.content-list { padding-left: 1.4rem; }
+    ul.content-list li { margin-bottom: 0.4rem; font-size: 0.93rem; }
+
+    .divider { border: none; border-top: 2px dashed var(--border); margin: 2.5rem 0; }
+
+    .chapter-banner {
+      border-radius: 12px; padding: 0.9rem 1.4rem; margin-bottom: 1.2rem; color: #fff;
+      font-size: 1.1rem; font-weight: 800; letter-spacing: 1px;
+    }
+    .vol1 { background: linear-gradient(90deg, #4527a0, #5e35b1); }
+    .vol2 { background: linear-gradient(90deg, #6a1b9a, #8e24aa); }
+    .vol3 { background: linear-gradient(90deg, #7b1fa2, #ab47bc); }
+    .chcard { background: linear-gradient(90deg, #37474f, #607d8b); }
+    .chapter-banner .ch-sub { font-size: 0.80rem; font-weight: 400; opacity: 0.88; margin-top: 0.2rem; }
+
+    /* ===== TREE VISUAL ===== */
+    .tree-visual { background:#faf0fe; border:1px solid var(--border); border-radius:10px; padding:20px 24px 16px 20px; margin:14px 0; overflow-x:auto; }
+    .tv-root { display:inline-flex; align-items:center; background:var(--purple-dark); color:#fff; font-weight:700; font-size:15px; padding:5px 18px; border-radius:20px; margin-bottom:6px; }
+    .tv-children { list-style:none; padding:0; margin:0 0 0 14px; border-left:2px solid var(--border); }
+    .tv-item { position:relative; padding:5px 0 4px 22px; }
+    .tv-item::before { content:''; position:absolute; left:0; top:14px; width:18px; height:2px; background:var(--border); }
+    .tv-node { display:inline-block; border-radius:6px; padding:3px 12px; font-size:13px; font-weight:600; line-height:1.6; }
+    .tv-desc { display:block; font-size:11.5px; color:var(--text-muted); padding:0 4px; margin:1px 0 3px; }
+    .tv-node.tv-l1 { background:var(--purple-pale); color:var(--purple-dark); border:1px solid var(--purple-light); font-size:14px; }
+    .tv-node.tv-l2 { background:#fff8e1; color:#e65100; border:1px solid #ffe082; }
+    .tv-node.tv-l3 { background:#fafafa; color:var(--text-main); border:1px solid #e0e0e0; font-weight:400; }
+
+    /* ===== KNOWLEDGE MAP ===== */
+    .km-container {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+    .km-grid {
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+    }
+    .km-node {
+      background: var(--purple-pale);
+      border: 2px solid var(--purple-main);
+      border-radius: 8px;
+      padding: 0.55rem 1rem;
+      font-size: 0.88rem; font-weight: 700;
+      color: var(--purple-dark); text-align: center;
+    }
+    .km-node.central {
+      background: var(--purple-main); color: #fff;
+      font-size: 1rem; padding: 0.7rem 1.4rem;
+      border-color: var(--purple-dark);
+    }
+    .km-node.linked {
+      background: #e8f5e9; border-color: var(--accent-green); color: #1b5e20;
+    }
+    .km-node.future {
+      background: #fff8e1; border-color: var(--accent-gold); color: #e65100;
+    }
+    .km-arrow { display: flex; align-items: center; font-size: 1.2rem; color: var(--purple-mid); font-weight: 700; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main-content { padding: 1.2rem 1rem 3rem; }
+      .analysis-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span class="week-tag">WEEK 16 ｜ 08/31–09/06</span>
+      <h2>數學 A 科</h2>
+      <p>第一~三冊A 重點整理・數學公式卡製作（暑假收官）</p>
+    </div>
+    <nav>
+      <div class="nav-section">導覽</div>
+      <a href="#overview">學習總覽</a>
+      <a href="#transition">暑假衝刺期收官說明</a>
+
+      <div class="nav-section">第一冊（高一上）</div>
+      <a href="#v1-ch1" class="nav-indent">數與式</a>
+      <a href="#v1-ch2" class="nav-indent">指數與對數的運算</a>
+      <a href="#v1-ch3" class="nav-indent">多項式函數</a>
+      <a href="#v1-ch4" class="nav-indent">直線與圓的方程式</a>
+
+      <div class="nav-section">第二冊（高一下）</div>
+      <a href="#v2-ch1" class="nav-indent">三角比與廣義角</a>
+      <a href="#v2-ch2" class="nav-indent">數列與級數</a>
+      <a href="#v2-ch3" class="nav-indent">數據分析</a>
+      <a href="#v2-ch4" class="nav-indent">排列組合與機率</a>
+
+      <div class="nav-section">第三冊A（高二上）</div>
+      <a href="#v3-ch1" class="nav-indent">三角函數圖形與和差角</a>
+      <a href="#v3-ch2" class="nav-indent">指數函數與對數函數</a>
+      <a href="#v3-ch3" class="nav-indent">平面向量（運算・內積・應用）</a>
+
+      <div class="nav-section">週日任務</div>
+      <a href="#cardmaking">公式卡製作方法</a>
+
+      <div class="nav-section">整合與複習</div>
+      <a href="#km">知識連結圖</a>
+      <a href="#mistakes">常見錯誤</a>
+      <a href="#weaklist">弱點清單製作指引</a>
+      <a href="#summary">重點整理</a>
+      <a href="#quiz">自我檢測（8題）</a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content">
+
+    <header class="page-header" id="top">
+      <div class="week-tag">第十六週學習單元｜WEEK 16｜08/31–09/06｜暑假黃金衝刺期 第 9 週（收官週）</div>
+      <h1>第一~三冊A 重點整理 ＋ 數學公式卡製作（暑假收官週）</h1>
+      <p class="subtitle">數學 A｜學測全範圍（第一冊＋第二冊＋第三冊A）公式速查總整理・公式卡製作方法・第一輪複習收官</p>
+      <div class="meta-row">
+        <span class="meta-chip">第一冊：數與式、指對數運算、多項式、直線與圓</span>
+        <span class="meta-chip">第二冊：三角比、數列級數、數據、排列組合、機率</span>
+        <span class="meta-chip">第三冊A：三角函數、指對數函數、平面向量</span>
+        <span class="meta-chip">週六：5 科暑假成果測驗</span>
+        <span class="meta-chip">週日：公式卡製作＋弱點清單</span>
+      </div>
+    </header>
+
+    <!-- ===== TOC ===== -->
+    <section id="toc">
+      <h2 class="section-title">&#128218; 本講義導覽</h2>
+      <div class="toc-grid">
+        <a href="#overview" class="toc-item"><span class="toc-num">0</span>學習總覽</a>
+        <a href="#transition" class="toc-item"><span class="toc-num">P</span>收官說明</a>
+        <a href="#v1-ch1" class="toc-item"><span class="toc-num">1</span>第一冊：數與式</a>
+        <a href="#v1-ch2" class="toc-item"><span class="toc-num">2</span>指數與對數運算</a>
+        <a href="#v1-ch3" class="toc-item"><span class="toc-num">3</span>多項式函數</a>
+        <a href="#v1-ch4" class="toc-item"><span class="toc-num">4</span>直線與圓</a>
+        <a href="#v2-ch1" class="toc-item"><span class="toc-num">5</span>三角比與廣義角</a>
+        <a href="#v2-ch2" class="toc-item"><span class="toc-num">6</span>數列與級數</a>
+        <a href="#v2-ch3" class="toc-item"><span class="toc-num">7</span>數據分析</a>
+        <a href="#v2-ch4" class="toc-item"><span class="toc-num">8</span>排列組合與機率</a>
+        <a href="#v3-ch1" class="toc-item"><span class="toc-num">9</span>三角函數圖形與和差角</a>
+        <a href="#v3-ch2" class="toc-item"><span class="toc-num">10</span>指數函數與對數函數</a>
+        <a href="#v3-ch3" class="toc-item"><span class="toc-num">11</span>平面向量</a>
+        <a href="#cardmaking" class="toc-item"><span class="toc-num">C</span>公式卡製作</a>
+        <a href="#km" class="toc-item"><span class="toc-num">K</span>知識連結圖</a>
+        <a href="#mistakes" class="toc-item"><span class="toc-num">M</span>常見錯誤</a>
+        <a href="#weaklist" class="toc-item"><span class="toc-num">W</span>弱點清單</a>
+        <a href="#summary" class="toc-item"><span class="toc-num">S</span>重點整理</a>
+        <a href="#quiz" class="toc-item"><span class="toc-num">Q</span>自我檢測</a>
+      </div>
+    </section>
+
+    <!-- ===== 學習總覽 ===== -->
+    <section id="overview">
+      <h2 class="section-title">&#128218; 學習總覽</h2>
+      <div class="card">
+        <p>本週（W16，08/31–09/06）是備考時程表第二階段「暑假黃金衝刺期」的<strong>第 9 週，也是收官週</strong>。整個暑假（W08–W16）數學 A 依序完成了第二冊 Ch2–Ch6（廣義角、數列、數據、排列組合、機率）與第三冊 A 全七章（三角函數圖形→和差角→指數函數→對數函數→向量運算→向量內積→向量應用），並在 W15 進行了第三冊 A 的整冊複習與全卷模擬考。本週<strong>不再學習新內容</strong>，任務是把<strong>學測數學 A 的完整範圍（第一冊＋第二冊＋第三冊 A）</strong>做一次公式速查總整理，並依此在週日<strong>製作一套個人公式卡</strong>，作為之後每天複習與考前速記的核心工具。週六將進行「5 科暑假成果測驗」（數學約 30 分鐘抽測），週日則製作公式卡並建立弱點清單。</p>
+        <div class="box box-link" style="margin-top:1rem;">
+          <div class="box-title">本週學習目標</div>
+          <ul class="content-list">
+            <li>能不看講義列出學測數學 A 三冊全部章節的名稱與各章的 2–3 個核心公式</li>
+            <li>能辨識每個公式的「適用條件」（如指對數的底數限制、餘弦定理 vs. 正弦定理的使用時機）</li>
+            <li>能區分「必須背」的公式（如和差角、二倍角、等比級數和）與「可即時推導」的公式（如二倍角由和差角推、判別式由配方推）</li>
+            <li>能依「公式卡製作方法」實際做出一套涵蓋三冊、每張卡片一個主題的個人公式卡</li>
+            <li>能歸納自己在三冊中最不熟的章節，寫入週日的弱點清單</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 收官說明 ===== -->
+    <section id="transition">
+      <h2 class="section-title">&#128293; 暑假黃金衝刺期收官說明</h2>
+      <div class="card">
+        <div class="box box-warn">
+          <div class="box-title">進度提醒：暑假黃金衝刺期 第 9 週（收官）・第一輪複習結束・週六 5 科成果測驗</div>
+          <p>本週（W16）是備考時程表第二階段（W08–W16，07/06–09/06）的<strong>最後一週</strong>。整個暑假的目標是「完成 5 科第一輪全範圍系統複習」，數學 A 已在 W15 完成第三冊 A 收官與全卷模擬考，本週把火力集中在「三冊全範圍的公式盤點與公式卡製作」。時程表安排<strong>週六進行「5 科暑假成果測驗」（各科約 30 分鐘）</strong>，週日則要「建立各科弱點清單，規劃高三上（W17 起）補強方向」——數學科的週日任務即為製作公式卡＋整理弱點清單。</p>
+        </div>
+        <div class="box box-link">
+          <div class="box-title">學測數學 A 完整範圍章節地圖</div>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>冊別</th><th>章節</th><th>對應學習週次</th></tr></thead>
+            <tbody>
+              <tr><td>第一冊（高一上）</td><td>數與式／指對數運算／多項式函數／直線與圓</td><td>W01–W06（第一階段在校基礎）</td></tr>
+              <tr><td>第二冊（高一下）</td><td>三角比／廣義角／數列與級數／數據分析／排列組合／機率</td><td>W07–W11</td></tr>
+              <tr><td>第三冊A（高二上）</td><td>三角函數圖形／和差角／指數函數／對數函數／平面向量運算／內積／應用</td><td>W12–W15</td></tr>
+              <tr><td>第四冊A（高二下）</td><td>空間向量／空間直線與平面／條件機率貝氏定理／矩陣</td><td><strong>學測範圍</strong>（11 年級必修 A 類；W27–W30 複習）</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">💡 收官週的複習法：不重做題目，只盤點公式</div>
+          <p>本週不安排大量題目練習（那是高三上第二輪的事），而是逐章「盤點公式」——每讀一個公式，就自問三個問題：<strong>①這個公式我背得出來嗎？②它的適用條件是什麼？③我知道它從哪裡來（能不能推導）嗎？</strong>三個都答得出來，才算真的掌握。答不出來的公式，就是公式卡上要用螢光筆標記的重點。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================================
+         第一冊
+         ============================================================ -->
+    <section>
+      <div class="chapter-banner vol1">
+        第一冊（高一上）｜學測數學A 全範圍 ①
+        <div class="ch-sub">數與式・指數與對數的運算・多項式函數・直線與圓的方程式</div>
+      </div>
+
+      <!-- 數與式 -->
+      <h3 class="sub-title" id="v1-ch1">1. 數與式</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="box-title">核心公式速查</div>
+          <ul class="content-list">
+            <li><strong>絕對值：</strong>\(|x|<a \iff -a<x<a\)；\(|x|>a \iff x>a \text{ 或 } x<-a\)（\(a>0\)）</li>
+            <li><strong>算幾不等式：</strong>\(a,b\ge0\) 時 \(\dfrac{a+b}{2}\ge\sqrt{ab}\)，等號成立於 \(a=b\)</li>
+            <li><strong>乘法公式：</strong>\((a\pm b)^2=a^2\pm2ab+b^2\)；\(a^2-b^2=(a+b)(a-b)\)；\(a^3\pm b^3=(a\pm b)(a^2\mp ab+b^2)\)</li>
+            <li><strong>分母有理化：</strong>\(\dfrac{1}{\sqrt a+\sqrt b}=\dfrac{\sqrt a-\sqrt b}{a-b}\)</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">💡 適用條件與易錯</div>
+          <p>算幾不等式的等號條件（\(a=b\)）是求極值題的關鍵，常被遺漏；絕對值不等式解題時，\(a>0\) 的前提要先確認，\(a\le0\) 時另行討論。</p>
+        </div>
+      </div>
+
+      <!-- 指數與對數的運算 -->
+      <h3 class="sub-title" id="v1-ch2">2. 指數與對數的運算</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="box-title">核心公式速查</div>
+          <ul class="content-list">
+            <li><strong>指數律：</strong>\(a^m a^n=a^{m+n}\)，\(\dfrac{a^m}{a^n}=a^{m-n}\)，\((a^m)^n=a^{mn}\)，\(a^{-n}=\dfrac1{a^n}\)，\(a^{1/n}=\sqrt[n]{a}\)（\(a>0\)）</li>
+            <li><strong>對數定義：</strong>\(\log_a N=x \iff a^x=N\)（\(a>0,\ a\ne1,\ N>0\)）</li>
+            <li><strong>對數律：</strong>\(\log_a(MN)=\log_aM+\log_aN\)；\(\log_a\dfrac MN=\log_aM-\log_aN\)；\(\log_aM^k=k\log_aM\)</li>
+            <li><strong>換底公式：</strong>\(\log_ab=\dfrac{\log_cb}{\log_ca}=\dfrac{1}{\log_ba}\)</li>
+            <li><strong>常用對數與首數：</strong>\(\log10=1\)；正數 \(N\) 的整數部分位數 \(=\lfloor\log N\rfloor+1\)</li>
+          </ul>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">⚠️ 適用條件</div>
+          <p>對數的真數必須 \(>0\)、底數必須 \(>0\) 且 \(\ne1\)——解對數方程式後，一定要「驗根」確認真數為正；\(\log_aM^k=k\log_aM\) 在 \(M<0\) 時不成立（如 \(\log_a x^2\ne 2\log_a x\)，應為 \(2\log_a|x|\)）。</p>
+        </div>
+      </div>
+
+      <!-- 多項式函數 -->
+      <h3 class="sub-title" id="v1-ch3">3. 多項式函數</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="box-title">核心公式速查</div>
+          <ul class="content-list">
+            <li><strong>餘式定理：</strong>\(f(x)\) 除以 \((x-a)\) 的餘式為 \(f(a)\)</li>
+            <li><strong>因式定理：</strong>\((x-a)\) 為 \(f(x)\) 的因式 \(\iff f(a)=0\)</li>
+            <li><strong>二次函數頂點：</strong>\(y=ax^2+bx+c=a\left(x+\dfrac b{2a}\right)^2+\dfrac{4ac-b^2}{4a}\)，頂點 \(\left(-\dfrac b{2a},\ \dfrac{4ac-b^2}{4a}\right)\)</li>
+            <li><strong>判別式：</strong>\(D=b^2-4ac\)；\(D>0\) 兩相異實根、\(D=0\) 重根、\(D<0\) 無實根</li>
+            <li><strong>根與係數（韋達）：</strong>\(ax^2+bx+c=0\) 的兩根 \(\alpha+\beta=-\dfrac ba\)，\(\alpha\beta=\dfrac ca\)</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">💡 可推導 vs. 必背</div>
+          <p>頂點公式與根與係數可由「配方法」現場推導，不必死背；判別式的正負對應根的性質務必牢記。多項式除法可用「綜合除法」加速。</p>
+        </div>
+      </div>
+
+      <!-- 直線與圓 -->
+      <h3 class="sub-title" id="v1-ch4">4. 直線與圓的方程式</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="box-title">核心公式速查</div>
+          <ul class="content-list">
+            <li><strong>斜率：</strong>\(m=\dfrac{y_2-y_1}{x_2-x_1}=\tan\theta\)（\(\theta\) 為傾斜角）</li>
+            <li><strong>直線方程式：</strong>點斜式 \(y-y_1=m(x-x_1)\)；一般式 \(ax+by+c=0\)（法向量 \((a,b)\)）</li>
+            <li><strong>兩直線關係：</strong>平行 \(\iff m_1=m_2\)；垂直 \(\iff m_1m_2=-1\)</li>
+            <li><strong>點到直線距離：</strong>\(d=\dfrac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}\)</li>
+            <li><strong>圓方程式：</strong>\((x-h)^2+(y-k)^2=r^2\)（圓心 \((h,k)\)、半徑 \(r\)）</li>
+            <li><strong>直線與圓的關係：</strong>比較「圓心到直線距離 \(d\)」與「半徑 \(r\)」：\(d<r\) 相交、\(d=r\) 相切、\(d>r\) 相離</li>
+          </ul>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">⚠️ 易錯</div>
+          <p>一般式 \(x^2+y^2+Dx+Ey+F=0\) 要能表示圓，須 \(D^2+E^2-4F>0\)；切線問題常忘記「圓心到切線距離 = 半徑」這個最快的判準，改用聯立方程式的判別式反而繁瑣。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================================
+         第二冊
+         ============================================================ -->
+    <section>
+      <div class="chapter-banner vol2">
+        第二冊（高一下）｜學測數學A 全範圍 ②
+        <div class="ch-sub">三角比與廣義角・數列與級數・數據分析・排列組合與機率</div>
+      </div>
+
+      <!-- 三角比與廣義角 -->
+      <h3 class="sub-title" id="v2-ch1">5. 三角比與廣義角</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="box-title">核心公式速查</div>
+          <ul class="content-list">
+            <li><strong>基本關係：</strong>\(\sin^2\theta+\cos^2\theta=1\)；\(\tan\theta=\dfrac{\sin\theta}{\cos\theta}\)；\(1+\tan^2\theta=\sec^2\theta\)</li>
+            <li><strong>特殊角：</strong>\(\sin30°=\tfrac12,\ \sin45°=\tfrac{\sqrt2}2,\ \sin60°=\tfrac{\sqrt3}2\)（\(\cos\) 反序）</li>
+            <li><strong>正弦定理：</strong>\(\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R\)（\(R\) 為外接圓半徑）</li>
+            <li><strong>餘弦定理：</strong>\(c^2=a^2+b^2-2ab\cos C\)（已知兩邊夾角求對邊，或已知三邊求角）</li>
+            <li><strong>三角形面積：</strong>\(\triangle=\dfrac12ab\sin C=\dfrac{abc}{4R}=\sqrt{s(s-a)(s-b)(s-c)}\)（\(s=\tfrac{a+b+c}2\)）</li>
+            <li><strong>廣義角：</strong>各象限正負號（ASTC「All / Sin / Tan / Cos」為正）；\(\sin(180°-\theta)=\sin\theta\)、\(\cos(360°-\theta)=\cos\theta\) 等誘導公式</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">💡 使用時機</div>
+          <p><strong>正弦定理：</strong>已知「兩角一邊」或「兩邊及其中一邊的對角」。<strong>餘弦定理：</strong>已知「兩邊夾角」或「三邊」。判斷該用哪一個，看已知條件的組合。</p>
+        </div>
+      </div>
+
+      <!-- 數列與級數 -->
+      <h3 class="sub-title" id="v2-ch2">6. 數列與級數</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="box-title">核心公式速查</div>
+          <ul class="content-list">
+            <li><strong>等差數列：</strong>\(a_n=a_1+(n-1)d\)；前 \(n\) 項和 \(S_n=\dfrac{n(a_1+a_n)}2=\dfrac{n[2a_1+(n-1)d]}2\)</li>
+            <li><strong>等比數列：</strong>\(a_n=a_1r^{n-1}\)；前 \(n\) 項和 \(S_n=\dfrac{a_1(1-r^n)}{1-r}\)（\(r\ne1\)）</li>
+            <li><strong>無窮等比級數和：</strong>\(S=\dfrac{a_1}{1-r}\)（僅在 \(|r|<1\) 時收斂）</li>
+            <li><strong>常用級數和：</strong>\(\displaystyle\sum_{k=1}^{n}k=\dfrac{n(n+1)}2\)；\(\displaystyle\sum_{k=1}^{n}k^2=\dfrac{n(n+1)(2n+1)}6\)</li>
+            <li><strong>Σ 記號性質：</strong>\(\sum(a_k\pm b_k)=\sum a_k\pm\sum b_k\)；\(\sum c\cdot a_k=c\sum a_k\)；\(\sum_{k=1}^{n}c=nc\)</li>
+          </ul>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">⚠️ 適用條件</div>
+          <p>無窮等比級數和公式<strong>只在 \(|r|<1\) 時成立</strong>，\(|r|\ge1\) 則發散、無和；等比級數和公式的 \(r\ne1\) 前提，\(r=1\) 時 \(S_n=na_1\) 要另外處理。</p>
+        </div>
+      </div>
+
+      <!-- 數據分析 -->
+      <h3 class="sub-title" id="v2-ch3">7. 數據分析</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="box-title">核心公式速查</div>
+          <ul class="content-list">
+            <li><strong>算術平均數：</strong>\(\bar x=\dfrac1n\sum x_i\)</li>
+            <li><strong>變異數：</strong>\(\sigma^2=\dfrac1n\sum(x_i-\bar x)^2=\dfrac1n\sum x_i^2-\bar x^2\)；<strong>標準差</strong> \(\sigma=\sqrt{\sigma^2}\)</li>
+            <li><strong>資料的線性變換：</strong>令 \(y_i=ax_i+b\)，則 \(\bar y=a\bar x+b\)，\(\sigma_y=|a|\sigma_x\)（標準差不受平移 \(b\) 影響）</li>
+            <li><strong>標準分數（z 分數）：</strong>\(z=\dfrac{x-\bar x}{\sigma}\)（平均 0、標準差 1）</li>
+            <li><strong>相關係數：</strong>\(r\in[-1,1]\)；\(|r|\) 越接近 1 線性相關越強，\(r>0\) 正相關、\(r<0\) 負相關</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">💡 高頻考點</div>
+          <p>線性變換對平均數與標準差的影響是選擇題常客：<strong>平移 \(b\) 改變平均數但不改變標準差；伸縮 \(a\) 同時改變兩者（標準差乘 \(|a|\)）</strong>。相關係數 \(r\) 不代表因果，也不受單位變換影響。</p>
+        </div>
+      </div>
+
+      <!-- 排列組合與機率 -->
+      <h3 class="sub-title" id="v2-ch4">8. 排列組合與機率</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="box-title">核心公式速查</div>
+          <ul class="content-list">
+            <li><strong>排列：</strong>\(P^n_r=\dfrac{n!}{(n-r)!}\)（有順序）；<strong>組合：</strong>\(C^n_r=\dbinom nr=\dfrac{n!}{r!(n-r)!}\)（無順序）</li>
+            <li><strong>組合性質：</strong>\(C^n_r=C^n_{n-r}\)；\(C^n_r+C^n_{r-1}=C^{n+1}_r\)（巴斯卡）</li>
+            <li><strong>二項式定理：</strong>\((a+b)^n=\displaystyle\sum_{k=0}^{n}C^n_k a^{n-k}b^k\)</li>
+            <li><strong>機率古典定義：</strong>\(P(A)=\dfrac{n(A)}{n(S)}\)</li>
+            <li><strong>加法／餘事件：</strong>\(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)；\(P(A')=1-P(A)\)</li>
+            <li><strong>條件機率與獨立：</strong>\(P(A|B)=\dfrac{P(A\cap B)}{P(B)}\)；\(A,B\) 獨立 \(\iff P(A\cap B)=P(A)P(B)\)</li>
+            <li><strong>期望值：</strong>\(E(X)=\sum x_i\,P(x_i)\)</li>
+          </ul>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">⚠️ 易錯</div>
+          <p>「有順序用排列、無順序用組合」是第一判斷；「至少」型的機率題優先用<strong>餘事件</strong>（1 − P(一個都沒有)）；重複排列、環狀排列、分堆問題各有專屬公式，複習時要分類清楚。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================================
+         第三冊A
+         ============================================================ -->
+    <section>
+      <div class="chapter-banner vol3">
+        第三冊A（高二上）｜學測數學A 全範圍 ③
+        <div class="ch-sub">三角函數圖形・和差角公式・指數函數・對數函數・平面向量（運算・內積・應用）</div>
+      </div>
+
+      <!-- 三角函數圖形與和差角 -->
+      <h3 class="sub-title" id="v3-ch1">9. 三角函數圖形與和差角公式</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="box-title">核心公式速查</div>
+          <ul class="content-list">
+            <li><strong>一般式：</strong>\(y=A\sin(B(x-C))+D\)：振幅 \(|A|\)、週期 \(\dfrac{2\pi}{|B|}\)、相位平移 \(C\)、垂直平移 \(D\)</li>
+            <li><strong>和差角：</strong>\(\sin(A\pm B)=\sin A\cos B\pm\cos A\sin B\)；\(\cos(A\pm B)=\cos A\cos B\mp\sin A\sin B\)；\(\tan(A\pm B)=\dfrac{\tan A\pm\tan B}{1\mp\tan A\tan B}\)</li>
+            <li><strong>二倍角：</strong>\(\sin2A=2\sin A\cos A\)；\(\cos2A=\cos^2A-\sin^2A=2\cos^2A-1=1-2\sin^2A\)</li>
+            <li><strong>半形（由二倍角逆推）：</strong>\(\sin^2A=\dfrac{1-\cos2A}2\)，\(\cos^2A=\dfrac{1+\cos2A}2\)</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">💡 必背 vs. 可推導</div>
+          <p><strong>必背：</strong>正弦、餘弦的和差角公式（是一切三角恆等式的源頭）。<strong>可推導：</strong>二倍角（令 \(B=A\)）、半形（二倍角移項）、和差化積等，只要記住和差角就能現場推。餘弦二倍角的三種等價形式，依題目給的是 \(\sin\) 還是 \(\cos\) 選用。</p>
+        </div>
+      </div>
+
+      <!-- 指數函數與對數函數 -->
+      <h3 class="sub-title" id="v3-ch2">10. 指數函數與對數函數</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="box-title">核心公式速查</div>
+          <ul class="content-list">
+            <li><strong>指數函數：</strong>\(y=a^x\)（\(a>0,\ a\ne1\)）：恆過 \((0,1)\)，圖形恆在 x 軸上方；\(a>1\) 遞增、\(0<a<1\) 遞減</li>
+            <li><strong>對數函數：</strong>\(y=\log_a x\)：恆過 \((1,0)\)，定義域 \(x>0\)；與 \(y=a^x\) <strong>互為反函數</strong>，圖形對稱於 \(y=x\)</li>
+            <li><strong>方程式解法：</strong>化同底比較指數／真數；或取對數</li>
+            <li><strong>不等式：</strong>\(0<a<1\) 時，去掉指數／對數後<strong>不等號方向要反轉</strong></li>
+          </ul>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">⚠️ 最常見的錯</div>
+          <p>底數 \(0<a<1\) 時解指數／對數不等式忘記變號；對數不等式忘記先確認「真數 &gt; 0」的定義域限制，導致多出無效解。</p>
+        </div>
+      </div>
+
+      <!-- 平面向量 -->
+      <h3 class="sub-title" id="v3-ch3">11. 平面向量（運算・內積・應用）</h3>
+      <div class="card">
+        <div class="box box-formula">
+          <div class="box-title">核心公式速查</div>
+          <ul class="content-list">
+            <li><strong>坐標表示：</strong>\(\overrightarrow{AB}=(x_2-x_1,\ y_2-y_1)\)（終點減起點）</li>
+            <li><strong>加減與純量乘：</strong>\(\vec a\pm\vec b=(a_1\pm b_1,\ a_2\pm b_2)\)；\(k\vec a=(ka_1,ka_2)\)</li>
+            <li><strong>長度：</strong>\(|\vec a|=\sqrt{a_1^2+a_2^2}\)</li>
+            <li><strong>平行判準：</strong>\(\vec a\parallel\vec b\iff a_1b_2-a_2b_1=0\)</li>
+            <li><strong>內積：</strong>\(\vec a\cdot\vec b=a_1b_1+a_2b_2=|\vec a||\vec b|\cos\theta\)；<strong>正交</strong> \(\iff\vec a\cdot\vec b=0\)</li>
+            <li><strong>兩向量夾角：</strong>\(\cos\theta=\dfrac{\vec a\cdot\vec b}{|\vec a||\vec b|}\)；<strong>投影量</strong> \(=\dfrac{\vec a\cdot\vec b}{|\vec b|}\)</li>
+            <li><strong>中點／分點：</strong>中點 \(=\dfrac{\vec a+\vec b}2\)；\(\overline{AP}:\overline{PB}=m:n\) 時分點 \(\vec p=\dfrac{n\vec a+m\vec b}{m+n}\)（係數交叉）</li>
+            <li><strong>三角形重心：</strong>\(\vec g=\dfrac{\vec a+\vec b+\vec c}3\)</li>
+            <li><strong>面積（向量法）：</strong>\(\triangle=\dfrac12|a_1b_2-a_2b_1|\)（務必取絕對值）</li>
+            <li><strong>直線向量參數式：</strong>\(\vec r=\vec a+t\vec d\)；法向量與方向向量互相垂直</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">💡 W14–W15 已細講，此處為速查</div>
+          <p>向量是第三冊 A 的重頭戲，也是暑假 W14–W15 剛結束的內容，公式應該最熟。收官複習重點在「分點公式係數交叉配對」與「面積公式取絕對值」兩個易錯點。內積的代數定義（\(a_1b_1+a_2b_2\)）與幾何定義（\(|\vec a||\vec b|\cos\theta\)）要能互換使用。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 公式卡製作方法 ===== -->
+    <section id="cardmaking">
+      <div class="chapter-banner chcard">
+        週日任務｜數學公式卡製作
+        <div class="ch-sub">把上面三冊的公式速查，整理成一套可隨身複習、考前速記的個人公式卡</div>
+      </div>
+      <div class="card">
+        <div class="box box-link">
+          <div class="box-title">📅 週日任務：製作數學公式卡</div>
+          <p>時程表週六為「5 科暑假成果測驗」、週日為「建立各科弱點清單，規劃高三補強方向」。數學科的週日任務即以本講義為底，製作一套個人公式卡。</p>
+        </div>
+
+        <h3 class="sub-sub-title">公式卡製作五步驟</h3>
+        <div class="step-box"><strong>Step 1　一張卡一個主題：</strong>依本講義的 11 個小節，每個小節做 1 張卡（如「直線與圓」「數列與級數」「平面向量」），共約 11 張。卡片建議用 A6 或索引卡大小，方便隨身攜帶。</div>
+        <div class="step-box"><strong>Step 2　正面寫公式、背面寫適用條件與易錯：</strong>正面只寫公式本身（用最精簡的符號），背面寫「這個公式什麼時候用」「常見的錯是什麼」。複習時先看正面回想，再翻背面對照。</div>
+        <div class="step-box"><strong>Step 3　用顏色分級：</strong>紅筆＝一定要背、現場推不出來的（如和差角、等比級數和、點到直線距離）；藍筆＝可由其他公式推導的（如二倍角、頂點公式、韋達定理）；螢光筆＝自己這次盤點時答不出來的（優先複習）。</div>
+        <div class="step-box"><strong>Step 4　加一句「推導提示」：</strong>對藍筆類公式，在卡片角落寫一句話提示怎麼推（如二倍角：「和差角令 A=B」；面積公式：「½|a||b|sinθ 展開」），確保考場上臨時忘記也救得回來。</div>
+        <div class="step-box"><strong>Step 5　每日抽卡自測：</strong>公式卡做完不是收起來，而是每天花 10 分鐘隨機抽 3–5 張，蓋住正面默寫公式、蓋住背面說出適用條件。高三上（W17 起）持續使用，考前一週（W35）作為最後速記工具。</div>
+
+        <div class="box box-warn">
+          <div class="box-title">⚠️ 公式卡的兩個常見誤區</div>
+          <ul class="content-list">
+            <li><strong>抄太多：</strong>公式卡是「速記」不是「講義」，每張卡只放最核心的公式，例題、證明都不放</li>
+            <li><strong>做完就丟：</strong>公式卡的價值在於「反覆抽背」，做完不用等於白做</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 知識連結圖 ===== -->
+    <section id="km">
+      <h2 class="section-title">&#128279; 知識連結圖</h2>
+      <div class="km-container">
+        <p style="text-align:center; font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">學測數學 A 三冊的整體結構，以及三條跨冊主線如何在計算題中被綜合命題：</p>
+        <div class="km-grid" style="align-items:center; margin-bottom:1.2rem;">
+          <div class="km-node linked">第一冊<br><span style="font-weight:400; font-size:0.78rem;">代數・座標幾何基礎</span></div>
+          <div class="km-arrow">→</div>
+          <div class="km-node linked">第二冊<br><span style="font-weight:400; font-size:0.78rem;">三角・數列・機率統計</span></div>
+          <div class="km-arrow">→</div>
+          <div class="km-node central">第三冊A<br>三角函數・指對函數・向量</div>
+          <div class="km-arrow">→</div>
+          <div class="km-node future">W16 公式卡<br><span style="font-weight:400; font-size:0.78rem;">三冊全範圍速查</span></div>
+        </div>
+        <div class="tree-visual">
+          <div class="tv-root">學測數學A 三冊．三條跨冊主線</div>
+          <ul class="tv-children">
+            <li class="tv-item">
+              <span class="tv-node tv-l1">主線一：函數（多項式 → 三角函數 → 指對數函數）</span>
+              <span class="tv-desc">第一冊多項式、第三冊A三角函數圖形與指對數函數；圖形變換、方程式、不等式的共同解題邏輯</span>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">主線二：幾何（直線與圓 → 三角比 → 平面向量）</span>
+              <span class="tv-desc">第一冊直線與圓、第二冊正餘弦定理、第三冊A向量；坐標幾何問題常可用向量法改寫</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l2">跨冊綜合：用向量內積求兩直線夾角；用餘弦定理配合向量長度</span></li>
+              </ul>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">主線三：離散與統計（數列級數 → 排列組合 → 機率 → 數據分析）</span>
+              <span class="tv-desc">第二冊集中授課；等比級數與機率的無窮和、期望值計算常結合</span>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">跨冊綜合題（學測命題趨勢）</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l3">三角函數（角度）＋向量（內積求夾角）</span></li>
+                <li class="tv-item"><span class="tv-node tv-l3">指數對數（成長模型）＋數列（等比）</span></li>
+                <li class="tv-item"><span class="tv-node tv-l3">座標幾何（直線與圓）＋向量（參數式解交點）</span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 常見錯誤 ===== -->
+    <section id="mistakes">
+      <h2 class="section-title">&#9888;&#65039; 三冊全範圍常見錯誤</h2>
+      <div class="card">
+        <div class="box box-warn">
+          <div class="box-title">錯誤1：對數方程式解完不驗根，多出「真數為負」的無效解</div>
+          <p>對數的真數必須 \(>0\)。解 \(\log(x-1)+\log(x-2)=\log2\) 得 \(x=0\) 或 \(x=3\)，但 \(x=0\) 使真數為負，須捨去，只有 \(x=3\)。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤2：無窮等比級數和忽略 \(|r|<1\) 的收斂條件</div>
+          <p>只有 \(|r|<1\) 時 \(S=\dfrac{a_1}{1-r}\) 才成立；\(|r|\ge1\) 時級數發散、沒有和。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤3：資料線性變換時，把平移量 \(b\) 也乘進標準差</div>
+          <p>\(y=ax+b\) 時 \(\sigma_y=|a|\sigma_x\)，標準差<strong>只受伸縮 \(a\) 影響、不受平移 \(b\) 影響</strong>；平均數則 \(\bar y=a\bar x+b\)，兩者都受影響。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤4：底數 \(0<a<1\) 的指數／對數不等式沒有變號</div>
+          <p>如 \(\left(\tfrac12\right)^x>\tfrac14\)，去指數時因底數小於 1，不等號要反轉為 \(x<2\)。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤5：分點公式係數沒有交叉配對／面積公式忘記取絕對值</div>
+          <p>\(\overline{AP}:\overline{PB}=m:n\) 時 \(\vec p=\dfrac{n\vec a+m\vec b}{m+n}\)（\(\vec a\) 配 \(n\)）；面積 \(=\dfrac12|a_1b_2-a_2b_1|\) 一定要加絕對值。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤6：正弦定理的「兩邊一對角」情形忽略「一解、兩解、無解」的討論</div>
+          <p>已知兩邊及其中一邊的對角（SSA）時，可能有兩個三角形符合，須依 \(a\) 與 \(b\sin A\) 的大小關係討論。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 弱點清單製作指引 ===== -->
+    <section id="weaklist">
+      <h2 class="section-title">&#128203; 弱點清單製作指引（週日任務）</h2>
+      <div class="box box-warn">
+        <div class="box-title">🗓️ 週日任務：建立數學科弱點清單，規劃高三補強方向</div>
+        <p>製作公式卡的同時，把「盤點時答不出來的公式」與「常出錯的章節」整理成弱點清單，作為高三上（W17 起）第二輪主題深化的優先順序。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>弱點類別</th><th>自我檢核問題</th><th>對應補強方式</th></tr></thead>
+          <tbody>
+            <tr><td>公式記憶</td><td>盤點三冊時，哪些「紅筆類（必背）」公式背不出來？</td><td>螢光筆標記在公式卡上，每日抽背；一週內達到不看提示能默寫</td></tr>
+            <tr><td>適用條件</td><td>哪些公式「背得出來但不知道何時用」（如正弦 vs. 餘弦定理、無窮等比收斂條件）？</td><td>找 5 題該類型題目，練習「判斷該用哪個公式」的第一步</td></tr>
+            <tr><td>章節熟練度</td><td>W12–W15 各週自我檢測，哪一章的正確率最低？</td><td>回頭重做該週講義的例題與自我檢測錯題，加入 W17 起主題深化名單</td></tr>
+            <tr><td>跨章綜合</td><td>三角函數＋向量、指對數＋數列這類跨章題是否會卡住？</td><td>W17 起每週練 3–5 題跨章綜合題，熟悉「先求中介量再代入」的解法</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+      <div class="box box-tip">
+        <div class="box-title">💡 弱點清單兩原則</div>
+        <ul class="content-list">
+          <li>具體到「公式名稱／章節／題型」，不要寫「數學不好」</li>
+          <li>誠實面對：這次盤點暴露的公式漏洞越多，高三上補強的收穫越大</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 重點整理 ===== -->
+    <section id="summary">
+      <h2 class="section-title">&#128200; 重點整理</h2>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>冊別</th><th>必背核心公式（紅筆類）</th><th>學測考頻</th></tr></thead>
+          <tbody>
+            <tr><td>第一冊</td><td>對數律與換底、餘式／因式定理、點到直線距離、直線與圓的位置關係（比較 d 與 r）</td><td><span class="chip chip-gold">★★★★</span></td></tr>
+            <tr><td>第二冊 三角</td><td>正弦定理（含 2R）、餘弦定理、三角形面積 ½ab sinC</td><td><span class="chip chip-gold">★★★★★</span></td></tr>
+            <tr><td>第二冊 數列</td><td>等差／等比通項與求和、無窮等比和（|r|&lt;1）、Σk 與 Σk²</td><td><span class="chip chip-gold">★★★★</span></td></tr>
+            <tr><td>第二冊 統計機率</td><td>標準差線性變換 σ_y=|a|σ_x、餘事件、條件機率與獨立、期望值</td><td><span class="chip chip-gold">★★★★</span></td></tr>
+            <tr><td>第三冊A 三角函數</td><td>y=A sin(B(x−C))+D 的四參數、和差角、二倍角</td><td><span class="chip chip-gold">★★★★★</span></td></tr>
+            <tr><td>第三冊A 指對函數</td><td>互為反函數、圖形對稱 y=x、0&lt;a&lt;1 不等式變號</td><td><span class="chip chip-gold">★★★★</span></td></tr>
+            <tr><td>第三冊A 平面向量</td><td>內積代數/幾何定義、夾角、分點公式（係數交叉）、面積 ½|a₁b₂−a₂b₁|</td><td><span class="chip chip-gold">★★★★★</span></td></tr>
+            <tr><td>三冊整合</td><td>三條主線（函數／幾何／離散統計）＋跨章綜合題</td><td><span class="chip chip-red">週六成果測驗＋公式卡</span></td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+      <div class="box box-tip">
+        <div class="box-title">💡 收官複習策略：公式盤點 → 公式卡 → 每日抽背</div>
+        <p>本週把三冊全部公式盤點一遍，用「背得出來嗎／何時用／怎麼推」三問自測；週日據此做出一套 11 張的個人公式卡（正面公式、背面適用條件與易錯、顏色分級）；高三上（W17 起）每天抽 3–5 張複習，考前一週作為最後速記工具。這套公式卡是接下來四個月數學複習的核心。</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 自我檢測 ===== -->
+    <section id="quiz">
+      <h2 class="section-title">&#9997; 自我檢測（共 8 題）</h2>
+      <div class="box box-link">
+        <div class="box-title">作答說明</div>
+        <p>以下 8 題橫跨學測數學 A 三冊全範圍，每題聚焦一個核心公式或其適用條件，作為週六暑假成果測驗前的公式速檢。建議計時作答（每題 2 分鐘）後再對照詳解。難度以 <span class="diff-badge diff-easy">易</span> <span class="diff-badge diff-medium">中</span> <span class="diff-badge diff-hard">難</span> 標示。</p>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>【第一冊】\(\log_2 3\cdot\log_3 8=\) ?<span class="diff-badge diff-easy">易</span></div>
+        <ol>
+          <li>\(2\)</li>
+          <li>\(3\)</li>
+          <li>\(6\)</li>
+          <li>\(8\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            換底：\(\log_2 3\cdot\log_3 8=\log_2 3\cdot\dfrac{\log_2 8}{\log_2 3}=\log_2 8=3\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>【第一冊】點 \((3,-1)\) 到直線 \(4x-3y+2=0\) 的距離為？<span class="diff-badge diff-easy">易</span></div>
+        <ol>
+          <li>\(\dfrac{11}{5}\)</li>
+          <li>\(\dfrac{17}{5}\)</li>
+          <li>\(\dfrac{13}{5}\)</li>
+          <li>\(5\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(d=\dfrac{|4(3)-3(-1)+2|}{\sqrt{4^2+(-3)^2}}=\dfrac{|12+3+2|}{5}=\dfrac{17}{5}\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span>【第二冊】三角形 \(ABC\) 中，\(a=7\)，\(b=8\)，\(C=60°\)，求邊 \(c\)。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\(\sqrt{57}\)</li>
+          <li>\(\sqrt{65}\)</li>
+          <li>\(\sqrt{113}\)</li>
+          <li>\(13\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：A</strong><br>
+            餘弦定理：\(c^2=7^2+8^2-2(7)(8)\cos60°=49+64-112\times\tfrac12=113-56=57\)，故 \(c=\sqrt{57}\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span>【第二冊】無窮等比級數 \(6+4+\dfrac83+\cdots\) 的和為？<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\(12\)</li>
+          <li>\(15\)</li>
+          <li>\(18\)</li>
+          <li>發散，無和</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：C</strong><br>
+            公比 \(r=\dfrac46=\dfrac23\)，\(|r|<1\) 收斂。\(S=\dfrac{a_1}{1-r}=\dfrac{6}{1-\frac23}=\dfrac{6}{\frac13}=18\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span>【第二冊】一組資料的平均數為 20、標準差為 4。若每筆資料都先乘以 3 再減 5，則新資料的平均數與標準差分別為？<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>平均 55；標準差 12</li>
+          <li>平均 55；標準差 7</li>
+          <li>平均 60；標準差 12</li>
+          <li>平均 55；標準差 4</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：A</strong><br>
+            \(y=3x-5\)：\(\bar y=3(20)-5=55\)；\(\sigma_y=|3|\times4=12\)（標準差只受伸縮 3 影響，不受平移 −5 影響）。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">6</span>【第二冊】袋中有 3 白 2 黑共 5 球，一次取 2 球，求「至少一顆黑球」的機率。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\(\dfrac{3}{10}\)</li>
+          <li>\(\dfrac{2}{5}\)</li>
+          <li>\(\dfrac{7}{10}\)</li>
+          <li>\(\dfrac{4}{5}\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：C</strong><br>
+            用餘事件：P(一顆黑球都沒有)＝P(兩顆都白)＝\(\dfrac{C^3_2}{C^5_2}=\dfrac{3}{10}\)。所求 \(=1-\dfrac{3}{10}=\dfrac{7}{10}\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">7</span>【第三冊A】已知 \(\sin\theta=\dfrac{4}{5}\)、\(\theta\) 為銳角，求 \(\sin 2\theta\)。<span class="diff-badge diff-easy">易</span></div>
+        <ol>
+          <li>\(\dfrac{7}{25}\)</li>
+          <li>\(\dfrac{24}{25}\)</li>
+          <li>\(\dfrac{8}{5}\)</li>
+          <li>\(\dfrac{16}{25}\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(\theta\) 為銳角，\(\cos\theta=\dfrac35\)。\(\sin2\theta=2\sin\theta\cos\theta=2\times\dfrac45\times\dfrac35=\dfrac{24}{25}\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">8</span>【第三冊A 跨章】設 \(\vec a=(3,1)\)、\(\vec b=(1,2)\)。求 \(\vec a\) 與 \(\vec b\) 的夾角 \(\theta\)。<span class="diff-badge diff-hard">難</span></div>
+        <ol>
+          <li>\(30°\)</li>
+          <li>\(45°\)</li>
+          <li>\(60°\)</li>
+          <li>\(90°\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(\vec a\cdot\vec b=3(1)+1(2)=5\)；\(|\vec a|=\sqrt{10}\)，\(|\vec b|=\sqrt5\)。<br>
+            \(\cos\theta=\dfrac{5}{\sqrt{10}\cdot\sqrt5}=\dfrac{5}{\sqrt{50}}=\dfrac{5}{5\sqrt2}=\dfrac{1}{\sqrt2}\)，故 \(\theta=45°\)。
+          </div>
+        </details>
+      </div>
+
+      <div class="box box-tip" style="margin-top:1.5rem;">
+        <div class="box-title">訂正與複習建議</div>
+        <ul class="content-list">
+          <li>答錯的題目，把對應公式用螢光筆標記在公式卡上，列為每日抽背的優先項目</li>
+          <li>第 3、6、8 題若答錯，代表「判斷該用哪個公式」的能力仍不足，建議 W17 起加強「看題目選公式」的第一步訓練</li>
+          <li>週六暑假成果測驗前，把 11 張公式卡的正面全部默寫一次，確認紅筆類公式無漏</li>
+          <li>本週結束即進入高三上第二輪主題深化（W17 起），請帶著公式卡與弱點清單，讓下階段複習有明確重點</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top:3rem; padding-top:1.5rem; border-top:2px solid var(--border); text-align:center; font-size:0.82rem; color:var(--text-muted);">
+      <p>W16 數學A科講義｜第一~三冊A 重點整理 ＋ 數學公式卡製作（暑假收官週）</p>
+      <p style="margin-top:0.3rem;">高二理工組 · 學測備考 · 暑假黃金衝刺期 第 9 週（收官週）</p>
+      <p style="margin-top:0.3rem;">本講義依據台灣108課綱數學A學習內容編製，涵蓋學測數學A完整範圍（第一冊＋第二冊＋第三冊A），僅供學習參考</p>
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>

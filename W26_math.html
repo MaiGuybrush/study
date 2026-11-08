@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W26 數學A科｜限時練習 40 分鐘 10 題 ＋ 全卷模擬｜學測備考講義</title>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        tags: 'ams'
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+      background: #f5f0fa;
+      color: #2d2d2d;
+      line-height: 1.75;
+    }
+
+    /* ===== COLOUR PALETTE ===== */
+    :root {
+      --purple-dark:  #4a0072;
+      --purple-main:  #6a1b9a;
+      --purple-mid:   #8e24aa;
+      --purple-light: #ce93d8;
+      --purple-pale:  #f3e5f5;
+      --purple-bg:    #faf0fe;
+      --accent-gold:  #f9a825;
+      --accent-teal:  #00796b;
+      --accent-red:   #c62828;
+      --accent-blue:  #1565c0;
+      --accent-green: #2e7d32;
+      --text-main:    #2d2d2d;
+      --text-muted:   #5d5d5d;
+      --white:        #ffffff;
+      --border:       #d1c4e9;
+    }
+
+    /* ===== LAYOUT ===== */
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* ===== SIDEBAR NAV ===== */
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+      background: var(--purple-dark);
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 0 0 2rem 0;
+    }
+    .sidebar-header {
+      background: var(--purple-main);
+      padding: 1.2rem 1rem;
+      text-align: center;
+      border-bottom: 2px solid var(--purple-light);
+    }
+    .sidebar-header .week-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 0.3rem;
+    }
+    .sidebar-header h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .sidebar nav { padding: 0.8rem 0; }
+    .nav-section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      padding: 0.8rem 1rem 0.3rem;
+      opacity: 0.8;
+    }
+    .sidebar nav a {
+      display: block;
+      color: #ede7f6;
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 0.42rem 1rem 0.42rem 1.3rem;
+      border-left: 3px solid transparent;
+      transition: all 0.18s;
+    }
+    .sidebar nav a:hover,
+    .sidebar nav a:focus {
+      background: rgba(255,255,255,0.1);
+      border-left-color: var(--purple-light);
+      color: #fff;
+    }
+    .sidebar nav a.sub {
+      padding-left: 2.1rem;
+      font-size: 0.82rem;
+      color: #d1c4e9;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      flex: 1;
+      padding: 2rem 2.5rem 4rem;
+      max-width: 940px;
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-mid) 100%);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::after {
+      content: '∑√π';
+      position: absolute;
+      right: 2rem;
+      top: 1rem;
+      font-size: 4.5rem;
+      opacity: 0.08;
+      font-family: 'Georgia', serif;
+      pointer-events: none;
+    }
+    .page-header .label-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.6rem;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.9);
+    }
+    .page-header h1 { font-size: 1.9rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .page-header .subtitle { font-size: 0.95rem; color: #e1d5f5; }
+    .page-header .meta-row {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      margin-top: 1rem; font-size: 0.82rem; color: #d1c4e9;
+    }
+    .meta-row span::before { margin-right: 0.3rem; }
+
+    /* ===== SECTION HEADINGS ===== */
+    .section-block { margin-bottom: 2.5rem; }
+    h2.section-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--purple-dark);
+      border-left: 5px solid var(--purple-main);
+      padding: 0.45rem 0 0.45rem 0.9rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #f3e5f5 0%, transparent 100%);
+    }
+    h3.sub-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--purple-main);
+      margin: 1.4rem 0 0.6rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1.5px dashed var(--purple-light);
+    }
+    h4.minor-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--purple-dark);
+      margin: 1rem 0 0.4rem;
+    }
+
+    /* ===== CONTENT CARDS ===== */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ===== CALLOUT BOXES ===== */
+    .callout {
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      border-left: 5px solid;
+      position: relative;
+    }
+    .callout .callout-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .callout.def {
+      background: #e8eaf6;
+      border-color: #3f51b5;
+    }
+    .callout.def .callout-title { color: #1a237e; }
+    .callout.formula {
+      background: var(--purple-pale);
+      border-color: var(--purple-main);
+    }
+    .callout.formula .callout-title { color: var(--purple-dark); }
+    .callout.example {
+      background: #e8f5e9;
+      border-color: var(--accent-green);
+    }
+    .callout.example .callout-title { color: var(--accent-green); }
+    .callout.warning {
+      background: #fff8e1;
+      border-color: var(--accent-gold);
+    }
+    .callout.warning .callout-title { color: #e65100; }
+    .callout.tip {
+      background: #e0f2f1;
+      border-color: var(--accent-teal);
+    }
+    .callout.tip .callout-title { color: var(--accent-teal); }
+    .callout.link {
+      background: #e3f2fd;
+      border-color: var(--accent-blue);
+    }
+    .callout.link .callout-title { color: var(--accent-blue); }
+    .callout.exam {
+      background: #fce4ec;
+      border-color: #c2185b;
+    }
+    .callout.exam .callout-title { color: #880e4f; }
+
+    /* ===== FORMULA BOX ===== */
+    .formula-box {
+      background: var(--purple-pale);
+      border: 2px solid var(--purple-main);
+      border-radius: 10px;
+      padding: 1.1rem 1.5rem;
+      margin: 1rem 0;
+    }
+    .formula-box .fb-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-main);
+      margin-bottom: 0.6rem;
+    }
+    .formula-box .fb-body {
+      font-family: 'Courier New', 'Consolas', monospace;
+      font-size: 1rem;
+      color: var(--purple-dark);
+      line-height: 2;
+    }
+
+    /* ===== MATH INLINE MONO ===== */
+    .math-inline {
+      font-family: 'Courier New', 'Consolas', monospace;
+      background: #ede7f6;
+      color: var(--purple-dark);
+      padding: 0.05rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    .math-block {
+      font-family: 'Courier New', 'Consolas', monospace;
+      background: #ede7f6;
+      color: var(--purple-dark);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      overflow-x: auto;
+      display: block;
+    }
+
+    /* ===== EXAMPLE SOLUTION ===== */
+    .example-block {
+      background: #f1f8e9;
+      border: 1.5px solid #a5d6a7;
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      margin: 0.8rem 0;
+    }
+    .example-block .ex-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent-green);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .example-block .ex-q {
+      font-weight: 600;
+      color: #1b5e20;
+      margin-bottom: 0.5rem;
+    }
+    .example-block .ex-sol {
+      color: #33691e;
+      line-height: 1.9;
+    }
+    .step { margin-left: 1.2rem; margin-bottom: 0.25rem; }
+    .step::before { content: '➜ '; color: var(--accent-green); font-weight: 700; }
+
+    /* ===== ANSWER REVEAL ===== */
+    details.answer-reveal {
+      margin: 0.5rem 0;
+    }
+    details.answer-reveal summary {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--purple-main);
+      background: var(--purple-pale);
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      border: 1px solid var(--purple-light);
+      user-select: none;
+      list-style: none;
+    }
+    details.answer-reveal summary::-webkit-details-marker { display: none; }
+    details.answer-reveal summary::before { content: '▶'; font-size: 0.7rem; }
+    details.answer-reveal[open] summary::before { content: '▼'; }
+    details.answer-reveal .answer-body {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.9rem 1.2rem;
+      margin-top: 0.5rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    /* ===== TABLES ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.8rem 0;
+      font-size: 0.92rem;
+    }
+    th {
+      background: var(--purple-main);
+      color: var(--white);
+      padding: 0.55rem 0.85rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    td {
+      padding: 0.5rem 0.85rem;
+      border-bottom: 1px solid #e8eaf6;
+    }
+    tr:nth-child(even) td { background: var(--purple-bg); }
+    tr:hover td { background: #ede7f6; }
+
+    /* ===== PRACTICE QUESTIONS ===== */
+    .practice-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .practice-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.3rem;
+    }
+    .practice-item .pq-num {
+      display: inline-block;
+      background: var(--purple-main);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.8rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      line-height: 1.8rem;
+      text-align: center;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+    .practice-item .pq-header { display: flex; align-items: flex-start; }
+    .practice-item .pq-q { font-weight: 600; line-height: 1.7; flex: 1; }
+
+    /* ===== NUMBER LINE SVG ===== */
+    .number-line-container { overflow-x: auto; padding: 0.5rem 0; }
+
+    /* ===== TOC ===== */
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.6rem;
+      margin: 0.8rem 0;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.8rem;
+      text-decoration: none;
+      color: var(--purple-dark);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.18s;
+    }
+    .toc-item:hover { background: var(--purple-pale); border-color: var(--purple-main); }
+    .toc-item .toc-num {
+      background: var(--purple-main);
+      color: #fff;
+      width: 1.5rem;
+      height: 1.5rem;
+      line-height: 1.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: center;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ===== SUMMARY PILLS ===== */
+    .summary-list { list-style: none; padding: 0; }
+    .summary-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #f3e5f5;
+      font-size: 0.93rem;
+    }
+    .summary-list li::before { content: '◆'; color: var(--purple-main); flex-shrink: 0; margin-top: 0.15rem; }
+
+    /* ===== DIVIDER ===== */
+    hr.section-divider {
+      border: none;
+      border-top: 2px dashed var(--purple-light);
+      margin: 2rem 0;
+    }
+
+    /* ===== KNOWLEDGE MAP ===== */
+    .km-container {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+    .km-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .km-node {
+      background: var(--purple-pale);
+      border: 2px solid var(--purple-main);
+      border-radius: 8px;
+      padding: 0.55rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--purple-dark);
+      text-align: center;
+      position: relative;
+    }
+    .km-node.central {
+      background: var(--purple-main);
+      color: #fff;
+      font-size: 1rem;
+      padding: 0.7rem 1.4rem;
+      border-color: var(--purple-dark);
+    }
+    .km-node.linked {
+      background: #e8f5e9;
+      border-color: var(--accent-green);
+      color: #1b5e20;
+    }
+    .km-arrow {
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      color: var(--purple-mid);
+      font-weight: 700;
+    }
+
+    /* ===== VISUAL TREE ===== */
+    .tree-visual { background: var(--purple-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 18px 22px 14px 18px; margin: 1rem 0; overflow-x: auto; }
+    .tv-root { display: inline-flex; align-items: center; background: var(--purple-dark); color: #fff; font-weight: 700; font-size: 15px; padding: 5px 18px; border-radius: 20px; margin-bottom: 6px; }
+    .tv-children { list-style: none; padding: 0; margin: 0 0 0 14px; border-left: 2px solid var(--border); }
+    .tv-item { position: relative; padding: 5px 0 4px 22px; }
+    .tv-item::before { content: ''; position: absolute; left: 0; top: 14px; width: 18px; height: 2px; background: var(--border); }
+    .tv-node { display: inline-block; border-radius: 6px; padding: 3px 12px; font-size: 13px; font-weight: 600; line-height: 1.6; }
+    .tv-desc { display: block; font-size: 11.5px; color: var(--text-muted); padding: 0 4px; margin: 1px 0 3px; }
+    .tv-node.tv-l1 { background: var(--purple-pale); color: var(--purple-dark); border: 1px solid var(--purple-light); font-size: 14px; }
+    .tv-node.tv-l2 { background: #ede7f6; color: #4527a0; border: 1px solid #b39ddb; }
+    .tv-node.tv-l3 { background: #fafafa; color: var(--text-main); border: 1px solid #e0e0e0; font-weight: 400; }
+
+    /* ===== FOOTER ===== */
+    .page-footer {
+      background: var(--purple-dark);
+      color: #d1c4e9;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.82rem;
+      margin-top: 3rem;
+      border-radius: 12px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .page-wrapper { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: relative; }
+      .main-content { padding: 1.2rem 1rem 3rem; }
+      .page-header h1 { font-size: 1.4rem; }
+    }
+
+    /* ===== SCROLL BACK TO TOP ===== */
+    .back-top {
+      display: inline-block;
+      color: var(--purple-main);
+      font-size: 0.8rem;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 0.8rem;
+    }
+    .back-top:hover { color: var(--purple-dark); }
+
+    ol.solution-steps { padding-left: 1.3rem; }
+    ol.solution-steps li { margin-bottom: 0.3rem; }
+    ul.bullet { padding-left: 1.3rem; }
+    ul.bullet li { margin-bottom: 0.25rem; }
+    .highlight-text { color: var(--purple-main); font-weight: 700; }
+    .red-text { color: var(--accent-red); font-weight: 700; }
+    .green-text { color: var(--accent-green); font-weight: 700; }
+    .blue-text { color: var(--accent-blue); font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="week-tag">Week 26 &bull; 數學A科</div>
+      <h2>限時練習<br>40 分鐘 10 題</h2>
+    </div>
+    <nav>
+      <div class="nav-section-label">本週導覽</div>
+      <a href="#overview">單元概述</a>
+      <a href="#scope">重要：範圍缺口</a>
+      <a href="#plan">七日計畫</a>
+      <a href="#method">限時作答方法</a>
+      <div class="nav-section-label">限時題組</div>
+      <a href="#setA">Set A 第一、二冊混合</a>
+      <a href="#setB">Set B 第二冊為主</a>
+      <a href="#setC">Set C 第三冊A為主</a>
+      <div class="nav-section-label">第四冊 A 補強</div>
+      <a href="#card4">公式速查</a>
+      <a href="#setS">Set S 補強題</a>
+      <div class="nav-section-label">全卷模擬</div>
+      <a href="#mock">週六全卷模擬</a>
+      <a href="#score">週日得分紀錄</a>
+      <div class="nav-section-label">整理</div>
+      <a href="#traps">本週陷阱</a>
+      <a href="#summary">重點整理</a>
+      <a href="#exam-tips">學測方向</a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main-content">
+
+    <div class="page-header">
+      <div class="label-row">
+        <span class="badge">W26 第二十六週</span>
+        <span class="badge">數學A科</span>
+        <span class="badge">整合衝刺 · 限時訓練</span>
+        <span class="badge">高三上 &bull; 學測備考</span>
+        <span class="badge">週六：數學A 全卷模擬</span>
+      </div>
+      <h1>數學限時練習：40 分鐘 10 題</h1>
+      <p class="subtitle">三組範圍題（第一～三冊A）＋一組第四冊 A 補強題，每組 10 題限時 40 分鐘，題題附解析；週六用大考中心官方試卷做全卷模擬</p>
+      <div class="meta-row">
+        <span>日期：11/09–11/15</span>
+        <span>預計學習時間：每日約 60–70 分鐘</span>
+        <span>難度：★★★☆☆（學測標準）</span>
+        <span>距學測約 74 天</span>
+      </div>
+    </div>
+
+    <div class="section-block" id="toc">
+      <h2 class="section-title">目錄</h2>
+      <div class="toc-grid">
+        <a href="#overview" class="toc-item"><span class="toc-num">0</span>單元概述</a>
+        <a href="#scope" class="toc-item"><span class="toc-num">!</span>重要：範圍缺口</a>
+        <a href="#plan" class="toc-item"><span class="toc-num">P</span>七日計畫</a>
+        <a href="#method" class="toc-item"><span class="toc-num">M</span>限時作答方法</a>
+        <a href="#setA" class="toc-item"><span class="toc-num">A</span>Set A</a>
+        <a href="#setB" class="toc-item"><span class="toc-num">B</span>Set B</a>
+        <a href="#setC" class="toc-item"><span class="toc-num">C</span>Set C</a>
+        <a href="#card4" class="toc-item"><span class="toc-num">4</span>第四冊 A 速查</a>
+        <a href="#setS" class="toc-item"><span class="toc-num">S</span>Set S 補強題</a>
+        <a href="#mock" class="toc-item"><span class="toc-num">X</span>週六全卷模擬</a>
+        <a href="#score" class="toc-item"><span class="toc-num">L</span>得分紀錄</a>
+        <a href="#traps" class="toc-item"><span class="toc-num">T</span>本週陷阱</a>
+        <a href="#summary" class="toc-item"><span class="toc-num">R</span>重點整理</a>
+        <a href="#exam-tips" class="toc-item"><span class="toc-num">E</span>學測方向</a>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== OVERVIEW ===== -->
+    <div class="section-block" id="overview">
+      <h2 class="section-title">單元概述</h2>
+      <div class="card">
+        <p>W25 用八個模組找弱點；本週把重心換成<strong>速度與穩定度</strong>：同樣會寫的題目，能不能在時間內寫對。「40 分鐘 10 題」的節奏是每題 4 分鐘，比正式考試平均每題 5 分鐘（100 分鐘 20 題）更緊；平常練快一點，養成不卡題的習慣，週六全卷時才有餘裕檢查。</p>
+        <br>
+        <h4 class="minor-title">學習目標</h4>
+        <ul class="bullet">
+          <li>能在 40 分鐘內完成 10 題並留下檢查時間，正確率 ≥ 70%</li>
+          <li>建立「看題 → 判斷工具 → 決定做或跳」的 30 秒判斷流程</li>
+          <li>分辨錯誤類型：觀念、計算、審題、時間，寫進得分紀錄</li>
+          <li>補上第四冊 A（空間向量、矩陣）的基本題型，讓全卷模擬不留空白</li>
+          <li>週六完成全卷模擬，週日記錄與 W24 模擬考相比的得分變化</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== SCOPE ===== -->
+    <div class="section-block" id="scope">
+      <h2 class="section-title">重要：範圍缺口（請先看）</h2>
+      <div class="callout warning">
+        <div class="callout-title">⚠️ 第四冊 A 其實會考</div>
+        <p>本系列原本的課程範圍表寫著「第四冊 A（空間向量、矩陣等）學測不考」，因此 35 週時程沒有安排。但<a href="https://www.ceec.edu.tw/files/file_pool/1/0J305554315607771580/111%E5%AD%B8%E5%B9%B4%E5%BA%A6%E8%B5%B7%E9%81%A9%E7%94%A8%E5%AD%B8%E6%B8%AC%E6%95%B8%E5%AD%B8%E8%80%83%E7%A7%91%E8%80%83%E8%A9%A6%E8%AA%AA%E6%98%8E(%E5%AE%9A%E7%A8%BF)-1101.pdf" target="_blank" rel="noopener">大考中心數學考科考試說明</a>明列學測數學 A 範圍為「10 年級必修＋<strong>11 年級必修 A 類</strong>」，包含空間向量、外積、三階行列式、平面與直線方程式、矩陣、貝氏定理。逐年檢視 <strong>111–115 學年度數學 A 試卷</strong>，也<strong>每年都有這些內容</strong>。範圍表與時程表已於 2026/11/09 更正。</p>
+      </div>
+      <div class="card">
+        <table>
+          <thead><tr><th>學年度</th><th>屬第四冊 A 範圍的題目</th><th>配分（至少）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>115</strong></td><td>第 5 題（三階方陣）、第 13 題（條件機率）、第 18–20 題（平行六面體、平面方程式）</td><td>25 分</td></tr>
+            <tr><td><strong>114</strong></td><td>第 6 題（平行六面體）、第 14 題（點到平面距離）、第 18–20 題（旋轉矩陣）</td><td>25 分</td></tr>
+            <tr><td><strong>113</strong></td><td>第 2 題（外積）、第 12 題（矩陣變換）、第 18–20 題（空間向量、平面）</td><td>25 分</td></tr>
+            <tr><td><strong>112</strong></td><td>第 5 題（行列式）、第 6 題（空間內積）、第 11 題（旋轉鏡射矩陣）、第 16、17 題（坐標空間）</td><td>25 分</td></tr>
+            <tr><td><strong>111</strong></td><td>第 14 題（增廣矩陣）、第 16 題（空間平面）、第 17 題（平行六面體）</td><td>15 分</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <div class="callout-title">💡 接下來怎麼處理</div>
+        <ul class="bullet">
+          <li><strong>條件機率</strong>已在 W11、W22 複習過；缺口主要是<strong>空間向量、空間平面與直線、矩陣</strong>。</li>
+          <li><strong>本週（急救）：</strong><a href="#card4">公式速查</a> 與 <a href="#setS">Set S 補強題</a>，讓週六模擬時至少拿到基本分。</li>
+          <li><strong>時程表已排入：</strong>W27 空間向量、外積、三階行列式｜W28 空間中的平面與直線｜W29 方程組、矩陣與線性變換｜W30 條件機率、貝氏＋綜合題｜W31 混合題組（第 18–20 題型）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== PLAN ===== -->
+    <div class="section-block" id="plan">
+      <h2 class="section-title">七日計畫</h2>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>日期</th><th>任務</th><th>產出</th></tr></thead>
+          <tbody>
+            <tr><td>11/09（一）</td><td>Set A 限時 40 分鐘＋訂正 20 分鐘</td><td>得分、錯因</td></tr>
+            <tr><td>11/10（二）</td><td>Set B 限時 40 分鐘＋訂正；重做 Set A 錯題</td><td>得分、錯因</td></tr>
+            <tr><td>11/11（三）</td><td>Set C 限時 40 分鐘＋訂正；重做 Set B 錯題</td><td>得分、錯因</td></tr>
+            <tr><td>11/12（四）</td><td>第四冊 A 公式速查（30 分鐘）＋ Set S 前 5 題</td><td>默寫公式卡</td></tr>
+            <tr><td>11/13（五）</td><td>Set S 後 5 題；三組錯題再做一次；準備週六試卷</td><td>錯題清單</td></tr>
+            <tr><td>11/14（六）</td><td><strong>數學A 全卷模擬（100 分鐘）</strong></td><td>答案卷</td></tr>
+            <tr><td>11/15（日）</td><td>對答案、記錄得分變化、分類錯題</td><td>得分紀錄表</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== METHOD ===== -->
+    <div class="section-block" id="method">
+      <h2 class="section-title">限時作答方法</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>時間點</th><th>該完成</th><th>落後時怎麼辦</th></tr></thead>
+          <tbody>
+            <tr><td>第 0–1 分鐘</td><td>瀏覽 10 題，標出有把握的題目</td><td>—</td></tr>
+            <tr><td>第 12 分鐘</td><td>單選 4 題</td><td>跳過卡住的題目，標記即可</td></tr>
+            <tr><td>第 26 分鐘</td><td>多選 3 題</td><td>沒把握的選項先別選，多選是逐選項計分</td></tr>
+            <tr><td>第 36 分鐘</td><td>選填 3 題</td><td>只寫得出一半就先放下，回頭處理跳過的題</td></tr>
+            <tr><td>第 36–40 分鐘</td><td>檢查：標記題、計算代回</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout exam">
+        <div class="callout-title">★ 三條規則</div>
+        <ul class="bullet">
+          <li><strong>一定要計時</strong>，時間到就停筆，用紅筆寫完剩下的，並記下超時幾分鐘。</li>
+          <li><strong>30 秒判斷</strong>：看完題目 30 秒還不知道用什麼工具，先跳。</li>
+          <li><strong>多選計分</strong>（官方）：每題 5 個選項時，全對 5 分、錯 1 個選項得 3 分、錯 2 個選項得 1 分，錯更多或全未作答得 0 分。所以逐選項判斷，有把握再畫。</li>
+        </ul>
+      </div>
+      <div class="callout tip">
+        <div class="callout-title">💡 難度標示與本講義題目說明</div>
+        <p>★ 基本（約 2 分鐘）；★★ 學測標準（約 4 分鐘）；★★★ 整合挑戰（約 6 分鐘）。Set A–C、S 皆為依學測題型自編，週六全卷模擬才使用官方歷屆試卷。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SET A ===== -->
+    <div class="section-block" id="setA">
+      <h2 class="section-title">Set A　第一、二冊混合（週一，限時 40 分鐘）</h2>
+      <div class="practice-grid">
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">A1</span>
+            <div class="pq-q">【單選・絕對值・★】方程式 \(|x-3|+|x+1|=6\) 所有實數解的和為何？<br>(1) \(0\)　(2) \(1\)　(3) \(2\)　(4) \(3\)　(5) \(4\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>分段討論。\(x\ge3\)：\(2x-2=6\Rightarrow x=4\)。\(x\le-1\)：\(-2x+2=6\Rightarrow x=-2\)。\(-1\lt x\lt3\)：左式恆為 \(4\neq6\)，無解。</p><p>或用數線：到 \(3\) 與 \(-1\) 的距離和為 \(6\)，兩點相距 \(4\)，故解在兩側各延伸 \(1\)。</p><p><strong>答：</strong>(3)，解為 \(4,-2\)，和為 \(2\)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">A2</span>
+            <div class="pq-q">【單選・對數・★】已知 \(\log2\approx0.3010\)、\(\log3\approx0.4771\)。\(6^{20}\) 是幾位數？<br>(1) 14　(2) 15　(3) 16　(4) 17　(5) 18</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>\(\log6^{20}=20(\log2+\log3)=20\times0.7781=15.562\)。</p><p>首數 \(15\) ⟹ \(15+1=16\) 位數。</p><p><strong>答：</strong>(3)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">A3</span>
+            <div class="pq-q">【單選・多項式・★★】多項式 \(f(x)\) 除以 \(x-1\) 的餘式為 \(3\)，除以 \(x+2\) 的餘式為 \(-3\)。\(f(x)\) 除以 \((x-1)(x+2)\) 的餘式為何？<br>(1) \(2x+1\)　(2) \(2x-1\)　(3) \(x+2\)　(4) \(-2x+5\)　(5) \(3x\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>設餘式 \(ax+b\)。\(f(1)=a+b=3\)，\(f(-2)=-2a+b=-3\)。相減得 \(3a=6\Rightarrow a=2,\ b=1\)。</p><p><strong>驗算：</strong>\(2(1)+1=3\) ✓；\(2(-2)+1=-3\) ✓。</p><p><strong>答：</strong>(1)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">A4</span>
+            <div class="pq-q">【單選・直線與圓・★★】圓 \(C:x^2+y^2-4x+6y-12=0\) 與直線 \(L:3x-4y+7=0\) 的關係為何？<br>(1) 相離　(2) 相切　(3) 交於兩點且過圓心　(4) 交於兩點但不過圓心　(5) 無法判斷</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>配方：\((x-2)^2+(y+3)^2=25\)，圓心 \((2,-3)\)，半徑 \(5\)。</p><p>距離 \(d=\dfrac{|3(2)-4(-3)+7|}{\sqrt{3^2+4^2}}=\dfrac{25}{5}=5=r\)。</p><p><strong>答：</strong>(2) 相切</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">A5</span>
+            <div class="pq-q">【多選・正餘弦定理・★★】\(\triangle ABC\) 中，\(\overline{AB}=7\)、\(\overline{AC}=5\)、\(\angle A=60^\circ\)。選出正確的選項：<br>(1) \(\overline{BC}=\sqrt{39}\)　(2) 面積為 \(\dfrac{35\sqrt3}{4}\)　(3) 外接圓半徑為 \(\sqrt{13}\)　(4) \(\angle B\gt\angle C\)　(5) \(\triangle ABC\) 為鈍角三角形</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>(1) \(\overline{BC}^2=49+25-2\cdot7\cdot5\cdot\tfrac12=39\) ✓。</p><p>(2) \(\tfrac12\cdot7\cdot5\cdot\sin60^\circ=\tfrac{35\sqrt3}{4}\) ✓。</p><p>(3) \(2R=\dfrac{\sqrt{39}}{\sin60^\circ}\Rightarrow R=\dfrac{\sqrt{39}}{\sqrt3}=\sqrt{13}\) ✓。</p><p>(4) 大邊對大角：\(\overline{AB}\gt\overline{AC}\)，所以 \(\angle C\gt\angle B\)，✘。</p><p>(5) 最大邊 \(7\)：\(49\lt25+39\)，為銳角三角形，✘。</p><p><strong>答：</strong>(1)(2)(3)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">A6</span>
+            <div class="pq-q">【多選・等差數列・★★】等差數列 \(\langle a_n\rangle\) 首項 \(3\)、公差 \(4\)，前 \(n\) 項和為 \(S_n\)。選出正確的選項：<br>(1) \(a_n=4n-1\)　(2) \(S_{10}=210\)　(3) \(2027\) 是此數列的一項　(4) 使 \(S_n\gt1000\) 的最小正整數 \(n\) 為 \(22\)　(5) \(\langle a_{2n}\rangle\) 是公差為 \(4\) 的等差數列</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>(1) \(a_n=3+4(n-1)=4n-1\) ✓。(2) \(S_{10}=\tfrac{10}{2}(3+39)=210\) ✓。(3) \(4n-1=2027\Rightarrow n=507\) ✓。</p><p>(4) \(S_n=2n^2+n\)：\(S_{22}=990\)、\(S_{23}=1081\)，最小為 \(23\)，✘。</p><p>(5) \(a_{2n}=8n-1\)，公差 \(8\)，✘。</p><p><strong>答：</strong>(1)(2)(3)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">A7</span>
+            <div class="pq-q">【多選・數據分析・★★】一組資料：\(2,4,4,4,5,5,7,9\)（以母體計算標準差）。選出正確的選項：<br>(1) 平均數為 \(5\)　(2) 中位數為 \(4.5\)　(3) 標準差為 \(2\)　(4) 每筆資料加 \(3\) 後標準差變為 \(5\)　(5) 每筆資料乘 \(2\) 後變異數變為 \(16\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>(1) 總和 \(40\)，\(40\div8=5\) ✓。(2) 第 4、5 筆平均：\(\tfrac{4+5}{2}=4.5\) ✓。</p><p>(3) 離差平方和 \(9+1+1+1+0+0+4+16=32\)，變異數 \(4\)，標準差 \(2\) ✓。</p><p>(4) 平移不改變標準差，仍為 \(2\)，✘。(5) 乘 \(2\) 後變異數乘 \(4\)，得 \(16\) ✓。</p><p><strong>答：</strong>(1)(2)(3)(5)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">A8</span>
+            <div class="pq-q">【選填・排列・★★】甲、乙、丙、丁、戊、己 6 人排成一列，若甲、乙必須相鄰，且丙不站在兩端，共有＿＿種排法。</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>甲乙捆綁（內部 \(2\) 種）：全部 \(5!\times2=240\) 種。</p><p>扣掉丙在兩端：\(2\times4!\times2=96\) 種。</p><p>\(240-96=144\)。</p><p><strong>答：</strong>\(144\)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">A9</span>
+            <div class="pq-q">【選填・向量・★★】設 \(\vec a=(2,1)\)、\(\vec b=(1,3)\)，\(t\) 為實數。\(|\vec a+t\vec b|\) 的最小值為＿＿。</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>\(|\vec a+t\vec b|^2=|\vec a|^2+2t(\vec a\cdot\vec b)+t^2|\vec b|^2=5+10t+10t^2=10(t+\tfrac12)^2+\tfrac52\)。</p><p>\(t=-\tfrac12\) 時最小值 \(\sqrt{\tfrac52}=\dfrac{\sqrt{10}}{2}\)。</p><p><strong>答：</strong>\(\dfrac{\sqrt{10}}{2}\)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">A10</span>
+            <div class="pq-q">【選填・三角・★★】已知 \(\sin x+\cos x=\dfrac12\)，則 \(\sin2x=\)＿＿。</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>兩邊平方：\(1+2\sin x\cos x=\tfrac14\)，而 \(\sin2x=2\sin x\cos x\)，所以 \(\sin2x=-\tfrac34\)。</p><p><strong>答：</strong>\(-\dfrac34\)</p></div></details>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SET B ===== -->
+    <div class="section-block" id="setB">
+      <h2 class="section-title">Set B　第二冊為主（週二，限時 40 分鐘）</h2>
+      <div class="practice-grid">
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">B1</span>
+            <div class="pq-q">【單選・廣義角・★】\(\theta\) 為第二象限角，\(\tan\theta=-\dfrac34\)。\(\sin2\theta=\)？<br>(1) \(-\dfrac{24}{25}\)　(2) \(-\dfrac7{25}\)　(3) \(\dfrac7{25}\)　(4) \(\dfrac{24}{25}\)　(5) \(-\dfrac{12}{25}\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>第二象限：\(\sin\theta=\tfrac35\)、\(\cos\theta=-\tfrac45\)。</p><p>\(\sin2\theta=2\cdot\tfrac35\cdot(-\tfrac45)=-\tfrac{24}{25}\)。</p><p><strong>答：</strong>(1)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">B2</span>
+            <div class="pq-q">【單選・級數・★】\(\displaystyle\sum_{k=1}^{10}k(k+1)=\)？<br>(1) 385　(2) 440　(3) 495　(4) 550　(5) 605</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>\(\sum k^2+\sum k=\dfrac{10\cdot11\cdot21}{6}+\dfrac{10\cdot11}{2}=385+55=440\)。</p><p><strong>答：</strong>(2)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">B3</span>
+            <div class="pq-q">【單選・機率・★】袋中有 3 紅球、4 白球，同時取出 2 球，兩球同色的機率為？<br>(1) \(\dfrac17\)　(2) \(\dfrac27\)　(3) \(\dfrac37\)　(4) \(\dfrac47\)　(5) \(\dfrac57\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>\(\dfrac{C^3_2+C^4_2}{C^7_2}=\dfrac{3+6}{21}=\dfrac37\)。</p><p><strong>答：</strong>(3)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">B4</span>
+            <div class="pq-q">【單選・迴歸直線・★★】兩變數的 \(\bar x=3\)、\(\bar y=7\)、\(\sigma_x=2\)、\(\sigma_y=5\)、相關係數 \(r=0.8\)。\(y\) 對 \(x\) 的最適直線為？<br>(1) \(y=2x+1\)　(2) \(y=0.8x+4.6\)　(3) \(y=2.5x-0.5\)　(4) \(y=0.32x+6.04\)　(5) \(y=1.25x+3.25\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>斜率 \(m=r\cdot\dfrac{\sigma_y}{\sigma_x}=0.8\times\dfrac52=2\)。</p><p>直線過 \((\bar x,\bar y)\)：\(y-7=2(x-3)\Rightarrow y=2x+1\)。</p><p><strong>答：</strong>(1)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">B5</span>
+            <div class="pq-q">【多選・排列組合・★★】由 \(0,1,2,3,4,5\) 取相異三個數字組成三位數。選出正確的選項：<br>(1) 共有 100 個　(2) 偶數有 52 個　(3) 5 的倍數有 40 個　(4) 3 的倍數有 40 個　(5) 大於 300 的有 60 個</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>(1) \(5\times5\times4=100\) ✓。</p><p>(2) 個位 \(0\)：\(5\times4=20\)；個位 \(2\) 或 \(4\)：\(2\times4\times4=32\)；共 \(52\) ✓。</p><p>(3) 個位 \(0\)：\(20\)；個位 \(5\)：\(4\times4=16\)；共 \(36\)，✘。</p><p>(4) 三數和為 3 的倍數的組合：含 0 的 \(\{0,1,2\},\{0,1,5\},\{0,2,4\},\{0,4,5\}\) 各 \(4\) 個；不含 0 的 \(\{1,2,3\},\{1,3,5\},\{2,3,4\},\{3,4,5\}\) 各 \(6\) 個；共 \(16+24=40\) ✓。</p><p>(5) 百位 \(3,4,5\)：\(3\times5\times4=60\) ✓。</p><p><strong>答：</strong>(1)(2)(4)(5)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">B6</span>
+            <div class="pq-q">【多選・正弦定理・★★★】\(\triangle ABC\) 中，\(\overline{BC}=6\)、\(\angle A=30^\circ\)。選出正確的選項：<br>(1) 外接圓半徑為 \(6\)　(2) 若 \(\angle B=45^\circ\)，則 \(\overline{AC}=6\sqrt2\)　(3) 若 \(\angle B=45^\circ\)，則 \(\overline{AB}=3\sqrt6+3\sqrt2\)　(4) 若 \(\overline{AC}=10\)，滿足條件的三角形恰有兩個　(5) 若 \(\overline{AC}=14\)，滿足條件的三角形恰有一個</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>(1) \(2R=\dfrac{6}{\sin30^\circ}=12\) ✓。(2) \(\overline{AC}=12\sin45^\circ=6\sqrt2\) ✓。</p><p>(3) \(\angle C=105^\circ\)，\(\overline{AB}=12\sin105^\circ=12\cdot\dfrac{\sqrt6+\sqrt2}{4}=3\sqrt6+3\sqrt2\) ✓。</p><p>(4) \(\sin B=\dfrac{10\sin30^\circ}{6}=\dfrac56\lt1\)，\(B\) 可為銳角或鈍角，且鈍角時 \(30^\circ+B\lt180^\circ\)，兩解 ✓。</p><p>(5) \(\sin B=\dfrac{14\sin30^\circ}{6}=\dfrac76\gt1\)，無解，✘。</p><p><strong>答：</strong>(1)(2)(3)(4)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">B7</span>
+            <div class="pq-q">【多選・等比數列・★★】等比數列 \(\langle a_n\rangle\) 首項 \(3\)、公比 \(2\)。選出正確的選項：<br>(1) \(a_n=3\cdot2^{n-1}\)　(2) \(S_{10}=3069\)　(3) 使 \(a_n\gt10000\) 的最小 \(n\) 為 \(13\)　(4) \(\langle\log_2a_n\rangle\) 是公差為 \(1\) 的等差數列　(5) \(a_1+a_3+a_5=60\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>(2) \(S_{10}=3(2^{10}-1)=3069\) ✓。</p><p>(3) \(a_{12}=3\cdot2^{11}=6144\)、\(a_{13}=12288\) ✓。</p><p>(4) \(\log_2a_n=\log_23+(n-1)\) ✓。</p><p>(5) \(3+12+48=63\)，✘。</p><p><strong>答：</strong>(1)(2)(3)(4)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">B8</span>
+            <div class="pq-q">【選填・相同物排列・★★】將 BANANA 的 6 個字母排成一列，3 個 A 互不相鄰的排法有＿＿種。</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>先排 B、N、N：\(\dfrac{3!}{2!}=3\) 種；產生 \(4\) 個空隙，選 \(3\) 個放 A：\(C^4_3=4\)。</p><p>\(3\times4=12\)。</p><p><strong>答：</strong>\(12\)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">B9</span>
+            <div class="pq-q">【選填・對數應用・★★】某藥物每小時殘留量為前一小時的 \(80\%\)。至少經過＿＿小時（取整數），殘留量才會低於初始的 \(10\%\)。（\(\log2\approx0.3010\)）</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>\(0.8^n\lt0.1\Rightarrow n\log0.8\lt-1\)。</p><p>\(\log0.8=3\log2-1=-0.0970\)。兩邊同除以負數要變號：\(n\gt\dfrac{1}{0.0970}\approx10.31\)。</p><p>最小整數 \(n=11\)。</p><p><strong>答：</strong>\(11\)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">B10</span>
+            <div class="pq-q">【選填・遞迴・★★★】數列 \(a_1=1\)、\(a_{n+1}=2a_n+1\)。\(\displaystyle\sum_{k=1}^{10}a_k=\)＿＿。</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>兩邊加 1：\(a_{n+1}+1=2(a_n+1)\)，所以 \(a_n+1=2^n\)，\(a_n=2^n-1\)。</p><p>\(\sum_{k=1}^{10}(2^k-1)=(2^{11}-2)-10=2036\)。</p><p><strong>答：</strong>\(2036\)</p></div></details>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SET C ===== -->
+    <div class="section-block" id="setC">
+      <h2 class="section-title">Set C　第三冊A為主（週三，限時 40 分鐘）</h2>
+      <div class="practice-grid">
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">C1</span>
+            <div class="pq-q">【單選・三角函數・★★】函數 \(y=3\cos\left(2x-\dfrac\pi3\right)+1\) 在 \(0\le x\le\dfrac\pi2\) 的最小值為？<br>(1) \(-2\)　(2) \(-1\)　(3) \(-\dfrac12\)　(4) \(0\)　(5) \(1\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>令 \(u=2x-\tfrac\pi3\)，範圍 \(-\tfrac\pi3\le u\le\tfrac{2\pi}3\)。</p><p>在此範圍 \(\cos u\) 最小值在 \(u=\tfrac{2\pi}{3}\)，為 \(-\tfrac12\)（<strong>不是 \(-1\)</strong>）。\(y_{\min}=3(-\tfrac12)+1=-\tfrac12\)。</p><p><strong>答：</strong>(3)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">C2</span>
+            <div class="pq-q">【單選・和差角・★】\(\alpha,\beta\) 為銳角，\(\tan\alpha=2\)、\(\tan\beta=3\)。\(\alpha+\beta=\)？<br>(1) \(105^\circ\)　(2) \(120^\circ\)　(3) \(135^\circ\)　(4) \(150^\circ\)　(5) \(165^\circ\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>\(\tan(\alpha+\beta)=\dfrac{2+3}{1-6}=-1\)，且 \(0^\circ\lt\alpha+\beta\lt180^\circ\)，所以 \(135^\circ\)。</p><p><strong>答：</strong>(3)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">C3</span>
+            <div class="pq-q">【單選・指數方程・★】方程式 \(4^x-5\cdot2^x+4=0\) 所有實根的和為？<br>(1) 0　(2) 1　(3) 2　(4) 3　(5) 4</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>令 \(t=2^x\gt0\)：\(t^2-5t+4=0\Rightarrow t=1,4\)，\(x=0,2\)，和為 \(2\)。</p><p><strong>答：</strong>(3)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">C4</span>
+            <div class="pq-q">【單選・對數不等式・★★】滿足 \(\log_2(x-1)+\log_2(x+1)\le3\) 的整數 \(x\) 有幾個？<br>(1) 1　(2) 2　(3) 3　(4) 4　(5) 無限多個</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>定義域：\(x\gt1\)。</p><p>\(\log_2(x^2-1)\le3\Rightarrow x^2\le9\)。與定義域取交集：\(1\lt x\le3\)，整數 \(x=2,3\)。</p><p><strong>答：</strong>(2)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">C5</span>
+            <div class="pq-q">【多選・內積・★★】\(\vec a=(3,4)\)、\(\vec b=(1,-2)\)。選出正確的選項：<br>(1) \(\vec a\cdot\vec b=-5\)　(2) 兩向量夾角為鈍角　(3) \(\vec a\) 在 \(\vec b\) 上的正射影為 \((-1,2)\)　(4) \(\vec a+\vec b\) 與 \(\vec a-\vec b\) 垂直　(5) \(\left(\dfrac45,-\dfrac35\right)\) 是與 \(\vec a\) 垂直的單位向量</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>(1) \(3-8=-5\) ✓。(2) 內積為負 ✓。</p><p>(3) \(\dfrac{\vec a\cdot\vec b}{|\vec b|^2}\vec b=\dfrac{-5}{5}(1,-2)=(-1,2)\) ✓。</p><p>(4) \((\vec a+\vec b)\cdot(\vec a-\vec b)=|\vec a|^2-|\vec b|^2=25-5=20\neq0\)，✘。</p><p>(5) \(3\cdot\tfrac45-4\cdot\tfrac35=0\)，長度 \(1\) ✓。</p><p><strong>答：</strong>(1)(2)(3)(5)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">C6</span>
+            <div class="pq-q">【多選・疊合・★★】\(f(x)=\sin x+\sqrt3\cos x\)。選出正確的選項：<br>(1) \(f(x)=2\sin\left(x+\dfrac\pi3\right)\)　(2) 最大值為 \(2\)　(3) 週期為 \(\pi\)　(4) \(f\left(\dfrac{2\pi}3\right)=0\)　(5) 在 \(0\le x\le2\pi\)，\(f(x)=1\) 恰有 2 解</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>(1) \(2(\sin x\cdot\tfrac12+\cos x\cdot\tfrac{\sqrt3}{2})\) ✓。(2) ✓。(3) 週期 \(2\pi\)，✘。(4) \(2\sin\pi=0\) ✓。</p><p>(5) \(\sin(x+\tfrac\pi3)=\tfrac12\)：\(x+\tfrac\pi3=\tfrac{5\pi}{6}\) 或 \(\tfrac{13\pi}{6}\)，得 \(x=\tfrac\pi2,\ \tfrac{11\pi}{6}\) ✓。</p><p><strong>答：</strong>(1)(2)(4)(5)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">C7</span>
+            <div class="pq-q">【多選・指對數比較・★★★】\(a=2^{0.5}\)、\(b=\log_23\)、\(c=\log_32\)、\(d=\left(\dfrac12\right)^{-0.3}\)。選出正確的選項：<br>(1) \(c\lt1\)　(2) \(d\lt a\)　(3) \(a\lt b\)　(4) \(bc=1\)　(5) \(d\gt b\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>(1) \(\log_32\lt\log_33=1\) ✓。(2) \(d=2^{0.3}\lt2^{0.5}\) ✓。</p><p>(3) \(a^2=2\)；\(b=\log_23\gt\log_22^{1.5}=1.5\)（因 \(2^{1.5}=\sqrt8\lt3\)），而 \(a\lt1.5\)，所以 \(a\lt b\) ✓。</p><p>(4) 換底：\(\log_23\cdot\log_32=1\) ✓。(5) 由 (2)(3)：\(d\lt a\lt b\)，✘。</p><p><strong>答：</strong>(1)(2)(3)(4)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">C8</span>
+            <div class="pq-q">【選填・向量面積・★】\(\vec a=(3,1)\)、\(\vec b=(1,2)\) 所張成的平行四邊形面積為＿＿。</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>\(\left|\begin{matrix}3&1\\1&2\end{matrix}\right|=6-1=5\)。</p><p><strong>答：</strong>\(5\)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">C9</span>
+            <div class="pq-q">【選填・向量與面積比・★★★】\(\triangle ABC\) 內一點 \(P\) 滿足 \(\overrightarrow{AP}=\dfrac13\overrightarrow{AB}+\dfrac12\overrightarrow{AC}\)。\(\dfrac{\triangle PBC\text{ 面積}}{\triangle ABC\text{ 面積}}=\)＿＿。</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>\(\overrightarrow{AP}=x\overrightarrow{AB}+y\overrightarrow{AC}\) 時，\(\triangle PBC\) 占 \(1-x-y\)、\(\triangle PCA\) 占 \(x\)、\(\triangle PAB\) 占 \(y\)。</p><p>\(1-\tfrac13-\tfrac12=\tfrac16\)。</p><p><strong>答：</strong>\(\dfrac16\)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">C10</span>
+            <div class="pq-q">【選填・跨章（三角＋幾何）・★★★】三角形三邊長為 \(3,5,7\)。其內切圓半徑為＿＿。</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>最大角對邊 \(7\)：\(\cos\theta=\dfrac{9+25-49}{2\cdot3\cdot5}=-\dfrac12\)，\(\theta=120^\circ\)。</p><p>面積 \(=\tfrac12\cdot3\cdot5\cdot\sin120^\circ=\tfrac{15\sqrt3}{4}\)；半周長 \(s=\tfrac{15}{2}\)。</p><p>\(r=\dfrac{\text{面積}}{s}=\dfrac{\sqrt3}{2}\)。</p><p><strong>答：</strong>\(\dfrac{\sqrt3}{2}\)</p></div></details>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== CARD4 ===== -->
+    <div class="section-block" id="card4">
+      <h2 class="section-title">第四冊 A 公式速查（急救版，W27–W30 會系統複習）</h2>
+      <div class="formula-box">
+        <div class="fb-title">空間向量</div>
+        <div class="fb-body">
+          長度 \(|\vec a|=\sqrt{a_1^2+a_2^2+a_3^2}\)；內積 \(\vec a\cdot\vec b=a_1b_1+a_2b_2+a_3b_3=|\vec a||\vec b|\cos\theta\)<br>
+          外積 \(\vec a\times\vec b=\left(\left|\begin{matrix}a_2&a_3\\b_2&b_3\end{matrix}\right|,\ \left|\begin{matrix}a_3&a_1\\b_3&b_1\end{matrix}\right|,\ \left|\begin{matrix}a_1&a_2\\b_1&b_2\end{matrix}\right|\right)\)，與 \(\vec a,\vec b\) 皆垂直<br>
+          平行四邊形面積 \(=|\vec a\times\vec b|\)；三角形面積 \(=\dfrac12|\vec a\times\vec b|\)<br>
+          平行六面體體積 \(=|\det(\vec a,\vec b,\vec c)|\)（三階行列式的絕對值）；四面體體積為其 \(\dfrac16\)<br>
+          空間概念：兩直線、兩平面、直線與平面的位置關係；三垂線定理
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="fb-title">空間中的平面與直線</div>
+        <div class="fb-body">
+          平面：法向量 \((a,b,c)\)、過點 \((x_0,y_0,z_0)\)：\(a(x-x_0)+b(y-y_0)+c(z-z_0)=0\)<br>
+          截距式 \(\dfrac xp+\dfrac yq+\dfrac zr=1\)；點到平面距離 \(\dfrac{|ax_0+by_0+cz_0-d|}{\sqrt{a^2+b^2+c^2}}\)<br>
+          過三點的平面：兩向量外積得法向量<br>
+          直線參數式 \((x,y,z)=(x_0+at,\,y_0+bt,\,z_0+ct)\)；與平面的交點：代入平面解 \(t\)<br>
+          兩平面夾角：看法向量夾角；兩平面交線方向＝兩法向量的外積
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="fb-title">矩陣與線性變換</div>
+        <div class="fb-body">
+          乘法：列乘行，一般 \(AB\neq BA\)；\(\det\begin{bmatrix}a&b\\c&d\end{bmatrix}=ad-bc\)；\(A^{-1}=\dfrac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}\)<br>
+          旋轉 \(\theta\)（逆時針）：\(\begin{bmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{bmatrix}\)；對 \(y=x\) 鏡射：\(\begin{bmatrix}0&1\\1&0\end{bmatrix}\)<br>
+          合成變換：<strong>後做的矩陣放左邊</strong>；面積伸縮倍率＝\(|\det|\)<br>
+          高斯消去：寫成增廣矩陣，用列運算化成上三角再回代；二元方程組可用克拉瑪公式（\(\Delta\neq0\) 唯一解）<br>
+          二階轉移方陣：\(X_{n+1}=AX_n\)，每一行的和為 \(1\)
+        </div>
+      </div>
+      <div class="formula-box">
+        <div class="fb-title">條件機率與貝氏（W11、W22 已複習）</div>
+        <div class="fb-body">
+          \(P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}\)；貝氏：分母是所有來源的全機率，分子是目標來源那一條路徑
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SET S ===== -->
+    <div class="section-block" id="setS">
+      <h2 class="section-title">Set S　第四冊 A 補強題（週四、五）</h2>
+      <div class="callout tip">
+        <div class="callout-title">💡 這組不限時</div>
+        <p>第一次接觸的題型先把方法做熟，邊看公式卡邊做沒關係。隔天再遮住公式重做一次。</p>
+      </div>
+      <div class="practice-grid">
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">S1</span>
+            <div class="pq-q">【單選・點到平面距離・★】點 \(P(1,2,3)\) 到平面 \(2x-y+2z=12\) 的距離為？<br>(1) 1　(2) 2　(3) 3　(4) 4　(5) 6</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>\(\dfrac{|2-2+6-12|}{\sqrt{4+1+4}}=\dfrac63=2\)。</p><p><strong>答：</strong>(2)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">S2</span>
+            <div class="pq-q">【單選・平行六面體・★★】向量 \((1,0,1)\)、\((0,2,1)\)、\((1,1,0)\) 所張成的平行六面體體積為？<br>(1) 1　(2) 2　(3) 3　(4) 4　(5) 6</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>三階行列式取絕對值：\(\left|\begin{matrix}1&0&1\\0&2&1\\1&1&0\end{matrix}\right|=1(0-1)-0+1(0-2)=-3\)，體積 \(3\)。</p><p><strong>答：</strong>(3)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">S3</span>
+            <div class="pq-q">【單選・平面方程式・★】過 \(A(1,0,0)\)、\(B(0,2,0)\)、\(C(0,0,3)\) 的平面方程式為？<br>(1) \(x+2y+3z=1\)　(2) \(6x+3y+2z=6\)　(3) \(3x+2y+z=3\)　(4) \(2x+3y+6z=6\)　(5) \(x+y+z=6\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>截距式：\(\dfrac x1+\dfrac y2+\dfrac z3=1\)，乘 \(6\)：\(6x+3y+2z=6\)。</p><p><strong>答：</strong>(2)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">S4</span>
+            <div class="pq-q">【單選・直線與平面交點・★★】直線 \(L:(x,y,z)=(1+t,\,2-t,\,3+2t)\) 與平面 \(x+y+z=10\) 的交點為？<br>(1) \((2,1,5)\)　(2) \((3,0,7)\)　(3) \((4,-1,9)\)　(4) \((5,-2,11)\)　(5) \((1,2,3)\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>代入：\((1+t)+(2-t)+(3+2t)=6+2t=10\Rightarrow t=2\)，得 \((3,0,7)\)。</p><p><strong>答：</strong>(2)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">S5</span>
+            <div class="pq-q">【多選・兩平面關係・★★】平面 \(E_1:x+y=1\)、\(E_2:y+z=2\)。選出正確的選項：<br>(1) \(E_1\) 的一個法向量為 \((1,1,0)\)　(2) 兩平面的夾角可為 \(60^\circ\)　(3) 兩平面互相平行　(4) 點 \((1,0,2)\) 同時在兩平面上　(5) 交線的方向向量可取 \((1,-1,1)\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>(2) \(\cos\theta=\dfrac{(1,1,0)\cdot(0,1,1)}{\sqrt2\sqrt2}=\dfrac12\) ✓。(3) 法向量不平行，✘。</p><p>(4) \(1+0=1\)、\(0+2=2\) ✓。</p><p>(5) 外積 \((1,1,0)\times(0,1,1)=(1,-1,1)\) ✓。</p><p><strong>答：</strong>(1)(2)(4)(5)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">S6</span>
+            <div class="pq-q">【多選・矩陣運算・★★】\(A=\begin{bmatrix}1&2\\3&4\end{bmatrix}\)、\(B=\begin{bmatrix}0&1\\1&0\end{bmatrix}\)。選出正確的選項：<br>(1) \(AB=\begin{bmatrix}2&1\\4&3\end{bmatrix}\)　(2) \(AB=BA\)　(3) \(\det A=-2\)　(4) \(A^{-1}=\begin{bmatrix}-2&1\\\tfrac32&-\tfrac12\end{bmatrix}\)　(5) \(B^2=I\)</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>(1) ✓。(2) \(BA=\begin{bmatrix}3&4\\1&2\end{bmatrix}\neq AB\)，✘（矩陣乘法不可交換）。</p><p>(3) \(4-6=-2\) ✓。(4) \(\dfrac{1}{-2}\begin{bmatrix}4&-2\\-3&1\end{bmatrix}\) ✓。(5) ✓。</p><p><strong>答：</strong>(1)(3)(4)(5)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">S7</span>
+            <div class="pq-q">【單選・線性變換・★★★】平面上的點先對直線 \(y=x\) 鏡射，再繞原點逆時針旋轉 \(90^\circ\)。此合成變換等於？<br>(1) 對 \(x\) 軸鏡射　(2) 對 \(y\) 軸鏡射　(3) 旋轉 \(180^\circ\)　(4) 恆等變換　(5) 對 \(y=-x\) 鏡射</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>後做的矩陣放左邊：\(\begin{bmatrix}0&-1\\1&0\end{bmatrix}\begin{bmatrix}0&1\\1&0\end{bmatrix}=\begin{bmatrix}-1&0\\0&1\end{bmatrix}\)，即 \((x,y)\to(-x,y)\)。</p><p><strong>驗算：</strong>\((1,0)\) 鏡射成 \((0,1)\)，再旋轉成 \((-1,0)\) ✓。</p><p><strong>答：</strong>(2)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">S8</span>
+            <div class="pq-q">【選填・高斯消去・★★】方程組 \(\begin{cases}x+y+z=6\\2x-y+z=3\\x+2y-z=2\end{cases}\) 的解為 \((x,y,z)=\)＿＿。</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>第一式＋第三式：\(2x+3y=8\)。第二式＋第三式：\(3x+y=5\)。</p><p>解得 \(x=1,\ y=2\)，再代回得 \(z=3\)。寫成增廣矩陣列運算也是同一步驟。</p><p><strong>答：</strong>\((1,2,3)\)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">S9</span>
+            <div class="pq-q">【選填・條件機率・★★】甲、乙兩廠分別生產某零件的 \(60\%\)、\(40\%\)，不良率分別為 \(2\%\)、\(5\%\)。隨機抽到一件不良品，它來自乙廠的機率為＿＿。</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>\(P=\dfrac{0.4\times0.05}{0.6\times0.02+0.4\times0.05}=\dfrac{0.020}{0.032}=\dfrac58\)。</p><p><strong>答：</strong>\(\dfrac58\)</p></div></details>
+        </div>
+        <div class="practice-item">
+          <div class="pq-header"><span class="pq-num">S10</span>
+            <div class="pq-q">【選填・期望值・★★】擲兩顆公正骰子，兩點數差的絕對值的期望值為＿＿。</div></div>
+          <details class="answer-reveal"><summary>展開解答</summary><div class="answer-body"><p>差為 \(0,1,2,3,4,5\) 的方法數為 \(6,10,8,6,4,2\)。</p><p>\(E=\dfrac{0\cdot6+1\cdot10+2\cdot8+3\cdot6+4\cdot4+5\cdot2}{36}=\dfrac{70}{36}=\dfrac{35}{18}\)。</p><p><strong>答：</strong>\(\dfrac{35}{18}\)</p></div></details>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== MOCK ===== -->
+    <div class="section-block" id="mock">
+      <h2 class="section-title">週六：數學A 全卷模擬（100 分鐘）</h2>
+      <div class="callout exam">
+        <div class="callout-title">★ 使用大考中心官方試卷</div>
+        <p>依序選擇還沒做過的年度：</p>
+        <ul class="bullet">
+          <li><strong>115 學年度：</strong><a href="https://www.ceec.edu.tw/files/file_pool/1/0q054344158947111283/03-115%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e8%a9%a6%e5%8d%b7.pdf" target="_blank" rel="noopener">試卷</a>｜<a href="https://www.ceec.edu.tw/files/file_pool/1/0q040592802409726233/03-115%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e7%ad%94%e6%a1%88.pdf" target="_blank" rel="noopener">選擇（填）題答案</a>｜<a href="https://www.ceec.edu.tw/files/file_pool/1/0q054335289912664889/115%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf" target="_blank" rel="noopener">非選擇題評分原則</a></li>
+          <li><strong>114 學年度：</strong><a href="https://www.ceec.edu.tw/files/file_pool/1/0p056503510203248955/03-114%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e8%a9%a6%e9%a1%8c.pdf" target="_blank" rel="noopener">試卷</a>｜<a href="https://www.ceec.edu.tw/files/file_pool/1/0p051544393000727284/03-114%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e7%ad%94%e6%a1%88.pdf" target="_blank" rel="noopener">選擇（填）題答案</a>｜<a href="https://www.ceec.edu.tw/files/file_pool/1/0p055379013856943041/04-114%e5%ad%b8%e6%b8%ac%e6%95%b8%e5%ad%b8a%e8%80%83%e7%a7%91%e9%9d%9e%e9%81%b8%e6%93%87%e9%a1%8c%e5%8f%83%e8%80%83%e7%ad%94%e6%a1%88%e8%88%87%e8%a9%95%e5%88%86%e5%8e%9f%e5%89%87.pdf" target="_blank" rel="noopener">非選擇題評分原則</a></li>
+          <li>其他年度：<a href="https://www.ceec.edu.tw/xmfile?xsmsid=0J052424829869345634" target="_blank" rel="noopener">大考中心歷屆試題頁面</a></li>
+        </ul>
+      </div>
+
+      <h3 class="sub-title">試卷結構與時間分配（依 114、115 試卷）</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>部分</th><th>題號</th><th>配分</th><th>建議時間</th><th>檢查點</th></tr></thead>
+          <tbody>
+            <tr><td>單選題</td><td>第 1–6 題</td><td>30 分（每題 5 分）</td><td>18 分鐘</td><td>第 18 分鐘</td></tr>
+            <tr><td>多選題</td><td>第 7–12 題</td><td>30 分（每題 5 分）</td><td>24 分鐘</td><td>第 42 分鐘</td></tr>
+            <tr><td>選填題</td><td>第 13–17 題</td><td>25 分（每題 5 分）</td><td>25 分鐘</td><td>第 67 分鐘</td></tr>
+            <tr><td>混合題或非選擇題</td><td>第 18–20 題</td><td>15 分</td><td>20 分鐘</td><td>第 87 分鐘</td></tr>
+            <tr><td>檢查與回頭</td><td>—</td><td>—</td><td>13 分鐘</td><td>第 100 分鐘</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warning">
+        <div class="callout-title">⚠️ 時間分配的依據</div>
+        <p>選擇（填）題占 85 分、混合題占 15 分，所以<strong>混合題不宜超過 20–25 分鐘</strong>；但非選擇題要寫出過程才給分，別只寫答案。（W25 原本的時間建議已同步更正。）</p>
+      </div>
+      <div class="card">
+        <h4 class="minor-title">考前與作答中要做的事</h4>
+        <ul class="bullet">
+          <li>週五晚上印好試卷與答題紙；只帶可用的文具，<strong>不用計算機</strong>。試卷後方附有參考公式，先知道在哪。</li>
+          <li>固定時段一次寫完，手機放另一個房間，中途不查資料。</li>
+          <li>題號旁記號：○ 有把握、△ 不確定、✕ 跳過；對答案時分析 △ 和 ✕。</li>
+          <li>遇到第四冊 A 題目先試基本題，不會就跳，不要被它吃掉時間；對完答案再把它列為優先補強。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== SCORE ===== -->
+    <div class="section-block" id="score">
+      <h2 class="section-title">週日：得分紀錄與變化</h2>
+      <div class="card">
+        <h4 class="minor-title">一、本週三組限時題</h4>
+        <table>
+          <thead><tr><th>題組</th><th>答對／10</th><th>用時</th><th>主要錯因</th></tr></thead>
+          <tbody>
+            <tr><td>Set A</td><td>＿／10</td><td>＿分</td><td style="color:var(--muted)">＿＿＿＿＿</td></tr>
+            <tr><td>Set B</td><td>＿／10</td><td>＿分</td><td style="color:var(--muted)">＿＿＿＿＿</td></tr>
+            <tr><td>Set C</td><td>＿／10</td><td>＿分</td><td style="color:var(--muted)">＿＿＿＿＿</td></tr>
+            <tr><td>Set S</td><td>＿／10</td><td>不限</td><td style="color:var(--muted)">＿＿＿＿＿</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h4 class="minor-title">二、全卷模擬得分變化（與 W24 第一次模擬考比較）</h4>
+        <table>
+          <thead><tr><th>部分（滿分）</th><th>W24 模擬</th><th>W26 模擬</th><th>變化</th><th>失分題號</th></tr></thead>
+          <tbody>
+            <tr><td>單選（30）</td><td>＿</td><td>＿</td><td>＿</td><td style="color:var(--muted)">＿＿＿</td></tr>
+            <tr><td>多選（30）</td><td>＿</td><td>＿</td><td>＿</td><td style="color:var(--muted)">＿＿＿</td></tr>
+            <tr><td>選填（25）</td><td>＿</td><td>＿</td><td>＿</td><td style="color:var(--muted)">＿＿＿</td></tr>
+            <tr><td>混合題（15）</td><td>＿</td><td>＿</td><td>＿</td><td style="color:var(--muted)">＿＿＿</td></tr>
+            <tr><td><strong>總分（100）</strong></td><td>＿</td><td>＿</td><td>＿</td><td>—</td></tr>
+            <tr><td>第四冊 A 題失分</td><td>＿</td><td>＿</td><td>＿</td><td style="color:var(--muted)">＿＿＿</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h4 class="minor-title">三、錯因統計與處方</h4>
+        <table>
+          <thead><tr><th>錯因</th><th>題數</th><th>下週處方</th></tr></thead>
+          <tbody>
+            <tr><td>觀念不清（不知道用什麼工具）</td><td>＿</td><td>回看該章重點，加做 ★ 題</td></tr>
+            <tr><td>範圍未複習（第四冊 A）</td><td>＿</td><td>依 Set S 公式卡補強，排入後續時程</td></tr>
+            <tr><td>計算錯誤（符號、分數、根號）</td><td>＿</td><td>每步驗算；養成代回檢查</td></tr>
+            <tr><td>審題錯誤（定義域、範圍、條件）</td><td>＿</td><td>題幹圈條件；寫出已知與所求</td></tr>
+            <tr><td>時間不足（會寫但來不及）</td><td>＿</td><td>每週兩次限時；練習跳題</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== TRAPS ===== -->
+    <div class="section-block" id="traps">
+      <h2 class="section-title">本週陷阱</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>陷阱</th><th>正確做法</th><th>題號</th></tr></thead>
+          <tbody>
+            <tr><td>限定範圍的三角函數，直接用振幅求最值</td><td>先寫出角的範圍，再看函數值</td><td>C1</td></tr>
+            <tr><td>對數方程式、不等式忘了定義域</td><td>先寫真數 \(\gt0\)，最後取交集</td><td>C4</td></tr>
+            <tr><td>不等式兩邊同除以負數沒有變號</td><td>\(\log0.8\lt0\)，除完要變號</td><td>B9</td></tr>
+            <tr><td>大邊對大角記反</td><td>對邊比較，寫出來再判斷</td><td>A5</td></tr>
+            <tr><td>兩解問題漏掉鈍角</td><td>檢查兩解是否都滿足內角和</td><td>B6</td></tr>
+            <tr><td>矩陣乘法順序錯</td><td>後做的放左邊；不可交換</td><td>S6、S7</td></tr>
+            <tr><td>平行六面體體積忘了取絕對值</td><td>行列式可能為負，體積為正</td><td>S2</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== SUMMARY ===== -->
+    <div class="section-block" id="summary">
+      <h2 class="section-title">重點整理</h2>
+      <ul class="summary-list">
+        <li>限時訓練的重點是<strong>判斷與取捨</strong>：30 秒決定做或跳，先把會的題寫對。</li>
+        <li>多選逐選項計分：錯 1 個選項得 3 分，所以有把握的選項一定要畫，沒把握的別硬猜全部。</li>
+        <li>第一～三冊A：分段討論、餘式定理、點線距離、正餘弦定理、等差等比、換元解指數方程、定義域、內積與正射影、疊合。</li>
+        <li><strong>第四冊 A 會考</strong>：外積、三階行列式、平面方程式、點面距離、旋轉鏡射矩陣、高斯消去，每年約 15–25 分。</li>
+        <li>全卷模擬用官方試卷，依配分分配時間：單選 18、多選 24、選填 25、混合 20、檢查 13 分鐘。</li>
+        <li>週日記錄的是<strong>變化與錯因</strong>，不是只看總分；下週優先處理題數最多的錯因。</li>
+      </ul>
+    </div>
+
+    <!-- ===== EXAM TIPS ===== -->
+    <div class="section-block" id="exam-tips">
+      <h2 class="section-title">學測考題方向提示</h2>
+      <div class="callout exam">
+        <div class="callout-title">近五年試卷的共同特徵</div>
+        <p>結構固定：單選 6 題、多選 6 題、選填 5 題，共 85 分；第 18–20 題為混合題組，15 分。混合題多取空間向量、三角、矩陣等主題，非選擇題必須寫出過程或理由，否則酌予扣分。</p>
+      </div>
+      <div class="callout link">
+        <div class="callout-title">🔗 下週預告：W27</div>
+        <p>數學為「第四冊 A：空間向量、外積、三階行列式」與「三角函數、向量 混合題」，週六是物理化學聯合模擬。本週統計的錯因請帶到下週。</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <p>W26 數學A科講義 ── 限時練習 40 分鐘 10 題 ＋ 全卷模擬</p>
+      <p style="margin-top:0.4rem; opacity:0.7;">台灣高中學測備考 &bull; 高三上理工組 &bull; 第四階段整合衝刺（第二週）｜試卷結構與題號依大考中心 111–115 學年度試卷</p>
+    </div>
+
+    <a href="#toc" class="back-top">回到目錄 ↑</a>
+
+  </main>
+</div>
+
+</body>
+</html>

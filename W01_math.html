@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W01 數學A科｜數與式（實數系統）｜學測備考講義</title>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        tags: 'ams'
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+      background: #f5f0fa;
+      color: #2d2d2d;
+      line-height: 1.75;
+    }
+
+    /* ===== COLOUR PALETTE ===== */
+    :root {
+      --purple-dark:  #4a0072;
+      --purple-main:  #6a1b9a;
+      --purple-mid:   #8e24aa;
+      --purple-light: #ce93d8;
+      --purple-pale:  #f3e5f5;
+      --purple-bg:    #faf0fe;
+      --accent-gold:  #f9a825;
+      --accent-teal:  #00796b;
+      --accent-red:   #c62828;
+      --accent-blue:  #1565c0;
+      --accent-green: #2e7d32;
+      --text-main:    #2d2d2d;
+      --text-muted:   #5d5d5d;
+      --white:        #ffffff;
+      --border:       #d1c4e9;
+    }
+
+    /* ===== LAYOUT ===== */
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* ===== SIDEBAR NAV ===== */
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+      background: var(--purple-dark);
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 0 0 2rem 0;
+    }
+    .sidebar-header {
+      background: var(--purple-main);
+      padding: 1.2rem 1rem;
+      text-align: center;
+      border-bottom: 2px solid var(--purple-light);
+    }
+    .sidebar-header .week-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 0.3rem;
+    }
+    .sidebar-header h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .sidebar nav { padding: 0.8rem 0; }
+    .nav-section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      padding: 0.8rem 1rem 0.3rem;
+      opacity: 0.8;
+    }
+    .sidebar nav a {
+      display: block;
+      color: #ede7f6;
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 0.42rem 1rem 0.42rem 1.3rem;
+      border-left: 3px solid transparent;
+      transition: all 0.18s;
+    }
+    .sidebar nav a:hover,
+    .sidebar nav a:focus {
+      background: rgba(255,255,255,0.1);
+      border-left-color: var(--purple-light);
+      color: #fff;
+    }
+    .sidebar nav a.sub {
+      padding-left: 2.1rem;
+      font-size: 0.82rem;
+      color: #d1c4e9;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      flex: 1;
+      padding: 2rem 2.5rem 4rem;
+      max-width: 940px;
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-mid) 100%);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::after {
+      content: '∑√π';
+      position: absolute;
+      right: 2rem;
+      top: 1rem;
+      font-size: 4.5rem;
+      opacity: 0.08;
+      font-family: 'Georgia', serif;
+      pointer-events: none;
+    }
+    .page-header .label-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.6rem;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.9);
+    }
+    .page-header h1 { font-size: 1.9rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .page-header .subtitle { font-size: 0.95rem; color: #e1d5f5; }
+    .page-header .meta-row {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      margin-top: 1rem; font-size: 0.82rem; color: #d1c4e9;
+    }
+    .meta-row span::before { margin-right: 0.3rem; }
+
+    /* ===== SECTION HEADINGS ===== */
+    .section-block { margin-bottom: 2.5rem; }
+    h2.section-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--purple-dark);
+      border-left: 5px solid var(--purple-main);
+      padding: 0.45rem 0 0.45rem 0.9rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #f3e5f5 0%, transparent 100%);
+    }
+    h3.sub-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--purple-main);
+      margin: 1.4rem 0 0.6rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1.5px dashed var(--purple-light);
+    }
+    h4.minor-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--purple-dark);
+      margin: 1rem 0 0.4rem;
+    }
+
+    /* ===== CONTENT CARDS ===== */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ===== CALLOUT BOXES ===== */
+    .callout {
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      border-left: 5px solid;
+      position: relative;
+    }
+    .callout .callout-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .callout.def {
+      background: #e8eaf6;
+      border-color: #3f51b5;
+    }
+    .callout.def .callout-title { color: #1a237e; }
+    .callout.formula {
+      background: var(--purple-pale);
+      border-color: var(--purple-main);
+    }
+    .callout.formula .callout-title { color: var(--purple-dark); }
+    .callout.example {
+      background: #e8f5e9;
+      border-color: var(--accent-green);
+    }
+    .callout.example .callout-title { color: var(--accent-green); }
+    .callout.warning {
+      background: #fff8e1;
+      border-color: var(--accent-gold);
+    }
+    .callout.warning .callout-title { color: #e65100; }
+    .callout.tip {
+      background: #e0f2f1;
+      border-color: var(--accent-teal);
+    }
+    .callout.tip .callout-title { color: var(--accent-teal); }
+    .callout.link {
+      background: #e3f2fd;
+      border-color: var(--accent-blue);
+    }
+    .callout.link .callout-title { color: var(--accent-blue); }
+    .callout.exam {
+      background: #fce4ec;
+      border-color: #c2185b;
+    }
+    .callout.exam .callout-title { color: #880e4f; }
+
+    /* ===== FORMULA BOX ===== */
+    .formula-box {
+      background: var(--purple-pale);
+      border: 2px solid var(--purple-main);
+      border-radius: 10px;
+      padding: 1.1rem 1.5rem;
+      margin: 1rem 0;
+    }
+    .formula-box .fb-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-main);
+      margin-bottom: 0.6rem;
+    }
+    .formula-box .fb-body {
+      font-family: 'Courier New', 'Consolas', monospace;
+      font-size: 1rem;
+      color: var(--purple-dark);
+      line-height: 2;
+    }
+
+    /* ===== MATH INLINE MONO ===== */
+    .math-inline {
+      font-family: 'Courier New', 'Consolas', monospace;
+      background: #ede7f6;
+      color: var(--purple-dark);
+      padding: 0.05rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    .math-block {
+      font-family: 'Courier New', 'Consolas', monospace;
+      background: #ede7f6;
+      color: var(--purple-dark);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      overflow-x: auto;
+      display: block;
+    }
+
+    /* ===== EXAMPLE SOLUTION ===== */
+    .example-block {
+      background: #f1f8e9;
+      border: 1.5px solid #a5d6a7;
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      margin: 0.8rem 0;
+    }
+    .example-block .ex-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent-green);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .example-block .ex-q {
+      font-weight: 600;
+      color: #1b5e20;
+      margin-bottom: 0.5rem;
+    }
+    .example-block .ex-sol {
+      color: #33691e;
+      line-height: 1.9;
+    }
+    .step { margin-left: 1.2rem; margin-bottom: 0.25rem; }
+    .step::before { content: '➜ '; color: var(--accent-green); font-weight: 700; }
+
+    /* ===== ANSWER REVEAL ===== */
+    details.answer-reveal {
+      margin: 0.5rem 0;
+    }
+    details.answer-reveal summary {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--purple-main);
+      background: var(--purple-pale);
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      border: 1px solid var(--purple-light);
+      user-select: none;
+      list-style: none;
+    }
+    details.answer-reveal summary::-webkit-details-marker { display: none; }
+    details.answer-reveal summary::before { content: '▶'; font-size: 0.7rem; }
+    details.answer-reveal[open] summary::before { content: '▼'; }
+    details.answer-reveal .answer-body {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.9rem 1.2rem;
+      margin-top: 0.5rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    /* ===== TABLES ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.8rem 0;
+      font-size: 0.92rem;
+    }
+    th {
+      background: var(--purple-main);
+      color: var(--white);
+      padding: 0.55rem 0.85rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    td {
+      padding: 0.5rem 0.85rem;
+      border-bottom: 1px solid #e8eaf6;
+    }
+    tr:nth-child(even) td { background: var(--purple-bg); }
+    tr:hover td { background: #ede7f6; }
+
+    /* ===== PRACTICE QUESTIONS ===== */
+    .practice-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .practice-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.3rem;
+    }
+    .practice-item .pq-num {
+      display: inline-block;
+      background: var(--purple-main);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.8rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      line-height: 1.8rem;
+      text-align: center;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+    .practice-item .pq-header { display: flex; align-items: flex-start; }
+    .practice-item .pq-q { font-weight: 600; line-height: 1.7; flex: 1; }
+
+    /* ===== NUMBER LINE SVG ===== */
+    .number-line-container { overflow-x: auto; padding: 0.5rem 0; }
+
+    /* ===== TOC ===== */
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.6rem;
+      margin: 0.8rem 0;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.8rem;
+      text-decoration: none;
+      color: var(--purple-dark);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.18s;
+    }
+    .toc-item:hover { background: var(--purple-pale); border-color: var(--purple-main); }
+    .toc-item .toc-num {
+      background: var(--purple-main);
+      color: #fff;
+      width: 1.5rem;
+      height: 1.5rem;
+      line-height: 1.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: center;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ===== SUMMARY PILLS ===== */
+    .summary-list { list-style: none; padding: 0; }
+    .summary-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #f3e5f5;
+      font-size: 0.93rem;
+    }
+    .summary-list li::before { content: '◆'; color: var(--purple-main); flex-shrink: 0; margin-top: 0.15rem; }
+
+    /* ===== DIVIDER ===== */
+    hr.section-divider {
+      border: none;
+      border-top: 2px dashed var(--purple-light);
+      margin: 2rem 0;
+    }
+
+    /* ===== KNOWLEDGE MAP ===== */
+    .km-container {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+    .km-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .km-node {
+      background: var(--purple-pale);
+      border: 2px solid var(--purple-main);
+      border-radius: 8px;
+      padding: 0.55rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--purple-dark);
+      text-align: center;
+      position: relative;
+    }
+    .km-node.central {
+      background: var(--purple-main);
+      color: #fff;
+      font-size: 1rem;
+      padding: 0.7rem 1.4rem;
+      border-color: var(--purple-dark);
+    }
+    .km-node.linked {
+      background: #e8f5e9;
+      border-color: var(--accent-green);
+      color: #1b5e20;
+    }
+    .km-arrow {
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      color: var(--purple-mid);
+      font-weight: 700;
+    }
+
+    /* ===== VISUAL TREE ===== */
+    .tree-visual { background: var(--purple-bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 18px 22px 14px 18px; margin: 1rem 0; overflow-x: auto; }
+    .tv-root { display: inline-flex; align-items: center; background: var(--purple-dark); color: #fff; font-weight: 700; font-size: 15px; padding: 5px 18px; border-radius: 20px; margin-bottom: 6px; }
+    .tv-children { list-style: none; padding: 0; margin: 0 0 0 14px; border-left: 2px solid var(--border); }
+    .tv-item { position: relative; padding: 5px 0 4px 22px; }
+    .tv-item::before { content: ''; position: absolute; left: 0; top: 14px; width: 18px; height: 2px; background: var(--border); }
+    .tv-node { display: inline-block; border-radius: 6px; padding: 3px 12px; font-size: 13px; font-weight: 600; line-height: 1.6; }
+    .tv-desc { display: block; font-size: 11.5px; color: var(--text-muted); padding: 0 4px; margin: 1px 0 3px; }
+    .tv-node.tv-l1 { background: var(--purple-pale); color: var(--purple-dark); border: 1px solid var(--purple-light); font-size: 14px; }
+    .tv-node.tv-l2 { background: #ede7f6; color: #4527a0; border: 1px solid #b39ddb; }
+    .tv-node.tv-l3 { background: #fafafa; color: var(--text-main); border: 1px solid #e0e0e0; font-weight: 400; }
+
+    /* ===== FOOTER ===== */
+    .page-footer {
+      background: var(--purple-dark);
+      color: #d1c4e9;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.82rem;
+      margin-top: 3rem;
+      border-radius: 12px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .page-wrapper { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: relative; }
+      .main-content { padding: 1.2rem 1rem 3rem; }
+      .page-header h1 { font-size: 1.4rem; }
+    }
+
+    /* ===== SCROLL BACK TO TOP ===== */
+    .back-top {
+      display: inline-block;
+      color: var(--purple-main);
+      font-size: 0.8rem;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 0.8rem;
+    }
+    .back-top:hover { color: var(--purple-dark); }
+
+    ol.solution-steps { padding-left: 1.3rem; }
+    ol.solution-steps li { margin-bottom: 0.3rem; }
+    ul.bullet { padding-left: 1.3rem; }
+    ul.bullet li { margin-bottom: 0.25rem; }
+    .highlight-text { color: var(--purple-main); font-weight: 700; }
+    .red-text { color: var(--accent-red); font-weight: 700; }
+    .green-text { color: var(--accent-green); font-weight: 700; }
+    .blue-text { color: var(--accent-blue); font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="week-tag">Week 01 &bull; 數學A科</div>
+      <h2>數與式<br>實數系統</h2>
+    </div>
+    <nav>
+      <div class="nav-section-label">本講義導覽</div>
+      <a href="#overview">單元概述</a>
+      <a href="#prereq">先備知識</a>
+      <a href="#sec1">1. 實數的分類</a>
+      <a class="sub" href="#sec1-1">有理數與無理數</a>
+      <a class="sub" href="#sec1-2">實數系統層次</a>
+      <a href="#sec2">2. 數線與絕對值</a>
+      <a class="sub" href="#sec2-1">數線</a>
+      <a class="sub" href="#sec2-2">絕對值定義</a>
+      <a class="sub" href="#sec2-3">絕對值性質</a>
+      <a href="#sec3">3. 實數運算性質</a>
+      <a href="#sec4">4. 根式化簡</a>
+      <a class="sub" href="#sec4-1">根式基本性質</a>
+      <a class="sub" href="#sec4-2">有理化</a>
+      <a href="#sec5">5. 指數運算</a>
+      <a href="#km">知識連結圖</a>
+      <a href="#summary">重點整理</a>
+      <a href="#practice">練習題</a>
+      <a href="#exam-tips">學測考題方向</a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main-content">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="label-row">
+        <span class="badge">W01 第一週</span>
+        <span class="badge">數學A科</span>
+        <span class="badge">第一冊 第1章</span>
+        <span class="badge">高二 &bull; 學測備考</span>
+      </div>
+      <h1>數與式 ── 實數系統</h1>
+      <p class="subtitle">涵蓋：實數分類、數線、絕對值、運算性質、根式化簡、有理化、指數運算</p>
+      <div class="meta-row">
+        <span>預計學習時間：3–4 小時</span>
+        <span>難度：★★☆☆☆（基礎核心）</span>
+        <span>學測出題頻率：★★★★☆</span>
+      </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="section-block" id="toc">
+      <h2 class="section-title">目錄</h2>
+      <div class="toc-grid">
+        <a href="#overview" class="toc-item"><span class="toc-num">0</span>單元概述</a>
+        <a href="#prereq"   class="toc-item"><span class="toc-num">P</span>先備知識</a>
+        <a href="#sec1"     class="toc-item"><span class="toc-num">1</span>實數分類</a>
+        <a href="#sec2"     class="toc-item"><span class="toc-num">2</span>數線與絕對值</a>
+        <a href="#sec3"     class="toc-item"><span class="toc-num">3</span>運算性質</a>
+        <a href="#sec4"     class="toc-item"><span class="toc-num">4</span>根式化簡</a>
+        <a href="#sec5"     class="toc-item"><span class="toc-num">5</span>指數運算</a>
+        <a href="#km"       class="toc-item"><span class="toc-num">K</span>知識連結圖</a>
+        <a href="#summary"  class="toc-item"><span class="toc-num">S</span>重點整理</a>
+        <a href="#practice" class="toc-item"><span class="toc-num">Q</span>練習題</a>
+        <a href="#exam-tips" class="toc-item"><span class="toc-num">L</span>學測方向</a>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== 0. UNIT OVERVIEW ===== -->
+    <div class="section-block" id="overview">
+      <h2 class="section-title">單元概述</h2>
+      <div class="card">
+        <p>本章「<strong>數與式</strong>」是高中數學的起點，奠定整個數學學科的運算語言基礎。從認識各種數的集合關係，到熟練掌握根式與指數的化簡技巧，都是後續學習函數、方程式、不等式、對數、三角函數不可或缺的基石。</p>
+        <br>
+        <h4 class="minor-title">學習目標</h4>
+        <ul class="bullet">
+          <li>能分辨並說明實數系統中各數集的包含關係</li>
+          <li>能利用數線表示實數，並計算絕對值</li>
+          <li>能掌握實數的域（field）性質：加法與乘法的交換、結合、分配律</li>
+          <li>能化簡各類根式，包含多重根號與分母有理化</li>
+          <li>能靈活運用指數律（乘法、除法、次方、負指數、分數指數）</li>
+        </ul>
+        <br>
+        <h4 class="minor-title">在課程脈絡中的位置</h4>
+        <p>本章為第一冊第1章，是全高中數學的「語言建構期」。學完本章後，下一個連結單元是<strong>第2章：多項式</strong>（代入、因式定理），以及<strong>第3章：函數</strong>。根式與指數技巧在<strong>指數對數（第二冊）</strong>和<strong>極限與微分（高三數甲選修）</strong>中將大量應用。</p>
+      </div>
+    </div>
+
+    <!-- ===== PREREQUISITES ===== -->
+    <div class="section-block" id="prereq">
+      <h2 class="section-title">先備知識</h2>
+      <div class="callout tip">
+        <div class="callout-title">💡 學前確認</div>
+        <p>在開始本單元前，請確認你對以下國中內容已掌握：</p>
+        <ul class="bullet" style="margin-top:0.5rem;">
+          <li>整數、分數、小數的四則運算</li>
+          <li>平方根的意義（\(\sqrt{9}=3\)，\(\sqrt{2}\approx 1.414\)）</li>
+          <li>質因數分解（用於根式化簡）</li>
+          <li>指數的基本意義（\(2^3 = 8\)）</li>
+          <li>乘法公式：\((a+b)^2\)、\((a-b)^2\)、\((a+b)(a-b)\)（有理化時使用）</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SECTION 1: 實數分類 ===== -->
+    <div class="section-block" id="sec1">
+      <h2 class="section-title">1. 實數的分類</h2>
+
+      <!-- 1.1 有理數與無理數 -->
+      <h3 class="sub-title" id="sec1-1">1.1 有理數（Rational Numbers）與無理數（Irrational Numbers）</h3>
+
+      <div class="callout def">
+        <div class="callout-title">📖 定義：有理數</div>
+        <p>凡是可以表示成 <span class="math-inline">p/q</span>（其中 p、q 為整數，且 q ≠ 0）的數，稱為<strong>有理數</strong>。</p>
+        <ul class="bullet" style="margin-top:0.5rem;">
+          <li>整數（含正整數、0、負整數）都是有理數，例：<span class="math-inline">5 = 5/1</span></li>
+          <li>有限小數與循環小數都是有理數，例：<span class="math-inline">0.333... = 1/3</span></li>
+        </ul>
+      </div>
+
+      <div class="callout def">
+        <div class="callout-title">📖 定義：無理數</div>
+        <p>無法表示成兩個整數之比的實數，稱為<strong>無理數</strong>。其小數展開為<strong>無限不循環小數</strong>。</p>
+        <ul class="bullet" style="margin-top:0.5rem;">
+          <li>常見無理數：\(\sqrt{2},\ \sqrt{3},\ \sqrt{5},\ \pi,\ e\)</li>
+          <li>判斷：\(\sqrt{n}\) 中，若 n 不是完全平方數，則 \(\sqrt{n}\) 為無理數</li>
+        </ul>
+      </div>
+
+      <div class="callout warning">
+        <div class="callout-title">⚠️ 常見錯誤 #1</div>
+        <p><strong>以為 \(\pi\) 是有理數。</strong> 很多同學誤認 \(\pi \approx 22/7\)，這只是近似值，\(\pi\) 本身無法精確寫成整數比，為無理數。</p>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-label">例題 1-1</div>
+        <div class="ex-q">判斷下列各數屬於有理數還是無理數：<br>
+          (a) \(\sqrt{16}\)　(b) \(\sqrt{7}\)　(c) \(0.\overline{142857}\)　(d) \(\sqrt{2}+\sqrt{8}\)
+        </div>
+        <div class="ex-sol">
+          <div class="step">(a) \(\sqrt{16} = 4\)，為整數，故為<strong>有理數</strong>。</div>
+          <div class="step">(b) 7 不是完全平方數，故 \(\sqrt{7}\) 為<strong>無理數</strong>。</div>
+          <div class="step">(c) \(0.\overline{142857} = \frac{1}{7}\)，為有限比值，故為<strong>有理數</strong>（循環小數）。</div>
+          <div class="step">(d) \(\sqrt{2}+\sqrt{8} = \sqrt{2}+2\sqrt{2} = 3\sqrt{2}\)。因 \(\sqrt{2}\) 為無理數，<br>
+            &emsp;&emsp;&ensp; 有理數 3 乘以無理數仍為<strong>無理數</strong>。</div>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <div class="callout-title">⚠️ 常見錯誤 #2：「兩無理數相加仍是無理數」── 不一定！</div>
+        <p>例：\((\sqrt{2}) + (-\sqrt{2}) = 0\)，結果為有理數。<br>
+        又如：\((3+\sqrt{2}) + (1-\sqrt{2}) = 4\)，結果也為有理數。<br>
+        <strong>兩無理數相加，結果可能是有理數！</strong></p>
+      </div>
+
+      <!-- 1.2 實數系統層次 -->
+      <h3 class="sub-title" id="sec1-2">1.2 實數系統的包含關係</h3>
+
+      <div class="card">
+        <p>實數 (ℝ) 的分類如下（以集合包含關係呈現）：</p>
+        <div class="tree-visual">
+          <div class="tv-root">實數（ℝ）</div>
+          <ul class="tv-children">
+            <li class="tv-item">
+              <span class="tv-node tv-l1">有理數（ℚ）</span>
+              <span class="tv-desc">可表示為分數 p/q（p, q 為整數，q ≠ 0）；含有限小數與循環小數。例：\(-3,\ 0,\ \tfrac{1}{3},\ 0.\overline{6}\)</span>
+              <ul class="tv-children">
+                <li class="tv-item">
+                  <span class="tv-node tv-l2">整數（ℤ）</span>
+                  <span class="tv-desc">例：\(-3,\ 0,\ 2,\ 100\)</span>
+                  <ul class="tv-children">
+                    <li class="tv-item">
+                      <span class="tv-node tv-l3">自然數（ℕ，含 0）：\(0,\ 1,\ 2,\ 3,\ \ldots\)</span>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">無理數</span>
+              <span class="tv-desc">無法表示為分數；無限不循環小數。例：\(\sqrt{2},\ \sqrt{3},\ \pi,\ e\)</span>
+            </li>
+          </ul>
+        </div>
+        <div class="callout tip" style="margin-top:0.8rem;">
+          <div class="callout-title">💡 記憶口訣</div>
+          <p>「<strong>自整有實</strong>」── 自然數 ⊂ 整數 ⊂ 有理數 ⊂ 實數<br>
+          無理數與有理數合在一起才等於實數：ℝ = ℚ ∪ (ℝ∖ℚ)</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SECTION 2: 數線與絕對值 ===== -->
+    <div class="section-block" id="sec2">
+      <h2 class="section-title">2. 數線與絕對值</h2>
+
+      <!-- 2.1 數線 -->
+      <h3 class="sub-title" id="sec2-1">2.1 數線（Number Line）</h3>
+      <div class="card">
+        <p>一條無限延伸的直線，選定原點 O（對應 0）、正方向（向右）、單位長度後，每個實數都對應數線上唯一的點，反之亦然。這種對應稱為<strong>實數與數線的一一對應</strong>。</p>
+        <div class="number-line-container">
+          <svg width="560" height="60" viewBox="0 0 560 60" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+            <!-- 主軸 -->
+            <line x1="20" y1="30" x2="540" y2="30" stroke="#6a1b9a" stroke-width="2.5"/>
+            <!-- 箭頭右 -->
+            <polygon points="540,30 528,24 528,36" fill="#6a1b9a"/>
+            <!-- 刻度與標記 -->
+            <g font-family="monospace" font-size="12" fill="#4a0072" text-anchor="middle">
+              <!-- 刻度線與數值 -->
+              <line x1="80" y1="24" x2="80" y2="36" stroke="#6a1b9a" stroke-width="2"/>
+              <text x="80" y="52">-3</text>
+              <line x1="140" y1="24" x2="140" y2="36" stroke="#6a1b9a" stroke-width="2"/>
+              <text x="140" y="52">-2</text>
+              <line x1="200" y1="24" x2="200" y2="36" stroke="#6a1b9a" stroke-width="2"/>
+              <text x="200" y="52">-1</text>
+              <line x1="260" y1="22" x2="260" y2="38" stroke="#c62828" stroke-width="2.5"/>
+              <text x="260" y="52" fill="#c62828" font-weight="bold">0</text>
+              <line x1="320" y1="24" x2="320" y2="36" stroke="#6a1b9a" stroke-width="2"/>
+              <text x="320" y="52">1</text>
+              <line x1="380" y1="24" x2="380" y2="36" stroke="#6a1b9a" stroke-width="2"/>
+              <text x="380" y="52">2</text>
+              <line x1="440" y1="24" x2="440" y2="36" stroke="#6a1b9a" stroke-width="2"/>
+              <text x="440" y="52">3</text>
+              <!-- √2 標記 -->
+              <circle cx="345" cy="30" r="4" fill="#f9a825" stroke="#e65100" stroke-width="1.5"/>
+              <text x="345" y="16" font-size="10" fill="#e65100">√2</text>
+            </g>
+          </svg>
+        </div>
+        <p style="font-size:0.85rem; color:var(--text-muted);">數線上 \(\sqrt{2} \approx 1.414\) 的位置介於 1 和 2 之間（橘點標示）。</p>
+      </div>
+
+      <!-- 2.2 絕對值 -->
+      <h3 class="sub-title" id="sec2-2">2.2 絕對值（Absolute Value）</h3>
+
+      <div class="callout def">
+        <div class="callout-title">📖 定義：絕對值</div>
+        <p>實數 \(a\) 的絕對值 \(|a|\) 定義為：</p>
+        <div class="math-block">|a| = a，若 a ≥ 0<br>|a| = -a，若 a &lt; 0</div>
+        <p style="margin-top:0.5rem;"><strong>幾何意義</strong>：\(|a|\) 是數線上點 \(a\) 到原點 O 的距離；\(|a-b|\) 是點 \(a\) 到點 \(b\) 的距離。</p>
+      </div>
+
+      <!-- 2.3 絕對值性質 -->
+      <h3 class="sub-title" id="sec2-3">2.3 絕對值的性質</h3>
+
+      <div class="formula-box">
+        <div class="fb-title">公式：絕對值基本性質</div>
+        <div class="fb-body">
+          ① |a| ≥ 0，等號成立 ⟺ a = 0<br>
+          ② |a| = |-a|<br>
+          ③ |ab| = |a||b|<br>
+          ④ |a/b| = |a|/|b|（b ≠ 0）<br>
+          ⑤ |a+b| ≤ |a|+|b|  ← 三角不等式（Triangle Inequality）<br>
+          ⑥ √(a²) = |a|（注意！不等於 a）
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <div class="callout-title">⚠️ 常見錯誤 #3：\(\sqrt{a^2} = a\)？</div>
+        <p>大多數同學直覺認為 \(\sqrt{a^2} = a\)，但這<strong>只在 a ≥ 0 時成立</strong>！<br>
+        正確寫法：<strong>\(\sqrt{a^2} = |a|\)</strong><br>
+        例：\(\sqrt{(-3)^2} = \sqrt{9} = 3 = |-3|\)，而非 -3。</p>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-label">例題 2-1</div>
+        <div class="ex-q">已知 \(a < 0\)，化簡 \(\sqrt{a^2 - 2a + 1}\)。</div>
+        <div class="ex-sol">
+          <div class="step">辨識完全平方式：\(a^2 - 2a + 1 = (a-1)^2\)</div>
+          <div class="step">開根號：\(\sqrt{(a-1)^2} = |a-1|\)</div>
+          <div class="step">判斷符號：因 \(a < 0\)，所以 \(a - 1 < -1 < 0\)，故 \(a - 1 < 0\)</div>
+          <div class="step">代入定義：\(|a-1| = -(a-1) = 1-a\)</div>
+          <div class="step" style="font-weight:700;">答：\(\sqrt{a^2-2a+1} = 1-a\)</div>
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-label">例題 2-2</div>
+        <div class="ex-q">解方程式 \(|2x - 3| = 5\)。</div>
+        <div class="ex-sol">
+          <div class="step">絕對值方程 \(|A| = k\)（k > 0）等價於 \(A = k\) 或 \(A = -k\)</div>
+          <div class="step">情況一：\(2x-3 = 5 \Rightarrow 2x = 8 \Rightarrow x = 4\)</div>
+          <div class="step">情況二：\(2x-3 = -5 \Rightarrow 2x = -2 \Rightarrow x = -1\)</div>
+          <div class="step" style="font-weight:700;">答：\(x = 4\) 或 \(x = -1\)</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SECTION 3: 實數運算性質 ===== -->
+    <div class="section-block" id="sec3">
+      <h2 class="section-title">3. 實數的運算性質</h2>
+
+      <div class="card">
+        <p>實數集合 ℝ 在加法與乘法下構成一個<strong>域（Field）</strong>，具有以下基本性質：</p>
+      </div>
+
+      <div class="formula-box">
+        <div class="fb-title">公式：實數的基本運算性質（加法）</div>
+        <div class="fb-body">
+          交換律：a + b = b + a<br>
+          結合律：(a + b) + c = a + (b + c)<br>
+          加法單位元：a + 0 = a<br>
+          加法反元素：a + (-a) = 0
+        </div>
+      </div>
+
+      <div class="formula-box">
+        <div class="fb-title">公式：實數的基本運算性質（乘法）</div>
+        <div class="fb-body">
+          交換律：a × b = b × a<br>
+          結合律：(a × b) × c = a × (b × c)<br>
+          乘法單位元：a × 1 = a<br>
+          乘法反元素：a × (1/a) = 1（a ≠ 0）<br>
+          分配律：a × (b + c) = a×b + a×c
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-title">💡 常用推論（加法與乘法連結）</div>
+        <ul class="bullet">
+          <li>\(a \times 0 = 0\)（任何數乘以零等於零）</li>
+          <li>\((-a) \times b = -(ab)\)；\((-a)(-b) = ab\)</li>
+          <li>若 \(ab = 0\)，則 \(a = 0\) 或 \(b = 0\)（<strong>零積性質</strong>，解方程式核心！）</li>
+        </ul>
+      </div>
+
+      <div class="callout link">
+        <div class="callout-title">🔗 連結提示：多項式因式分解</div>
+        <p>零積性質「\(ab=0 \Rightarrow a=0\) 或 \(b=0\)」是第2章解多項式方程的基礎。例如解 \(x^2-5x+6=0\) 需先分解為 \((x-2)(x-3)=0\)，再用零積性質求解。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SECTION 4: 根式化簡 ===== -->
+    <div class="section-block" id="sec4">
+      <h2 class="section-title">4. 根式化簡</h2>
+
+      <h3 class="sub-title" id="sec4-1">4.1 根式的基本性質</h3>
+
+      <div class="callout def">
+        <div class="callout-title">📖 定義：n 次方根</div>
+        <p>若 \(x^n = a\)，則稱 \(x\) 為 \(a\) 的 \(n\) 次方根，記作 \(\sqrt[n]{a}\)。</p>
+        <ul class="bullet" style="margin-top:0.5rem;">
+          <li>n 為偶數：\(a \geq 0\) 才有實數解，\(\sqrt[n]{a} \geq 0\)（取算術根，即正值）</li>
+          <li>n 為奇數：任意實數 a 均有唯一實數 n 次方根</li>
+          <li>特別：\(\sqrt{a} = \sqrt[2]{a}\)，一般不標 2</li>
+        </ul>
+      </div>
+
+      <div class="formula-box">
+        <div class="fb-title">公式：根式運算性質（a, b ≥ 0）</div>
+        <div class="fb-body">
+          ① √a · √b = √(ab)<br>
+          ② √a / √b = √(a/b)　（b ≠ 0）<br>
+          ③ (√a)² = a　（a ≥ 0）<br>
+          ④ √(a²) = |a|　（a 為任意實數）<br>
+          ⑤ ⁿ√(ᵐ√a) = ᵐⁿ√a　（多重根號化簡）
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-label">例題 4-1：根式化簡（提出完全平方因數）</div>
+        <div class="ex-q">化簡 \(\sqrt{72}\)。</div>
+        <div class="ex-sol">
+          <div class="step">質因數分解：\(72 = 8 \times 9 = 2^3 \times 3^2\)</div>
+          <div class="step">分離完全平方因數：\(\sqrt{72} = \sqrt{36 \times 2} = \sqrt{36}\cdot\sqrt{2}\)</div>
+          <div class="step">化簡：\(= 6\sqrt{2}\)</div>
+          <div class="step" style="font-weight:700;">答：\(\sqrt{72} = 6\sqrt{2}\)</div>
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-label">例題 4-2：同類根式合併</div>
+        <div class="ex-q">化簡 \(3\sqrt{12} - 2\sqrt{27} + \sqrt{48}\)。</div>
+        <div class="ex-sol">
+          <div class="step">\(3\sqrt{12} = 3\sqrt{4\cdot 3} = 3 \times 2\sqrt{3} = 6\sqrt{3}\)</div>
+          <div class="step">\(2\sqrt{27} = 2\sqrt{9\cdot 3} = 2 \times 3\sqrt{3} = 6\sqrt{3}\)</div>
+          <div class="step">\(\sqrt{48} = \sqrt{16\cdot 3} = 4\sqrt{3}\)</div>
+          <div class="step">合併：\(6\sqrt{3} - 6\sqrt{3} + 4\sqrt{3} = 4\sqrt{3}\)</div>
+          <div class="step" style="font-weight:700;">答：\(4\sqrt{3}\)</div>
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-label">例題 4-3：去除多重根號</div>
+        <div class="ex-q">化簡 \(\sqrt[3]{\sqrt{8}}\)。</div>
+        <div class="ex-sol">
+          <div class="step">轉換：\(\sqrt[3]{\sqrt{8}} = \sqrt[3]{8^{1/2}} = (8^{1/2})^{1/3} = 8^{1/6}\)</div>
+          <div class="step">\(= \sqrt[6]{8} = \sqrt[6]{2^3} = 2^{3/6} = 2^{1/2} = \sqrt{2}\)</div>
+          <div class="step" style="font-weight:700;">答：\(\sqrt{2}\)</div>
+        </div>
+      </div>
+
+      <!-- 4.2 有理化 -->
+      <h3 class="sub-title" id="sec4-2">4.2 分母有理化（Rationalization）</h3>
+
+      <div class="callout def">
+        <div class="callout-title">📖 定義：有理化</div>
+        <p>將分數的分母中的根號消除，轉化為有理數形式，稱為<strong>分母有理化</strong>（rationalization of the denominator）。</p>
+      </div>
+
+      <div class="formula-box">
+        <div class="fb-title">公式：有理化方法</div>
+        <div class="fb-body">
+          類型一（單根號）：
+          1/√a = √a/a　（分子分母同乘 √a）
+
+          類型二（二項式）：使用共軛根式
+          1/(√a + √b) = (√a - √b)/((√a)²-(√b)²) = (√a - √b)/(a-b)
+
+          記憶：(√a+√b)(√a-√b) = a-b　← 平方差公式
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-label">例題 4-4：二項式有理化</div>
+        <div class="ex-q">化簡 \(\dfrac{3}{\sqrt{5}-\sqrt{2}}\)。</div>
+        <div class="ex-sol">
+          <div class="step">分子分母同乘共軛根式 \((\sqrt{5}+\sqrt{2})\)：</div>
+          <div class="step">\(\dfrac{3}{\sqrt{5}-\sqrt{2}} \times \dfrac{\sqrt{5}+\sqrt{2}}{\sqrt{5}+\sqrt{2}}\)</div>
+          <div class="step">分母：\((\sqrt{5})^2 - (\sqrt{2})^2 = 5 - 2 = 3\)</div>
+          <div class="step">整理：\(\dfrac{3(\sqrt{5}+\sqrt{2})}{3} = \sqrt{5}+\sqrt{2}\)</div>
+          <div class="step" style="font-weight:700;">答：\(\sqrt{5}+\sqrt{2}\)</div>
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-label">例題 4-5：連續有理化（學測常考型）</div>
+        <div class="ex-q">化簡 \(\dfrac{1}{\sqrt{2}+1} + \dfrac{1}{\sqrt{3}+\sqrt{2}} + \dfrac{1}{\sqrt{4}+\sqrt{3}}\)。</div>
+        <div class="ex-sol">
+          <div class="step">每一項分別有理化（乘共軛）：</div>
+          <div class="step">\(\dfrac{1}{\sqrt{2}+1} = \dfrac{\sqrt{2}-1}{(\sqrt{2}+1)(\sqrt{2}-1)} = \dfrac{\sqrt{2}-1}{2-1} = \sqrt{2}-1\)</div>
+          <div class="step">\(\dfrac{1}{\sqrt{3}+\sqrt{2}} = \dfrac{\sqrt{3}-\sqrt{2}}{3-2} = \sqrt{3}-\sqrt{2}\)</div>
+          <div class="step">\(\dfrac{1}{\sqrt{4}+\sqrt{3}} = \dfrac{\sqrt{4}-\sqrt{3}}{4-3} = 2-\sqrt{3}\)</div>
+          <div class="step">相加（觀察疊消現象）：</div>
+          <div class="step">\((\sqrt{2}-1) + (\sqrt{3}-\sqrt{2}) + (2-\sqrt{3})\)</div>
+          <div class="step">\(= \sqrt{2} - 1 + \sqrt{3} - \sqrt{2} + 2 - \sqrt{3}\)</div>
+          <div class="step">\(= (-1+2) + (\sqrt{2}-\sqrt{2}) + (\sqrt{3}-\sqrt{3}) = 1\)</div>
+          <div class="step" style="font-weight:700;">答：1</div>
+          <div style="margin-top:0.5rem; font-size:0.88rem; color:var(--accent-teal);">
+            <strong>規律：</strong>此類「連續有理化疊消」為學測高頻出題模式，連加後中間項皆消去，只留頭尾兩項。
+          </div>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <div class="callout-title">⚠️ 常見錯誤 #4</div>
+        <p>有理化時忘記分子也要乘以共軛根式，只改了分母。<br>
+        正確做法是<strong>分子分母同乘</strong>同一個共軛根式，才不改變分數值。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== SECTION 5: 指數運算 ===== -->
+    <div class="section-block" id="sec5">
+      <h2 class="section-title">5. 指數運算基礎</h2>
+
+      <div class="callout def">
+        <div class="callout-title">📖 定義：整數指數</div>
+        <p>設 \(a \neq 0\)，n 為正整數：</p>
+        <ul class="bullet" style="margin-top:0.4rem;">
+          <li>\(a^n = a \times a \times \cdots \times a\)（n 個 a 相乘）</li>
+          <li>\(a^0 = 1\)</li>
+          <li>\(a^{-n} = \dfrac{1}{a^n}\)</li>
+        </ul>
+      </div>
+
+      <div class="callout def" style="margin-top:0.8rem;">
+        <div class="callout-title">📖 定義：分數指數</div>
+        <p>設 \(a > 0\)，m 為整數，n 為正整數：</p>
+        <div class="math-block">a^(m/n) = ⁿ√(aᵐ) = (ⁿ√a)ᵐ</div>
+        <p>特別：\(a^{1/n} = \sqrt[n]{a}\)，即分數指數與根式互通。</p>
+      </div>
+
+      <div class="formula-box">
+        <div class="fb-title">公式：指數律（Index Laws）— 核心必背</div>
+        <div class="fb-body">
+          設 a &gt; 0，b &gt; 0，m、n 為有理數：
+
+          ① aᵐ · aⁿ = aᵐ⁺ⁿ　（同底相乘，指數相加）
+          ② aᵐ / aⁿ = aᵐ⁻ⁿ　（同底相除，指數相減）
+          ③ (aᵐ)ⁿ = aᵐⁿ　　（次方的次方，指數相乘）
+          ④ (ab)ⁿ = aⁿbⁿ　　（乘積的次方）
+          ⑤ (a/b)ⁿ = aⁿ/bⁿ　（商的次方）
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-label">例題 5-1：指數律化簡</div>
+        <div class="ex-q">化簡 \(\dfrac{a^{3/2} \cdot a^{1/3}}{a^{5/6}}\)（\(a > 0\)）。</div>
+        <div class="ex-sol">
+          <div class="step">分子指數相加：\(3/2 + 1/3 = 9/6 + 2/6 = 11/6\)</div>
+          <div class="step">同底相除：\(a^{11/6} \div a^{5/6} = a^{11/6 - 5/6} = a^{6/6} = a^1 = a\)</div>
+          <div class="step" style="font-weight:700;">答：\(a\)</div>
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-label">例題 5-2：化根式為指數，再化簡（學測常見）</div>
+        <div class="ex-q">化簡 \(\sqrt{a\sqrt{a}}\)（\(a > 0\)），以指數形式表示。</div>
+        <div class="ex-sol">
+          <div class="step">由內而外化為指數：\(\sqrt{a} = a^{1/2}\)</div>
+          <div class="step">\(a\sqrt{a} = a \cdot a^{1/2} = a^{1+1/2} = a^{3/2}\)</div>
+          <div class="step">\(\sqrt{a\sqrt{a}} = (a^{3/2})^{1/2} = a^{3/4}\)</div>
+          <div class="step" style="font-weight:700;">答：\(a^{3/4}\)</div>
+        </div>
+      </div>
+
+      <div class="example-block">
+        <div class="ex-label">例題 5-3：負指數與有理數指數</div>
+        <div class="ex-q">計算 \(8^{-2/3} + 16^{3/4}\)。</div>
+        <div class="ex-sol">
+          <div class="step">\(8^{-2/3} = (2^3)^{-2/3} = 2^{3 \times (-2/3)} = 2^{-2} = \dfrac{1}{4}\)</div>
+          <div class="step">\(16^{3/4} = (2^4)^{3/4} = 2^{4 \times 3/4} = 2^3 = 8\)</div>
+          <div class="step">相加：\(\dfrac{1}{4} + 8 = \dfrac{1}{4} + \dfrac{32}{4} = \dfrac{33}{4}\)</div>
+          <div class="step" style="font-weight:700;">答：\(\dfrac{33}{4}\)</div>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <div class="callout-title">⚠️ 常見錯誤 #5：指數律的誤用</div>
+        <ul class="bullet">
+          <li><span class="red-text">錯：</span>\(a^m + a^n = a^{m+n}\)（<strong>指數律只適用於乘法，不適用於加法！</strong>）</li>
+          <li><span class="green-text">對：</span>\(a^m \times a^n = a^{m+n}\)</li>
+          <li><span class="red-text">錯：</span>\((a+b)^2 = a^2 + b^2\)（正確應含 \(2ab\) 項）</li>
+        </ul>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-title">💡 解題技巧：先轉換底數</div>
+        <p>遇到含多種數的指數運算，<strong>先把所有數轉換為最小的質數底數</strong>（通常是 2、3、5、7）再使用指數律，能大幅減少計算錯誤。<br>
+        例：\(4^3 = (2^2)^3 = 2^6\)；\(27^{2/3} = (3^3)^{2/3} = 3^2 = 9\)。</p>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== KNOWLEDGE MAP ===== -->
+    <div class="section-block" id="km">
+      <h2 class="section-title">知識連結圖</h2>
+      <div class="km-container">
+        <p style="text-align:center; font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">本章各概念的連結，以及與其他單元的銜接關係：</p>
+        <div class="km-grid" style="align-items:center;">
+          <div class="km-node">整數 ℤ</div>
+          <div class="km-arrow">→</div>
+          <div class="km-node">有理數 ℚ</div>
+          <div class="km-arrow">→</div>
+          <div class="km-node central">實數 ℝ</div>
+          <div class="km-arrow">←</div>
+          <div class="km-node">無理數 (√, π)</div>
+        </div>
+        <div style="display:flex; justify-content:center; margin:0.6rem 0; font-size:1.2rem; color:var(--purple-main);">↓</div>
+        <div class="km-grid" style="align-items:center;">
+          <div class="km-node">絕對值 |a|<br><small>距離概念</small></div>
+          <div class="km-arrow">+</div>
+          <div class="km-node">根式化簡<br><small>√ 操作</small></div>
+          <div class="km-arrow">⟺</div>
+          <div class="km-node">指數律<br><small>aᵐ/ⁿ</small></div>
+        </div>
+        <div style="display:flex; justify-content:center; margin:0.6rem 0; font-size:1.2rem; color:var(--purple-main);">↓ 連結到後續單元</div>
+        <div class="km-grid">
+          <div class="km-node linked">第2章：多項式<br><small>因式分解、零積性質</small></div>
+          <div class="km-node linked">第3章：函數<br><small>根式函數、定義域</small></div>
+          <div class="km-node linked">第二冊：指數對數<br><small>aˣ 與 log</small></div>
+          <div class="km-node linked">數學A 不等式<br><small>絕對值不等式</small></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== KEY POINTS SUMMARY ===== -->
+    <div class="section-block" id="summary">
+      <h2 class="section-title">重點整理</h2>
+      <div class="card">
+        <ul class="summary-list">
+          <li>實數系統：自然數 ⊂ 整數 ⊂ 有理數 ⊂ 實數；無理數 ∪ 有理數 = 實數（互斥且合完全）</li>
+          <li>判斷 \(\sqrt{n}\) 是否為無理數：n 為完全平方數 → 有理數；否則 → 無理數</li>
+          <li>兩無理數相加 / 相乘，結果<strong>不一定</strong>是無理數（需個別判斷）</li>
+          <li>\(|a|\) 定義：a ≥ 0 時等於 a；a < 0 時等於 −a；永遠非負</li>
+          <li><strong>\(\sqrt{a^2} = |a|\)</strong>（非 a），是最高頻考點之一</li>
+          <li>三角不等式：\(|a+b| \leq |a|+|b|\)，等號在 ab ≥ 0 時成立</li>
+          <li>根式化簡步驟：① 質因數分解 → ② 提出完全平方因數 → ③ 有理化（若分母含根號）</li>
+          <li>有理化：分母含 \(\sqrt{a}\) 乘以 \(\sqrt{a}\)；含 \(\sqrt{a}±\sqrt{b}\) 乘以共軛 \(\sqrt{a}∓\sqrt{b}\)</li>
+          <li>分數指數：\(a^{m/n} = \sqrt[n]{a^m}\)；特別 \(a^{1/2} = \sqrt{a}\)</li>
+          <li>指數律五條：同底乘（指數加）、同底除（指數減）、次方（指數乘）、乘積次方、商次方</li>
+          <li>解題妙招：先將底數統一為最小質數，再應用指數律</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== PRACTICE QUESTIONS ===== -->
+    <div class="section-block" id="practice">
+      <h2 class="section-title">練習題</h2>
+      <div class="callout tip" style="margin-bottom:1rem;">
+        <div class="callout-title">💡 作答建議</div>
+        <p>請先獨立作答，完成後再展開解答確認。計算題請詳列解題步驟，養成學測作答習慣。</p>
+      </div>
+
+      <div class="practice-grid">
+
+        <!-- Q1 -->
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">1</span>
+            <div class="pq-q">【分類判斷】下列各數中，哪些是有理數，哪些是無理數？<br>
+              \(\sqrt{25},\quad \sqrt{6},\quad -\dfrac{7}{3},\quad 0.\overline{3},\quad \pi^0,\quad \sqrt[3]{8}\)
+            </div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <ul class="bullet">
+                <li>\(\sqrt{25} = 5\) → <strong>有理數</strong>（整數）</li>
+                <li>\(\sqrt{6}\)：6 非完全平方數 → <strong>無理數</strong></li>
+                <li>\(-\dfrac{7}{3}\)：整數比 → <strong>有理數</strong></li>
+                <li>\(0.\overline{3} = \dfrac{1}{3}\)：循環小數 → <strong>有理數</strong></li>
+                <li>\(\pi^0 = 1\)（任意非零數的 0 次方為 1）→ <strong>有理數</strong></li>
+                <li>\(\sqrt[3]{8} = 2\)（\(2^3=8\)）→ <strong>有理數</strong></li>
+              </ul>
+              <p style="margin-top:0.5rem;">有理數：\(\sqrt{25}, -\dfrac{7}{3}, 0.\overline{3}, \pi^0, \sqrt[3]{8}\)；無理數：\(\sqrt{6}\)</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Q2 -->
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">2</span>
+            <div class="pq-q">【絕對值化簡】已知 \(x < -2\)，化簡 \(|x+2| + |x-1|\)。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>因 \(x < -2\)，所以：</p>
+              <ul class="bullet">
+                <li>\(x + 2 < 0\)，故 \(|x+2| = -(x+2) = -x-2\)</li>
+                <li>\(x - 1 < -3 < 0\)，故 \(|x-1| = -(x-1) = -x+1\)</li>
+              </ul>
+              <p>合計：\((-x-2) + (-x+1) = -2x - 1\)</p>
+              <p><strong>答：\(-2x-1\)</strong>（因 x < −2，此值大於 3，為正值，合理）</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Q3 -->
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">3</span>
+            <div class="pq-q">【根式化簡】化簡 \(\sqrt{50} - \sqrt{18} + \sqrt{8}\)。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <ul class="bullet">
+                <li>\(\sqrt{50} = \sqrt{25 \cdot 2} = 5\sqrt{2}\)</li>
+                <li>\(\sqrt{18} = \sqrt{9 \cdot 2} = 3\sqrt{2}\)</li>
+                <li>\(\sqrt{8} = \sqrt{4 \cdot 2} = 2\sqrt{2}\)</li>
+              </ul>
+              <p>合計：\(5\sqrt{2} - 3\sqrt{2} + 2\sqrt{2} = 4\sqrt{2}\)</p>
+              <p><strong>答：\(4\sqrt{2}\)</strong></p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Q4 -->
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">4</span>
+            <div class="pq-q">【有理化】化簡 \(\dfrac{\sqrt{3}+1}{\sqrt{3}-1}\)。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>分子分母同乘共軛根式 \((\sqrt{3}+1)\)：</p>
+              <p>\(\dfrac{(\sqrt{3}+1)^2}{(\sqrt{3})^2-1^2} = \dfrac{3+2\sqrt{3}+1}{3-1} = \dfrac{4+2\sqrt{3}}{2} = 2+\sqrt{3}\)</p>
+              <p><strong>答：\(2+\sqrt{3}\)</strong></p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Q5 -->
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">5</span>
+            <div class="pq-q">【指數運算】計算 \(27^{1/3} \times 4^{-1/2} + 9^{3/2} \div 3^2\)。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <ul class="bullet">
+                <li>\(27^{1/3} = (3^3)^{1/3} = 3\)</li>
+                <li>\(4^{-1/2} = (2^2)^{-1/2} = 2^{-1} = \dfrac{1}{2}\)</li>
+                <li>\(9^{3/2} = (3^2)^{3/2} = 3^3 = 27\)</li>
+                <li>\(3^2 = 9\)</li>
+              </ul>
+              <p>計算：\(3 \times \dfrac{1}{2} + 27 \div 9 = \dfrac{3}{2} + 3 = \dfrac{3}{2} + \dfrac{6}{2} = \dfrac{9}{2}\)</p>
+              <p><strong>答：\(\dfrac{9}{2}\)</strong></p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Q6 -->
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">6</span>
+            <div class="pq-q">【綜合計算】化簡 \(\sqrt[3]{\sqrt{64}}\)，以最簡形式表示。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>方法一（逐步化簡）：</p>
+              <p>\(\sqrt{64} = 8\)，故 \(\sqrt[3]{8} = \sqrt[3]{2^3} = 2\)</p>
+              <p>方法二（指數法驗算）：</p>
+              <p>\(\sqrt[3]{\sqrt{64}} = (64^{1/2})^{1/3} = 64^{1/6} = (2^6)^{1/6} = 2^1 = 2\)</p>
+              <p><strong>答：\(2\)</strong></p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Q7 -->
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">7</span>
+            <div class="pq-q">【絕對值方程】求滿足 \(|3x+1| = |x-3|\) 的所有實數解。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p>\(|A| = |B|\) 等價於 \(A = B\) 或 \(A = -B\)：</p>
+              <p><strong>情況一：</strong>\(3x+1 = x-3\) → \(2x = -4\) → \(x = -2\)</p>
+              <p><strong>情況二：</strong>\(3x+1 = -(x-3)\) → \(3x+1 = -x+3\) → \(4x = 2\) → \(x = \dfrac{1}{2}\)</p>
+              <p><strong>答：\(x = -2\) 或 \(x = \dfrac{1}{2}\)</strong></p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Q8 -->
+        <div class="practice-item">
+          <div class="pq-header">
+            <span class="pq-num">8</span>
+            <div class="pq-q">【學測模擬題】設 \(a = \sqrt{3}+\sqrt{2}\)，\(b = \sqrt{3}-\sqrt{2}\)，求 \(a^2+b^2\) 與 \(ab\) 的值，並判斷 \(a^2+b^2\) 為有理數還是無理數。</div>
+          </div>
+          <details class="answer-reveal">
+            <summary>展開解答</summary>
+            <div class="answer-body">
+              <p><strong>求 ab：</strong></p>
+              <p>\(ab = (\sqrt{3}+\sqrt{2})(\sqrt{3}-\sqrt{2}) = 3 - 2 = 1\)（平方差公式）</p>
+              <br>
+              <p><strong>求 a+b：</strong></p>
+              <p>\(a+b = (\sqrt{3}+\sqrt{2}) + (\sqrt{3}-\sqrt{2}) = 2\sqrt{3}\)</p>
+              <br>
+              <p><strong>求 a²+b²：</strong></p>
+              <p>\(a^2+b^2 = (a+b)^2 - 2ab = (2\sqrt{3})^2 - 2 \times 1 = 12 - 2 = 10\)</p>
+              <br>
+              <p><strong>判斷：</strong>\(a^2+b^2 = 10\)，為整數，故為<strong>有理數</strong>。</p>
+              <p>（此題示範：兩無理數 a、b 的平方和可以是有理數！）</p>
+            </div>
+          </details>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ===== EXAM TIPS ===== -->
+    <div class="section-block" id="exam-tips">
+      <h2 class="section-title">學測考題方向提示</h2>
+
+      <div class="callout exam">
+        <div class="callout-title">學測 / 分科測驗出題分析</div>
+        <p>根據近年學測數學A科（含前身指考數乙 / 學測）出題規律，本章核心考點如下：</p>
+      </div>
+
+      <div class="card" style="margin-top:0.8rem;">
+        <table>
+          <thead>
+            <tr><th>考點</th><th>出題形式</th><th>重要程度</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(\sqrt{a^2} = |a|\) 的應用</td>
+              <td>化簡含參數根式（需討論正負）</td>
+              <td>★★★★★</td>
+            </tr>
+            <tr>
+              <td>分母有理化（共軛根式）</td>
+              <td>計算題、連續有理化疊消</td>
+              <td>★★★★★</td>
+            </tr>
+            <tr>
+              <td>指數律綜合化簡</td>
+              <td>選擇題、計算題</td>
+              <td>★★★★☆</td>
+            </tr>
+            <tr>
+              <td>分數指數 ↔ 根式互換</td>
+              <td>化簡、比較大小</td>
+              <td>★★★★☆</td>
+            </tr>
+            <tr>
+              <td>絕對值方程 / 不等式</td>
+              <td>求解、畫數線</td>
+              <td>★★★★☆</td>
+            </tr>
+            <tr>
+              <td>有理數 / 無理數判斷</td>
+              <td>選擇題（常與其他概念複合）</td>
+              <td>★★★☆☆</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout tip" style="margin-top:1rem;">
+        <div class="callout-title">💡 備考策略</div>
+        <ul class="bullet">
+          <li><strong>分母有理化</strong>幾乎每年必考，務必熟練到不假思索的程度。</li>
+          <li>遇到根式含<strong>未知正負號的參數</strong>（如 \(\sqrt{(x-2)^2}\)），<strong>一定要分情況</strong>，不可直接去掉根號。</li>
+          <li><strong>指數運算</strong>常以「給定 \(2^x = a\)，求含 \(4^x\) 或 \(8^x\) 的表達式」形式出現，需熟練底數轉換技巧。</li>
+          <li>本章計算題如在學測出現，多為<strong>2–4 分的填充或非選擇題</strong>，步驟清晰可避免「答案對、過程扣分」。</li>
+          <li>每週複習時先做例題、再做練習題，最後回頭看「常見錯誤」欄位，強化自我糾錯能力。</li>
+        </ul>
+      </div>
+
+      <div class="callout link">
+        <div class="callout-title">🔗 下週預告：W02 第1章後段 ── 多項式</div>
+        <p>下週將進入<strong>多項式的運算、因式定理、餘式定理</strong>等內容。本週學好的「指數律」和「根式化簡」將直接用於多項式的代入計算，請確保本週內容已完全熟練後再進行。</p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="page-footer">
+      <p>W01 數學A科講義 ── 數與式（實數系統）</p>
+      <p style="margin-top:0.4rem; opacity:0.7;">台灣高中學測備考 &bull; 高二理工組 &bull; 第一冊第1章</p>
+    </div>
+
+    <a href="#toc" class="back-top">回到目錄 ↑</a>
+
+  </main>
+</div>
+
+</body>
+</html>

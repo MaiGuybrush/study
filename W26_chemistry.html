@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W26 化學科｜平衡計算：化學平衡 ＋ 酸鹼平衡（整合衝刺）</title>
+  <style>
+    /* ===== CSS 變數與基礎設定 ===== */
+    :root {
+      --primary:       #e65100;
+      --primary-light: #ff8a50;
+      --primary-dark:  #b23c17;
+      --accent:        #ff6d00;
+      --bg:            #fff8f5;
+      --bg-card:       #ffffff;
+      --text:          #1a1a1a;
+      --text-light:    #555555;
+      --border:        #f0cfc0;
+      --shadow:        0 2px 8px rgba(230,81,0,.12);
+
+      --def-bg:    #fff3e0;
+      --def-border:#e65100;
+      --formula-bg:#fbe9e7;
+      --formula-border:#bf360c;
+      --example-bg:#f1f8e9;
+      --example-border:#558b2f;
+      --warn-bg:   #fff8e1;
+      --warn-border:#f9a825;
+      --link-bg:   #e8f5e9;
+      --link-border:#2e7d32;
+      --tip-bg:    #e3f2fd;
+      --tip-border:#1565c0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    /* ===== 頁首 ===== */
+    header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+      color: #fff;
+      padding: 36px 32px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "⚗";
+      position: absolute;
+      right: 40px; top: 10px;
+      font-size: 100px;
+      opacity: .12;
+      line-height: 1;
+    }
+    header .subject-tag {
+      display: inline-block;
+      background: rgba(255,255,255,.22);
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 20px;
+      padding: 3px 14px;
+      font-size: 13px;
+      letter-spacing: .05em;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: .03em;
+      margin-bottom: 6px;
+    }
+    header .subtitle {
+      font-size: 14px;
+      opacity: .88;
+      letter-spacing: .04em;
+    }
+    header .meta {
+      margin-top: 14px;
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      opacity: .80;
+      flex-wrap: wrap;
+    }
+
+    /* ===== 版面佈局 ===== */
+    .layout {
+      display: flex;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 28px 16px;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    /* ===== 側邊導覽 ===== */
+    nav.sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 16px;
+      box-shadow: var(--shadow);
+    }
+    nav.sidebar h3 {
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary);
+    }
+    nav.sidebar ol {
+      list-style: none;
+      padding: 0;
+      counter-reset: nav-counter;
+    }
+    nav.sidebar li {
+      counter-increment: nav-counter;
+      margin-bottom: 6px;
+    }
+    nav.sidebar a {
+      display: block;
+      padding: 5px 8px 5px 24px;
+      position: relative;
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 13px;
+      border-radius: 6px;
+      transition: background .2s, color .2s;
+    }
+    nav.sidebar a::before {
+      content: counter(nav-counter);
+      position: absolute;
+      left: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      color: var(--primary-light);
+      font-weight: 700;
+    }
+    nav.sidebar a:hover {
+      background: var(--def-bg);
+      color: var(--primary);
+    }
+    nav.sidebar .progress-bar {
+      margin-top: 16px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    nav.sidebar .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      border-radius: 4px;
+      transition: width .3s;
+    }
+
+    /* ===== 主內容 ===== */
+    main { flex: 1; min-width: 0; }
+
+    /* ===== 目錄卡片 ===== */
+    .toc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--primary);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow);
+    }
+    .toc-card h2 {
+      font-size: 17px;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 8px;
+    }
+    .toc-grid a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      transition: border-color .2s, color .2s;
+    }
+    .toc-grid a:hover { border-color: var(--primary); color: var(--primary); }
+    .toc-grid a .icon { font-size: 16px; }
+
+    /* ===== 章節 ===== */
+    section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 30px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow);
+    }
+    section h2 {
+      font-size: 20px;
+      color: var(--primary);
+      font-weight: 700;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section h2 .sec-num {
+      background: var(--primary);
+      color: #fff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    section h3 {
+      font-size: 16px;
+      color: var(--primary-dark);
+      font-weight: 700;
+      margin: 22px 0 10px;
+      padding-left: 10px;
+      border-left: 4px solid var(--primary-light);
+    }
+    section h4 {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 700;
+      margin: 16px 0 8px;
+    }
+    p { margin-bottom: 10px; }
+
+    /* ===== 定義/重點/例題/警告/連結/小技巧 盒子 ===== */
+    .box {
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin: 14px 0;
+      border-left: 5px solid;
+    }
+    .box-def     { background: var(--def-bg);     border-color: var(--def-border);     }
+    .box-formula { background: var(--formula-bg); border-color: var(--formula-border); }
+    .box-example { background: var(--example-bg); border-color: var(--example-border); }
+    .box-warn    { background: var(--warn-bg);     border-color: var(--warn-border);    }
+    .box-link    { background: var(--link-bg);     border-color: var(--link-border);    }
+    .box-tip     { background: var(--tip-bg);      border-color: var(--tip-border);     }
+    .box .box-title {
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ===== 視覺化樹狀圖 ===== */
+    .tree-visual {
+      background: #fffaf7;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px 16px 20px;
+      margin: 14px 0;
+      overflow-x: auto;
+    }
+    .tv-root {
+      display: inline-flex;
+      align-items: center;
+      background: var(--primary-dark);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 5px 18px;
+      border-radius: 20px;
+      margin-bottom: 6px;
+    }
+    .tv-children {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0 14px;
+      border-left: 2px solid var(--border);
+    }
+    .tv-item {
+      position: relative;
+      padding: 5px 0 4px 22px;
+    }
+    .tv-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 18px;
+      height: 2px;
+      background: var(--border);
+    }
+    .tv-node {
+      display: inline-block;
+      border-radius: 6px;
+      padding: 3px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    .tv-desc {
+      display: block;
+      font-size: 11.5px;
+      color: var(--text-light);
+      padding: 0 4px;
+      margin: 1px 0 3px;
+    }
+    .tv-node.tv-l1 {
+      background: #fff3e0;
+      color: var(--primary-dark);
+      border: 1px solid var(--primary-light);
+      font-size: 14px;
+    }
+    .tv-node.tv-l2 {
+      background: #fbe9e7;
+      color: #5d4037;
+      border: 1px solid #ffab91;
+    }
+    .tv-node.tv-l3 {
+      background: #fafafa;
+      color: var(--text);
+      border: 1px solid #e0e0e0;
+      font-weight: 400;
+    }
+
+    /* ===== 表格 ===== */
+    .table-wrap { overflow-x: auto; margin: 14px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    thead tr { background: var(--primary); color: #fff; }
+    thead th { padding: 10px 14px; text-align: left; font-weight: 700; }
+    tbody tr:nth-child(even) { background: #fff3e0; }
+    tbody tr:hover           { background: #ffe0b2; }
+    td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    td:first-child { font-weight: 600; color: var(--primary-dark); }
+
+    /* ===== 分離法卡片 ===== */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .method-card {
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 16px 18px;
+      background: #fff;
+    }
+    .method-card h4 {
+      color: var(--primary);
+      font-size: 15px;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+    .method-card .tag {
+      display: inline-block;
+      background: var(--formula-bg);
+      color: var(--primary-dark);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .method-card ul { padding-left: 18px; font-size: 13px; }
+    .method-card ul li { margin-bottom: 4px; }
+
+    /* ===== 學測考題標籤 ===== */
+    .exam-tag {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 5px;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px;
+      letter-spacing: .04em;
+    }
+    .exam-tag.high { background: #b23c17; }
+    .exam-tag.mid  { background: #e65100; }
+    .exam-tag.low  { background: #ff8a50; }
+
+    /* ===== 自我測驗 ===== */
+    .quiz-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      background: #fff;
+    }
+    .quiz-item .q-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      text-align: center;
+      line-height: 26px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+    .quiz-item .q-text {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .quiz-item details summary {
+      cursor: pointer;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 6px 10px;
+      background: var(--def-bg);
+      border-radius: 6px;
+      user-select: none;
+      list-style: none;
+    }
+    .quiz-item details summary::before { content: "▶ "; }
+    .quiz-item details[open] summary::before { content: "▼ "; }
+    .quiz-item details .answer {
+      margin-top: 10px;
+      padding: 12px 16px;
+      background: var(--example-bg);
+      border-left: 4px solid var(--example-border);
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+    }
+    .quiz-item .options { padding-left: 16px; font-size: 14px; margin-bottom: 8px; }
+    .quiz-item .options li { margin-bottom: 4px; }
+
+    /* ===== 重點整理清單 ===== */
+    .key-list {
+      list-style: none;
+      padding: 0;
+    }
+    .key-list li {
+      padding: 8px 12px 8px 36px;
+      position: relative;
+      border-bottom: 1px dashed var(--border);
+      font-size: 14px;
+    }
+    .key-list li:last-child { border-bottom: none; }
+    .key-list li::before {
+      content: "✅";
+      position: absolute;
+      left: 8px;
+      top: 8px;
+    }
+
+    /* ===== 延伸思考 ===== */
+    .extend-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 14px;
+    }
+    .extend-item:last-child { border-bottom: none; }
+    .extend-item .icon { font-size: 20px; flex-shrink: 0; }
+
+    /* ===== 實驗注意事項 ===== */
+    .lab-list {
+      list-style: none;
+      padding: 0;
+    }
+    .lab-list li {
+      padding: 8px 12px 8px 36px;
+      position: relative;
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .lab-list li::before {
+      content: "⚠️";
+      position: absolute;
+      left: 8px;
+      top: 8px;
+    }
+
+    /* ===== 頁尾 ===== */
+    footer {
+      text-align: center;
+      padding: 24px 16px;
+      color: var(--text-light);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      margin-top: 16px;
+    }
+
+    /* ===== 響應式 ===== */
+    @media (max-width: 768px) {
+      .layout { flex-direction: column; padding: 16px 12px; }
+      nav.sidebar { width: 100%; position: static; }
+      section { padding: 20px 16px; }
+      .method-grid { grid-template-columns: 1fr; }
+      .toc-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== 平滑捲動 ===== */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+<!-- ===== 頁首 ===== -->
+<header>
+  <div class="subject-tag">化學科 Chemistry</div>
+  <h1>W26 平衡計算：化學平衡 ＋ 酸鹼平衡</h1>
+  <div class="subtitle">Equilibrium Calculations — 平衡常數・反應商・勒沙特列原理・pH・弱酸弱鹼・緩衝溶液</div>
+  <div class="meta">
+    <span>學測備考</span>
+    <span>高三上理工組</span>
+    <span>第 26 週講義（11/09–11/15）</span>
+    <span>第四階段：整合衝刺</span>
+    <span>週六：數學 A 全卷模擬</span>
+  </div>
+</header>
+
+<!-- ===== 版面 ===== -->
+<div class="layout">
+
+  <!-- 側邊導覽 -->
+  <nav class="sidebar" aria-label="章節導覽">
+    <h3>章節目錄</h3>
+    <ol>
+      <li><a href="#overview">單元概述</a></li>
+      <li><a href="#reality">考試實況（請先看）</a></li>
+      <li><a href="#toolbox">平衡工具箱</a></li>
+      <li><a href="#groupA">A 組：平衡常數（1–4）</a></li>
+      <li><a href="#groupB">B 組：Q 與勒沙特列（5–7）</a></li>
+      <li><a href="#groupC">C 組：強酸強鹼 pH（8–10）</a></li>
+      <li><a href="#groupD">D 組：弱酸弱鹼（11–13）</a></li>
+      <li><a href="#groupE">E 組：緩衝與滴定（14–15）</a></li>
+      <li><a href="#real">歷屆真題 4 題</a></li>
+      <li><a href="#traps">平衡陷阱清單</a></li>
+      <li><a href="#review">得分與錯因統計</a></li>
+      <li><a href="#summary">重點整理</a></li>
+      <li><a href="#exam">學測考題方向</a></li>
+    </ol>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </nav>
+
+  <!-- 主內容 -->
+  <main>
+
+    <!-- 目錄卡片 -->
+    <div class="toc-card">
+      <h2>本週學習地圖</h2>
+      <div class="toc-grid">
+        <a href="#overview"><span class="icon">📋</span>單元概述與學習目標</a>
+        <a href="#reality"><span class="icon">🔎</span>考試實況：時間怎麼分配</a>
+        <a href="#toolbox"><span class="icon">🧰</span>平衡工具箱與解題步驟</a>
+        <a href="#groupA"><span class="icon">⚖️</span>A 組：平衡常數（4 題）</a>
+        <a href="#groupB"><span class="icon">🔄</span>B 組：Q 與勒沙特列（3 題）</a>
+        <a href="#groupC"><span class="icon">🧪</span>C 組：強酸強鹼 pH（3 題）</a>
+        <a href="#groupD"><span class="icon">💧</span>D 組：弱酸弱鹼（3 題）</a>
+        <a href="#groupE"><span class="icon">🛡️</span>E 組：緩衝與滴定（2 題）</a>
+        <a href="#real"><span class="icon">📜</span>歷屆真題 4 題</a>
+        <a href="#traps"><span class="icon">⚠️</span>平衡陷阱清單</a>
+        <a href="#review"><span class="icon">📊</span>得分與錯因統計</a>
+        <a href="#summary"><span class="icon">✅</span>重點整理</a>
+      </div>
+    </div>
+
+    <!-- ===== 1. 單元概述 ===== -->
+    <section id="overview">
+      <h2><span class="sec-num">1</span>單元概述 Unit Overview</h2>
+      <p>
+        W25 把化學計量的基本功練穩；本週依時程進入<strong>平衡計算：化學平衡＋酸鹼平衡</strong>。W13、W14 建立觀念，W20、W21 深化計算；本週把兩者放在同一份 15 題裡，練習用同一套「起始 → 變化 → 平衡」的表格解題。
+      </p>
+
+      <h3>學習目標</h3>
+      <div class="box box-def">
+        <div class="box-title">📋 完成本週學習後，你應該能夠（平衡常數、弱酸弱鹼計算屬選做）：</div>
+        <ul>
+          <li>由平衡濃度或解離百分率求 K，並由 K 反推平衡濃度</li>
+          <li>比較 Q 與 K 判斷反應方向；用勒沙特列原理判斷濃度、壓力、溫度的影響</li>
+          <li>計算強酸強鹼、混合、稀釋後的 pH，使用 log2 ＝ 0.30 等近似值</li>
+          <li>用近似法求弱酸弱鹼的 [H⁺]、[OH⁻]、Ka、Kb 與解離度</li>
+          <li>說明緩衝溶液的原理，判斷指示劑與 pH 範圍的關係</li>
+        </ul>
+      </div>
+
+      <h3>本週使用的數據約定</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>數值</th></tr></thead>
+          <tbody>
+            <tr><td>水的離子積</td><td>25 °C：K<sub>w</sub> ＝ [H⁺][OH⁻] ＝ 1.0 × 10⁻¹⁴；pH ＋ pOH ＝ 14</td></tr>
+            <tr><td>常用對數</td><td>log2 ＝ 0.30；log3 ＝ 0.48；log1.8 ＝ 0.26</td></tr>
+            <tr><td>弱酸弱鹼近似</td><td>解離度夠小（濃度 ≫ K）時，平衡濃度可用 C − x ≈ C</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>本週安排建議</h3>
+      <div class="box box-tip">
+        <div class="box-title">💡 七日規劃</div>
+        <p><strong>週一：</strong>考試實況＋歷屆真題 4 題（必做）｜<strong>週二：</strong>C 組（必做）｜<strong>週三：</strong>第 15 題（必做）＋D 組與第 14 題（選做）｜<strong>週四：</strong>工具箱＋A 組（選做）｜<strong>週五：</strong>B 組（選做）＋錯題重做｜<strong>週六：</strong>數學 A 全卷模擬（化學休息）｜<strong>週日：</strong>整理錯題本。選做的部分時間不夠就跳過。</p>
+      </div>
+    </section>
+
+    <!-- ===== 考試實況 ===== -->
+    <section id="reality">
+      <h2><span class="sec-num">2</span>考試實況（請先看）</h2>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 化學平衡常數不在學測範圍：查證結果</div>
+        <p>本週主題來自 35 週時程表，原本的課程範圍表把「化學平衡」「酸鹼平衡」列在化學二內。但<a href="https://www.ceec.edu.tw/files/file_pool/1/0J270523661993479581/111%E5%AD%B8%E5%B9%B4%E5%BA%A6%E8%B5%B7%E9%81%A9%E7%94%A8%E5%AD%B8%E6%B8%AC%E8%87%AA%E7%84%B6%E8%80%83%E7%A7%91%E8%80%83%E8%A9%A6%E8%AA%AA%E6%98%8E%28%E5%AE%9A%E7%A8%BF%29.pdf" target="_blank" rel="noopener">大考中心自然考科考試說明</a>的學測範圍只有<strong>必修化學</strong>：「化學反應速率與平衡」僅列飽和溶液的溶解平衡、接觸面積對反應速率的影響；酸鹼僅列水的自解離、阿瑞尼斯學說、pH、強弱酸鹼的定義。平衡常數、勒沙特列原理、K<sub>a</sub> 都不在其中（範圍表已於 2026/11/09 更正）。全文檢索 <strong>107–115 學年度學測自然科</strong>九年試卷，結果也一致：</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>關鍵字</th><th>107–115 出現次數</th><th>怎麼解讀</th></tr></thead>
+          <tbody>
+            <tr><td>平衡常數、勒沙特列、化學平衡、K<sub>c</sub>、K<sub>a</sub></td><td><strong>0 次</strong></td><td>九年都沒有出現（109 年卷中的「Ka」是天文學家 Karl Jansky 的名字）。</td></tr>
+            <tr><td>「平衡」一詞</td><td>每年都有</td><td>逐筆查看語境，都是別的意思：反應式係數平衡、熱平衡、靜力平衡、生態平衡、能量收支平衡，以及飽和溶液的溶解平衡（108、111、112）。</td></tr>
+            <tr><td>pH 值</td><td>111、112、113、115</td><td>考 pH 與 [H⁺] 的關係、指示劑變色範圍、情境中的酸鹼性；114 沒有 pH，但有弱酸「部分解離」的敘述。</td></tr>
+            <tr><td>緩衝（酸鹼）</td><td>0 次</td><td>113 年出現的「緩衝」是安全氣囊，與酸鹼無關。不過 111 年第 13 題實際用到弱酸過量的緩衝概念（見歷屆真題）。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-example">
+        <div class="box-title">📝 這週怎麼分配時間</div>
+        <ul>
+          <li><strong>必做（學測範圍）：</strong>歷屆真題 4 題、C 組（強酸強鹼 pH）、第 15 題第 (1) 小題（中和滴定）。</li>
+          <li><strong>選做（分科測驗範圍）：</strong>A、B、D 組與第 14 題。它們訓練「起始、變化、平衡」的思路，對分科測驗有用；但時間不夠就直接跳過，把時間讓給數學第四冊 A。</li>
+          <li>本講義仍依時程表完整收錄 15 題，是因為之後若要考分科測驗用得上；<strong>學測本身不必為它們花大量時間。</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 工具箱 ===== -->
+    <section id="toolbox">
+      <h2><span class="sec-num">3</span>平衡工具箱 Toolbox</h2>
+
+      <h3>三段式表格（起始 → 變化 → 平衡）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>範例：aA ⇌ bB</th><th>A</th><th>B</th></tr></thead>
+          <tbody>
+            <tr><td>起始（mol/L）</td><td>C₀</td><td>0</td></tr>
+            <tr><td>變化（依係數比）</td><td>−a x</td><td>＋b x</td></tr>
+            <tr><td>平衡</td><td>C₀ − a x</td><td>b x</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-formula">
+        <div class="box-title">📐 化學平衡公式</div>
+        <p>
+          aA ＋ bB ⇌ cC ＋ dD：K<sub>c</sub> ＝ [C]<sup>c</sup>[D]<sup>d</sup> ÷ ([A]<sup>a</sup>[B]<sup>b</sup>)；純固體、純液體不列入<br>
+          反應逆寫：K′ ＝ 1 ÷ K；係數乘 n：K′ ＝ K<sup>n</sup>；兩式相加：K ＝ K₁ × K₂<br>
+          Q 與 K：Q ＜ K 向右；Q ＝ K 平衡；Q ＞ K 向左。K 只隨溫度改變
+        </p>
+      </div>
+
+      <div class="box box-formula">
+        <div class="box-title">📐 酸鹼公式</div>
+        <p>
+          pH ＝ −log[H⁺]；pOH ＝ −log[OH⁻]；pH ＋ pOH ＝ 14（25 °C）<br>
+          弱酸：[H⁺] ≈ √(C × K<sub>a</sub>)；解離度 α ≈ √(K<sub>a</sub> ÷ C)<br>
+          弱鹼：[OH⁻] ≈ √(C × K<sub>b</sub>)；共軛對 K<sub>a</sub> × K<sub>b</sub> ＝ K<sub>w</sub><br>
+          緩衝（弱酸 HA ＋ 共軛鹼 A⁻）：[H⁺] ＝ K<sub>a</sub> × [HA] ÷ [A⁻]<br>
+          中和：n(H⁺) ＝ n(OH⁻)；混合後先算剩下的是酸或鹼，再除以總體積
+        </p>
+      </div>
+
+      <h3>勒沙特列原理速查</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>改變條件</th><th>平衡移動</th><th>K 變不變</th></tr></thead>
+          <tbody>
+            <tr><td>增加反應物濃度</td><td>向右</td><td>不變</td></tr>
+            <tr><td>壓縮體積（加壓）</td><td>向氣體莫耳數少的一方</td><td>不變</td></tr>
+            <tr><td>定容加入惰性氣體</td><td>不移動（各氣體分壓不變）</td><td>不變</td></tr>
+            <tr><td>定壓加入惰性氣體</td><td>向氣體莫耳數多的一方（體積變大）</td><td>不變</td></tr>
+            <tr><td>升溫</td><td>向吸熱方向</td><td><strong>會變</strong></td></tr>
+            <tr><td>加催化劑</td><td>不移動，只加快達到平衡</td><td>不變</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== A 組 ===== -->
+    <section id="groupA">
+      <h2><span class="sec-num">4</span>A 組：平衡常數（第 1–4 題）</h2>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span><span>【★ 由平衡濃度求 K】定溫下，H₂(g) ＋ I₂(g) ⇌ 2HI(g) 達平衡時，[H₂] ＝ [I₂] ＝ 0.20 M、[HI] ＝ 1.6 M。求此溫度下的 K<sub>c</sub>。</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          K<sub>c</sub> ＝ [HI]² ÷ ([H₂][I₂]) ＝ (1.6)² ÷ (0.20 × 0.20) ＝ 2.56 ÷ 0.040 ＝ <strong>64</strong>。<br>
+          <strong>提醒：</strong>HI 的係數 2 要變成平方。
+        </div></details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span><span>【★★ 解離百分率求 K】將 1.0 mol 的 N₂O₄(g) 置入 2.0 L 密閉容器，定溫下發生 N₂O₄(g) ⇌ 2NO₂(g)。平衡時 N₂O₄ 有 20% 解離。求 K<sub>c</sub>。</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          起始 [N₂O₄] ＝ 1.0 ÷ 2.0 ＝ 0.50 M；解離 0.50 × 20% ＝ 0.10 M。<br>
+          平衡：[N₂O₄] ＝ 0.40 M；[NO₂] ＝ 2 × 0.10 ＝ 0.20 M。<br>
+          K<sub>c</sub> ＝ (0.20)² ÷ 0.40 ＝ <strong>0.10</strong>。<br>
+          <strong>提醒：</strong>K 用濃度，不是莫耳數；NO₂ 的生成量是解離量的 2 倍。
+        </div></details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span><span>【★★ 由 K 求平衡濃度】A(g) ＋ B(g) ⇌ C(g) ＋ D(g)，K<sub>c</sub> ＝ 4.0。起始 [A] ＝ [B] ＝ 1.0 M，無 C、D。求平衡時 [C] 與 A 的反應百分率。</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          設反應 x：K ＝ x² ÷ (1.0 − x)² ＝ 4.0。兩邊開根號：x ÷ (1.0 − x) ＝ 2.0 → x ＝ 2 ÷ 3 ≈ 0.67。<br>
+          <strong>[C] ≈ 0.67 M；A 反應約 67%</strong>。<br>
+          <strong>驗算：</strong>(0.67)² ÷ (0.33)² ≈ 4 ✓。
+        </div></details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span><span>【★★ K 與反應式】某溫度下 N₂(g) ＋ 3H₂(g) ⇌ 2NH₃(g) 的 K ＝ 0.50。求同溫下 (1) 2NH₃ ⇌ N₂ ＋ 3H₂ 的 K′ (2) ½N₂ ＋ (3/2)H₂ ⇌ NH₃ 的 K″。</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          <strong>(1)</strong> 逆反應：K′ ＝ 1 ÷ 0.50 ＝ <strong>2.0</strong>。<br>
+          <strong>(2)</strong> 係數乘 ½：K″ ＝ (0.50)<sup>1/2</sup> ≈ <strong>0.71</strong>。<br>
+          <strong>提醒：</strong>係數乘 n 是 K 的 n 次方，不是乘 n。
+        </div></details>
+      </div>
+    </section>
+
+    <!-- ===== B 組 ===== -->
+    <section id="groupB">
+      <h2><span class="sec-num">5</span>B 組：Q 與勒沙特列（第 5–7 題）</h2>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span><span>【★★ Q 判斷方向】2SO₂(g) ＋ O₂(g) ⇌ 2SO₃(g) 在某溫度的 K<sub>c</sub> ＝ 100。某時刻 [SO₂] ＝ 0.20 M、[O₂] ＝ 0.10 M、[SO₃] ＝ 0.40 M。此時反應向哪一方進行？</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          Q ＝ (0.40)² ÷ [(0.20)² × 0.10] ＝ 0.16 ÷ 0.0040 ＝ 40。<br>
+          Q ＝ 40 ＜ K ＝ 100，尚未達平衡，<strong>反應向右（生成 SO₃）進行</strong>。
+        </div></details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">6</span><span>【★★ 擾動後判斷】承第 1 題（K ＝ 64，[H₂] ＝ [I₂] ＝ 0.20 M、[HI] ＝ 1.6 M）。定溫定容下再加入 H₂，使 [H₂] 瞬間變為 0.60 M。(1) 求此瞬間的 Q 與移動方向。(2) 再達平衡後，K 是多少？[I₂] 比原來大或小？</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          <strong>(1)</strong> Q ＝ (1.6)² ÷ (0.60 × 0.20) ≈ 21.3 ＜ 64，<strong>向右移動</strong>。<br>
+          <strong>(2)</strong> 溫度不變，<strong>K 仍為 64</strong>。反應向右消耗 I₂，<strong>[I₂] 變小</strong>。<br>
+          <strong>提醒：</strong>勒沙特列原理是「減弱」改變，不是完全抵消：新平衡的 [H₂] 仍比 0.20 M 大。
+        </div></details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">7</span><span>【★★ 綜合判斷】N₂O₄(g，無色) ⇌ 2NO₂(g，紅棕色)，正反應吸熱。下列敘述哪些正確？（多選）<br>
+          (A) 升高溫度，顏色變深，K 變大<br>
+          (B) 定溫下壓縮體積，顏色先變深再略變淺，但最後仍比壓縮前深<br>
+          (C) 加入催化劑，顏色變深<br>
+          (D) 定溫定容下加入氦氣，平衡不移動<br>
+          (E) 定溫定壓下加入氦氣，平衡向左移動</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          <strong>答：(A)(B)(D)</strong>。<br>
+          (A) 吸熱方向向右 ✓。(B) 壓縮瞬間濃度全部變大，顏色變深；平衡向分子數少的左方移動而略變淺，但新平衡的 [NO₂] 仍比原來大 ✓。<br>
+          (C) 催化劑不改變平衡 ✘。(D) 各氣體濃度不變 ✓。(E) 定壓加氦氣體積變大，相當於減壓，向氣體莫耳數多的<strong>右方</strong>移動 ✘。
+        </div></details>
+      </div>
+    </section>
+
+    <!-- ===== C 組 ===== -->
+    <section id="groupC">
+      <h2><span class="sec-num">6</span>C 組：強酸強鹼 pH（第 8–10 題）</h2>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">8</span><span>【★ 基本 pH】視下列電解質完全解離，求 25 °C 的 pH：(1) 0.010 M HCl (2) 0.0050 M H₂SO₄ (3) 0.0010 M Ba(OH)₂。</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          <strong>(1)</strong> [H⁺] ＝ 1.0×10⁻² → <strong>pH ＝ 2</strong>。<br>
+          <strong>(2)</strong> 二元酸：[H⁺] ＝ 2 × 0.0050 ＝ 1.0×10⁻² → <strong>pH ＝ 2</strong>。<br>
+          <strong>(3)</strong> [OH⁻] ＝ 2 × 0.0010 ＝ 2.0×10⁻³；pOH ＝ 3 − log2 ＝ 2.7 → <strong>pH ＝ 11.3</strong>。
+        </div></details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">9</span><span>【★★ 混合】100 mL 的 0.10 M HCl 與 100 mL 的 0.060 M NaOH 混合（體積可相加）。求混合後的 pH。</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          H⁺：10 mmol；OH⁻：6.0 mmol。中和後剩 H⁺ 4.0 mmol，總體積 200 mL。<br>
+          [H⁺] ＝ 4.0 ÷ 200 ＝ 0.020 M；pH ＝ 2 − log2 ＝ <strong>1.7</strong>。<br>
+          <strong>提醒：</strong>一定要先用莫耳數中和，再除以<strong>總體積</strong>。
+        </div></details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">10</span><span>【★★ 稀釋】pH ＝ 3 的 HCl 溶液，分別稀釋 (1) 10 倍 (2) 1000 倍 (3) 100000 倍，pH 約為多少？</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          <strong>(1)</strong> [H⁺] ＝ 10⁻⁴ → <strong>pH ＝ 4</strong>。<strong>(2)</strong> [H⁺] ＝ 10⁻⁶ → <strong>pH ＝ 6</strong>。<br>
+          <strong>(3)</strong> 酸提供 10⁻⁸ M，已比水自身解離的 10⁻⁷ M 小，不能直接算成 pH ＝ 8。酸再怎麼稀釋也不會變鹼性，<strong>pH 接近 7 且略小於 7</strong>。
+        </div></details>
+      </div>
+    </section>
+
+    <!-- ===== D 組 ===== -->
+    <section id="groupD">
+      <h2><span class="sec-num">7</span>D 組：弱酸弱鹼（第 11–13 題）</h2>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">11</span><span>【★★ 弱酸與稀釋】弱酸 HA 的 K<sub>a</sub> ＝ 1.0×10⁻⁵。(1) 求 0.10 M HA 的 pH 與解離度。(2) 稀釋為 0.0010 M 時，解離度大約變為多少？[H⁺] 變大還是變小？</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          <strong>(1)</strong> [H⁺] ≈ √(0.10 × 1.0×10⁻⁵) ＝ 1.0×10⁻³ → <strong>pH ＝ 3</strong>；α ＝ 10⁻³ ÷ 0.10 ＝ <strong>1%</strong>。<br>
+          <strong>(2)</strong> α ≈ √(K<sub>a</sub> ÷ C) ＝ √(10⁻⁵ ÷ 10⁻³) ＝ 0.10，約 <strong>10%</strong>（精確解約 9.5%）。[H⁺] 約 10⁻⁴ M，<strong>變小</strong>。<br>
+          <strong>重點：</strong>稀釋時解離<strong>度</strong>變大，但 [H⁺] 變小，別混淆。
+        </div></details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">12</span><span>【★★ 由 pH 求 K<sub>a</sub>】0.20 M 的某單質子弱酸，pH ＝ 3.0。求 K<sub>a</sub>。</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          [H⁺] ＝ [A⁻] ＝ 1.0×10⁻³ M；[HA] ≈ 0.20 M。<br>
+          K<sub>a</sub> ＝ (1.0×10⁻³)² ÷ 0.20 ＝ <strong>5.0×10⁻⁶</strong>。
+        </div></details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">13</span><span>【★★★ 弱鹼與共軛酸】NH₃ 的 K<sub>b</sub> ＝ 1.8×10⁻⁵。(1) 求 0.10 M NH₃ 水溶液的 [OH⁻] 與 pH（√1.8 ≈ 1.34，log1.34 ≈ 0.13）。(2) 求共軛酸 NH₄⁺ 的 K<sub>a</sub>。</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          <strong>(1)</strong> [OH⁻] ≈ √(0.10 × 1.8×10⁻⁵) ＝ √(1.8×10⁻⁶) ≈ <strong>1.34×10⁻³ M</strong>。<br>
+          pOH ＝ 3 − 0.13 ＝ 2.87 → <strong>pH ≈ 11.13</strong>。<br>
+          <strong>(2)</strong> K<sub>a</sub> ＝ K<sub>w</sub> ÷ K<sub>b</sub> ＝ 10⁻¹⁴ ÷ 1.8×10⁻⁵ ≈ <strong>5.6×10⁻¹⁰</strong>。
+        </div></details>
+      </div>
+    </section>
+
+    <!-- ===== E 組 ===== -->
+    <section id="groupE">
+      <h2><span class="sec-num">8</span>E 組：緩衝與滴定（第 14–15 題）</h2>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">14</span><span>【★★★ 緩衝溶液】1.0 L 溶液含 0.10 mol CH₃COOH 與 0.10 mol CH₃COONa（K<sub>a</sub> ＝ 1.8×10⁻⁵）。(1) 求 pH。(2) 加入 0.010 mol HCl（體積不變）後 pH 約多少？(3) 若把 0.010 mol HCl 加入 1.0 L 純水，pH 變為多少？比較兩者。（log1.8 ＝ 0.26；log2.2 ＝ 0.34）</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          <strong>(1)</strong> [H⁺] ＝ K<sub>a</sub> × 0.10 ÷ 0.10 ＝ 1.8×10⁻⁵ → pH ＝ 5 − 0.26 ＝ <strong>4.74</strong>。<br>
+          <strong>(2)</strong> H⁺ 被 CH₃COO⁻ 消耗：[HA] ＝ 0.11、[A⁻] ＝ 0.09。[H⁺] ＝ 1.8×10⁻⁵ × 0.11 ÷ 0.09 ≈ 2.2×10⁻⁵ → pH ＝ 5 − 0.34 ＝ <strong>4.66</strong>。<br>
+          <strong>(3)</strong> 純水：[H⁺] ＝ 0.010 M → <strong>pH ＝ 2</strong>。<br>
+          <strong>比較：</strong>緩衝溶液 pH 只降 0.08；純水由 7 降到 2，降了 5。這就是緩衝作用。
+        </div></details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">15</span><span>【★★ 滴定與指示劑】以 0.10 M NaOH 滴定 25.0 mL 未知濃度的 HCl，達當量點時用去 30.0 mL。(1) 求 HCl 濃度。(2) 若改滴定同濃度的 CH₃COOH，當量點溶液呈酸性、中性或鹼性？應選酚酞還是甲基紅作指示劑？</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          <strong>(1)</strong> 0.10 × 30.0 ＝ C × 25.0 → <strong>C ＝ 0.12 M</strong>。<br>
+          <strong>(2)</strong> 當量點產物 CH₃COONa，CH₃COO⁻ 水解產生 OH⁻，溶液呈<strong>鹼性</strong>，所以選在鹼性範圍變色的<strong>酚酞</strong>（8.2～10.0 附近）。<br>
+          <strong>提醒：</strong>弱酸與強酸達當量點所需的鹼量相同，因為中和看的是可釋出 H⁺ 的總量，不是當下的 [H⁺]。
+        </div></details>
+      </div>
+    </section>
+
+    <!-- ===== 歷屆真題 ===== -->
+    <section id="real">
+      <h2><span class="sec-num">9</span>歷屆真題 4 題（大考中心學測自然科）</h2>
+      <div class="box box-tip">
+        <div class="box-title">💡 真題比自編題更優先</div>
+        <p>這 4 題是 108 課綱實施後（111–115）實際考過的酸鹼題，題號與答案已核對官方答案；解析為本講義撰寫。注意它們的共同點：<strong>幾乎不用平衡常數，考的是 pH 與 [H⁺] 的關係、指示劑範圍與情境判斷</strong>。</p>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span>【112 學測第 45 題】市售牛乳的 pH 為 6.6，而乳酪的凝聚過程始於 pH 5.3。試問市售牛乳的氫離子濃度改變多少後，乳酪會開始凝聚？（log2 ＝ 0.30）<br>
+          (A) 增加約 1.3 倍　(B) 增加約 13%　(C) 增加約 20 倍　(D) 減少約 10 倍　(E) 減少約 10%</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          pH 由 6.6 降到 5.3，下降 1.3，所以 [H⁺] 增加 10<sup>1.3</sup> 倍。10<sup>1.3</sup> ＝ 10 × 10<sup>0.3</sup> ＝ 10 × 2 ＝ 20。<br>
+          <strong>官方答案：(C)</strong>。<strong>關鍵：</strong>pH 差 1 就是濃度差 10 倍；log2 ＝ 0.30 反過來用。
+        </div></details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span>【115 學測第 21 題】化學實驗室中有五種酸鹼指示劑，其變色範圍 pH 列於表 3 中。現有甲、乙、丙、丁、戊等五種溶液，小雨想要比較此五種溶液的酸鹼度，於是她在此五種溶液中分別滴入不同的指示劑，所觀察到的顏色如表 4 所示。下列有關溶液中氫離子濃度的比較，何者正確？</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>表 3 指示劑</th><th>甲基橙</th><th>甲基紅</th><th>溴瑞香草酚藍</th><th>酚紅</th><th>酚酞</th></tr></thead>
+            <tbody>
+              <tr><td>顏色變化（酸 → 鹼）</td><td>紅 → 黃</td><td>紅 → 黃</td><td>黃 → 藍</td><td>黃 → 紅</td><td>無 → 紅</td></tr>
+              <tr><td>變色範圍 pH</td><td>3.2～4.4</td><td>4.2～6.3</td><td>6.0～7.6</td><td>6.8～8.4</td><td>8.2～10.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>表 4 溶液</th><th>甲</th><th>乙</th><th>丙</th><th>丁</th><th>戊</th></tr></thead>
+            <tbody>
+              <tr><td>所用指示劑</td><td>甲基紅</td><td>溴瑞香草酚藍</td><td>甲基橙</td><td>酚紅</td><td>酚酞</td></tr>
+              <tr><td>顏色</td><td>紅色</td><td>綠色</td><td>橙色</td><td>紅色</td><td>無色</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>(A) 甲＞乙＞丙　(B) 甲＞丁＞乙　(C) 甲＞丁＞戊　(D) 乙＞丙＞戊　(E) 丙＞乙＞丁</p>
+        <details><summary>查看解答</summary><div class="answer">
+          先把顏色換成 pH 範圍：甲（紅）pH ＜ 4.2；乙（綠，為中間色）pH 6.0～7.6；丙（橙，為中間色）pH 3.2～4.4；丁（紅）pH ＞ 8.4；戊（無色）pH ＜ 8.2。<br>
+          pH 越小，[H⁺] 越大。丙（約 4）＞ 乙（約 7）＞ 丁（＞ 8.4）確定成立。其他選項：(A) 乙不可能大於丙；(B)(C) 丁的 [H⁺] 比乙、戊都小；(D) 乙不可能大於丙。<br>
+          <strong>官方答案：(E)</strong>。<strong>關鍵：</strong>中間色代表落在變色範圍內；端點色只能確定「小於」或「大於」。
+        </div></details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span>【112 學測第 19 題】酸鹼指示劑會在特定 pH 值範圍發生顏色轉變：甲基紅（酸型紅、4.2～6.3、鹼型黃）、酚紅（酸型黃、6.4～8.2、鹼型紅）、酚酞（酸型無、8.3～10.0、鹼型紅）。下列有關酸鹼指示劑的敘述，何者正確？<br>
+          (A) 酸鹼指示劑會因 pH 值變化而改變顏色，顯示它們本身可以跟酸或鹼反應<br>
+          (B) 將食鹽水溶液，加入少量甲基紅，會呈現紅與黃混合的橙色<br>
+          (C) 相同體積莫耳濃度、相同體積之鹽酸與氫氧化鈉水溶液反應後，加入少量酚酞，會呈現紅色<br>
+          (D) 甲基紅、酚紅、酚酞的變色範圍約為 2 倍氫離子濃度的差異範圍<br>
+          (E) 用甲基紅和酚紅的混合物當指示劑可更有效辨識強酸和強鹼</span></div>
+        <details><summary>查看解答</summary><div class="answer">
+          (A) 指示劑本身是弱酸或弱鹼，酸型與鹼型顏色不同 ✓。<br>
+          (B) 食鹽水 pH ≈ 7，大於 6.3，甲基紅呈黃色。(C) 恰中和 pH ≈ 7，小於 8.3，酚酞無色。<br>
+          (D) 變色範圍約 2 個 pH 單位，相當於 [H⁺] 差約 100 倍，不是 2 倍。(E) 辨識強酸強鹼不需要混合兩者，且無此效果。<br>
+          <strong>官方答案：(A)</strong>。
+        </div></details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span>【111 學測第 13 題】已知指示劑 X 在 pH 值 7.5 以下和 8.0 以上分別是無色和粉紅色，而指示劑 Y 在 pH 值 4.0–7.5 與 8.0–10.0 時分別是綠色和藍色。若將濃度各 0.1 M 的溶液甲和乙分別以體積比 1:9、1:1 和 9:1 充分混合，再分別用指示劑 X 和 Y 測混合溶液，其結果如下：</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>體積比（甲：乙）</th><th>指示劑 X</th><th>指示劑 Y</th></tr></thead>
+            <tbody>
+              <tr><td>1:9</td><td>粉紅色</td><td>藍色</td></tr>
+              <tr><td>1:1</td><td>無色</td><td>綠色</td></tr>
+              <tr><td>9:1</td><td>無色</td><td>綠色</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>下列何者最有可能為溶液甲和乙的組合？<br>
+          (A) 甲 HCl(aq)、乙 NH₃(aq)　(B) 甲 NH₃(aq)、乙 HCl(aq)　(C) 甲 NaCl(aq)、乙 NH₃(aq)　(D) 甲 NH₃(aq)、乙 CH₃COOH(aq)　(E) 甲 CH₃COOH(aq)、乙 NH₃(aq)</p>
+        <details><summary>查看解答</summary><div class="answer">
+          由表：1:9（乙多）pH ≥ 8，乙為鹼；1:1 與 9:1 都落在 pH 4.0–7.5，酸多時也不會太酸，甲不是強酸 → 甲為弱酸。<br>
+          (A) 甲是強酸，9:1 時 HCl 過量，[H⁺] ＝ 0.08 M，pH ≈ 1.1，Y 不會是綠色，排除。(B)(D) 乙為酸，1:9 不會呈鹼性，排除。(C) NaCl 不是酸，1:1、9:1 仍呈鹼性，X 應為粉紅，排除。<br>
+          (E) 9:1 時醋酸過量形成緩衝溶液，pH 約 4（H⁺ 濃度受緩衝控制）；1:1 醋酸銨 pH ≈ 7；1:9 氨過量呈鹼性。<br>
+          <strong>官方答案：(E)</strong>。<strong>關鍵：</strong>弱酸過量時 pH 不會很低，這就是緩衝概念在考試中的樣子。
+        </div></details>
+      </div>
+    </section>
+
+    <!-- ===== 陷阱 ===== -->
+    <section id="traps">
+      <h2><span class="sec-num">10</span>平衡陷阱清單 Common Traps</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>常見陷阱</th><th>正確做法</th><th>出現在</th></tr></thead>
+          <tbody>
+            <tr><td>K 用莫耳數代入</td><td>先除以體積換成濃度</td><td>2</td></tr>
+            <tr><td>忘記係數變次方</td><td>[HI]² 不是 2[HI]</td><td>1、5</td></tr>
+            <tr><td>反應式改寫時 K 乘以倍數</td><td>係數乘 n → K 的 n 次方</td><td>4</td></tr>
+            <tr><td>以為擾動會完全抵消</td><td>勒沙特列是「減弱」改變</td><td>6、7</td></tr>
+            <tr><td>以為加壓、催化劑會改變 K</td><td>只有溫度能改變 K</td><td>6、7</td></tr>
+            <tr><td>二元酸鹼沒乘 2</td><td>[H⁺] 或 [OH⁻] 要乘可解離數</td><td>8</td></tr>
+            <tr><td>混合時把 pH 直接平均</td><td>先算莫耳數中和，再除總體積</td><td>9</td></tr>
+            <tr><td>酸稀釋成鹼性</td><td>接近 7 就要考慮水的解離</td><td>10</td></tr>
+            <tr><td>解離度變大就以為 [H⁺] 變大</td><td>稀釋時 α 變大、[H⁺] 變小</td><td>11</td></tr>
+            <tr><td>把當量點當成中性</td><td>弱酸強鹼當量點偏鹼性</td><td>15</td></tr>
+            <tr><td>指示劑端點色當成確定 pH</td><td>端點色只知範圍之外，中間色才在範圍內</td><td>真題</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== 得分與錯因 ===== -->
+    <section id="review">
+      <h2><span class="sec-num">11</span>得分與錯因統計 Score &amp; Review</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>組別</th><th>題數</th><th>答對</th><th>我的主要錯因（具體寫）</th></tr></thead>
+          <tbody>
+            <tr><td>A 組 平衡常數</td><td>4</td><td>＿／4</td><td>＿＿＿＿＿＿＿＿</td></tr>
+            <tr><td>B 組 Q 與勒沙特列</td><td>3</td><td>＿／3</td><td>＿＿＿＿＿＿＿＿</td></tr>
+            <tr><td>C 組 強酸強鹼 pH</td><td>3</td><td>＿／3</td><td>＿＿＿＿＿＿＿＿</td></tr>
+            <tr><td>D 組 弱酸弱鹼</td><td>3</td><td>＿／3</td><td>＿＿＿＿＿＿＿＿</td></tr>
+            <tr><td>E 組 緩衝與滴定</td><td>2</td><td>＿／2</td><td>＿＿＿＿＿＿＿＿</td></tr>
+            <tr><td><strong>合計</strong></td><td>15</td><td>＿／15</td><td>—</td></tr>
+            <tr><td>歷屆真題</td><td>4</td><td>＿／4</td><td>＿＿＿＿＿＿＿＿</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-tip">
+        <div class="box-title">💡 成績評估與處方</div>
+        <ul>
+          <li><strong>真題 4 題全對、C 組全對：</strong>學測最可能考的部分已穩，A、B 組做一輪即可。</li>
+          <li><strong>C 組或真題有錯：</strong>優先補 pH 與 [H⁺] 的換算，回到 W14；下週 W27 也會用到這個能力。</li>
+          <li><strong>A、B、D 組不熟：</strong>屬分科測驗範圍，不影響學測；留到學測後準備分科測驗再深化。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 重點整理 ===== -->
+    <section id="summary">
+      <h2><span class="sec-num">12</span>重點整理 Key Points</h2>
+      <ul class="key-list">
+        <li><strong>三段式：</strong>起始、變化、平衡；變化量依係數比。</li>
+        <li><strong>平衡常數：</strong>濃度代入、係數變次方；逆寫取倒數、係數乘 n 為 n 次方；只隨溫度改變。</li>
+        <li><strong>Q 與 K：</strong>Q ＜ K 向右，Q ＞ K 向左。勒沙特列是減弱改變，不是完全抵消。</li>
+        <li><strong>pH：</strong>差 1 就是 [H⁺] 差 10 倍；log2 ＝ 0.30 正反都會用。</li>
+        <li><strong>混合與稀釋：</strong>先算莫耳數中和，再除總體積；酸稀釋不會變鹼性。</li>
+        <li><strong>弱酸弱鹼：</strong>[H⁺] ≈ √(CK<sub>a</sub>)、α ≈ √(K<sub>a</sub>/C)；稀釋時 α 變大、[H⁺] 變小。K<sub>a</sub> × K<sub>b</sub> ＝ K<sub>w</sub>。</li>
+        <li><strong>緩衝：</strong>弱酸＋共軛鹼，加少量酸鹼 pH 變化很小。</li>
+        <li><strong>指示劑：</strong>中間色代表在變色範圍內；端點色只能判斷在範圍之外。</li>
+        <li><strong>考試範圍：</strong>平衡常數、勒沙特列、K<sub>a</sub> 不在學測官方範圍，107–115 試卷也未出現；pH 與指示劑才是實際考點。</li>
+      </ul>
+    </section>
+
+    <!-- ===== 學測方向 ===== -->
+    <section id="exam">
+      <h2><span class="sec-num">13</span>學測考題方向 Exam Focus</h2>
+      <div class="box box-example">
+        <div class="box-title">📝 酸鹼在學測化學的位置</div>
+        <p>依 111–115 試卷：pH 與 [H⁺] 的換算（112）、指示劑變色與溶液判斷（111、112、115）、生活情境中的酸鹼（乳酪發酵、胃蛋白酶）都出現過。計算不難，重點是<strong>看懂表格與圖、把顏色或情境轉換成 pH</strong>。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>考點</th><th>常見題型</th><th>重要度</th></tr></thead>
+          <tbody>
+            <tr><td>pH 與 [H⁺] 換算</td><td>情境題比較濃度倍數</td><td><span class="exam-tag high">高</span></td></tr>
+            <tr><td>酸鹼指示劑</td><td>由顏色判斷範圍、比較酸鹼性</td><td><span class="exam-tag high">高</span></td></tr>
+            <tr><td>中和與當量</td><td>滴定、混合後的酸鹼性</td><td><span class="exam-tag high">高</span></td></tr>
+            <tr><td>強弱酸的差異</td><td>同濃度的 pH、解離程度</td><td><span class="exam-tag mid">中</span></td></tr>
+            <tr><td>緩衝概念</td><td>不在官方條目；111 年僅以弱酸過量的情境出現</td><td><span class="exam-tag mid">低</span></td></tr>
+            <tr><td>化學平衡常數計算</td><td>不在學測範圍；分科測驗重點</td><td><span class="exam-tag mid">不考</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-link">
+        <div class="box-title">🔗 下週預告：W27（11/16–11/22）</div>
+        <p>化學進入<strong>有機化學：歷屆試題練習</strong>，週六為物理化學聯合模擬（各 50 分鐘）。本週的 pH 與指示劑判斷會繼續出現在模擬考中，請把錯題整理好帶到下週。</p>
+      </div>
+    </section>
+
+  </main>
+</div><!-- end layout -->
+
+<!-- ===== 頁尾 ===== -->
+<footer>
+  <p>W26 化學科｜平衡計算：化學平衡 ＋ 酸鹼平衡｜台灣高中學測備考講義</p>
+  <p style="margin-top:6px;">第四階段整合衝刺｜週末：數學 A 全卷模擬｜108課綱｜真題引自大考中心 111–115 學年度學測自然考科</p>
+</footer>
+
+<!-- ===== 捲動進度條 JS ===== -->
+<script>
+  window.addEventListener('scroll', function () {
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    var fill = document.getElementById('progress-fill');
+    if (fill) fill.style.width = progress.toFixed(1) + '%';
+  });
+</script>
+
+</body>
+</html>

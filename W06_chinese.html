@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W06 國文科學習講義｜項脊軒志 ＆ 晚遊六橋待月記</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: "Microsoft JhengHei", "蘋方-繁", "PingFang TC", "Noto Sans TC", sans-serif;
+      background: #fdf6f0;
+      color: #2c2c2c;
+      line-height: 1.8;
+    }
+    :root {
+      --primary:       #c0392b;
+      --primary-dark:  #96281b;
+      --primary-light: #e74c3c;
+      --primary-bg:    #fdecea;
+      --accent:        #8e44ad;
+      --accent-bg:     #f5eef8;
+      --gold:          #b7860b;
+      --gold-bg:       #fef9e7;
+      --teal:          #1a7a6e;
+      --teal-bg:       #e8f8f5;
+      --ink:           #2c2c2c;
+      --muted:         #6b6b6b;
+      --border:        #e0d0cd;
+      --card-bg:       #ffffff;
+      --shadow:        0 2px 12px rgba(192,57,43,0.10);
+    }
+    .page-wrapper { display: flex; min-height: 100vh; }
+    .sidebar {
+      width: 240px; min-width: 240px;
+      background: linear-gradient(180deg, #96281b 0%, #c0392b 40%, #e74c3c 100%);
+      color: #fff;
+      position: sticky; top: 0; height: 100vh;
+      overflow-y: auto; padding: 0 0 2rem 0;
+      box-shadow: 3px 0 14px rgba(0,0,0,0.15);
+      z-index: 100;
+    }
+    .sidebar-header {
+      background: rgba(0,0,0,0.20);
+      padding: 1.4rem 1rem 1.2rem 1rem;
+      text-align: center;
+    }
+    .sidebar-header .subject-badge {
+      display: inline-block;
+      background: #fff;
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1.1rem;
+      border-radius: 20px;
+      padding: 0.2rem 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+    .sidebar-header p { font-size: 0.78rem; opacity: 0.88; line-height: 1.5; }
+    .sidebar nav { padding: 1rem 0; }
+    .sidebar nav a {
+      display: block;
+      padding: 0.45rem 1.1rem;
+      color: rgba(255,255,255,0.90);
+      text-decoration: none;
+      font-size: 0.85rem;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.15);
+      border-left-color: #fff;
+      color: #fff;
+    }
+    .nav-section {
+      padding: 0.6rem 1.1rem 0.2rem 1.1rem;
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      opacity: 0.65;
+      text-transform: uppercase;
+    }
+    .nav-indent { padding-left: 1.8rem !important; font-size: 0.80rem !important; }
+    .main-content {
+      flex: 1;
+      padding: 2rem 2.5rem 4rem 2.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .page-header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: "文";
+      position: absolute;
+      right: 2rem; top: 50%;
+      transform: translateY(-50%);
+      font-size: 9rem;
+      opacity: 0.10;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .page-header .week-tag {
+      background: rgba(255,255,255,0.22);
+      display: inline-block;
+      padding: 0.2rem 0.9rem;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1px;
+    }
+    .page-header h1 { font-size: 1.85rem; font-weight: 900; margin-bottom: 0.4rem; }
+    .page-header .subtitle { font-size: 0.95rem; opacity: 0.88; }
+    .meta-row { display: flex; gap: 1.2rem; margin-top: 1.1rem; flex-wrap: wrap; }
+    .meta-chip {
+      background: rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 0.22rem 0.9rem;
+      font-size: 0.80rem;
+    }
+    .section-title {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 1.30rem; font-weight: 800;
+      color: var(--primary-dark);
+      margin: 2.5rem 0 1.2rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--primary);
+    }
+    .section-title .icon { font-size: 1.3rem; }
+    .sub-section-title {
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--primary);
+      margin: 1.6rem 0 0.8rem 0;
+      padding-left: 0.8rem;
+      border-left: 4px solid var(--primary);
+    }
+    .sub-sub-title {
+      font-size: 0.96rem; font-weight: 700;
+      color: var(--accent);
+      margin: 1.2rem 0 0.5rem 0;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    .box {
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      font-size: 0.93rem;
+    }
+    .box-key   { background: var(--primary-bg); border-left: 5px solid var(--primary); }
+    .box-warn  { background: #fff8e1; border-left: 5px solid #f39c12; }
+    .box-tip   { background: var(--teal-bg); border-left: 5px solid var(--teal); }
+    .box-link  { background: var(--accent-bg); border-left: 5px solid var(--accent); }
+    .box-gold  { background: var(--gold-bg); border-left: 5px solid var(--gold); }
+    .box-title { font-weight: 700; margin-bottom: 0.4rem; }
+    .original-text {
+      background: #fffaf7;
+      border: 1px solid #e8d5c8;
+      border-radius: 10px;
+      padding: 1.4rem 1.8rem;
+      font-size: 1.02rem;
+      line-height: 2.2;
+      color: #2c2c2c;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .original-text::before {
+      content: "原文";
+      position: absolute;
+      top: -0.7rem; left: 1.2rem;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .original-text p { margin-bottom: 0.6rem; }
+    .original-text p:last-child { margin-bottom: 0; }
+    .kw {
+      border-bottom: 2px solid var(--primary);
+      color: var(--primary-dark);
+      font-weight: 600;
+      cursor: default;
+    }
+    .kw-gold { border-bottom: 2px solid var(--gold); color: var(--gold); font-weight: 600; }
+    .kw-teal { border-bottom: 2px solid var(--teal); color: var(--teal); font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.91rem; margin: 0.8rem 0; }
+    thead tr { background: var(--primary); color: #fff; }
+    thead th { padding: 0.65rem 1rem; text-align: left; font-weight: 700; }
+    tbody tr:nth-child(even) { background: #fdf2f2; }
+    tbody tr:hover { background: var(--primary-bg); }
+    tbody td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody td:first-child { font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+    .translation-block {
+      background: #f0f7f5;
+      border: 1px solid #b2d8d0;
+      border-radius: 10px;
+      padding: 1.3rem 1.6rem;
+      font-size: 0.93rem;
+      line-height: 1.95;
+      color: #1c4a43;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .translation-block::before {
+      content: "白話語譯";
+      position: absolute;
+      top: -0.7rem; left: 1.2rem;
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 700px) { .analysis-grid { grid-template-columns: 1fr; } }
+    .analysis-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+    .analysis-item h4 { color: var(--primary-dark); font-size: 0.92rem; margin-bottom: 0.5rem; }
+    .analysis-item p, .analysis-item ul { font-size: 0.88rem; }
+    .analysis-item ul { padding-left: 1.2rem; }
+    .analysis-item li { margin-bottom: 0.3rem; }
+    .compare-table thead tr { background: var(--accent); }
+    .compare-table tbody td:first-child { color: var(--accent); }
+    .quiz-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-item .q-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      width: 1.8rem; height: 1.8rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 1.8rem;
+      font-weight: 700; font-size: 0.88rem;
+      margin-right: 0.5rem;
+    }
+    .quiz-item .q-text { font-size: 0.94rem; font-weight: 600; margin-bottom: 0.7rem; }
+    .quiz-item ol { padding-left: 1.5rem; font-size: 0.92rem; }
+    .quiz-item li { margin-bottom: 0.3rem; list-style-type: upper-alpha; }
+    details { margin-top: 0.7rem; }
+    summary {
+      cursor: pointer;
+      background: var(--primary-bg);
+      color: var(--primary-dark);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem; font-weight: 700;
+      display: inline-block;
+      user-select: none;
+    }
+    summary:hover { background: var(--primary); color: #fff; }
+    details[open] summary { background: var(--primary); color: #fff; }
+    .answer-box {
+      background: #fef9e7;
+      border: 1px solid #f0d060;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-top: 0.6rem;
+      font-size: 0.90rem;
+    }
+    .answer-box .correct { color: #27ae60; font-weight: 700; }
+    .k-map {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.5rem; padding: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .k-map-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .k-node {
+      background: var(--primary-bg);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--primary-dark);
+      text-align: center;
+    }
+    .k-node.center {
+      background: var(--primary); color: #fff;
+      font-size: 0.95rem; padding: 0.7rem 1.4rem;
+    }
+    .k-node.teal { background: var(--teal-bg); border-color: var(--teal); color: var(--teal); }
+    .k-node.gold { background: var(--gold-bg); border-color: var(--gold); color: var(--gold); }
+    .k-arrow { font-size: 1.4rem; color: var(--muted); }
+    .tag {
+      display: inline-block; font-size: 0.74rem; font-weight: 700;
+      padding: 0.15rem 0.55rem; border-radius: 10px; margin: 0.15rem;
+    }
+    .tag-red    { background: #fdecea; color: var(--primary); border: 1px solid var(--primary); }
+    .tag-teal   { background: var(--teal-bg); color: var(--teal); border: 1px solid var(--teal); }
+    .tag-gold   { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold); }
+    .tag-purple { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent); }
+    .exam-badge {
+      background: var(--primary); color: #fff;
+      font-size: 0.72rem; font-weight: 700;
+      padding: 0.12rem 0.5rem; border-radius: 8px;
+      vertical-align: middle; margin-left: 0.3rem;
+    }
+    .divider { border: none; border-top: 2px dashed var(--border); margin: 2.5rem 0; }
+    .toc {
+      background: var(--gold-bg);
+      border: 1px solid #f0c040;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .toc h3 { color: var(--gold); margin-bottom: 0.8rem; font-size: 1rem; }
+    .toc ol { padding-left: 1.5rem; font-size: 0.90rem; }
+    .toc li { margin-bottom: 0.3rem; }
+    .toc a { color: var(--primary-dark); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; color: var(--primary); }
+    @media (max-width: 820px) {
+      .sidebar { display: none; }
+      .main-content { padding: 1.2rem 1rem 3rem 1rem; }
+    }
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.35); border-radius: 4px; }
+    @media print {
+      .sidebar { display: none; }
+      .main-content { padding: 0; max-width: 100%; }
+      .page-header { background: #c0392b !important; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="subject-badge">國 文</div>
+      <p>W06 古文單元<br>學測備考講義<br>高二理工組</p>
+    </div>
+    <nav>
+      <div class="nav-section">Overview</div>
+      <a href="#overview">學習總覽</a>
+      <a href="#prereq">先備知識</a>
+
+      <div class="nav-section">篇一：項脊軒志</div>
+      <a href="#z1-text" class="nav-indent">原文全文</a>
+      <a href="#z1-glossary" class="nav-indent">字詞注釋</a>
+      <a href="#z1-trans" class="nav-indent">白話語譯</a>
+      <a href="#z1-analysis" class="nav-indent">主旨與寫作手法</a>
+      <a href="#z1-exam" class="nav-indent">學測考點</a>
+
+      <div class="nav-section">篇二：晚遊六橋待月記</div>
+      <a href="#z2-text" class="nav-indent">原文全文</a>
+      <a href="#z2-glossary" class="nav-indent">字詞注釋</a>
+      <a href="#z2-trans" class="nav-indent">白話語譯</a>
+      <a href="#z2-analysis" class="nav-indent">主旨與寫作手法</a>
+      <a href="#z2-exam" class="nav-indent">學測考點</a>
+
+      <div class="nav-section">比較與整合</div>
+      <a href="#compare">兩篇比較</a>
+      <a href="#kmap">知識連結圖</a>
+      <a href="#summary">重點整理</a>
+
+      <div class="nav-section">自我測驗</div>
+      <a href="#quiz">隨堂選擇題</a>
+    </nav>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main-content">
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="week-tag">第六週學習單元</div>
+      <h1>W06 國文科古文講義</h1>
+      <div class="subtitle">項脊軒志 ／ 晚遊六橋待月記</div>
+      <div class="meta-row">
+        <span class="meta-chip">高二 · 理工組</span>
+        <span class="meta-chip">學測備考</span>
+        <span class="meta-chip">明代散文</span>
+        <span class="meta-chip">歸有光 · 袁宏道</span>
+      </div>
+    </header>
+
+    <!-- TOC -->
+    <div class="toc" id="toc">
+      <h3>目錄 Table of Contents</h3>
+      <ol>
+        <li><a href="#overview">學習總覽與目標</a></li>
+        <li><a href="#prereq">先備知識</a></li>
+        <li><a href="#z1-text">項脊軒志｜原文全文</a></li>
+        <li><a href="#z1-glossary">項脊軒志｜字詞注釋</a></li>
+        <li><a href="#z1-trans">項脊軒志｜白話語譯</a></li>
+        <li><a href="#z1-analysis">項脊軒志｜主旨與寫作手法</a></li>
+        <li><a href="#z1-exam">項脊軒志｜學測考點</a></li>
+        <li><a href="#z2-text">晚遊六橋待月記｜原文全文</a></li>
+        <li><a href="#z2-glossary">晚遊六橋待月記｜字詞注釋</a></li>
+        <li><a href="#z2-trans">晚遊六橋待月記｜白話語譯</a></li>
+        <li><a href="#z2-analysis">晚遊六橋待月記｜主旨與寫作手法</a></li>
+        <li><a href="#z2-exam">晚遊六橋待月記｜學測考點</a></li>
+        <li><a href="#compare">兩篇比較分析</a></li>
+        <li><a href="#kmap">知識連結圖</a></li>
+        <li><a href="#summary">重點整理</a></li>
+        <li><a href="#quiz">隨堂自我測驗（5 題）</a></li>
+      </ol>
+    </div>
+
+    <!-- ========== SECTION 1: OVERVIEW ========== -->
+    <section id="overview">
+      <h2 class="section-title"><span class="icon">📖</span>學習總覽</h2>
+      <div class="card">
+        <p>本週學習明代散文兩篇。歸有光《項脊軒志》以一間小書房為核心，寄寓對母親、祖母、亡妻的深情追憶，是中國文學中「以小見大、寓情於物」的典範；袁宏道《晚遊六橋待月記》以輕靈之筆描繪西湖春夜之美，彰顯公安派追求個性、推崇自然的審美理念。兩篇同為明代散文精華，風格各異，均為學測古文核心選文。</p>
+      </div>
+
+      <h3 class="sub-section-title">學習目標</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 完成本週學習後，你應能：</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li>流暢朗讀並理解兩篇原文，掌握重要字詞的音義</li>
+          <li>分析《項脊軒志》中「多可喜，亦多可悲」的情感脈絡與抒情手法</li>
+          <li>辨析歸有光「白描」手法與細節描寫的藝術效果</li>
+          <li>理解《晚遊六橋待月記》對西湖月景的描繪方式與公安派的文學主張</li>
+          <li>比較兩篇在文體、情感基調、寫作手法上的異同</li>
+          <li>辨識學測常見考題類型，準確作答</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-section-title">單元脈絡地圖</h3>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; margin:0.5rem 0;">
+        <div style="flex:1; min-width:200px; background:var(--primary-bg); border-radius:10px; padding:1rem;">
+          <strong style="color:var(--primary);">項脊軒志</strong>
+          <p style="font-size:0.85rem; margin-top:0.4rem;">歸有光 · 明代<br>雜記（抒情散文）<br>唐宋派 · 以小見大</p>
+        </div>
+        <div style="display:flex; align-items:center; font-size:1.5rem; color:var(--muted);">VS</div>
+        <div style="flex:1; min-width:200px; background:var(--teal-bg); border-radius:10px; padding:1rem;">
+          <strong style="color:var(--teal);">晚遊六橋待月記</strong>
+          <p style="font-size:0.85rem; margin-top:0.4rem;">袁宏道 · 明代<br>遊記（寫景散文）<br>公安派 · 獨抒性靈</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 2: PREREQ ========== -->
+    <section id="prereq">
+      <h2 class="section-title"><span class="icon">📚</span>先備知識</h2>
+      <div class="box box-link">
+        <div class="box-title">🔗 學習本週前，你應已具備：</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li><strong>文言文基礎：</strong>能理解文言虛詞（之、乎、者、也、而、以、於、為），掌握常見句式</li>
+          <li><strong>明代歷史背景：</strong>了解明代科舉制度、家族禮教文化，知道歸有光的仕途困頓背景</li>
+          <li><strong>散文流派概念：</strong>知道「唐宋派」（歸有光）與「公安派」（袁宏道）各自的主張</li>
+          <li><strong>地理常識：</strong>知道杭州西湖的地理位置、蘇堤與六橋的基本概念</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         篇一：項脊軒志
+         ==================================================== -->
+    <section>
+      <div style="background:linear-gradient(90deg, var(--primary-dark), var(--primary)); color:#fff; border-radius:12px; padding:1rem 1.5rem; margin-bottom:1.5rem;">
+        <div style="font-size:0.78rem; opacity:0.8; margin-bottom:0.3rem;">第一篇｜明代抒情散文</div>
+        <div style="font-size:1.4rem; font-weight:900; letter-spacing:2px;">項脊軒志</div>
+        <div style="font-size:0.88rem; opacity:0.88; margin-top:0.3rem;">作者：歸有光（字熙甫，號震川）｜出自《震川先生集》｜明代</div>
+      </div>
+
+      <!-- 原文 -->
+      <h3 class="sub-section-title" id="z1-text">原文全文</h3>
+      <div class="original-text">
+        <p>項脊軒，舊南閣子也。室僅方丈，可容一人居。百年老屋，塵泥滲漉，雨澤下注；每移案，顧視無可置者。又北向，不能得日，日過午已昏。余稍為修葺，使不上漏。前辟四窗，<span class="kw">垣牆周庭</span>，以當南日，日影反照，室始洞然。又雜植蘭桂竹木於庭，舊時欄楯，亦遂增勝。借書滿架，<span class="kw">偃仰嘯歌</span>，冥然兀坐，萬籟有聲；而庭階寂寂，小鳥時來啄食，人至不去。<span class="kw">三五之夜，明月半牆，桂影斑斑，風移影動，珊珊可愛</span>。</p>
+        <p>然余居於此，<span class="kw">多可喜，亦多可悲</span>。先是庭中通南北為一。迨諸父異爨，內外多置小門牆，往往而是。東犬西吠，客逾庖而宴，雞棲於廳。庭中始為籬，已為牆，凡再變矣。家有老嫗，嘗居於此。嫗，先大母婢也，乳二世，<span class="kw">先妣</span>撫之甚厚。室西連於中閨，先妣嘗一至。嫗每謂余曰：「某所，<span class="kw">而母立於茲</span>。」嫗又曰：「汝姊在吾懷，呱呱而泣；娘以指叩門扉曰：『兒寒乎？欲食乎？』吾從板外相為應答。」語未畢，余泣，嫗亦泣。余自束髮讀書軒中，一日，大母過余曰：「吾兒，久不見若影，何竟日默默在此，<span class="kw">大類女郎</span>也？」比去，以手闔門，自語曰：「吾家讀書久不效，兒之成，則可待乎！」頃之，<span class="kw">持一象笏至</span>，曰：「此吾祖太常公宣德間執此以朝，他日汝當用之！」瞻顧遺蹟，如在昨日，令人長號不自禁。</p>
+        <p>余既為此志，後五年，吾妻來歸，時至軒中，從余問古事，或憑几學書。吾妻歸寧，述諸小妹語曰：「聞姊家有閣子，且何謂閣子也？」其後六年，<span class="kw">吾妻死，室壞不修</span>。其後二年，余久臥病無聊，乃使人復葺南閣子，其制稍異於前。然自後余多在外，不常居。</p>
+        <p><span class="kw-teal">庭有枇杷樹，吾妻死之年所手植也，今已亭亭如蓋矣。</span></p>
+      </div>
+
+      <!-- 字詞注釋 -->
+      <h3 class="sub-section-title" id="z1-glossary">字詞注釋 <span class="exam-badge">學測常考</span></h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音讀</th><th>字義</th><th>補充說明</th></tr></thead>
+          <tbody>
+            <tr><td>項脊軒</td><td></td><td>歸有光書房名稱，在江蘇崑山</td><td>「項脊」為地名，軒：有窗的小室</td></tr>
+            <tr><td>方丈</td><td></td><td>一丈見方（約3公尺×3公尺）</td><td>古今異義：今指「寺院住持」；此指面積</td></tr>
+            <tr><td>塵泥滲漉</td><td>ㄌㄨˋ</td><td>塵泥滲水漏下</td><td>漉：過濾滲漏</td></tr>
+            <tr><td>垣牆周庭</td><td>ㄩㄢˊ</td><td>在庭院四周砌牆</td><td>垣：低矮的牆；周：圍繞（動詞）</td></tr>
+            <tr><td>洞然</td><td></td><td>明亮通透的樣子</td><td>洞：通透</td></tr>
+            <tr><td>欄楯</td><td>ㄕㄨㄣˇ</td><td>欄杆（縱的叫欄，橫的叫楯）</td><td>楯：ㄕㄨㄣˇ，橫向的欄杆</td></tr>
+            <tr><td>偃仰嘯歌</td><td>ㄧㄢˇ</td><td>俯仰自得，放聲歌嘯</td><td>偃：仰臥；嘯：放聲長嘯；形容自在悠遊</td></tr>
+            <tr><td>冥然兀坐</td><td>ㄨˋ</td><td>靜靜地獨坐</td><td>冥然：靜默的樣子；兀坐：端正獨坐</td></tr>
+            <tr><td>三五之夜</td><td></td><td>農曆每月十五夜（月圓之夜）</td><td>三五：三×五＝十五，指農曆十五日</td></tr>
+            <tr><td>珊珊可愛</td><td>ㄕㄢ</td><td>樹影搖曳，美麗可愛</td><td>珊珊：形容輕盈搖曳的樣子</td></tr>
+            <tr><td>諸父異爨</td><td>ㄘㄨㄢˋ</td><td>叔伯們分家，各自開伙</td><td>爨：炊灶、燒火煮飯；異爨：分家（各自起炊）</td></tr>
+            <tr><td>東犬西吠</td><td></td><td>東邊的狗朝西邊叫（比喻分家後的混亂）</td><td>生動呈現分家後家族分裂的景象</td></tr>
+            <tr><td>逾庖而宴</td><td>ㄆㄠˊ</td><td>越過廚房才能到宴客廳</td><td>庖：廚房；說明庭院被阻隔，通路混亂</td></tr>
+            <tr><td>先大母</td><td></td><td>已故祖母</td><td>先：已故（敬稱前輟）；大母：祖母</td></tr>
+            <tr><td>先妣</td><td>ㄅㄧˇ</td><td>已故的母親</td><td>妣：亡母的敬稱；考：亡父的敬稱</td></tr>
+            <tr><td>乳二世</td><td></td><td>哺乳撫育了兩代人</td><td>乳：動詞，哺乳、撫育</td></tr>
+            <tr><td>束髮</td><td></td><td>古代男孩成童（約15歲）的標誌</td><td>束髮：束起頭髮，代指青少年時期</td></tr>
+            <tr><td>若影</td><td></td><td>你的身影（若：你，第二人稱代詞）</td><td>若：古代第二人稱，相當於「你」</td></tr>
+            <tr><td>大類女郎</td><td></td><td>很像個女孩子（戲謔中含疼愛）</td><td>大：副詞，很、非常；類：像</td></tr>
+            <tr><td>比去</td><td></td><td>等到（祖母）離開的時候</td><td>比：等到，表時間的介詞</td></tr>
+            <tr><td>象笏</td><td>ㄏㄨˋ</td><td>象牙製的手板（古代朝臣上朝用以記事）</td><td>笏：臣子上朝時手持的狹長板子</td></tr>
+            <tr><td>太常公</td><td></td><td>歸有光的曾祖父，曾任太常寺卿</td><td>太常：掌管祭祀禮樂的官職</td></tr>
+            <tr><td>宣德間</td><td></td><td>明宣宗宣德年間（1426–1435）</td><td>宣德：明朝年號</td></tr>
+            <tr><td>長號不自禁</td><td></td><td>放聲大哭，不能自制</td><td>號：號啕大哭（ㄏㄠˊ）；禁：抑制</td></tr>
+            <tr><td>來歸</td><td></td><td>女子出嫁，嫁到夫家</td><td>歸：古義指女子出嫁；今義指回家</td></tr>
+            <tr><td>歸寧</td><td></td><td>出嫁女子回娘家探親</td><td>寧：省親、探望父母</td></tr>
+            <tr><td>亭亭如蓋</td><td></td><td>樹木高大，枝葉茂密如傘蓋</td><td>亭亭：高聳直立的樣子；如蓋：像傘蓋</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 重要古今異義與特殊字詞</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>方丈</strong>：古義＝一丈見方（面積），今義＝寺院住持</li>
+          <li><strong>來歸</strong>：古義＝女子出嫁，今義＝回來、歸還</li>
+          <li><strong>若</strong>：此文中為第二人稱代詞（你），非「如果」</li>
+          <li><strong>比</strong>：此文中為「等到」，非「比較」</li>
+          <li><strong>先妣／先大母</strong>：「先」表示已故，「妣」專指亡母，「考」專指亡父</li>
+          <li><strong>三五之夜</strong>：三×五＝十五，指農曆月圓之夜，並非「第三至第五夜」</li>
+        </ul>
+      </div>
+
+      <!-- 語譯 -->
+      <h3 class="sub-section-title" id="z1-trans">白話語譯</h3>
+      <div class="translation-block">
+        <p><strong>第一段（書房之美）：</strong>項脊軒，是舊時南邊的小閣子。房間只有一丈見方，容得下一個人居住。這棟百年老屋，塵土泥沙滲漏不止，每逢下雨便往下灌注；每次移動桌案，找不到可以安放的地方。又因為朝北，照不到陽光，過了正午就昏暗了。我稍加修繕，使屋頂不再漏雨。在前面開了四扇窗子，在庭院四周砌牆，用來迎接南方的陽光，日光反射照進來，書房才開始明亮。又在庭中雜種蘭花、桂樹、竹子和其他花木，舊時的欄杆也因此增添了勝景。書架上借滿了書，我時而俯仰自得，放聲歌嘯，時而靜靜獨坐，萬籟俱有聲響；但庭階上寂靜無聲，小鳥時常飛來啄食，人走近了也不飛走。農曆十五的夜晚，明月映照著半面牆壁，桂樹的影子斑斑點點，風一吹來影子搖動，輕盈可愛。</p>
+        <p><strong>第二段（多可喜亦多可悲）：</strong>但是我住在這裡，有許多令人高興的事，也有許多令人悲傷的事。在此之前，庭院南北相通，渾然一體。等到各位叔父分家另立炊灶，裡裡外外添置了許多小門小牆，到處都是。東邊的狗朝著西邊叫，客人要越過廚房才能吃飯，雞在廳堂裡棲息。庭院中先是設籬笆，後來又建成牆，一共改變了兩次。家裡有一位老婆婆，曾在這裡住過。老婆婆是已故祖母的婢女，哺乳撫育了我們兩代，已故母親待她很好。書房西邊和內室相連，已故母親曾經來過一次。老婆婆常常對我說：「這個地方，是你母親當年站過的地方。」老婆婆又說：「你姊姊當時在我懷裡，哇哇大哭；你母親用手指敲著門扇說：『孩子冷嗎？想吃東西嗎？』我就隔著板壁回答她。」話還沒說完，我哭了，老婆婆也哭了。我從束髮之年起就在書房讀書，有一天，祖母來看我，說：「我的孩子，好久不見你的蹤影，為何整天默默待在這裡，真像個女孩子！」等到她要走，用手把門帶上，自言自語地說：「我家讀書長久沒有成效，這孩子能有出息，大概可以期待了吧！」不一會兒，她拿來一個象牙笏板，說：「這是我的祖父太常公在宣德年間上朝時拿的，你日後應該用得上它！」回想她留下的遺跡，宛如昨日，令人放聲大哭，不能自制。</p>
+        <p><strong>後記（懷念亡妻）：</strong>我寫完這篇志之後，過了五年，我妻子嫁來了，她常到書房，跟我問起古代的事，或者靠著几案學習寫字。我妻子回娘家省親，轉述妹妹們說的話：「聽說姊夫家有個閣子，那到底是什麼叫閣子呢？」此後六年，我的妻子去世，書房也壞了，沒有修理。又過了兩年，我長期臥病無聊，便叫人再整修南閣子，格局與以前稍有不同。但此後我多半在外，不常住在這裡了。</p>
+        <p><strong>末段（枇杷樹）：</strong>庭院裡有一棵枇杷樹，是我妻子去世那年親手種下的，如今已長得高大，枝葉茂盛像傘蓋一樣了。</p>
+      </div>
+
+      <!-- 主旨與寫作手法 -->
+      <h3 class="sub-section-title" id="z1-analysis">主旨與寫作手法分析</h3>
+
+      <h4 class="sub-sub-title">一、主旨</h4>
+      <div class="box box-key">
+        <div class="box-title">✅ 本篇主旨</div>
+        <p style="font-size:0.93rem;">本篇以小書房「項脊軒」的整修與變遷為線索，記述作者對已故母親、祖母、亡妻的深切懷念，以及家道中衰、骨肉離散的感慨。全文情感深沉而克制，以平淡的白描捕捉生活細節，寓深厚情感於日常小事，展現「以小見大、情感真摯」的藝術境界。末尾「庭有枇杷樹，今已亭亭如蓋矣」一語，以無聲映有情，是全文最富感染力的收筆。</p>
+      </div>
+
+      <h4 class="sub-sub-title">二、情感脈絡——「多可喜，亦多可悲」</h4>
+      <div style="display:flex; flex-direction:column; gap:0.7rem; margin:0.8rem 0;">
+        <div style="background:#fff; border:1px solid var(--border); border-left:5px solid #27ae60; border-radius:8px; padding:0.8rem 1.1rem; font-size:0.91rem;">
+          <strong style="color:#27ae60;">「可喜」——書房之樂</strong><br>
+          修葺後的書房明亮宜人：借書滿架、偃仰嘯歌、小鳥啄食、三五明月——呈現讀書人的清雅自得，是全文唯一輕快明朗的段落。
+        </div>
+        <div style="background:#fff; border:1px solid var(--border); border-left:5px solid var(--primary); border-radius:8px; padding:0.8rem 1.1rem; font-size:0.91rem;">
+          <strong style="color:var(--primary);">「可悲」之一——家族分裂</strong><br>
+          「諸父異爨」：叔伯分家，庭院被小門牆分割，東犬西吠、雞棲廳堂，家族離散之象，令人感嘆大家庭瓦解。
+        </div>
+        <div style="background:#fff; border:1px solid var(--border); border-left:5px solid var(--primary); border-radius:8px; padding:0.8rem 1.1rem; font-size:0.91rem;">
+          <strong style="color:var(--primary);">「可悲」之二——懷念亡母</strong><br>
+          老嫗轉述母親「兒寒乎？欲食乎？」的叩門聲，作者幼年喪母，從未親聞母語，卻藉老嫗之口感受母愛，悲從中來。
+        </div>
+        <div style="background:#fff; border:1px solid var(--border); border-left:5px solid var(--primary); border-radius:8px; padding:0.8rem 1.1rem; font-size:0.91rem;">
+          <strong style="color:var(--primary);">「可悲」之三——祖母之期盼</strong><br>
+          祖母拿象笏寄望孫兒功名，「吾家讀書久不效，兒之成，則可待乎！」——然歸有光仕途坎坷，此語讀來更添傷感。
+        </div>
+        <div style="background:#fff; border:1px solid var(--border); border-left:5px solid var(--primary); border-radius:8px; padding:0.8rem 1.1rem; font-size:0.91rem;">
+          <strong style="color:var(--primary);">「可悲」之四——亡妻之思（後記）</strong><br>
+          妻子「且何謂閣子也？」的稚語，是現存的溫柔記憶；「吾妻死，室壞不修」六字蘊含無盡心碎。末句枇杷樹「亭亭如蓋」，物在人亡，無聲勝有聲。
+        </div>
+      </div>
+
+      <h4 class="sub-sub-title">三、寫作手法</h4>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>白描手法</h4>
+          <p>不加雕飾，以平實語言記錄生活細節，如「娘以指叩門扉曰：兒寒乎？欲食乎？」寥寥數字，母愛躍然紙上，感人至深。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>借物抒情（以物寄哀）</h4>
+          <p>全文最高妙之處：末句「庭有枇杷樹，今已亭亭如蓋矣」，不著悲字，卻以樹木的生長映照亡妻已逝、歲月流逝，哀傷悄然流溢。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>以小見大</h4>
+          <p>全篇以一間小書房（方丈之室）為核心，折射家族興衰、人生離合的大命題，以小空間承載大情感。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>欲揚先抑</h4>
+          <p>先寫書房之美（可喜）、生活之樂，再轉入家族離散、三代親人之痛（可悲），對比強烈，情感衝擊更大。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>細節描寫（語言與動作）</h4>
+          <ul>
+            <li>祖母「以手闔門」「自語」——動作細膩，滿溢關愛</li>
+            <li>老嫗「汝姊呱呱而泣」——以嬰兒哭聲帶出母親的聲音</li>
+            <li>「語未畢，余泣，嫗亦泣」——情感感染，不需議論</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>時間跨度（正文＋後記）</h4>
+          <p>正文寫童年記憶；後記加入婚後與妻子共處的溫馨，及妻子去世後的寂寥，正文與後記相互映照，情感縱深更長。</p>
+        </div>
+      </div>
+
+      <!-- 學測考點 -->
+      <h3 class="sub-section-title" id="z1-exam">學測常考重點 <span class="exam-badge">高頻考點</span></h3>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測頻繁出現的考題方向：</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem; margin-top:0.4rem;">
+          <li><strong>古今異義：</strong>方丈（面積→住持）、來歸（嫁來→回來）、比（等到→比較）</li>
+          <li><strong>字詞辨析：</strong>先妣／先大母的差異、三五之夜的正確解釋（十五日）</li>
+          <li><strong>情感脈絡分析：</strong>「多可喜，亦多可悲」各指哪些事件，是常見申論考點</li>
+          <li><strong>寫作手法：</strong>白描手法、借物抒情（枇杷樹）是選擇與問答常考焦點</li>
+          <li><strong>末句賞析：</strong>「庭有枇杷樹，今已亭亭如蓋矣」的象徵意涵與藝術效果</li>
+          <li><strong>作者背景：</strong>歸有光屬「唐宋派」，主張學習唐宋古文，反對前後七子擬古</li>
+          <li><strong>象笏的典故：</strong>象笏代表家族昔日榮耀，寄寓祖母對孫兒功名的期望</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 考生最常犯的錯誤：</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>將「三五之夜」誤解為「第三到第五個夜晚」（正確：農曆十五，月圓之夜）</li>
+          <li>誤以為「先妣」指祖母（正確：先妣＝已故母親；先大母＝已故祖母）</li>
+          <li>忽略後記是另一時間層次寫入，正文與後記有時間差距（婚後五年加六年）</li>
+          <li>將末句「亭亭如蓋」的枇杷樹單純理解為景物描寫，未能掌握其寄情悼亡的功能</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         篇二：晚遊六橋待月記
+         ==================================================== -->
+    <section>
+      <div style="background:linear-gradient(90deg, var(--teal), #1abc9c); color:#fff; border-radius:12px; padding:1rem 1.5rem; margin-bottom:1.5rem;">
+        <div style="font-size:0.78rem; opacity:0.8; margin-bottom:0.3rem;">第二篇｜明代寫景散文</div>
+        <div style="font-size:1.4rem; font-weight:900; letter-spacing:2px;">晚遊六橋待月記</div>
+        <div style="font-size:0.88rem; opacity:0.88; margin-top:0.3rem;">作者：袁宏道（字中郎，號石公）｜出自《袁中郎全集》｜明代</div>
+      </div>
+
+      <!-- 原文 -->
+      <h3 class="sub-section-title" id="z2-text">原文全文</h3>
+      <div class="original-text">
+        <p><span class="kw-teal">西湖最盛，為春為月。一日之盛，為朝煙，為夕嵐。</span></p>
+        <p>今歲春雪甚盛，梅花為寒所勒，與杏桃相次開發，尤為奇觀。<span class="kw">石簣</span>數為余言：傅金吾園中梅，張功甫玉照堂故物也，急往觀之。余時為桃花所戀，竟不忍去湖上。</p>
+        <p>由斷橋至蘇堤一帶，<span class="kw">綠煙紅霧，彌漫二十餘里</span>。歌吹為風，粉汗為雨，<span class="kw">羅紈之盛，多於堤畔之草</span>，艷冶極矣。</p>
+        <p>然<span class="kw">杭人遊湖，止午、未、申三時</span>；其實<span class="kw">湖光染翠之工，山嵐設色之妙</span>，皆在朝日始出，夕舂未下，始極其濃媚。<span class="kw-teal">月景尤不可言，花態柳情，山容水意，別是一種趣味。此樂留與山僧遊客受用，安可為俗士道哉！</span></p>
+      </div>
+
+      <div class="box box-tip">
+        <div class="box-title">💡 文章背景說明</div>
+        <p style="font-size:0.90rem;">袁宏道（1568–1610）為明代「公安派」代表，主張「獨抒性靈，不拘格套」，反對擬古摹仿。本文寫其春日遊西湖所見，卻不停留於一般遊客的白日遊賞，而是特別推崇朝夕與月夜之景，批評「杭人」（世俗遊客）只在午間遊湖，錯失最美風景，展現作者獨到的審美眼光與個性化書寫。</p>
+      </div>
+
+      <!-- 字詞注釋 -->
+      <h3 class="sub-section-title" id="z2-glossary">字詞注釋 <span class="exam-badge">學測常考</span></h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音讀</th><th>字義</th><th>補充說明</th></tr></thead>
+          <tbody>
+            <tr><td>六橋</td><td></td><td>杭州西湖蘇堤上的六座橋（映波、鎖瀾、望山、壓堤、東浦、跨虹）</td><td>蘇堤：北宋蘇軾任杭州知州時所建</td></tr>
+            <tr><td>為春為月</td><td></td><td>（最盛的時節）是春天，是月夜</td><td>為：在（是）；兩個「為」並列，點明全文兩大主題</td></tr>
+            <tr><td>朝煙</td><td></td><td>清晨的薄霧煙嵐</td><td>朝：早晨；煙：水氣形成的霧靄</td></tr>
+            <tr><td>夕嵐</td><td>ㄌㄢˊ</td><td>傍晚的山嵐（山中的霧氣）</td><td>嵐：山中的霧氣；夕嵐：傍晚山嵐</td></tr>
+            <tr><td>為寒所勒</td><td>ㄌㄜˋ</td><td>被寒氣抑制（延遲開放）</td><td>勒：抑制、強迫；「為……所」是被動句式</td></tr>
+            <tr><td>相次開發</td><td></td><td>接連開放</td><td>相次：相繼、依序；開發：開放（古義），非今義「開發」</td></tr>
+            <tr><td>石簣</td><td>ㄎㄨㄟˋ</td><td>袁宏道的友人陶望齡的字</td><td>石簣：陶望齡，時任杭州推官</td></tr>
+            <tr><td>傅金吾</td><td></td><td>人名，當時杭州的官員，園中有名梅</td><td>金吾：官職名（衛戍長官）</td></tr>
+            <tr><td>張功甫玉照堂</td><td></td><td>南宋張鎡的梅花園，以梅聞名</td><td>玉照堂：宋代著名梅園，後人珍視的梅花古株</td></tr>
+            <tr><td>綠煙紅霧</td><td></td><td>（柳樹）像綠色的煙霧，（花朵）像紅色的雲霧</td><td>比喻：以煙霧形容春天柳綠花紅的迷濛景色</td></tr>
+            <tr><td>歌吹為風</td><td></td><td>歌聲笛聲隨風飄揚，如同風聲</td><td>吹：吹奏樂器；以歌聲和樂聲代替風聲，極言聲音之盛</td></tr>
+            <tr><td>粉汗為雨</td><td></td><td>女子臉上的粉汗如雨滴</td><td>形容人多擁擠，汗水四濺，比喻遊人極多</td></tr>
+            <tr><td>羅紈之盛</td><td>ㄨㄢ</td><td>身穿羅綾紈綺的遊人很多</td><td>羅、紈：精美的絲織品，代指盛裝遊人</td></tr>
+            <tr><td>艷冶極矣</td><td>ㄧㄝˇ</td><td>繁華熱鬧到了極點</td><td>艷冶：嬌豔妖冶；形容遊湖盛況</td></tr>
+            <tr><td>止午、未、申三時</td><td></td><td>只在午時（11–13時）、未時（13–15時）、申時（15–17時）遊湖</td><td>午未申：十二時辰中白天的三個時段（約11–17時）</td></tr>
+            <tr><td>湖光染翠之工</td><td></td><td>湖光映染青翠之色的精妙（工：精妙）</td><td>工：精巧、妙處（名詞）</td></tr>
+            <tr><td>山嵐設色之妙</td><td></td><td>山中霧嵐呈現色彩的美妙</td><td>設色：設置色彩，如畫家著色</td></tr>
+            <tr><td>夕舂未下</td><td>ㄔㄨㄥ</td><td>夕陽尚未西沉</td><td>舂：舂米聲，此指夕陽（黃昏夕陽的餘暉）</td></tr>
+            <tr><td>濃媚</td><td></td><td>色彩濃豔、景色嬌美</td><td>形容朝夕景色之美遠勝午間</td></tr>
+            <tr><td>月景尤不可言</td><td></td><td>月色下的景致更是難以言說（美到無法形容）</td><td>全文點題，月景是最高境界</td></tr>
+            <tr><td>花態柳情</td><td></td><td>花朵的姿態，柳條的情韻</td><td>以「態」「情」擬人，賦予花柳生命情感</td></tr>
+            <tr><td>山容水意</td><td></td><td>山的容貌，水的神韻</td><td>同上，山水也有容貌與意境</td></tr>
+            <tr><td>山僧遊客</td><td></td><td>山中的僧人和真正的遊賞者（有閒情逸致、不受俗務拘束者）</td><td>對比「俗士」：指世俗功名之人</td></tr>
+            <tr><td>安可為俗士道哉</td><td></td><td>哪裡能對世俗之人說（這種美景的妙趣）呢？</td><td>反問句，強調月夜之美非俗人所能體會</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 特殊句式與修辭整理</div>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; font-size:0.90rem;">
+          <div style="flex:1; min-width:180px;">
+            <strong style="color:var(--primary);">被動句：</strong>
+            <ul style="padding-left:1.2rem;">
+              <li>梅花為寒<strong>所</strong>勒（「為……所」表被動）</li>
+              <li>余時為桃花<strong>所</strong>戀（被桃花吸引住）</li>
+            </ul>
+          </div>
+          <div style="flex:1; min-width:180px;">
+            <strong style="color:var(--teal);">反問句：</strong>
+            <ul style="padding-left:1.2rem;">
+              <li>「<strong>安可</strong>為俗士道哉！」（哪裡能告訴俗人）</li>
+            </ul>
+          </div>
+          <div style="flex:1; min-width:180px;">
+            <strong style="color:var(--gold);">比喻：</strong>
+            <ul style="padding-left:1.2rem;">
+              <li>綠煙紅霧（柳花之色如煙如霧）</li>
+              <li>歌吹為風（歌聲如風）</li>
+              <li>粉汗為雨（汗水如雨）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 語譯 -->
+      <h3 class="sub-section-title" id="z2-trans">白話語譯</h3>
+      <div class="translation-block">
+        <p><strong>第一段（點明主題）：</strong>西湖最美的時候，是春天，是月夜。一天之中最美的時候，是清晨的薄霧，是傍晚的山嵐。</p>
+        <p><strong>第二段（今春奇觀）：</strong>今年春天的雪下得很大，梅花被寒氣抑制，和杏花、桃花陸續開放，格外成為奇觀。石簣（友人陶望齡）多次對我說：傅金吾（傅姓官員）園中的梅花，是宋代張功甫玉照堂遺留下來的名品，趕快去看看吧。我當時正被桃花迷住，竟然不忍心離開湖上。</p>
+        <p><strong>第三段（遊人如織）：</strong>從斷橋到蘇堤一帶，（柳絲嫩綠）如綠色的煙霧，（桃杏盛開）如紅色的雲霞，綿延二十多里。歌聲和樂聲隨風飄揚，女子的粉汗如雨滴，盛裝的遊人比堤岸邊的草還多，真是繁華豔麗到了極點。</p>
+        <p><strong>第四段（點出月景之妙）：</strong>然而杭州人遊湖，只在午時、未時、申時三個時段（約上午十一點到下午五點）；其實湖光映染青翠的精妙、山中霧嵐呈現色彩的美妙，都在朝日初升和夕陽未落之時，才最為濃艷嬌媚。月色下的景致就更難以言說了，花的姿態、柳的情韻、山的容貌、水的神意，別有一番趣味。這樣的樂趣只留給山中僧人和真正懂得遊賞的人享用，哪裡能跟世俗之人說得明白呢！</p>
+      </div>
+
+      <!-- 主旨與寫作手法 -->
+      <h3 class="sub-section-title" id="z2-analysis">主旨與寫作手法分析</h3>
+
+      <h4 class="sub-sub-title">一、主旨</h4>
+      <div class="box box-tip">
+        <div class="box-title">✅ 本篇主旨</div>
+        <p style="font-size:0.93rem;">本篇記西湖春遊之所見，前半描繪遊人如織的熱鬧景象，後半筆鋒一轉，點出朝夕與月夜之景遠勝午間的獨到見解。文章藉「俗士」與「山僧遊客」的對比，表達作者追求清雅、超越世俗的審美情趣，彰顯公安派「獨抒性靈」的文學精神。全文以議論收尾，反問語氣強烈，言下之意是：真正的美，只有脫俗之人才能欣賞。</p>
+      </div>
+
+      <h4 class="sub-sub-title">二、文章層次</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>段落</th><th>內容</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>第一段</td><td>點明西湖最盛之時：春天、月夜；一日之盛：朝煙、夕嵐</td><td>總起全文，提綱挈領，直入主題</td></tr>
+            <tr><td>第二段</td><td>今春雪盛，梅杏桃同開；友人薦梅，我卻留戀桃花</td><td>引出今春奇觀，展現作者率真個性（不從眾）</td></tr>
+            <tr><td>第三段</td><td>斷橋至蘇堤春景，遊人如織，繁華艷麗</td><td>以熱鬧的白日景象作對比鋪墊</td></tr>
+            <tr><td>第四段</td><td>批評杭人只在午間遊湖；推崇朝夕與月景；以反問收尾</td><td>全文核心：提出獨特見解，以議論昇華情感</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="sub-sub-title">三、寫作手法</h4>
+      <div class="analysis-grid">
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">先總後分（總分結構）</h4>
+          <p>首段「西湖最盛，為春為月；一日之盛，為朝煙，為夕嵐」是全文總綱，後文分別就春景、月景加以敷陳，結構嚴謹。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">對比手法</h4>
+          <p>以「杭人遊湖（午間，世俗）」對比「山僧遊客（朝夕月夜，雅趣）」，凸顯作者超脫的審美立場，諷世意味明顯。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">比喻（繁筆寫繁）</h4>
+          <ul>
+            <li>「綠煙紅霧」——柳花如煙霧迷濛</li>
+            <li>「歌吹為風，粉汗為雨」——誇飾遊人之盛</li>
+            <li>「羅紈多於草」——人比草還多</li>
+          </ul>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">反問與議論（輕筆寫淡）</h4>
+          <p>「此樂留與山僧遊客受用，安可為俗士道哉！」以反問強化語氣，點出主題：真正的自然之美，只可意會、不可言傳，更非俗人所能欣賞。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">擬人化描寫</h4>
+          <p>「花態柳情，山容水意」——賦予花、柳、山、水以人的情感與姿態，使景物富有生命力，體現公安派重視主觀感受的特色。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">率真個性（公安派特色）</h4>
+          <p>「余時為桃花所戀，竟不忍去湖上」——友人急邀賞梅，作者卻說被桃花留住、捨不得走，直率表達個人喜好，不從眾，正是公安派「性靈」的體現。</p>
+        </div>
+      </div>
+
+      <!-- 學測考點 -->
+      <h3 class="sub-section-title" id="z2-exam">學測常考重點 <span class="exam-badge">高頻考點</span></h3>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測常考題型：</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>被動句辨識：</strong>「為……所」結構（梅花為寒所勒、余時為桃花所戀）是文言被動句重點</li>
+          <li><strong>字詞辨析：</strong>夕嵐（ㄌㄢˊ）、羅紈（ㄨㄢˊ）的讀音；「艷冶」「工」「設色」的字義</li>
+          <li><strong>時辰換算：</strong>午、未、申三時對應現代時間（11–17時），為常見小考題</li>
+          <li><strong>主旨理解：</strong>作者為何批評杭人只在午間遊湖？月景在文中的意涵為何？</li>
+          <li><strong>修辭辨析：</strong>「綠煙紅霧」「歌吹為風，粉汗為雨」——比喻、誇飾的判斷</li>
+          <li><strong>作者與流派：</strong>袁宏道為「公安派」代表，主張「獨抒性靈，不拘格套」</li>
+          <li><strong>比較題：</strong>與同為寫景散文的《始得西山宴遊記》（柳宗元）比較，兩者遊記筆法之異同</li>
+        </ul>
+      </div>
+      <div class="box box-link">
+        <div class="box-title">🔗 跨領域連結</div>
+        <p style="font-size:0.90rem;">袁宏道的公安派主張「不拘格套，獨抒性靈」，強調個人真實感受，可聯繫現代文學中的「自我書寫」傳統。西湖的文學書寫自唐宋以來延綿不絕（白居易〈錢塘湖春行〉、蘇軾〈飲湖上初晴後雨〉），袁宏道在此文學傳統中以「月景說」提出新的觀察視角，別具一格。</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: COMPARE ========== -->
+    <section id="compare">
+      <h2 class="section-title"><span class="icon">⚖️</span>兩篇比較分析</h2>
+      <div class="card" style="padding:0;">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>比較面向</th>
+              <th>項脊軒志</th>
+              <th>晚遊六橋待月記</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>作者</td>
+              <td>歸有光（字熙甫，號震川）</td>
+              <td>袁宏道（字中郎，號石公）</td>
+            </tr>
+            <tr>
+              <td>文學流派</td>
+              <td>唐宋派（主張學習唐宋文風，反對擬古）</td>
+              <td>公安派（主張獨抒性靈，不拘格套）</td>
+            </tr>
+            <tr>
+              <td>時代</td>
+              <td>明代中期（約16世紀）</td>
+              <td>明代晚期（1568–1610）</td>
+            </tr>
+            <tr>
+              <td>文體</td>
+              <td>雜記（兼有敘事、抒情）</td>
+              <td>記（遊記、寫景兼議論）</td>
+            </tr>
+            <tr>
+              <td>核心意象</td>
+              <td>項脊軒（書房）、枇杷樹</td>
+              <td>西湖、月景、六橋</td>
+            </tr>
+            <tr>
+              <td>情感基調</td>
+              <td>深情哀婉，懷念三代親人（母、祖母、亡妻）</td>
+              <td>清雅超逸，推崇自然美、批評世俗趣味</td>
+            </tr>
+            <tr>
+              <td>寫作目的</td>
+              <td>記錄書房，寄寓情感，追憶往事</td>
+              <td>記遊西湖，推崇月夜之美，彰顯個人審美</td>
+            </tr>
+            <tr>
+              <td>主要手法</td>
+              <td>白描、借物抒情、細節描寫</td>
+              <td>對比、比喻、擬人、反問議論</td>
+            </tr>
+            <tr>
+              <td>語言風格</td>
+              <td>平淡質樸，情深語淺，含蓄蘊藉</td>
+              <td>靈動活潑，比喻生動，個性鮮明</td>
+            </tr>
+            <tr>
+              <td>結尾手法</td>
+              <td>「庭有枇杷樹，今已亭亭如蓋矣」——借物抒情，餘韻無窮</td>
+              <td>「安可為俗士道哉！」——反問議論，點明主旨</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-warn" style="margin-top:1rem;">
+        <div class="box-title">⚠️ 比較題常見混淆點</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>兩者均為明代散文，但歸有光偏向唐宋古文風格（情感深沉、語言雅正），袁宏道則更具晚明個性（語言率真、不拘一格）</li>
+          <li>《項脊軒志》是「以空間牽引時間」（書房→三代記憶），《晚遊六橋待月記》是「以時間對比空間」（午間vs朝夕月夜）</li>
+          <li>歸有光的情感是向內的（懷人），袁宏道的情感是向外的（賞景、表達審美主張）</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== KNOWLEDGE MAP ========== -->
+    <section id="kmap">
+      <h2 class="section-title"><span class="icon">🗺️</span>知識連結圖</h2>
+      <div class="k-map">
+        <div class="k-map-row">
+          <div class="k-node center">明代散文<br>W06</div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node">項脊軒志<br>歸有光・唐宋派</div>
+          <div class="k-node teal">晚遊六橋待月記<br>袁宏道・公安派</div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node">白描・借物抒情<br>懷人情感</div>
+          <div class="k-node gold">獨抒性靈<br>月景賞美</div>
+          <div class="k-node">明代文學<br>擬古 vs 反擬古</div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node">連結：師說（韓愈・唐）<br>→ 唐宋散文傳統</div>
+          <div class="k-node teal">連結：始得西山宴遊記<br>（柳宗元・遊記比較）</div>
+          <div class="k-node gold">連結：赤壁賦（蘇軾）<br>→ 山水與人生感懷</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SUMMARY ========== -->
+    <section id="summary">
+      <h2 class="section-title"><span class="icon">📝</span>重點整理</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div class="box box-key">
+          <div class="box-title">📌 項脊軒志 速記</div>
+          <ul style="padding-left:1.2rem; font-size:0.88rem;">
+            <li>作者：歸有光（震川先生）・唐宋派</li>
+            <li>文體：雜記・抒情散文</li>
+            <li>主旨：懷念母親、祖母、亡妻，感嘆家道中衰</li>
+            <li>核心句：「多可喜，亦多可悲」</li>
+            <li>末句：枇杷樹「亭亭如蓋」→ 借物悼亡</li>
+            <li>手法：白描、借物抒情、以小見大</li>
+            <li>三五之夜＝農曆十五（月圓）</li>
+            <li>先妣＝亡母；先大母＝亡祖母</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">📌 晚遊六橋待月記 速記</div>
+          <ul style="padding-left:1.2rem; font-size:0.88rem;">
+            <li>作者：袁宏道（中郎）・公安派</li>
+            <li>文體：遊記・寫景兼議論</li>
+            <li>主旨：推崇西湖月景，批評俗人只在午間遊湖</li>
+            <li>核心句：「此樂留與山僧遊客受用，安可為俗士道哉！」</li>
+            <li>手法：對比、比喻、反問、擬人</li>
+            <li>被動句：「為……所」（為寒所勒）</li>
+            <li>午未申三時＝11–17時（一般遊客遊湖時段）</li>
+            <li>公安派主張：獨抒性靈，不拘格套</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== QUIZ ========== -->
+    <section id="quiz">
+      <h2 class="section-title"><span class="icon">✏️</span>隨堂自我測驗</h2>
+
+      <!-- Q1 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>《項脊軒志》中「三五之夜，明月半牆」，「三五之夜」是指農曆哪一天的夜晚？</div>
+        <ol>
+          <li>初三至初五</li>
+          <li>十五日（月圓之夜）</li>
+          <li>三月初五</li>
+          <li>每月三至五個夜晚</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer-box">
+            <span class="correct">正確答案：B</span><br>
+            「三五」即三乘以五等於十五，指農曆每月十五日，即月圓之夜。此為文言數字表達的特殊用法，非指「第三到第五天」。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>下列對《項脊軒志》末句「庭有枇杷樹，今已亭亭如蓋矣」的分析，何者最為恰當？</div>
+        <ol>
+          <li>純粹描寫庭院景色，烘托書房的幽靜氣氛</li>
+          <li>藉枇杷樹的生長，隱含對亡妻的深切懷念，物在人亡，餘韻無窮</li>
+          <li>說明歸有光勤於園藝，書房環境優美</li>
+          <li>以枇杷樹長大象徵家族重新興旺</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer-box">
+            <span class="correct">正確答案：B</span><br>
+            枇杷樹是「吾妻死之年所手植也」，樹木的茁壯生長映照著妻子已逝多年，以自然的生長對比人的消亡，「借物抒情」手法達到不著悲字而悲情自溢的最高境界。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span>《晚遊六橋待月記》「梅花為寒所勒」句中，「為……所」是什麼句式？</div>
+        <ol>
+          <li>判斷句</li>
+          <li>倒裝句（賓語前置）</li>
+          <li>被動句</li>
+          <li>省略句</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer-box">
+            <span class="correct">正確答案：C</span><br>
+            「為……所……」是文言文表示被動的固定句式，相當於現代漢語「被……所……」。「梅花為寒所勒」意即「梅花被寒氣所抑制」。同篇「余時為桃花所戀」亦同此結構。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span>《晚遊六橋待月記》中「杭人遊湖，止午、未、申三時」，作者藉此表達何種主旨？</div>
+        <ol>
+          <li>批評杭人遊湖時間太短，應延長遊覽</li>
+          <li>說明西湖只有白天值得遊賞</li>
+          <li>以杭人的俗常遊湖習慣作對比，凸顯朝夕與月夜之景更為美妙，表達超俗的審美情趣</li>
+          <li>指出杭州人喜歡在下午遊湖是正確的選擇</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer-box">
+            <span class="correct">正確答案：C</span><br>
+            此段以「杭人止在午未申三時遊湖」為反面對照，引出「湖光朝夕之工、月景之妙」的正面主張，最後以「此樂留與山僧遊客受用，安可為俗士道哉！」作結，表達作者推崇清雅、批評世俗的審美立場，這正是公安派「獨抒性靈」精神的體現。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span>下列關於本週兩篇作品的敘述，何者有誤？</div>
+        <ol>
+          <li>歸有光屬「唐宋派」，袁宏道屬「公安派」，兩者同為明代散文家</li>
+          <li>《項脊軒志》以白描手法著稱，通過「先妣叩門」「祖母持笏」等細節表達深情</li>
+          <li>《晚遊六橋待月記》全文未提及月景，重點在描寫白天遊湖的繁華景象</li>
+          <li>《項脊軒志》末句以枇杷樹寄託對亡妻的追思，是「借物抒情」的典範</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer-box">
+            <span class="correct">正確答案：C（此項有誤）</span><br>
+            《晚遊六橋待月記》的篇名即含「待月」二字，全文的核心恰恰是推崇「月景尤不可言」，以月夜之美為最高境界，批評杭人只在白天遊湖的俗常做法。選項C的說法完全顛倒了文章主旨，故選C。
+          </div>
+        </details>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

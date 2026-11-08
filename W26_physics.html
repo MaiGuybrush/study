@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W26 物理科｜Ch4 電磁：歷屆試題 15 題（整合衝刺）</title>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  <style>
+    /* ===== 全域變數與重置 ===== */
+    :root {
+      --primary:        #00695c;
+      --primary-dark:   #004d40;
+      --primary-light:  #e0f2f1;
+      --primary-mid:    #b2dfdb;
+      --accent:         #00897b;
+      --accent-soft:    #4db6ac;
+      --warn-bg:        #fff8e1;
+      --warn-border:    #f9a825;
+      --warn-text:      #5d4037;
+      --tip-bg:         #e8f5e9;
+      --tip-border:     #43a047;
+      --tip-text:       #1b5e20;
+      --example-bg:     #f3e5f5;
+      --example-border: #8e24aa;
+      --example-text:   #4a148c;
+      --link-bg:        #e3f2fd;
+      --link-border:    #1e88e5;
+      --link-text:      #0d47a1;
+      --error-bg:       #fce4ec;
+      --error-border:   #e91e63;
+      --error-text:     #880e4f;
+      --text:           #212121;
+      --muted:          #616161;
+      --border:         #cfd8dc;
+      --bg:             #fafafa;
+      --card-bg:        #ffffff;
+      --nav-width:      260px;
+      --header-h:       64px;
+      --radius:         8px;
+      --shadow:         0 2px 8px rgba(0,0,0,0.10);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ===== 頁首 ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      background: var(--primary-dark);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      z-index: 200;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      gap: 14px;
+    }
+    .header-badge {
+      background: var(--accent-soft);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+    header h1 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .header-meta {
+      margin-left: auto;
+      font-size: 0.78rem;
+      opacity: 0.80;
+      white-space: nowrap;
+    }
+
+    /* ===== 側邊導覽 ===== */
+    nav#sidebar {
+      position: fixed;
+      top: var(--header-h);
+      left: 0;
+      width: var(--nav-width);
+      height: calc(100vh - var(--header-h));
+      background: var(--card-bg);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      padding: 16px 0 32px;
+      z-index: 100;
+    }
+    nav#sidebar .nav-section-title {
+      font-size: 0.70rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 20px 4px;
+    }
+    nav#sidebar ul { list-style: none; }
+    nav#sidebar ul li a {
+      display: block;
+      padding: 6px 20px 6px 28px;
+      font-size: 0.85rem;
+      color: var(--text);
+      border-left: 3px solid transparent;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    nav#sidebar ul li a:hover,
+    nav#sidebar ul li a.active {
+      background: var(--primary-light);
+      border-left-color: var(--primary);
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+    nav#sidebar ul li a.sub {
+      padding-left: 40px;
+      font-size: 0.80rem;
+      color: var(--muted);
+    }
+
+    /* ===== 主內容 ===== */
+    main {
+      margin-left: var(--nav-width);
+      margin-top: var(--header-h);
+      padding: 36px 40px 80px;
+      max-width: 960px;
+    }
+
+    /* ===== 章節標題 ===== */
+    .chapter-label {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      padding: 2px 10px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+    h2.section-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 8px;
+      margin: 40px 0 20px;
+    }
+    h3.subsection-title {
+      font-size: 1.10rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 28px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h3.subsection-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px; height: 18px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 18px 0 8px;
+    }
+
+    /* ===== 通用卡片 ===== */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 16px 0;
+      box-shadow: var(--shadow);
+    }
+
+    /* ===== 色彩盒子 ===== */
+    .box {
+      border-left: 4px solid;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 0.93rem;
+    }
+    .box-key   { background: var(--primary-light); border-color: var(--primary);        color: var(--primary-dark); }
+    .box-warn  { background: var(--warn-bg);        border-color: var(--warn-border);    color: var(--warn-text);   }
+    .box-tip   { background: var(--tip-bg);         border-color: var(--tip-border);     color: var(--tip-text);    }
+    .box-exam  { background: var(--warn-bg);        border-color: #ef6c00;               color: #4e342e;            }
+    .box-example{ background: var(--example-bg);   border-color: var(--example-border); color: var(--example-text);}
+    .box-link  { background: var(--link-bg);        border-color: var(--link-border);    color: var(--link-text);   }
+    .box-error { background: var(--error-bg);       border-color: var(--error-border);   color: var(--error-text);  }
+    .box-icon  { font-size: 1rem; margin-right: 6px; }
+    .box strong { display: block; font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 4px; }
+
+    /* ===== 定義塊 ===== */
+    .definition {
+      background: var(--primary-light);
+      border: 1px solid var(--primary-mid);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin: 14px 0;
+    }
+    .definition .def-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      color: var(--primary-dark);
+      background: var(--primary-mid);
+      padding: 1px 8px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    /* ===== 表格 ===== */
+    .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      background: var(--card-bg);
+    }
+    thead tr { background: var(--primary-dark); color: #fff; }
+    thead th { padding: 10px 14px; text-align: left; font-weight: 700; letter-spacing: 0.04em; }
+    tbody tr:nth-child(even) { background: var(--primary-light); }
+    tbody tr:hover { background: var(--primary-mid); }
+    td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    td.center { text-align: center; }
+    td code { background: #f5f5f5; border-radius: 3px; padding: 1px 5px; font-family: "Courier New", monospace; font-size: 0.88em; }
+    .highlight-row { background: #fff9c4 !important; font-weight: 600; }
+
+    /* ===== 程式 / 公式區塊 ===== */
+    code { font-family: "Courier New", Consolas, monospace; }
+    .formula-block {
+      background: #f5f5f5;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      margin: 12px 0;
+      font-family: "Courier New", monospace;
+      font-size: 0.93rem;
+      overflow-x: auto;
+    }
+
+    /* ===== 步驟列 ===== */
+    ol.steps { padding-left: 22px; }
+    ol.steps li { margin: 8px 0; }
+    ul.bullets { padding-left: 22px; }
+    ul.bullets li { margin: 6px 0; }
+
+    /* ===== 流程圖 (純 CSS / Unicode) ===== */
+    .flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin: 14px 0;
+    }
+    .flow-step {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 0.83rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .flow-arrow { color: var(--primary); font-size: 1.2rem; font-weight: 700; }
+
+    /* ===== 知識連結圖 ===== */
+    .knowledge-map {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .km-node {
+      background: var(--card-bg);
+      border: 2px solid var(--primary-mid);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      text-align: center;
+      font-size: 0.83rem;
+    }
+    .km-node.center-node {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      font-weight: 700;
+      grid-column: 2;
+    }
+    .km-label { font-size: 0.68rem; color: var(--muted); margin-top: 4px; }
+
+    /* ===== 自我測驗 ===== */
+    .quiz-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin: 14px 0;
+      box-shadow: var(--shadow);
+    }
+    .quiz-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 26px;
+      margin-right: 8px;
+    }
+    .quiz-q { font-weight: 600; font-size: 0.93rem; }
+    .quiz-options { margin: 10px 0 0 34px; }
+    .quiz-options li { margin: 4px 0; font-size: 0.88rem; list-style: none; }
+    .quiz-options li::before { content: attr(data-opt) ". "; font-weight: 700; color: var(--primary); }
+    details.answer-toggle { margin-top: 10px; }
+    details.answer-toggle summary {
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      padding: 5px 10px;
+      background: var(--primary-light);
+      border-radius: 4px;
+      user-select: none;
+      display: inline-block;
+    }
+    details.answer-toggle summary:hover { background: var(--primary-mid); }
+    .answer-body {
+      background: var(--tip-bg);
+      border: 1px solid var(--tip-border);
+      border-radius: 0 0 var(--radius) var(--radius);
+      padding: 12px 16px;
+      font-size: 0.88rem;
+      margin-top: 4px;
+      color: var(--tip-text);
+    }
+    .ans-correct { font-weight: 700; font-size: 1rem; color: var(--primary-dark); }
+
+    /* ===== 重點整理清單 ===== */
+    .summary-list {
+      list-style: none;
+      padding: 0;
+    }
+    .summary-list li {
+      padding: 8px 12px 8px 36px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.90rem;
+    }
+    .summary-list li:last-child { border-bottom: none; }
+    .summary-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 10px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* ===== 回到頂端按鈕 ===== */
+    #back-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 44px; height: 44px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+      z-index: 300;
+    }
+    #back-top:hover { background: var(--primary-dark); }
+
+    /* ===== 進度標籤 ===== */
+    .tag {
+      display: inline-block;
+      font-size: 0.70rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .tag-exam  { background: #ff8f00; color: #fff; }
+    .tag-basic { background: var(--accent-soft); color: #fff; }
+    .tag-hard  { background: #e53935; color: #fff; }
+
+    /* ===== RWD ===== */
+    @media (max-width: 780px) {
+      nav#sidebar { display: none; }
+      main { margin-left: 0; padding: 20px 16px 60px; }
+      .knowledge-map { grid-template-columns: 1fr 1fr; }
+      .km-node.center-node { grid-column: span 2; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== 頁首 ===== -->
+<header>
+  <span class="header-badge">W26 · 物理科</span>
+  <h1>Ch4 電磁：歷屆試題 15 題</h1>
+  <span class="header-meta">高三上理工組 | 11/09–11/15 | 第四階段整合衝刺 | 週六數學 A 全卷模擬</span>
+</header>
+
+<!-- ===== 側邊導覽 ===== -->
+<nav id="sidebar">
+  <div class="nav-section-title">本週學習</div>
+  <ul>
+    <li><a href="#overview">單元概述</a></li>
+    <li><a href="#stats">電磁題的出題分布</a></li>
+    <li><a href="#cards">方向判斷與公式卡</a></li>
+    <li><a href="#plan">本週作答計畫</a></li>
+  </ul>
+
+  <div class="nav-section-title">歷屆試題 15 題</div>
+  <ul>
+    <li><a href="#groupA">A 組：4-1 電流磁效應（1–3）</a></li>
+    <li><a href="#groupB">B 組：4-2 電磁感應（4–9）</a></li>
+    <li><a href="#groupC">C 組：4-3、4-4 統整與電磁波（10–12）</a></li>
+    <li><a href="#groupD">D 組：4-5 都卜勒效應（13–15）</a></li>
+    <li><a href="#bonus">加碼：108 課綱混合題</a></li>
+  </ul>
+
+  <div class="nav-section-title">檢討與評量</div>
+  <ul>
+    <li><a href="#score">得分與錯因統計</a></li>
+    <li><a href="#mistakes">失誤檢查清單</a></li>
+    <li><a href="#summary">重點整理</a></li>
+    <li><a href="#exam">學測考題方向</a></li>
+  </ul>
+</nav>
+
+<!-- ===== 主內容 ===== -->
+<main>
+
+  <!-- ===== 單元概述 ===== -->
+  <section id="overview">
+    <span class="chapter-label">UNIT OVERVIEW</span>
+    <h2 class="section-title">單元概述</h2>
+
+    <div class="card">
+      <p>第四階段第二週，物理進入 <strong>Ch4 電磁：歷屆試題 15 題</strong>。W07–W09 是第一輪、W19 是計算專攻；本週直接拿大考中心<strong>真實考過的題目</strong>檢驗，看你能不能把方向判斷、楞次定律和都卜勒效應用在陌生情境裡。</p>
+      <br>
+      <h4>本週學習目標</h4>
+      <ul class="bullets">
+        <li>能在 3 分鐘內完成一題電磁選擇題，並說出每個選項對錯的理由</li>
+        <li>用「楞次定律四步驟」判斷應電流方向，不再靠猜</li>
+        <li>區分「電流磁效應」與「電磁感應」，以及穩定磁場和變化磁場的差異</li>
+        <li>分辨電磁波與非電磁波，記住科學史中的人物與貢獻</li>
+        <li>用都卜勒效應判斷波源運動時的頻率高低，特別是雙重都卜勒（反射）</li>
+      </ul>
+    </div>
+
+    <div class="box box-link">
+      <strong><span class="box-icon">🔗</span>本週在學習脈絡中的位置</strong>
+      W25 做 Ch2 力學綜合計算；本週換成觀念比重更高的 Ch4。學測電磁幾乎不考複雜計算，考的是<b>方向、情境與定性判斷</b>，這也是為什麼歷屆題比自編計算題更有練習價值。
+    </div>
+
+    <div class="box box-tip">
+      <strong><span class="box-icon">💡</span>題目來源與圖片說明</strong>
+      本週 15 題與加碼題全部選自<b>大考中心 107–115 學年度學測自然考科</b>，題號與答案已逐題核對官方答案。107–110 年是舊課綱試題，但所測的基礎電磁觀念相同。圖片為本講義依原題重繪的示意圖，原圖請見<a href="https://www.ceec.edu.tw/xmfile?xsmsid=0J052424829869345634" target="_blank" rel="noopener">大考中心歷屆試題</a>。解析為本講義撰寫，非官方解析。
+    </div>
+  </section>
+
+  <!-- ===== 統計 ===== -->
+  <section id="stats">
+    <span class="chapter-label">EXAM DATA</span>
+    <h2 class="section-title">電磁題的出題分布（107–115）</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>小節</th><th>出現過的情境</th><th>重要度</th></tr></thead>
+        <tbody>
+          <tr><td>4-1 電流磁效應</td><td>通電線圈中點磁場（107）、導線上方小磁針（107）、螺線管（110）、電磁天平（111）</td><td><span class="tag tag-exam">高</span></td></tr>
+          <tr class="highlight-row"><td>4-2 電磁感應</td><td>幾乎年年出現：示範實驗（108）、晶片卡（111）、磁鐵穿環（113）、無線充電（114）、磁鐵穿線圈（115）</td><td><span class="tag tag-hard">最高</span></td></tr>
+          <tr><td>4-3 電磁統整與科學史</td><td>厄斯特、法拉第、馬克士威、赫茲的貢獻（108、111、112）</td><td><span class="tag tag-basic">中</span></td></tr>
+          <tr><td>4-4 光波／電磁波</td><td>電磁波性質（107）、電磁波種類（114）、波速與傳訊時間（114、115）</td><td><span class="tag tag-exam">高</span></td></tr>
+          <tr><td>4-5 都卜勒效應</td><td>聲源運動（110）、血流儀（111、112）、太空船（114）</td><td><span class="tag tag-exam">高</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box box-exam">
+      <strong><span class="box-icon">★</span>趨勢：情境化</strong>
+      近年的電磁題都包在生活科技裡（晶片卡、手機無線充電、血流儀、太空船、潮汐發電）。所以讀題時先把情境「翻譯」回物理模型：<b>誰是線圈、誰的磁通量在變、變大還是變小</b>。
+    </div>
+  </section>
+
+  <!-- ===== 公式卡 ===== -->
+  <section id="cards">
+    <span class="chapter-label">TOOLBOX</span>
+    <h2 class="section-title">方向判斷與公式卡</h2>
+
+    <div class="flow">
+      <div class="flow-step">① 原磁場方向？</div><div class="flow-arrow">→</div>
+      <div class="flow-step">② 磁通量增或減？</div><div class="flow-arrow">→</div>
+      <div class="flow-step">③ 應磁場：增反減同</div><div class="flow-arrow">→</div>
+      <div class="flow-step">④ 右手定則求應電流</div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>情境</th><th>工具</th><th>記憶法</th></tr></thead>
+        <tbody>
+          <tr><td>長直導線的磁場</td><td>安培右手定則</td><td>拇指＝電流，四指＝磁場繞向</td></tr>
+          <tr><td>線圈、螺線管的磁場</td><td>右手螺旋</td><td>四指＝電流繞向，拇指＝管內磁場（N 極方向）</td></tr>
+          <tr><td>載流導線在磁場中受力</td><td>右手開掌</td><td>拇指＝電流，四指＝磁場，掌心推出＝受力</td></tr>
+          <tr><td>應電流方向</td><td>楞次定律</td><td>阻止「變化」：增反減同，來拒去留</td></tr>
+          <tr><td>應電流大小</td><td>法拉第定律</td><td>磁通量變化越快、圈數越多，電動勢越大</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="formula-block">
+<strong>4-1 電流磁效應</strong><br>
+長直導線 $B\propto\dfrac{I}{r}$　　載流導線受力 $F=ILB\sin\theta$　　電流方向與磁場平行時不受力
+    </div>
+    <div class="formula-block">
+<strong>4-2 電磁感應</strong><br>
+磁通量 $\Phi_B=BA\cos\theta$　　法拉第定律 $\varepsilon=-N\dfrac{\Delta\Phi_B}{\Delta t}$　　應電流 $I=\dfrac{\varepsilon}{R}$<br>
+產生應電流的條件：<b>穿過封閉迴路的磁通量發生變化</b>
+    </div>
+    <div class="formula-block">
+<strong>4-3、4-4 電磁波</strong><br>
+$c=f\lambda$　　真空光速 $c=3\times10^8\ \mathrm{m/s}$　　電磁波不需介質，是橫波，具有反射、折射、繞射、干涉<br>
+電磁波譜（頻率由低到高）：無線電波 → 微波 → 紅外線 → 可見光 → 紫外線 → X 射線 → γ 射線
+    </div>
+    <div class="formula-block">
+<strong>4-5 都卜勒效應（定性）</strong><br>
+波源與觀察者<b>接近</b>：接收頻率變高；<b>遠離</b>：接收頻率變低；只看沿連線方向的相對速度<br>
+反射體（如紅血球）：先當觀察者，再當波源，頻率改變兩次
+    </div>
+
+    <div class="box box-warn">
+      <strong><span class="box-icon">⚠️</span>科學史常考人物</strong>
+      <b>厄斯特</b>：發現電流磁效應。<b>法拉第</b>：由實驗發現電磁感應。<b>馬克士威</b>：理論預測電磁波，推論光是電磁波。<b>赫茲</b>：<u>實驗證實</u>電磁波存在。<b>普朗克</b>：首先提出能量量子化。<b>愛因斯坦</b>：以光子解釋光電效應。
+    </div>
+  </section>
+
+  <!-- ===== 作答計畫 ===== -->
+  <section id="plan">
+    <span class="chapter-label">PLAN</span>
+    <h2 class="section-title">本週作答計畫</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>日期</th><th>範圍</th><th>建議時間</th><th>重點</th></tr></thead>
+        <tbody>
+          <tr><td>11/09（一）</td><td>工具卡＋A 組（第 1–3 題）</td><td>35 分鐘</td><td>右手定則、磁場方向</td></tr>
+          <tr><td>11/10（二）</td><td>B 組前半（第 4–6 題）</td><td>30 分鐘</td><td>楞次定律四步驟</td></tr>
+          <tr><td>11/11（三）</td><td>B 組後半（第 7–9 題）</td><td>30 分鐘</td><td>情境轉換：晶片卡、磁鐵穿環、無線充電</td></tr>
+          <tr><td>11/12（四）</td><td>C 組（第 10–12 題）</td><td>25 分鐘</td><td>科學史、電磁波性質</td></tr>
+          <tr><td>11/13（五）</td><td>D 組（第 13–15 題）＋ 加碼題</td><td>40 分鐘</td><td>都卜勒效應、非選擇題書寫</td></tr>
+          <tr><td>11/14（六）</td><td>數學 A 全卷模擬日</td><td>—</td><td>物理只翻工具卡 10 分鐘</td></tr>
+          <tr><td>11/15（日）</td><td>錯題重做、更新弱點筆記</td><td>30 分鐘</td><td>寫出「哪一步判斷錯」</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box box-warn">
+      <strong><span class="box-icon">⚠️</span>作答規則</strong>
+      <ul class="bullets" style="margin-top:6px;">
+        <li>每題先自己作答，並<b>寫下每個選項對錯的理由</b>；多選題的分數來自逐選項判斷。</li>
+        <li>方向題一定要動手比，手勢比腦袋可靠；考試時也可以比。</li>
+        <li>解析中的「關鍵」是這題的觀念重點，請抄進工具卡。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== A 組 ===== -->
+  <section id="groupA">
+    <span class="chapter-label">GROUP A · 4-1</span>
+    <h2 class="section-title">A 組：電流磁效應（第 1–3 題）</h2>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">1</span><span class="quiz-q">【107 學測第 17 題】兩個通有穩定電流的圓形線圈相對而立，如圖所示（本講義以箭頭標示線圈前緣的電流方向，原圖以電池符號表示）。若忽略地磁的影響，則兩載流線圈在線圈圓心連線中點處造成的磁場方向為何？<br>(A) 向東　(B) 向西　(C) 向北　(D) 向上　(E) 兩線圈產生的磁場方向相反</span></p>
+      <svg viewBox="0 0 400 200" style="max-width:400px;width:100%;display:block;margin:10px 0 4px;" role="img" aria-label="兩個圓形線圈東西相對，線圈前緣電流向下，東西向虛線為圓心連線，中點標示方位：上、北、東">
+        <ellipse cx="130" cy="100" rx="26" ry="70" fill="none" stroke="#00695c" stroke-width="3"/>
+        <ellipse cx="270" cy="100" rx="26" ry="70" fill="none" stroke="#00695c" stroke-width="3"/>
+        <polygon points="156,92 162,104 150,104" fill="#e65100" transform="rotate(180 156 98)"/>
+        <polygon points="296,92 302,104 290,104" fill="#e65100" transform="rotate(180 296 98)"/>
+        <line x1="50" y1="100" x2="355" y2="100" stroke="#212121" stroke-width="2" stroke-dasharray="6 4"/>
+        <polygon points="365,100 353,94 353,106" fill="#212121"/>
+        <text x="372" y="105" font-size="14" fill="#212121">東</text>
+        <line x1="200" y1="170" x2="200" y2="35" stroke="#212121" stroke-width="2" stroke-dasharray="6 4"/>
+        <polygon points="200,25 194,37 206,37" fill="#212121"/>
+        <text x="193" y="18" font-size="14" fill="#212121">上</text>
+        <line x1="222" y1="122" x2="168" y2="68" stroke="#212121" stroke-width="2" stroke-dasharray="6 4"/>
+        <polygon points="160,60 172,64 166,71" fill="#212121"/>
+        <text x="167" y="56" font-size="14" fill="#212121">北</text>
+        <circle cx="200" cy="100" r="4" fill="#d84315"/>
+        <text x="208" y="92" font-size="12" fill="#d84315">中點</text>
+      </svg>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>右手四指沿電流繞行方向彎曲，拇指指向管內磁場方向。線圈前緣（靠近讀者的南側）電流向下，四指順著彎，拇指指向<b>東</b>。</p>
+          <p>兩線圈電流繞向相同，因此在連線中點產生的磁場都向東，疊加後仍向東。(E) 錯在兩線圈磁場同向。</p>
+          <p><strong>關鍵：</strong>圓形線圈的磁場沿軸線方向，不沿線圈所在平面。</p>
+          <p class="ans-correct">官方答案：(A)</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="box box-example">
+      <strong>第 2 題與第 5 題共用情境（107 學測第 29–30 題題組）</strong>
+      林同學為了同時觀察電流的磁效應與電磁感應現象，在水平桌面上安置甲、乙兩組電流迴路，其設計如圖。甲迴路串接電壓固定之大電流的直流電源供應器 P 與開關 K，並在其中一段沿南北方向的長直導線正上方，置放一小磁針。該小磁針最初為靜止，其 N 極指向北方；乙迴路則串接一高靈敏度之檢流計 G，最初顯示的電流值為零。
+      <svg viewBox="0 0 420 240" style="max-width:420px;width:100%;display:block;margin:12px 0 4px;" role="img" aria-label="甲迴路在左，含開關K與電源P，右側導線南北向，上方放小磁針；乙迴路在甲迴路東側，串接檢流計G">
+        <polyline points="150,200 80,200 80,40 120,40" fill="none" stroke="#212121" stroke-width="3"/>
+        <line x1="120" y1="40" x2="158" y2="26" stroke="#212121" stroke-width="3"/>
+        <polyline points="160,40 200,40 200,200 170,200" fill="none" stroke="#212121" stroke-width="3"/>
+        <rect x="140" y="188" width="42" height="28" fill="#fff" stroke="#212121" stroke-width="2.5"/>
+        <text x="146" y="207" font-size="13" fill="#212121">− P +</text>
+        <text x="130" y="20" font-size="13" fill="#212121">K</text>
+        <text x="30" y="125" font-size="13" fill="#212121">甲迴路</text>
+        <ellipse cx="200" cy="85" rx="12" ry="20" fill="#e0f2f1" stroke="#00695c" stroke-width="2"/>
+        <polygon points="200,68 195,85 205,85" fill="#d84315"/>
+        <polygon points="200,102 195,85 205,85" fill="#90a4ae"/>
+        <text x="148" y="66" font-size="13" fill="#00695c">小磁針</text>
+        <rect x="245" y="70" width="60" height="100" fill="none" stroke="#212121" stroke-width="3"/>
+        <circle cx="305" cy="120" r="14" fill="#fff" stroke="#212121" stroke-width="2.5"/>
+        <text x="300" y="125" font-size="13" fill="#212121">G</text>
+        <text x="328" y="125" font-size="13" fill="#212121">乙迴路</text>
+        <line x1="350" y1="60" x2="350" y2="22" stroke="#212121" stroke-width="2"/>
+        <polygon points="350,14 345,26 355,26" fill="#212121"/>
+        <text x="335" y="18" font-size="13" fill="#212121">北</text>
+        <line x1="350" y1="60" x2="395" y2="60" stroke="#212121" stroke-width="2"/>
+        <polygon points="405,60 393,55 393,65" fill="#212121"/>
+        <text x="385" y="50" font-size="13" fill="#212121">東</text>
+      </svg>
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">2</span><span class="quiz-q">【107 學測第 29 題】該同學開啟電源供應器 P，並按下開關 K 接通甲迴路，應可觀察到哪些現象？（應選 2 項）<br>(A) 小磁針 N 極立刻偏轉，但最後回復指向北方<br>(B) 小磁針 N 極偏轉向東，最後維持於北偏東的方向<br>(C) 檢流計 G 指針立刻偏轉，但最後回復指向零電流<br>(D) 流經檢流計 G 的電流方向為由南向北，且電流值維持穩定<br>(E) 小磁針立刻偏轉，檢流計 G 顯示的電流值維持穩定不變</span></p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p><b>小磁針：</b>電源正極在右，電流沿磁針下方的導線向北流。用安培右手定則，導線<u>上方</u>的磁場向東，加上地磁向北，合磁場為<b>北偏東</b>，而且電流穩定就一直維持 → (B)。</p>
+          <p><b>檢流計：</b>K 接通瞬間，甲的電流由零增加，穿過乙迴路的磁通量改變，有應電流；電流穩定後磁通量不再改變，應電流歸零 → (C)。</p>
+          <p><strong>關鍵：</strong>電流磁效應看「有沒有電流」；電磁感應看「磁通量有沒有在變」。</p>
+          <p class="ans-correct">官方答案：(B)(C)</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">3</span><span class="quiz-q">【110 學測第 31 題】一個由均勻導線繞成的螺線管，長度與截面積均為固定。導線載有穩定電流時，下列關於螺線管磁場的敘述哪些正確？（應選 2 項）<br>(A) 管外側的磁場強度最大<br>(B) 管內中心處的磁場強度為零<br>(C) 管兩端相當於磁鐵棒的 N 極與 S 極<br>(D) 管內的磁場強度與電流量值無關<br>(E) 管內的磁場方向可用安培右手定則判斷</span></p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>螺線管內部磁場最強且近似均勻，外部較弱，(A)(B) 錯。磁場強度與電流成正比，(D) 錯。</p>
+          <p>螺線管外部磁場分布與棒形磁鐵相同，兩端如同 N、S 極，(C) 對；方向用安培右手定則判斷，(E) 對。</p>
+          <p class="ans-correct">官方答案：(C)(E)</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== B 組 ===== -->
+  <section id="groupB">
+    <span class="chapter-label">GROUP B · 4-2</span>
+    <h2 class="section-title">B 組：電磁感應（第 4–9 題）</h2>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">4</span><span class="quiz-q">【108 學測第 6 題】某生做「電磁感應」的示範實驗時，先將具有鐵心的小線圈串接直流電源供應器，形成迴路以產生磁場，再利用一個只串接檢流計的大線圈，套在小線圈外圍檢測應電流。下列哪一項操作方式，不可能產生應電流？<br>(A) 將小線圈在大線圈內外來回抽送<br>(B) 將電源供應器的電壓忽大忽小的調節<br>(C) 將電源供應器的正負端交換連接小線圈的兩端<br>(D) 在小線圈的迴路中串接開關並交替斷開與接通的動作<br>(E) 在大線圈的迴路中串接開關並交替斷開與接通的動作</span></p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>(A) 改變距離、(B) 改變電流大小、(C) 改變磁場方向、(D) 電流有無，這四個都會改變穿過大線圈的磁通量，能產生應電流。</p>
+          <p>(E) 小線圈的電流和磁場都沒變，穿過大線圈的磁通量不變；開關只是讓迴路斷開或接通，沒有磁通量變化就沒有電動勢。</p>
+          <p><strong>關鍵：</strong>條件是「磁通量改變」，不是「開關有動作」。要動的是產生磁場的那一方，或兩者相對位置。</p>
+          <p class="ans-correct">官方答案：(E)</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">5</span><span class="quiz-q">【107 學測第 30 題，情境見第 2 題】該同學開啟電源供應器 P，先按下開關 K 接通甲迴路一段時間，然後再將乙迴路以等速度向東拉離甲迴路，則在乙迴路被拉離一小段距離的過程中，應可觀察到哪些現象？（應選 2 項）<br>(A) 小磁針 N 極回復指向北方不動，檢流計 G 也一直顯示有電流通過<br>(B) 小磁針 N 極的方向為北偏東，檢流計 G 一直顯示有電流通過<br>(C) 小磁針 N 極的方向為北偏東，檢流計 G 一直顯示電流值為零<br>(D) 流經檢流計 G 的電流方向為由南向北<br>(E) 流經檢流計 G 的電流方向為由北向南</span></p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>甲的電流穩定，小磁針維持北偏東。乙迴路遠離導線時，穿過它的磁通量減少，所以持續有應電流 → (B)。</p>
+          <p>方向用四步驟：① 導線向北的電流在其東側產生<b>向下</b>的磁場。② 乙遠離，向下的磁通量<b>減少</b>。③ 減同：應磁場也<b>向下</b>。④ 右手：俯視為順時針；G 在迴路東側，順時針時東側的電流<b>由北向南</b> → (E)。</p>
+          <p class="ans-correct">官方答案：(B)(E)</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">6</span><span class="quiz-q">【110 學測第 32 題】承第 3 題的螺線管。將螺線管鉛直靜置，當導線的電流穩定時，有一 N 極朝下的棒形磁鐵自螺線管上方直線接近，發現磁鐵接近時導線的電流增大。下列哪些敘述正確？（應選 2 項）<br>(A) 磁鐵尚未接近螺線管之前，管內原來的磁場方向向下<br>(B) 磁鐵尚未接近螺線管之前，管內原來的磁場方向向上<br>(C) 磁鐵接近螺線管時，管內磁場的方向不變，強度減弱<br>(D) 磁鐵接近螺線管時，管內磁場的方向不變，強度增強<br>(E) 磁鐵接近螺線管時，管內磁場的方向不變，強度不變</span></p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>N 極朝下接近，向下的磁通量增加，由楞次定律，應磁場<b>向上</b>。題目說電流<b>增大</b>，代表應電流與原電流同向，所以原電流產生的磁場也是向上 → (B)。</p>
+          <p>電流增大，螺線管自己產生的磁場方向不變、強度增強 → (D)。</p>
+          <div class="box box-tip" style="margin:10px 0;"><strong>官方答案調整（值得一看）</strong>本題公告答案為 (B)(D) 或 (B)(C)。若把「管內磁場」解釋為螺線管磁場與磁鐵磁場之和（磁鐵的磁場向下，抵消了一部分），則選 (B)(C)。這提醒我們：讀題時要分清楚「誰產生的磁場」。</div>
+          <p class="ans-correct">官方答案：(B)(D) 或 (B)(C)</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">7</span><span class="quiz-q">【111 學測第 6 題】常用的晶片卡中有內建線圈，如示意圖的下半部所示，向左箭號代表應電流 $I_2\gt0$ 的流向。圖的上半部為讀卡機線圈，向右箭號代表電流 $I_1\gt0$ 時的流向。當 $I_1\gt0$ 時線圈產生的磁場，如虛線所示。晶片卡線圈貼近讀卡機線圈時，電流 $I_1$ 產生的磁場會造成應電流 $I_2$ 的變動，驅動晶片發出訊息。當兩線圈均為靜止且 $I_2=0$ 時，欲使晶片卡線圈產生圖示 $I_2\gt0$ 流向的應電流，則讀卡機線圈的電流 $I_1$ 應如何？（應選 2 項）<br>(A) $I_1\gt0$ 且維持定值　(B) $I_1\gt0$ 且漸增　(C) $I_1\lt0$ 且漸增　(D) $I_1\le0$ 且維持定值　(E) $I_1\lt0$ 且漸減</span></p>
+      <svg viewBox="0 0 400 190" style="max-width:400px;width:100%;display:block;margin:10px 0 4px;" role="img" aria-label="上方讀卡機線圈，下方晶片卡線圈，虛線磁場由上向下穿過兩線圈；I1 向右流入上線圈，I2 向左流入下線圈">
+        <ellipse cx="200" cy="55" rx="85" ry="24" fill="none" stroke="#00695c" stroke-width="3"/>
+        <ellipse cx="200" cy="125" rx="85" ry="24" fill="none" stroke="#00695c" stroke-width="3"/>
+        <line x1="50" y1="55" x2="115" y2="55" stroke="#00695c" stroke-width="3"/>
+        <line x1="285" y1="125" x2="350" y2="125" stroke="#00695c" stroke-width="3"/>
+        <rect x="20" y="42" width="34" height="24" fill="#cfd8dc" stroke="#546e7a"/>
+        <rect x="346" y="112" width="34" height="24" fill="#cfd8dc" stroke="#546e7a"/>
+        <text x="20" y="84" font-size="12" fill="#212121">讀卡機</text>
+        <text x="350" y="152" font-size="12" fill="#212121">晶片</text>
+        <polygon points="90,55 78,49 78,61" fill="#e65100"/>
+        <text x="72" y="42" font-size="13" fill="#e65100">I₁</text>
+        <polygon points="305,125 317,119 317,131" fill="#e65100"/>
+        <text x="306" y="110" font-size="13" fill="#e65100">I₂</text>
+        <line x1="200" y1="10" x2="200" y2="170" stroke="#1565c0" stroke-width="2" stroke-dasharray="5 4"/>
+        <polygon points="200,182 194,170 206,170" fill="#1565c0"/>
+        <line x1="165" y1="12" x2="170" y2="168" stroke="#1565c0" stroke-width="2" stroke-dasharray="5 4"/>
+        <polygon points="171,180 165,168 177,168" fill="#1565c0"/>
+        <line x1="235" y1="12" x2="230" y2="168" stroke="#1565c0" stroke-width="2" stroke-dasharray="5 4"/>
+        <polygon points="229,180 223,168 235,168" fill="#1565c0"/>
+        <text x="250" y="22" font-size="12" fill="#1565c0">磁場（I₁&gt;0 時）</text>
+      </svg>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>依圖，$I_1\gt0$ 時穿過晶片卡線圈的磁場向下；而 $I_2\gt0$ 的流向所產生的應磁場向上。</p>
+          <p>應磁場向上，代表要抵抗「向下磁通量增加」或「向上磁通量減少」：</p>
+          <ul class="bullets">
+            <li>向下磁通量增加：$I_1\gt0$ 且漸增 → (B)</li>
+            <li>向上磁通量減少：$I_1\lt0$（磁場向上）且量值漸減 → (E)</li>
+          </ul>
+          <p>(A)(D) 電流定值沒有磁通量變化。(C) 向上磁通量增加，應電流方向相反。</p>
+          <p><strong>關鍵：</strong>正負代表方向，「漸增」「漸減」看的是量值。兩種情況的 $\Delta I_1$ 方向相同，應電流也就相同。</p>
+          <p class="ans-correct">官方答案：(B)(E)</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="box box-example">
+      <strong>第 8 題情境（113 學測第 44–46 題題組）</strong>
+      如圖，一金屬導線製成的線圈迴路固定不動，迴路中有一電阻 $R$。迴路左側環圈甲的正上方有一下端為 S 極的細長磁鐵棒。假設磁鐵棒的磁力線僅穿過環圈甲，且迴路中金屬導線的電阻可忽略。
+      <svg viewBox="0 0 420 180" style="max-width:420px;width:100%;display:block;margin:12px 0 4px;" role="img" aria-label="磁鐵棒下端為S極，位於環圈甲正上方，甲與乙兩環圈以導線連接，中間有電阻R">
+        <rect x="102" y="10" width="26" height="70" fill="#eceff1" stroke="#212121" stroke-width="2"/>
+        <text x="134" y="24" font-size="13" fill="#212121">N</text>
+        <text x="134" y="78" font-size="13" fill="#212121">S</text>
+        <line x1="115" y1="80" x2="115" y2="165" stroke="#212121" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <polygon points="115,175 110,163 120,163" fill="#212121"/>
+        <ellipse cx="115" cy="115" rx="65" ry="24" fill="none" stroke="#00695c" stroke-width="3"/>
+        <ellipse cx="320" cy="115" rx="50" ry="22" fill="none" stroke="#00695c" stroke-width="3"/>
+        <polyline points="180,112 205,112 210,104 218,120 226,104 234,120 242,104 247,112 270,112" fill="none" stroke="#00695c" stroke-width="3"/>
+        <line x1="180" y1="120" x2="270" y2="120" stroke="#00695c" stroke-width="3"/>
+        <text x="220" y="96" font-size="14" font-style="italic" fill="#212121">R</text>
+        <text x="48" y="146" font-size="13" fill="#212121">甲</text>
+        <text x="375" y="142" font-size="13" fill="#212121">乙</text>
+      </svg>
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">8</span><span class="quiz-q">【113 學測第 44 題】考慮磁鐵棒以等速度朝環圈甲移動前進，穿過環圈甲，至完全移離環圈甲的整個過程，下列敘述何者正確？<br>(A) 迴路產生應電流，其值隨時間增加而持續增大<br>(B) 迴路產生應電流，其值隨時間增加而持續減小<br>(C) 迴路產生應電流，其方向恆為順時針方向<br>(D) 迴路產生應電流，其方向恆為逆時針方向<br>(E) 若迴路對移動磁鐵棒施加磁力，則其方向恆向上</span></p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>靠近時，通過環圈的磁通量越變越快，電流增大；磁鐵中段通過時變化趨緩；遠離時方向反轉。所以大小不是單調變化，方向也不是恆定，(A)(B)(C)(D) 皆錯。</p>
+          <p>楞次定律也可用力來看：<b>來拒去留</b>。磁鐵靠近時受斥力（向上），離開時受引力（把它往回拉，也向上）→ 力恆與運動方向相反 → (E)。</p>
+          <p><strong>關鍵：</strong>應電流方向會反轉，但阻力方向不變。這也是「應電流產生的力永遠阻礙運動」的能量觀點。</p>
+          <p class="ans-correct">官方答案：(E)</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">9</span><span class="quiz-q">【114 學測第 27 題】目前許多手機可以進行無線充電。充電時，手機和充電器上各自的線圈系統對齊靠近、靜止置放，而充電器上的線圈電流會隨時間快速變化。在充電的過程中，下列敘述何者正確？<br>(A) 電流經由導線從充電器流向手機<br>(B) 手機上之線圈系統四周的磁場始終保持不變<br>(C) 手機電池所獲得的能量等於充電器所輸出的能量<br>(D) 手機和充電器上的兩個線圈系統之間會有磁力線通過<br>(E) 充電器上的線圈會隨時間漸漸發熱，手機上的線圈不會</span></p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>原理：充電器線圈的電流快速變化 → 磁場變化 → 穿過手機線圈的磁通量變化 → 手機線圈產生應電流（兩線圈間有磁力線通過）→ (D)。</p>
+          <p>(A) 兩者沒有導線連接。(B) 磁場隨電流變化，正是能感應的原因。(C) 有熱損失等，能量不可能完全傳遞。(E) 兩線圈都有電流，都會發熱。</p>
+          <p class="ans-correct">官方答案：(D)</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== C 組 ===== -->
+  <section id="groupC">
+    <span class="chapter-label">GROUP C · 4-3／4-4</span>
+    <h2 class="section-title">C 組：電磁統整與電磁波（第 10–12 題）</h2>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">10</span><span class="quiz-q">【112 學測第 28 題】一群學生討論物理學發展史，初步整理出下列甲～己等 6 項資料的敘述。<br>甲：湯姆森經由實驗發現電子的存在。<br>乙：拉塞福提出原子的正電荷集中在核心、電子分布在核外圍的原子模型。<br>丙：首先發現載有電流的導線會在其周圍產生磁場的是厄斯特。<br>丁：首先推論光是電磁波的是赫茲。<br>戊：首先由實驗發現電磁感應現象的是法拉第。<br>己：首先提出能量具有量子化特性的是愛因斯坦。<br>在上述各項敘述中，正確的為下列何者？<br>(A) 甲丁戊　(B) 乙丙己　(C) 丙丁戊己　(D) 甲乙丙戊　(E) 甲乙丁己</span></p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>丁錯：推論光是電磁波的是<b>馬克士威</b>，赫茲是以實驗證實電磁波。</p>
+          <p>己錯：首先提出能量量子化的是<b>普朗克</b>，愛因斯坦以光子解釋光電效應。</p>
+          <p class="ans-correct">官方答案：(D)</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">11</span><span class="quiz-q">【107 學測第 28 題】太陽表面在 2017 年 9 月接連發生二起被稱作「太陽閃焰」的大型爆發，規模為 10 年來最大。科學家預計爆發所噴出的帶電粒子團兩天後抵達地球，撞擊大氣層後產生電磁波，以致影響通訊品質。已知太陽與地球距離約為 $1.5\times10^{11}$ 公尺，光速約為 $3.0\times10^{8}$ 公尺/秒。下列敘述哪些正確？（應選 2 項）<br>(A) 電磁波並無繞射與干涉的現象<br>(B) 電磁波在空間傳播須以帶電粒子為介質<br>(C) 電磁波具有隨時間作週期性變動的電場與磁場<br>(D) 帶電粒子團脫離太陽時的速率約為 $8.7\times10^{5}$ 公尺/秒<br>(E) 帶電粒子團撞擊地球大氣層之後約 8 分鐘，地球上才能觀測到太陽閃焰影像</span></p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>(A) 電磁波是波，有繞射與干涉。(B) 不需要介質。(C) 對。</p>
+          <p>(D) $v=\dfrac{1.5\times10^{11}\ \mathrm{m}}{2\times86400\ \mathrm{s}}\approx8.7\times10^{5}\ \mathrm{m/s}$，對。</p>
+          <p>(E) 閃焰影像以光速傳播，約 $\dfrac{1.5\times10^{11}}{3\times10^{8}}=500\ \mathrm{s}$（約 8 分鐘）就到地球，遠早於兩天後才到的粒子團，順序相反，錯。</p>
+          <p class="ans-correct">官方答案：(C)(D)</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">12</span><span class="quiz-q">【114 學測第 11 題】宇宙天體發出各式訊號。下列哪些訊號屬於電磁波？（應選 3 項）<br>(A) 微中子　(B) 無線電波　(C) 紅外線　(D) X 射線　(E) 重力波</span></p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>無線電波、紅外線、X 射線都在電磁波譜上。微中子是粒子；重力波是時空的漣漪，不是電磁波。</p>
+          <p class="ans-correct">官方答案：(B)(C)(D)</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== D 組 ===== -->
+  <section id="groupD">
+    <span class="chapter-label">GROUP D · 4-5</span>
+    <h2 class="section-title">D 組：都卜勒效應（第 13–15 題）</h2>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">13</span><span class="quiz-q">【110 學測第 34 題】如圖，一輛車在無風的平地，沿著圓直徑由 a 往 b 行駛。當通過圓心 O 的瞬間，車上聲源發出歷時短暫、頻率為 $f_0$ 的聲波。若直徑 cd 與 ab 垂直，且立於 a、b、c、d 的四位聽者聽到的聲音頻率分別為 $f_a$、$f_b$、$f_c$、$f_d$，則下列關係式哪些正確？（應選 2 項）<br>(A) $f_a=f_c$　(B) $f_a\gt f_d$　(C) $f_c=f_d$　(D) $f_b\gt f_a\gt f_c$　(E) $f_b\gt f_0\gt f_a$</span></p>
+      <svg viewBox="0 0 240 190" style="max-width:240px;width:100%;display:block;margin:10px 0 4px;" role="img" aria-label="圓上四點：左a右b上c下d，圓心O，車沿直徑由a向b行駛">
+        <circle cx="120" cy="95" r="70" fill="none" stroke="#212121" stroke-width="2.5"/>
+        <line x1="50" y1="95" x2="190" y2="95" stroke="#212121" stroke-width="2"/>
+        <line x1="120" y1="25" x2="120" y2="165" stroke="#212121" stroke-width="2"/>
+        <polygon points="165,95 153,89 153,101" fill="#e65100"/>
+        <text x="36" y="100" font-size="14" fill="#212121">a</text>
+        <text x="197" y="100" font-size="14" fill="#212121">b</text>
+        <text x="116" y="18" font-size="14" fill="#212121">c</text>
+        <text x="116" y="182" font-size="14" fill="#212121">d</text>
+        <text x="125" y="112" font-size="14" fill="#212121">O</text>
+      </svg>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>發聲瞬間車在 O，向 b 運動：b 在前方，接近，$f_b\gt f_0$；a 在後方，遠離，$f_a\lt f_0$ → (E)。</p>
+          <p>c、d 與運動方向垂直，發聲瞬間聲源沿連線方向的速度為零，頻率不變，$f_c=f_d=f_0$ → (C)。</p>
+          <p>(A)(B)(D) 均與 $f_b\gt f_0=f_c=f_d\gt f_a$ 不符。</p>
+          <p><strong>關鍵：</strong>只有<b>沿連線方向</b>的相對速度造成都卜勒效應。</p>
+          <p class="ans-correct">官方答案：(C)(E)</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">14</span><span class="quiz-q">【112 學測第 32 題】甲生為了利用都卜勒效應測量血流的速率，使一發射器 E 發出頻率 $f$ 很高的聲波，斜向入射到血管中。聲波在被隨著血液流動的紅血球反射後，傳播到靜置於血管兩側的接收器 $R_1$ 和 $R_2$，其中 $R_1$ 與發射器在血管同側，而 $R_2$ 在血管另一側，如圖所示。若以 $f_1$ 和 $f_2$ 分別代表 $R_1$ 和 $R_2$ 測得的反射波頻率，則下列關係式，何者正確？<br>(A) $f_1=f_2$　(B) $f_2\lt f$　(C) $f_2=f$　(D) $f_1\lt f_2$　(E) $f_1=f\lt f_2$</span></p>
+      <svg viewBox="0 0 380 160" style="max-width:380px;width:100%;display:block;margin:10px 0 4px;" role="img" aria-label="血管水平，血流向右；左上方發射器E射向血管中央，反射到右上方R1與左下方R2">
+        <line x1="40" y1="60" x2="310" y2="60" stroke="#212121" stroke-width="2.5"/>
+        <line x1="40" y1="100" x2="310" y2="100" stroke="#212121" stroke-width="2.5"/>
+        <line x1="60" y1="80" x2="300" y2="80" stroke="#d84315" stroke-width="2" stroke-dasharray="6 4"/>
+        <polygon points="312,80 300,74 300,86" fill="#d84315"/>
+        <text x="318" y="85" font-size="13" fill="#d84315">血流</text>
+        <line x1="95" y1="25" x2="175" y2="80" stroke="#00695c" stroke-width="2"/>
+        <line x1="175" y1="80" x2="265" y2="25" stroke="#00695c" stroke-width="2"/>
+        <line x1="175" y1="80" x2="95" y2="135" stroke="#00695c" stroke-width="2"/>
+        <text x="72" y="26" font-size="14" fill="#212121">E</text>
+        <text x="272" y="26" font-size="14" fill="#212121">R₁</text>
+        <text x="66" y="145" font-size="14" fill="#212121">R₂</text>
+      </svg>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>紅血球向右流，E 在左上方。<b>第一次</b>（紅血球當觀察者）：遠離 E，收到的頻率 $f'\lt f$。</p>
+          <p><b>第二次</b>（紅血球當波源）：$R_2$ 在左下方，紅血球遠離它，再降一次 → $f_2\lt f'\lt f$，故 (B) 對，(C)(E) 錯。</p>
+          <p>$R_1$ 在右上方，紅血球接近它，頻率升回來，$f_1\gt f'\gt f_2$，故 (A)(D) 錯。</p>
+          <p><strong>關鍵：</strong>反射問題要分兩段判斷。</p>
+          <p class="ans-correct">官方答案：(B)</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">15</span><span class="quiz-q">【114 學測第 23 題】搭載火星探測器的太空船，加速脫離地球引力後，以等速飛行一段距離，然後減速準備登陸火星，過程中太空船持續遠離地球，歷經約 200 天的飛行抵達火星。太空船飛行過程持續向地球傳送電磁波，用以監測飛行速度。太空船停在地球表面上所發出的電磁波由地球監控站測得的頻率為 $f_0$。若太空船飛行過程，從地球監控站所測得的電磁波頻率為 $f$，則下列過程的頻率關係，哪些正確？（應選 2 項）<br>(A) 加速過程 $f\lt f_0$　(B) 加速過程 $f=f_0$　(C) 等速過程 $f=f_0$　(D) 等速過程 $f\lt f_0$　(E) 減速過程 $f\gt f_0$</span></p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>題目明說太空船<b>持續遠離</b>地球，所以三個過程都是遠離，$f\lt f_0$ → (A)(D)。</p>
+          <p><strong>關鍵：</strong>都卜勒效應看的是「接近或遠離」（速度），不是「加速或減速」（加速度）。等速遠離一樣頻率變低；減速遠離仍是遠離。</p>
+          <p class="ans-correct">官方答案：(A)(D)</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== 加碼 ===== -->
+  <section id="bonus">
+    <span class="chapter-label">BONUS</span>
+    <h2 class="section-title">加碼：108 課綱混合題（時間夠再做）</h2>
+    <div class="box box-tip">
+      <strong><span class="box-icon">💡</span>為什麼要練</strong>
+      自然科第貳部分的非選擇題必須寫出計算過程或理由，否則酌予扣分。這三題示範官方要的是什麼：<b>引用定律＋說明磁通量變化＋推出結論</b>。
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">B1</span><span class="quiz-q">【113 學測第 45 題，情境見第 8 題】磁鐵棒以等速度朝環圈甲前進，當磁鐵棒中心與環圈甲中心之距離為 $d$ 時，迴路的應電流量值為 $I$。在磁鐵棒速度或迴路性質改變下，而迴路電阻仍為 $R$、磁鐵棒中心與環圈甲中心之距離仍為 $d$ 時，下列敘述哪些正確？（應選 2 項）<br>(A) 若將環圈甲的面積增大，但磁鐵棒速度不變，則 $I$ 不會改變<br>(B) 若將環圈乙的面積增大，但磁鐵棒速度不變，則 $I$ 不會改變<br>(C) 若迴路完全不變，但磁鐵棒以較快速度朝環圈甲前進，則 $I$ 的量值將減小<br>(D) 若迴路完全不變，但磁鐵棒以較快速度朝環圈甲前進，則 $I$ 的量值將增大<br>(E) 若環圈甲、乙的圈數加倍，但面積不變、且磁鐵棒速度不變，則 $I$ 不會改變</span></p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p>題目設定磁力線只穿過環圈甲，所以環圈乙的面積與磁通量無關 → (B) 對。</p>
+          <p>磁鐵速度越快，磁通量變化率越大，電動勢與應電流越大 → (D) 對，(C) 錯。</p>
+          <p>(A) 環圈甲面積變大，穿過的磁通量變化也會改變，$I$ 改變。(E) 圈數加倍，$\varepsilon$ 加倍而 $R$ 不變，$I$ 改變。</p>
+          <p class="ans-correct">官方答案：(B)(D)</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">B2</span><span class="quiz-q">【113 學測第 46 題，4 分】磁鐵棒以等速度朝環圈甲前進，在時間為 3 秒時磁鐵棒 S 極恰接觸環圈甲中心，在時間為 6 秒時磁鐵棒中心在環圈甲中心。電流以逆時針方向為正，迴路的應電流在 0～6 秒隨時間變化的曲線如圖（3 秒附近有一個向下的尖峰，6 秒時為零）。考慮磁鐵棒從開始等速移進至完全移離環圈甲的過程，回答下列問題。<br>(a) 試繪製出迴路在時間 6～12 秒的應電流隨時間變化的曲線圖，並以箭頭與文字註明磁鐵棒 N 極恰脫離環圈甲中心的時間點。（2 分）<br>(b) 說明所繪應電流方向及曲線形狀的理由為何？（2 分）</span></p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <svg viewBox="0 0 440 180" style="max-width:440px;width:100%;display:block;margin:6px 0;" role="img" aria-label="應電流對時間圖：3秒處向下尖峰，9秒處向上尖峰，對6秒點對稱">
+            <line x1="30" y1="90" x2="420" y2="90" stroke="#212121" stroke-width="1.5"/>
+            <line x1="30" y1="10" x2="30" y2="170" stroke="#212121" stroke-width="1.5"/>
+            <path d="M30,90 C80,90 90,90 105,96 C118,104 122,150 135,150 C148,150 152,104 165,96 C180,90 210,90 225,90 C240,90 270,90 285,84 C298,76 302,30 315,30 C328,30 332,76 345,84 C360,90 400,90 420,90" fill="none" stroke="#00695c" stroke-width="2.5"/>
+            <text x="130" y="108" font-size="12" fill="#212121">3</text>
+            <text x="222" y="105" font-size="12" fill="#212121">6</text>
+            <text x="310" y="108" font-size="12" fill="#212121">9</text>
+            <text x="395" y="105" font-size="12" fill="#212121">12 秒</text>
+            <text x="330" y="28" font-size="12" fill="#d84315">9 秒：N 極恰脫離環圈甲中心</text>
+          </svg>
+          <p><b>(a)</b> 6～12 秒的曲線與 0～6 秒對「時間 6 秒、電流 0」的點成點對稱：9 秒附近有向上（正值、逆時針）的尖峰，N 極在 9 秒恰脫離環圈甲中心。</p>
+          <p><b>(b)</b> 官方滿分參考答案要點：6～12 秒磁鐵棒移離環圈甲，通過環圈的磁力線數量逐漸減少，與移進時相反；依冷次定律（楞次定律），環圈甲產生逆時針的應電流，故電流值為正。又磁鐵以等速行進，所以曲線與 0～6 秒點對稱。</p>
+          <p class="ans-correct">評分要點：須同時寫出「依楞次定律判斷方向」與「等速造成對稱」。</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="quiz-item">
+      <p><span class="quiz-num">B3</span><span class="quiz-q">【115 學測第 53 題，4 分】某同學用手帶動磁鐵相對於線圈運動。線圈串接檢流計 G，圖中電流由下往上流經檢流計的方向取為正（$I\gt0$）；取線圈中點為位置 $z$ 的原點，且 $z$ 向上為正。磁鐵 N 極朝上（在線圈下方）。該同學將磁鐵從線圈下方，自靜止加速上提，使磁鐵速度越來越快地穿過線圈，並分析磁鐵位置 $z$ 與感應電流 $I$，下表僅列出磁鐵在線圈外部的測量結果。</span></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>位置量值 $|z|$（cm）</th><th>$|z|\lt5$</th><th>5</th><th>10</th><th>15</th><th>20</th></tr></thead>
+          <tbody>
+            <tr><td>感應電流量值 $|I|$（mA）</td><td rowspan="2">磁鐵一部分於線圈之內</td><td>3.40</td><td>2.10</td><td>0.95</td><td>0.43</td></tr>
+            <tr><td>感應電流量值 $|I|$（mA）</td><td>4.30</td><td>2.70</td><td>1.20</td><td>0.54</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="quiz-q">(a) 當 $z\lt0$ 時，說明研判感應電流 $I$ 方向為正或負的理由。（1 分）<br>(b) 考量感應電流量值較大的一列數據，說明研判其屬於 $z\lt0$ 或 $z\gt0$ 的理由。（1 分）<br>(c) 在 $I$ 對 $z$ 的坐標系中，描繪表中所有數據點（共 8 個點）。（2 分）</p>
+      <details class="answer-toggle"><summary>查看解答</summary>
+        <div class="answer-body">
+          <p><b>(a)</b> 依楞次定律與法拉第定律，磁鐵 N 極的磁場（磁力線數量）進入線圈漸增，線圈的感應電流要產生抗衡磁場（線圈的磁場 N 極向下），所以感應電流與圖中正方向相反，$I\lt0$。</p>
+          <p><b>(b)</b> 磁鐵加速上升，在相同 $|z|$ 的相對位置（例如 $z=+5$ 與 $z=-5\ \mathrm{cm}$），磁鐵在線圈<b>上方</b>時速率較大，磁通量的時變率較大，感應電流也較大。所以較大的一列屬於 $z\gt0$。</p>
+          <p><b>(c)</b> 依官方評分原則：數據點分布在第一、三象限（$z\lt0$ 時 $I\lt0$；$z\gt0$ 時 $I\gt0$），而且同樣的 $|z|$，第一象限（$z\gt0$）的電流量值較大。</p>
+          <p class="ans-correct">官方評分：須正確說明理由；只寫結論不得分。</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== 得分統計 ===== -->
+  <section id="score">
+    <span class="chapter-label">SCORING</span>
+    <h2 class="section-title">得分與錯因統計</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>組別</th><th>題數</th><th>答對題數</th><th>我的主要錯因</th></tr></thead>
+        <tbody>
+          <tr><td>A 組 電流磁效應</td><td>3</td><td style="color:var(--muted)">＿／3</td><td style="color:var(--muted)">＿＿＿＿＿</td></tr>
+          <tr><td>B 組 電磁感應</td><td>6</td><td style="color:var(--muted)">＿／6</td><td style="color:var(--muted)">＿＿＿＿＿</td></tr>
+          <tr><td>C 組 統整與電磁波</td><td>3</td><td style="color:var(--muted)">＿／3</td><td style="color:var(--muted)">＿＿＿＿＿</td></tr>
+          <tr><td>D 組 都卜勒效應</td><td>3</td><td style="color:var(--muted)">＿／3</td><td style="color:var(--muted)">＿＿＿＿＿</td></tr>
+          <tr class="highlight-row"><td>合計</td><td>15</td><td style="color:var(--muted)">＿／15</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box box-key">
+      <strong><span class="box-icon">✅</span>成績評估</strong>
+      <ul class="bullets" style="margin-top:6px;">
+        <li><b>13–15 題（不看解答）</b>：電磁穩定，W27 的 40 題可以把重心放在其他章節。</li>
+        <li><b>10–12 題</b>：把答錯的題目寫出「哪一步判斷錯」，隔日再做一次。</li>
+        <li><b>9 題以下</b>：回到本講義工具卡與 W07、W08，先把楞次定律四步驟做到熟練，再重做 B 組。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 失誤清單 ===== -->
+  <section id="mistakes">
+    <span class="chapter-label">CHECKLIST</span>
+    <h2 class="section-title">失誤檢查清單</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>常見失誤</th><th>預防</th><th>出現在哪幾題</th></tr></thead>
+        <tbody>
+          <tr><td>以為有磁場就有應電流</td><td>要磁通量「改變」，穩定電流不感應</td><td>2、4、7</td></tr>
+          <tr><td>楞次定律一律寫「相反」</td><td>增反減同；磁通量減少時應磁場同向</td><td>5</td></tr>
+          <tr><td>只看正負，沒看量值增減</td><td>$I\lt0$ 且漸減，磁場是「反向且變弱」</td><td>7</td></tr>
+          <tr><td>把應電流方向和受力方向混在一起</td><td>電流會反向，阻力方向不變（來拒去留）</td><td>8</td></tr>
+          <tr><td>把赫茲和馬克士威、普朗克和愛因斯坦弄混</td><td>理論預測 vs. 實驗證實；能量量子 vs. 光子</td><td>10</td></tr>
+          <tr><td>都卜勒看成加速度效應</td><td>只看沿連線方向的接近或遠離</td><td>13、15</td></tr>
+          <tr><td>反射問題只判斷一次</td><td>入射一次、反射一次，分兩段</td><td>14</td></tr>
+          <tr><td>非選擇題只寫結論</td><td>寫出依據的定律與磁通量變化</td><td>B2、B3</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== 重點整理 ===== -->
+  <section id="summary">
+    <span class="chapter-label">SUMMARY</span>
+    <h2 class="section-title">重點整理</h2>
+    <ul class="summary-list">
+      <li><strong>電流磁效應</strong>：直導線拇指指電流；線圈拇指指磁場；螺線管外部如棒形磁鐵、內部最強且與電流成正比。</li>
+      <li><strong>電磁感應</strong>：條件是磁通量改變。變化越快、圈數越多，電動勢越大。</li>
+      <li><strong>楞次定律</strong>：四步驟（原磁場→增減→增反減同→右手）；力的觀點是來拒去留，阻力方向不變。</li>
+      <li><strong>電磁波</strong>：不需介質、具電場與磁場、可繞射干涉；無線電波到 γ 射線都是電磁波，微中子與重力波不是。</li>
+      <li><strong>科學史</strong>：厄斯特（電流磁效應）、法拉第（電磁感應）、馬克士威（預測）、赫茲（證實）。</li>
+      <li><strong>都卜勒</strong>：接近變高、遠離變低；只看連線方向；反射體分兩段。</li>
+    </ul>
+  </section>
+
+  <!-- ===== 學測方向 ===== -->
+  <section id="exam">
+    <span class="chapter-label">EXAM TIPS</span>
+    <h2 class="section-title">學測考題方向</h2>
+    <div class="box box-exam">
+      <strong><span class="box-icon">★</span>Ch4 在學測自然科物理的位置</strong>
+      從 107–115 的題目看，電磁感應幾乎年年出現，近年常放進生活科技的題組或非選擇題；計算量低，但要能<b>用定律說明現象</b>。
+    </div>
+    <div class="box box-tip">
+      <strong><span class="box-icon">💡</span>備考策略</strong>
+      <ul class="bullets" style="margin-top:6px;">
+        <li>遇到新情境（晶片卡、無線充電），先找出「變化的是誰的電流、穿過誰的磁通量」。</li>
+        <li>非選擇題把「依楞次定律……磁通量增加……所以……」寫成固定句型。</li>
+        <li>每題訂正時補一句：<b>下次看到什麼關鍵字就要想到這個定律</b>。</li>
+      </ul>
+    </div>
+    <div class="box box-link">
+      <strong><span class="box-icon">🔗</span>下週預告：W27 ── 物理歷屆試題 40 題精練</strong>
+      下週物理擴大到全範圍歷屆試題；週六為物理化學聯合模擬（各 50 分鐘）。本週的「失誤檢查清單」繼續用，並把力學、能量、量子的失誤也加進去。
+    </div>
+  </section>
+
+</main>
+
+<!-- 回頂端按鈕 -->
+<button id="back-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="回到頂端">↑</button>
+
+<script>
+  (function() {
+    const links = document.querySelectorAll('nav#sidebar ul li a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const id = e.target.id;
+          const link = document.querySelector('nav#sidebar ul li a[href="#' + id + '"]');
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    document.querySelectorAll('section[id], h3[id]').forEach(el => observer.observe(el));
+
+    const btn = document.getElementById('back-top');
+    window.addEventListener('scroll', () => {
+      btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+    btn.style.display = 'none';
+  })();
+</script>
+
+</body>
+</html>

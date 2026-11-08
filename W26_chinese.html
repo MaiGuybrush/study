@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W26 國文科學習講義｜語文知識：字音字形字義 ＋ 修辭手法整理</title>
+  <style>
+    /* ===================== CSS Reset & Base ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: "Microsoft JhengHei", "蘋方-繁", "PingFang TC", "Noto Sans TC", sans-serif;
+      background: #fdf6f0;
+      color: #2c2c2c;
+      line-height: 1.8;
+    }
+
+    /* ===================== CSS Variables ===================== */
+    :root {
+      --primary:       #c0392b;
+      --primary-dark:  #96281b;
+      --primary-light: #e74c3c;
+      --primary-bg:    #fdecea;
+      --accent:        #8e44ad;
+      --accent-bg:     #f5eef8;
+      --gold:          #b7860b;
+      --gold-bg:       #fef9e7;
+      --teal:          #1a7a6e;
+      --teal-bg:       #e8f8f5;
+      --ink:           #2c2c2c;
+      --muted:         #6b6b6b;
+      --border:        #e0d0cd;
+      --card-bg:       #ffffff;
+      --shadow:        0 2px 12px rgba(192,57,43,0.10);
+    }
+
+    /* ===================== Layout ===================== */
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      min-width: 240px;
+      background: linear-gradient(180deg, #96281b 0%, #c0392b 40%, #e74c3c 100%);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 0 0 2rem 0;
+      box-shadow: 3px 0 14px rgba(0,0,0,0.15);
+      z-index: 100;
+    }
+    .sidebar-header {
+      background: rgba(0,0,0,0.20);
+      padding: 1.4rem 1rem 1.2rem 1rem;
+      text-align: center;
+    }
+    .sidebar-header .subject-badge {
+      display: inline-block;
+      background: #fff;
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1.1rem;
+      border-radius: 20px;
+      padding: 0.2rem 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+    .sidebar-header p { font-size: 0.78rem; opacity: 0.88; line-height: 1.5; }
+    .sidebar nav { padding: 1rem 0; }
+    .sidebar nav a {
+      display: block;
+      padding: 0.45rem 1.1rem;
+      color: rgba(255,255,255,0.90);
+      text-decoration: none;
+      font-size: 0.85rem;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.15);
+      border-left-color: #fff;
+      color: #fff;
+    }
+    .nav-section {
+      padding: 0.6rem 1.1rem 0.2rem 1.1rem;
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      opacity: 0.65;
+      text-transform: uppercase;
+    }
+    .nav-indent { padding-left: 1.8rem !important; font-size: 0.80rem !important; }
+
+    /* Main content */
+    .main-content {
+      flex: 1;
+      padding: 2rem 2.5rem 4rem 2.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* ===================== Page Header ===================== */
+    .page-header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: "文";
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 9rem;
+      opacity: 0.10;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .page-header .week-tag {
+      background: rgba(255,255,255,0.22);
+      display: inline-block;
+      padding: 0.2rem 0.9rem;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1px;
+    }
+    .page-header h1 { font-size: 1.85rem; font-weight: 900; margin-bottom: 0.4rem; }
+    .page-header .subtitle { font-size: 0.95rem; opacity: 0.88; }
+    .meta-row {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.1rem;
+      flex-wrap: wrap;
+    }
+    .meta-chip {
+      background: rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 0.22rem 0.9rem;
+      font-size: 0.80rem;
+    }
+
+    /* ===================== Section Titles ===================== */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 1.30rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin: 2.5rem 0 1.2rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--primary);
+    }
+    .section-title .icon { font-size: 1.3rem; }
+
+    .sub-section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 1.6rem 0 0.8rem 0;
+      padding-left: 0.8rem;
+      border-left: 4px solid var(--primary);
+    }
+    .sub-sub-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1.2rem 0 0.5rem 0;
+    }
+
+    /* ===================== Cards ===================== */
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* ===================== Info Boxes ===================== */
+    .box {
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      font-size: 0.93rem;
+    }
+    .box-key   { background: var(--primary-bg); border-left: 5px solid var(--primary); }
+    .box-warn  { background: #fff8e1; border-left: 5px solid #f39c12; }
+    .box-tip   { background: var(--teal-bg); border-left: 5px solid var(--teal); }
+    .box-link  { background: var(--accent-bg); border-left: 5px solid var(--accent); }
+    .box-gold  { background: var(--gold-bg); border-left: 5px solid var(--gold); }
+    .box-title { font-weight: 700; margin-bottom: 0.4rem; }
+
+    /* ===================== Original Text ===================== */
+    .original-text {
+      background: #fffaf7;
+      border: 1px solid #e8d5c8;
+      border-radius: 10px;
+      padding: 1.4rem 1.8rem;
+      font-size: 1.02rem;
+      line-height: 2.2;
+      color: #2c2c2c;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .original-text::before {
+      content: "原文";
+      position: absolute;
+      top: -0.7rem;
+      left: 1.2rem;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .original-text p { margin-bottom: 0.6rem; }
+    .original-text p:last-child { margin-bottom: 0; }
+
+    /* Key terms underline */
+    .kw {
+      border-bottom: 2px solid var(--primary);
+      color: var(--primary-dark);
+      font-weight: 600;
+      cursor: default;
+    }
+    .kw-gold {
+      border-bottom: 2px solid var(--gold);
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .kw-teal {
+      border-bottom: 2px solid var(--teal);
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    /* ===================== Glossary Table ===================== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.91rem;
+      margin: 0.8rem 0;
+    }
+    thead tr {
+      background: var(--primary);
+      color: #fff;
+    }
+    thead th {
+      padding: 0.65rem 1rem;
+      text-align: left;
+      font-weight: 700;
+    }
+    tbody tr:nth-child(even) { background: #fdf2f2; }
+    tbody tr:hover { background: var(--primary-bg); }
+    tbody td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tbody td:first-child { font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+
+    /* ===================== Translation Block ===================== */
+    .translation-block {
+      background: #f0f7f5;
+      border: 1px solid #b2d8d0;
+      border-radius: 10px;
+      padding: 1.3rem 1.6rem;
+      font-size: 0.93rem;
+      line-height: 1.95;
+      color: #1c4a43;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .translation-block::before {
+      content: "白話語譯";
+      position: absolute;
+      top: -0.7rem;
+      left: 1.2rem;
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    /* ===================== Analysis Points ===================== */
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 700px) { .analysis-grid { grid-template-columns: 1fr; } }
+    .analysis-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+    .analysis-item h4 { color: var(--primary-dark); font-size: 0.92rem; margin-bottom: 0.5rem; }
+    .analysis-item p, .analysis-item ul { font-size: 0.88rem; }
+    .analysis-item ul { padding-left: 1.2rem; }
+    .analysis-item li { margin-bottom: 0.3rem; }
+
+    /* ===================== Comparison Table ===================== */
+    .compare-table thead tr { background: var(--accent); }
+    .compare-table tbody td:first-child { color: var(--accent); }
+
+    /* ===================== Quiz Section ===================== */
+    .quiz-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-item .q-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 1.8rem;
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-right: 0.5rem;
+    }
+    .quiz-item .q-text { font-size: 0.94rem; font-weight: 600; margin-bottom: 0.7rem; }
+    .quiz-item ol { padding-left: 1.5rem; font-size: 0.92rem; }
+    .quiz-item li { margin-bottom: 0.3rem; list-style-type: upper-alpha; }
+    details { margin-top: 0.7rem; }
+    summary {
+      cursor: pointer;
+      background: var(--primary-bg);
+      color: var(--primary-dark);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-block;
+      user-select: none;
+    }
+    summary:hover { background: var(--primary); color: #fff; }
+    details[open] summary { background: var(--primary); color: #fff; }
+    .answer-box {
+      background: #fef9e7;
+      border: 1px solid #f0d060;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-top: 0.6rem;
+      font-size: 0.90rem;
+    }
+    .answer-box .correct { color: #27ae60; font-weight: 700; }
+
+    /* ===================== Knowledge Map ===================== */
+    .k-map {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .k-map-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .k-node {
+      background: var(--primary-bg);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-align: center;
+    }
+    .k-node.center {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.95rem;
+      padding: 0.7rem 1.4rem;
+    }
+    .k-node.teal {
+      background: var(--teal-bg);
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+    .k-node.gold {
+      background: var(--gold-bg);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .k-arrow { font-size: 1.4rem; color: var(--muted); }
+
+    /* ===================== Tag badges ===================== */
+    .tag {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 10px;
+      margin: 0.15rem;
+    }
+    .tag-red   { background: #fdecea; color: var(--primary); border: 1px solid var(--primary); }
+    .tag-teal  { background: var(--teal-bg); color: var(--teal); border: 1px solid var(--teal); }
+    .tag-gold  { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold); }
+    .tag-purple{ background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent); }
+
+    /* ===================== Exam highlight ===================== */
+    .exam-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.5rem;
+      border-radius: 8px;
+      vertical-align: middle;
+      margin-left: 0.3rem;
+    }
+
+    /* ===================== Divider ===================== */
+    .divider {
+      border: none;
+      border-top: 2px dashed var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* ===================== TOC ===================== */
+    .toc {
+      background: var(--gold-bg);
+      border: 1px solid #f0c040;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .toc h3 { color: var(--gold); margin-bottom: 0.8rem; font-size: 1rem; }
+    .toc ol { padding-left: 1.5rem; font-size: 0.90rem; }
+    .toc li { margin-bottom: 0.3rem; }
+    .toc a { color: var(--primary-dark); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; color: var(--primary); }
+
+    /* ===================== Responsive ===================== */
+    @media (max-width: 820px) {
+      .sidebar { display: none; }
+      .main-content { padding: 1.2rem 1rem 3rem 1rem; }
+    }
+
+    /* ===================== Scrollbar ===================== */
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.35); border-radius: 4px; }
+
+    /* Print */
+    @media print {
+      .sidebar { display: none; }
+      .main-content { padding: 0; max-width: 100%; }
+      .page-header { background: #c0392b !important; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="subject-badge">國 文</div>
+      <p>W26 語文知識<br>字音・字形・字義・修辭<br>高三上 · 理工組</p>
+    </div>
+    <nav>
+      <div class="nav-section">Overview</div>
+      <a href="#overview">學習總覽</a>
+      <a href="#exam-map">近五年怎麼考</a>
+      <a href="#plan">本週七日計畫</a>
+      <a href="#errata">舊筆記更正</a>
+
+      <div class="nav-section">字音</div>
+      <a href="#zy-exam" class="nav-indent">真題 5 年全解</a>
+      <a href="#zy-source" class="nav-indent">出處追蹤</a>
+      <a href="#zy-poly" class="nav-indent">破音字高頻表</a>
+      <a href="#zy-trap" class="nav-indent">不可有邊讀邊</a>
+
+      <div class="nav-section">字形</div>
+      <a href="#zx-exam" class="nav-indent">真題 5 年全解</a>
+      <a href="#zx-list" class="nav-indent">易錯 30 組</a>
+
+      <div class="nav-section">字義與詞語</div>
+      <a href="#yi-exam" class="nav-indent">字義真題 5 題</a>
+      <a href="#yi-list" class="nav-indent">一字多義總表</a>
+      <a href="#cy-exam" class="nav-indent">詞語運用真題 5 題</a>
+
+      <div class="nav-section">修辭</div>
+      <a href="#xc-how" class="nav-indent">學測怎麼考修辭</a>
+      <a href="#xc-table" class="nav-indent">修辭 25 格總表</a>
+      <a href="#xc-diff" class="nav-indent">易混辨析</a>
+
+      <div class="nav-section">古文語境（全文）</div>
+      <a href="#t1" class="nav-indent">01 燭之武退秦師</a>
+      <a href="#t2" class="nav-indent">02 大同與小康</a>
+      <a href="#t3" class="nav-indent">03 桃花源記</a>
+      <a href="#t4" class="nav-indent">04 師說</a>
+      <a href="#t5" class="nav-indent">05 始得西山宴遊記</a>
+      <a href="#t6" class="nav-indent">06 晚遊六橋待月記</a>
+      <a href="#t7" class="nav-indent">07 勞山道士</a>
+      <a href="#t8" class="nav-indent">08 勸和論</a>
+      <a href="#t9" class="nav-indent">09 鹿港乘桴記</a>
+
+      <div class="nav-section">複習與評量</div>
+      <a href="#kmap">知識連結圖</a>
+      <a href="#summary">重點整理</a>
+      <a href="#quiz">自我測驗（10 題）</a>
+      <a href="#next">錯字本與下週預告</a>
+    </nav>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main-content">
+
+    <header class="page-header">
+      <div class="week-tag">第 26 週學習單元 · 11/09–11/15</div>
+      <h1>W26 國文科｜語文知識：字音字形字義 ＋ 修辭手法整理</h1>
+      <div class="subtitle">用 111–115 學測真題拆解考法，再回到九篇核心古文全文，把音、形、義、修辭放回語境裡記</div>
+      <div class="meta-row">
+        <span class="meta-chip">高三上 · 理工組</span>
+        <span class="meta-chip">第四階段第二週：整合衝刺</span>
+        <span class="meta-chip">週六：數學 A 全卷模擬</span>
+        <span class="meta-chip">距學測約 74 天</span>
+      </div>
+    </header>
+
+    <div class="toc" id="toc">
+      <h3>目錄 Table of Contents</h3>
+      <ol>
+        <li><a href="#overview">學習總覽與目標</a></li>
+        <li><a href="#exam-map">近五年學測怎麼考語文知識</a></li>
+        <li><a href="#plan">本週七日計畫</a></li>
+        <li><a href="#errata">舊筆記更正紀錄</a></li>
+        <li><a href="#zy-exam">字音：真題全解、出處追蹤、破音字、形近字</a></li>
+        <li><a href="#zx-exam">字形：真題全解與易錯 30 組</a></li>
+        <li><a href="#yi-exam">字義：真題全解與一字多義總表</a></li>
+        <li><a href="#cy-exam">詞語運用：真題全解</a></li>
+        <li><a href="#xc-how">修辭：考法、25 格總表、易混辨析</a></li>
+        <li><a href="#t1">古文語境訓練：九篇核心古文全文（音形義＋修辭＋語譯）</a></li>
+        <li><a href="#kmap">知識連結圖</a></li>
+        <li><a href="#summary">重點整理</a></li>
+        <li><a href="#quiz">自我測驗（10 題）</a></li>
+        <li><a href="#next">個人錯字本與下週預告</a></li>
+      </ol>
+    </div>
+
+    <!-- ========== OVERVIEW ========== -->
+    <section id="overview">
+      <h2 class="section-title"><span class="icon">📖</span>學習總覽</h2>
+      <div class="card">
+        <p>W25 把弱點古文深讀了六篇；本週依複習時程轉向<strong>語文知識（字音、字形、字義）與修辭手法整理</strong>。這類題目單題分數不高，卻是整份國綜最「穩定可複習」的分數：題型幾乎固定，而且選項大量取自你已經讀過的古文。</p>
+        <p style="margin-top:0.6rem;">因此本講義不是另一份大字表，而是分三步走：①用 <strong>111–115 年五年學測真題</strong>看清考法；②整理破音字、形近字、一字多義與修辭 25 格；③回到 W25 沒有深讀的<strong>九篇核心古文全文</strong>，把上述知識全部標回原文語境。全文一律完整引用，〈鹿港乘桴記〉雖長，因近年考題密集仍收全文。</p>
+        <p style="margin-top:0.6rem;"><strong>原文的標記方式：</strong><span class="kw">紅色底線</span>＝字音字形考點；<span class="kw-teal">青色底線</span>＝修辭句。每篇原文下方都有對應的表格。</p>
+      </div>
+
+      <h3 class="sub-section-title">學習目標</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 完成本週學習後，你應能：</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li>在 90 秒內完成一題「讀音前後相同」與一題「完全沒有錯別字」，並說出判斷依據</li>
+          <li>對九篇核心古文的 150 個字音考點，遮住讀音欄自測，正確率達 80% 以上</li>
+          <li>用「代入語境＋換字測試」處理字義題，分辨 20 個近五年考過的一字多義字</li>
+          <li>辨識修辭 25 格，並且進一步<strong>說出它在文中的效果</strong>——這才是學測真正的考法</li>
+          <li>建立個人錯字本，W28 古文最後一輪速讀時直接帶著複習</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== EXAM MAP ========== -->
+    <section id="exam-map">
+      <h2 class="section-title"><span class="icon">🎯</span>近五年學測怎麼考語文知識</h2>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 資料來源</div>
+        <p style="font-size:0.91rem;">下表由大考中心公布的 111–115 學年度「國語文綜合能力測驗」試卷與答案逐題整理；本講義所引真題皆依原卷轉錄，題號與答案均已核對官方答案。讀音依教育部《重編國語辭典修訂本》查核。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table class="compare-table">
+          <thead><tr><th>題型</th><th>111</th><th>112</th><th>113</th><th>114</th><th>115</th><th>結論</th></tr></thead>
+          <tbody>
+            <tr><td>字音（讀音前後相同）</td><td>第 1 題</td><td>第 1 題</td><td>第 1 題</td><td>第 1 題</td><td>第 1 題</td><td><strong>年年第 1 題</strong></td></tr>
+            <tr><td>字形（完全沒有錯別字）</td><td>第 2 題</td><td>第 2 題</td><td>第 2 題</td><td>第 2 題</td><td>第 2 題</td><td><strong>年年第 2 題</strong></td></tr>
+            <tr><td>詞語運用（成語）</td><td>第 3 題</td><td>第 3 題</td><td>第 25 題</td><td>第 26 題</td><td>第 26 題</td><td>近三年改多選</td></tr>
+            <tr><td>字義（意義前後相同）</td><td>第 18、26 題</td><td>第 26 題</td><td>第 27 題</td><td>第 25 題</td><td>第 25 題</td><td>年年多選</td></tr>
+            <tr><td>修辭格名稱辨識題</td><td>無</td><td>無</td><td>無</td><td>無</td><td>無</td><td><strong>五年都沒有直接考</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>發現 1：字音題的選項來自古文 30 篇</h4>
+          <p>「釁起鬩牆」「若分畛域」「燎原莫遏」（勸和論）、「驀然而踣」「切勿逡巡」（勞山道士）、「篙工撐棹」「迤邐而行」（鹿港乘桴記）、「攢蹙累積」（始得西山宴遊記）都直接入題。<strong>讀古文時順手記音，一舉兩得。</strong></p>
+        </div>
+        <div class="analysis-item">
+          <h4>發現 2：字義題幾乎全用古文 30 篇</h4>
+          <p>115 年第 25 題 5 個選項共 10 句，其中 8 句出自古文 30 篇。這類題目要的不是背字典，而是<strong>記得句子在原文的意思</strong>。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>發現 3：修辭考的是「效果」不是「名稱」</h4>
+          <p>全文檢索五年試卷，「映襯、轉化、借代、類疊、層遞、誇飾、雙關、排比、頂真」的出現次數都是 0；出現的只有「譬喻、比喻、象徵、對比」，且都放在閱讀題，問這個手法傳達了什麼。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>發現 4：成語題常考「望文生義」</h4>
+          <p>席不暇暖 ≠ 冷、摩頂放踵 ≠ 擁擠、來者可追 ≠ 追趕、不次拔擢 ≠ 降職。所以<strong>字面義和實際義差很多的成語</strong>才是重點，下面會集中整理。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PLAN ========== -->
+    <section id="plan">
+      <h2 class="section-title"><span class="icon">🗓️</span>本週七日計畫</h2>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>日期</th><th>任務（國文每日約 60–70 分鐘）</th><th>產出</th></tr></thead>
+          <tbody>
+            <tr><td>11/09（一）</td><td>字音：五年真題＋破音字表＋形近字表；〈燭之武退秦師〉〈大同與小康〉語境訓練</td><td>錯字本新增字音 ≥ 15 條</td></tr>
+            <tr><td>11/10（二）</td><td>字形：五年真題＋易錯 30 組；〈桃花源記〉〈師說〉語境訓練</td><td>默寫易錯 30 組，訂正</td></tr>
+            <tr><td>11/11（三）</td><td>字義：五年真題＋一字多義總表；〈始得西山宴遊記〉〈晚遊六橋待月記〉語境訓練</td><td>遮字自測正確率 ≥ 80%</td></tr>
+            <tr><td>11/12（四）</td><td>詞語運用真題＋修辭 25 格；〈勞山道士〉語境訓練</td><td>每格能舉 1 個古文例</td></tr>
+            <tr><td>11/13（五）</td><td>修辭易混辨析、效果題；〈勸和論〉〈鹿港乘桴記〉語境訓練；自我測驗 10 題</td><td>測驗訂正</td></tr>
+            <tr><td>11/14（六）</td><td>數學 A 全卷模擬（100 分鐘）— 國文只用 15 分鐘翻錯字本，不讀新內容</td><td>—</td></tr>
+            <tr><td>11/15（日）</td><td>對答案、記錄得分變化（各科）；國文把錯字本整理成「音／形／義」三類</td><td>錯字本分類完成</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 複習時間的分配</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>字音、字形每天<strong>零碎時間</strong>各翻 5 分鐘，比一次背一小時有效；看過就遮、遮了就默寫。</li>
+          <li>字義與修辭一定要回到原句，不要只背「字＝意思」的對照表。</li>
+          <li>第 1、2 題合計只占 4 分左右，別把整週都投入在罕用字上；<strong>古文 30 篇的字音字形優先，其他次之。</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== ERRATA ========== -->
+    <section id="errata">
+      <h2 class="section-title"><span class="icon">🛠️</span>舊筆記更正紀錄</h2>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 整理本週講義時逐項查核，發現前幾週有下列錯誤，已直接在舊筆記中更正</div>
+        <p style="font-size:0.9rem;">若你用的是列印版，請對照下表手動訂正。讀音以教育部《重編國語辭典修訂本》為準；原文以大考中心試卷引文為準。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>位置</th><th>原本寫</th><th>更正為</th></tr></thead>
+          <tbody>
+            <tr><td>W20 破音字「泊」</td><td>淡泊、漂泊讀ㄆㄛˊ；湖泊讀ㄆㄛ</td><td>淡泊ㄉㄢˋ ㄅㄛˊ、漂泊ㄆㄧㄠ ㄅㄛˊ、湖泊ㄏㄨˊ ㄅㄛˊ（辭典詞條音讀）</td></tr>
+            <tr><td>W20 破音字「累」</td><td>連累讀ㄌㄟˇ</td><td>連累讀ㄌㄟˋ（牽連義）；累積、累犯才讀ㄌㄟˇ</td></tr>
+            <tr><td>W20 破音字「為」</td><td>「為民父母」的為讀ㄨㄟˋ</td><td>「當、作」的動詞，讀ㄨㄟˊ</td></tr>
+            <tr><td>W20 形似字「曝」</td><td>曝＝日＋菐</td><td>曝＝日＋暴；且「暴虎馮河」讀ㄅㄠˋ ㄏㄨˇ ㄆㄧㄥˊ ㄏㄜˊ</td></tr>
+            <tr><td>W22 修辭「轉化」與第 9 題</td><td>把「鄉愁是一枚小小的郵票」列為形象化</td><td>有本體、有「是」、有喻體，屬<strong>隱喻</strong>（譬喻）</td></tr>
+            <tr><td>W15 通假字</td><td>「蚤繅而緒」出自郁離子</td><td>出自柳宗元〈種樹郭橐駝傳〉，不在古文 30 篇內</td></tr>
+            <tr><td>W15 修辭「摹寫」</td><td>「群山萬壑赴荊門」標為〈岳陽樓記〉</td><td>該句出自杜甫〈詠懷古跡〉；例句改為〈岳陽樓記〉的「陰風怒號，濁浪排空」</td></tr>
+            <tr><td>W05、W18〈始得西山宴遊記〉</td><td>培塿讀ㄆㄟˊ ㄌㄡˇ；原文「是山之特立」</td><td>培塿讀ㄆㄡˇ ㄌㄡˇ；原文「是山之特出」</td></tr>
+            <tr><td>W06 字詞</td><td>羅紈（ㄨㄢ）</td><td>羅紈（ㄨㄢˊ）</td></tr>
+            <tr><td>W07 字詞</td><td>海艟 ㄔㄨㄥ</td><td>海艟 ㄊㄨㄥˊ</td></tr>
+            <tr><td>W07〈鹿港乘桴記〉原文</td><td>之所謂「鹿港飛帆」者</td><td><strong>昔</strong>之所謂「鹿港飛帆」者（111 年學測第 26 題 E 選項原文）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-tip">
+        <div class="box-title">💡 一個讀音的版本差異</div>
+        <p style="font-size:0.9rem;">「選賢與能」的與：W01、W17 依通假字注ㄐㄩˇ（同「舉」），教育部《重編國語辭典修訂本》詞條注ㄩˇ。兩者都有所本，所以舊筆記不改；考試不太可能單獨考這一處，知道「通舉」的字義最重要。</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== 字音 ========== -->
+    <section id="zy-exam">
+      <h2 class="section-title"><span class="icon">🔊</span>字音｜真題五年全解</h2>
+      <div class="box box-tip">
+        <div class="box-title">💡 解題流程（30 秒內）</div>
+        <p style="font-size:0.91rem;">①先看聲符相同的組（最容易是陷阱）→ ②每組默唸兩字，有把握不同就刪 → ③兩字聲符相同時別直接判相同，想一下它們在語境裡的詞（棹ㄓㄠˋ／踔ㄓㄨㄛˊ、攢ㄘㄨㄢˊ／鑽ㄗㄨㄢ）。下表遮住讀音欄後先自己判斷。</p>
+      </div>
+      <h3 class="sub-section-title">115 學年度第 1 題：下列「　」內的字，讀音前後相同的是（官方答案 C）</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>選項</th><th>前</th><th>讀音</th><th>後</th><th>讀音</th><th>判定</th></tr></thead><tbody>
+<tr><td>(A)</td><td>取枕「攲」臥</td><td>ㄑㄧ</td><td>風光「旖」旎</td><td>ㄧˇ</td><td>不同</td></tr>
+<tr><td>(B)</td><td>略「諳」水性</td><td>ㄢ</td><td>「喑」啞難言</td><td>ㄧㄣ</td><td>不同</td></tr>
+<tr><td>(C)</td><td>「枇」杷甘美</td><td>ㄆㄧˊ</td><td>「毗」鄰而居</td><td>ㄆㄧˊ</td><td><strong>相同 ✔</strong></td></tr>
+<tr><td>(D)</td><td>燎原莫「遏」</td><td>ㄜˋ</td><td>登門拜「謁」</td><td>ㄧㄝˋ</td><td>不同</td></tr>
+</tbody></table></div>
+<h3 class="sub-section-title">114 學年度第 1 題：下列「　」內的字，讀音前後相同的是（官方答案 A）</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>選項</th><th>前</th><th>讀音</th><th>後</th><th>讀音</th><th>判定</th></tr></thead><tbody>
+<tr><td>(A)</td><td>「舁」出寶貨</td><td>ㄩˊ</td><td>吾生須「臾」</td><td>ㄩˊ</td><td><strong>相同 ✔</strong></td></tr>
+<tr><td>(B)</td><td>切而「啗」之</td><td>ㄉㄢˋ</td><td>「諂」詞令色</td><td>ㄔㄢˇ</td><td>不同</td></tr>
+<tr><td>(C)</td><td>「迤」邐而行</td><td>ㄧˇ</td><td>外「弛」內張</td><td>ㄔˊ</td><td>不同</td></tr>
+<tr><td>(D)</td><td>若分「畛」域</td><td>ㄓㄣˇ</td><td>暴「殄」天物</td><td>ㄊㄧㄢˇ</td><td>不同</td></tr>
+</tbody></table></div>
+<h3 class="sub-section-title">113 學年度第 1 題：下列「　」內的字，讀音前後相同的是（官方答案 A）</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>選項</th><th>前</th><th>讀音</th><th>後</th><th>讀音</th><th>判定</th></tr></thead><tbody>
+<tr><td>(A)</td><td>排「闥」而去</td><td>ㄊㄚˋ</td><td>同聲「撻」伐</td><td>ㄊㄚˋ</td><td><strong>相同 ✔</strong></td></tr>
+<tr><td>(B)</td><td>「篙」工撐棹</td><td>ㄍㄠ</td><td>「蒿」目時艱</td><td>ㄏㄠ</td><td>不同</td></tr>
+<tr><td>(C)</td><td>桂「棹」蘭槳</td><td>ㄓㄠˋ</td><td>「踔」厲奮發</td><td>ㄓㄨㄛˊ</td><td>不同</td></tr>
+<tr><td>(D)</td><td>切勿「逡」巡</td><td>ㄑㄩㄣ</td><td>為惡不「悛」</td><td>ㄑㄩㄢ</td><td>不同</td></tr>
+</tbody></table></div>
+<h3 class="sub-section-title">112 學年度第 1 題：下列「　」內的字，讀音前後相同的是（官方答案 A）</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>選項</th><th>前</th><th>讀音</th><th>後</th><th>讀音</th><th>判定</th></tr></thead><tbody>
+<tr><td>(A)</td><td>胡「笳」之拍</td><td>ㄐㄧㄚ</td><td>僧侶「袈」裟</td><td>ㄐㄧㄚ</td><td><strong>相同 ✔</strong></td></tr>
+<tr><td>(B)</td><td>釁起「鬩」牆</td><td>ㄒㄧˋ</td><td>傲「睨」萬物</td><td>ㄋㄧˋ</td><td>不同</td></tr>
+<tr><td>(C)</td><td>驀然而「踣」</td><td>ㄅㄛˊ</td><td>「掊」擊對手</td><td>ㄆㄡˇ</td><td>不同</td></tr>
+<tr><td>(D)</td><td>「吁」嗟而去</td><td>ㄒㄩ</td><td>「迂」談闊論</td><td>ㄩ</td><td>不同</td></tr>
+</tbody></table></div>
+<h3 class="sub-section-title">111 學年度第 1 題：下列「　」內的字，讀音前後相同的是（官方答案 A）</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>選項</th><th>前</th><th>讀音</th><th>後</th><th>讀音</th><th>判定</th></tr></thead><tbody>
+<tr><td>(A)</td><td>既瘖且「痺」</td><td>ㄅㄧˋ</td><td>彈箏搏「髀」</td><td>ㄅㄧˋ</td><td><strong>相同 ✔</strong></td></tr>
+<tr><td>(B)</td><td>不「忮」不求</td><td>ㄓˋ</td><td>「庋」藏字畫</td><td>ㄐㄧˇ</td><td>不同</td></tr>
+<tr><td>(C)</td><td>「攢」蹙累積</td><td>ㄘㄨㄢˊ</td><td>踰牆「鑽」穴</td><td>ㄗㄨㄢ</td><td>不同</td></tr>
+<tr><td>(D)</td><td>「剜」肉補瘡</td><td>ㄨㄢ</td><td>壯士斷「腕」</td><td>ㄨㄢˋ</td><td>不同</td></tr>
+</tbody></table></div>
+    </section>
+
+    <section id="zy-source">
+      <h2 class="section-title"><span class="icon">🔎</span>字音｜真題選項的出處追蹤</h2>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>年度</th><th>選項語句</th><th>出處</th><th>本講義位置</th></tr></thead>
+          <tbody>
+            <tr><td>115</td><td>取枕「攲」臥（課文或作「欹」）；「枇」杷（項脊軒志有「庭有枇杷樹」）</td><td>虯髯客傳、項脊軒志</td><td>W25 深讀</td></tr>
+            <tr><td>115</td><td>燎原莫「遏」</td><td>勸和論</td><td><a href="#t8">語境 08</a></td></tr>
+            <tr><td>114</td><td>切而「啗」之、「舁」出寶貨</td><td>虯髯客傳</td><td>W25 深讀</td></tr>
+            <tr><td>114</td><td>「迤」邐而行</td><td>鹿港乘桴記</td><td><a href="#t9">語境 09</a></td></tr>
+            <tr><td>114</td><td>若分「畛」域</td><td>勸和論</td><td><a href="#t8">語境 08</a></td></tr>
+            <tr><td>113</td><td>排「闥」而去</td><td>虯髯客傳</td><td>W25 深讀</td></tr>
+            <tr><td>113</td><td>「篙」工撐棹</td><td>鹿港乘桴記</td><td><a href="#t9">語境 09</a></td></tr>
+            <tr><td>113</td><td>切勿「逡」巡</td><td>勞山道士（勿逡巡）</td><td><a href="#t7">語境 07</a></td></tr>
+            <tr><td>112</td><td>釁起「鬩」牆</td><td>勸和論</td><td><a href="#t8">語境 08</a></td></tr>
+            <tr><td>112</td><td>驀然而「踣」</td><td>勞山道士</td><td><a href="#t7">語境 07</a></td></tr>
+            <tr><td>111</td><td>「攢」蹙累積</td><td>始得西山宴遊記</td><td><a href="#t5">語境 05</a></td></tr>
+            <tr><td>111</td><td>彈箏搏「髀」</td><td>諫逐客書</td><td>W25 深讀</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 這張表告訴你什麼</div>
+        <p style="font-size:0.91rem;">五年下來每年第 1 題都有選項取自古文 30 篇，其中<strong>〈勸和論〉〈勞山道士〉〈鹿港乘桴記〉〈虯髯客傳〉</strong>特別密集——它們多是用字較罕見的選文。別只讀懂文意，遇到罕用字一定要查音。</p>
+      </div>
+    </section>
+
+    <section id="zy-poly">
+      <h2 class="section-title"><span class="icon">🔀</span>字音｜破音字高頻 26 字</h2>
+      <div class="card" style="padding:0;"><table><thead><tr><th>字</th><th>讀音與詞例</th><th>判斷要訣</th></tr></thead><tbody>
+<tr><td>泊</td><td>ㄅㄛˊ 淡泊　｜　ㄅㄛˊ 漂泊　｜　ㄅㄛˊ 停泊</td><td>停留、恬靜皆讀ㄅㄛˊ；W20 寫的ㄆㄛˊ有誤</td></tr>
+<tr><td>累</td><td>ㄌㄟˇ 累積　｜　ㄌㄟˋ 連累　｜　ㄌㄟˊ 累贅</td><td>堆疊、次數讀三聲；牽連、疲勞讀四聲；累贅讀二聲</td></tr>
+<tr><td>差</td><td>ㄔㄚ 差別　｜　ㄔㄚˋ 差勁　｜　ㄔㄞ 出差　｜　ㄘ 參差</td><td>參差最常考，兩字都不讀翹舌音</td></tr>
+<tr><td>藉</td><td>ㄐㄧㄝˋ 憑藉　｜　ㄐㄧˊ 狼藉</td><td>倚靠、墊讀四聲；凌亂、盛多讀二聲</td></tr>
+<tr><td>傳</td><td>ㄔㄨㄢˊ 傳授　｜　ㄓㄨㄢˋ 經傳　｜　ㄓㄨㄢˋ 自傳</td><td>動詞讀ㄔㄨㄢˊ；指著作、人物記載讀ㄓㄨㄢˋ</td></tr>
+<tr><td>說</td><td>ㄕㄨㄛ 說話　｜　ㄕㄨㄟˋ 遊說　｜　ㄩㄝˋ 不亦說乎</td><td>勸人聽從讀ㄕㄨㄟˋ；通「悅」讀ㄩㄝˋ</td></tr>
+<tr><td>惡</td><td>ㄜˋ 惡人　｜　ㄨˋ 厭惡　｜　ㄨ 惡乎</td><td>壞讀ㄜˋ；討厭讀ㄨˋ；文言疑問詞「何」讀ㄨ</td></tr>
+<tr><td>為</td><td>ㄨㄟˊ 作為　｜　ㄨㄟˋ 為了</td><td>動詞「做、是」讀二聲；介詞「替、因為」讀四聲</td></tr>
+<tr><td>相</td><td>ㄒㄧㄤ 互相　｜　ㄒㄧㄤˋ 宰相　｜　ㄒㄧㄤˋ 相夫教子</td><td>輔助、官名、外貌讀四聲</td></tr>
+<tr><td>燕</td><td>ㄧㄢˋ 燕子　｜　ㄧㄢ 燕京</td><td>國名、地名、姓氏讀一聲</td></tr>
+<tr><td>更</td><td>ㄍㄥ 更換　｜　ㄍㄥˋ 更加</td><td>更換、更相（交替）讀一聲；「愈加」讀四聲</td></tr>
+<tr><td>數</td><td>ㄕㄨˋ 數學　｜　ㄕㄨˇ 數落　｜　ㄕㄨㄛˋ 數見不鮮</td><td>文言「屢次」讀ㄕㄨㄛˋ</td></tr>
+<tr><td>稽</td><td>ㄐㄧ 稽查　｜　ㄑㄧˇ 稽首</td><td>考察、停留讀一聲；叩頭禮讀三聲</td></tr>
+<tr><td>見</td><td>ㄐㄧㄢˋ 見解　｜　ㄒㄧㄢˋ 鬚眉畢見</td><td>通「現」讀ㄒㄧㄢˋ</td></tr>
+<tr><td>要</td><td>ㄧㄠˋ 重要　｜　ㄧㄠ 要求　｜　ㄧㄠ 要挾</td><td>求取、脅迫、通「邀」讀一聲</td></tr>
+<tr><td>畜</td><td>ㄔㄨˋ 家畜　｜　ㄒㄩˋ 畜牧</td><td>名詞讀ㄔㄨˋ；飼養（動詞）讀ㄒㄩˋ</td></tr>
+<tr><td>曝</td><td>ㄆㄨˋ 一曝十寒　｜　ㄆㄨˋ 曝光</td><td>辭典只收ㄆㄨˋ，「曝光」也讀ㄆㄨˋ</td></tr>
+<tr><td>暴</td><td>ㄅㄠˋ 暴虎馮河　｜　ㄆㄨˋ 暴露</td><td>「暴虎馮河」的馮讀ㄆㄧㄥˊ</td></tr>
+<tr><td>馮</td><td>ㄈㄥˊ 馮諼　｜　ㄆㄧㄥˊ 馮河</td><td>姓氏讀ㄈㄥˊ；徒步涉水、通「憑」讀ㄆㄧㄥˊ</td></tr>
+<tr><td>鮮</td><td>ㄒㄧㄢ 新鮮　｜　ㄒㄧㄢˇ 鮮少</td><td>「少」義讀三聲，如「鮮為人知」</td></tr>
+<tr><td>勝</td><td>ㄕㄥˋ 勝利　｜　ㄕㄥ 不勝枚舉</td><td>「盡、能承受」讀一聲</td></tr>
+<tr><td>攢</td><td>ㄘㄨㄢˊ 攢聚　｜　ㄗㄢˇ 攢錢</td><td>聚集讀ㄘㄨㄢˊ；積蓄讀ㄗㄢˇ</td></tr>
+<tr><td>屬</td><td>ㄕㄨˇ 屬於　｜　ㄓㄨˇ 屬文</td><td>連綴、囑託、勸酒讀ㄓㄨˇ（舉酒屬客）</td></tr>
+<tr><td>行</td><td>ㄒㄧㄥˊ 行走　｜　ㄏㄤˊ 銀行　｜　ㄒㄧㄥˋ 品行</td><td>品德義文言多讀ㄒㄧㄥˋ</td></tr>
+<tr><td>降</td><td>ㄐㄧㄤˋ 下降　｜　ㄒㄧㄤˊ 投降</td><td>降服義讀ㄒㄧㄤˊ</td></tr>
+<tr><td>乘</td><td>ㄔㄥˊ 乘車　｜　ㄕㄥˋ 千乘之國</td><td>車輛、史書（《史乘》）讀ㄕㄥˋ</td></tr>
+</tbody></table></div>
+    </section>
+
+    <section id="zy-trap">
+      <h2 class="section-title"><span class="icon">🪤</span>字音｜不可「有邊讀邊」的形近字</h2>
+      <p style="font-size:0.91rem; color:var(--muted); margin-bottom:0.5rem;">同聲符但讀音不同的字最容易失分。請按組別遮住讀音自測。</p>
+      <div class="card" style="padding:0;"><table><thead><tr><th>聲符</th><th>字、讀音與詞例</th></tr></thead><tbody>
+<tr><td>臽</td><td><strong>諂</strong> ㄔㄢˇ（諂媚）　｜　<strong>陷</strong> ㄒㄧㄢˋ（陷阱）　｜　<strong>掐</strong> ㄑㄧㄚ（掐指）</td></tr>
+<tr><td>朿</td><td><strong>棘</strong> ㄐㄧˊ（荊棘）　｜　<strong>辣</strong> ㄌㄚˋ（辛辣）</td></tr>
+<tr><td>屈</td><td><strong>倔</strong> ㄐㄩㄝˊ（倔強）　｜　<strong>掘</strong> ㄐㄩㄝˊ（挖掘）　｜　<strong>窟</strong> ㄎㄨ（洞窟）　｜　<strong>崛</strong> ㄐㄩㄝˊ（崛起）</td></tr>
+<tr><td>出</td><td><strong>絀</strong> ㄔㄨˋ（相形見絀）　｜　<strong>拙</strong> ㄓㄨㄛˊ（笨拙）　｜　<strong>茁</strong> ㄓㄨㄛˊ（茁壯）　｜　<strong>黜</strong> ㄔㄨˋ（罷黜）</td></tr>
+<tr><td>且</td><td><strong>狙</strong> ㄐㄩ（狙擊）　｜　<strong>沮</strong> ㄐㄩˇ（沮喪）　｜　<strong>咀</strong> ㄐㄩˇ（咀嚼）</td></tr>
+<tr><td>耑</td><td><strong>惴</strong> ㄓㄨㄟˋ（惴惴不安）　｜　<strong>揣</strong> ㄔㄨㄞˇ（揣摩）　｜　<strong>湍</strong> ㄊㄨㄢ（湍急）　｜　<strong>喘</strong> ㄔㄨㄢˇ（喘息）</td></tr>
+<tr><td>翏</td><td><strong>戮</strong> ㄌㄨˋ（殺戮）　｜　<strong>謬</strong> ㄇㄧㄡˋ（荒謬）　｜　<strong>繆</strong> ㄇㄡˊ（未雨綢繆）</td></tr>
+<tr><td>周</td><td><strong>綢</strong> ㄔㄡˊ（綢繆）　｜　<strong>稠</strong> ㄔㄡˊ（稠密）　｜　<strong>凋</strong> ㄉㄧㄠ（凋零）</td></tr>
+<tr><td>需</td><td><strong>濡</strong> ㄖㄨˊ（濡沫）　｜　<strong>孺</strong> ㄖㄨˊ（婦孺）　｜　<strong>蠕</strong> ㄖㄨˊ（蠕動）　｜　<strong>懦</strong> ㄋㄨㄛˋ（怯懦）</td></tr>
+<tr><td>其他</td><td><strong>贗</strong> ㄧㄢˋ（贗品）　｜　<strong>酗</strong> ㄒㄩˋ（酗酒）　｜　<strong>恪</strong> ㄎㄜˋ（恪守）　｜　<strong>咎</strong> ㄐㄧㄡˋ（咎由自取）　｜　<strong>賄</strong> ㄏㄨㄟˋ（賄賂）　｜　<strong>賂</strong> ㄌㄨˋ（賄賂）　｜　<strong>恫</strong> ㄉㄨㄥˋ（恫嚇）　｜　<strong>桐</strong> ㄊㄨㄥˊ（梧桐）　｜　<strong>怯</strong> ㄑㄩㄝˋ（怯懦）　｜　<strong>堀</strong> ㄎㄨ（堀室）</td></tr>
+</tbody></table></div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== 字形 ========== -->
+    <section id="zx-exam">
+      <h2 class="section-title"><span class="icon">✍️</span>字形｜真題五年全解</h2>
+      <div class="box box-tip">
+        <div class="box-title">💡 判字三問</div>
+        <p style="font-size:0.91rem;">①這個字在詞裡是什麼意思？（義決定形：「不菲」的菲＝微薄，「斐然」的斐＝有文采）②偏旁合不合義？（貝＝財、月（肉）＝身體、糸＝絲線）③是不是典故？（倒屣、負笈、窠臼要記典故）。</p>
+      </div>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">115 學測第 2 題</span> 下列文句，完全沒有錯別字的是：</div>
+        <ol><li>詐騙行為絕不可姑息，方能以儆效尤</li><li>人工智慧日新月異，影響力無遠弗界</li><li>大伯退休後離群所居，仍常惦念老友</li><li>老吳自詡滿腹經綸，卻昧於人情事故</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：A（官方答案）</p><p style="font-size:0.90rem;">(A) 無錯別字：「儆」＝警戒，從人；與「警」音同而用字固定</p><p style="font-size:0.90rem;">(B) 無遠弗<b>屆</b>：屆＝到達</p><p style="font-size:0.90rem;">(C) 離群<b>索</b>居：索＝孤單</p><p style="font-size:0.90rem;">(D) 人情<b>世</b>故：世故＝處世經驗</p></div></details>
+      </div>
+<div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">114 學測第 2 題</span> 下列文句，完全沒有錯別字的是：</div>
+        <ol><li>辯論比賽上，辯士伶牙利齒能言善道</li><li>老張刻意賣弄學問，反顯得矯柔造作</li><li>科學交流會後，李同學覺得大有展獲</li><li>他剽竊別人智慧，還恬不知恥地炫耀</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：D（官方答案）</p><p style="font-size:0.90rem;">(A) 伶牙<b>俐</b>齒：俐＝伶俐，從人</p><p style="font-size:0.90rem;">(B) 矯<b>揉</b>造作：揉＝使彎曲，從手</p><p style="font-size:0.90rem;">(C) 大有<b>斬</b>獲：斬獲＝砍殺與俘獲</p><p style="font-size:0.90rem;">(D) 無錯別字：剽竊、恬不知恥皆正確</p></div></details>
+      </div>
+<div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">113 學測第 2 題</span> 下列文句，完全沒有錯別字的是：</div>
+        <ol><li>德國隊蟬聯冠軍，呼聲最高，卻止步四強</li><li>昨夜賓客蒞臨，主人倒屜相迎，賓主盡歡</li><li>這棟大樓落實綠建築理念，設計不落巢臼</li><li>離鄉背井的學子負趿北上，在外租屋不易</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：A（官方答案）</p><p style="font-size:0.90rem;">(A) 無錯別字：蟬聯＝連續，如蟬之連綿</p><p style="font-size:0.90rem;">(B) 倒<b>屣</b>相迎：屣＝鞋，急著迎客穿反鞋</p><p style="font-size:0.90rem;">(C) 不落<b>窠</b>臼：窠＝巢穴，音ㄎㄜ</p><p style="font-size:0.90rem;">(D) 負<b>笈</b>北上：笈＝書箱，見〈勞山道士〉</p></div></details>
+      </div>
+<div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">112 學測第 2 題</span> 下列文句，完全沒有錯別字的是：</div>
+        <ol><li>收藏家的稀世珍品樣樣價格不斐</li><li>這起工安意外明顯是人謀不彰所導致</li><li>叔叔感慨從小命蹇時乖，一路工讀自學</li><li>天燈乘載大家的願望，在歡呼聲中冉冉升空</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：C（官方答案）</p><p style="font-size:0.90rem;">(A) 價格不<b>菲</b>：不菲＝不少；斐＝文采</p><p style="font-size:0.90rem;">(B) 人謀不<b>臧</b>：臧＝善</p><p style="font-size:0.90rem;">(C) 無錯別字：蹇＝不順，音ㄐㄧㄢˇ</p><p style="font-size:0.90rem;">(D) <b>承</b>載：承載＝承受負載</p></div></details>
+      </div>
+<div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">111 學測第 2 題</span> 下列文句，完全沒有錯別字的是：</div>
+        <ol><li>觀音山，故名思義是因遠眺貌似觀音躺臥而得名</li><li>清晨的山谷中，不見遊客聚集，萬物靜寂，闃然無聲</li><li>年終特賣會，在買一送一的強力促銷下，驅之若鶩者多</li><li>有些人誤以為投資一本萬利，因而錯判形勢，終至傾家盪產</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：B（官方答案）</p><p style="font-size:0.90rem;">(A) <b>顧</b>名思義：顧＝看</p><p style="font-size:0.90rem;">(B) 無錯別字：闃＝寂靜，音ㄑㄩˋ</p><p style="font-size:0.90rem;">(C) <b>趨</b>之若鶩：趨＝奔向</p><p style="font-size:0.90rem;">(D) 傾家<b>蕩</b>產：蕩＝耗盡</p></div></details>
+      </div>
+    </section>
+
+    <section id="zx-list">
+      <h2 class="section-title"><span class="icon">📋</span>字形｜易錯 30 組（與 W22 互補）</h2>
+      <p style="font-size:0.91rem; color:var(--muted); margin-bottom:0.5rem;">W22 已整理 15 個成語形近易錯字（再接再厲、甘拜下風……），下表主要補充其他高頻組。請用手遮住左欄，看「常見誤寫」訂正。</p>
+      <div class="card" style="padding:0;"><table><thead><tr><th>正確寫法</th><th>常見誤寫</th><th>辨別關鍵</th></tr></thead><tbody>
+<tr><td>好高騖遠</td><td>好高鶩遠</td><td>騖＝奔馳（馬部）；鶩＝鴨（鳥部）。趨之若「鶩」才用鳥部</td></tr>
+<tr><td>趨之若鶩</td><td>趨之若騖</td><td>像鴨子成群奔去，所以用鳥部</td></tr>
+<tr><td>膾炙人口</td><td>燴灸人口</td><td>膾＝細切肉、炙＝烤肉，都是美食；「灸」是針灸</td></tr>
+<tr><td>病入膏肓</td><td>病入膏盲</td><td>肓＝心下膈上，從肉；盲＝看不見，從目</td></tr>
+<tr><td>自怨自艾</td><td>自怨自哎</td><td>艾＝懲治、改正，音ㄧˋ，不是感嘆詞</td></tr>
+<tr><td>言簡意賅</td><td>言簡意該</td><td>賅＝完備，從貝</td></tr>
+<tr><td>相形見絀</td><td>相形見拙</td><td>絀＝不足，從糸；拙＝笨，從手</td></tr>
+<tr><td>良莠不齊</td><td>良秀不齊</td><td>莠＝狗尾草（壞草），音ㄧㄡˇ</td></tr>
+<tr><td>貪贓枉法</td><td>貪臟枉法</td><td>贓＝不法財物，從貝；臟＝內臟</td></tr>
+<tr><td>鞭辟入裡</td><td>鞭闢入裡</td><td>辟＝透徹；不寫「開闢」的闢</td></tr>
+<tr><td>穿鑿附會</td><td>穿鑿附繪</td><td>附會＝把無關的硬湊在一起</td></tr>
+<tr><td>如火如荼</td><td>如火如茶</td><td>荼＝白茅花，比茶少一橫</td></tr>
+<tr><td>歃血為盟</td><td>插血為盟</td><td>歃＝飲，音ㄕㄚˋ，從欠</td></tr>
+<tr><td>甘之如飴</td><td>甘之如怡</td><td>飴＝麥芽糖，從食；怡＝愉快</td></tr>
+<tr><td>披荊斬棘</td><td>披荊斬辣</td><td>棘＝有刺的灌木；與「辣」形近</td></tr>
+<tr><td>一籌莫展</td><td>一愁莫展</td><td>籌＝計策（W22 已列，高頻再提醒）</td></tr>
+<tr><td>按部就班</td><td>按步就班</td><td>部＝部署，班＝班次，指依條理</td></tr>
+<tr><td>金榜題名</td><td>金榜提名</td><td>題＝書寫</td></tr>
+<tr><td>迫不及待</td><td>迫不急待</td><td>及＝趕得上</td></tr>
+<tr><td>一如既往</td><td>一如繼往</td><td>既往＝過去</td></tr>
+<tr><td>滿腹經綸</td><td>滿腹經倫</td><td>綸＝治理絲線，喻治國才能；115 年語境</td></tr>
+<tr><td>暴殄天物</td><td>暴診天物</td><td>殄＝滅絕；114 年字音語境</td></tr>
+<tr><td>各行其是</td><td>各行其事</td><td>是＝認為對的</td></tr>
+<tr><td>不脛而走</td><td>不徑而走</td><td>脛＝小腿，從肉（W22 已列）</td></tr>
+<tr><td>為虎作倀</td><td>為虎作帳</td><td>倀＝被虎吃後替虎引路的鬼，從人</td></tr>
+<tr><td>前仆後繼</td><td>前撲後繼</td><td>仆＝向前跌倒，從人</td></tr>
+<tr><td>一蹶不振</td><td>一厥不振</td><td>蹶＝跌倒，從足；〈勞山道士〉「顛蹶」同字</td></tr>
+<tr><td>變本加厲</td><td>變本加利</td><td>厲＝猛烈；〈勸和論〉原文語境</td></tr>
+<tr><td>玉石俱焚</td><td>玉石具焚</td><td>俱＝皆；〈勸和論〉原文語境</td></tr>
+<tr><td>挑釁</td><td>挑舋</td><td>釁＝爭端；〈勸和論〉「釁起鬩牆」</td></tr>
+</tbody></table></div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== 字義 ========== -->
+    <section id="yi-exam">
+      <h2 class="section-title"><span class="icon">🧠</span>字義｜真題五年全解</h2>
+      <div class="box box-tip">
+        <div class="box-title">💡 解題流程：換字測試</div>
+        <p style="font-size:0.91rem;">把前句的解釋代入後句，讀得通而且語意相同才算相同。多選題每選項獨立判定，所以要逐組寫下兩個解釋再比較。注意：<strong>意思很近不等於相同</strong>，比如「終究」與「竟然」、「擁有」與「又」。</p>
+      </div>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">115 學測第 25 題</span> 下列各組「　」內的詞，意義前後相同的是（多選）</div>
+        <ol><li>昔者，仲尼「與」於蜡賓／夫子喟然嘆曰，吾「與」點也</li><li>今歲春雪甚盛，梅花「為」寒所勒／不者，若屬皆且「為」所虜</li><li>以其無禮於晉，且貳「於」楚也／此非孟德之困「於」周郎者乎</li><li>問今是何世，「乃」不知有漢／「乃」知真人之興也，非英雄所冀</li><li>臣聞吏議逐客，「竊」以為過矣／「竊」慕管夫人之墨竹，紙上生風</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：B、E（官方答案）</p><p style="font-size:0.90rem;">(A) 參與／贊同 → <strong>異</strong></p><p style="font-size:0.90rem;">(B) 被／被 → <strong>同</strong></p><p style="font-size:0.90rem;">(C) 對／被 → <strong>異</strong></p><p style="font-size:0.90rem;">(D) 竟然／才、於是 → <strong>異</strong></p><p style="font-size:0.90rem;">(E) 私下／私下 → <strong>同</strong></p></div></details>
+      </div>
+<div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">114 學測第 25 題</span> 下列各組「　」內的詞，意義前後相同的是（多選）</div>
+        <ol><li>刑仁講讓，示民有「常」／自後余多在外，不「常」居</li><li>人煙「猶」是，而蕭條矣／同居一府，「猶」同室之兄弟至親也</li><li>由此觀之，客何「負」於秦哉／師略授小技，此來為不「負」也</li><li>當獎「率」三軍，北定中原／竟「率」意而鴉塗，莫自知其鳩拙云爾</li><li>新沐者必彈「冠」，新浴者必振衣／巾箱妝奩「冠」鏡首飾之盛，非人間之物</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：C、E（官方答案）</p><p style="font-size:0.90rem;">(A) 常法／經常 → <strong>異</strong></p><p style="font-size:0.90rem;">(B) 仍然／如同 → <strong>異</strong></p><p style="font-size:0.90rem;">(C) 虧欠／辜負（同屬「對不起」） → <strong>同</strong></p><p style="font-size:0.90rem;">(D) 率領／隨意 → <strong>異</strong></p><p style="font-size:0.90rem;">(E) 帽子／帽子 → <strong>同</strong></p></div></details>
+      </div>
+<div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">113 學測第 27 題</span> 下列各組「　」內的詞，意義前後相同的是（多選）</div>
+        <ol><li>三五年內，即「當」太平／快意「當」前，適觀而已矣</li><li>便扶「向」路，處處誌之／「向」時估帆所出入者，時已淤為沙灘</li><li>爾其自戕「爾」手／蒙賜月明之照，乃「爾」寂飲，何不呼嫦娥來</li><li>若亡鄭而有益於君，「敢」以煩執事／入咸陽，毫毛不「敢」有所近</li><li>軒凡四遭火，「得」不焚，殆有神護者／「得」比勁節長垂，千人共仰</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：B、E（官方答案）</p><p style="font-size:0.90rem;">(A) 將會／面對 → <strong>異</strong></p><p style="font-size:0.90rem;">(B) 先前／先前 → <strong>同</strong></p><p style="font-size:0.90rem;">(C) 你的／如此 → <strong>異</strong></p><p style="font-size:0.90rem;">(D) 冒昧／膽敢 → <strong>異</strong></p><p style="font-size:0.90rem;">(E) 能夠／能夠 → <strong>同</strong></p></div></details>
+      </div>
+<div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">112 學測第 26 題</span> 下列各組「　」內的詞，意義前後相同的是（多選）</div>
+        <ol><li>克己「復」禮為仁／師道之不「復」可知矣</li><li>微夫人之力不「及」此／奔而入，「及」牆，虛若無物</li><li>蓋藏「既」富，絃誦興焉／「既」親其所親，亦親其所疏</li><li>為之躊躇滿志，「善」刀而藏之／（項伯）素「善」留侯張良</li><li>余時為桃花所戀，「竟」不忍去湖上／久不見若影，何「竟」日默默在此</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：A、B（官方答案）</p><p style="font-size:0.90rem;">(A) 恢復／恢復 → <strong>同</strong></p><p style="font-size:0.90rem;">(B) 到／到 → <strong>同</strong></p><p style="font-size:0.90rem;">(C) 已經／既……也 → <strong>異</strong></p><p style="font-size:0.90rem;">(D) 拭、繕治／交好 → <strong>異</strong></p><p style="font-size:0.90rem;">(E) 終究／整（日） → <strong>異</strong></p></div></details>
+      </div>
+<div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">111 學測第 26 題</span> 下列各組「　」內的詞，意義前後相同的是（多選）</div>
+        <ol><li>吾十「有」五而志於學，三十而立／男「有」分，女有歸</li><li>使吏召諸民當償者，「悉」來合券／吾之所有，「悉」以充贈</li><li>小學而大遺，吾未「見」其明也／眾視三人，坐月中飲，鬚眉畢「見」</li><li>向使四君卻客而不「內」，疏士而不用／距關，毋「內」諸侯，秦地可盡王也</li><li>庭中始為籬，「已」為牆，凡再變矣／昔之所謂鹿港飛帆者，「已」不概見矣</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：B、D（官方答案）</p><p style="font-size:0.90rem;">(A) 又／擁有 → <strong>異</strong></p><p style="font-size:0.90rem;">(B) 全部／全部 → <strong>同</strong></p><p style="font-size:0.90rem;">(C) 看見／顯現 → <strong>異</strong></p><p style="font-size:0.90rem;">(D) 通「納」／通「納」 → <strong>同</strong></p><p style="font-size:0.90rem;">(E) 不久／已經 → <strong>異</strong></p></div></details>
+      </div>
+    </section>
+
+    <section id="yi-list">
+      <h2 class="section-title"><span class="icon">🗂️</span>字義｜一字多義總表</h2>
+      <h3 class="sub-section-title">一、近五年學測出現過的字</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>字</th><th>例句與解釋</th><th>考過</th></tr></thead><tbody>
+<tr><td>與</td><td>仲尼與於蜡賓〔參與〕<span style="color:var(--muted);font-size:0.82rem;">—大同與小康</span><br>吾與點也〔贊同〕<span style="color:var(--muted);font-size:0.82rem;">—論語</span></td><td>115</td></tr>
+<tr><td>為</td><td>梅花為寒所勒〔被〕<span style="color:var(--muted);font-size:0.82rem;">—晚遊六橋待月記</span><br>歌吹為風〔是〕<span style="color:var(--muted);font-size:0.82rem;">—晚遊六橋待月記</span><br>數為余言〔對、向〕<span style="color:var(--muted);font-size:0.82rem;">—晚遊六橋待月記</span></td><td>115</td></tr>
+<tr><td>乃</td><td>乃不知有漢〔竟然〕<span style="color:var(--muted);font-size:0.82rem;">—桃花源記</span><br>乃知真人之興也〔才、於是〕<span style="color:var(--muted);font-size:0.82rem;">—虯髯客傳</span></td><td>115</td></tr>
+<tr><td>竊</td><td>竊以為過矣〔私下（謙詞）〕<span style="color:var(--muted);font-size:0.82rem;">—諫逐客書</span><br>王竊忻慕〔私下、暗中〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span></td><td>115</td></tr>
+<tr><td>於</td><td>且貳於楚也〔對〕<span style="color:var(--muted);font-size:0.82rem;">—燭之武退秦師</span><br>此非孟德之困於周郎者乎〔被〕<span style="color:var(--muted);font-size:0.82rem;">—赤壁賦</span></td><td>115</td></tr>
+<tr><td>猶</td><td>人煙猶是〔仍然〕<span style="color:var(--muted);font-size:0.82rem;">—鹿港乘桴記</span><br>猶同室之兄弟〔如同〕<span style="color:var(--muted);font-size:0.82rem;">—勸和論</span></td><td>114</td></tr>
+<tr><td>負</td><td>客何負於秦哉〔虧欠、對不起〕<span style="color:var(--muted);font-size:0.82rem;">—諫逐客書</span><br>此來為不負也〔辜負〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span></td><td>114</td></tr>
+<tr><td>常</td><td>示民有常〔常法、規範〕<span style="color:var(--muted);font-size:0.82rem;">—大同與小康</span><br>聖人無常師〔固定〕<span style="color:var(--muted);font-size:0.82rem;">—師說</span></td><td>114</td></tr>
+<tr><td>向</td><td>便扶向路〔先前的〕<span style="color:var(--muted);font-size:0.82rem;">—桃花源記</span><br>向時估帆所出入者〔從前〕<span style="color:var(--muted);font-size:0.82rem;">—鹿港乘桴記</span></td><td>113</td></tr>
+<tr><td>爾</td><td>爾其自戕爾手〔你〕<span style="color:var(--muted);font-size:0.82rem;">—勸和論</span><br>乃爾寂飲〔如此〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span></td><td>113</td></tr>
+<tr><td>敢</td><td>敢以煩執事〔冒昧（謙詞）〕<span style="color:var(--muted);font-size:0.82rem;">—燭之武退秦師</span><br>毫毛不敢有所近〔膽敢〕<span style="color:var(--muted);font-size:0.82rem;">—鴻門宴</span></td><td>113</td></tr>
+<tr><td>復</td><td>師道之不復可知矣〔恢復〕<span style="color:var(--muted);font-size:0.82rem;">—師說</span><br>復前行〔再〕<span style="color:var(--muted);font-size:0.82rem;">—桃花源記</span></td><td>112</td></tr>
+<tr><td>及</td><td>微夫人之力不及此〔到〕<span style="color:var(--muted);font-size:0.82rem;">—燭之武退秦師</span><br>及牆〔到〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span></td><td>112</td></tr>
+<tr><td>既</td><td>蓋藏既富〔已經〕<span style="color:var(--muted);font-size:0.82rem;">—鹿港乘桴記</span><br>既親其所親〔既……也（連詞）〕<span style="color:var(--muted);font-size:0.82rem;">—勸和論</span></td><td>112</td></tr>
+<tr><td>竟</td><td>竟不忍去湖上〔終究〕<span style="color:var(--muted);font-size:0.82rem;">—晚遊六橋待月記</span><br>竟不少減〔竟然〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span></td><td>112</td></tr>
+<tr><td>見</td><td>吾未見其明也〔看見（ㄐㄧㄢˋ）〕<span style="color:var(--muted);font-size:0.82rem;">—師說</span><br>鬚眉畢見〔顯現（ㄒㄧㄢˋ）〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span></td><td>111</td></tr>
+<tr><td>已</td><td>已不概見矣〔已經〕<span style="color:var(--muted);font-size:0.82rem;">—鹿港乘桴記</span><br>已而歌曰〔不久〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span></td><td>111</td></tr>
+<tr><td>有</td><td>男有分〔擁有〕<span style="color:var(--muted);font-size:0.82rem;">—大同與小康</span><br>爾來二十有一年矣〔又（連接整數與零數）〕<span style="color:var(--muted);font-size:0.82rem;">—出師表</span></td><td>111</td></tr>
+<tr><td>厭</td><td>何厭之有〔滿足〕<span style="color:var(--muted);font-size:0.82rem;">—燭之武退秦師</span></td><td>111</td></tr>
+</tbody></table></div>
+      <h3 class="sub-section-title">二、同型再練：九篇核心古文中的其他多義字</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>字</th><th>例句與解釋</th></tr></thead><tbody>
+<tr><td>去</td><td>亦去之〔離開〕<span style="color:var(--muted);font-size:0.82rem;">—燭之武退秦師</span><br>在埶者去〔除去、罷黜〕<span style="color:var(--muted);font-size:0.82rem;">—大同與小康</span><br>去之五里〔距離〕<span style="color:var(--muted);font-size:0.82rem;">—鹿港乘桴記</span><br>王果去牆數步〔距離〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span></td></tr>
+<tr><td>窮</td><td>欲窮其林〔走到盡頭〕<span style="color:var(--muted);font-size:0.82rem;">—桃花源記</span><br>窮山之高而止〔窮盡〕<span style="color:var(--muted);font-size:0.82rem;">—始得西山宴遊記</span><br>物窮必變〔困頓至極〕<span style="color:var(--muted);font-size:0.82rem;">—勸和論</span></td></tr>
+<tr><td>尋</td><td>尋向所誌〔尋找〕<span style="color:var(--muted);font-size:0.82rem;">—桃花源記</span><br>尋病終〔不久〕<span style="color:var(--muted);font-size:0.82rem;">—桃花源記</span></td></tr>
+<tr><td>志</td><td>而有志焉〔志向〕<span style="color:var(--muted);font-size:0.82rem;">—大同與小康</span><br>陰有歸志〔念頭〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span><br>故為之文以志〔記〕<span style="color:var(--muted);font-size:0.82rem;">—始得西山宴遊記</span></td></tr>
+<tr><td>微</td><td>微夫人之力〔沒有〕<span style="color:var(--muted);font-size:0.82rem;">—燭之武退秦師</span></td></tr>
+<tr><td>少</td><td>少慕道〔年輕〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span><br>竟不少減〔稍微〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span></td></tr>
+<tr><td>因</td><td>因人之力而敝之〔憑藉〕<span style="color:var(--muted);font-size:0.82rem;">—燭之武退秦師</span><br>因坐法華西亭〔因為〕<span style="color:var(--muted);font-size:0.82rem;">—始得西山宴遊記</span></td></tr>
+<tr><td>然</td><td>門人然燭來〔通「燃」〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span><br>豁然開朗〔詞尾，……的樣子〕<span style="color:var(--muted);font-size:0.82rem;">—桃花源記</span><br>然杭人遊湖〔然而〕<span style="color:var(--muted);font-size:0.82rem;">—晚遊六橋待月記</span></td></tr>
+<tr><td>徒</td><td>日與其徒上高山〔同伴〕<span style="color:var(--muted);font-size:0.82rem;">—始得西山宴遊記</span><br>分賚諸徒〔徒弟〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span></td></tr>
+<tr><td>是</td><td>是謂大同〔這〕<span style="color:var(--muted);font-size:0.82rem;">—大同與小康</span><br>人煙猶是〔如此〕<span style="color:var(--muted);font-size:0.82rem;">—鹿港乘桴記</span></td></tr>
+<tr><td>甚</td><td>理甚玄妙〔很〕<span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span><br>未有如去年之甚也〔嚴重〕<span style="color:var(--muted);font-size:0.82rem;">—勸和論</span></td></tr>
+<tr><td>相</td><td>雞犬相聞〔互相〕<span style="color:var(--muted);font-size:0.82rem;">—桃花源記</span><br>不恥相師〔互相（偏指一方，向別人）〕<span style="color:var(--muted);font-size:0.82rem;">—師說</span></td></tr>
+</tbody></table></div>
+      <div class="box box-link">
+        <div class="box-title">🔗 與 W25 的連結</div>
+        <p style="font-size:0.91rem;">W25「跨篇高頻字詞總表」已整理通假字、古今異義、詞類活用；本週的總表聚焦一字多義，兩份合起來就是完整的古文字詞複習材料。</p>
+      </div>
+    </section>
+
+    <section id="cy-exam">
+      <h2 class="section-title"><span class="icon">🧩</span>詞語運用｜真題五年全解</h2>
+      <div class="box box-tip">
+        <div class="box-title">💡 三個檢查點</div>
+        <p style="font-size:0.91rem;">①<strong>實際義</strong>和字面義一樣嗎？（來者可追不是追趕）②<strong>褒貶</strong>合語境嗎？（始作俑者是貶義）③<strong>適用對象</strong>對嗎？（汗牛充棟只能用於書，W22 有專表）。</p>
+      </div>
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">115 學測第 26 題</span> 下列文句畫底線的詞語，運用適當的是（多選）</div>
+        <ol><li>自古以來，官商<u>沆瀣一氣</u>，貪贓枉法之事層出不窮</li><li>談判桌上務必謹言慎行，以免<u>授人以柄</u>而遭受意外損失</li><li>老張一再競標失利，老闆裁示將他調離現職，<u>不次拔擢</u></li><li>籃球校隊屢嘗敗績，今年<u>秣馬厲兵</u>，誓言贏下比賽，一雪前恥</li><li>王經理發現錯誤後，立即調整方向，<u>曲突徙薪</u>，有效解決問題</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：A、B、D（官方答案）</p><p style="font-size:0.90rem;">(A) ✔ 沆瀣一氣＝臭味相投，貶義，用於官商勾結恰當</p><p style="font-size:0.90rem;">(B) ✔ 授人以柄＝把把柄交給別人</p><p style="font-size:0.90rem;">(C) ✘ 不次拔擢＝破格提升，與調離、失利矛盾</p><p style="font-size:0.90rem;">(D) ✔ 秣馬厲兵＝做好戰鬥準備</p><p style="font-size:0.90rem;">(E) ✘ 曲突徙薪＝事前防範；這裡是事後補救</p></div></details>
+      </div>
+<div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">114 學測第 26 題</span> 下列文句畫底線的詞語，運用適當的是（多選）</div>
+        <ol><li>邱老師<u>腹笥甚廣</u>，上課引經據典，學生感佩不已</li><li>在民眾熱情擁戴下，他滿懷<u>箕山之志</u>，決定參選市長</li><li>臺北的冬天又濕又冷，如果沒有電暖器，肯定<u>席不暇暖</u></li><li>連假時車潮湧入熱門觀光景點，遊客<u>摩頂放踵</u>，寸步難行</li><li>企業主管應拿出<u>吐哺握髮</u>的態度，積極攬才，打造國際競爭力</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：A、E（官方答案）</p><p style="font-size:0.90rem;">(A) ✔ 腹笥＝肚裡的書箱，學識豐富</p><p style="font-size:0.90rem;">(B) ✘ 箕山之志＝隱居不仕，與參選相反</p><p style="font-size:0.90rem;">(C) ✘ 席不暇暖＝忙碌，連坐席都來不及坐熱，與氣溫無關</p><p style="font-size:0.90rem;">(D) ✘ 摩頂放踵＝捨己為人、不辭勞苦；不是人多擁擠</p><p style="font-size:0.90rem;">(E) ✔ 吐哺握髮＝周公禮賢下士</p></div></details>
+      </div>
+<div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">113 學測第 25 題</span> 下列文句畫底線的詞語，運用適當的是（多選）</div>
+        <ol><li>就算勉強通過安全檢查，但心存僥倖的防災態度，仍<u>不足為訓</u></li><li>世事變化如<u>白雲蒼狗</u>，刻骨銘心的情感與誓約，已成過眼雲煙</li><li>這篇文章見解獨特，不同流俗，有如<u>空谷足音</u>，是難得的佳作</li><li>萊特兄弟是發明飛機的<u>始作俑者</u>，拜其所賜，才使天涯若比鄰</li><li>小陳做事<u>胸無城府</u>欠缺規劃，同事常須為其善後，而心生抱怨</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：A、B、C（官方答案）</p><p style="font-size:0.90rem;">(A) ✔ 不足為訓＝不能當作準則</p><p style="font-size:0.90rem;">(B) ✔ 白雲蒼狗＝世事變幻無常</p><p style="font-size:0.90rem;">(C) ✔ 空谷足音＝難得可貴的言論</p><p style="font-size:0.90rem;">(D) ✘ 始作俑者＝開惡例的人，貶義</p><p style="font-size:0.90rem;">(E) ✘ 胸無城府＝坦率，不是沒有規劃</p></div></details>
+      </div>
+<div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">112 學測第 3 題</span> 下列文句畫底線處的詞語，運用最適當的是（單選）</div>
+        <ol><li>這宗懸案經專案小組<u>擘肌分理</u>，已掌握部分有利線索</li><li>經理很欣賞這名愛將，但也常<u>愛屋及烏</u>地袒護其過失</li><li>新品銷量短期內便<u>來者可追</u>，超越廣受好評的老品牌</li><li>闖過準決賽就能占到<u>得隴望蜀</u>的位置，可望角逐冠軍</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：A（官方答案）</p><p style="font-size:0.90rem;">(A) ✔ 擘肌分理＝分析細密</p><p style="font-size:0.90rem;">(B) ✘ 愛屋及烏＝連帶喜愛相關的人事物，不是袒護過失</p><p style="font-size:0.90rem;">(C) ✘ 來者可追＝未來的事還來得及補救，不是追趕</p><p style="font-size:0.90rem;">(D) ✘ 得隴望蜀＝貪得無厭，不是有利位置</p></div></details>
+      </div>
+<div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">111 學測第 3 題</span> 下列文句畫底線處的詞語，運用不適當的是（單選）</div>
+        <ol><li>世事變化無常，有如<u>白駒過隙</u>，總讓人感觸良多</li><li>一味索求而不節制，無疑是<u>竭澤而漁</u>，自斷後路</li><li>依循既往，墨守成規，很難在文創產業<u>頭角崢嶸</u></li><li>他們陷入<u>進退維谷</u>的狀態，心慌意亂，難以抉擇</li></ol>
+        <details><summary>查看解答與解析</summary><div class="answer-box"><p class="correct">正確答案：A（官方答案）</p><p style="font-size:0.90rem;">(A) ✘（本題要選此項） 白駒過隙＝時光飛逝，不是世事無常</p><p style="font-size:0.90rem;">(B) ✔ 竭澤而漁＝只顧眼前</p><p style="font-size:0.90rem;">(C) ✔ 頭角崢嶸＝才華傑出</p><p style="font-size:0.90rem;">(D) ✔ 進退維谷＝進退兩難</p></div></details>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== 修辭 ========== -->
+    <section id="xc-how">
+      <h2 class="section-title"><span class="icon">🎨</span>修辭｜學測怎麼考</h2>
+      <div class="card">
+        <p>五年試卷都沒有「下列何者使用映襯」這種題型。修辭知識被包裝在閱讀理解裡，常見三種問法：<strong>①這個譬喻在說明什麼？②依文意與修辭填入最適合的詞語；③比較兩段文字的手法與效果</strong>。所以學修辭要多問一句：「作者為什麼這樣寫？」</p>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">112 學測第 7 題</span> 關於下文「做菜」與「作文」之間的譬喻，說明最適當的是：</div>
+        <div class="original-text" style="font-size:0.94rem; line-height:1.95;"><p>滿洲菜多燒煮，漢人菜多羹湯，童而習之，故擅長也。漢請滿人，滿請漢人，各用所長之菜，轉覺入口新鮮，不失邯鄲故步。今人忘其本分，而要格外討好。漢請滿人用滿菜，滿請漢人用漢菜，反致依樣葫蘆，有名無實，畫虎不成反類犬矣。秀才下場，專作自己文字，務極其工，自有遇合。若逢一宗師而摹仿之，逢一主考而摹仿之，則掇皮無真，終身不中矣。（袁枚《隨園食單》）下場：進入考場。</p></div>
+        <ol>
+          <li>學做料理須知各地菜餚特色，習文當須辨宗門流派</li>
+          <li>做菜須向前輩方家學習以精進，為文當須追摹宗師</li>
+          <li>漢人未自幼學習而做不好滿菜，學寫文章亦宜趁早</li>
+          <li>料理講究發揮個別的特長，作文亦以呈顯本色為尚</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：D（官方答案）</p>
+          <p style="font-size:0.90rem;">抓住兩組平行結構：做菜「各用所長之菜」好，「依樣葫蘆」差；作文「專作自己文字」好，「摹仿」差。喻體與本體的共同點是<strong>發揮本色、不要模仿</strong>。B 正好相反；A、C 不是作者的重點。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">真</span><span class="tag tag-red">114 學測第 3 題</span> 依據下文，□□內最適合填入的詞語依序是：</div>
+        <div class="original-text" style="font-size:0.94rem; line-height:1.95;"><p>月亮從大大小小的雲朵裡照下來，就像是從厚薄不勻的□□□中滲出來的，滴到柏油路上，濃一塊，淡一塊，成了深深淺淺的□□。□□的城市。街上的人都那麼匆匆地趕路，各找各的營養。（聶華苓〈月光•枯井•三腳貓〉）</p></div>
+        <ol>
+          <li>破海綿／皎潔／貪婪</li>
+          <li>破海綿／青蒼／貧血</li>
+          <li>舊報紙／青蒼／貪婪</li>
+          <li>舊報紙／皎潔／貧血</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B（官方答案）</p>
+          <p style="font-size:0.90rem;">「滲出來」「滴到」把月光寫成液體（轉化），能吸水又能滲水的當然是海綿。「濃一塊，淡一塊」呼應青蒼的顏色。末句「各找各的營養」把城市與人寫成需要養分的身體，回頭呼應「貧血」。<strong>語境前後呼應</strong>就是這類題的解法。</p></div>
+        </details>
+      </div>
+
+      <div class="box box-key">
+        <div class="box-title">✅ 修辭效果題的答題公式</div>
+        <p style="font-size:0.91rem;">手法 ＋ 內容 ＋ 效果。例如〈勸和論〉「朋友如一身左右手」→「以<strong>譬喻</strong>（手法）把朋友比作身體的左右手（內容），讓人感受到傷害同鄉就如自殘的痛感（效果）」。113 年混合題第 33 題也問「斷片」「照片褪色」的譬喻在形容記憶的什麼特徵，須用自己的話寫出共同點。</p>
+      </div>
+    </section>
+
+    <section id="xc-table">
+      <h2 class="section-title"><span class="icon">📚</span>修辭 25 格總表（W22 十五格的完整版）</h2>
+      <p style="font-size:0.91rem; color:var(--muted); margin-bottom:0.5rem;">「古文例」全部來自古文 30 篇或文化基本教材等已學內容，複習修辭的同時也複習古文。</p>
+      <div class="card" style="padding:0;"><table class="compare-table"><thead><tr><th>修辭格</th><th>定義</th><th>古文例</th><th>其他例</th><th>效果</th></tr></thead><tbody>
+<tr><td>譬喻</td><td>以乙喻甲；依本體、喻詞、喻體的存在分四類</td><td>如影之在鏡中（明喻）<br><span style="color:var(--muted);font-size:0.82rem;">—勞山道士</span></td><td>隱喻：那河畔的金柳，是夕陽中的新娘（徐志摩）</td><td>化抽象為具體</td></tr>
+<tr><td>轉化</td><td>把甲物寫成乙物：擬人、擬物、形象化</td><td>梅花為寒所勒<br><span style="color:var(--muted);font-size:0.82rem;">—晚遊六橋待月記</span></td><td>形象化：把時間當東西「擠」出來</td><td>使描寫生動、賦予情感</td></tr>
+<tr><td>借代</td><td>不說本名，用有關聯的事物代替</td><td>黃髮垂髫<br><span style="color:var(--muted);font-size:0.82rem;">—桃花源記</span></td><td>杏壇代教育界；汗青代史冊</td><td>含蓄、形象</td></tr>
+<tr><td>象徵</td><td>以具體事物寄託抽象意涵</td><td>不足為外人道也<br><span style="color:var(--muted);font-size:0.82rem;">—桃花源記</span></td><td>桃花源＝理想世界；稱仔＝公平</td><td>意蘊深遠、可多重解讀</td></tr>
+<tr><td>映襯</td><td>相反或相對的事物並列</td><td>鄰之厚，君之薄也<br><span style="color:var(--muted);font-size:0.82rem;">—燭之武退秦師</span></td><td>反襯：以樂景寫哀</td><td>凸顯差異</td></tr>
+<tr><td>排比</td><td>三個以上結構相似的語句並列</td><td>使老有所終，壯有所用，幼有所長<br><span style="color:var(--muted);font-size:0.82rem;">—大同與小康</span></td><td>—</td><td>增強氣勢、條理</td></tr>
+<tr><td>類疊</td><td>同一字詞語句反覆（疊字、類字、疊句、類句）</td><td>施施而行，漫漫而遊<br><span style="color:var(--muted);font-size:0.82rem;">—始得西山宴遊記</span></td><td>輕輕的我走了（徐志摩）</td><td>節奏感、強調</td></tr>
+<tr><td>層遞</td><td>依大小、輕重、先後逐層推進</td><td>修身、齊家、治國、平天下<br><span style="color:var(--muted);font-size:0.82rem;">—大學</span></td><td>—</td><td>推進思路、加強語勢</td></tr>
+<tr><td>對偶</td><td>字數相等、詞性相對、結構相同</td><td>直如弦、平如砥<br><span style="color:var(--muted);font-size:0.82rem;">—鹿港乘桴記</span></td><td>—</td><td>工整、音韻美</td></tr>
+<tr><td>頂真</td><td>前句結尾作後句開頭</td><td>醉則更相枕以臥，臥而夢<br><span style="color:var(--muted);font-size:0.82rem;">—始得西山宴遊記</span></td><td>—</td><td>語氣連貫、環環相扣</td></tr>
+<tr><td>回文</td><td>語序可迴環往復</td><td>信言不美，美言不信<br><span style="color:var(--muted);font-size:0.82rem;">—老子</span></td><td>人人為我，我為人人</td><td>辯證、迴環之美</td></tr>
+<tr><td>設問</td><td>提問（自問自答）、激問（反問）、懸問（無解）</td><td>夫晉，何厭之有<br><span style="color:var(--muted);font-size:0.82rem;">—燭之武退秦師</span></td><td>—</td><td>引發思考、強化語氣</td></tr>
+<tr><td>感嘆</td><td>以語氣詞抒發強烈情感</td><td>可勝慨哉<br><span style="color:var(--muted);font-size:0.82rem;">—鹿港乘桴記</span></td><td>—</td><td>抒情</td></tr>
+<tr><td>呼告</td><td>對不在場的人或物直接呼喚</td><td>碩鼠碩鼠，無食我黍<br><span style="color:var(--muted);font-size:0.82rem;">—詩經．魏風</span></td><td>—</td><td>情感直接、臨場</td></tr>
+<tr><td>誇飾</td><td>超越客觀事實的誇大或縮小</td><td>尺寸千里<br><span style="color:var(--muted);font-size:0.82rem;">—始得西山宴遊記</span></td><td>白髮三千丈（李白）</td><td>強調、引人注意</td></tr>
+<tr><td>摹寫</td><td>對視、聽、嗅、味、觸的具體描寫</td><td>其聲嗚嗚然，如怨如慕，如泣如訴<br><span style="color:var(--muted);font-size:0.82rem;">—赤壁賦</span></td><td>—</td><td>具體可感</td></tr>
+<tr><td>雙關</td><td>一語兼含兩義</td><td>道是無晴卻有晴<br><span style="color:var(--muted);font-size:0.82rem;">—竹枝詞（劉禹錫）</span></td><td>語義雙關：〈兒子的大玩偶〉</td><td>含蓄、機趣</td></tr>
+<tr><td>倒反</td><td>字面與本意相反，常含諷刺</td><td>其可怪也歟<br><span style="color:var(--muted);font-size:0.82rem;">—師說</span></td><td>你可真「行」</td><td>諷刺、幽默</td></tr>
+<tr><td>倒裝</td><td>顛倒語序以強調或協律</td><td>甚矣，人心之變也<br><span style="color:var(--muted);font-size:0.82rem;">—勸和論</span></td><td>—</td><td>強調重點</td></tr>
+<tr><td>婉曲</td><td>不直言，委婉含蓄地表達</td><td>敢以煩執事<br><span style="color:var(--muted);font-size:0.82rem;">—燭之武退秦師</span></td><td>百年之後（代死亡）</td><td>得體、避諱</td></tr>
+<tr><td>引用</td><td>援引語句、典故</td><td>三人行，則必有我師<br><span style="color:var(--muted);font-size:0.82rem;">—師說</span></td><td>明引／暗引</td><td>增加權威與文采</td></tr>
+<tr><td>轉品</td><td>改變詞性</td><td>不獨親其親，不獨子其子<br><span style="color:var(--muted);font-size:0.82rem;">—大同與小康</span></td><td>很「臺灣」</td><td>語言凝練新鮮</td></tr>
+<tr><td>析字</td><td>就字形、字音、字義分析以說理或遊戲</td><td>友從兩手、朋從兩肉<br><span style="color:var(--muted);font-size:0.82rem;">—勸和論</span></td><td>—</td><td>機巧、說理</td></tr>
+<tr><td>互文</td><td>上下句文義互相補足</td><td>不以物喜，不以己悲<br><span style="color:var(--muted);font-size:0.82rem;">—岳陽樓記</span></td><td>秦時明月漢時關（王昌齡）</td><td>節省字面、語意渾融</td></tr>
+<tr><td>示現</td><td>把不在眼前的事物寫得如在眼前</td><td>遙知兄弟登高處<br><span style="color:var(--muted);font-size:0.82rem;">—九月九日憶山東兄弟（王維）</span></td><td>追述／預言／懸想</td><td>增強臨場感</td></tr>
+</tbody></table></div>
+    </section>
+
+    <section id="xc-diff">
+      <h2 class="section-title"><span class="icon">🔍</span>修辭易混辨析（W22 五組之外的補充）</h2>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>① 譬喻四類怎麼分</h4>
+          <ul>
+            <li><strong>明喻</strong>：有本體、喻詞「如／若」、喻體（如影之在鏡中）。</li>
+            <li><strong>隱喻</strong>：喻詞改成「是／為」（歌吹為風，粉汗為雨）。</li>
+            <li><strong>略喻</strong>：省略喻詞。</li>
+            <li><strong>借喻</strong>：只剩喻體（喜疢毒而畏藥石）。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>② 借喻 vs. 借代</h4>
+          <ul>
+            <li><strong>借喻</strong>靠<strong>相似</strong>：藥石與忠言性質相似，都有益而難受。</li>
+            <li><strong>借代</strong>靠<strong>相關</strong>：黃髮是老人的特徵，兩者本來就有關聯。</li>
+            <li>判斷：能加「像」字就是譬喻（忠言像藥石 ✔；老人像黃髮 ✘）。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>③ 排比 vs. 層遞</h4>
+          <ul>
+            <li><strong>排比</strong>：各項平行，順序可以換。</li>
+            <li><strong>層遞</strong>：各項有等級，順序不能換（修身→齊家→治國→平天下）。</li>
+            <li>〈勸和論〉「甚於臺灣→尤甚於淡之新、艋」範圍遞縮，是層遞。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>④ 類疊 vs. 頂真</h4>
+          <ul>
+            <li><strong>類疊</strong>：重複的字詞位置不限。</li>
+            <li><strong>頂真</strong>：一定是前句尾＝後句頭（醉則更相枕以臥，臥而夢）。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>⑤ 誇飾 vs. 譬喻</h4>
+          <ul>
+            <li>可以同時存在。「歌吹為風，粉汗為雨」用「為」是隱喻，內容又極度誇大。</li>
+            <li>判斷時分別問：有沒有喻體？有沒有違反事實的誇大？</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>⑥ 設問 vs. 一般疑問</h4>
+          <ul>
+            <li>說話者心裡<strong>已有答案</strong>才是設問。</li>
+            <li>〈燭之武退秦師〉「焉用亡鄭以陪鄰」＝激問；〈桃花源記〉「問今是何世」是真的在問，不算修辭。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>⑦ 互文（文言特有）</h4>
+          <ul>
+            <li>上下文互補，要合起來讀：「不以物喜，不以己悲」＝不因外物、自身的得失而喜悲。</li>
+            <li>翻譯時不能只拆成兩句。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>⑧ 倒反 vs. 反諷</h4>
+          <ul>
+            <li><strong>倒反</strong>是言辭上的字面與本意相反。</li>
+            <li><strong>情境反諷</strong>是結果與期待相反（王生自以為學成，卻撞牆）。學測閱讀常問後者。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== 古文語境 ========== -->
+    <div class="box box-gold">
+      <div class="box-title">⭐ 古文語境訓練怎麼做（每篇約 25 分鐘）</div>
+      <p style="font-size:0.91rem;">①朗讀全文，遇到紅色底線先自己唸 → ②遮住「讀音」欄自測字音字形表 → ③找青色底線的句子，說出修辭與效果 → ④不熟的字詞寫進錯字本。語譯先摺疊，看不懂再展開。全文依通行課本，個別字形（如隄／堤、瀰／彌）版本略異，不影響考點。</p>
+    </div>
+    
+    <section id="t1">
+      <h2 class="section-title"><span class="icon">📜</span>古文語境 01｜燭之武退秦師（全文）</h2>
+      <div class="box box-link" style="font-size:0.9rem;"><div class="box-title">左丘明《左傳》｜先秦｜說辭</div><p>用「反問」讓對方自己得出結論；「厭、闕、微、共」都是字義高頻字。</p></div>
+      <div class="original-text">
+        <p>晉侯、秦伯圍鄭，以其無禮於晉，且貳於楚也。晉軍<span class="kw">函</span>陵，秦軍氾南。</p>
+        <p><span class="kw">佚</span>之狐言於鄭伯曰：「國危矣！若使燭之武見秦君，師必退。」公從之。辭曰：「臣之壯也，猶不如人；今老矣，無能為也已。」公曰：「吾不能早用子，今急而求子，是寡人之過也。然鄭亡，子亦有不利焉。」許之。</p>
+        <p>夜<span class="kw">縋</span>而出，見秦伯，曰：「秦、晉圍鄭，鄭既知亡矣。若亡鄭而有益於君，<span class="kw-teal">敢以煩執事</span>。越國以鄙遠，君知其難也，<span class="kw-teal">焉用亡鄭以陪鄰</span>？<span class="kw-teal">鄰之厚，君之薄也</span>。若舍鄭以為東道主，行李之往來，<span class="kw">共</span>其乏困，君亦無所害。且君嘗為晉君賜矣，許君焦、瑕，<span class="kw-teal">朝濟而夕設版焉</span>，君之所知也。<span class="kw-teal">夫晉，何厭之有</span>？既東封鄭，又欲肆其西封，若不<span class="kw">闕</span>秦，將焉取之？闕秦以利晉，唯君圖之。」秦伯<span class="kw">說</span>，與鄭人盟，使<span class="kw">杞</span>子、逢孫、楊孫<span class="kw">戍</span>之，乃還。</p>
+        <p>子犯請擊之。公曰：「不可。微<span class="kw">夫</span>人之力不及此。<span class="kw-teal">因人之力而敝之，不仁；失其所與，不</span><span class="kw">知</span><span class="kw-teal">；以亂易整，不武</span>。吾其還也。」亦去之。</p>
+      </div>
+      <h3 class="sub-section-title">字音字形字義</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>語境</th><th>字</th><th>讀音</th><th>字義／提示</th></tr></thead><tbody>
+<tr><td>夜縋而出</td><td>縋</td><td>ㄓㄨㄟˋ</td><td>以繩繫人或物垂下</td></tr>
+<tr><td>佚之狐</td><td>佚</td><td>ㄧˋ</td><td>人名；形近「軼、秩」</td></tr>
+<tr><td>晉軍函陵</td><td>函</td><td>ㄏㄢˊ</td><td>地名</td></tr>
+<tr><td>使杞子</td><td>杞</td><td>ㄑㄧˇ</td><td>人名；〈杞人憂天〉同字</td></tr>
+<tr><td>使杞子、逢孫、楊孫戍之</td><td>戍</td><td>ㄕㄨˋ</td><td>防守；形近「戌、戊」</td></tr>
+<tr><td>共其乏困</td><td>共</td><td>ㄍㄨㄥ</td><td>通「供」，供給</td></tr>
+<tr><td>秦伯說</td><td>說</td><td>ㄩㄝˋ</td><td>通「悅」</td></tr>
+<tr><td>微夫人之力</td><td>夫</td><td>ㄈㄨˊ</td><td>那、那個（指示詞）</td></tr>
+<tr><td>不知</td><td>知</td><td>ㄓˋ</td><td>通「智」</td></tr>
+<tr><td>若不闕秦</td><td>闕</td><td>ㄑㄩㄝ</td><td>侵損；與「宮闕」ㄑㄩㄝˋ不同</td></tr>
+</tbody></table></div>
+      <h3 class="sub-section-title">修辭與效果</h3>
+      <div class="card" style="padding:0;"><table class="compare-table"><thead><tr><th>修辭</th><th>原句</th><th>說明與效果</th></tr></thead><tbody>
+<tr><td>設問（激問）</td><td>焉用亡鄭以陪鄰</td><td>答案在反面（不必亡鄭），比直說「不該滅鄭」更有逼迫感</td></tr>
+<tr><td>設問（激問）</td><td>夫晉，何厭之有</td><td>兼賓語前置（「有何厭」），強調晉國貪得無厭</td></tr>
+<tr><td>映襯（對比）</td><td>鄰之厚，君之薄也</td><td>一厚一薄並列，把「利晉即害秦」說得一目了然</td></tr>
+<tr><td>誇飾</td><td>朝濟而夕設版焉</td><td>早上渡河、晚上就築牆防秦，極言晉人背信之快</td></tr>
+<tr><td>排比</td><td>因人之力而敝之，不仁；失其所與，不知；以亂易整，不武</td><td>三個並列理由層層收束，晉文公以德退兵</td></tr>
+<tr><td>婉曲（敬稱）</td><td>敢以煩執事</td><td>不直稱秦伯而稱辦事人員，謙敬而委婉</td></tr>
+</tbody></table></div>
+      <details><summary>展開白話語譯</summary>
+        <div class="translation-block" style="margin-top:1.1rem;"><p style="margin-bottom:0.5rem;">第一段：晉文公、秦穆公聯合出兵包圍鄭國，原因是鄭國曾對晉國無禮，又同時與楚國交好（有二心）。晉軍駐紮在函陵，秦軍駐紮在氾水南岸。</p><p style="margin-bottom:0.5rem;">第二段（佚之狐舉薦）：佚之狐向鄭文公進言說：「國家危急了！如果派燭之武去見秦君，秦軍必定撤退。」鄭文公採納了這個建議。燭之武推辭說：「我壯年的時候，尚且不如別人；現在老了，已無能為力了。」鄭文公說：「我不能及早重用您，現在情況緊急才求您，這是我的過失。然而鄭國滅亡，對您也有不利之處啊。」燭之武答應了。</p><p style="margin-bottom:0.5rem;">第三段（燭之武的說辭核心）：燭之武在夜間用繩子縒城而出，去見秦穆公，說道：「秦、晉兩國圍攻鄭國，鄭國已知道自己難逃亡國了。如果滅亡鄭國對您有好處，那就冒昧地拿這件事來麻煩您的左右。但是越過別國（指晉國）以遠方（鄭國）為邊邑，您知道這是很困難的。為何要滅掉鄭國來增益鄰國（晉國）的土地？鄰國勢力增強，就是您秦國勢力的削弱。如果放棄鄭國讓它作為秦國東方道路上的主人，秦國使節往來之時，鄭國可以供應他們所缺乏的物資，對秦國也無害處。況且您曾對晉君有所恩賜，晉惠公曾答應把焦、瑕二城給您，可他一渡過黃河就立刻在那裡設版築城（拒絕兌現），這都是您所清楚知道的。晉國哪裡會有滿足的時候？已向東把鄭國設為邊界，又想要延伸它西邊的疆土；若不損害秦國，又將從哪裡取得土地呢？損害秦國來讓晉國得利，希望您好好考慮這件事。」</p><p style="margin-bottom:0.5rem;">第四段（秦國退兵）：秦穆公很高興，與鄭國訂立盟約，並派遣杞子、逢孫、楊孫留守鄭國，便帶兵撤退了。</p><p style="margin-bottom:0.5rem;">第五段（晉文公自省）：晉國大夫子犯請求趁機攻打秦軍，晉文公說：「不行。若沒有那人（秦穆公）的力量，我不能到今天這個地步。依靠別人的力量又反過來傷害他，是不仁；失去了盟友，是不智；以動亂代替整齊（師出無名），是不武。我們還是撤退吧。」晉軍也撤離了。</p></div>
+      </details>
+    </section>
+
+    <section id="t2">
+      <h2 class="section-title"><span class="icon">📜</span>古文語境 02｜大同與小康（全文）</h2>
+      <div class="box box-link" style="font-size:0.9rem;"><div class="box-title">《禮記．禮運》｜先秦｜論說</div><p>「與」一字三音三義，是本篇最大考點；115 年第 25 題 A 選項直接引用首句。</p></div>
+      <div class="original-text">
+        <p>昔者仲尼<span class="kw">與</span>於<span class="kw">蜡</span>賓，事畢，出遊於<span class="kw">觀</span>之上，<span class="kw">喟</span>然而歎。仲尼之歎，蓋歎魯也。言偃在側，曰：「君子何歎？」孔子曰：「大道之行也，與三代之英，丘未之<span class="kw">逮</span>也，而有志焉。</p>
+        <p>「大道之行也，<span class="kw-teal">天下為公</span>。選賢<span class="kw">與</span>能，講信修睦。<span class="kw-teal">故人不獨親其親，不獨子其子</span>；<span class="kw-teal">使老有所終，壯有所用，幼有所長</span>，<span class="kw">矜</span>、寡、孤、獨、廢疾者，皆有所養；男有<span class="kw">分</span>，女有歸。<span class="kw-teal">貨</span><span class="kw">惡</span><span class="kw-teal">其棄於地也</span>，不必藏於己；力惡其不出於身也，不必為己。是故謀閉而不興，盜竊亂賊而不作，故外戶而不閉，是謂大同。</p>
+        <p>「今大道既隱，天下為家。各親其親，各子其子，貨力為己。大人世及以為禮，城郭溝池以為固，禮義以為紀；<span class="kw-teal">以正君臣，以篤父子，以睦兄弟，以和夫婦</span>，以設制度，以立田里，以賢勇<span class="kw">知</span>，以功為己。故謀用是作，而兵由此起。禹、湯、文、武、成王、周公，由此其選也。此六君子者，未有不謹於禮者也。以著其義，以考其信，著有過，刑仁講讓，示民有常。如有不由此者，在<span class="kw">埶</span>者去，眾以為殃。是謂小康。」</p>
+      </div>
+      <h3 class="sub-section-title">字音字形字義</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>語境</th><th>字</th><th>讀音</th><th>字義／提示</th></tr></thead><tbody>
+<tr><td>仲尼與於蜡賓</td><td>與</td><td>ㄩˋ</td><td>參與</td></tr>
+<tr><td>蜡賓</td><td>蜡</td><td>ㄓㄚˋ</td><td>年終祭祀之名；不讀ㄌㄚˋ</td></tr>
+<tr><td>出遊於觀之上</td><td>觀</td><td>ㄍㄨㄢˋ</td><td>宗廟門外的樓臺</td></tr>
+<tr><td>喟然而歎</td><td>喟</td><td>ㄎㄨㄟˋ</td><td>嘆息聲；形近「胃」</td></tr>
+<tr><td>丘未之逮也</td><td>逮</td><td>ㄉㄞˋ</td><td>趕上</td></tr>
+<tr><td>選賢與能</td><td>與</td><td>ㄩˇ</td><td>通「舉」，推舉；教育部辭典注ㄩˇ，部分教材注ㄐㄩˇ</td></tr>
+<tr><td>矜、寡、孤、獨</td><td>矜</td><td>ㄍㄨㄢ</td><td>通「鰥」，老而無妻</td></tr>
+<tr><td>男有分</td><td>分</td><td>ㄈㄣˋ</td><td>職分</td></tr>
+<tr><td>貨惡其棄於地也</td><td>惡</td><td>ㄨˋ</td><td>厭惡</td></tr>
+<tr><td>在埶者去</td><td>埶</td><td>ㄕˋ</td><td>通「勢」</td></tr>
+<tr><td>以賢勇知</td><td>知</td><td>ㄓˋ</td><td>通「智」</td></tr>
+</tbody></table></div>
+      <h3 class="sub-section-title">修辭與效果</h3>
+      <div class="card" style="padding:0;"><table class="compare-table"><thead><tr><th>修辭</th><th>原句</th><th>說明與效果</th></tr></thead><tbody>
+<tr><td>類疊（類字）＋轉品</td><td>故人不獨親其親，不獨子其子</td><td>前一「親」「子」名詞作動詞；句式重複造成節奏</td></tr>
+<tr><td>排比</td><td>使老有所終，壯有所用，幼有所長</td><td>三個結構相同的句子，呈現全體人民各得其所</td></tr>
+<tr><td>排比</td><td>以正君臣，以篤父子，以睦兄弟，以和夫婦</td><td>「以＋動詞＋賓語」連用，描寫禮治的範圍</td></tr>
+<tr><td>映襯（對比）</td><td>天下為公</td><td>與下文「天下為家」對舉，以對比統攝全文兩段</td></tr>
+<tr><td>倒裝（賓語提前）</td><td>貨惡其棄於地也</td><td>「貨」提前作話題，「惡其棄於地」才是評論</td></tr>
+</tbody></table></div>
+      <details><summary>展開白話語譯</summary>
+        <div class="translation-block" style="margin-top:1.1rem;"><p style="margin-bottom:0.5rem;">引言：從前孔子曾參加蜡祭，擔任助祭的賓客，典禮結束後，到宮城門觀樓上遊覽，發出了深深的嘆息。孔子的嘆息，大概是在感嘆魯國（大道不行）的狀況吧。弟子言偃（子游）在旁邊，說：「夫子為何嘆息？」孔子說：「大道通行的時代，以及夏、商、周三代英明君主的時代，我都沒有趕上，但心中嚮往。」</p><p style="margin-bottom:0.5rem;">大同之世：孔子說：「大道通行的時候，天下是大家共有的（公共的），選拔有德行的人，推舉有才能的人，講求誠信，培養和睦。因此人們不只孝敬自己的父母，不只愛護自己的子女，讓老人能夠安享晚年，壯年人有所發揮，幼兒得到撫育成長；鰥夫、寡婦、孤兒、老而無子、殘廢者，都能得到照顧供養；男子有職業，女子有歸宿。對於財貨，人們討厭它被浪費丟棄，但不必據為己有；對於力氣，人們討厭不盡力去做，但不必只為了自己。因此陰謀不會興起，盜竊、叛亂之事也不會發生，所以大門不必關閉——這就叫做『大同』。」</p><p style="margin-bottom:0.5rem;">小康之世：「現在大道已經隱而不行，天下成了一家（一人）私有的，各人只孝敬自己的父母，各人只愛護自己的子女，財物和勞力都只為自己；諸侯天子以世襲傳位為禮制，修築城牆壕溝作為防禦，以禮義作為綱紀。因此用禮義來端正君臣名分，用禮義來加深父子情誼，用禮義來使兄弟和睦，用禮義來使夫妻和諧，以禮義設立各種制度，以禮義劃分田里，以此標榜勇智之人，以此把功績歸於個人。所以機謀因此產生，戰爭也由此興起。夏禹、商湯、周文王、周武王、周成王、周公，就是因為（以禮治世）而成為傑出的人物。這六位君子，沒有一位不謹守禮制。他們用禮來彰顯道義，用禮來成全信用，揭露過錯，以仁愛為典範，倡導謙讓，向人民昭示常規法度。如果有不遵循禮的，即使是在位掌權的人也要被罷黜，百姓都把他看作禍害——這就叫做『小康』。」</p></div>
+      </details>
+    </section>
+
+    <section id="t3">
+      <h2 class="section-title"><span class="icon">📜</span>古文語境 03｜桃花源記（全文）</h2>
+      <div class="box box-link" style="font-size:0.9rem;"><div class="box-title">陶淵明｜東晉｜雜記</div><p>「要、向、尋、規」都是一字多義；「黃髮垂髫」是借代教科書級例句。</p></div>
+      <div class="original-text">
+        <p>晉太元中，武陵人捕魚為業。緣溪行，忘路之遠近。忽逢桃花林，夾岸數百步，中無雜樹，<span class="kw-teal">芳草鮮美，落英</span><span class="kw">繽</span><span class="kw-teal">紛</span>。漁人甚異之。復前行，欲窮其林。</p>
+        <p>林盡水源，便得一山。山有小口，彷彿若有光，便捨船，從口入。<span class="kw-teal">初極狹，</span><span class="kw">纔</span><span class="kw-teal">通人；復行數十步，</span><span class="kw">豁</span><span class="kw-teal">然開朗</span>。土地平曠，屋舍<span class="kw">儼</span>然，有良田、美池、桑竹之屬。<span class="kw">阡陌</span><span class="kw-teal">交通，雞犬相聞</span>。其中往來種作，男女衣著，悉如外人；<span class="kw-teal">黃髮垂</span><span class="kw">髫</span>，並怡然自樂。</p>
+        <p>見漁人，乃大驚，問所從來，具答之。便<span class="kw">要</span>還家，設酒殺雞作食。村中聞有此人，咸來問訊。自云先世避秦時亂，率妻子邑人來此絕境，不復出焉，遂與外人間隔。問今是何世，乃不知有漢，無論魏晉。此人一一為具言所聞，皆歎<span class="kw">惋</span>。餘人各復延至其家，皆出酒食。停數日，辭去。此中人語云：「<span class="kw-teal">不足為外人道也</span>。」</p>
+        <p>既出，得其船，便扶向路，處處誌之。及郡下，<span class="kw">詣</span>太守，說如此。太守即遣人隨其往，尋向所誌，遂迷不復得路。</p>
+        <p>南陽劉子<span class="kw">驥</span>，高尚士也，聞之，欣然規往，未果，尋病終。後遂無問津者。</p>
+      </div>
+      <h3 class="sub-section-title">字音字形字義</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>語境</th><th>字</th><th>讀音</th><th>字義／提示</th></tr></thead><tbody>
+<tr><td>落英繽紛</td><td>繽</td><td>ㄅㄧㄣ</td><td>繽紛：繁多交雜</td></tr>
+<tr><td>纔通人</td><td>纔</td><td>ㄘㄞˊ</td><td>僅、只；同「才」</td></tr>
+<tr><td>豁然開朗</td><td>豁</td><td>ㄏㄨㄛˋ</td><td>開闊；另有「豁出去」ㄏㄨㄛ</td></tr>
+<tr><td>屋舍儼然</td><td>儼</td><td>ㄧㄢˇ</td><td>整齊貌；形近「嚴」</td></tr>
+<tr><td>阡陌交通</td><td>阡</td><td>ㄑㄧㄢ</td><td>南北向田間小路</td></tr>
+<tr><td>阡陌交通</td><td>陌</td><td>ㄇㄛˋ</td><td>東西向田間小路</td></tr>
+<tr><td>垂髫</td><td>髫</td><td>ㄊㄧㄠˊ</td><td>孩童下垂的頭髮</td></tr>
+<tr><td>便要還家</td><td>要</td><td>ㄧㄠ</td><td>通「邀」</td></tr>
+<tr><td>皆歎惋</td><td>惋</td><td>ㄨㄢˋ</td><td>嘆惜；形近「婉、腕」</td></tr>
+<tr><td>詣太守</td><td>詣</td><td>ㄧˋ</td><td>前往拜見；形近「指、脂」</td></tr>
+<tr><td>劉子驥</td><td>驥</td><td>ㄐㄧˋ</td><td>人名；千里馬之意</td></tr>
+</tbody></table></div>
+      <h3 class="sub-section-title">修辭與效果</h3>
+      <div class="card" style="padding:0;"><table class="compare-table"><thead><tr><th>修辭</th><th>原句</th><th>說明與效果</th></tr></thead><tbody>
+<tr><td>借代</td><td>黃髮垂髫</td><td>以老人的黃髮、孩童的垂髫代替老人與小孩</td></tr>
+<tr><td>摹寫（視覺）</td><td>芳草鮮美，落英繽紛</td><td>色彩鮮明，營造異境之美</td></tr>
+<tr><td>對偶</td><td>阡陌交通，雞犬相聞</td><td>工整對仗，田園秩序與安寧盡在其中</td></tr>
+<tr><td>映襯（先抑後揚）</td><td>初極狹，纔通人；復行數十步，豁然開朗</td><td>由窄到闊，放大進入異境的驚喜</td></tr>
+<tr><td>象徵</td><td>不足為外人道也</td><td>桃花源象徵與世隔絕的理想世界，全篇寄託</td></tr>
+</tbody></table></div>
+      <details><summary>展開白話語譯</summary>
+        <div class="translation-block" style="margin-top:1.1rem;"><p style="margin-bottom:0.5rem;">東晉太元年間，武陵郡有個以捕魚為業的人。有一天沿著溪水行船，忘記了路走了多遠。突然看見一片桃花林，兩岸綿延數百步，林中沒有其他樹木，地面芳草鮮嫩美麗，落花繽紛。漁人對此感到十分奇異，繼續往前走，想看清這片林子的盡頭。桃花林的盡頭就是溪水的源頭，那裡有一座山，山上有個小洞口，隱約好像有光從裡面射出來。漁人便棄船上岸，從洞口走進去。</p><p style="margin-bottom:0.5rem;">洞口起初非常狹窄，僅能容一個人通過，再走幾十步，突然視野開闊，豁然開朗。只見土地平坦開闊，房屋整整齊齊，有肥沃的田地、美麗的池塘，以及桑樹、竹林之類的植物。田間小路縱橫交錯，雞鳴狗叫聲彼此相聞。其中往來耕作的人，男男女女的衣著，都和外面世界的人一樣。老人和小孩，個個都安閒快樂。</p><p style="margin-bottom:0.5rem;">那裡的人看到漁人，大為驚訝，問他從哪裡來，漁人一一作了回答。那人就邀請漁人到家中做客，擺出酒食款待。村子裡的人聽說有這樣一個人，都紛紛前來打聽消息。他們自述說，祖先是為了躲避秦朝時的戰亂，帶著妻子兒女和同鄉來到這個與世隔絕的地方，從此再也沒有出去，於是就跟外界斷絕了往來。他們問漁人現在是什麼朝代，竟然不知道有過漢朝，更不必說魏朝和晉朝了。漁人把自己所知道的事情一一告訴了他們，大家都感歎惋惜。其他的人也各自邀請漁人到自己家中，都拿出酒食招待。漁人住了幾天，才告辭離去。這裡的人叮囑漁人說：「這裡的事不值得對外面的人說。」</p><p style="margin-bottom:0.5rem;">漁人出去後，找到了自己的船，就沿著原來的路回去，一路上到處做了記號。到了郡城，漁人去見太守，把這件事情詳細報告了。太守立即派人隨漁人前往，尋找他所做的記號，卻迷失了方向，再也找不到那條路了。南陽的劉子驥，是個清高的隱士，聽到這件事後，高高興興地計劃前往，但還沒有實現，不久就病死了。此後就再也沒有人尋訪桃花源了。</p></div>
+      </details>
+    </section>
+
+    <section id="t4">
+      <h2 class="section-title"><span class="icon">📜</span>古文語境 04｜師說（全文）</h2>
+      <div class="box box-link" style="font-size:0.9rem;"><div class="box-title">韓愈｜唐｜論說</div><p>「傳」「讀」「不」三個破音字集中；112 年第 26 題 A 選項引「師道之不復可知矣」。</p></div>
+      <div class="original-text">
+        <p>古之學者必有師。師者，所以<span class="kw">傳</span>道、受業、解惑也。<span class="kw-teal">人非生而知之者，孰能無惑</span>？惑而不從師，其為惑也，終不解矣。生乎吾前，其聞道也，固先乎吾，吾從而師之；生乎吾後，其聞道也，亦先乎吾，吾從而師之。吾師道也，夫庸知其年之先後生於吾乎？<span class="kw-teal">是故無貴無賤，無長無少</span>，道之所存，師之所存也。</p>
+        <p>嗟乎！師道之不傳也久矣，欲人之無惑也難矣。<span class="kw-teal">古之聖人，其出人也遠矣，猶且從師而問焉；今之眾人，其下聖人也亦遠矣，而恥學於師</span>。是故聖益聖，愚益愚。聖人之所以為聖，愚人之所以為愚，其皆出於此乎？<span class="kw-teal">愛其子，擇師而教之；於其身也，則恥師焉</span>，惑矣！彼童子之師，授之書而習其句<span class="kw">讀</span>者，非吾所謂傳其道、解其惑者也。句讀之不知，惑之不解，或師焉，或<span class="kw">不</span>焉，小學而大遺，吾未見其明也。巫醫、樂師、百工之人，不恥相師；士大夫之族，曰師、曰弟子云者，則群聚而笑之。問之，則曰：「彼與彼年相若也，道相似也。位卑則足羞，官盛則近<span class="kw">諛</span>。」嗚呼！師道之不復可知矣。巫醫、樂師、百工之人，君子不齒，今其智乃反不能及，<span class="kw-teal">其可怪也歟</span>！</p>
+        <p>聖人無常師。孔子師<span class="kw">郯</span>子、<span class="kw">萇</span>弘、師襄、老<span class="kw">聃</span>。郯子之徒，其賢不及孔子。<span class="kw-teal">孔子曰：「三人行，則必有我師。」</span>是故弟子不必不如師，師不必賢於弟子。聞道有先後，術業有專攻，如是而已。</p>
+        <p>李氏子<span class="kw">蟠</span>，年十七，好古文，六藝經<span class="kw">傳</span>，皆通習之，不拘於時，學於余。余嘉其能行古道，作師說以<span class="kw">貽</span>之。</p>
+      </div>
+      <h3 class="sub-section-title">字音字形字義</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>語境</th><th>字</th><th>讀音</th><th>字義／提示</th></tr></thead><tbody>
+<tr><td>所以傳道</td><td>傳</td><td>ㄔㄨㄢˊ</td><td>傳授</td></tr>
+<tr><td>六藝經傳</td><td>傳</td><td>ㄓㄨㄢˋ</td><td>解釋經書的著作</td></tr>
+<tr><td>句讀</td><td>讀</td><td>ㄉㄡˋ</td><td>文句停頓處</td></tr>
+<tr><td>或不焉</td><td>不</td><td>ㄈㄡˇ</td><td>通「否」</td></tr>
+<tr><td>官盛則近諛</td><td>諛</td><td>ㄩˊ</td><td>諂媚；形近「腴、臾」</td></tr>
+<tr><td>郯子</td><td>郯</td><td>ㄊㄢˊ</td><td>人名</td></tr>
+<tr><td>萇弘</td><td>萇</td><td>ㄔㄤˊ</td><td>人名</td></tr>
+<tr><td>老聃</td><td>聃</td><td>ㄉㄢ</td><td>老子之字</td></tr>
+<tr><td>李氏子蟠</td><td>蟠</td><td>ㄆㄢˊ</td><td>人名；「蟠龍」同字</td></tr>
+<tr><td>作師說以貽之</td><td>貽</td><td>ㄧˊ</td><td>贈送；形近「怡、飴」</td></tr>
+</tbody></table></div>
+      <h3 class="sub-section-title">修辭與效果</h3>
+      <div class="card" style="padding:0;"><table class="compare-table"><thead><tr><th>修辭</th><th>原句</th><th>說明與效果</th></tr></thead><tbody>
+<tr><td>映襯（對比）</td><td>古之聖人，其出人也遠矣，猶且從師而問焉；今之眾人，其下聖人也亦遠矣，而恥學於師</td><td>全文三組對比之首</td></tr>
+<tr><td>映襯（對比）</td><td>愛其子，擇師而教之；於其身也，則恥師焉</td><td>第二組：對子與對己的矛盾</td></tr>
+<tr><td>類疊（類字）</td><td>是故無貴無賤，無長無少</td><td>「無」字反覆，強調從師不分身分年齡</td></tr>
+<tr><td>設問（激問）</td><td>人非生而知之者，孰能無惑</td><td>答案在反面：人人都有惑</td></tr>
+<tr><td>引用（明引）</td><td>孔子曰：「三人行，則必有我師。」</td><td>援引聖人之言增強論證權威</td></tr>
+<tr><td>倒反（諷刺）</td><td>其可怪也歟</td><td>字面「奇怪」，實則譏諷士大夫見識不如百工</td></tr>
+</tbody></table></div>
+      <details><summary>展開白話語譯</summary>
+        <div class="translation-block" style="margin-top:1.1rem;"><p style="margin-bottom:0.5rem;">古時候求學的人一定有老師。老師，是用來傳授道理、教授學業、解答疑惑的人。人不是生下來就懂得道理的，誰能沒有疑惑？有了疑惑卻不跟從老師學習，那些疑惑就終究無法解開。生在我之前的人，他懂得道理本來就比我早，我跟他學；生在我之後的人，如果他懂得道理也比我早，我也跟他學。我學的是道理，哪裡需要計較他的年紀比我大還是比我小呢？所以不論地位高低、年紀長幼，道理在哪裡，老師就在哪裡。</p><p style="margin-bottom:0.5rem;">唉！從師學習的風氣失傳已經很久了，要人沒有疑惑也就很難了。古代的聖人，超過一般人很遠，尚且向老師請教；現在的一般人，比聖人差得很遠，卻以向老師學習為恥。因此聖人更加聖明，愚人更加愚昧。聖人之所以成為聖人，愚人之所以成為愚人，大概都是因為這個緣故吧？人們愛自己的孩子，選擇老師來教他；對自己，卻以從師為恥，真是糊塗！那些孩童的老師，是教他們讀書、學習斷句的，不是我所說的傳授道理、解答疑惑的老師。不懂斷句的向老師請教，有疑惑卻不向老師請教；小的學了，大的反而放棄，我看不出他們哪裡明智。巫師、醫生、樂師和各種工匠，不以互相學習為恥；士大夫這類人，一聽到有人稱「老師」、「弟子」，就聚在一起嘲笑。問他們為什麼，就說：「他和他年紀差不多，道行也差不多。向地位低的人學習就覺得羞恥，向官位高的人學習就近於諂媚。」唉！從師學習的風氣無法恢復，由此可知了。巫師、醫生、樂師和各種工匠，是君子所瞧不起的，如今君子的見識反而比不上他們，真是奇怪啊！</p><p style="margin-bottom:0.5rem;">聖人沒有固定的老師。孔子曾向郯子、萇弘、師襄、老聃學習。郯子這些人，他們的賢能比不上孔子。孔子說：「幾個人同行，其中一定有可以當我老師的人。」所以學生不一定不如老師，老師也不一定比學生賢能。懂得道理有先有後，學業技能各有專精，不過如此而已。</p><p style="margin-bottom:0.5rem;">李家的孩子蟠，十七歲，喜好古文，六經的經文和傳注都通盤學習過，不受當時風氣的拘束，向我學習。我讚許他能實行古人從師的正道，所以寫這篇〈師說〉送給他。</p></div>
+      </details>
+    </section>
+
+    <section id="t5">
+      <h2 class="section-title"><span class="icon">📜</span>古文語境 05｜始得西山宴遊記（全文）</h2>
+      <div class="box box-link" style="font-size:0.9rem;"><div class="box-title">柳宗元｜唐｜遊記</div><p>罕用字最密集的一篇；111 年第 1 題 C 選項「攢蹙累積」即出自此。原文「特出」部分版本作「特立」，不影響考點。</p></div>
+      <div class="original-text">
+        <p>自余為<span class="kw">僇</span>人，居是州，恆<span class="kw">惴慄</span>。其隙也，則<span class="kw">施</span><span class="kw-teal">施而行，漫漫而遊</span>。日與其徒上高山，入深林，窮迴谿，幽泉怪石，無遠不到。<span class="kw-teal">到則披草而坐，傾壺而醉；醉則</span><span class="kw">更</span><span class="kw-teal">相</span><span class="kw">枕</span><span class="kw-teal">以臥，臥而夢</span>。意有所極，夢亦同<span class="kw">趣</span>。<span class="kw">覺</span>而起，起而歸。以為凡是州之山有異態者，皆我有也，而未始知西山之怪特。</p>
+        <p>今年九月二十八日，因坐法華西亭，望西山，始指異之。遂命僕人過湘江，緣染溪，<span class="kw">斫榛</span>莽，焚茅<span class="kw">茷</span>，窮山之高而止。攀援而登，箕<span class="kw">踞</span>而遨，則凡數州之土壤，皆在<span class="kw">衽</span>席之下。其高下之勢，<span class="kw">岈</span><span class="kw-teal">然</span><span class="kw">洼</span><span class="kw-teal">然，若</span><span class="kw">垤</span><span class="kw-teal">若穴</span>，<span class="kw-teal">尺寸千里</span>，<span class="kw">攢蹙</span>累積，莫得<span class="kw">遯</span>隱；<span class="kw">縈</span><span class="kw-teal">青繚白</span>，外與天際，四望如一。然後知是山之特出，不與<span class="kw">培塿</span>為類。悠悠乎與<span class="kw">顥</span>氣俱，而莫得其涯；洋洋乎與造物者遊，而不知其所窮。引<span class="kw">觴</span>滿酌，頹然就醉，不知日之入。<span class="kw-teal">蒼然暮色，自遠而至</span>，至無所見，而猶不欲歸。心凝形釋，與萬化冥合。然後知吾嚮之未始遊，遊於是乎始，故為之文以志。是歲，元和四年也。</p>
+      </div>
+      <h3 class="sub-section-title">字音字形字義</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>語境</th><th>字</th><th>讀音</th><th>字義／提示</th></tr></thead><tbody>
+<tr><td>自余為僇人</td><td>僇</td><td>ㄌㄨˋ</td><td>通「戮」，受刑辱</td></tr>
+<tr><td>恆惴慄</td><td>惴</td><td>ㄓㄨㄟˋ</td><td>恐懼；形近「揣ㄔㄨㄞˇ、湍ㄊㄨㄢ」</td></tr>
+<tr><td>恆惴慄</td><td>慄</td><td>ㄌㄧˋ</td><td>發抖</td></tr>
+<tr><td>施施而行</td><td>施</td><td>ㄧˊ</td><td>施施：緩行貌；不讀ㄕ</td></tr>
+<tr><td>更相枕以臥</td><td>更</td><td>ㄍㄥ</td><td>交替</td></tr>
+<tr><td>更相枕以臥</td><td>枕</td><td>ㄓㄣˋ</td><td>作動詞「枕著」</td></tr>
+<tr><td>覺而起</td><td>覺</td><td>ㄐㄩㄝˊ</td><td>睡醒；不讀ㄐㄧㄠˋ</td></tr>
+<tr><td>夢亦同趣</td><td>趣</td><td>ㄑㄩˋ</td><td>通「趨」或作趣向</td></tr>
+<tr><td>斫榛莽</td><td>斫</td><td>ㄓㄨㄛˊ</td><td>砍；形近「研」</td></tr>
+<tr><td>斫榛莽</td><td>榛</td><td>ㄓㄣ</td><td>叢生的草木</td></tr>
+<tr><td>焚茅茷</td><td>茷</td><td>ㄈㄚˊ</td><td>草葉茂盛；形近「伐」</td></tr>
+<tr><td>箕踞而遨</td><td>踞</td><td>ㄐㄩˋ</td><td>蹲坐；形近「鋸」</td></tr>
+<tr><td>皆在衽席之下</td><td>衽</td><td>ㄖㄣˋ</td><td>衣襟、臥席</td></tr>
+<tr><td>岈然洼然</td><td>岈</td><td>ㄒㄧㄚ</td><td>山谷深邃貌</td></tr>
+<tr><td>岈然洼然</td><td>洼</td><td>ㄨㄚ</td><td>低窪</td></tr>
+<tr><td>若垤若穴</td><td>垤</td><td>ㄉㄧㄝˊ</td><td>蟻窩外的小土堆；形近「姪」</td></tr>
+<tr><td>攢蹙累積</td><td>攢</td><td>ㄘㄨㄢˊ</td><td>聚集；與「攢錢」ㄗㄢˇ、「鑽」ㄗㄨㄢ不同</td></tr>
+<tr><td>攢蹙累積</td><td>蹙</td><td>ㄘㄨˋ</td><td>收縮、緊迫</td></tr>
+<tr><td>莫得遯隱</td><td>遯</td><td>ㄉㄨㄣˋ</td><td>同「遁」，逃匿</td></tr>
+<tr><td>縈青繚白</td><td>縈</td><td>ㄧㄥˊ</td><td>環繞</td></tr>
+<tr><td>不與培塿為類</td><td>培</td><td>ㄆㄡˇ</td><td>培塿：小土丘；不讀ㄆㄟˊ</td></tr>
+<tr><td>不與培塿為類</td><td>塿</td><td>ㄌㄡˇ</td><td>培塿：小土丘</td></tr>
+<tr><td>顥氣</td><td>顥</td><td>ㄏㄠˋ</td><td>顥氣：天地間的浩大之氣</td></tr>
+<tr><td>引觴滿酌</td><td>觴</td><td>ㄕㄤ</td><td>酒杯；形近「殤、傷」</td></tr>
+</tbody></table></div>
+      <h3 class="sub-section-title">修辭與效果</h3>
+      <div class="card" style="padding:0;"><table class="compare-table"><thead><tr><th>修辭</th><th>原句</th><th>說明與效果</th></tr></thead><tbody>
+<tr><td>類疊（疊字）</td><td>施施而行，漫漫而遊</td><td>以舒緩音節寫出看似閒適、實則無聊賴的心境</td></tr>
+<tr><td>頂真</td><td>到則披草而坐，傾壺而醉；醉則更相枕以臥，臥而夢</td><td>句句相銜，寫出機械重複的遊歷</td></tr>
+<tr><td>誇飾（縮小）</td><td>尺寸千里</td><td>千里之遠縮於尺寸之間，極言山高望遠</td></tr>
+<tr><td>譬喻（明喻）</td><td>岈然洼然，若垤若穴</td><td>以蟻丘、洞穴喻山下地勢</td></tr>
+<tr><td>對偶（當句對）</td><td>縈青繚白</td><td>「縈青」對「繚白」，四字之內成對</td></tr>
+<tr><td>轉化（擬人）</td><td>蒼然暮色，自遠而至</td><td>暮色彷彿有意走來，引出物我冥合</td></tr>
+</tbody></table></div>
+      <details><summary>展開白話語譯</summary>
+        <div class="translation-block" style="margin-top:1.1rem;"><p style="margin-bottom:0.5rem;">自從我成為受過刑辱的罪人，住在永州，時常憂懼不安。在公務的空閒，就慢慢地走路，漫無目的地遊覽。每天和同伴登上高山，走入深林，走遍曲折的溪流，幽深的泉水和奇怪的山石，再遠也無不到達。到了就撥開草坐下，倒盡壺中的酒喝到醉；醉了就互相枕著睡，睡了就做夢。心裡想到什麼極致的地方，夢中也就跟著到那裡去。醒來就起身，起身就回家。我以為凡是永州山水有奇特姿態的，都被我遊遍了，卻還不知道西山的奇特之處。</p><p style="margin-bottom:0.5rem;">今年九月二十八日，因為坐在法華寺西亭，遙望西山，才開始指著它覺得奇特。於是叫僕人渡過湘江，沿著染溪，砍伐叢生的草木，焚燒茂密的茅草，一直走到山的最高處才停下。攀援而上，張開兩腿坐著盡情遊賞，那麼幾個州的土地，都在我的座席之下。那高低起伏的地勢，有的高聳、有的低窪，像蟻丘、像洞穴，尺寸之間彷彿就有千里之遠，山川聚集收縮、層層堆積，沒有任何景物能逃過視線；青山環繞、白水縈迴，遠處與天相接，四面望去都是一樣的。這才知道這座山的獨特超群，不是一般小土丘可以相比的。心神悠悠然與天地間的大氣融為一體，感覺不到它的邊際；洋洋然與造物者同遊，不知道它的盡頭。拿起酒杯斟滿，醉得東倒西歪，連太陽下山都不知道。蒼茫的暮色，從遠處漸漸來到，到了什麼都看不見，卻還不想回去。心神凝定、形體消散，與萬物暗暗融合。這才明白我過去不曾真正遊覽過，真正的遊覽從此時才開始，所以為這次遊覽寫下這篇文章來記述。這一年，是元和四年。</p></div>
+      </details>
+    </section>
+
+    <section id="t6">
+      <h2 class="section-title"><span class="icon">📜</span>古文語境 06｜晚遊六橋待月記（全文）</h2>
+      <div class="box box-link" style="font-size:0.9rem;"><div class="box-title">袁宏道｜明｜遊記</div><p>短而修辭密度高；115 年第 25 題 B 選項引「梅花為寒所勒」。</p></div>
+      <div class="original-text">
+        <p>西湖最盛，為春為月。一日之盛，為朝煙，為夕<span class="kw">嵐</span>。今歲春雪甚盛，<span class="kw-teal">梅花為寒所</span><span class="kw">勒</span>，與杏桃相次開發，尤為奇觀。石<span class="kw">簣數</span>為余言：「傅金吾園中梅，張功甫玉照堂故物也，急往觀之。」<span class="kw-teal">余時為桃花所戀</span>，竟不忍去湖上。由斷橋至蘇隄一帶，綠煙紅霧，<span class="kw">瀰</span>漫二十餘里。<span class="kw-teal">歌吹為風，粉汗為雨</span>，<span class="kw-teal">羅</span><span class="kw">紈</span><span class="kw-teal">之盛，多於隄畔之草</span>，豔<span class="kw">冶</span>極矣。</p>
+        <p>然杭人遊湖，止午、未、申三時；其實湖光染翠之工，山嵐設色之妙，皆在朝日始出，夕<span class="kw">舂</span>未下，始極其濃媚。月景尤不可言，<span class="kw-teal">花態柳情，山容水意</span>，別是一種趣味。此樂留與山僧遊客受用，<span class="kw-teal">安可為俗士道哉</span>！</p>
+      </div>
+      <h3 class="sub-section-title">字音字形字義</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>語境</th><th>字</th><th>讀音</th><th>字義／提示</th></tr></thead><tbody>
+<tr><td>夕嵐</td><td>嵐</td><td>ㄌㄢˊ</td><td>山中霧氣；形近「風」</td></tr>
+<tr><td>梅花為寒所勒</td><td>勒</td><td>ㄌㄜˋ</td><td>抑制、約束</td></tr>
+<tr><td>石簣</td><td>簣</td><td>ㄎㄨㄟˋ</td><td>陶望齡之號；與「功虧一簣」同字</td></tr>
+<tr><td>數為余言</td><td>數</td><td>ㄕㄨㄛˋ</td><td>屢次</td></tr>
+<tr><td>瀰漫二十餘里</td><td>瀰</td><td>ㄇㄧˊ</td><td>水滿、布滿</td></tr>
+<tr><td>羅紈之盛</td><td>紈</td><td>ㄨㄢˊ</td><td>細絹；形近「丸」</td></tr>
+<tr><td>豔冶極矣</td><td>冶</td><td>ㄧㄝˇ</td><td>豔麗；與「治ㄓˋ」差一點</td></tr>
+<tr><td>夕舂未下</td><td>舂</td><td>ㄔㄨㄥ</td><td>夕陽西沉；與「春」差一橫</td></tr>
+</tbody></table></div>
+      <h3 class="sub-section-title">修辭與效果</h3>
+      <div class="card" style="padding:0;"><table class="compare-table"><thead><tr><th>修辭</th><th>原句</th><th>說明與效果</th></tr></thead><tbody>
+<tr><td>轉化（擬人）</td><td>梅花為寒所勒</td><td>「勒」本用於人馬，寫春寒抑制梅花</td></tr>
+<tr><td>轉化（擬人）</td><td>余時為桃花所戀</td><td>反過來說桃花留戀作者，情味倍增</td></tr>
+<tr><td>譬喻（隱喻）＋誇飾</td><td>歌吹為風，粉汗為雨</td><td>「為」＝是；極言遊人之多</td></tr>
+<tr><td>借代＋誇飾</td><td>羅紈之盛，多於隄畔之草</td><td>羅紈代穿綢緞的遊人，又誇飾其多</td></tr>
+<tr><td>轉化（擬人）</td><td>花態柳情，山容水意</td><td>四組皆把景物寫成有情有態</td></tr>
+<tr><td>設問（激問）</td><td>安可為俗士道哉</td><td>收束全篇，流露性靈派的自負</td></tr>
+</tbody></table></div>
+      <details><summary>展開白話語譯</summary>
+        <div class="translation-block" style="margin-top:1.1rem;"><p style="margin-bottom:0.5rem;">第一段（點明主題）：西湖最美的時候，是春天，是月夜。一天之中最美的時候，是清晨的薄霧，是傍晚的山嵐。</p><p style="margin-bottom:0.5rem;">第二段（今春奇觀）：今年春天的雪下得很大，梅花被寒氣抑制，和杏花、桃花陸續開放，格外成為奇觀。石簣（友人陶望齡）多次對我說：傅金吾（傅姓官員）園中的梅花，是宋代張功甫玉照堂遺留下來的名品，趕快去看看吧。我當時正被桃花迷住，竟然不忍心離開湖上。</p><p style="margin-bottom:0.5rem;">第三段（遊人如織）：從斷橋到蘇堤一帶，（柳絲嫩綠）如綠色的煙霧，（桃杏盛開）如紅色的雲霞，綿延二十多里。歌聲和樂聲隨風飄揚，女子的粉汗如雨滴，盛裝的遊人比堤岸邊的草還多，真是繁華豔麗到了極點。</p><p style="margin-bottom:0.5rem;">第四段（點出月景之妙）：然而杭州人遊湖，只在午時、未時、申時三個時段（約上午十一點到下午五點）；其實湖光映染青翠的精妙、山中霧嵐呈現色彩的美妙，都在朝日初升和夕陽未落之時，才最為濃艷嬌媚。月色下的景致就更難以言說了，花的姿態、柳的情韻、山的容貌、水的神意，別有一番趣味。這樣的樂趣只留給山中僧人和真正懂得遊賞的人享用，哪裡能跟世俗之人說得明白呢！</p></div>
+      </details>
+    </section>
+
+    <section id="t7">
+      <h2 class="section-title"><span class="icon">📜</span>古文語境 07｜勞山道士（全文）</h2>
+      <div class="box box-link" style="font-size:0.9rem;"><div class="box-title">蒲松齡｜清｜志怪</div><p>112、113 年第 1 題都考本篇用字；111 年選擇題更以全篇作閱讀題組。</p></div>
+      <div class="original-text">
+        <p>邑有王生，行七，故家子。少慕道，聞勞山多仙人，負<span class="kw">笈</span>往遊，登一頂，有觀宇，甚幽。一道士坐蒲團上，素髮垂領，而神觀爽邁。叩而與語，理甚玄妙，請師之。道士曰：「恐嬌惰不能作苦。」答言：「能之。」其門人甚眾，薄暮畢集，王俱與<span class="kw">稽</span>首，遂留觀中。</p>
+        <p>凌晨，道士呼王去，授以斧，使隨眾採<span class="kw">樵</span>，王謹受教。過月餘，手足重<span class="kw">繭</span>，不堪其苦，陰有歸志。一夕歸，見二人與師共酌，日已暮，尚無燈燭，師乃剪紙如鏡，粘壁間，俄頃，月明輝壁，光鑒毫芒，諸門人環聽奔走。一客曰：「良宵勝樂，不可不同。」乃於案上取壺酒，分<span class="kw">賚</span>諸徒，且囑盡醉。王自思：「七八人，壺酒何能<span class="kw">徧</span>給？」遂各覓<span class="kw">盎盂</span>，競飲先<span class="kw">釂</span>，惟恐樽盡，而往復<span class="kw">挹</span>注，竟不少減，心奇之。俄一客曰：「蒙賜月明之照，乃爾寂飲，何不呼嫦娥來？」乃以<span class="kw">箸</span>擲月中，見一美人，自光中出，初不盈尺，至地，遂與人等，<span class="kw-teal">纖腰秀項，翩翩作</span><span class="kw">霓裳</span><span class="kw-teal">舞</span>。已而歌曰：「仙仙乎，而還乎，而幽我於廣寒乎？」其聲清越，烈如簫管。歌畢，盤旋而起，躍登几上，驚顧之間，已復為箸，三人大笑，又一客曰：「今宵最樂，然不勝酒力矣，其<span class="kw">餞</span>我於月宮可乎？」三人移席，漸入月中，眾視三人，坐月中飲，鬚眉畢<span class="kw">見</span>，<span class="kw-teal">如影之在鏡中</span>。移時，月漸暗，門人然燭來，則道士獨坐，而客<span class="kw">杳</span>矣。几上肴核尚存，壁上月，紙圓如鏡而已。道士問眾：「飲足乎？」曰：「足矣。」「足宜早寢，勿誤樵蘇。」眾諾而退。</p>
+        <p>王竊忻慕，歸念遂息。又一月，苦不可忍，而道士並不傳教一術，心不能持，辭曰：「弟子數百里，受業仙師，縱不能得長生術，或小有傳習，亦可慰求教之心，今閱兩三月，不過早樵而暮歸，弟子在家，未<span class="kw">諳</span>此苦。」道士笑曰：「我固謂不能作苦，今果然，明早，當遣汝行。」</p>
+        <p>王曰：「弟子操作多日，師略授小技，此來為不負也。」道士問何術之求？王曰：「每見師行處，牆壁所不能隔，但得此法，足矣。」道士笑而允之。乃傳以訣，令自咒畢，呼曰：「入之！」王面牆不敢入，又曰：「試入之。」王果從容入，及牆而阻。道士曰：「<span class="kw">俛</span>首驟入，勿<span class="kw">逡</span>巡。」王果去牆數步奔而入，及牆，<span class="kw-teal">虛若無物</span>，回視，果在牆外矣。大喜，入謝。道士曰：「歸宜潔持，否則不驗。」遂資斧遣之歸。</p>
+        <p>抵家自<span class="kw">詡</span>遇仙，堅壁所不能阻，妻不信，王傚其作為，去牆數尺，奔而入；頭觸硬壁，<span class="kw">驀</span>然而<span class="kw">踣</span>，妻扶視之，<span class="kw-teal">額上墳起如巨卵焉</span>。妻<span class="kw">揶揄</span>之，王慚忿，罵老道士之無良而已。</p>
+        <p>異史氏曰：聞此事，未有不大笑者，而不知世之為王生者，正復不少。今有<span class="kw">傖</span>父<span class="kw-teal">喜</span><span class="kw">疢</span><span class="kw-teal">毒而畏藥石</span>，遂有<span class="kw">舐癰吮</span>痔者，進宣威逞暴之術，以迎其旨，<span class="kw">紿</span>之曰，執此術也以往，可以橫行而無礙，初試，未嘗不小效，遂謂天下之大，舉可以如是行矣，<span class="kw-teal">勢不至觸硬壁而顛</span><span class="kw">蹶</span><span class="kw-teal">，不止也</span>。</p>
+      </div>
+      <h3 class="sub-section-title">字音字形字義</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>語境</th><th>字</th><th>讀音</th><th>字義／提示</th></tr></thead><tbody>
+<tr><td>負笈往遊</td><td>笈</td><td>ㄐㄧˊ</td><td>書箱；113 年「負笈」為字形考點</td></tr>
+<tr><td>王俱與稽首</td><td>稽</td><td>ㄑㄧˇ</td><td>稽首：叩頭禮；與「無稽」ㄐㄧ不同</td></tr>
+<tr><td>使隨眾採樵</td><td>樵</td><td>ㄑㄧㄠˊ</td><td>砍柴；形近「瞧、憔」</td></tr>
+<tr><td>手足重繭</td><td>繭</td><td>ㄐㄧㄢˇ</td><td>手腳的厚皮；形近「蘭」</td></tr>
+<tr><td>分賚諸徒</td><td>賚</td><td>ㄌㄞˋ</td><td>賞賜；形近「賽」</td></tr>
+<tr><td>壺酒何能徧給</td><td>徧</td><td>ㄅㄧㄢˋ</td><td>同「遍」</td></tr>
+<tr><td>遂各覓盎盂</td><td>盎</td><td>ㄤˋ</td><td>腹大口小的盛器</td></tr>
+<tr><td>遂各覓盎盂</td><td>盂</td><td>ㄩˊ</td><td>盛液體的器皿</td></tr>
+<tr><td>競飲先釂</td><td>釂</td><td>ㄐㄧㄠˋ</td><td>飲盡杯中酒</td></tr>
+<tr><td>往復挹注</td><td>挹</td><td>ㄧˋ</td><td>舀取；形近「揖ㄧ」</td></tr>
+<tr><td>乃以箸擲月中</td><td>箸</td><td>ㄓㄨˋ</td><td>筷子；形近「著」</td></tr>
+<tr><td>翩翩作霓裳舞</td><td>霓</td><td>ㄋㄧˊ</td><td>虹的外環；形近「兒」</td></tr>
+<tr><td>翩翩作霓裳舞</td><td>裳</td><td>ㄔㄤˊ</td><td>下衣；「衣裳」則輕讀</td></tr>
+<tr><td>其餞我於月宮可乎</td><td>餞</td><td>ㄐㄧㄢˋ</td><td>設酒食送別；形近「賤、踐」</td></tr>
+<tr><td>而客杳矣</td><td>杳</td><td>ㄧㄠˇ</td><td>無影無蹤；形近「香」</td></tr>
+<tr><td>鬚眉畢見</td><td>見</td><td>ㄒㄧㄢˋ</td><td>通「現」；111 年字義考點</td></tr>
+<tr><td>未諳此苦</td><td>諳</td><td>ㄢ</td><td>熟悉；115 年字音考點</td></tr>
+<tr><td>俛首驟入</td><td>俛</td><td>ㄈㄨˇ</td><td>同「俯」</td></tr>
+<tr><td>勿逡巡</td><td>逡</td><td>ㄑㄩㄣ</td><td>遲疑不前；113 年字音考點</td></tr>
+<tr><td>抵家自詡遇仙</td><td>詡</td><td>ㄒㄩˇ</td><td>誇耀；形近「栩」</td></tr>
+<tr><td>驀然而踣</td><td>驀</td><td>ㄇㄛˋ</td><td>忽然</td></tr>
+<tr><td>驀然而踣</td><td>踣</td><td>ㄅㄛˊ</td><td>跌倒；112 年字音考點</td></tr>
+<tr><td>妻揶揄之</td><td>揶</td><td>ㄧㄝˊ</td><td>揶揄：嘲弄</td></tr>
+<tr><td>妻揶揄之</td><td>揄</td><td>ㄩˊ</td><td>揶揄：嘲弄；形近「愉、瑜」</td></tr>
+<tr><td>今有傖父</td><td>傖</td><td>ㄘㄤ</td><td>粗鄙之人；形近「倉、槍」</td></tr>
+<tr><td>喜疢毒</td><td>疢</td><td>ㄔㄣˋ</td><td>熱病</td></tr>
+<tr><td>舐癰吮痔</td><td>舐</td><td>ㄕˋ</td><td>舔</td></tr>
+<tr><td>舐癰吮痔</td><td>癰</td><td>ㄩㄥ</td><td>毒瘡</td></tr>
+<tr><td>舐癰吮痔</td><td>吮</td><td>ㄕㄨㄣˇ</td><td>用口吸；不讀ㄩㄣˇ</td></tr>
+<tr><td>紿之曰</td><td>紿</td><td>ㄉㄞˋ</td><td>欺騙；形近「給、始」</td></tr>
+<tr><td>顛蹶</td><td>蹶</td><td>ㄐㄩㄝˊ</td><td>跌倒；「一蹶不振」同音</td></tr>
+</tbody></table></div>
+      <h3 class="sub-section-title">修辭與效果</h3>
+      <div class="card" style="padding:0;"><table class="compare-table"><thead><tr><th>修辭</th><th>原句</th><th>說明與效果</th></tr></thead><tbody>
+<tr><td>譬喻（明喻）</td><td>如影之在鏡中</td><td>以鏡中影喻月中人，虛實莫辨</td></tr>
+<tr><td>譬喻（明喻）</td><td>額上墳起如巨卵焉</td><td>滑稽誇張，諷意全出</td></tr>
+<tr><td>摹寫（視覺）</td><td>纖腰秀項，翩翩作霓裳舞</td><td>寫嫦娥體態與舞姿</td></tr>
+<tr><td>映襯（對比）</td><td>虛若無物</td><td>與後文「頭觸硬壁」成強烈對比，結果決定一切</td></tr>
+<tr><td>借喻</td><td>喜疢毒而畏藥石</td><td>疢毒喻逢迎之言，藥石喻逆耳忠言；本體、喻詞皆省</td></tr>
+<tr><td>借喻</td><td>勢不至觸硬壁而顛蹶，不止也</td><td>把故事的「硬壁」轉用來警告當權者</td></tr>
+</tbody></table></div>
+      <details><summary>展開白話語譯</summary>
+        <div class="translation-block" style="margin-top:1.1rem;"><p style="margin-bottom:0.5rem;">第一段（拜師求道）：縣裡有個王姓書生，排行第七，是世家子弟。年輕時仰慕道術，聽說勞山有很多神仙，便背著書箱前去雲遊求道，登上一座山頂，看見一座道觀，環境十分幽靜。有一位道士坐在蒲團上，滿頭白髮垂到衣領，但神情容貌卻爽朗豪邁。王生上前叩問攀談，道士所說的道理十分玄妙，王生便請求拜他為師。道士說：「恐怕你嬌生慣養、懶惰成性，吃不了苦。」王生回答說：「我能吃苦。」道士的門徒很多，傍晚時全都聚集回來，王生一一向他們行禮，於是就留在道觀中。</p><p style="margin-bottom:0.5rem;">第二段（月夜奇景）：第二天清晨，道士叫王生過去，交給他一把斧頭，要他跟著眾人上山砍柴，王生恭謹地接受教導。過了一個多月，他的手腳都磨出厚厚的繭，忍受不了這種辛苦，暗中已萌生歸家的念頭。一天晚上他回來，看見有兩個人和師父一起喝酒，天色已晚，還沒有點燈燭，師父便剪了一張紙，形狀像鏡子一樣，貼在牆壁上，不一會兒，月光般的光輝照亮了牆壁，光亮到連細微的毫毛都看得清楚，門徒們都圍著看，來回奔走伺候。一位客人說：「良辰美景值得同樂，不能不一起分享。」於是就從桌上拿起酒壺，分賜給各位徒弟，並且囑咐大家要盡興喝醉。王生心裡想：「七八個人，一壺酒怎麼夠分給大家？」於是大家各自找來杯盞，爭相搶先喝盡，唯恐酒壺空了，可是來回添酒斟酌，酒竟然一點也沒有減少，心中十分驚奇。不久，一位客人說：「承蒙賜予明月的照耀，怎麼能只是這樣寂靜地喝酒呢？何不召喚嫦娥前來？」於是把筷子擲向月中，只見一位美人，從月光中走出來，起初還不到一尺高，落地之後，就變得和常人一樣高，腰肢纖細、脖頸秀美，翩翩起舞跳起霓裳羽衣曲。跳完之後又唱道：「仙人啊仙人，你要回去了嗎？為何要把我幽禁在廣寒宮呢？」歌聲清亮悠揚，響亮如簫管的聲音。唱完之後，盤旋而起，躍上桌案，眾人正驚訝地注視之間，她已恢復成一雙筷子，三個人相視大笑。又一位客人說：「今晚玩得最盡興，可是已經喝不下酒了，你們可以到月宮裡為我餞別嗎？」三人移動座席，漸漸走入月光之中，眾人看見三人坐在月中飲酒，連鬍鬚眉毛都看得清清楚楚，就如同影子映在鏡子裡一樣。過了一會兒，月光漸漸暗淡，門徒點起蠟燭走過來一看，只見道士獨自坐著，客人已經不見蹤影了。桌上的酒菜果核還在，牆上的月亮，不過是一張圓形的紙罷了。道士問大家：「都喝夠了嗎？」大家回答：「夠了。」道士說：「喝夠了就該早點睡，別耽誤了明天砍柴割草的事。」眾人應聲告退。</p><p style="margin-bottom:0.5rem;">第三段（欲去又留）：王生私下十分欣羨佩服，回家的念頭因此打消了。可是又過了一個月，實在苦不堪言，而道士始終沒有傳授任何法術，王生心裡再也忍不住，便向道士辭行說：「弟子從幾百里外趕來，跟隨仙師學道，即使不能學得長生不死之術，只要能稍微傳授一點法術，也可以安慰我求教的心願。如今已經過了兩三個月，每天所做的不過是早晨砍柴、傍晚回來，弟子在家裡從來沒有經歷過這種辛苦。」道士笑著說：「我本來就說你吃不了苦，如今果然如此，明天早上，就讓你回去吧。」</p><p style="margin-bottom:0.5rem;">第四段（求授穿牆術）：王生說：「弟子在此辛勤勞作了這麼多天，希望師父能稍微傳授一點小法術，這樣此行才不算白費。」道士問他想學什麼法術。王生說：「我常常看見師父所到之處，牆壁都不能阻隔，只要能學會這個方法，我就滿足了。」道士笑著答應了他。於是傳授給他口訣，讓他自己唸完咒語後，喊道：「進去吧！」王生面對牆壁不敢走進去。道士又說：「你試著走進去看看。」王生果然從容地走進去，可是一到牆邊就被阻擋住了。道士說：「要低頭快速衝進去，不要遲疑猶豫。」王生果然退後幾步，奔跑著衝向牆壁，到了牆邊，竟然像什麼都沒有一樣，回頭一看，果然已經到了牆外。他非常高興，回去向道士道謝。道士說：「回家後應該潔身自持，不然這法術就不靈驗了。」於是就給了他路費，讓他回家去了。</p><p style="margin-bottom:0.5rem;">第五段（撞牆出醜）：王生回到家中，自誇遇到了神仙，堅固的牆壁也不能阻擋他。妻子不相信，王生便仿照道士教的方法做起來，退後幾步，奔跑著衝向牆壁；結果頭撞上堅硬的牆壁，猛然跌倒在地，妻子扶起他一看，額頭上腫起一個大包，像顆巨大的雞蛋一樣。妻子譏笑嘲弄他，王生又羞又氣，只能咒罵那老道士沒安好心罷了。</p><p style="margin-bottom:0.5rem;">末段（異史氏評論）：蒲松齡（異史氏）評論說：聽到這件事的人，沒有不放聲大笑的，卻不知道世上像王生這樣的人，其實還真不少。如今有些粗俗鄙陋之人，喜歡毒害身心的美味卻害怕治病救人的良藥，於是就有人卑躬屈膝、逢迎諂媚，向他們獻上炫耀威勢、逞凶施暴的手段，來迎合他們的心意，並且欺騙他們說：「掌握了這種手段，往後便可以橫行天下、暢行無阻。」剛開始嘗試的時候，也未必沒有一點小小的成效，於是就以為天下之大，都可以照這樣的方式行事，結果勢必會落得碰上堅硬的牆壁、跌得頭破血流，才肯罷休。</p></div>
+      </details>
+    </section>
+
+    <section id="t8">
+      <h2 class="section-title"><span class="icon">📜</span>古文語境 08｜勸和論（全文）</h2>
+      <div class="box box-link" style="font-size:0.9rem;"><div class="box-title">鄭用錫｜清（臺灣）｜論說</div><p>近五年字音題命中率最高：釁起鬩牆、若分畛域、燎原莫遏。</p></div>
+      <div class="original-text">
+        <p><span class="kw-teal">甚矣，人心之變也</span>，自分類始！其禍<span class="kw">倡</span>於匪徒，後遂<span class="kw">燎</span>原莫<span class="kw">遏</span>，玉石俱焚。雖正人君子，亦受其牽制而或朋從之也。</p>
+        <p>夫人與禽各為一類、邪與正各為一類，此不可不分。乃<span class="kw-teal">同此血氣、同此官</span><span class="kw">骸</span><span class="kw-teal">、同為國家之良民、同為鄉</span><span class="kw">閭</span><span class="kw-teal">之善人</span>，無分土、無分民，即子夏所言「四海皆兄弟」是也，況當共處一隅？<span class="kw">揆</span>諸出入相友之義，古聖賢所謂同鄉共井者也。在字義，<span class="kw-teal">友從兩手、朋從兩肉</span>。<span class="kw-teal">是朋友如一身左右手</span>，即吾身之肉也。今試執塗人而語之曰：「爾其自<span class="kw">戕</span>爾手，爾其自<span class="kw">噬</span>爾肉！」<span class="kw">鮮</span>不<span class="kw">拂</span>然而怒！何今分類至於此極耶？</p>
+        <p><span class="kw-teal">顧分類之害，甚於臺灣。臺屬尤甚於淡之新、艋</span>。臺為五方雜處，自林逆倡亂以來，有分為閩、粵焉，有分為漳、泉焉。閩、粵以其異省也，漳、泉以其異府也。然同自內府播遷而來，則同為臺人而已。今以異省、異府若分<span class="kw">畛</span>域，王法在所必誅。<span class="kw">矧</span>更同為一府，而亦有秦、越之異，是變本加厲，非奇而又奇者哉？夫人未有不親其所親，而能親其所疏。同居一府，猶同室之兄弟，至親也。乃以同室而操戈，更安能由親及疏，而親隔府之漳人、親隔省之粵人乎？</p>
+        <p>淡屬素敦古處，新、艋尤為<span class="kw">菁</span>華所聚之區，遊斯土者，<span class="kw">嘖</span>嘖稱羨。自分類興，元氣剝削殆盡，未有如去年之甚也！干戈之禍愈烈，村市半成邱墟。<span class="kw-teal">問為漳、泉而至此乎？無有也。問為閩、粵而至此乎？無有也</span>。蓋<span class="kw">孽</span>由自作，<span class="kw">釁</span><span class="kw-teal">起</span><span class="kw">鬩</span><span class="kw-teal">牆</span>，大抵在非漳泉、非閩粵間耳。</p>
+        <p>自來物窮必變，慘極知悔。<span class="kw-teal">天地有好生之德，人心無不轉之時</span>。予生長是邦，自念士為四民之首，不能與在事諸公竭誠化導，力挽而更張之，滋愧實甚。願今以後，父誡其子、兄告其弟，各革面、各洗心，勿懷<span class="kw">夙</span>忿、勿蹈前<span class="kw">愆</span>。既親其所親、亦親其所疏，一體同仁，斯內患不生、外禍不至。漳、泉、閩、粵之氣習，默消於無形。譬如人身血脈節節相通，自無他病；數年以後，仍成樂土，豈不休哉！</p>
+      </div>
+      <h3 class="sub-section-title">字音字形字義</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>語境</th><th>字</th><th>讀音</th><th>字義／提示</th></tr></thead><tbody>
+<tr><td>其禍倡於匪徒</td><td>倡</td><td>ㄔㄤˋ</td><td>帶頭</td></tr>
+<tr><td>燎原莫遏</td><td>燎</td><td>ㄌㄧㄠˊ</td><td>放火燒；115 年語境</td></tr>
+<tr><td>燎原莫遏</td><td>遏</td><td>ㄜˋ</td><td>阻止；115 年字音考點</td></tr>
+<tr><td>同此官骸</td><td>骸</td><td>ㄏㄞˊ</td><td>身軀；形近「該、賅」</td></tr>
+<tr><td>鄉閭</td><td>閭</td><td>ㄌㄩˊ</td><td>鄉里；形近「閻」</td></tr>
+<tr><td>揆諸出入相友之義</td><td>揆</td><td>ㄎㄨㄟˊ</td><td>衡量；形近「葵、睽」</td></tr>
+<tr><td>爾其自戕爾手</td><td>戕</td><td>ㄑㄧㄤˊ</td><td>殺害、傷害；形近「牂」</td></tr>
+<tr><td>爾其自噬爾肉</td><td>噬</td><td>ㄕˋ</td><td>咬；「反噬」同字</td></tr>
+<tr><td>鮮不拂然而怒</td><td>鮮</td><td>ㄒㄧㄢˇ</td><td>少</td></tr>
+<tr><td>鮮不拂然而怒</td><td>拂</td><td>ㄈㄨˊ</td><td>拂然：不高興貌</td></tr>
+<tr><td>若分畛域</td><td>畛</td><td>ㄓㄣˇ</td><td>界線；114 年字音考點</td></tr>
+<tr><td>矧更同為一府</td><td>矧</td><td>ㄕㄣˇ</td><td>何況；形近「知、矩」</td></tr>
+<tr><td>嘖嘖稱羨</td><td>嘖</td><td>ㄗㄜˊ</td><td>讚嘆聲；形近「責、績」</td></tr>
+<tr><td>菁華所聚</td><td>菁</td><td>ㄐㄧㄥ</td><td>精華</td></tr>
+<tr><td>孽由自作</td><td>孽</td><td>ㄋㄧㄝˋ</td><td>罪惡；形近「蘖」</td></tr>
+<tr><td>釁起鬩牆</td><td>釁</td><td>ㄒㄧㄣˋ</td><td>爭端；形近「舋」，「挑釁」同字</td></tr>
+<tr><td>釁起鬩牆</td><td>鬩</td><td>ㄒㄧˋ</td><td>爭鬥；112 年字音考點</td></tr>
+<tr><td>勿蹈前愆</td><td>愆</td><td>ㄑㄧㄢ</td><td>過失；形近「衍」</td></tr>
+<tr><td>勿懷夙忿</td><td>夙</td><td>ㄙㄨˋ</td><td>舊有的、向來的</td></tr>
+</tbody></table></div>
+      <h3 class="sub-section-title">修辭與效果</h3>
+      <div class="card" style="padding:0;"><table class="compare-table"><thead><tr><th>修辭</th><th>原句</th><th>說明與效果</th></tr></thead><tbody>
+<tr><td>倒裝＋感嘆</td><td>甚矣，人心之變也</td><td>正常語序「人心之變也甚矣」，開篇即重擊</td></tr>
+<tr><td>類疊＋排比</td><td>同此血氣、同此官骸、同為國家之良民、同為鄉閭之善人</td><td>連用「同」字，把「同」的理由一次堆足</td></tr>
+<tr><td>析字</td><td>友從兩手、朋從兩肉</td><td>由字形說字義，再推出「朋友如左右手」</td></tr>
+<tr><td>譬喻（明喻）</td><td>是朋友如一身左右手</td><td>以身體喻朋友，痛感直接</td></tr>
+<tr><td>層遞</td><td>顧分類之害，甚於臺灣。臺屬尤甚於淡之新、艋</td><td>範圍由大到小，把問題逼到眼前</td></tr>
+<tr><td>設問（提問）</td><td>問為漳、泉而至此乎？無有也。問為閩、粵而至此乎？無有也</td><td>自問自答，點破衝突並非真因省籍</td></tr>
+<tr><td>借喻（典故）</td><td>釁起鬩牆</td><td>用《詩經》「兄弟鬩於牆」喻同族內鬥</td></tr>
+<tr><td>對偶</td><td>天地有好生之德，人心無不轉之時</td><td>工整收束，轉入勸勉</td></tr>
+</tbody></table></div>
+      <details><summary>展開白話語譯</summary>
+        <div class="translation-block" style="margin-top:1.1rem;"><p style="margin-bottom:0.5rem;">第一段（總起：痛陳分類之禍）：人心的變化真是太嚴重了啊，這一切都是從「分類」開始的！這種禍害最初是由匪徒帶頭挑起，後來便像野火燎原一樣無法遏止，好人壞人同歸於盡。即使是正人君子，也難免受到牽連，有的甚至隨波逐流地加入其中。</p><p style="margin-bottom:0.5rem;">第二段（論證同類不可分）：人與禽獸原本各自為一類，邪惡與正直也原本各自為一類，這是不可不加以區分的。但是同樣具有這樣的血氣、同樣擁有這樣的軀體、同樣身為國家的良民、同樣是鄉里間的善良百姓，本不應該分土地、分人民，這正是子夏所說的「四海之內皆兄弟」的道理啊，何況大家還是共同生活在同一塊土地上呢？衡量「出入相友」這句古訓的道理，正是古代聖賢所說的同鄉共井、相互扶持的情誼。從文字的意義來看，「友」字是由「兩隻手」構成，「朋」字是由「兩塊肉」構成。這說明朋友就像同一個身體的左右手一樣，也就如同自己身上的肉一般。現在如果找一個路人來對他說：「你去砍斷自己的手，你去咬爛自己的肉！」很少有人不勃然大怒的！為什麼現在的分類意識竟然嚴重到了這種地步呢？</p><p style="margin-bottom:0.5rem;">第三段（台灣分類械鬥現況）：而分類所造成的禍害，在台灣特別嚴重；台灣境內，又以淡水廳的新莊、艋舺一帶最為嚴重。台灣本是五方人士雜居之地，自從林爽文帶頭作亂以來，就有了分為閩、粵兩籍的區分，也有了分為漳州、泉州兩府的區分。閩、粵是因為省籍不同而分，漳、泉則是因為府籍不同而分。然而大家同樣都是從內地遷徙渡海而來，說到底都同樣是台灣人罷了。如今卻因為省籍、府籍的不同而劃分地域界線，這種行為依照國法本應該加以誅罰。何況同屬一府之人，竟也產生了如秦、越兩國般遙遠疏離的隔閡，這真是變本加厲，不是奇怪到極點了嗎？人們沒有不先親近自己親近的人，卻能夠反過來親近自己疏遠的人的道理。同住在一個府內，就如同同一屋簷下的兄弟，本是最親近的關係。如今竟然同室操戈、兵戎相見，又怎麼能夠由親及疏，去親近隔了一府的漳州人、隔了一省的廣東人呢？</p><p style="margin-bottom:0.5rem;">第四段（新莊艋舺慘況）：淡水廳一帶向來民風敦厚淳樸，新莊、艋舺更是這片土地菁華薈萃之地，遊歷此地的人，無不讚嘆稱羨。可是自從分類械鬥興起以來，這裡的元氣被剝削消耗殆盡，從來沒有像去年那樣嚴重過！兵戎相殘的禍害越演越烈，村莊市街有一半都成了廢墟。試問：這難道是漳州人和泉州人之間的仇恨所導致的嗎？並不是。試問：這難道是閩籍和粵籍之間的仇恨所導致的嗎？也不是。這一切禍害其實都是自己招惹造成的，紛爭起於兄弟鬩牆般的內鬥，說穿了，根本不在漳泉之分，也不在閩粵之別。</p><p style="margin-bottom:0.5rem;">第五段（呼籲改過、展望和諧）：自古以來，事物到了窮途末路必定會發生轉變，禍害到了極點人們自然會知道悔改。天地有好生之德，人心也沒有永遠不會轉變的時候。我生長在這片土地上，常想讀書人身為士農工商四民之首，卻不能與在位當事的諸公竭盡誠心地加以教化引導，努力挽回並改變這種局面，內心實在感到十分慚愧。希望從今以後，做父親的能告誡自己的兒子、做兄長的能勸告自己的弟弟，大家都能洗心革面，不要再懷抱過去的仇恨，不要再重蹈以往的過錯。既親近自己所親近的人，也能親近自己所疏遠的人，一視同仁地對待眾人，這樣一來，內部的禍患就不會產生，外來的災禍也不會降臨。漳州、泉州、閩籍、粵籍之間的隔閡風氣，也將在無形之中默默消解。就好比人身上的血脈，只要節節相通暢達，自然就不會生病；如此經過數年之後，台灣仍然能夠恢復成安樂的樂土，這豈不是一件令人欣喜的事嗎！</p></div>
+      </details>
+    </section>
+
+    <section id="t9">
+      <h2 class="section-title"><span class="icon">📜</span>古文語境 09｜鹿港乘桴記（全文）</h2>
+      <div class="box box-link" style="font-size:0.9rem;"><div class="box-title">洪棄生｜清末日治（臺灣）｜雜記</div><p>篙工撐棹、迤邐而行入字音題；「蓋藏既富」「向時估帆」入字義題。</p></div>
+      <div class="original-text">
+        <p>樓閣萬家，街衢對峙，有亭翼然。<span class="kw">亙</span>二、三里，<span class="kw-teal">直如弦、平如</span><span class="kw">砥</span>，暑行不汗身、雨行不<span class="kw">濡</span>履。一水通津，出海之<span class="kw">涘</span>，<span class="kw-teal">估帆葉葉</span>，潮汐下上，去來如龍，貨舶相望；而店前可以驅車、店後可以繫榜者，<span class="kw-teal">昔之鹿港也</span>。<span class="kw-teal">人煙猶是，而蕭條矣；邑里猶是，而</span><span class="kw">泬</span><span class="kw-teal">寥矣</span>。海天蒼蒼、海水茫茫，去之五里，<span class="kw">涸</span>為鹽場，萬瓦如<span class="kw">甃</span>、長隄如<span class="kw">隍</span>，無<span class="kw">懋</span>遷、無利涉；望之黯然可傷者，今之鹿港也。</p>
+        <p>昔之盛，固余所不見；而其未至於斯之衰也，尚為余少時所目睹。蓋鹿港扼南北之中，其海口去閩南之泉州，僅隔一海峽而遙。閩南、浙、粵之貨，每由鹿港運輸而入；而臺北、臺南所需之貨，恆由鹿港輸出。乃至臺灣土產之輸於閩、粵者，亦靡不以鹿港為中樞。<span class="kw-teal">蓋藏既富，絃誦興焉</span>；故<span class="kw">黌</span>序之士相望於道，而春秋試之貢於京師、注名仕籍者，歲有其人，非猶夫以學校聚奴隸者也。而是時鹿港通海之水已淺可涉矣，海<span class="kw">艟</span>之來，止泊於沖西內津；昔之所謂「鹿港飛帆」者，已不概見矣。<span class="kw">綑</span>載之往來，皆以竹筏運赴大<span class="kw">艑</span>矣。然是時之竹筏，猶千百數也；衣食於其中者，尚數百家也。迄於今版圖既易，<span class="kw-teal">海關之吏猛於虎豹</span>，華貨之不來者有之矣。<span class="kw">洎</span>乎火車之路全通，外貨之來由南北而入，不復由鹿港而出矣；重以關稅之苛、關吏之酷，牟販之夫多至破家，而閩貨之不能由南北來者，亦復不敢由鹿港來也。</p>
+        <p>鹽田之築，肇自近年。日本官吏，固云欲以<span class="kw">阜</span>鹿民也；而其究竟，則實民間之輸巨<span class="kw">貲</span>以供官府之收厚利而已。且因是而阻水不行，山<span class="kw">潦</span>之來，鹿港人家半入洪浸；屋廬之日就頹毀，人民之日即離散，有由然矣。</p>
+        <p>余往年攜友乘<span class="kw">桴</span>游於海濱，是時新鹽田未興築、舊鹽田猶未竣工；余亦無心至於隄下，臨海徘徊，<span class="kw-teal">海水浮天如笠，一白萬里如銀</span>，<span class="kw">滉</span>漾碧綠如琉璃。夕陽欲下，月鉤初上；水鳥不飛，<span class="kw">篙</span>工撐<span class="kw">棹</span>。向新溝<span class="kw">迤邐</span>而行，則密邇鹿港之舊津，向時估帆所出入者，時已淤為沙灘，為居民鋤作菜圃矣。沿新溝而南至於大橋頭，則已<span class="kw">挈</span>鹿港之首尾而全觀之矣。望街尾一隅而至安平鎮，則割臺後之飛<span class="kw">甍</span>鱗次數百家<span class="kw">燬</span>於丙申兵火者，今猶瓦<span class="kw">礫</span>成邱，荒涼慘目也。猶幸市況凋零，為當道所不齒；不至於市區改正，破裂<span class="kw">闤闠</span>、驅逐人家以為通衢也。然而再經數年，則不可知之矣。滄桑時之可怖心，類如此也。游興已終，舍桴而步，遠近燈火明滅；屈指盛時所號萬家邑者，今裁三千家而已：<span class="kw-teal">可</span><span class="kw">勝</span><span class="kw-teal">慨哉</span>！</p>
+      </div>
+      <h3 class="sub-section-title">字音字形字義</h3>
+      <div class="card" style="padding:0;"><table><thead><tr><th>語境</th><th>字</th><th>讀音</th><th>字義／提示</th></tr></thead><tbody>
+<tr><td>乘桴</td><td>桴</td><td>ㄈㄨˊ</td><td>竹筏；形近「浮、孵」</td></tr>
+<tr><td>亙二、三里</td><td>亙</td><td>ㄍㄣˋ</td><td>綿延；形近「巨、恆」</td></tr>
+<tr><td>平如砥</td><td>砥</td><td>ㄉㄧˇ</td><td>磨刀石；形近「祇、低」</td></tr>
+<tr><td>雨行不濡履</td><td>濡</td><td>ㄖㄨˊ</td><td>沾濕；形近「儒、孺」</td></tr>
+<tr><td>出海之涘</td><td>涘</td><td>ㄙˋ</td><td>水邊；形近「俟」</td></tr>
+<tr><td>而泬寥矣</td><td>泬</td><td>ㄒㄩㄝˋ</td><td>泬寥：空曠清朗</td></tr>
+<tr><td>涸為鹽場</td><td>涸</td><td>ㄏㄜˊ</td><td>乾枯；形近「固、痼」</td></tr>
+<tr><td>萬瓦如甃</td><td>甃</td><td>ㄓㄡˋ</td><td>以磚砌井壁；形近「愁」</td></tr>
+<tr><td>長隄如隍</td><td>隍</td><td>ㄏㄨㄤˊ</td><td>無水的護城河</td></tr>
+<tr><td>無懋遷</td><td>懋</td><td>ㄇㄠˋ</td><td>貿易；形近「茂」</td></tr>
+<tr><td>黌序之士</td><td>黌</td><td>ㄏㄨㄥˊ</td><td>古代學校</td></tr>
+<tr><td>海艟之來</td><td>艟</td><td>ㄊㄨㄥˊ</td><td>大船；不可依「童」誤讀ㄊㄨㄥˋ或依「幢」讀ㄔㄨㄤˊ</td></tr>
+<tr><td>綑載之往來</td><td>綑</td><td>ㄎㄨㄣˇ</td><td>捆紮</td></tr>
+<tr><td>皆以竹筏運赴大艑矣</td><td>艑</td><td>ㄅㄧㄢˋ</td><td>大船</td></tr>
+<tr><td>洎乎火車之路全通</td><td>洎</td><td>ㄐㄧˋ</td><td>等到；形近「泊」</td></tr>
+<tr><td>欲以阜鹿民也</td><td>阜</td><td>ㄈㄨˋ</td><td>使富足</td></tr>
+<tr><td>輸巨貲</td><td>貲</td><td>ㄗ</td><td>財貨；形近「資」</td></tr>
+<tr><td>山潦之來</td><td>潦</td><td>ㄌㄠˇ</td><td>大雨積水；形近「僚、遼」</td></tr>
+<tr><td>滉漾碧綠</td><td>滉</td><td>ㄏㄨㄤˇ</td><td>水深廣貌</td></tr>
+<tr><td>篙工撐棹</td><td>篙</td><td>ㄍㄠ</td><td>撐船竹竿；113 年字音考點</td></tr>
+<tr><td>篙工撐棹</td><td>棹</td><td>ㄓㄠˋ</td><td>船槳；113 年字音考點</td></tr>
+<tr><td>向新溝迤邐而行</td><td>迤</td><td>ㄧˇ</td><td>迤邐：曲折綿延；114 年字音考點</td></tr>
+<tr><td>向新溝迤邐而行</td><td>邐</td><td>ㄌㄧˇ</td><td>迤邐：曲折綿延</td></tr>
+<tr><td>則已挈鹿港之首尾</td><td>挈</td><td>ㄑㄧㄝˋ</td><td>提、帶；形近「契」</td></tr>
+<tr><td>飛甍鱗次</td><td>甍</td><td>ㄇㄥˊ</td><td>屋脊；形近「夢、薨」</td></tr>
+<tr><td>燬於丙申兵火</td><td>燬</td><td>ㄏㄨㄟˇ</td><td>燒毀</td></tr>
+<tr><td>瓦礫成邱</td><td>礫</td><td>ㄌㄧˋ</td><td>碎石；形近「爍、鑠」</td></tr>
+<tr><td>破裂闤闠</td><td>闤</td><td>ㄏㄨㄢˊ</td><td>市區的牆</td></tr>
+<tr><td>破裂闤闠</td><td>闠</td><td>ㄏㄨㄟˋ</td><td>市區的門</td></tr>
+<tr><td>可勝慨哉</td><td>勝</td><td>ㄕㄥ</td><td>盡；不讀ㄕㄥˋ</td></tr>
+</tbody></table></div>
+      <h3 class="sub-section-title">修辭與效果</h3>
+      <div class="card" style="padding:0;"><table class="compare-table"><thead><tr><th>修辭</th><th>原句</th><th>說明與效果</th></tr></thead><tbody>
+<tr><td>對偶</td><td>直如弦、平如砥</td><td>連用工整短句寫街道規模</td></tr>
+<tr><td>類疊（疊字）</td><td>估帆葉葉</td><td>「葉葉」既是疊字，也把帆寫得輕盈而多</td></tr>
+<tr><td>類句＋映襯</td><td>人煙猶是，而蕭條矣；邑里猶是，而泬寥矣</td><td>「猶是」兩度出現，今昔之感全在此</td></tr>
+<tr><td>映襯（今昔）</td><td>昔之鹿港也</td><td>與「今之鹿港也」前後對舉，是全文骨架</td></tr>
+<tr><td>譬喻（明喻）</td><td>海水浮天如笠，一白萬里如銀</td><td>連續設喻，寫海天之美以反襯人事之悲</td></tr>
+<tr><td>借代</td><td>蓋藏既富，絃誦興焉</td><td>以絃歌誦讀代教育、文風</td></tr>
+<tr><td>譬喻（比較）</td><td>海關之吏猛於虎豹</td><td>語帶「苛政猛於虎」之意，控訴殖民關稅</td></tr>
+<tr><td>感嘆</td><td>可勝慨哉</td><td>全篇情感收束</td></tr>
+</tbody></table></div>
+      <details><summary>展開白話語譯</summary>
+        <div class="translation-block" style="margin-top:1.1rem;"><p style="margin-bottom:0.5rem;">第一段（今昔鹿港總覽）：樓房閣宇千家萬戶，街道彼此對峙相望，有涼亭如飛鳥展翅般聳立其間。街道綿延二、三里，筆直如弓弦、平坦如磨刀石，即使在酷暑中行走也不會汗流浹背，即使在雨天行走鞋子也不會沾濕。一條水道通往渡口，直達出海口的水邊，商船的帆影一片片，隨著潮汐上下往來，來去如龍一般迅捷，貨船首尾相望；店鋪前可以驅車往來、店鋪後可以繫纜停船的地方——這就是從前的鹿港啊。如今人煙依舊，卻已經蕭條冷清了；街市鄉里依舊，卻已經空曠寂寥了。海天蒼茫遼闊、海水浩渺無邊，距離五里之外，乾涸成了鹽場，成堆的瓦片如同磚牆砌成的井壁一般，長長的堤防如同護城河的堤岸；沒有商賈往來貿易，也沒有舟楫往來通行的便利；望去只讓人黯然神傷的地方——這就是如今的鹿港啊。</p><p style="margin-bottom:0.5rem;">第二段（衰落原因：地理與政治）：從前鹿港的興盛，本來就不是我親眼所見的；但是還沒有衰落到如此地步的時候，仍是我年少時親眼目睹過的景象。鹿港正扼守著台灣南北交通的中樞位置，它的海口距離福建南部的泉州，僅僅隔著一道海峽的距離而已。閩南、浙江、廣東的貨物，經常經由鹿港運輸進來；而台北、台南所需要的貨物，也常常由鹿港運輸出去。甚至台灣本地的土產要輸出到福建、廣東的，也沒有不以鹿港作為運輸中樞的。正因為財富積蓄豐厚，讀書弦誦之風也隨之興盛；所以各地學校的士子絡繹於途，每逢科考被貢舉到京城、名列仕籍的人，年年都有；並不像那些只把學校當作聚集庸碌之人的地方。可是到了這時候，鹿港通往海口的水道已經淺得可以涉水而過了，大型海船前來，只能停泊在沖西內津；從前所謂「鹿港飛帆」的盛況，已經不太能看到了。貨物的裝運往來，都改用竹筏運到大船上去了。然而那時候的竹筏，仍然有成千上百艘之多；靠著這行業維生的人家，也還有數百戶之多。到了如今，台灣的版圖已經改易（割讓給日本），海關官吏比虎豹還要兇猛，中國貨物因此有不能運來的情況了。等到鐵路全線通車之後，外來的貨物改由南北兩路運進來，不再經由鹿港輸出了；再加上關稅苛刻、關吏殘酷，做買賣的商人大多因此傾家蕩產，而福建的貨物既不能從南北兩路運來，也就更不敢經由鹿港運來了。</p><p style="margin-bottom:0.5rem;">第三段（鹽田政策的禍害）：鹽田的興建，是最近幾年才開始的事。日本官吏本來說是要用來使鹿港百姓富足的；但探究其真正的用意，實際上不過是要讓民間出資巨額財資，來供官府收取豐厚利益罷了。而且因為興築鹽田，阻擋了水道無法通行，每逢山洪暴發而來，鹿港的人家有一半都遭到大水淹沒；房屋日漸傾頹毀壞，百姓也日漸離散逃亡，這都是有原因的啊。</p><p style="margin-bottom:0.5rem;">第四段（乘桴遊覽的今昔感慨）：我在往年曾經與朋友一同乘坐竹筏，到海濱遊覽，那時新的鹽田還沒有興建，舊的鹽田也還沒有完工；我也無心走到堤防之下，只是在海邊徘徊流連。海水浮映著天空，如同斗笠一般籠罩，一片潔白綿延萬里，如同銀色一般，波光蕩漾，碧綠得如同琉璃一般。夕陽即將西下，一鉤新月剛剛升起；水鳥都停止了飛翔，船夫撐著竹篙划著槳。船沿著新開的溝渠曲折前行，漸漸靠近鹿港從前的舊渡口，從前商船出入的地方，此時已經淤積成沙灘，被居民開墾成菜園了。沿著新溝往南走，到了大橋頭，就已經把鹿港從頭到尾的景象完全盡收眼底了。望向街尾一帶，直到安平鎮，那裡是割讓台灣之後，數百戶鱗次櫛比的房舍毀於丙申年（光緒二十二年，1896年）戰火的地方，如今依然是瓦礫成堆的荒丘，景象荒涼淒慘，令人不忍卒睹。所幸市況已經如此凋零冷落，不被當道官府所看重，才沒有遭到「市區改正」的都市計畫波及，拆毀街市、驅逐居民，開闢成通衢大道。然而再過幾年之後，情況會如何發展，就不得而知了。滄海桑田變化之可怕，大概就是像這樣吧。遊興已經盡了，便棄了竹筏改為步行，遠近的燈火忽明忽滅；屈指計算從前號稱萬家的城邑，如今僅僅只剩三千戶人家而已，怎能不讓人感慨萬千呢！</p></div>
+      </details>
+    </section>
+
+
+    <hr class="divider" />
+
+    <!-- ========== KMAP ========== -->
+    <section id="kmap">
+      <h2 class="section-title"><span class="icon">🗺️</span>知識連結圖</h2>
+      <div class="k-map">
+        <div class="k-node center">W26 語文知識（學測國綜基本分）</div>
+        <div class="k-arrow">↓</div>
+        <div class="k-map-row">
+          <div class="k-node">字音 → 年年第 1 題</div>
+          <div class="k-node">字形 → 年年第 2 題</div>
+          <div class="k-node">字義 → 年年多選</div>
+          <div class="k-node">詞語 → 單選或多選</div>
+        </div>
+        <div class="k-arrow">↓</div>
+        <div class="k-map-row">
+          <div class="k-node teal">修辭 → 融入閱讀題（問效果）</div>
+          <div class="k-node gold">古文 30 篇 → 大量選項的來源</div>
+        </div>
+        <div class="k-arrow">↓</div>
+        <div class="k-map-row">
+          <div class="k-node">W15 通同字、句法</div>
+          <div class="k-node">W22 成語、修辭十五格</div>
+          <div class="k-node">W25 高頻字詞、名句</div>
+          <div class="k-node">W28 古文最後速讀</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SUMMARY ========== -->
+    <section id="summary">
+      <h2 class="section-title"><span class="icon">📌</span>重點整理</h2>
+      <div class="box box-key">
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li><strong>字音</strong>：年年第 1 題，每年都有選項取自古文 30 篇。〈勸和論〉〈勞山道士〉〈鹿港乘桴記〉〈虯髯客傳〉的罕用字優先記。</li>
+          <li><strong>字形</strong>：年年第 2 題。用「字義決定字形」判斷；典故字（倒屣、負笈、窠臼）另外記。</li>
+          <li><strong>字義</strong>：用換字測試；意思接近不等於相同。與、為、乃、竊、於、猶、負、向、爾、敢、復、及、既、竟、見、已都考過。</li>
+          <li><strong>詞語</strong>：查實際義、褒貶、適用對象三件事；字面義陷阱最常見。</li>
+          <li><strong>修辭</strong>：五年沒有直接考名稱；答題用「手法＋內容＋效果」。借喻看相似、借代看相關；排比可換序、層遞不可換序。</li>
+          <li><strong>策略</strong>：這幾題分數有限，但穩定。每天零碎時間翻錯字本，把大塊時間留給閱讀與國寫。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== QUIZ ========== -->
+    <section id="quiz">
+      <h2 class="section-title"><span class="icon">📝</span>自我測驗（10 題）</h2>
+      <div class="box box-link">
+        <div class="box-title">⏱️ 作答建議</div>
+        <p style="font-size:0.9rem;">限時 12 分鐘。本測驗為依學測題型自編，用來檢查本週內容；真題已在上方各節。</p>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>下列「　」內的字，讀音前後相同的是：</div>
+        <ol>
+          <li>夜「縋」而出／「墜」入深淵</li>
+          <li>「紿」之曰／「給」予獎勵</li>
+          <li>舐癰「吮」痔／「允」諾其請</li>
+          <li>不與「培」塿為類／「培」養人才</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：A</p>
+          <p style="font-size:0.90rem;">A 縋、墜皆ㄓㄨㄟˋ。B 紿ㄉㄞˋ、給ㄐㄧˇ。C 吮ㄕㄨㄣˇ、允ㄩㄣˇ。D 培塿的培讀ㄆㄡˇ，培養的培讀ㄆㄟˊ。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>下列文句，完全沒有錯別字的是：</div>
+        <ol>
+          <li>這份報告言簡意賅，主管讀完便一目了然</li>
+          <li>他好高鶩遠，總想一步登天，卻不肯踏實努力</li>
+          <li>新政策的內容鞭闢入裡，引來各界好評</li>
+          <li>與學長相比，他的經驗相形見拙，只能虛心學習</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：A</p>
+          <p style="font-size:0.90rem;">B 好高騖遠（馬部，奔馳）；C 鞭辟入裡；D 相形見絀（不足）。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span>下列各組「　」內的詞，意義前後相同的是：</div>
+        <ol>
+          <li>欲「窮」其林／物「窮」必變</li>
+          <li>「尋」向所誌／「尋」病終</li>
+          <li>亦「去」之／「去」之五里</li>
+          <li>王果「去」牆數步／「去」之五里</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：D</p>
+          <p style="font-size:0.90rem;">D 兩處都是「距離」。A 走到盡頭／困頓至極。B 尋找／不久。C 離開／距離。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span>下列文句中的「為」，何者與「梅花為寒所勒」意義相同？</div>
+        <ol>
+          <li>歌吹為風，粉汗為雨</li>
+          <li>石簣數為余言</li>
+          <li>余時為桃花所戀</li>
+          <li>故為之文以志</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：C</p>
+          <p style="font-size:0.90rem;">「為……所……」表被動，C 相同。A 是（判斷）；B 對、向；D 寫作。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span>關於下列文句的修辭，說明<strong>最適當</strong>的是：</div>
+        <ol>
+          <li>「黃髮垂髫，並怡然自樂」以譬喻寫老人與孩童的外貌</li>
+          <li>「喜疢毒而畏藥石」省略本體與喻詞，屬借喻</li>
+          <li>「使老有所終，壯有所用，幼有所長」順序不能調換，屬層遞</li>
+          <li>「問今是何世」答案在問句反面，屬激問</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B</p>
+          <p style="font-size:0.90rem;">A 是借代（相關不是相似）。C 三項平行，是排比。D 是真正的提問，不算激問。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">6</span>〈勸和論〉「在字義，友從兩手、朋從兩肉。是朋友如一身左右手，即吾身之肉也」，作者如此論述的主要效果是：</div>
+        <ol>
+          <li>說明造字原理，提升讀者的文字學知識</li>
+          <li>藉字形轉出譬喻，使「分類相殘如同自殘」的道理具體可感</li>
+          <li>炫耀作者的學問，以取得官府認同</li>
+          <li>說明朋友之間應該保持距離才能長久</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B</p>
+          <p style="font-size:0.90rem;">析字只是手段；接著「爾其自戕爾手，爾其自噬爾肉」才是目的：讓讀者感受到相殘如自殘。這就是「手法＋內容＋效果」的答法。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">7</span>下列文句畫底線的詞語，運用最適當的是：</div>
+        <ol>
+          <li>他 <u>席不暇暖</u>，便又趕赴下一場會議</li>
+          <li>這座古蹟 <u>汗牛充棟</u>，吸引大批遊客參觀</li>
+          <li>這位發明家是智慧型手機的 <u>始作俑者</u>，貢獻卓著</li>
+          <li>夜市 <u>摩頂放踵</u>，人潮擠得水洩不通</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：A</p>
+          <p style="font-size:0.90rem;">A 形容忙碌，正確。B 汗牛充棟只用於藏書。C 始作俑者是貶義。D 摩頂放踵＝捨己為人。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">8</span>〈師說〉「其可怪也歟」的語氣，最接近下列何者？</div>
+        <ol>
+          <li>單純疑惑，不明白原因何在</li>
+          <li>表面說奇怪，實則感嘆並譏諷士大夫見識反不如百工</li>
+          <li>讚美巫醫、樂師、百工的成就</li>
+          <li>自責未能推廣從師之道</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B</p>
+          <p style="font-size:0.90rem;">前句「君子不齒，今其智乃反不能及」已點出矛盾，「其可怪也歟」是帶諷刺的感嘆。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">9</span>〈鹿港乘桴記〉首段「而店前可以驅車、店後可以繫榜者，昔之鹿港也」與「望之黯然可傷者，今之鹿港也」的安排，作用是：</div>
+        <ol>
+          <li>以層遞呈現鹿港由小而大的發展</li>
+          <li>以今昔對舉作全文骨架，凸顯繁華與衰敗的落差</li>
+          <li>以排比列舉鹿港的多項產業</li>
+          <li>以象徵暗示鹿港將再度興盛</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：B</p>
+          <p style="font-size:0.90rem;">兩個「……者，X 之鹿港也」句式相同、內容相反，是映襯，並開啟下文追究衰落原因。</p></div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">10</span>下列文句的讀音或解釋，<strong>正確</strong>的是：</div>
+        <ol>
+          <li>「選賢與能」的與，辭典注音為ㄩˇ，文意通「舉」</li>
+          <li>「鬚眉畢見」的見讀ㄐㄧㄢˋ，意思是看見</li>
+          <li>「可勝慨哉」的勝讀ㄕㄥˋ，意思是勝利</li>
+          <li>「施施而行」的施讀ㄕ，意思是實行</li>
+        </ol>
+        <details><summary>查看解答與解析</summary>
+          <div class="answer-box"><p class="correct">正確答案：A</p>
+          <p style="font-size:0.90rem;">B 讀ㄒㄧㄢˋ，顯現。C 讀ㄕㄥ，盡。D 讀ㄧˊ，緩行貌。</p></div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ========== NEXT ========== -->
+    <section id="next">
+      <h2 class="section-title"><span class="icon">➡️</span>個人錯字本與下週預告</h2>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>類別</th><th>錯字／錯音／錯義</th><th>原句與出處</th><th>正確答案</th><th>隔日重測</th></tr></thead>
+          <tbody>
+            <tr><td>音</td><td style="color:var(--muted)">例：踣</td><td style="color:var(--muted)">驀然而踣（勞山道士）</td><td style="color:var(--muted)">ㄅㄛˊ</td><td>☐</td></tr>
+            <tr><td>形</td><td style="color:var(--muted)">例：鶩／騖</td><td style="color:var(--muted)">趨之若鶩／好高騖遠</td><td style="color:var(--muted)">鳥部＝鴨；馬部＝奔馳</td><td>☐</td></tr>
+            <tr><td>義</td><td style="color:var(--muted)">例：向</td><td style="color:var(--muted)">便扶向路（桃花源記）</td><td style="color:var(--muted)">先前的</td><td>☐</td></tr>
+            <tr><td>音</td><td>＿＿＿</td><td>＿＿＿＿＿</td><td>＿＿＿</td><td>☐</td></tr>
+            <tr><td>形</td><td>＿＿＿</td><td>＿＿＿＿＿</td><td>＿＿＿</td><td>☐</td></tr>
+            <tr><td>義</td><td>＿＿＿</td><td>＿＿＿＿＿</td><td>＿＿＿</td><td>☐</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-link">
+        <div class="box-title">🔗 W27 預告（11/16–11/22）</div>
+        <p style="font-size:0.91rem;">國文：<strong>現代文學閱讀理解練習＋選擇題解題技巧練習</strong>。本週學的「手法＋內容＋效果」會直接用在現代文閱讀上；週六為物理化學聯合模擬。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>本週檢核項目</th><th>完成</th></tr></thead>
+          <tbody>
+            <tr><td>五年字音、字形真題：能說出每個選項的正確讀音或正字</td><td>☐</td></tr>
+            <tr><td>九篇核心古文字音表：遮字自測正確率 ≥ 80%</td><td>☐</td></tr>
+            <tr><td>字義、詞語運用真題：每個選項都能寫出解釋</td><td>☐</td></tr>
+            <tr><td>修辭 25 格：每格能舉 1 個古文例，並說出效果</td><td>☐</td></tr>
+            <tr><td>看過「舊筆記更正紀錄」（列印版請手動訂正）</td><td>☐</td></tr>
+            <tr><td>錯字本依音／形／義分類完成</td><td>☐</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top:3rem; padding-top:1.5rem; border-top:2px solid var(--border); text-align:center; font-size:0.82rem; color:var(--muted);">
+      <p>W26 國文科講義｜語文知識：字音字形字義 ＋ 修辭手法整理</p>
+      <p style="margin-top:0.3rem;">高三上理工組 · 學測備考 · 第四階段整合衝刺（第二週）</p>
+      <p style="margin-top:0.3rem;">真題引自大考中心 111–115 學年度學科能力測驗國語文綜合能力測驗；讀音依教育部《重編國語辭典修訂本》；古文原文以通行課本版本為準，僅供學習參考</p>
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>

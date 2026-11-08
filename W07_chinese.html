@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W07 國文科學習講義｜勞山道士 ＆ 勸和論 ＆ 鹿港乘桴記</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: "Microsoft JhengHei", "蘋方-繁", "PingFang TC", "Noto Sans TC", sans-serif;
+      background: #fdf6f0;
+      color: #2c2c2c;
+      line-height: 1.8;
+    }
+    :root {
+      --primary:       #c0392b;
+      --primary-dark:  #96281b;
+      --primary-light: #e74c3c;
+      --primary-bg:    #fdecea;
+      --accent:        #8e44ad;
+      --accent-bg:     #f5eef8;
+      --gold:          #b7860b;
+      --gold-bg:       #fef9e7;
+      --teal:          #1a7a6e;
+      --teal-bg:       #e8f8f5;
+      --ink:           #2c2c2c;
+      --muted:         #6b6b6b;
+      --border:        #e0d0cd;
+      --card-bg:       #ffffff;
+      --shadow:        0 2px 12px rgba(192,57,43,0.10);
+    }
+    .page-wrapper { display: flex; min-height: 100vh; }
+    .sidebar {
+      width: 240px; min-width: 240px;
+      background: linear-gradient(180deg, #96281b 0%, #c0392b 40%, #e74c3c 100%);
+      color: #fff;
+      position: sticky; top: 0; height: 100vh;
+      overflow-y: auto; padding: 0 0 2rem 0;
+      box-shadow: 3px 0 14px rgba(0,0,0,0.15);
+      z-index: 100;
+    }
+    .sidebar-header {
+      background: rgba(0,0,0,0.20);
+      padding: 1.4rem 1rem 1.2rem 1rem;
+      text-align: center;
+    }
+    .sidebar-header .subject-badge {
+      display: inline-block;
+      background: #fff;
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1.1rem;
+      border-radius: 20px;
+      padding: 0.2rem 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+    .sidebar-header p { font-size: 0.78rem; opacity: 0.88; line-height: 1.5; }
+    .sidebar nav { padding: 1rem 0; }
+    .sidebar nav a {
+      display: block;
+      padding: 0.45rem 1.1rem;
+      color: rgba(255,255,255,0.90);
+      text-decoration: none;
+      font-size: 0.85rem;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.15);
+      border-left-color: #fff;
+      color: #fff;
+    }
+    .nav-section {
+      padding: 0.6rem 1.1rem 0.2rem 1.1rem;
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      opacity: 0.65;
+      text-transform: uppercase;
+    }
+    .nav-indent { padding-left: 1.8rem !important; font-size: 0.80rem !important; }
+    .main-content {
+      flex: 1;
+      padding: 2rem 2.5rem 4rem 2.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .page-header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: "文";
+      position: absolute;
+      right: 2rem; top: 50%;
+      transform: translateY(-50%);
+      font-size: 9rem;
+      opacity: 0.10;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .page-header .week-tag {
+      background: rgba(255,255,255,0.22);
+      display: inline-block;
+      padding: 0.2rem 0.9rem;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1px;
+    }
+    .page-header h1 { font-size: 1.85rem; font-weight: 900; margin-bottom: 0.4rem; }
+    .page-header .subtitle { font-size: 0.95rem; opacity: 0.88; }
+    .meta-row { display: flex; gap: 1.2rem; margin-top: 1.1rem; flex-wrap: wrap; }
+    .meta-chip {
+      background: rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 0.22rem 0.9rem;
+      font-size: 0.80rem;
+    }
+    .section-title {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 1.30rem; font-weight: 800;
+      color: var(--primary-dark);
+      margin: 2.5rem 0 1.2rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--primary);
+    }
+    .section-title .icon { font-size: 1.3rem; }
+    .sub-section-title {
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--primary);
+      margin: 1.6rem 0 0.8rem 0;
+      padding-left: 0.8rem;
+      border-left: 4px solid var(--primary);
+    }
+    .sub-sub-title {
+      font-size: 0.96rem; font-weight: 700;
+      color: var(--accent);
+      margin: 1.2rem 0 0.5rem 0;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    .box {
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      font-size: 0.93rem;
+    }
+    .box-key   { background: var(--primary-bg); border-left: 5px solid var(--primary); }
+    .box-warn  { background: #fff8e1; border-left: 5px solid #f39c12; }
+    .box-tip   { background: var(--teal-bg); border-left: 5px solid var(--teal); }
+    .box-link  { background: var(--accent-bg); border-left: 5px solid var(--accent); }
+    .box-gold  { background: var(--gold-bg); border-left: 5px solid var(--gold); }
+    .box-title { font-weight: 700; margin-bottom: 0.4rem; }
+    .original-text {
+      background: #fffaf7;
+      border: 1px solid #e8d5c8;
+      border-radius: 10px;
+      padding: 1.4rem 1.8rem;
+      font-size: 1.02rem;
+      line-height: 2.2;
+      color: #2c2c2c;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .original-text::before {
+      content: "原文";
+      position: absolute;
+      top: -0.7rem; left: 1.2rem;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .original-text p { margin-bottom: 0.6rem; }
+    .original-text p:last-child { margin-bottom: 0; }
+    .kw {
+      border-bottom: 2px solid var(--primary);
+      color: var(--primary-dark);
+      font-weight: 600;
+      cursor: default;
+    }
+    .kw-gold { border-bottom: 2px solid var(--gold); color: var(--gold); font-weight: 600; }
+    .kw-teal { border-bottom: 2px solid var(--teal); color: var(--teal); font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.91rem; margin: 0.8rem 0; }
+    thead tr { background: var(--primary); color: #fff; }
+    thead th { padding: 0.65rem 1rem; text-align: left; font-weight: 700; }
+    tbody tr:nth-child(even) { background: #fdf2f2; }
+    tbody tr:hover { background: var(--primary-bg); }
+    tbody td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody td:first-child { font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+    .translation-block {
+      background: #f0f7f5;
+      border: 1px solid #b2d8d0;
+      border-radius: 10px;
+      padding: 1.3rem 1.6rem;
+      font-size: 0.93rem;
+      line-height: 1.95;
+      color: #1c4a43;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .translation-block::before {
+      content: "白話語譯";
+      position: absolute;
+      top: -0.7rem; left: 1.2rem;
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 700px) { .analysis-grid { grid-template-columns: 1fr; } }
+    .analysis-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+    .analysis-item h4 { color: var(--primary-dark); font-size: 0.92rem; margin-bottom: 0.5rem; }
+    .analysis-item p, .analysis-item ul { font-size: 0.88rem; }
+    .analysis-item ul { padding-left: 1.2rem; }
+    .analysis-item li { margin-bottom: 0.3rem; }
+    .compare-table thead tr { background: var(--accent); }
+    .compare-table tbody td:first-child { color: var(--accent); }
+    .quiz-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-item .q-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      width: 1.8rem; height: 1.8rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 1.8rem;
+      font-weight: 700; font-size: 0.88rem;
+      margin-right: 0.5rem;
+    }
+    .quiz-item .q-text { font-size: 0.94rem; font-weight: 600; margin-bottom: 0.7rem; }
+    .quiz-item ol { padding-left: 1.5rem; font-size: 0.92rem; }
+    .quiz-item li { margin-bottom: 0.3rem; list-style-type: upper-alpha; }
+    details { margin-top: 0.7rem; }
+    summary {
+      cursor: pointer;
+      background: var(--primary-bg);
+      color: var(--primary-dark);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem; font-weight: 700;
+      display: inline-block;
+      user-select: none;
+    }
+    summary:hover { background: var(--primary); color: #fff; }
+    details[open] summary { background: var(--primary); color: #fff; }
+    .answer-box {
+      background: #fef9e7;
+      border: 1px solid #f0d060;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-top: 0.6rem;
+      font-size: 0.90rem;
+    }
+    .answer-box .correct { color: #27ae60; font-weight: 700; }
+    .k-map {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.5rem; padding: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .k-map-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .k-node {
+      background: var(--primary-bg);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--primary-dark);
+      text-align: center;
+    }
+    .k-node.center {
+      background: var(--primary); color: #fff;
+      font-size: 0.95rem; padding: 0.7rem 1.4rem;
+    }
+    .k-node.teal { background: var(--teal-bg); border-color: var(--teal); color: var(--teal); }
+    .k-node.gold { background: var(--gold-bg); border-color: var(--gold); color: var(--gold); }
+    .k-arrow { font-size: 1.4rem; color: var(--muted); }
+    .tag {
+      display: inline-block; font-size: 0.74rem; font-weight: 700;
+      padding: 0.15rem 0.55rem; border-radius: 10px; margin: 0.15rem;
+    }
+    .tag-red    { background: #fdecea; color: var(--primary); border: 1px solid var(--primary); }
+    .tag-teal   { background: var(--teal-bg); color: var(--teal); border: 1px solid var(--teal); }
+    .tag-gold   { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold); }
+    .tag-purple { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent); }
+    .exam-badge {
+      background: var(--primary); color: #fff;
+      font-size: 0.72rem; font-weight: 700;
+      padding: 0.12rem 0.5rem; border-radius: 8px;
+      vertical-align: middle; margin-left: 0.3rem;
+    }
+    .divider { border: none; border-top: 2px dashed var(--border); margin: 2.5rem 0; }
+    .toc {
+      background: var(--gold-bg);
+      border: 1px solid #f0c040;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .toc h3 { color: var(--gold); margin-bottom: 0.8rem; font-size: 1rem; }
+    .toc ol { padding-left: 1.5rem; font-size: 0.90rem; }
+    .toc li { margin-bottom: 0.3rem; }
+    .toc a { color: var(--primary-dark); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; color: var(--primary); }
+    @media (max-width: 820px) {
+      .sidebar { display: none; }
+      .main-content { padding: 1.2rem 1rem 3rem 1rem; }
+    }
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.35); border-radius: 4px; }
+    @media print {
+      .sidebar { display: none; }
+      .main-content { padding: 0; max-width: 100%; }
+      .page-header { background: #c0392b !important; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="subject-badge">國 文</div>
+      <p>W07 古文單元<br>學測備考講義<br>高二理工組</p>
+    </div>
+    <nav>
+      <div class="nav-section">Overview</div>
+      <a href="#overview">學習總覽</a>
+      <a href="#prereq">先備知識</a>
+
+      <div class="nav-section">篇一：勞山道士</div>
+      <a href="#z1-text" class="nav-indent">原文全文</a>
+      <a href="#z1-glossary" class="nav-indent">字詞注釋</a>
+      <a href="#z1-trans" class="nav-indent">白話語譯</a>
+      <a href="#z1-analysis" class="nav-indent">主旨與寫作手法</a>
+      <a href="#z1-exam" class="nav-indent">學測考點</a>
+
+      <div class="nav-section">篇二：勸和論</div>
+      <a href="#z2-text" class="nav-indent">原文全文</a>
+      <a href="#z2-glossary" class="nav-indent">字詞注釋</a>
+      <a href="#z2-trans" class="nav-indent">白話語譯</a>
+      <a href="#z2-analysis" class="nav-indent">主旨與寫作手法</a>
+      <a href="#z2-exam" class="nav-indent">學測考點</a>
+
+      <div class="nav-section">篇三：鹿港乘桴記</div>
+      <a href="#z3-text" class="nav-indent">原文全文</a>
+      <a href="#z3-glossary" class="nav-indent">字詞注釋</a>
+      <a href="#z3-trans" class="nav-indent">白話語譯</a>
+      <a href="#z3-analysis" class="nav-indent">主旨與寫作手法</a>
+      <a href="#z3-exam" class="nav-indent">學測考點</a>
+
+      <div class="nav-section">古文15篇總複習</div>
+      <a href="#milestone">15篇總複習表</a>
+
+      <div class="nav-section">比較與整合</div>
+      <a href="#compare">三篇比較</a>
+      <a href="#kmap">知識連結圖</a>
+      <a href="#summary">重點整理</a>
+
+      <div class="nav-section">自我測驗</div>
+      <a href="#quiz">隨堂選擇題</a>
+    </nav>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main-content">
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="week-tag">第七週學習單元｜WEEK 07 ｜ 06/29–07/05</div>
+      <h1>W07 國文科古文講義</h1>
+      <div class="subtitle">勞山道士 ／ 勸和論 ／ 鹿港乘桴記</div>
+      <div class="meta-row">
+        <span class="meta-chip">高二 · 理工組</span>
+        <span class="meta-chip">學測備考</span>
+        <span class="meta-chip">清代志怪小說 · 台灣古典散文</span>
+        <span class="meta-chip">蒲松齡 · 鄭用錫 · 洪棄生</span>
+      </div>
+    </header>
+
+    <!-- TOC -->
+    <div class="toc" id="toc">
+      <h3>目錄 Table of Contents</h3>
+      <ol>
+        <li><a href="#overview">學習總覽與目標</a></li>
+        <li><a href="#prereq">先備知識</a></li>
+        <li><a href="#z1-text">勞山道士｜原文全文</a></li>
+        <li><a href="#z1-glossary">勞山道士｜字詞注釋</a></li>
+        <li><a href="#z1-trans">勞山道士｜白話語譯</a></li>
+        <li><a href="#z1-analysis">勞山道士｜主旨與寫作手法</a></li>
+        <li><a href="#z1-exam">勞山道士｜學測考點</a></li>
+        <li><a href="#z2-text">勸和論｜原文全文</a></li>
+        <li><a href="#z2-glossary">勸和論｜字詞注釋</a></li>
+        <li><a href="#z2-trans">勸和論｜白話語譯</a></li>
+        <li><a href="#z2-analysis">勸和論｜主旨與寫作手法</a></li>
+        <li><a href="#z2-exam">勸和論｜學測考點</a></li>
+        <li><a href="#z3-text">鹿港乘桴記｜原文全文</a></li>
+        <li><a href="#z3-glossary">鹿港乘桴記｜字詞注釋</a></li>
+        <li><a href="#z3-trans">鹿港乘桴記｜白話語譯</a></li>
+        <li><a href="#z3-analysis">鹿港乘桴記｜主旨與寫作手法</a></li>
+        <li><a href="#z3-exam">鹿港乘桴記｜學測考點</a></li>
+        <li><a href="#milestone">古文十五篇總複習（W01–W07 里程碑）</a></li>
+        <li><a href="#compare">三篇比較分析</a></li>
+        <li><a href="#kmap">知識連結圖</a></li>
+        <li><a href="#summary">重點整理</a></li>
+        <li><a href="#quiz">隨堂自我測驗（5 題）</a></li>
+      </ol>
+    </div>
+
+    <!-- ========== SECTION 1: OVERVIEW ========== -->
+    <section id="overview">
+      <h2 class="section-title"><span class="icon">📖</span>學習總覽</h2>
+      <div class="card">
+        <p>本週學習三篇性質迥異卻同屬「古文15篇核心選文」最後三篇的作品：蒲松齡《聊齋志異．勞山道士》以志怪筆法諷刺投機取巧之徒；鄭用錫〈勸和論〉是清代開台進士寫給台灣社會的一篇肺腑之言，呼籲弭平漳泉閩粵的分類械鬥；洪棄生〈鹿港乘桴記〉則以今昔對比之筆，記錄鹿港從清代商貿重鎮到日治初期蕭條沒落的滄桑變化。三篇一為中國志怪小說經典，兩篇為台灣本土古典散文代表作，正好呈現學測古文選材「兼顧兩岸古典文學與台灣本土文學」的命題視野。</p>
+      </div>
+
+      <div class="box box-gold">
+        <div class="box-title">🎉 里程碑提示：完成本週後，你將學完古文15篇核心選文的全部篇目！</div>
+        <p style="font-size:0.91rem;">從 W01 到 W07，我們依序學完了燭之武退秦師、大同與小康、諫逐客書、鴻門宴、出師表、桃花源記、虯髯客傳、師說、始得西山宴遊記、赤壁賦、項脊軒志、晚遊六橋待月記，以及本週的勞山道士、勸和論、鹿港乘桴記，共15篇。本講義末尾附有「古文十五篇總複習」專區，請務必配合週末小測（默寫作者與時代）加強複習。</p>
+      </div>
+
+      <h3 class="sub-section-title">學習目標</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 完成本週學習後，你應能：</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li>流暢朗讀並理解三篇原文，掌握重要字詞的音義</li>
+          <li>分析《勞山道士》中「異史氏曰」的諷喻手法與志怪小說的文類特色</li>
+          <li>理解〈勸和論〉的論說結構，掌握鄭用錫勸諭族群和諧的論證邏輯</li>
+          <li>掌握〈鹿港乘桴記〉今昔對比手法，理解台灣近代史（割台、日治）對地方經濟的衝擊</li>
+          <li>比較三篇在文體、時代背景、寫作目的上的異同</li>
+          <li>完整複習古文15篇的篇名、作者、時代，準備週末默寫小測</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-section-title">單元脈絡地圖</h3>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; margin:0.5rem 0;">
+        <div style="flex:1; min-width:200px; background:var(--primary-bg); border-radius:10px; padding:1rem;">
+          <strong style="color:var(--primary);">勞山道士</strong>
+          <p style="font-size:0.85rem; margin-top:0.4rem;">蒲松齡 · 清代<br>志怪小說 ·《聊齋志異》<br>山東 · 諷刺投機取巧</p>
+        </div>
+        <div style="display:flex; align-items:center; font-size:1.5rem; color:var(--muted);">＋</div>
+        <div style="flex:1; min-width:200px; background:var(--teal-bg); border-radius:10px; padding:1rem;">
+          <strong style="color:var(--teal);">勸和論</strong>
+          <p style="font-size:0.85rem; margin-top:0.4rem;">鄭用錫 · 清代台灣<br>論說散文<br>竹塹 · 勸諭族群和諧</p>
+        </div>
+        <div style="display:flex; align-items:center; font-size:1.5rem; color:var(--muted);">＋</div>
+        <div style="flex:1; min-width:200px; background:var(--gold-bg); border-radius:10px; padding:1rem;">
+          <strong style="color:var(--gold);">鹿港乘桴記</strong>
+          <p style="font-size:0.85rem; margin-top:0.4rem;">洪棄生 · 清末／日治初<br>記（遊記兼議論）<br>鹿港 · 今昔滄桑之嘆</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 2: PREREQ ========== -->
+    <section id="prereq">
+      <h2 class="section-title"><span class="icon">📚</span>先備知識</h2>
+      <div class="box box-link">
+        <div class="box-title">🔗 學習本週前，你應已具備：</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li><strong>文言文基礎：</strong>能辨識常見文言虛詞與句式（被動句、判斷句、省略句），掌握古今異義基本概念</li>
+          <li><strong>清代歷史背景：</strong>知道清朝統治台灣的基本歷程（1683年納入版圖至1895年割讓日本），理解移民社會的族群結構</li>
+          <li><strong>台灣史常識：</strong>知道林爽文事件、分類械鬥、甲午戰爭與馬關條約割台等重大事件的基本脈絡</li>
+          <li><strong>文類概念：</strong>能區分「志怪小說」（記異聞怪事）、「論說文」（議論說理）、「記」（記敘兼抒情議論）三種文體</li>
+          <li><strong>《論語》基礎：</strong>知道「四海之內皆兄弟」（子夏語）、「道不行，乘桴浮於海」（孔子語）等典故出處</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         篇一：勞山道士
+         ==================================================== -->
+    <section>
+      <div style="background:linear-gradient(90deg, var(--primary-dark), var(--primary)); color:#fff; border-radius:12px; padding:1rem 1.5rem; margin-bottom:1.5rem;">
+        <div style="font-size:0.78rem; opacity:0.8; margin-bottom:0.3rem;">第一篇｜清代文言志怪小說</div>
+        <div style="font-size:1.4rem; font-weight:900; letter-spacing:2px;">勞山道士</div>
+        <div style="font-size:0.88rem; opacity:0.88; margin-top:0.3rem;">作者：蒲松齡（字留仙，號柳泉居士）｜出自《聊齋志異》卷一｜清代</div>
+      </div>
+
+      <!-- 原文 -->
+      <h3 class="sub-section-title" id="z1-text">原文全文</h3>
+      <div class="original-text">
+        <p>邑有<span class="kw">王</span>生，<span class="kw">行七</span>，故家子。少慕道，聞<span class="kw">勞山</span>多仙人，<span class="kw">負笈</span>往遊，登一頂，有觀宇，甚幽。一道士坐蒲團上，素髮垂領，而神觀爽邁。叩而與語，理甚玄妙，請師之。道士曰：「恐嬌惰不能作苦。」答言：「能之。」其門人甚眾，薄暮畢集，王俱與<span class="kw">稽首</span>，遂留觀中。</p>
+        <p>凌晨，道士呼王去，授以斧，使隨眾採樵，王謹受教。過月餘，手足<span class="kw">重繭</span>，不堪其苦，陰有歸志。一夕歸，見二人與師共酌，日已暮，尚無燈燭，師乃剪紙如鏡，粘壁間，俄頃，月明輝壁，光鑒毫芒，諸門人環聽奔走。一客曰：「良宵勝樂，不可不同。」乃於案上取壺酒，<span class="kw">分賚</span>諸徒，且囑盡醉。王自思：「七八人，壺酒何能徧給？」遂各覓<span class="kw">盎盂</span>，競飲<span class="kw">先釂</span>，惟恐樽盡，而往復<span class="kw">挹注</span>，竟不少減，心奇之。俄一客曰：「蒙賜月明之照，乃爾寂飲，何不呼<span class="kw-gold">嫦娥</span>來？」乃以箸擲月中，見一美人，自光中出，初不盈尺，至地，遂與人等，纖腰秀項，翩翩作<span class="kw-gold">霓裳舞</span>。已而歌曰：「仙仙乎，而還乎，而幽我於<span class="kw-gold">廣寒</span>乎？」其聲清越，烈如簫管。歌畢，盤旋而起，躍登几上，驚顧之間，已復為箸，三人大笑，又一客曰：「今宵最樂，然不勝酒力矣，其餞我於月宮可乎？」三人移席，漸入月中，眾視三人，坐月中飲，鬚眉畢見，如影之在鏡中。移時，月漸暗，門人然燭來，則道士獨坐，而客杳矣。几上肴核尚存，壁上月，紙圓如鏡而已。道士問眾：「飲足乎？」曰：「足矣。」「足宜早寢，勿誤<span class="kw">樵蘇</span>。」眾諾而退。</p>
+        <p>王竊忻慕，歸念遂息。又一月，苦不可忍，而道士並不傳教一術，心不能持，辭曰：「弟子數百里，受業仙師，縱不能得長生術，或小有傳習，亦可慰求教之心，今閱兩三月，不過早樵而暮歸，弟子在家，未諳此苦。」道士笑曰：「我固謂不能作苦，今果然，明早，當遣汝行。」</p>
+        <p>王曰：「弟子操作多日，師略授小技，此來為不負也。」道士問何術之求？王曰：「每見師行處，牆壁所不能隔，但得此法，足矣。」道士笑而允之。乃傳以<span class="kw">訣</span>，令自咒畢，呼曰：「入之！」王面牆不敢入，又曰：「試入之。」王果從容入，及牆而阻。道士曰：「<span class="kw">俛首</span>驟入，勿<span class="kw">逡巡</span>。」王果去牆數步奔而入，及牆，虛若無物，回視，果在牆外矣。大喜，入謝。道士曰：「歸宜潔持，否則不驗。」遂<span class="kw">資斧</span>遣之歸。</p>
+        <p>抵家自詡遇仙，堅壁所不能阻，妻不信，王傚其作為，去牆數尺，奔而入；頭觸硬壁，驀然而踣，妻扶視之，額上墳起如巨卵焉。妻<span class="kw">揶揄</span>之，王慚忿，罵老道士之無良而已。</p>
+        <p><span class="kw-teal">異史氏曰</span>：聞此事，未有不大笑者，而不知世之為王生者，正復不少。今有<span class="kw">傖父</span>喜<span class="kw">疢毒</span>而畏藥石，遂有<span class="kw">舐癰吮痔</span>者，進宣威逞暴之術，以迎其旨，<span class="kw">紿</span>之曰，執此術也以往，可以橫行而無礙，初試，未嘗不小效，遂謂天下之大，舉可以如是行矣，勢不至觸硬壁而<span class="kw">顛蹶</span>，不止也。</p>
+      </div>
+
+      <div class="box box-tip">
+        <div class="box-title">💡 原文說明</div>
+        <p style="font-size:0.90rem;">本篇選自《聊齋志異》卷一，是蒲松齡假借神仙鬼怪之事，寄託對現實社會的諷刺與勸誡的代表作。文末「異史氏曰」是蒲松齡仿效《史記》「太史公曰」的體例，跳出故事之外直接發表議論，是《聊齋志異》最具特色的寫作手法，也是全篇「畫龍點睛」之筆。</p>
+      </div>
+
+      <!-- 字詞注釋 -->
+      <h3 class="sub-section-title" id="z1-glossary">字詞注釋 <span class="exam-badge">學測常考</span></h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音讀</th><th>字義</th><th>補充說明</th></tr></thead>
+          <tbody>
+            <tr><td>行七</td><td>ㄏㄤˊ</td><td>排行第七（兄弟姊妹中的次序）</td><td>行：讀ㄏㄤˊ，指排行；非「行走」之義</td></tr>
+            <tr><td>負笈</td><td>ㄐㄧˊ</td><td>背著書箱，指出外求學</td><td>笈：竹製書箱；「負笈」為出外遊學的代稱</td></tr>
+            <tr><td>神觀爽邁</td><td></td><td>神情容貌豪邁不凡</td><td>觀：容貌、外觀；爽邁：爽朗豪邁</td></tr>
+            <tr><td>稽首</td><td>ㄑㄧˇ</td><td>跪拜叩頭，古代最恭敬的禮節</td><td>稽：叩頭至地並停留片刻，禮節最重</td></tr>
+            <tr><td>重繭</td><td>ㄐㄧㄢˇ</td><td>手腳因勞動摩擦而長出厚厚的繭</td><td>繭：皮膚因摩擦增厚硬化，形容勞動之苦</td></tr>
+            <tr><td>分賚</td><td>ㄌㄞˋ</td><td>分賜、分給</td><td>賚：賞賜</td></tr>
+            <tr><td>盎盂</td><td>ㄤˋ ㄩˊ</td><td>泛指盛酒的器皿、飲器</td><td>盎：腹大口小的容器；盂：盛湯水的器皿</td></tr>
+            <tr><td>先釂</td><td>ㄐㄧㄠˋ</td><td>搶先把杯中酒喝乾</td><td>釂：飲盡杯中之酒</td></tr>
+            <tr><td>挹注</td><td>ㄧˋ</td><td>舀取、傾注（此指添酒斟酒）</td><td>挹：舀取；後引申為「挹注」（挪用資金補足缺口）一詞的出典</td></tr>
+            <tr><td>嫦娥／廣寒</td><td></td><td>月中仙女／月宮別稱（廣寒宮）</td><td>皆源自中國奔月神話</td></tr>
+            <tr><td>霓裳舞</td><td>ㄋㄧˊ ㄔㄤˊ</td><td>借指美妙的仙人舞蹈</td><td>典出唐代〈霓裳羽衣曲〉</td></tr>
+            <tr><td>樵蘇</td><td></td><td>打柴、割草，泛指粗重的勞動雜務</td><td>樵：取薪；蘇：取草</td></tr>
+            <tr><td>訣</td><td></td><td>口訣，法術傳授時的秘傳語句</td><td>咒：唸誦口訣以施行法術</td></tr>
+            <tr><td>俛首</td><td>ㄈㄨˇ</td><td>同「俯首」，低頭</td><td>俛：同「俯」</td></tr>
+            <tr><td>逡巡</td><td>ㄑㄩㄣ ㄒㄩㄣˊ</td><td>徘徊猶豫、遲疑不前</td><td>逡：退卻</td></tr>
+            <tr><td>資斧</td><td></td><td>路費、旅費、盤纏</td><td>斧：本義為砍柴工具，此處引申為財貨、旅費</td></tr>
+            <tr><td>揶揄</td><td>ㄧㄝˊ ㄩˊ</td><td>譏笑、嘲弄</td><td>疊韻連綿詞</td></tr>
+            <tr><td>異史氏曰</td><td></td><td>蒲松齡以「異史氏」自比史家，於篇末發表議論</td><td>仿效《史記》「太史公曰」的史傳體例</td></tr>
+            <tr><td>傖父</td><td>ㄘㄤ</td><td>粗俗鄙陋的人</td><td>傖：粗俗、鄙賤之意</td></tr>
+            <tr><td>疢毒</td><td>ㄔㄣˋ</td><td>有毒卻讓人上癮的美味，比喻表面誘人實則有害之物</td><td>疢：熱病，引申為有害之物</td></tr>
+            <tr><td>舐癰吮痔</td><td>ㄕˋ ㄩㄥ ㄕㄨㄣˇ ㄓˋ</td><td>舔舐膿瘡、吸吮痔瘡，比喻卑鄙諂媚、逢迎巴結</td><td>典出《莊子．列禦寇》，為成語出典</td></tr>
+            <tr><td>紿</td><td>ㄉㄞˋ</td><td>欺騙</td><td>與「詒」通用，欺詐之意</td></tr>
+            <tr><td>顛蹶</td><td>ㄉㄧㄢ ㄐㄩㄝˊ</td><td>跌倒、遭遇挫敗</td><td>顛：跌倒；蹶：受挫</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-warn" style="margin-top:0.8rem;">
+        <div class="box-title">⚠️ 常見易錯字詞</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>行七</strong>：讀作ㄏㄤˊ，指「排行第七」，不可誤讀為ㄒㄧㄥˊ（行走）</li>
+          <li><strong>俛首</strong>：「俛」同「俯」，音義皆同，考生易誤認為生僻字而誤讀</li>
+          <li><strong>資斧</strong>：古義指「路費、旅費」，非現代「用斧頭砍」之義</li>
+          <li><strong>挹注</strong>：原指添酒斟酒的動作，現代成語「挹注」（如財務挹注）即源出此篇</li>
+          <li><strong>異史氏曰</strong>：切勿誤認為故事情節的一部分，此為作者跳出故事直接評論的段落</li>
+        </ul>
+      </div>
+
+      <!-- 語譯 -->
+      <h3 class="sub-section-title" id="z1-trans">白話語譯</h3>
+      <div class="translation-block">
+        <p><strong>第一段（拜師求道）：</strong>縣裡有個王姓書生，排行第七，是世家子弟。年輕時仰慕道術，聽說勞山有很多神仙，便背著書箱前去雲遊求道，登上一座山頂，看見一座道觀，環境十分幽靜。有一位道士坐在蒲團上，滿頭白髮垂到衣領，但神情容貌卻爽朗豪邁。王生上前叩問攀談，道士所說的道理十分玄妙，王生便請求拜他為師。道士說：「恐怕你嬌生慣養、懶惰成性，吃不了苦。」王生回答說：「我能吃苦。」道士的門徒很多，傍晚時全都聚集回來，王生一一向他們行禮，於是就留在道觀中。</p>
+        <p><strong>第二段（月夜奇景）：</strong>第二天清晨，道士叫王生過去，交給他一把斧頭，要他跟著眾人上山砍柴，王生恭謹地接受教導。過了一個多月，他的手腳都磨出厚厚的繭，忍受不了這種辛苦，暗中已萌生歸家的念頭。一天晚上他回來，看見有兩個人和師父一起喝酒，天色已晚，還沒有點燈燭，師父便剪了一張紙，形狀像鏡子一樣，貼在牆壁上，不一會兒，月光般的光輝照亮了牆壁，光亮到連細微的毫毛都看得清楚，門徒們都圍著看，來回奔走伺候。一位客人說：「良辰美景值得同樂，不能不一起分享。」於是就從桌上拿起酒壺，分賜給各位徒弟，並且囑咐大家要盡興喝醉。王生心裡想：「七八個人，一壺酒怎麼夠分給大家？」於是大家各自找來杯盞，爭相搶先喝盡，唯恐酒壺空了，可是來回添酒斟酌，酒竟然一點也沒有減少，心中十分驚奇。不久，一位客人說：「承蒙賜予明月的照耀，怎麼能只是這樣寂靜地喝酒呢？何不召喚嫦娥前來？」於是把筷子擲向月中，只見一位美人，從月光中走出來，起初還不到一尺高，落地之後，就變得和常人一樣高，腰肢纖細、脖頸秀美，翩翩起舞跳起霓裳羽衣曲。跳完之後又唱道：「仙人啊仙人，你要回去了嗎？為何要把我幽禁在廣寒宮呢？」歌聲清亮悠揚，響亮如簫管的聲音。唱完之後，盤旋而起，躍上桌案，眾人正驚訝地注視之間，她已恢復成一雙筷子，三個人相視大笑。又一位客人說：「今晚玩得最盡興，可是已經喝不下酒了，你們可以到月宮裡為我餞別嗎？」三人移動座席，漸漸走入月光之中，眾人看見三人坐在月中飲酒，連鬍鬚眉毛都看得清清楚楚，就如同影子映在鏡子裡一樣。過了一會兒，月光漸漸暗淡，門徒點起蠟燭走過來一看，只見道士獨自坐著，客人已經不見蹤影了。桌上的酒菜果核還在，牆上的月亮，不過是一張圓形的紙罷了。道士問大家：「都喝夠了嗎？」大家回答：「夠了。」道士說：「喝夠了就該早點睡，別耽誤了明天砍柴割草的事。」眾人應聲告退。</p>
+        <p><strong>第三段（欲去又留）：</strong>王生私下十分欣羨佩服，回家的念頭因此打消了。可是又過了一個月，實在苦不堪言，而道士始終沒有傳授任何法術，王生心裡再也忍不住，便向道士辭行說：「弟子從幾百里外趕來，跟隨仙師學道，即使不能學得長生不死之術，只要能稍微傳授一點法術，也可以安慰我求教的心願。如今已經過了兩三個月，每天所做的不過是早晨砍柴、傍晚回來，弟子在家裡從來沒有經歷過這種辛苦。」道士笑著說：「我本來就說你吃不了苦，如今果然如此，明天早上，就讓你回去吧。」</p>
+        <p><strong>第四段（求授穿牆術）：</strong>王生說：「弟子在此辛勤勞作了這麼多天，希望師父能稍微傳授一點小法術，這樣此行才不算白費。」道士問他想學什麼法術。王生說：「我常常看見師父所到之處，牆壁都不能阻隔，只要能學會這個方法，我就滿足了。」道士笑著答應了他。於是傳授給他口訣，讓他自己唸完咒語後，喊道：「進去吧！」王生面對牆壁不敢走進去。道士又說：「你試著走進去看看。」王生果然從容地走進去，可是一到牆邊就被阻擋住了。道士說：「要低頭快速衝進去，不要遲疑猶豫。」王生果然退後幾步，奔跑著衝向牆壁，到了牆邊，竟然像什麼都沒有一樣，回頭一看，果然已經到了牆外。他非常高興，回去向道士道謝。道士說：「回家後應該潔身自持，不然這法術就不靈驗了。」於是就給了他路費，讓他回家去了。</p>
+        <p><strong>第五段（撞牆出醜）：</strong>王生回到家中，自誇遇到了神仙，堅固的牆壁也不能阻擋他。妻子不相信，王生便仿照道士教的方法做起來，退後幾步，奔跑著衝向牆壁；結果頭撞上堅硬的牆壁，猛然跌倒在地，妻子扶起他一看，額頭上腫起一個大包，像顆巨大的雞蛋一樣。妻子譏笑嘲弄他，王生又羞又氣，只能咒罵那老道士沒安好心罷了。</p>
+        <p><strong>末段（異史氏評論）：</strong>蒲松齡（異史氏）評論說：聽到這件事的人，沒有不放聲大笑的，卻不知道世上像王生這樣的人，其實還真不少。如今有些粗俗鄙陋之人，喜歡毒害身心的美味卻害怕治病救人的良藥，於是就有人卑躬屈膝、逢迎諂媚，向他們獻上炫耀威勢、逞凶施暴的手段，來迎合他們的心意，並且欺騙他們說：「掌握了這種手段，往後便可以橫行天下、暢行無阻。」剛開始嘗試的時候，也未必沒有一點小小的成效，於是就以為天下之大，都可以照這樣的方式行事，結果勢必會落得碰上堅硬的牆壁、跌得頭破血流，才肯罷休。</p>
+      </div>
+
+      <!-- 主旨與寫作手法 -->
+      <h3 class="sub-section-title" id="z1-analysis">主旨與寫作手法分析</h3>
+
+      <h4 class="sub-sub-title">一、主旨</h4>
+      <div class="box box-key">
+        <div class="box-title">✅ 本篇主旨</div>
+        <p style="font-size:0.93rem;">本篇藉王生學道半途而廢、僅求速成的穿牆術卻因不肯持守戒律而慘遭失敗的故事，諷刺世人不願腳踏實地努力、只想投機取巧、僥倖求得捷徑的心態。篇末「異史氏曰」更將諷喻擴大到社會現實：那些依恃旁門左道、逢迎巴結而橫行一時的人，終究會像王生一樣「觸硬壁而顛蹶」，自食惡果。全篇寓諷刺於奇幻情節之中，是《聊齋志異》「藉狐鬼寫世情」的典型代表。</p>
+      </div>
+
+      <h4 class="sub-sub-title">二、文章結構</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>段落</th><th>內容</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>第一段</td><td>王生慕道，拜師勞山道士</td><td>交代起因，鋪墊王生「慕道」卻「嬌惰」的性格伏筆</td></tr>
+            <tr><td>第二段</td><td>道士展現法術：剪紙為月、召嫦娥起舞、三人隱入月宮</td><td>全篇最精采的奇幻情節，暫時打消王生歸志</td></tr>
+            <tr><td>第三段</td><td>王生再度苦不堪言，向道士辭行</td><td>呼應首段「嬌惰不能作苦」的伏筆，情節急轉直下</td></tr>
+            <tr><td>第四段</td><td>王生求授穿牆術，道士傳授口訣並叮囑「潔持」</td><td>埋下失敗的關鍵伏筆——「歸宜潔持，否則不驗」</td></tr>
+            <tr><td>第五段</td><td>王生返家自誇，試驗穿牆，撞牆出醜</td><td>全篇高潮與結局，印證投機取巧必自食惡果</td></tr>
+            <tr><td>異史氏曰</td><td>作者跳出故事直接發表議論，擴大諷喻至社會現實</td><td>畫龍點睛，昇華主旨，仿《史記》「太史公曰」體例</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="sub-sub-title">三、寫作手法</h4>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>志怪筆法（虛實相生）</h4>
+          <p>剪紙為月、嫦娥起舞、三人隱入月宮等情節皆屬奇幻虛構，但王生的心理反應（歸念、忻慕、忍耐）卻極為寫實，虛實交錯使故事更具說服力。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>伏筆與照應</h4>
+          <p>首段道士言「恐嬌惰不能作苦」為全篇伏筆，末段王生果然因不能持守戒律而穿牆失敗，前後呼應，結構嚴謹。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>對比手法</h4>
+          <ul>
+            <li>王生初心慕道 vs. 半途而廢求去</li>
+            <li>穿牆成功時的「大喜」vs. 撞牆失敗時的「慚忿」</li>
+            <li>道士的從容淡定 vs. 王生的躁進求速成</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>戲劇性情節翻轉</h4>
+          <p>全篇三個高潮迭起的翻轉：月夜奇景的驚奇、穿牆成功的狂喜、撞牆失敗的荒謬，一波三折，極具戲劇張力。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>篇末議論（異史氏曰）</h4>
+          <p>仿效《史記》「太史公曰」的史傳體例，於故事之外直接評論，將個人化的荒誕故事提升至社會諷喻的高度，是《聊齋志異》的招牌寫作程式。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>語言精煉、想像瑰奇</h4>
+          <p>以極簡潔的文言文字描繪繁複的奇幻場景（如「初不盈尺，至地，遂與人等」），展現蒲松齡高度凝練的敘事功力。</p>
+        </div>
+      </div>
+
+      <!-- 學測考點 -->
+      <h3 class="sub-section-title" id="z1-exam">學測常考重點 <span class="exam-badge">高頻考點</span></h3>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測頻繁出現的考題方向：</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem; margin-top:0.4rem;">
+          <li><strong>作者與文學地位：</strong>蒲松齡，字留仙，號柳泉居士，世稱「聊齋先生」；《聊齋志異》被譽為「文言短篇小說之王」，以狐鬼故事寄託對現實社會的批判</li>
+          <li><strong>文類辨析：</strong>「志怪小說」（記異聞怪事，重情節奇幻）與「傳奇小說」（如虯髯客傳，重人物刻畫）的差異</li>
+          <li><strong>「異史氏曰」的作用：</strong>比較與《史記》「太史公曰」、《左傳》「君子曰」等史傳評論體例的異同</li>
+          <li><strong>字音字義：</strong>行七（ㄏㄤˊ）、俛首（ㄈㄨˇ）、揶揄、舐癰吮痔等易錯字詞</li>
+          <li><strong>主旨理解：</strong>本文表面寫神仙故事，實則諷刺投機取巧、不願腳踏實地之人</li>
+          <li><strong>成語出典：</strong>「舐癰吮痔」（逢迎諂媚）源出本篇異史氏曰的評論</li>
+          <li><strong>結構分析：</strong>能指出伏筆（嬌惰不能作苦）與照應（撞牆顛蹶）的呼應關係</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 考生最常犯的錯誤：</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>誤以為本文只是單純的神怪故事，忽略「異史氏曰」段落才是全篇諷喻主旨的關鍵</li>
+          <li>誤將《聊齋志異》歸類為「唐傳奇」，實則為清代文言短篇小說集，與虯髯客傳（唐傳奇）時代文類皆不同</li>
+          <li>誤解「資斧」為現代「使用斧頭」之義，正確應為「路費、旅費」</li>
+          <li>忽略道士「歸宜潔持，否則不驗」一句是王生失敗的關鍵伏筆，並非無關緊要的叮嚀</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         篇二：勸和論
+         ==================================================== -->
+    <section>
+      <div style="background:linear-gradient(90deg, var(--teal), #1abc9c); color:#fff; border-radius:12px; padding:1rem 1.5rem; margin-bottom:1.5rem;">
+        <div style="font-size:0.78rem; opacity:0.8; margin-bottom:0.3rem;">第二篇｜清代台灣論說散文</div>
+        <div style="font-size:1.4rem; font-weight:900; letter-spacing:2px;">勸和論</div>
+        <div style="font-size:0.88rem; opacity:0.88; margin-top:0.3rem;">作者：鄭用錫（字在中，號祉亭，人稱「開台進士」）｜出自《北郭園全集》｜清代咸豐三年（1853）</div>
+      </div>
+
+      <!-- 原文 -->
+      <h3 class="sub-section-title" id="z2-text">原文全文</h3>
+      <div class="original-text">
+        <p>甚矣，人心之變也，自<span class="kw">分類</span>始！其禍倡於匪徒，後遂<span class="kw">燎原莫遏</span>，<span class="kw">玉石俱焚</span>。雖正人君子，亦受其牽制而或朋從之也。</p>
+        <p>夫人與禽各為一類、邪與正各為一類，此不可不分。乃同此血氣、同此<span class="kw">官骸</span>、同為國家之良民、同為<span class="kw">鄉閭</span>之善人，無分土、無分民，即<span class="kw-teal">子夏所言「四海皆兄弟」</span>是也，況當共處一隅？揆諸出入相友之義，古聖賢所謂同鄉共井者也。在字義，友從兩手、朋從兩肉。是朋友如一身左右手，即吾身之肉也。今試執<span class="kw">塗人</span>而語之曰：「爾其自戕爾手，爾其自噬爾肉！」鮮不拂然而怒！何今分類至於此極耶？</p>
+        <p>顧分類之害，甚於臺灣。臺屬尤甚於淡之新、艋。臺為五方雜處，自<span class="kw">林逆倡亂</span>以來，有分為閩、粵焉，有分為漳、泉焉。閩、粵以其異省也，漳、泉以其異府也。然同自內府播遷而來，則同為臺人而已。今以異省、異府若分<span class="kw">畛域</span>，王法在所必誅。矧更同為一府，而亦有<span class="kw">秦、越之異</span>，是變本加厲，非奇而又奇者哉？夫人未有不親其所親，而能親其所疏。同居一府，猶同室之兄弟，至親也。乃以同室而<span class="kw">操戈</span>，更安能由親及疏，而親隔府之漳人、親隔省之粵人乎？</p>
+        <p><span class="kw">淡屬</span>素敦古處，<span class="kw">新、艋</span>尤為菁華所聚之區，遊斯土者，嘖嘖稱羨。自分類興，元氣剝削殆盡，未有如去年之甚也！干戈之禍愈烈，村市半成<span class="kw">邱墟</span>。問為漳、泉而至此乎？無有也。問為閩、粵而至此乎？無有也。蓋孽由自作，釁起<span class="kw">鬩牆</span>，大抵在非漳泉、非閩粵間耳。</p>
+        <p>自來物窮必變，慘極知悔。天地有好生之德，人心無不轉之時。予生長是邦，自念士為四民之首，不能與在事諸公竭誠化導，力挽而更張之，滋愧實甚。願今以後，父誡其子、兄告其弟，各革面、各洗心，勿懷夙忿、勿蹈前愆。既親其所親、亦親其所疏，<span class="kw-teal">一體同仁</span>，斯內患不生、外禍不至。漳、泉、閩、粵之氣習，默消於無形。譬如人身血脈節節相通，自無他病；數年以後，仍成樂土，豈不休哉！</p>
+      </div>
+
+      <div class="box box-tip">
+        <div class="box-title">💡 文章背景說明</div>
+        <p style="font-size:0.90rem;">本文作於清咸豐三年（1853）五月。前一年起，淡水廳新莊、艋舺一帶漳州人與泉州人之間爆發嚴重的分類械鬥，官府控制無力，地方秩序大亂，死傷慘重、村市半毀。鄭用錫身為竹塹（今新竹）出身的進士（有「開台進士」之稱），眼見鄉土殘破，撰寫此文苦口婆心勸諭百姓摒棄地域偏見，是台灣古典散文中極具社會關懷與人道精神的代表作。</p>
+      </div>
+
+      <!-- 字詞注釋 -->
+      <h3 class="sub-section-title" id="z2-glossary">字詞注釋 <span class="exam-badge">學測常考</span></h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音讀</th><th>字義</th><th>補充說明</th></tr></thead>
+          <tbody>
+            <tr><td>分類</td><td></td><td>清代台灣移民依籍貫（漳／泉、閩／粵）劃分黨派、互相械鬥的專稱</td><td>「分類械鬥」是清代台灣社會史的特殊現象</td></tr>
+            <tr><td>燎原莫遏</td><td>ㄌㄧㄠˊ</td><td>如野火燎原，無法遏止</td><td>燎：延燒</td></tr>
+            <tr><td>玉石俱焚</td><td></td><td>美玉與石頭同歸於盡，比喻好壞不分、同遭禍害</td><td>成語，比喻禍害不分善惡玉石</td></tr>
+            <tr><td>官骸</td><td>ㄏㄞˊ</td><td>身體骨骸，指人的軀體</td><td>骸：骨頭、軀體</td></tr>
+            <tr><td>鄉閭</td><td>ㄌㄩˊ</td><td>鄉里</td><td>閭：古代二十五家為一閭，泛指鄉里</td></tr>
+            <tr><td>子夏所言四海皆兄弟</td><td></td><td>語出《論語．顏淵》，子夏對司馬牛所言</td><td>原文為「四海之內，皆兄弟也」</td></tr>
+            <tr><td>塗人</td><td></td><td>路人，泛指陌生人</td><td>塗：同「途」，道路</td></tr>
+            <tr><td>林逆倡亂</td><td></td><td>指林爽文事件（1786–1788）</td><td>清代台灣規模最大的民變之一</td></tr>
+            <tr><td>畛域</td><td>ㄓㄣˇ</td><td>界線、界限</td><td>畛：田間小路，引申為分界</td></tr>
+            <tr><td>秦、越之異</td><td></td><td>比喻疏遠隔閡，如秦、越兩國相距遙遠、互不相干</td><td>典出韓愈〈爭臣論〉「若秦、越人視其肥瘠」</td></tr>
+            <tr><td>操戈</td><td></td><td>動武、兵戎相見</td><td>「同室操戈」為成語，典出《後漢書》</td></tr>
+            <tr><td>淡屬</td><td></td><td>淡水廳所轄地區（約今台北、新北、桃園一帶）</td><td>清代行政區劃名稱</td></tr>
+            <tr><td>新、艋</td><td></td><td>新莊、艋舺（今台北市萬華區）</td><td>清代台北盆地最繁盛的兩大市街</td></tr>
+            <tr><td>邱墟</td><td></td><td>廢墟、荒蕪之地</td><td>邱：同「丘」</td></tr>
+            <tr><td>鬩牆</td><td>ㄒㄧˋ</td><td>兄弟相爭，比喻內部紛爭</td><td>語出《詩經．小雅．常棣》「兄弟鬩於牆」</td></tr>
+            <tr><td>一體同仁</td><td></td><td>對待眾人一視同仁，不分彼此親疏</td><td>全文核心主張，即「一視同仁」之意</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 重要典故與字源分析整理</div>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; font-size:0.90rem;">
+          <div style="flex:1; min-width:180px;">
+            <strong style="color:var(--primary);">引用典故：</strong>
+            <ul style="padding-left:1.2rem;">
+              <li>子夏「四海皆兄弟」——出自《論語．顏淵》</li>
+              <li>「秦、越之異」——化用韓愈語，喻疏遠</li>
+              <li>「鬩牆」——出自《詩經．小雅》</li>
+            </ul>
+          </div>
+          <div style="flex:1; min-width:180px;">
+            <strong style="color:var(--teal);">字源析義：</strong>
+            <ul style="padding-left:1.2rem;">
+              <li>「友」字從兩手（喻互助扶持）</li>
+              <li>「朋」字從兩肉（喻血肉相連）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 語譯 -->
+      <h3 class="sub-section-title" id="z2-trans">白話語譯</h3>
+      <div class="translation-block">
+        <p><strong>第一段（總起：痛陳分類之禍）：</strong>人心的變化真是太嚴重了啊，這一切都是從「分類」開始的！這種禍害最初是由匪徒帶頭挑起，後來便像野火燎原一樣無法遏止，好人壞人同歸於盡。即使是正人君子，也難免受到牽連，有的甚至隨波逐流地加入其中。</p>
+        <p><strong>第二段（論證同類不可分）：</strong>人與禽獸原本各自為一類，邪惡與正直也原本各自為一類，這是不可不加以區分的。但是同樣具有這樣的血氣、同樣擁有這樣的軀體、同樣身為國家的良民、同樣是鄉里間的善良百姓，本不應該分土地、分人民，這正是子夏所說的「四海之內皆兄弟」的道理啊，何況大家還是共同生活在同一塊土地上呢？衡量「出入相友」這句古訓的道理，正是古代聖賢所說的同鄉共井、相互扶持的情誼。從文字的意義來看，「友」字是由「兩隻手」構成，「朋」字是由「兩塊肉」構成。這說明朋友就像同一個身體的左右手一樣，也就如同自己身上的肉一般。現在如果找一個路人來對他說：「你去砍斷自己的手，你去咬爛自己的肉！」很少有人不勃然大怒的！為什麼現在的分類意識竟然嚴重到了這種地步呢？</p>
+        <p><strong>第三段（台灣分類械鬥現況）：</strong>而分類所造成的禍害，在台灣特別嚴重；台灣境內，又以淡水廳的新莊、艋舺一帶最為嚴重。台灣本是五方人士雜居之地，自從林爽文帶頭作亂以來，就有了分為閩、粵兩籍的區分，也有了分為漳州、泉州兩府的區分。閩、粵是因為省籍不同而分，漳、泉則是因為府籍不同而分。然而大家同樣都是從內地遷徙渡海而來，說到底都同樣是台灣人罷了。如今卻因為省籍、府籍的不同而劃分地域界線，這種行為依照國法本應該加以誅罰。何況同屬一府之人，竟也產生了如秦、越兩國般遙遠疏離的隔閡，這真是變本加厲，不是奇怪到極點了嗎？人們沒有不先親近自己親近的人，卻能夠反過來親近自己疏遠的人的道理。同住在一個府內，就如同同一屋簷下的兄弟，本是最親近的關係。如今竟然同室操戈、兵戎相見，又怎麼能夠由親及疏，去親近隔了一府的漳州人、隔了一省的廣東人呢？</p>
+        <p><strong>第四段（新莊艋舺慘況）：</strong>淡水廳一帶向來民風敦厚淳樸，新莊、艋舺更是這片土地菁華薈萃之地，遊歷此地的人，無不讚嘆稱羨。可是自從分類械鬥興起以來，這裡的元氣被剝削消耗殆盡，從來沒有像去年那樣嚴重過！兵戎相殘的禍害越演越烈，村莊市街有一半都成了廢墟。試問：這難道是漳州人和泉州人之間的仇恨所導致的嗎？並不是。試問：這難道是閩籍和粵籍之間的仇恨所導致的嗎？也不是。這一切禍害其實都是自己招惹造成的，紛爭起於兄弟鬩牆般的內鬥，說穿了，根本不在漳泉之分，也不在閩粵之別。</p>
+        <p><strong>第五段（呼籲改過、展望和諧）：</strong>自古以來，事物到了窮途末路必定會發生轉變，禍害到了極點人們自然會知道悔改。天地有好生之德，人心也沒有永遠不會轉變的時候。我生長在這片土地上，常想讀書人身為士農工商四民之首，卻不能與在位當事的諸公竭盡誠心地加以教化引導，努力挽回並改變這種局面，內心實在感到十分慚愧。希望從今以後，做父親的能告誡自己的兒子、做兄長的能勸告自己的弟弟，大家都能洗心革面，不要再懷抱過去的仇恨，不要再重蹈以往的過錯。既親近自己所親近的人，也能親近自己所疏遠的人，一視同仁地對待眾人，這樣一來，內部的禍患就不會產生，外來的災禍也不會降臨。漳州、泉州、閩籍、粵籍之間的隔閡風氣，也將在無形之中默默消解。就好比人身上的血脈，只要節節相通暢達，自然就不會生病；如此經過數年之後，台灣仍然能夠恢復成安樂的樂土，這豈不是一件令人欣喜的事嗎！</p>
+      </div>
+
+      <!-- 主旨與寫作手法 -->
+      <h3 class="sub-section-title" id="z2-analysis">主旨與寫作手法分析</h3>
+
+      <h4 class="sub-sub-title">一、主旨</h4>
+      <div class="box box-tip">
+        <div class="box-title">✅ 本篇主旨</div>
+        <p style="font-size:0.93rem;">本篇是鄭用錫有感於清代台灣淡水廳新莊、艋舺一帶漳泉、閩粵分類械鬥造成的慘重死傷與地方殘破所撰寫的勸誡文。作者呼籲台灣百姓應以「四海之內皆兄弟」的胸懷相待，泯除漳泉、閩粵的地域畛域，達到「一體同仁」的和諧社會。全文兼具論理的嚴謹與情感的懇切，是清代台灣本土士人以身作則、憂時憂民的代表作。</p>
+      </div>
+
+      <h4 class="sub-sub-title">二、文章結構（論說文五段式）</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>段落</th><th>內容</th><th>論證方式</th></tr></thead>
+          <tbody>
+            <tr><td>第一段</td><td>總起：痛陳「分類」造成人心之變、禍害蔓延</td><td>開門見山，直陳其害</td></tr>
+            <tr><td>第二段</td><td>論證「同類不可分」的道理，援引經典與字源</td><td>引經據典＋譬喻論證（自戕手、自噬肉）</td></tr>
+            <tr><td>第三段</td><td>舉台灣分類械鬥史實為例（林爽文事件、漳泉閩粵之分）</td><td>舉例論證＋層遞（省→府→同室操戈）</td></tr>
+            <tr><td>第四段</td><td>聚焦淡水廳新莊艋舺慘況，以反問法否定漳泉閩粵之罪</td><td>設問論證，直指禍害根源在「分類」本身</td></tr>
+            <tr><td>第五段</td><td>呼籲改過向善，提出「一體同仁」解方，展望和樂社會</td><td>正面呼籲＋譬喻收束（血脈節節相通）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="sub-sub-title">三、寫作手法</h4>
+      <div class="analysis-grid">
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">引經據典</h4>
+          <p>引用子夏「四海之內皆兄弟」（《論語》）強化論點的權威性；又以「友」從兩手、「朋」從兩肉的字源析義，將抽象的手足之情具象化，說理精巧。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">譬喻論證</h4>
+          <p>以「自戕爾手，自噬爾肉」比喻分類械鬥形同自傷己身；以「血脈節節相通，自無他病」比喻族群和諧則社會自然安康，譬喻貼切而有力。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">層遞論證</h4>
+          <p>從「人與禽」「邪與正」不可不分，層層遞進到「同血氣、同官骸、同為良民」不應強分，邏輯層次分明，說服力遞增。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">設問反詰</h4>
+          <p>「問為漳、泉而至此乎？無有也。問為閩、粵而至此乎？無有也。」連續設問自答，有力駁斥分類械鬥的正當性，指出禍源在人心而非籍貫。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">對比手法</h4>
+          <p>「親所親」與「親所疏」對比；「同室操戈」與「同室兄弟」對比，凸顯分類械鬥違背人倫常理的荒謬。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--teal);">
+          <h4 style="color:var(--teal);">情理兼具</h4>
+          <p>全文既有嚴謹的邏輯論證，又飽含「滋愧實甚」的自省情懷與「父誡其子、兄告其弟」的懇切呼籲，展現士人以天下為己任的社會責任感。</p>
+        </div>
+      </div>
+
+      <!-- 學測考點 -->
+      <h3 class="sub-section-title" id="z2-exam">學測常考重點 <span class="exam-badge">高頻考點</span></h3>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測常考題型：</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>作者背景：</strong>鄭用錫，號祉亭，竹塹（新竹）人，清道光年間進士，人稱「開台進士」（台灣本籍首位考中進士者）</li>
+          <li><strong>歷史背景：</strong>清代台灣分類械鬥的成因（移民社會、五方雜處）與林爽文事件的關聯</li>
+          <li><strong>論證手法：</strong>字源析義法（友從兩手、朋從兩肉）是本文最具特色的說理技巧，常考申論分析</li>
+          <li><strong>字詞辨析：</strong>畛域、鬩牆、玉石俱焚、燎原莫遏等成語的字義與出處</li>
+          <li><strong>主旨理解：</strong>「一體同仁」的核心主張，作者呼籲的具體做法（父誡子、兄告弟）</li>
+          <li><strong>台灣古典散文地位：</strong>本文為台灣本土文人論說散文的代表作，展現士人的社會關懷</li>
+          <li><strong>引用典故：</strong>子夏「四海之內皆兄弟」出自《論語．顏淵》，須知出處及原文脈絡</li>
+        </ul>
+      </div>
+      <div class="box box-link">
+        <div class="box-title">🔗 跨領域連結</div>
+        <p style="font-size:0.90rem;">本文所探討的族群衝突與和解課題，可連結歷史科「清代台灣移墾社會」單元，理解閩粵移民結構與械鬥成因；亦可連結公民科「多元文化」與「族群關係」議題，思考當代台灣族群融合的歷史脈絡與現實意義。</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         篇三：鹿港乘桴記
+         ==================================================== -->
+    <section>
+      <div style="background:linear-gradient(90deg, var(--gold), #d4a72c); color:#fff; border-radius:12px; padding:1rem 1.5rem; margin-bottom:1.5rem;">
+        <div style="font-size:0.78rem; opacity:0.85; margin-bottom:0.3rem;">第三篇｜清末／日治初期台灣古典散文</div>
+        <div style="font-size:1.4rem; font-weight:900; letter-spacing:2px;">鹿港乘桴記</div>
+        <div style="font-size:0.88rem; opacity:0.9; margin-top:0.3rem;">作者：洪棄生（原名攀桂，字月樵，後改名繻，號棄生）｜出自《寄鶴齋文集》｜清末割台後</div>
+      </div>
+
+      <!-- 原文 -->
+      <h3 class="sub-section-title" id="z3-text">原文全文</h3>
+      <div class="original-text">
+        <p><span class="kw-gold">樓閣萬家，街衢對峙，有亭翼然。</span>亙二、三里，直如弦、平如砥，暑行不汗身、雨行不濡履。一水通津，出海之涘，估帆葉葉，潮汐下上，去來如龍，貨舶相望；而店前可以驅車、店後可以繫榜者，<span class="kw">昔之鹿港也</span>。人煙猶是，而蕭條矣；邑里猶是，而<span class="kw">泬寥</span>矣。海天蒼蒼、海水茫茫，去之五里，涸為鹽場，萬瓦如<span class="kw">甃</span>、長隄如隍，無<span class="kw">懋遷</span>、無利涉；望之黯然可傷者，<span class="kw">今之鹿港也</span>。</p>
+        <p>昔之盛，固余所不見；而其未至於斯之衰也，尚為余少時所目睹。蓋鹿港扼南北之中，其海口去閩南之泉州，僅隔一海峽而遙。閩南、浙、粵之貨，每由鹿港運輸而入；而臺北、臺南所需之貨，恆由鹿港輸出。乃至臺灣土產之輸於閩、粵者，亦靡不以鹿港為中樞。蓋藏既富，絃誦興焉；故<span class="kw">黌序</span>之士相望於道，而春秋試之貢於京師、注名仕籍者，歲有其人，非猶夫以學校聚奴隸者也。而是時鹿港通海之水已淺可涉矣，海艟之來，止泊於沖西內津；昔之所謂「鹿港飛帆」者，已不概見矣。綑載之往來，皆以竹筏運赴大艑矣。然是時之竹筏，猶千百數也；衣食於其中者，尚數百家也。迄於今版圖既易，海關之吏猛於虎豹，華貨之不來者有之矣。洎乎火車之路全通，外貨之來由南北而入，不復由鹿港而出矣；重以關稅之苛、關吏之酷，牟販之夫多至破家，而閩貨之不能由南北來者，亦復不敢由鹿港來也。</p>
+        <p>鹽田之築，肇自近年。日本官吏，固云欲以<span class="kw">阜鹿民</span>也；而其究竟，則實民間之輸巨貲以供官府之收厚利而已。且因是而阻水不行，山潦之來，鹿港人家半入洪浸；屋廬之日就頹毀，人民之日即離散，有由然矣。</p>
+        <p>余往年攜友<span class="kw-gold">乘桴</span>游於海濱，是時新鹽田未興築、舊鹽田猶未竣工；余亦無心至於隄下，臨海徘徊，海水浮天如笠，一白萬里如銀，滉漾碧綠如琉璃。夕陽欲下，月鉤初上；水鳥不飛，篙工撐棹。向新溝迤邐而行，則密邇鹿港之舊津，向時估帆所出入者，時已淤為沙灘，為居民鋤作菜圃矣。沿新溝而南至於大橋頭，則已挈鹿港之首尾而全觀之矣。望街尾一隅而至安平鎮，則割臺後之飛甍鱗次數百家燬於<span class="kw">丙申兵火</span>者，今猶瓦礫成邱，荒涼慘目也。猶幸市況凋零，為當道所不齒；不至於市區改正，破裂闤闠、驅逐人家以為通衢也。然而再經數年，則不可知之矣。滄桑時之可怖心，類如此也。游興已終，舍桴而步，遠近燈火明滅；屈指盛時所號萬家邑者，<span class="kw-teal">今裁三千家而已：可勝慨哉！</span></p>
+      </div>
+
+      <div class="box box-tip">
+        <div class="box-title">💡 文章背景說明</div>
+        <p style="font-size:0.90rem;">本文選自《寄鶴齋文集》。洪棄生（1866–1929）為彰化鹿港人，是日治時期著名的遺民文人，終生堅持不剪辮、不學日語，以漢文寫作寄託對故國文化的堅守。篇名「乘桴」典出《論語．公冶長》：「道不行，乘桴浮於海。」孔子感嘆政治理想無法實現，只能乘筏出海避世，洪棄生借此典故暗喻自己面對割台之痛、時局劇變的失志與無奈。</p>
+      </div>
+
+      <!-- 字詞注釋 -->
+      <h3 class="sub-section-title" id="z3-glossary">字詞注釋 <span class="exam-badge">學測常考</span></h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>字詞</th><th>音讀</th><th>字義</th><th>補充說明</th></tr></thead>
+          <tbody>
+            <tr><td>乘桴</td><td>ㄈㄨˊ</td><td>乘坐竹筏或木筏</td><td>典出《論語．公冶長》「道不行，乘桴浮於海」，為篇名出典</td></tr>
+            <tr><td>街衢</td><td>ㄑㄩˊ</td><td>街道</td><td>衢：四通八達的道路</td></tr>
+            <tr><td>亙</td><td>ㄍㄣˋ</td><td>綿延、橫貫</td><td>形容街道連綿不絕</td></tr>
+            <tr><td>平如砥</td><td>ㄉㄧˇ</td><td>像磨刀石一樣平坦</td><td>砥：磨刀石</td></tr>
+            <tr><td>涘</td><td>ㄙˋ</td><td>水邊</td><td>與「涯」義近</td></tr>
+            <tr><td>估帆</td><td></td><td>商船</td><td>估：商賈；帆：借代船隻</td></tr>
+            <tr><td>泬寥</td><td>ㄒㄩㄝˋ ㄌㄧㄠˊ</td><td>空曠寂靜的樣子</td><td>形容鹿港今日的蕭條冷清</td></tr>
+            <tr><td>甃</td><td>ㄓㄡˋ</td><td>磚砌的井壁，此指磚瓦堆砌之物</td><td>「萬瓦如甃」形容鹽田瓦堆密布</td></tr>
+            <tr><td>懋遷</td><td>ㄇㄠˋ</td><td>貿易、買賣</td><td>語出《尚書．益稷》「懋遷有無化居」</td></tr>
+            <tr><td>黌序</td><td>ㄏㄨㄥˊ</td><td>學校</td><td>黌、序皆為古代學校名稱</td></tr>
+            <tr><td>海艟</td><td>ㄊㄨㄥˊ</td><td>大型海船</td><td>艟：戰船、大船</td></tr>
+            <tr><td>綑載</td><td>ㄎㄨㄣˇ</td><td>用繩索捆綁貨物裝載，指貨運</td><td>綑：捆綁</td></tr>
+            <tr><td>大艑</td><td>ㄅㄧㄢˋ</td><td>大船</td><td>艑：船的一種</td></tr>
+            <tr><td>阜鹿民</td><td>ㄈㄨˋ</td><td>使鹿港百姓富足</td><td>阜：使動用法，「使……富足」</td></tr>
+            <tr><td>巨貲</td><td>ㄗ</td><td>巨額財貲、大筆金錢</td><td>貲：同「資」，財貨</td></tr>
+            <tr><td>滉漾</td><td>ㄏㄨㄤˇ ㄧㄤˋ</td><td>水波蕩漾的樣子</td><td>疊韻連綿詞，形容海面波光</td></tr>
+            <tr><td>篙工撐棹</td><td>ㄍㄠ ㄓㄠˋ</td><td>船夫撐篙划槳</td><td>篙：撐船的竹竿；棹：船槳</td></tr>
+            <tr><td>迤邐</td><td>ㄧˇ ㄌㄧˇ</td><td>曲折連綿前行</td><td>疊韻連綿詞</td></tr>
+            <tr><td>飛甍鱗次</td><td>ㄇㄥˊ</td><td>屋舍如魚鱗般密集排列，形容房屋眾多整齊</td><td>甍：屋脊</td></tr>
+            <tr><td>丙申兵火</td><td></td><td>光緒二十二年（丙申年，1896）日軍侵台戰火</td><td>指乙未割台後翌年安平鎮遭焚毀之戰事</td></tr>
+            <tr><td>闤闠</td><td>ㄏㄨㄢˊ ㄏㄨㄟˋ</td><td>街市、商店集中之處</td><td>闤：市區周圍的牆；闠：市場的門</td></tr>
+            <tr><td>通衢</td><td>ㄑㄩˊ</td><td>四通八達的大路</td><td>與「街衢」的「衢」同義</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 今昔對比關鍵句整理</div>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; font-size:0.90rem;">
+          <div style="flex:1; min-width:180px;">
+            <strong style="color:var(--gold);">昔之鹿港（清代盛況）：</strong>
+            <ul style="padding-left:1.2rem;">
+              <li>「樓閣萬家，街衢對峙」</li>
+              <li>「估帆葉葉，潮汐下上」</li>
+              <li>「黌序之士相望於道」</li>
+            </ul>
+          </div>
+          <div style="flex:1; min-width:180px;">
+            <strong style="color:var(--primary);">今之鹿港（日治初期蕭條）：</strong>
+            <ul style="padding-left:1.2rem;">
+              <li>「人煙猶是，而蕭條矣」</li>
+              <li>「涸為鹽場……無懋遷、無利涉」</li>
+              <li>「今裁三千家而已」</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 語譯 -->
+      <h3 class="sub-section-title" id="z3-trans">白話語譯</h3>
+      <div class="translation-block">
+        <p><strong>第一段（今昔鹿港總覽）：</strong>樓房閣宇千家萬戶，街道彼此對峙相望，有涼亭如飛鳥展翅般聳立其間。街道綿延二、三里，筆直如弓弦、平坦如磨刀石，即使在酷暑中行走也不會汗流浹背，即使在雨天行走鞋子也不會沾濕。一條水道通往渡口，直達出海口的水邊，商船的帆影一片片，隨著潮汐上下往來，來去如龍一般迅捷，貨船首尾相望；店鋪前可以驅車往來、店鋪後可以繫纜停船的地方——這就是從前的鹿港啊。如今人煙依舊，卻已經蕭條冷清了；街市鄉里依舊，卻已經空曠寂寥了。海天蒼茫遼闊、海水浩渺無邊，距離五里之外，乾涸成了鹽場，成堆的瓦片如同磚牆砌成的井壁一般，長長的堤防如同護城河的堤岸；沒有商賈往來貿易，也沒有舟楫往來通行的便利；望去只讓人黯然神傷的地方——這就是如今的鹿港啊。</p>
+        <p><strong>第二段（衰落原因：地理與政治）：</strong>從前鹿港的興盛，本來就不是我親眼所見的；但是還沒有衰落到如此地步的時候，仍是我年少時親眼目睹過的景象。鹿港正扼守著台灣南北交通的中樞位置，它的海口距離福建南部的泉州，僅僅隔著一道海峽的距離而已。閩南、浙江、廣東的貨物，經常經由鹿港運輸進來；而台北、台南所需要的貨物，也常常由鹿港運輸出去。甚至台灣本地的土產要輸出到福建、廣東的，也沒有不以鹿港作為運輸中樞的。正因為財富積蓄豐厚，讀書弦誦之風也隨之興盛；所以各地學校的士子絡繹於途，每逢科考被貢舉到京城、名列仕籍的人，年年都有；並不像那些只把學校當作聚集庸碌之人的地方。可是到了這時候，鹿港通往海口的水道已經淺得可以涉水而過了，大型海船前來，只能停泊在沖西內津；從前所謂「鹿港飛帆」的盛況，已經不太能看到了。貨物的裝運往來，都改用竹筏運到大船上去了。然而那時候的竹筏，仍然有成千上百艘之多；靠著這行業維生的人家，也還有數百戶之多。到了如今，台灣的版圖已經改易（割讓給日本），海關官吏比虎豹還要兇猛，中國貨物因此有不能運來的情況了。等到鐵路全線通車之後，外來的貨物改由南北兩路運進來，不再經由鹿港輸出了；再加上關稅苛刻、關吏殘酷，做買賣的商人大多因此傾家蕩產，而福建的貨物既不能從南北兩路運來，也就更不敢經由鹿港運來了。</p>
+        <p><strong>第三段（鹽田政策的禍害）：</strong>鹽田的興建，是最近幾年才開始的事。日本官吏本來說是要用來使鹿港百姓富足的；但探究其真正的用意，實際上不過是要讓民間出資巨額財資，來供官府收取豐厚利益罷了。而且因為興築鹽田，阻擋了水道無法通行，每逢山洪暴發而來，鹿港的人家有一半都遭到大水淹沒；房屋日漸傾頹毀壞，百姓也日漸離散逃亡，這都是有原因的啊。</p>
+        <p><strong>第四段（乘桴遊覽的今昔感慨）：</strong>我在往年曾經與朋友一同乘坐竹筏，到海濱遊覽，那時新的鹽田還沒有興建，舊的鹽田也還沒有完工；我也無心走到堤防之下，只是在海邊徘徊流連。海水浮映著天空，如同斗笠一般籠罩，一片潔白綿延萬里，如同銀色一般，波光蕩漾，碧綠得如同琉璃一般。夕陽即將西下，一鉤新月剛剛升起；水鳥都停止了飛翔，船夫撐著竹篙划著槳。船沿著新開的溝渠曲折前行，漸漸靠近鹿港從前的舊渡口，從前商船出入的地方，此時已經淤積成沙灘，被居民開墾成菜園了。沿著新溝往南走，到了大橋頭，就已經把鹿港從頭到尾的景象完全盡收眼底了。望向街尾一帶，直到安平鎮，那裡是割讓台灣之後，數百戶鱗次櫛比的房舍毀於丙申年（光緒二十二年，1896年）戰火的地方，如今依然是瓦礫成堆的荒丘，景象荒涼淒慘，令人不忍卒睹。所幸市況已經如此凋零冷落，不被當道官府所看重，才沒有遭到「市區改正」的都市計畫波及，拆毀街市、驅逐居民，開闢成通衢大道。然而再過幾年之後，情況會如何發展，就不得而知了。滄海桑田變化之可怕，大概就是像這樣吧。遊興已經盡了，便棄了竹筏改為步行，遠近的燈火忽明忽滅；屈指計算從前號稱萬家的城邑，如今僅僅只剩三千戶人家而已，怎能不讓人感慨萬千呢！</p>
+      </div>
+
+      <!-- 主旨與寫作手法 -->
+      <h3 class="sub-section-title" id="z3-analysis">主旨與寫作手法分析</h3>
+
+      <h4 class="sub-sub-title">一、主旨</h4>
+      <div class="box box-gold">
+        <div class="box-title">✅ 本篇主旨</div>
+        <p style="font-size:0.93rem;">本篇藉洪棄生乘桴遊覽鹿港海濱之所見所感，對比清代鹿港昔日商貿鼎盛、萬家煙火的榮景，與日治初期因海口淤淺、關稅苛政、鹽田興築、鐵路改道等因素造成的蕭條沒落，抒發滄海桑田、時移勢易的深沉感慨。作為堅守漢文化認同的遺民文人，洪棄生更藉由故鄉鹿港的興衰，寄託對國族淪亡、時局劇變的悲痛，篇名「乘桴」化用孔子典故，暗示避世與失志之感。</p>
+      </div>
+
+      <h4 class="sub-sub-title">二、文章層次</h4>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>段落</th><th>內容</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>第一段</td><td>以「昔之鹿港」「今之鹿港」對照開篇，總述今昔盛衰</td><td>總起全文，奠定今昔對比的敘事基調</td></tr>
+            <tr><td>第二段</td><td>分析鹿港地理優勢、清代商貿盛況，及水淺、割台、鐵路等衰落原因</td><td>史筆式敘述，兼具史料價值與議論色彩</td></tr>
+            <tr><td>第三段</td><td>批判日本鹽田政策名為阜民、實為斂財，且引發水患</td><td>深化對殖民政策的批判</td></tr>
+            <tr><td>第四段</td><td>記敘乘桴遊覽見聞：舊津淤積成菜圃、安平鎮戰火殘跡</td><td>以親歷見聞印證前文論述，並收束於滄桑之嘆</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="sub-sub-title">三、寫作手法</h4>
+      <div class="analysis-grid">
+        <div class="analysis-item" style="border-top-color:var(--gold);">
+          <h4 style="color:var(--gold);">今昔對比（貫穿全文）</h4>
+          <p>開篇即以「昔之鹿港也」「今之鹿港也」二元對照句式收束首段，其後各段均延續此今昔對比架構，強化滄桑之感。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--gold);">
+          <h4 style="color:var(--gold);">駢散兼行</h4>
+          <p>多用四字句、對偶句（如「暑行不汗身、雨行不濡履」「人煙猶是，而蕭條矣」），兼具古文氣勢與駢文的韻律美感。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--gold);">
+          <h4 style="color:var(--gold);">敘議結合、寓情於景</h4>
+          <p>前半以史筆記敘鹿港興衰原因，後半轉為遊記筆法，藉海濱所見之景（淤積菜圃、瓦礫荒丘）寄託感傷，末以「可勝慨哉」的感嘆作結。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--gold);">
+          <h4 style="color:var(--gold);">數字對比強化滄桑感</h4>
+          <p>「萬家邑」對比「今裁三千家而已」，以具體數字的巨大落差，具象化呈現鹿港由盛轉衰的驚人幅度。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--gold);">
+          <h4 style="color:var(--gold);">典故寄託（篇名「乘桴」）</h4>
+          <p>篇名典出《論語．公冶長》「道不行，乘桴浮於海」，暗喻作者面對殖民統治、時局劇變的失志心境，遊覽本身即帶有政治寄託。</p>
+        </div>
+        <div class="analysis-item" style="border-top-color:var(--gold);">
+          <h4 style="color:var(--gold);">寫實細節、兼具史料價值</h4>
+          <p>具體提及丙申兵火（1896年日軍侵台戰事）、鹽田政策、火車鐵路等歷史事件，使本文兼具文學抒情與史料記錄的雙重價值。</p>
+        </div>
+      </div>
+
+      <!-- 學測考點 -->
+      <h3 class="sub-section-title" id="z3-exam">學測常考重點 <span class="exam-badge">高頻考點</span></h3>
+      <div class="box box-gold">
+        <div class="box-title">⭐ 學測常考題型：</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>作者背景：</strong>洪棄生（原名攀桂，字月樵，後改名繻，號棄生），彰化鹿港人，日治時期著名遺民文人，堅持不剪辮、不學日語</li>
+          <li><strong>篇名典故：</strong>「乘桴」出自《論語．公冶長》「道不行，乘桴浮於海」，須知典故出處及其暗喻失志避世的深意</li>
+          <li><strong>今昔對比手法：</strong>能舉出文中「昔之鹿港」與「今之鹿港」的具體對照例句</li>
+          <li><strong>鹿港衰落的歷史因素：</strong>海口淤積（地理）、割台後海關苛政、鐵路改道（交通）、鹽田政策（經濟）四大原因，常考申論分析</li>
+          <li><strong>字詞辨析：</strong>泬寥、闤闠、飛甍鱗次、迤邐等生難字詞的音義</li>
+          <li><strong>語言風格：</strong>駢散兼行、多用對偶四字句的寫作特色</li>
+          <li><strong>「丙申兵火」的歷史指涉：</strong>光緒二十二年（1896）日軍侵台之役，須連結乙未割台（1895）的歷史背景</li>
+        </ul>
+      </div>
+      <div class="box box-link">
+        <div class="box-title">🔗 跨領域連結</div>
+        <p style="font-size:0.90rem;">本文可連結歷史科「乙未割台」與「日治時期殖民經濟政策」單元，理解海關、鹽業專賣、鐵路建設如何重塑台灣各地經濟版圖；亦可與歸有光〈項脊軒志〉比較——兩篇同樣藉由空間（書房 vs. 港市）的今昔變化寄託情感，但一為私人家族記憶的懷人之作，一為地方鄉土歷史滄桑、寄託國族認同的社會關懷之作。</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ====================================================
+         古文十五篇總複習（里程碑）
+         ==================================================== -->
+    <section id="milestone">
+      <h2 class="section-title"><span class="icon">🏆</span>古文十五篇總複習（W01–W07 里程碑）</h2>
+      <div class="box box-gold">
+        <div class="box-title">🎉 恭喜完成古文15篇核心選文的學習！</div>
+        <p style="font-size:0.92rem;">從 W01 到 W07，我們依序學完了學測國文「古文15篇核心必考選文」的全部篇目。這15篇涵蓋先秦至台灣清末近三千年的文學脈絡，是學測文言文命題的核心來源。以下為總複習表，請配合本週末的「古文#1–15 默寫作者時代」小測，逐篇檢核記憶。</p>
+      </div>
+
+      <h3 class="sub-section-title">古文15篇一覽表</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>#</th><th>篇名</th><th>作者</th><th>時代</th><th>對應週次</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>燭之武退秦師</td><td>左丘明</td><td>先秦</td><td>W01</td></tr>
+            <tr><td>2</td><td>大同與小康</td><td>《禮記》</td><td>先秦</td><td>W01</td></tr>
+            <tr><td>3</td><td>諫逐客書</td><td>李斯</td><td>先秦</td><td>W02</td></tr>
+            <tr><td>4</td><td>鴻門宴</td><td>司馬遷</td><td>漢</td><td>W02</td></tr>
+            <tr><td>5</td><td>出師表</td><td>諸葛亮</td><td>漢魏</td><td>W03</td></tr>
+            <tr><td>6</td><td>桃花源記</td><td>陶淵明</td><td>魏晉</td><td>W03</td></tr>
+            <tr><td>7</td><td>虯髯客傳</td><td>杜光庭</td><td>唐</td><td>W04</td></tr>
+            <tr><td>8</td><td>師說</td><td>韓愈</td><td>唐</td><td>W04</td></tr>
+            <tr><td>9</td><td>始得西山宴遊記</td><td>柳宗元</td><td>唐</td><td>W05</td></tr>
+            <tr><td>10</td><td>赤壁賦</td><td>蘇軾</td><td>宋</td><td>W05</td></tr>
+            <tr><td>11</td><td>項脊軒志</td><td>歸有光</td><td>明</td><td>W06</td></tr>
+            <tr><td>12</td><td>晚遊六橋待月記</td><td>袁宏道</td><td>明</td><td>W06</td></tr>
+            <tr><td>13</td><td>勞山道士</td><td>蒲松齡</td><td>清</td><td>W07</td></tr>
+            <tr><td>14</td><td>勸和論</td><td>鄭用錫</td><td>清（台灣）</td><td>W07</td></tr>
+            <tr><td>15</td><td>鹿港乘桴記</td><td>洪棄生</td><td>清末／日治初（台灣）</td><td>W07</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">時代脈絡速覽</h3>
+      <div class="k-map">
+        <div class="k-map-row">
+          <div class="k-node">先秦（#1–3）<br>燭之武・大同小康・諫逐客書</div>
+          <div class="k-node teal">漢魏（#4–5）<br>鴻門宴・出師表</div>
+          <div class="k-node gold">魏晉（#6）<br>桃花源記</div>
+        </div>
+        <div class="k-map-row" style="margin-top:0.8rem;">
+          <div class="k-node">唐（#7–9）<br>虯髯客傳・師說・始得西山宴遊記</div>
+          <div class="k-node teal">宋（#10）<br>赤壁賦</div>
+          <div class="k-node gold">明（#11–12）<br>項脊軒志・晚遊六橋待月記</div>
+        </div>
+        <div class="k-map-row" style="margin-top:0.8rem;">
+          <div class="k-node center">清／台灣（#13–15）<br>勞山道士・勸和論・鹿港乘桴記</div>
+        </div>
+      </div>
+
+      <div class="box box-warn" style="margin-top:1rem;">
+        <div class="box-title">📅 週末小測任務：古文 #1–15 默寫作者時代</div>
+        <p style="font-size:0.91rem;">請先蓋住下方詳解，僅憑上方「篇名」欄自行默寫每篇的作者與時代，完成後再點開核對答案。建議反覆練習至能在3分鐘內全數答對為止。</p>
+      </div>
+
+      <details>
+        <summary>查看正解：15篇作者與時代完整對照</summary>
+        <div class="answer-box">
+          <table style="margin-top:0.5rem;">
+            <thead><tr><th>#</th><th>篇名</th><th>作者</th><th>時代</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>燭之武退秦師</td><td>左丘明</td><td>先秦（春秋）</td></tr>
+              <tr><td>2</td><td>大同與小康</td><td>《禮記．禮運》</td><td>先秦</td></tr>
+              <tr><td>3</td><td>諫逐客書</td><td>李斯</td><td>先秦（戰國末）</td></tr>
+              <tr><td>4</td><td>鴻門宴</td><td>司馬遷</td><td>漢（記秦末史事）</td></tr>
+              <tr><td>5</td><td>出師表</td><td>諸葛亮</td><td>漢魏（三國蜀漢）</td></tr>
+              <tr><td>6</td><td>桃花源記</td><td>陶淵明</td><td>魏晉（東晉）</td></tr>
+              <tr><td>7</td><td>虯髯客傳</td><td>杜光庭</td><td>唐</td></tr>
+              <tr><td>8</td><td>師說</td><td>韓愈</td><td>唐</td></tr>
+              <tr><td>9</td><td>始得西山宴遊記</td><td>柳宗元</td><td>唐</td></tr>
+              <tr><td>10</td><td>赤壁賦</td><td>蘇軾</td><td>宋</td></tr>
+              <tr><td>11</td><td>項脊軒志</td><td>歸有光</td><td>明</td></tr>
+              <tr><td>12</td><td>晚遊六橋待月記</td><td>袁宏道</td><td>明</td></tr>
+              <tr><td>13</td><td>勞山道士</td><td>蒲松齡</td><td>清</td></tr>
+              <tr><td>14</td><td>勸和論</td><td>鄭用錫</td><td>清（台灣）</td></tr>
+              <tr><td>15</td><td>鹿港乘桴記</td><td>洪棄生</td><td>清末／日治初（台灣）</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: COMPARE ========== -->
+    <section id="compare">
+      <h2 class="section-title"><span class="icon">⚖️</span>三篇比較分析</h2>
+      <div class="card" style="padding:0;">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>比較面向</th>
+              <th>勞山道士</th>
+              <th>勸和論</th>
+              <th>鹿港乘桴記</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>作者</td>
+              <td>蒲松齡（山東淄川人）</td>
+              <td>鄭用錫（竹塹人，開台進士）</td>
+              <td>洪棄生（鹿港人，遺民文人）</td>
+            </tr>
+            <tr>
+              <td>時代與地域</td>
+              <td>清初，中國山東</td>
+              <td>清咸豐年間，台灣（淡水廳）</td>
+              <td>清末割台後（日治初期），台灣（鹿港）</td>
+            </tr>
+            <tr>
+              <td>文體</td>
+              <td>志怪小說</td>
+              <td>論說文</td>
+              <td>記（遊記兼議論抒懷）</td>
+            </tr>
+            <tr>
+              <td>出處</td>
+              <td>《聊齋志異》卷一</td>
+              <td>《北郭園全集》</td>
+              <td>《寄鶴齋文集》</td>
+            </tr>
+            <tr>
+              <td>寫作目的</td>
+              <td>藉奇幻故事諷刺投機取巧、不勞而獲的社會心態</td>
+              <td>勸諭台灣百姓摒棄族群偏見，弭平分類械鬥</td>
+              <td>記錄鹿港今昔滄桑，寄託遺民對故國文化的堅守</td>
+            </tr>
+            <tr>
+              <td>核心主題</td>
+              <td>個人修養：戒急功近利、腳踏實地</td>
+              <td>社會關懷：族群和諧、一體同仁</td>
+              <td>家國情懷：滄海桑田、國族認同</td>
+            </tr>
+            <tr>
+              <td>主要手法</td>
+              <td>志怪筆法、伏筆照應、篇末議論（異史氏曰）</td>
+              <td>引經據典、譬喻論證、層遞設問</td>
+              <td>今昔對比、駢散兼行、敘議結合</td>
+            </tr>
+            <tr>
+              <td>語言風格</td>
+              <td>簡練生動、想像瑰奇</td>
+              <td>整飭典雅、說理懇切</td>
+              <td>典麗蒼涼、句式工整</td>
+            </tr>
+            <tr>
+              <td>與台灣的關係</td>
+              <td>無直接關聯（中國本土題材）</td>
+              <td>台灣在地文人、寫台灣本土社會問題</td>
+              <td>台灣在地文人、寫台灣本土歷史滄桑</td>
+            </tr>
+            <tr>
+              <td>歷史意義</td>
+              <td>文言短篇小說巔峰之作</td>
+              <td>清代台灣社會史（分類械鬥）重要文獻</td>
+              <td>日治初期台灣經濟史、遺民心境重要文獻</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-warn" style="margin-top:1rem;">
+        <div class="box-title">⚠️ 三篇比較常見混淆點</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>三篇雖同屬「清代」選文，但性質大不相同：〈勞山道士〉是<strong>中國本土</strong>志怪小說，〈勸和論〉與〈鹿港乘桴記〉則是<strong>台灣本土</strong>古典散文——這是「古文15篇」中僅有的兩篇台灣文人作品</li>
+          <li>〈勸和論〉（1853，清代仍統治台灣）與〈鹿港乘桴記〉（割台後，日治初期）雖同為台灣文人所作，但寫作的時代背景已從「清治」轉為「日治」，切勿混淆兩篇的政治情境</li>
+          <li>〈勞山道士〉屬「志怪小說」（虛構奇幻情節），〈勸和論〉屬「論說文」（純議論說理），〈鹿港乘桴記〉屬「記」（記敘見聞兼議論抒懷）——三者文體判然不同，作答文體辨析題時務必分清</li>
+          <li>〈勸和論〉針對「人心分類」的內部族群問題發聲；〈鹿港乘桴記〉則針對「外來政權更替」造成的地方衰敗興嘆，兩篇的批判對象與情感基調並不相同</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== KNOWLEDGE MAP ========== -->
+    <section id="kmap">
+      <h2 class="section-title"><span class="icon">🗺️</span>知識連結圖</h2>
+      <div class="k-map">
+        <div class="k-map-row">
+          <div class="k-node center">清代／台灣古典文學<br>W07</div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node">勞山道士<br>蒲松齡・志怪小說</div>
+          <div class="k-node teal">勸和論<br>鄭用錫・論說散文</div>
+          <div class="k-node gold">鹿港乘桴記<br>洪棄生・記（遊記議論）</div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node">諷刺投機取巧<br>異史氏曰體例</div>
+          <div class="k-node teal">族群和諧<br>一體同仁</div>
+          <div class="k-node gold">今昔滄桑<br>遺民家國情懷</div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node">連結：史記「太史公曰」<br>→ 史傳評論體例</div>
+          <div class="k-node teal">連結：師說（韓愈）<br>→ 論說文結構比較</div>
+          <div class="k-node gold">連結：項脊軒志（歸有光）<br>→ 空間今昔對比手法</div>
+        </div>
+        <div class="k-arrow">▼</div>
+        <div class="k-map-row">
+          <div class="k-node gold">連結：古文15篇完整脈絡<br>先秦 → 漢魏 → 魏晉 → 唐 → 宋 → 明 → 清／台灣</div>
+        </div>
+      </div>
+
+      <div class="box box-link" style="margin-top:1rem;">
+        <div class="box-title">🔗 課程跨單元連結提示</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>國文課內連結：</strong>〈勞山道士〉的「異史氏曰」可對比〈鴻門宴〉出自《史記》的史傳筆法；〈勸和論〉的論說結構可對比〈師說〉〈諫逐客書〉的論證手法；〈鹿港乘桴記〉的今昔對比可對比〈項脊軒志〉借空間寄情的寫法</li>
+          <li><strong>歷史科連結：</strong>清代台灣移墾社會與分類械鬥、乙未割台與日治初期殖民經濟政策</li>
+          <li><strong>公民科連結：</strong>族群關係與多元文化、殖民統治下的經濟剝削與社會正義議題</li>
+          <li><strong>學測整體布局：</strong>古文15篇至此全數學畢，後續應轉入「古文30篇輔助選文」與白話文選文的複習規劃</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SUMMARY ========== -->
+    <section id="summary">
+      <h2 class="section-title"><span class="icon">📝</span>重點整理</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem;">
+        <div class="box box-key">
+          <div class="box-title">📌 勞山道士 速記</div>
+          <ul style="padding-left:1.2rem; font-size:0.86rem;">
+            <li>作者：蒲松齡（柳泉居士）</li>
+            <li>出處：《聊齋志異》卷一・清代</li>
+            <li>文體：志怪小說</li>
+            <li>主旨：諷刺投機取巧、不勞而獲</li>
+            <li>結構：拜師→展法術→求去→授穿牆術→撞牆→異史氏曰</li>
+            <li>核心手法：伏筆照應、異史氏曰體例</li>
+            <li>成語出典：舐癰吮痔</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">📌 勸和論 速記</div>
+          <ul style="padding-left:1.2rem; font-size:0.86rem;">
+            <li>作者：鄭用錫（開台進士）</li>
+            <li>出處：《北郭園全集》・清咸豐三年</li>
+            <li>文體：論說文</li>
+            <li>主旨：勸諭泯除漳泉閩粵分類、一體同仁</li>
+            <li>背景：淡水廳新莊艋舺分類械鬥</li>
+            <li>核心手法：字源析義（友從兩手、朋從兩肉）</li>
+            <li>引用：子夏「四海皆兄弟」</li>
+          </ul>
+        </div>
+        <div class="box box-gold">
+          <div class="box-title">📌 鹿港乘桴記 速記</div>
+          <ul style="padding-left:1.2rem; font-size:0.86rem;">
+            <li>作者：洪棄生（遺民文人）</li>
+            <li>出處：《寄鶴齋文集》・割台後</li>
+            <li>文體：記（遊記兼議論）</li>
+            <li>主旨：鹿港今昔滄桑、寄託遺民情懷</li>
+            <li>衰落原因：海口淤積、割台海關、鐵路改道、鹽田政策</li>
+            <li>篇名典故：《論語》道不行乘桴浮於海</li>
+            <li>核心句：今裁三千家而已，可勝慨哉</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="box box-gold" style="margin-top:1rem;">
+        <div class="box-title">⭐ 學測作答策略</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>看到「異史氏曰」，優先思考此段是否才是文章的諷喻主旨核心，而非單純故事情節</li>
+          <li>〈勸和論〉的字源析義（友從兩手、朋從兩肉）是常考的論證手法辨析題，務必熟記</li>
+          <li>〈鹿港乘桴記〉的衰落四大原因（地理、政治、交通、經濟）常以申論或選擇題形式出現，建議條列記憶</li>
+          <li>辨別三篇文體時，先問「是否有虛構情節」（志怪小說）、「是否純粹議論說理」（論說文）、「是否記敘見聞兼抒懷」（記）</li>
+          <li>本週三篇皆為「清代」選文，但務必分清中國本土（勞山道士）與台灣本土（勸和論、鹿港乘桴記）的差異</li>
+          <li>古文15篇已全數學完，複習時建議依「時代序」（先秦→漢魏→魏晉→唐→宋→明→清台灣）建立整體脈絡，而非零散記憶</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ========== SECTION: QUIZ ========== -->
+    <section id="quiz">
+      <h2 class="section-title"><span class="icon">✏️</span>隨堂自我測驗</h2>
+      <div class="box box-warn" style="margin-bottom:1.5rem;">
+        <div class="box-title">作答說明</div>
+        <p style="font-size:0.91rem;">以下共 5 題單選題，每題閱讀後先自行作答，再點開「查看解答」確認。本測驗涵蓋本週三篇重點，建議合上講義獨立作答。</p>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>《勞山道士》篇末「異史氏曰」一段，其主要作用為何？</div>
+        <ol>
+          <li>補充說明王生的生平背景，屬於無關緊要的閒筆</li>
+          <li>仿效《史記》「太史公曰」體例，跳出故事直接發表議論，將諷喻擴大至社會現實</li>
+          <li>單純重複前文情節，加強讀者印象</li>
+          <li>說明勞山道士的真實身分，解開故事謎團</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.90rem;">蒲松齡以「異史氏」自比史家，仿效《史記》「太史公曰」的史傳評論體例，於故事之外直接發表議論。此段將王生因投機取巧而撞牆出醜的個人化故事，提升至「傖父喜疢毒而畏藥石」的社會諷喻高度，是全篇畫龍點睛之筆，也是《聊齋志異》最具特色的寫作手法。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>〈勸和論〉中「友從兩手、朋從兩肉」的論證手法，其效果為何？</div>
+        <ol>
+          <li>純粹展示作者的文字學知識，與論證主旨無關</li>
+          <li>藉由拆解「友」「朋」二字的字源結構，將抽象的手足之情具象化，強化「分類即自傷己身」的論點</li>
+          <li>說明「友」與「朋」在意義上完全不同，應加以區分</li>
+          <li>諷刺當時人不識字，連基本文字都寫錯</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.90rem;">鄭用錫以「友」字從兩手、「朋」字從兩肉的字源析義，說明朋友情誼如同一身左右手、如同己身之肉，緊接著以「爾其自戕爾手，爾其自噬爾肉」的譬喻，強調分類械鬥形同自我傷害，是全文極具說服力的論證技巧。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span>〈鹿港乘桴記〉中，作者認為鹿港衰落的原因，不包含下列何者？</div>
+        <ol>
+          <li>海口淤淺，大型海船無法直接進港</li>
+          <li>割台後海關苛政，貨物難以運輸</li>
+          <li>鐵路全線通車，貨物改由南北兩路進出，不再仰賴鹿港</li>
+          <li>鹿港居民集體遷往台北發展，導致人口外流</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：D</p>
+            <p style="font-size:0.90rem;">文中提及鹿港衰落的原因包括：海口水淺（地理因素）、割台後海關之吏猛於虎豹（政治因素）、火車之路全通導致外貨不再由鹿港輸出（交通因素）、鹽田興築阻水導致水患（經濟政策因素）。文中並未提及居民「集體遷往台北發展」這項原因，D 選項為作者未曾提出的說法。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span>下列關於本週三篇作品文體的敘述，何者正確？</div>
+        <ol>
+          <li>〈勞山道士〉屬於論說文，〈勸和論〉屬於志怪小說</li>
+          <li>〈勞山道士〉屬於志怪小說，〈勸和論〉屬於論說文，〈鹿港乘桴記〉屬於記（遊記兼議論）</li>
+          <li>三篇皆屬於志怪小說，僅題材不同</li>
+          <li>三篇皆屬於論說文，僅論證對象不同</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：B</p>
+            <p style="font-size:0.90rem;">〈勞山道士〉選自《聊齋志異》，屬虛構奇幻情節的志怪小說；〈勸和論〉全篇純粹議論說理，屬論說文；〈鹿港乘桴記〉則是記敘乘桴遊覽見聞、兼發議論抒懷的「記」體散文。三篇文體判然不同，切勿混淆。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span>下列關於古文15篇的敘述，何者<strong>錯誤</strong>？</div>
+        <ol>
+          <li>古文15篇中，〈勸和論〉與〈鹿港乘桴記〉是僅有的兩篇台灣本土文人作品</li>
+          <li>依時代排序，古文15篇涵蓋先秦至清代（含台灣），共跨越約三千年的文學脈絡</li>
+          <li>〈項脊軒志〉與〈晚遊六橋待月記〉同屬明代散文，作者分別為歸有光與袁宏道</li>
+          <li>〈燭之武退秦師〉與〈鹿港乘桴記〉同屬於「記」的文體</li>
+        </ol>
+        <details>
+          <summary>查看解答與解析</summary>
+          <div class="answer-box">
+            <p class="correct">正確答案：D</p>
+            <p style="font-size:0.90rem;">〈燭之武退秦師〉選自《左傳》，屬於「敘事散文（史傳體）」，並非「記」體；而〈鹿港乘桴記〉才是「記」體散文（遊記兼議論）。二者文體並不相同，D 選項敘述錯誤。其餘選項 A、B、C 皆正確：古文15篇確實僅〈勸和論〉〈鹿港乘桴記〉為台灣本土文人所作；時代確實從先秦（燭之武退秦師，約前630年）跨越至清末台灣（鹿港乘桴記），約三千年；項脊軒志與晚遊六橋待月記確實皆為明代散文。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 測驗完成 -->
+      <div class="box box-key" style="margin-top:1.5rem;">
+        <div class="box-title">✅ 測驗完成後的學習建議</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>答錯的題目，請回到對應小節重新複習（字詞注釋、寫作手法、三篇比較）</li>
+          <li>務必完成「古文十五篇總複習」的默寫小測，確保 15 篇的作者與時代都能在短時間內正確作答</li>
+          <li>嘗試用自己的話向同學說明「異史氏曰的作用」「勸和論的論證手法」或「鹿港乘桴記的今昔對比」，口語表達能幫助深化理解</li>
+          <li>古文15篇學習至此告一段落，建議利用週末製作一張「15篇時代軸整理表」，作為後續總複習的核心筆記</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top:3rem; padding-top:1.5rem; border-top:2px solid var(--border); text-align:center; font-size:0.82rem; color:var(--muted);">
+      <p>W07 國文科古文講義｜勞山道士 ＆ 勸和論 ＆ 鹿港乘桴記</p>
+      <p style="margin-top:0.3rem;">高二理工組 · 學測備考 · 古文15篇核心選文完結週</p>
+      <p style="margin-top:0.3rem;">本講義依據台灣108課綱高中國文學習內容編製，僅供學習參考</p>
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>

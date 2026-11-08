@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W05 國文科｜始得西山宴遊記 ＆ 赤壁賦</title>
+  <style>
+    /* ===================== CSS Reset & Base ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: "Microsoft JhengHei", "蘋方-繁", "PingFang TC", "Noto Sans TC", sans-serif;
+      background: #fdf6f0;
+      color: #2c2c2c;
+      line-height: 1.8;
+    }
+
+    /* ===================== CSS Variables ===================== */
+    :root {
+      --primary:       #c0392b;
+      --primary-dark:  #96281b;
+      --primary-light: #e74c3c;
+      --primary-bg:    #fdecea;
+      --accent:        #8e44ad;
+      --accent-bg:     #f5eef8;
+      --gold:          #b7860b;
+      --gold-bg:       #fef9e7;
+      --teal:          #1a7a6e;
+      --teal-bg:       #e8f8f5;
+      --ink:           #2c2c2c;
+      --muted:         #6b6b6b;
+      --border:        #e0d0cd;
+      --card-bg:       #ffffff;
+      --shadow:        0 2px 12px rgba(192,57,43,0.10);
+    }
+
+    /* ===================== Layout ===================== */
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px; min-width: 240px;
+      background: linear-gradient(180deg, #96281b 0%, #c0392b 40%, #e74c3c 100%);
+      color: #fff;
+      position: sticky; top: 0; height: 100vh;
+      overflow-y: auto; padding: 0 0 2rem 0;
+      box-shadow: 3px 0 14px rgba(0,0,0,0.15);
+    }
+    .sidebar-header {
+      background: rgba(0,0,0,0.22);
+      padding: 1.4rem 1rem 1.2rem; text-align: center;
+      border-bottom: 2px solid rgba(255,255,255,0.18);
+    }
+    .sidebar-header .week-badge {
+      background: rgba(255,255,255,0.15); border-radius: 12px;
+      display: inline-block; padding: 0.15rem 0.8rem;
+      font-size: 0.70rem; letter-spacing: 0.1em; margin-bottom: 0.5rem;
+    }
+    .sidebar-header h2 { font-size: 1rem; font-weight: 800; }
+    .sidebar-header p { font-size: 0.76rem; opacity: 0.78; margin-top: 0.3rem; }
+    .nav-group { padding: 0.3rem 0; }
+    .nav-label {
+      font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,200,150,0.90); padding: 0.8rem 1rem 0.3rem; display: block;
+    }
+    .sidebar a {
+      display: block; color: rgba(255,255,255,0.82); text-decoration: none;
+      font-size: 0.84rem; padding: 0.38rem 1rem;
+      border-left: 3px solid transparent; transition: all 0.16s;
+    }
+    .sidebar a:hover { background: rgba(255,255,255,0.14); border-left-color: rgba(255,200,150,0.9); color: #fff; }
+    .sidebar a.sub { padding-left: 1.7rem; font-size: 0.80rem; }
+
+    /* ===================== Main Content ===================== */
+    .main-content { flex: 1; padding: 2rem 2.5rem 4rem; max-width: 960px; }
+
+    /* ===================== Page Header ===================== */
+    .page-header {
+      background: linear-gradient(135deg, #96281b 0%, #c0392b 50%, #e74c3c 100%);
+      color: #fff; border-radius: 16px; padding: 2rem 2.4rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(150,40,27,0.30);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: "遊"; position: absolute; right: 1.8rem; top: 50%;
+      transform: translateY(-50%); font-size: 8rem; opacity: 0.08; font-weight: 900;
+    }
+    .week-badge {
+      background: rgba(255,255,255,0.20); border-radius: 12px;
+      display: inline-block; padding: 0.18rem 0.85rem;
+      font-size: 0.80rem; margin-bottom: 0.6rem; letter-spacing: 0.08em;
+    }
+    .page-header h1 { font-size: 1.8rem; font-weight: 900; margin-bottom: 0.35rem; }
+    .page-header .subtitle { font-size: 0.92rem; opacity: 0.88; }
+    .meta-row { display: flex; gap: 0.8rem; margin-top: 1rem; flex-wrap: wrap; }
+    .meta-chip { background: rgba(255,255,255,0.16); border-radius: 20px; padding: 0.2rem 0.85rem; font-size: 0.78rem; }
+
+    /* ===================== Sections ===================== */
+    .section-title {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 1.24rem; font-weight: 800; color: var(--primary-dark);
+      margin: 2.4rem 0 1.1rem; padding-bottom: 0.45rem;
+      border-bottom: 3px solid var(--primary);
+    }
+    .sub-title {
+      font-size: 1.0rem; font-weight: 700; color: var(--primary);
+      margin: 1.4rem 0 0.65rem; padding-left: 0.75rem;
+      border-left: 4px solid var(--primary);
+    }
+
+    /* ===================== Cards ===================== */
+    .card {
+      background: var(--card-bg); border-radius: 12px;
+      padding: 1.4rem 1.6rem; margin-bottom: 1.2rem;
+      box-shadow: var(--shadow); border: 1px solid var(--border);
+    }
+
+    /* ===================== Boxes ===================== */
+    .box { border-radius: 10px; padding: 1rem 1.2rem; margin: 1rem 0; font-size: 0.93rem; }
+    .box-def    { background: var(--primary-bg); border-left: 5px solid var(--primary); }
+    .box-gold   { background: var(--gold-bg); border-left: 5px solid var(--gold); }
+    .box-teal   { background: var(--teal-bg); border-left: 5px solid var(--teal); }
+    .box-purple { background: var(--accent-bg); border-left: 5px solid var(--accent); }
+    .box-warn   { background: #fff8e1; border-left: 5px solid #f9a825; }
+    .box-title  { font-weight: 700; margin-bottom: 0.5rem; }
+
+    /* ===================== Text Annotation ===================== */
+    .text-block {
+      background: #fffaf7; border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.4rem 1.8rem; margin: 1rem 0;
+      font-size: 1.02rem; line-height: 2.2;
+    }
+    .text-block .text-title {
+      font-size: 0.80rem; font-weight: 700; color: var(--primary);
+      margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .annotate {
+      background: #fff3cd; padding: 0 3px; border-radius: 3px;
+      cursor: help; border-bottom: 1px dotted var(--gold);
+    }
+    .key-phrase {
+      color: var(--primary-dark); font-weight: 700;
+    }
+
+    /* ===================== Tables ===================== */
+    table { width: 100%; border-collapse: collapse; font-size: 0.91rem; margin: 0.8rem 0; }
+    thead tr { background: var(--primary); color: #fff; }
+    thead th { padding: 0.65rem 1rem; text-align: left; font-weight: 700; }
+    tbody tr:nth-child(even) { background: var(--primary-bg); }
+    tbody tr:hover { background: #f7dcdc; }
+    tbody td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody td:first-child { font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+
+    /* ===================== Quiz ===================== */
+    .quiz-item {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.1rem 1.4rem; margin-bottom: 1rem;
+    }
+    .q-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--primary); color: #fff;
+      font-size: 0.80rem; font-weight: 700;
+      border-radius: 50%; width: 1.7rem; height: 1.7rem;
+      margin-right: 0.5rem; flex-shrink: 0;
+    }
+    .q-text { font-weight: 600; font-size: 0.94rem; }
+    details summary {
+      cursor: pointer; color: var(--teal);
+      font-size: 0.88rem; margin-top: 0.6rem; font-weight: 600;
+    }
+    details[open] summary { margin-bottom: 0.5rem; }
+    details .answer {
+      background: var(--teal-bg); border-left: 4px solid var(--teal);
+      border-radius: 6px; padding: 0.8rem 1rem; font-size: 0.88rem; line-height: 1.9;
+    }
+
+    /* ===================== Comparison Grid ===================== */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+    @media (max-width: 680px) { .compare-grid { grid-template-columns: 1fr; } }
+    .compare-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-top: 4px solid var(--primary); border-radius: 8px; padding: 1rem 1.1rem;
+    }
+    .compare-card.alt { border-top-color: var(--accent); }
+    .compare-card h4 { font-size: 0.92rem; margin-bottom: 0.5rem; color: var(--primary-dark); }
+    .compare-card.alt h4 { color: var(--accent); }
+    .compare-card ul { padding-left: 1.2rem; font-size: 0.88rem; }
+    .compare-card li { margin-bottom: 0.3rem; }
+
+    /* ===================== TREE VISUAL ===================== */
+    .tree-visual { background: #fdf0ee; border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px 16px 20px; margin: 14px 0; overflow-x: auto; }
+    .tv-root { display: inline-flex; align-items: center; background: var(--primary-dark); color: #fff; font-weight: 700; font-size: 15px; padding: 5px 18px; border-radius: 20px; margin-bottom: 6px; }
+    .tv-children { list-style: none; padding: 0; margin: 0 0 0 14px; border-left: 2px solid var(--border); }
+    .tv-item { position: relative; padding: 5px 0 4px 22px; }
+    .tv-item::before { content: ''; position: absolute; left: 0; top: 14px; width: 18px; height: 2px; background: var(--border); }
+    .tv-node { display: inline-block; border-radius: 6px; padding: 3px 12px; font-size: 13px; font-weight: 600; line-height: 1.6; }
+    .tv-desc { display: block; font-size: 11.5px; color: var(--muted); padding: 0 4px; margin: 1px 0 3px; }
+    .tv-node.tv-l1 { background: var(--primary-bg); color: var(--primary-dark); border: 1px solid #f5a89a; font-size: 14px; }
+    .tv-node.tv-l2 { background: var(--gold-bg); color: #7c5c00; border: 1px solid #f0d080; }
+    .tv-node.tv-l3 { background: #fafafa; color: var(--ink); border: 1px solid #e0e0e0; font-weight: 400; }
+
+    ul.content-list { padding-left: 1.4rem; }
+    ul.content-list li { margin-bottom: 0.4rem; font-size: 0.93rem; }
+
+    @media (max-width: 768px) { .sidebar { display: none; } .main-content { padding: 1.2rem 1rem 3rem; } }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="week-badge">WEEK 05 ｜ 06/15–06/21</div>
+      <h2>國文科</h2>
+      <p>始得西山宴遊記・赤壁賦</p>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-label">單元導覽</span>
+      <a href="#overview">單元概述</a>
+      <a href="#prereq">先備知識</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-label">古文#9 始得西山宴遊記</span>
+      <a href="#xiyou-author" class="sub">作者柳宗元</a>
+      <a href="#xiyou-text" class="sub">課文全文</a>
+      <a href="#xiyou-structure" class="sub">文章結構</a>
+      <a href="#xiyou-exam" class="sub">考試重點</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-label">古文#10 赤壁賦</span>
+      <a href="#chibi-author" class="sub">作者蘇軾</a>
+      <a href="#chibi-text" class="sub">課文全文</a>
+      <a href="#chibi-structure" class="sub">文章結構</a>
+      <a href="#chibi-exam" class="sub">考試重點</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-label">跨文本比較</span>
+      <a href="#compare">兩文比較</a>
+    </div>
+
+    <div class="nav-group">
+      <span class="nav-label">整合複習</span>
+      <a href="#connection">知識連結</a>
+      <a href="#summary">重點整理</a>
+      <a href="#selfcheck">自我檢測</a>
+    </div>
+  </aside>
+
+  <!-- ===== Main Content ===== -->
+  <main class="main-content">
+
+    <header class="page-header" id="top">
+      <div class="week-badge">Week 05 ｜ 06/15–06/21</div>
+      <h1>始得西山宴遊記 ＆ 赤壁賦</h1>
+      <p class="subtitle">古文 #9 柳宗元（唐）・古文 #10 蘇軾（宋）｜寓情於景、哲理散文</p>
+      <div class="meta-row">
+        <span class="meta-chip">山水遊記</span>
+        <span class="meta-chip">赤壁</span>
+        <span class="meta-chip">哲理散文</span>
+        <span class="meta-chip">古今異義</span>
+        <span class="meta-chip">詞類活用</span>
+        <span class="meta-chip">學測必考</span>
+      </div>
+    </header>
+
+    <!-- ===== 單元概述 ===== -->
+    <section id="overview">
+      <h2 class="section-title">&#128218; 單元概述</h2>
+      <div class="card">
+        <p>本週兩篇均為<strong>寓情於景、託物言志</strong>的散文名篇，同時也是哲理深刻的遊記類作品。柳宗元的《始得西山宴遊記》以發現西山為轉折，抒發謫居之鬱悶與超脫；蘇軾的《赤壁賦》以水、月為象徵，探討「變」與「不變」的哲學，是宋代文賦的巔峰之作。</p>
+        <div class="box box-teal">
+          <div class="box-title">學習目標</div>
+          <ul class="content-list">
+            <li>能流暢朗讀並理解兩篇課文的大意</li>
+            <li>掌握兩文的文章結構與寫作手法</li>
+            <li>識別古今異義詞與詞類活用</li>
+            <li>比較兩篇文章在「人與自然」主題上的異同</li>
+            <li>能分析蘇軾「主客問答」的哲理論証</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 先備知識 ===== -->
+    <section id="prereq">
+      <h2 class="section-title">&#128218; 先備知識確認</h2>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">W04 的相關知識</div>
+          <ul class="content-list">
+            <li>韓愈（唐）古文運動的主張（師說）</li>
+            <li>古文的論証結構（論點 → 論据 → 結論）</li>
+            <li>詞類活用：名詞作動詞、形容詞作動詞</li>
+          </ul>
+        </div>
+        <div class="box box-gold">
+          <div class="box-title">遊記散文的特點</div>
+          <p>遊記 = 記敘遊歷 + 描寫景物 + 抒發情感（三者缺一不可）。本週兩篇均不是純粹描景，而是<strong>借景抒情、托物言志</strong>，情感與哲理是核心。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 始得西山宴遊記：作者 ===== -->
+    <section id="xiyou-author">
+      <h2 class="section-title">&#128333; 始得西山宴遊記｜作者柳宗元</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>項目</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>姓名</td><td>柳宗元，字子厚，世稱「柳河東」、「柳柳州」</td></tr>
+            <tr><td>時代</td><td>唐代中期（773–819年）</td></tr>
+            <tr><td>文學地位</td><td>「唐宋八大家」之一，與韓愈並稱「韓柳」，古文運動的重要推手</td></tr>
+            <tr><td>貶謫背景</td><td>因「永貞革新」失敗，被貶為永州（今湖南）司馬，後再貶柳州</td></tr>
+            <tr><td>作品特色</td><td>山水遊記（永州八記為代表）、寓言（三戒）、傳記，文筆精煉深刻</td></tr>
+          </tbody>
+        </table>
+        <div class="box box-def">
+          <div class="box-title">《永州八記》背景</div>
+          <p>柳宗元被貶永州十年間，常與友人遊覽當地山水，寫下八篇山水遊記，統稱《永州八記》。《始得西山宴遊記》是八記之首，寫於永州之貶的第五年（805年後）。「始得」表示此前雖多遊覽，但西山才是真正心靈的歸宿。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 始得西山宴遊記：課文 ===== -->
+    <section id="xiyou-text">
+      <h2 class="section-title">&#128333; 始得西山宴遊記｜課文全文</h2>
+      <div class="card">
+
+        <div class="box box-def">
+          <div class="box-title">全文說明</div>
+          <p>以下為〈始得西山宴遊記〉完整全文，共三段，加標注語句為考試重點詞句。</p>
+        </div>
+
+        <div class="text-block">
+          <div class="text-title">第一段（前遊之困——「未始游」）</div>
+          <p>自<span class="key-phrase">余為僇人</span>，居是州，恆<span class="annotate" title="惴慄：憂懼不安的樣子">惴慄</span>。其<span class="annotate" title="隟：通「隙」，空閒">隟</span>也，則施施而行，漫漫而游，日與其徒，上高山，入深林，窮迴谿，幽泉怪石，無遠不到。到則<span class="annotate" title="披草：撥開草叢">披草</span>而坐，傾壺而醉，醉則更相枕以臥，<span class="key-phrase">臥而夢，意有所極，夢亦同趣</span>，覺而起，起而歸。以為凡是州之山水有異態者，皆我有也，而未始知西山之怪特。</p>
+        </div>
+
+        <div class="text-block">
+          <div class="text-title">第二段（發現西山——記遊覽過程）</div>
+          <p>今年九月二十八日，因坐法華西亭，望西山，<span class="annotate" title="始指異之：才指著西山覺得它奇異不凡（形容詞活用為動詞）">始指異之</span>。遂命僕人過湘江，緣染溪，斫榛莽，焚茅茷，窮山之高而止。攀援而登，箕踞而遨，則凡數州之土壤，皆在衽席之下。</p>
+          <p>其高下之勢，岈然窪然，若垤若穴，尺寸千里，攢蹙累積，莫得遁隱；縈青繚白，外與天際，四望如一。<span class="key-phrase">然後知是山之特出，不與培塿為類</span>。悠悠乎與顥氣俱，而莫得其涯；洋洋乎與造物者游，而不知其所窮。</p>
+        </div>
+
+        <div class="text-block">
+          <div class="text-title">第三段（宴遊忘返——「物我兩忘」，游於是乎始）</div>
+          <p>引觴滿酌，<span class="key-phrase">頹然就醉，不知日之入</span>，蒼然暮色，自遠而至，至無所見而猶不欲歸。心凝形釋，<span class="key-phrase">與萬化冥合</span>，然後知吾向之未始游，<span class="key-phrase">游於是乎始</span>，故為之文以志。</p>
+          <p>是歲，元和四年也。</p>
+        </div>
+
+        <h3 class="sub-title">句意解析</h3>
+        <table>
+          <thead><tr><th>原文</th><th>白話意譯</th><th>考試重點</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>余為僇人</td>
+              <td>我是被貶謫的罪人</td>
+              <td>「僇」通「戮」，通假字，指受刑辱（貶謫）之人</td>
+            </tr>
+            <tr>
+              <td>施施而行，漫漫而游</td>
+              <td>悠閒地走，漫無目的地遊蕩</td>
+              <td>「施施」同「迤迤」，形容緩慢移動的樣子</td>
+            </tr>
+            <tr>
+              <td>意有所極，夢亦同趣</td>
+              <td>情意到達之處，夢也跟著去到</td>
+              <td>「趣」通「趨」，趨向、前往</td>
+            </tr>
+            <tr>
+              <td>不與培塿為類</td>
+              <td>不與小土丘為同類（突出奇特）</td>
+              <td>「培塿」（ㄆㄡˇ ㄌㄡˇ，pǒu lǒu）指小土丘，比喻平庸之輩</td>
+            </tr>
+            <tr>
+              <td>心凝形釋，與萬化冥合</td>
+              <td>心神凝聚，形體解脫，與萬物暗合</td>
+              <td>是全文精神核心，表達「物我兩忘」的精神境界</td>
+            </tr>
+            <tr>
+              <td>向之未始游，游於是乎始</td>
+              <td>從前未曾真正遊覽，真正的遊歷從這裡開始</td>
+              <td>照應標題「始得」，首尾呼應，強調西山的特殊意義</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== 始得西山宴遊記：文章結構 ===== -->
+    <section id="xiyou-structure">
+      <h2 class="section-title">&#128333; 始得西山宴遊記｜文章結構</h2>
+      <div class="card">
+        <div class="tree-visual">
+          <div class="tv-root">始得西山宴遊記（三段式結構）</div>
+          <ul class="tv-children">
+            <li class="tv-item">
+              <span class="tv-node tv-l1">第一段：前遊之「未始游」</span>
+              <span class="tv-desc">謫居永州，多遊山水，但心有枷鎖，只是形游，非真游</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l2">「施施而行，漫漫而游」→ 形游</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">「醉則更相枕以臥」→ 借酒消愁</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">「以為凡是州之山水有異態者，皆我有也」→ 自以為游遍，其實未真游</span></li>
+              </ul>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">第二段：發現西山，描寫其怪特</span>
+              <span class="tv-desc">九月二十八日，從法華西亭遠望西山，攀登後俯瞰四方景色</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l2">「始指異之」→ 首次發現西山的不凡</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">「不與培塿為類」→ 西山卓絕超群，象徵柳宗元自比</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">「四望如一」→ 壯闊景象，氣勢磅礡</span></li>
+              </ul>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">第三段：宴遊忘返，「物我兩忘」</span>
+              <span class="tv-desc">飲酒至醉，心靈得到真正的解脫，物我兩忘，才是「始游」</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l2">「心凝形釋，與萬化冥合」→ 精神昇華</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">「游於是乎始」→ 首尾呼應，揭示主旨</span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <h3 class="sub-title">象徵意義</h3>
+        <div class="box box-purple">
+          <div class="box-title">西山象徵柳宗元自己</div>
+          <p>「<strong>不與培塿為類</strong>」——西山特立獨行，不與平庸小丘為伍，正是柳宗元以西山自比，表達自己雖遭貶謫，卻堅守高潔人格，不願與奸佞同流合污的心志。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 始得西山：考試重點 ===== -->
+    <section id="xiyou-exam">
+      <h2 class="section-title">&#128333; 始得西山宴遊記｜考試重點</h2>
+      <div class="card">
+        <h3 class="sub-title">古今異義</h3>
+        <table>
+          <thead><tr><th>字詞</th><th>古義</th><th>今義</th></tr></thead>
+          <tbody>
+            <tr><td>僇人</td><td>被貶謫的罪人（遭受恥辱之人）</td><td>遭殺戮的人</td></tr>
+            <tr><td>其隟也</td><td>在空閒的時候（隟通隙）</td><td>裂縫（隙）</td></tr>
+            <tr><td>施施而行</td><td>緩慢移動的樣子</td><td>施給、施予</td></tr>
+            <tr><td>過了</td><td>超過、越過</td><td>錯誤（犯過）</td></tr>
+          </tbody>
+        </table>
+
+        <h3 class="sub-title">詞類活用</h3>
+        <table>
+          <thead><tr><th>原文</th><th>活用類型</th><th>解釋</th></tr></thead>
+          <tbody>
+            <tr><td>始指異之</td><td>形容詞→動詞</td><td>異：覺得奇異（感到…不同尋常）</td></tr>
+            <tr><td>窮迴谿</td><td>形容詞→動詞</td><td>窮：走到盡頭</td></tr>
+            <tr><td>望西山，始指異之</td><td>名詞→狀語</td><td>「始」作副詞，才剛</td></tr>
+          </tbody>
+        </table>
+
+        <h3 class="sub-title">通假字</h3>
+        <div class="box box-warn">
+          <ul class="content-list">
+            <li><strong>僇</strong>通<strong>戮</strong>：「余為僇人」→「余為戮人」，遭受刑戮（貶謫）之人</li>
+            <li><strong>趣</strong>通<strong>趨</strong>：「夢亦同趣」→「夢亦同趨」，趨向、前往</li>
+            <li><strong>隟</strong>通<strong>隙</strong>：「其隟也」→「其隙也」，空閒時</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 赤壁賦：作者 ===== -->
+    <section id="chibi-author">
+      <h2 class="section-title">&#128180; 赤壁賦｜作者蘇軾</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>項目</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>姓名</td><td>蘇軾，字子瞻，號東坡居士</td></tr>
+            <tr><td>時代</td><td>北宋（1037–1101年）</td></tr>
+            <tr><td>文學地位</td><td>「唐宋八大家」之一，宋代詩、詞、文、書法、繪畫均成就卓著</td></tr>
+            <tr><td>貶謫背景</td><td>因「烏台詩案」被貶黃州（今湖北），《赤壁賦》作於此時（1082年）</td></tr>
+            <tr><td>作品特色</td><td>豁達豪邁，善用典故與哲理，詞作開豪放派，「前赤壁賦」、「後赤壁賦」雙壁</td></tr>
+          </tbody>
+        </table>
+        <div class="box box-gold">
+          <div class="box-title">「前赤壁賦」vs.「後赤壁賦」</div>
+          <p>同年（1082年）寫成。前賦以「主客問答」為結構，哲理思辨色彩濃厚；後賦更多記敘遊覽經過，描寫秋冬景色，有道教仙化色彩。學測以《前赤壁賦》（即〈赤壁賦〉）為主。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 赤壁賦：課文精讀 ===== -->
+    <section id="chibi-text">
+      <h2 class="section-title">&#128180; 赤壁賦｜課文全文</h2>
+      <div class="card">
+
+        <div class="box box-gold">
+          <div class="box-title">全文說明</div>
+          <p>以下為〈赤壁賦〉（前赤壁賦）完整全文，共五段。加標注語句為學測重點詞句。</p>
+        </div>
+
+        <div class="text-block">
+          <div class="text-title">第一段（景與樂——泛舟赤壁，羽化登仙）</div>
+          <p><span class="annotate" title="壬戌之秋：宋神宗元豐五年（1082年）秋">壬戌之秋，七月既望</span>，蘇子與客泛舟遊於赤壁之下。清風徐來，水波不興。舉酒屬客，誦明月之詩，歌窈窕之章。少焉，月出於東山之上，徘徊於斗牛之間。白露橫江，水光接天。<span class="key-phrase">縱一葦之所如，凌萬頃之茫然</span>。浩浩乎如<span class="annotate" title="馮虛御風：馮通「憑」，憑空乘風而行">馮虛御風</span>，而不知其所止；飄飄乎如遺世獨立，羽化而登仙。</p>
+        </div>
+
+        <div class="text-block">
+          <div class="text-title">第二段（歌與悲——客吹洞簫，音聲幽咽）</div>
+          <p>於是飲酒樂甚，扣舷而歌之。歌曰：「桂棹兮蘭槳，擊空明兮溯流光。渺渺兮予懷，望美人兮天一方。」客有吹洞簫者，倚歌而和之。其聲嗚嗚然，如怨如慕，如泣如訴，<span class="key-phrase">餘音嫋嫋，不絕如縷</span>，舞幽壑之潛蛟，泣孤舟之<span class="annotate" title="嫠婦：寡婦">嫠婦</span>。</p>
+          <p>蘇子愀然，正襟危坐，而問客曰：「何為其然也？」</p>
+        </div>
+
+        <div class="text-block">
+          <div class="text-title">第三段（客之悲嘆——英雄不長存，人生渺小）</div>
+          <p>客曰：「月明星稀，烏鵲南飛，此非曹孟德之詩乎？西望夏口，東望武昌，山川相繆，鬱乎蒼蒼，此非孟德之困於周郎者乎？方其破荊州，下江陵，順流而東也，<span class="annotate" title="舳艫：首尾相連的船隊">舳艫</span>千里，旌旗蔽空，釃酒臨江，橫槊賦詩，<span class="key-phrase">固一世之雄也，而今安在哉</span>？</p>
+          <p>況吾與子漁樵於江渚之上，侶魚蝦而友麋鹿，駕一葉之扁舟，舉<span class="annotate" title="匏樽：用葫蘆做的酒器">匏樽</span>以相屬。<span class="key-phrase">寄蜉蝣於天地，渺滄海之一粟</span>。哀吾生之須臾，羨長江之無窮。挾飛仙以遨遊，抱明月而長終，知不可乎驟得，托遺響於悲風。」</p>
+        </div>
+
+        <div class="text-block">
+          <div class="text-title">第四段（主之解惑——「變」與「不變」的哲理，清風明月無盡藏）</div>
+          <p>蘇子曰：「客亦知夫水與月乎？<span class="key-phrase">逝者如斯，而未嘗往也；盈虛者如彼，而卒莫消長也</span>。蓋將自其變者而觀之，則天地曾不能以一瞬；自其不變者而觀之，則物與我皆無盡也，而又何羨乎？</p>
+          <p>且夫天地之間，物各有主，苟非吾之所有，雖一毫而莫取。惟江上之清風，與山間之明月，耳得之而為聲，目遇之而成色，<span class="key-phrase">取之無禁，用之不竭，是造物者之無盡藏也</span>，而吾與子之所共適。」</p>
+        </div>
+
+        <div class="text-block">
+          <div class="text-title">第五段（喜樂——客喜而笑，通宵宴遊）</div>
+          <p>客喜而笑，洗盞更酌。餚核既盡，杯盤<span class="annotate" title="狼籍：雜亂散落的樣子">狼籍</span>，相與枕藉乎舟中，<span class="key-phrase">不知東方之既白</span>。</p>
+        </div>
+
+        <h3 class="sub-title">「主客問答」核心哲理解析</h3>
+        <div class="box box-purple">
+          <div class="box-title">「客」的悲嘆觀點</div>
+          <ul class="content-list">
+            <li>以曹操為例：一世英雄，如今何在？感慨英雄不長存。</li>
+            <li>以水、月為象徵：江水逝去不返、月缺月圓難永恆。</li>
+            <li>人生短暫如蜉蝣，渺小如滄海一粟。</li>
+          </ul>
+        </div>
+        <div class="box box-teal">
+          <div class="box-title">「主（蘇子）」的豁達觀點</div>
+          <ul class="content-list">
+            <li><strong>從「變」的角度：</strong>天地萬物無一刻不在變化，沒有什麼是永恆的。</li>
+            <li><strong>從「不變」的角度：</strong>從「不變」的本質看，萬物與我都無窮無盡。</li>
+            <li><strong>結論：</strong>清風明月取之不竭，當下的快樂才是真實的擁有。不必羨慕「長江無窮」，因為「我」也是永恆的一部分。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 赤壁賦：文章結構 ===== -->
+    <section id="chibi-structure">
+      <h2 class="section-title">&#128180; 赤壁賦｜文章結構</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>段落</th><th>主要內容</th><th>情感變化</th><th>關鍵意象</th></tr></thead>
+          <tbody>
+            <tr><td>第一段</td><td>泛舟赤壁，秋夜之景</td><td>喜樂</td><td>清風、水波、白露、明月</td></tr>
+            <tr><td>第二段</td><td>客吹洞簫，聲音悲涼</td><td>由喜轉悲</td><td>洞簫聲（嗚嗚然）</td></tr>
+            <tr><td>第三段</td><td>客的悲嘆（英雄短暫，人生渺小）</td><td>悲嘆</td><td>曹操、蜉蝣、滄海一粟</td></tr>
+            <tr><td>第四段</td><td>主的解惑（「變」與「不變」）</td><td>由悲轉悟</td><td>水與月、清風、無盡藏</td></tr>
+            <tr><td>第五段</td><td>客喜而笑，通宵宴遊</td><td>喜樂</td><td>「不知東方之既白」</td></tr>
+          </tbody>
+        </table>
+
+        <div class="box box-def">
+          <div class="box-title">赤壁賦的文體特色</div>
+          <ul class="content-list">
+            <li><strong>賦：</strong>散文與詩歌的融合體，介於散文和詩之間。《赤壁賦》屬「文賦」，散文化傾向較強。</li>
+            <li><strong>主客問答：</strong>自問自答的對話形式，以「客」代表消極悲觀的一面，「主（蘇子）」代表積極豁達的一面，本質上是蘇軾內心的對話。</li>
+            <li><strong>以水月為喻：</strong>水逝而「未嘗往」（連綿不絕）；月缺而「卒莫消長」（週期循環）。由此類推，萬物皆如此。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 赤壁賦：考試重點 ===== -->
+    <section id="chibi-exam">
+      <h2 class="section-title">&#128180; 赤壁賦｜考試重點</h2>
+      <div class="card">
+        <h3 class="sub-title">古今異義</h3>
+        <table>
+          <thead><tr><th>字詞</th><th>古義</th><th>今義</th></tr></thead>
+          <tbody>
+            <tr><td>七月既望</td><td>農曆十六日（月滿後一日）</td><td>望遠、期望</td></tr>
+            <tr><td>白露橫江</td><td>白茫茫的霧氣橫漫江面</td><td>節氣名稱</td></tr>
+            <tr><td>馮虛御風</td><td>馮通「憑」，憑空乘風</td><td>馮：姓氏</td></tr>
+            <tr><td>固一世之雄</td><td>本是一代英雄（固：本來）</td><td>固執、堅固</td></tr>
+          </tbody>
+        </table>
+
+        <h3 class="sub-title">重要名句</h3>
+        <div class="box box-gold">
+          <ul class="content-list">
+            <li>「<strong>寄蜉蝣於天地，渺滄海之一粟</strong>」→ 比喻人生短暫、人的渺小</li>
+            <li>「<strong>逝者如斯，而未嘗往也</strong>」→ 水雖流逝，但從不變的角度看並未消失</li>
+            <li>「<strong>盈虛者如彼，而卒莫消長也</strong>」→ 月雖圓缺，但月的本質並未增減</li>
+            <li>「<strong>取之無禁，用之不竭，是造物者之無盡藏也</strong>」→ 清風明月為自然無盡之寶藏</li>
+            <li>「<strong>不知東方之既白</strong>」→ 宴遊至天明，與《始得西山》「不知日之入」照應</li>
+          </ul>
+        </div>
+
+        <h3 class="sub-title">典故</h3>
+        <table>
+          <thead><tr><th>典故</th><th>出處</th><th>在文中的作用</th></tr></thead>
+          <tbody>
+            <tr><td>孟德（曹操）赤壁</td><td>三國赤壁之戰</td><td>「固一世之雄也，而今安在哉」→ 感慨英雄不長存</td></tr>
+            <tr><td>逝者如斯夫</td><td>《論語》孔子觀水</td><td>蘇子引申為「水未嘗往」，反向立論</td></tr>
+            <tr><td>蜉蝣</td><td>《詩經》</td><td>比喻生命短暫</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== 兩文比較 ===== -->
+    <section id="compare">
+      <h2 class="section-title">&#128279; 兩文跨文本比較</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>比較面向</th><th>始得西山宴遊記（柳宗元）</th><th>赤壁賦（蘇軾）</th></tr></thead>
+          <tbody>
+            <tr><td>作者身份</td><td>被貶永州司馬，鬱鬱不得志</td><td>被貶黃州，歷經「烏台詩案」</td></tr>
+            <tr><td>文體</td><td>山水遊記（散文）</td><td>文賦（散文 + 詩歌融合）</td></tr>
+            <tr><td>景物</td><td>西山高峻，俯瞰四方</td><td>赤壁江上，月夜泛舟</td></tr>
+            <tr><td>情感軌跡</td><td>鬱悶（前遊）→ 驚喜（發現西山）→ 解脫（物我兩忘）</td><td>喜樂（泛舟）→ 悲嘆（客言）→ 豁達（主解）→ 喜樂（通宵）</td></tr>
+            <tr><td>核心主旨</td><td>物我兩忘，自然中得精神解脫</td><td>「變」與「不變」哲理，當下即永恆</td></tr>
+            <tr><td>意象象徵</td><td>西山特立 → 作者高潔自比</td><td>水、月 → 「不變」的哲學象徵</td></tr>
+            <tr><td>結尾句</td><td>「游於是乎始」</td><td>「不知東方之既白」</td></tr>
+            <tr><td>共同點</td><td colspan="2">同樣在貶謫逆境中，借遊覽山水抒發情感，並在自然中找到心靈的解脫或慰藉</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== 知識連結 ===== -->
+    <section id="connection">
+      <h2 class="section-title">&#128279; 知識連結圖</h2>
+      <div class="card">
+        <div class="tree-visual">
+          <div class="tv-root">W05 國文（謫居文學）</div>
+          <ul class="tv-children">
+            <li class="tv-item">
+              <span class="tv-node tv-l1">始得西山宴遊記（唐・柳宗元）</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l2">永州八記・謫居文學</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">山水象徵：西山 = 高潔自比</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">物我兩忘（道家思想）</span></li>
+                <li class="tv-item"><span class="tv-node tv-l3">連結 W04 師說：韓柳並稱，古文運動</span></li>
+              </ul>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">赤壁賦（宋・蘇軾）</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l2">主客問答・文賦體</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">變與不變哲理（水月象徵）</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">豁達超脫（佛道儒三家融合）</span></li>
+              </ul>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">謫居文學脈絡</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l3">屈原《離騷》→ 最早的謫居憤懣</span></li>
+                <li class="tv-item"><span class="tv-node tv-l3">柳宗元（唐）→ 謫居山水，物我兩忘</span></li>
+                <li class="tv-item"><span class="tv-node tv-l3">蘇軾（宋）→ 謫居黃州，豁達超脫</span></li>
+                <li class="tv-item"><span class="tv-node tv-l3">W06 歸有光《項脊軒志》→ 貶謫中的家族情懷</span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 重點整理 ===== -->
+    <section id="summary">
+      <h2 class="section-title">&#9989; 重點整理</h2>
+      <div class="card">
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h4>始得西山宴遊記 — 5 大考點</h4>
+            <ul>
+              <li>「僇人」「趣」「隟」三個通假字</li>
+              <li>「窮迴谿」「始指異之」詞類活用</li>
+              <li>西山象徵柳宗元高潔品格</li>
+              <li>「物我兩忘」是精神核心</li>
+              <li>「始得」照應「游於是乎始」首尾呼應</li>
+            </ul>
+          </div>
+          <div class="compare-card alt">
+            <h4>赤壁賦 — 5 大考點</h4>
+            <ul>
+              <li>「主客問答」是文章結構核心</li>
+              <li>水、月的哲學象徵（變與不變）</li>
+              <li>「既望」= 農曆十六（古今異義）</li>
+              <li>「蜉蝣」「滄海一粟」比喻人生渺小</li>
+              <li>段落情感：喜→悲→悟→喜</li>
+            </ul>
+          </div>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">學測常見陷阱</div>
+          <ul class="content-list">
+            <li>「始得西山」的「始得」不是「剛開始得到」，而是「才算是真正地（遊覽）」，強調精神意義的「開始」。</li>
+            <li>赤壁賦中的「客」不是真實的另一個人，而是蘇軾內心悲觀一面的投射（自問自答）。</li>
+            <li>「逝者如斯，而未嘗往也」不是說水沒有流走，而是說「從不變的本質看，水（本質）並未消逝」。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 自我檢測 ===== -->
+    <section id="selfcheck">
+      <h2 class="section-title">&#128203; 自我檢測（5 題）</h2>
+
+      <div class="quiz-item">
+        <span class="q-num">1</span>
+        <span class="q-text">柳宗元在《始得西山宴遊記》中寫道「余為僇人」，「僇」是哪個字的通假字？此句說明了作者當時的什麼處境？</span>
+        <details>
+          <summary>顯示解答</summary>
+          <div class="answer">
+            「僇」通「戮」，指遭受刑辱（被貶謫的罪人）。<br>
+            此句說明柳宗元因「永貞革新」失敗而被貶謫永州為司馬，處境悽苦，心中充滿憂懼（「恆惴慄」）。整篇文章的情感基礎即建立於此謫居背景。
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="q-num">2</span>
+        <span class="q-text">「心凝形釋，與萬化冥合，然後知吾向之未始游，游於是乎始」，說明「始得」的真正含義。</span>
+        <details>
+          <summary>顯示解答</summary>
+          <div class="answer">
+            「始得」意指：以前的遊覽只是形體的遊歷（形游），心靈仍有枷鎖，並非真正的遊覽。<br>
+            直到登西山後，心神凝聚、形體解脫，達到「物我兩忘」的精神境界，才算是「真正地開始遊覽」。「始得」的「始」強調的是精神上的解脫與覺醒，而非時間上的第一次。
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="q-num">3</span>
+        <span class="q-text">《赤壁賦》中蘇軾以水與月為喻，說明何種哲理？請簡要說明「自其不變者而觀之，則物與我皆無盡也」的含義。</span>
+        <details>
+          <summary>顯示解答</summary>
+          <div class="answer">
+            蘇軾以水月為喻，說明「變」與「不變」並存的哲理：<br>
+            從「變」的角度看，天地萬物無一刻不在變化；但從「不變」的本質看，萬物的本質（或「道」）並未增減消長。<br>
+            「物與我皆無盡也」：人雖然個體生命短暫，但人類（以及萬物）整體是永恆不滅的，從這個角度看，沒有必要哀嘆個人生命的短促或羨慕長江的無窮。
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="q-num">4</span>
+        <span class="q-text">「既望」在《赤壁賦》中指農曆何日？「七月既望」中的「七月」是農曆還是陽曆？</span>
+        <details>
+          <summary>顯示解答</summary>
+          <div class="answer">
+            「既望」指農曆<strong>十六日</strong>（「望」= 農曆十五日，「既望」= 望日之後，即十六日）。<br>
+            「七月」是<strong>農曆</strong>七月（古代月份均指農曆）。因此「壬戌之秋，七月既望」即農曆壬戌年（1082年）秋七月十六日。
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <span class="q-num">5</span>
+        <span class="q-text">比較《始得西山宴遊記》與《赤壁賦》，兩篇文章的作者雖同樣身處貶謫逆境，卻各自找到了不同的心靈出口。請簡要說明兩者的異同。</span>
+        <details>
+          <summary>顯示解答</summary>
+          <div class="answer">
+            <strong>相同點：</strong>兩人均在貶謫逆境中，借遊覽自然山水抒發情感，最終在自然中找到心靈的解脫，均展現出超然物外的精神境界。<br><br>
+            <strong>不同點：</strong><br>
+            柳宗元：走進西山，達到「物我兩忘」，強調與自然合而為一（道家思想）；解脫方式是身心融入自然，消弭自我。<br>
+            蘇軾：透過哲學思辨（主客問答），從「變與不變」的角度看待人生短暫，強調當下的清風明月即永恆的財富，轉悲為喜，更具儒道佛融合的豁達精神。
+          </div>
+        </details>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

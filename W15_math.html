@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W15 數學A科｜第三冊A Ch7 平面向量的應用＋整冊複習｜學測備考講義</title>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        tags: 'ams'
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+      background: #f5f0fa;
+      color: #2d2d2d;
+      line-height: 1.75;
+    }
+
+    :root {
+      --purple-dark:  #4a0072;
+      --purple-main:  #6a1b9a;
+      --purple-mid:   #8e24aa;
+      --purple-light: #ce93d8;
+      --purple-pale:  #f3e5f5;
+      --purple-bg:    #faf0fe;
+      --accent-gold:  #f9a825;
+      --accent-teal:  #00796b;
+      --accent-red:   #c62828;
+      --accent-blue:  #1565c0;
+      --accent-green: #2e7d32;
+      --text-main:    #2d2d2d;
+      --text-muted:   #5d5d5d;
+      --white:        #ffffff;
+      --border:       #d1c4e9;
+    }
+
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      width: 260px; flex-shrink: 0;
+      background: var(--purple-dark);
+      color: var(--white);
+      position: sticky; top: 0; height: 100vh;
+      overflow-y: auto; padding: 0 0 2rem 0;
+    }
+    .sidebar-header {
+      background: var(--purple-main);
+      padding: 1.2rem 1rem; text-align: center;
+      border-bottom: 2px solid var(--purple-light);
+    }
+    .sidebar-header .week-tag {
+      font-size: 0.72rem; letter-spacing: 0.12em;
+      color: var(--purple-light); margin-bottom: 0.3rem; display: block;
+    }
+    .sidebar-header h2 { font-size: 1rem; font-weight: 700; line-height: 1.4; }
+    .sidebar-header p { font-size: 0.78rem; opacity: 0.80; margin-top: 0.3rem; }
+    .sidebar nav { padding: 0.5rem 0; }
+    .nav-section {
+      font-size: 0.65rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--purple-light);
+      padding: 0.9rem 1rem 0.3rem; opacity: 0.85;
+    }
+    .sidebar nav a {
+      display: block; padding: 0.4rem 1rem;
+      color: rgba(255,255,255,0.82); text-decoration: none;
+      font-size: 0.84rem; border-left: 3px solid transparent;
+      transition: all 0.18s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.12);
+      border-left-color: var(--purple-light);
+      color: var(--white);
+    }
+    .nav-indent { padding-left: 1.6rem !important; font-size: 0.80rem !important; }
+
+    /* ===== MAIN ===== */
+    .main-content { flex: 1; padding: 2rem 2.5rem 4rem; max-width: 960px; }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-main) 55%, var(--purple-mid) 100%);
+      color: var(--white);
+      border-radius: 16px; padding: 2rem 2.4rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(74,0,114,0.25);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: "a×b";
+      position: absolute;
+      right: 1.8rem; top: 50%; transform: translateY(-50%);
+      font-size: 5.2rem; opacity: 0.08; font-weight: 900;
+    }
+    .page-header .week-tag {
+      background: rgba(255,255,255,0.20);
+      display: inline-block; padding: 0.18rem 0.85rem;
+      border-radius: 12px; font-size: 0.80rem;
+      margin-bottom: 0.6rem; letter-spacing: 0.05em;
+    }
+    .page-header h1 { font-size: 1.8rem; font-weight: 900; margin-bottom: 0.35rem; }
+    .page-header .subtitle { font-size: 0.92rem; opacity: 0.88; }
+    .meta-row { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+    .meta-chip {
+      background: rgba(255,255,255,0.16);
+      border-radius: 20px; padding: 0.20rem 0.85rem; font-size: 0.78rem;
+    }
+
+    /* ===== TOC ===== */
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 0.6rem;
+      margin: 0.8rem 0;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.8rem;
+      text-decoration: none;
+      color: var(--purple-dark);
+      font-size: 0.86rem;
+      font-weight: 600;
+      transition: all 0.18s;
+    }
+    .toc-item:hover { background: var(--purple-pale); border-color: var(--purple-main); }
+    .toc-item .toc-num {
+      background: var(--purple-main);
+      color: #fff;
+      width: 1.5rem; height: 1.5rem; line-height: 1.5rem;
+      font-size: 0.75rem; font-weight: 700;
+      text-align: center; border-radius: 4px; flex-shrink: 0;
+    }
+
+    /* ===== SECTION TITLES ===== */
+    .section-title {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 1.28rem; font-weight: 800;
+      color: var(--purple-dark);
+      margin: 2.4rem 0 1.1rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 3px solid var(--purple-main);
+    }
+    .sub-title {
+      font-size: 1.02rem; font-weight: 700;
+      color: var(--purple-main);
+      margin: 1.5rem 0 0.7rem;
+      padding-left: 0.75rem;
+      border-left: 4px solid var(--purple-main);
+    }
+    .sub-sub-title {
+      font-size: 0.94rem; font-weight: 700;
+      color: var(--purple-mid);
+      margin: 1.1rem 0 0.5rem;
+    }
+
+    /* ===== CARDS ===== */
+    .card {
+      background: var(--white);
+      border-radius: 12px; padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 10px rgba(74,0,114,0.08);
+      border: 1px solid var(--border);
+    }
+
+    /* ===== BOXES ===== */
+    .box { border-radius: 10px; padding: 1rem 1.2rem; margin: 1rem 0; font-size: 0.93rem; }
+    .box-def    { background: var(--purple-pale); border-left: 5px solid var(--purple-main); }
+    .box-formula{ background: #fff8e1; border-left: 5px solid var(--accent-gold); }
+    .box-example{ background: #e8f5e9; border-left: 5px solid var(--accent-green); }
+    .box-warn   { background: #fce4ec; border-left: 5px solid var(--accent-red); }
+    .box-tip    { background: #e0f2f1; border-left: 5px solid var(--accent-teal); }
+    .box-link   { background: #e3f2fd; border-left: 5px solid var(--accent-blue); }
+    .box-title  { font-weight: 700; margin-bottom: 0.5rem; }
+
+    /* ===== FORMULA DISPLAY ===== */
+    .formula-block {
+      background: #fef9e7;
+      border: 2px solid var(--accent-gold);
+      border-radius: 12px;
+      padding: 1.2rem 1.6rem;
+      margin: 1rem 0;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+    .formula-block .formula-label {
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--accent-gold); margin-bottom: 0.5rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+
+    /* ===== TABLES ===== */
+    table { width: 100%; border-collapse: collapse; font-size: 0.91rem; margin: 0.8rem 0; }
+    thead tr { background: var(--purple-main); color: var(--white); }
+    thead th { padding: 0.65rem 1rem; text-align: left; font-weight: 700; }
+    tbody tr:nth-child(even) { background: var(--purple-pale); }
+    tbody tr:hover { background: #e8d5f5; }
+    tbody td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody td:first-child { font-weight: 700; color: var(--purple-dark); white-space: nowrap; }
+    .table-wrap { overflow-x: auto; }
+
+    /* ===== WORKED EXAMPLE ===== */
+    .worked-example {
+      background: #f9fbe7;
+      border: 1px solid #c5e1a5;
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .worked-example::before {
+      content: "例題";
+      position: absolute; top: -0.65rem; left: 1rem;
+      background: var(--accent-green); color: #fff;
+      font-size: 0.72rem; padding: 0.08rem 0.6rem;
+      border-radius: 8px; font-weight: 700;
+    }
+    .worked-example .ex-q { font-weight: 700; margin-bottom: 0.7rem; color: #1b5e20; }
+    .worked-example .ex-step { font-size: 0.90rem; margin-bottom: 0.4rem; line-height: 1.9; }
+    .worked-example .ex-ans { font-weight: 700; color: var(--accent-green); margin-top: 0.5rem; }
+
+    /* ===== QUIZ ===== */
+    .quiz-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-item .q-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--purple-main); color: var(--white);
+      font-size: 0.80rem; font-weight: 700;
+      border-radius: 50%; width: 1.7rem; height: 1.7rem;
+      margin-right: 0.5rem; flex-shrink: 0;
+    }
+    .quiz-item .q-text { font-weight: 600; font-size: 0.94rem; margin-bottom: 0.5rem; }
+    .quiz-item ol { padding-left: 1.6rem; font-size: 0.92rem; }
+    .quiz-item li { margin-bottom: 0.3rem; list-style-type: upper-alpha; }
+    .diff-badge {
+      display: inline-block; font-size: 0.70rem; font-weight: 700;
+      padding: 0.1rem 0.5rem; border-radius: 8px; margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .diff-easy   { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+    .diff-medium { background: #fff8e1; color: #e65100; border: 1px solid #ffe082; }
+    .diff-hard   { background: #fce4ec; color: #c62828; border: 1px solid #f48fb1; }
+    details summary {
+      cursor: pointer; color: var(--accent-teal);
+      font-size: 0.88rem; margin-top: 0.6rem; font-weight: 600;
+    }
+    details[open] summary { margin-bottom: 0.5rem; }
+    details .answer {
+      background: #e0f2f1;
+      border-left: 4px solid var(--accent-teal);
+      border-radius: 6px;
+      padding: 0.8rem 1rem; font-size: 0.88rem; line-height: 1.9;
+    }
+
+    /* ===== CHIPS ===== */
+    .chip { display:inline-block; padding:0.18rem 0.7rem; border-radius:12px; font-size:0.80rem; font-weight:700; margin:0.15rem; }
+    .chip-purple { background:var(--purple-pale); color:var(--purple-dark); border:1px solid var(--purple-light); }
+    .chip-gold   { background:#fff8e1; color:#e65100; border:1px solid #ffe082; }
+    .chip-teal   { background:#e0f2f1; color:var(--accent-teal); border:1px solid #80cbc4; }
+    .chip-red    { background:#fce4ec; color:var(--accent-red); border:1px solid #f48fb1; }
+    .chip-green  { background:#e8f5e9; color:var(--accent-green); border:1px solid #a5d6a7; }
+
+    .analysis-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1rem 0; }
+    @media (max-width:700px) { .analysis-grid { grid-template-columns:1fr; } }
+    .analysis-item {
+      background:var(--white); border:1px solid var(--border);
+      border-top:4px solid var(--purple-main);
+      border-radius:8px; padding:1rem 1.1rem;
+    }
+    .analysis-item h4 { color:var(--purple-dark); font-size:0.92rem; margin-bottom:0.5rem; }
+    .analysis-item ul { padding-left:1.2rem; font-size:0.88rem; }
+    .analysis-item li { margin-bottom:0.3rem; }
+
+    .step-box {
+      background: #f3e5f5; border-left: 4px solid var(--purple-main);
+      border-radius: 8px; padding: 0.9rem 1.2rem; margin: 0.6rem 0;
+      font-size: 0.91rem;
+    }
+    .step-box strong { color: var(--purple-dark); }
+
+    ul.content-list { padding-left: 1.4rem; }
+    ul.content-list li { margin-bottom: 0.4rem; font-size: 0.93rem; }
+
+    .divider { border: none; border-top: 2px dashed var(--border); margin: 2.5rem 0; }
+
+    .chapter-banner {
+      border-radius: 12px; padding: 0.9rem 1.4rem; margin-bottom: 1.2rem; color: #fff;
+      font-size: 1.1rem; font-weight: 800; letter-spacing: 1px;
+    }
+    .ch7 { background: linear-gradient(90deg, #4527a0, #7b1fa2); }
+    .chrev { background: linear-gradient(90deg, #37474f, #607d8b); }
+    .chapter-banner .ch-sub { font-size: 0.80rem; font-weight: 400; opacity: 0.88; margin-top: 0.2rem; }
+
+    /* ===== SVG DIAGRAM ===== */
+    .tri-diagram { display:flex; justify-content:center; margin:1.2rem 0; }
+    .tri-diagram svg { max-width: 100%; height: auto; }
+    .func-graph { overflow-x: auto; padding: 0.5rem 0; text-align: center; margin: 1rem 0; }
+    .func-graph svg { max-width: 100%; height: auto; }
+    .func-graph .fg-caption { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem; }
+
+    /* ===== TREE VISUAL ===== */
+    .tree-visual { background:#faf0fe; border:1px solid var(--border); border-radius:10px; padding:20px 24px 16px 20px; margin:14px 0; overflow-x:auto; }
+    .tv-root { display:inline-flex; align-items:center; background:var(--purple-dark); color:#fff; font-weight:700; font-size:15px; padding:5px 18px; border-radius:20px; margin-bottom:6px; }
+    .tv-children { list-style:none; padding:0; margin:0 0 0 14px; border-left:2px solid var(--border); }
+    .tv-item { position:relative; padding:5px 0 4px 22px; }
+    .tv-item::before { content:''; position:absolute; left:0; top:14px; width:18px; height:2px; background:var(--border); }
+    .tv-node { display:inline-block; border-radius:6px; padding:3px 12px; font-size:13px; font-weight:600; line-height:1.6; }
+    .tv-desc { display:block; font-size:11.5px; color:var(--text-muted); padding:0 4px; margin:1px 0 3px; }
+    .tv-node.tv-l1 { background:var(--purple-pale); color:var(--purple-dark); border:1px solid var(--purple-light); font-size:14px; }
+    .tv-node.tv-l2 { background:#fff8e1; color:#e65100; border:1px solid #ffe082; }
+    .tv-node.tv-l3 { background:#fafafa; color:var(--text-main); border:1px solid #e0e0e0; font-weight:400; }
+
+    /* ===== KNOWLEDGE MAP ===== */
+    .km-container {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+    .km-grid {
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+    }
+    .km-node {
+      background: var(--purple-pale);
+      border: 2px solid var(--purple-main);
+      border-radius: 8px;
+      padding: 0.55rem 1rem;
+      font-size: 0.88rem; font-weight: 700;
+      color: var(--purple-dark); text-align: center;
+    }
+    .km-node.central {
+      background: var(--purple-main); color: #fff;
+      font-size: 1rem; padding: 0.7rem 1.4rem;
+      border-color: var(--purple-dark);
+    }
+    .km-node.linked {
+      background: #e8f5e9; border-color: var(--accent-green); color: #1b5e20;
+    }
+    .km-node.future {
+      background: #fff8e1; border-color: var(--accent-gold); color: #e65100;
+    }
+    .km-arrow { display: flex; align-items: center; font-size: 1.2rem; color: var(--purple-mid); font-weight: 700; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main-content { padding: 1.2rem 1rem 3rem; }
+      .analysis-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span class="week-tag">WEEK 15 ｜ 08/24–08/30</span>
+      <h2>數學 A 科</h2>
+      <p>第三冊A Ch7 平面向量的應用・整冊複習（收官）</p>
+    </div>
+    <nav>
+      <div class="nav-section">導覽</div>
+      <a href="#overview">學習總覽</a>
+      <a href="#transition">暑假衝刺期銜接說明</a>
+
+      <div class="nav-section">Ch7 向量的應用</div>
+      <a href="#section-formula" class="nav-indent">分點公式（定比分點）</a>
+      <a href="#area-formula" class="nav-indent">三角形／多邊形面積公式</a>
+      <a href="#line-vector" class="nav-indent">直線的向量方程式與參數式</a>
+      <a href="#physics-app" class="nav-indent">物理情境應用：力與速度合成</a>
+      <a href="#line-intersect" class="nav-indent">向量法解兩直線交點問題</a>
+
+      <div class="nav-section">整冊複習（收官）</div>
+      <a href="#fullreview">Ch1–Ch7 全冊重點速查表</a>
+      <a href="#km">知識連結圖</a>
+      <a href="#mistakes">常見錯誤</a>
+      <a href="#examfocus">學測考點提醒</a>
+      <a href="#summary">重點整理</a>
+      <a href="#quiz">自我檢測（8題）</a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content">
+
+    <header class="page-header" id="top">
+      <div class="week-tag">第十五週學習單元｜WEEK 15｜08/24–08/30｜暑假黃金衝刺期 第 8 週</div>
+      <h1>第三冊A Ch7｜平面向量的應用 ＋ 整冊複習（收官週）</h1>
+      <p class="subtitle">數學 A｜分點公式（定比分點）・三角形／多邊形面積的向量表示法・直線的向量方程式與參數式・向量的物理應用（力與速度合成）・向量法解兩直線交點・第三冊A（Ch1–Ch7）全冊重點速查</p>
+      <div class="meta-row">
+        <span class="meta-chip">分點公式：P=(nA+mB)/(m+n)</span>
+        <span class="meta-chip">面積公式：½|x₁y₂−x₂y₁|</span>
+        <span class="meta-chip">直線參數式：r=a+t·d</span>
+        <span class="meta-chip">第三冊A最後一章＋整冊複習</span>
+        <span class="meta-chip">週六：數學A全卷模擬考（100分鐘）</span>
+        <span class="meta-chip">自我檢測 8 題</span>
+      </div>
+    </header>
+
+    <!-- ===== TOC ===== -->
+    <section id="toc">
+      <h2 class="section-title">&#128218; 本講義導覽</h2>
+      <div class="toc-grid">
+        <a href="#overview" class="toc-item"><span class="toc-num">0</span>學習總覽</a>
+        <a href="#transition" class="toc-item"><span class="toc-num">P</span>先備知識銜接</a>
+        <a href="#section-formula" class="toc-item"><span class="toc-num">1</span>分點公式</a>
+        <a href="#area-formula" class="toc-item"><span class="toc-num">2</span>面積公式</a>
+        <a href="#line-vector" class="toc-item"><span class="toc-num">3</span>直線的向量方程式</a>
+        <a href="#physics-app" class="toc-item"><span class="toc-num">4</span>物理應用</a>
+        <a href="#line-intersect" class="toc-item"><span class="toc-num">5</span>兩直線交點</a>
+        <a href="#fullreview" class="toc-item"><span class="toc-num">R</span>Ch1–7 全冊速查表</a>
+        <a href="#km" class="toc-item"><span class="toc-num">K</span>知識連結圖</a>
+        <a href="#mistakes" class="toc-item"><span class="toc-num">M</span>常見錯誤</a>
+        <a href="#examfocus" class="toc-item"><span class="toc-num">E</span>學測考點</a>
+        <a href="#summary" class="toc-item"><span class="toc-num">S</span>重點整理</a>
+        <a href="#quiz" class="toc-item"><span class="toc-num">Q</span>自我檢測</a>
+      </div>
+    </section>
+
+    <!-- ===== 學習總覽 ===== -->
+    <section id="overview">
+      <h2 class="section-title">&#128218; 學習總覽</h2>
+      <div class="card">
+        <p>上兩週（W13–W14）依序建立了指數函數、對數函數的圖像觀點，以及向量的坐標運算與內積，本週（W15）是<strong>第三冊A的收官週</strong>：第七章「平面向量的應用」把 Ch5–Ch6 學到的加減法、線性組合、內積，統整運用到三類經典問題——<strong>分點公式</strong>（把線段依比例分割）、<strong>面積公式</strong>（用坐標直接算三角形面積，不必找高）、<strong>直線的向量表示法</strong>（把坐標幾何的直線方程式改寫成向量參數式）。學完 Ch7 後，本講義接著提供 <strong>Ch1–Ch7 全冊重點速查表</strong>，把三角函數、指數對數函數、向量三大主線一次串起來，直接對應本週六（08/30）的<strong>數學A全卷模擬考（100分鐘，涵蓋第三冊A全範圍）</strong>。這是暑假黃金衝刺期第一次針對單一科目做「整冊」規模的複習與模擬考，請把本講義當作考前總複習的核心工具。</p>
+        <div class="box box-link" style="margin-top:1rem;">
+          <div class="box-title">本週學習目標</div>
+          <ul class="content-list">
+            <li>能用分點公式求出線段上依比例分割的分點坐標，並能反向由分點坐標求分割比例</li>
+            <li>能用向量的坐標分量，直接計算三角形（或多邊形）面積，不需另外求高</li>
+            <li>能寫出直線的向量方程式 \(\vec r=\vec a+t\vec d\)，並能與坐標幾何的一般式、參數式互相轉換</li>
+            <li>能將向量工具應用在物理情境（力的合成、速度合成）的計算題</li>
+            <li>能用向量法（聯立參數式）求兩直線交點，作為坐標幾何解法的替代工具</li>
+            <li>能完整串連第三冊A 全七章（三角函數圖形→和差角→指數函數→對數函數→向量運算→向量內積→向量應用），為週六全卷模擬考做好系統性複習</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 暑假衝刺期銜接說明 ===== -->
+    <section id="transition">
+      <h2 class="section-title">&#128293; 暑假黃金衝刺期銜接說明</h2>
+      <div class="card">
+        <div class="box box-warn">
+          <div class="box-title">進度提醒：暑假黃金衝刺期 第 8 週・第三冊A收官・週六全卷模擬考</div>
+          <p>本週（W15）是備考時程表第二階段（W08–W16，07/06–09/06）的<strong>第 8 週</strong>，也是<strong>第三冊A的最後一週</strong>。時程表安排<strong>週六進行「數學A全卷模擬考（100分鐘）」，範圍涵蓋第三冊A全部七章</strong>，這是暑假衝刺期第一次數學科的整冊模擬考，務必把本講義「Ch1–Ch7 全冊重點速查表」讀熟、把本週自我檢測與過去兩週（W12–W14）的自我檢測都重新複習一遍，再上場應試。週日則安排「有機化學官能基整理表」（化學科），數學科的複習集中在本週平日與週六考前，請提前規劃時間。</p>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">先備知識：向量的運算與內積（W14 Ch5–Ch6）</div>
+          <p>Ch7 的三個核心工具——分點公式、面積公式、直線向量方程式——全部建立在 W14 學過的<strong>向量加減法、線性組合（純量乘法）、內積</strong>之上。如果對「位置向量」「向量平行判準（\(a_1b_2-a_2b_1=0\)）」還不熟練，建議先花 10 分鐘複習 W14 講義的對應段落，本週的例題會直接沿用這些工具。</p>
+        </div>
+        <div class="box box-link">
+          <div class="box-title">第三冊A章節地圖（本週完成收官）</div>
+          <table>
+            <thead><tr><th>週次</th><th>章節</th><th>核心內容</th></tr></thead>
+            <tbody>
+              <tr><td>W12（已完成）</td><td>第三冊A Ch1–Ch2</td><td>三角函數圖形、振幅週期相位、和差角公式、二倍角公式</td></tr>
+              <tr><td>W13（已完成）</td><td>第三冊A Ch3–Ch4</td><td>指數函數、對數函數：圖形、方程式、不等式、互為反函數</td></tr>
+              <tr><td>W14（已完成）</td><td>第三冊A Ch5–Ch6</td><td>向量加減法、純量乘法、單位向量、內積、正交、投影量</td></tr>
+              <tr><td>W15（本週）</td><td>第三冊A Ch7 平面向量的應用＋整冊複習</td><td>分點公式・面積公式・直線向量方程式・週六全卷模擬考</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">💡 與物理科的再次連結：向量應用是力學計算的直接工具</div>
+          <p>本週「向量在物理情境的應用」段落，會示範如何用向量加法計算多個力的合力、多個速度的合速度——這與 W14 剛結束的「物理全科第一輪複習」（涵蓋力學、能量、量子現象）形成雙向呼應：數學課學的向量工具，正是物理課解力學題目的語言。建議把本週的物理應用例題與物理科筆記的力平衡、拋體運動內容對照複習。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ============================================================
+         Ch7：平面向量的應用
+         ============================================================ -->
+    <section>
+      <div class="chapter-banner ch7">
+        第三冊A 第七章｜平面向量的應用
+        <div class="ch-sub">分點公式・三角形與多邊形面積・直線的向量方程式與參數式・物理應用・向量法解交點問題</div>
+      </div>
+
+      <!-- 分點公式 -->
+      <h3 class="sub-title" id="section-formula">分點公式（定比分點）</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">定義：線段的定比分點</div>
+          <p>設 \(P\) 為線段 \(\overline{AB}\) 上一點，且 \(\overline{AP}:\overline{PB}=m:n\)（\(m,n>0\)，即 \(P\) 為<strong>內分點</strong>），則 \(P\) 的位置向量為：</p>
+          \[\vec p=\frac{n\vec a+m\vec b}{m+n}\]
+          <p style="margin-top:0.4rem;">其中 \(\vec a=\overrightarrow{OA}\)，\(\vec b=\overrightarrow{OB}\)。特別地，當 \(m=n=1\) 時，\(\vec p=\dfrac{\vec a+\vec b}{2}\)，正是 W14 學過的中點公式，可見中點公式其實是分點公式在 \(m:n=1:1\) 時的特例。</p>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">💡 記憶技巧：「近誰、誰的係數就大」的交叉規律</div>
+          <p>分點公式的係數容易搞混，記憶口訣是<strong>「離哪個點越近，該點的分子項係數反而是對面那段的比例」</strong>：\(\overline{AP}:\overline{PB}=m:n\) 時，\(\vec a\) 配 \(n\)（\(P\) 到 \(B\) 的比例）、\(\vec b\) 配 \(m\)（\(P\) 到 \(A\) 的比例），兩個係數是「交叉」對應的。驗證方式：當 \(m\) 遠大於 \(n\)（即 \(P\) 靠近 \(B\)）時，\(\vec p\) 應該更接近 \(\vec b\)，此時 \(\vec b\) 前面的係數 \(m\) 確實較大，符合直覺。</p>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例1：設 \(A(1,2)\)，\(B(7,11)\)，\(P\) 為 \(\overline{AB}\) 上一點且 \(\overline{AP}:\overline{PB}=2:1\)，求 \(P\) 點坐標。</div>
+          <div class="ex-step">\(m=2\)（\(AP\) 的比例）、\(n=1\)（\(PB\) 的比例）</div>
+          <div class="ex-step">\(\vec p=\dfrac{n\vec a+m\vec b}{m+n}=\dfrac{1\times(1,2)+2\times(7,11)}{3}=\dfrac{(1,2)+(14,22)}{3}=\dfrac{(15,24)}{3}\)</div>
+          <div class="ex-ans">答：\(P=(5,8)\)</div>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例2：三角形 \(ABC\) 中，\(A(0,0)\)，\(B(6,0)\)，\(C(0,9)\)，求重心 \(G\) 的坐標（重心公式為分點公式的延伸應用）。</div>
+          <div class="ex-step">三角形重心是三頂點位置向量的算術平均：\(\vec g=\dfrac{\vec a+\vec b+\vec c}{3}\)</div>
+          <div class="ex-step">\(\vec g=\dfrac{(0,0)+(6,0)+(0,9)}{3}=\dfrac{(6,9)}{3}=(2,3)\)</div>
+          <div class="ex-ans">答：\(G=(2,3)\)（重心公式本質上是「三頂點分點公式」的推廣，學測偶爾會直接考此公式）</div>
+        </div>
+
+        <div class="box box-warn">
+          <div class="box-title">⚠️ 常見錯誤：把 \(m:n\) 的係數直接對應、不交叉</div>
+          <p>最常見的錯誤是寫成 \(\vec p=\dfrac{m\vec a+n\vec b}{m+n}\)（係數沒有交叉），這樣算出來的點其實是 \(\overline{AP}:\overline{PB}=n:m\)（比例顛倒）。建議每次計算後，用「\(m\) 大時 \(P\) 應偏向 \(B\)」的直覺快速檢查係數是否配對正確。</p>
+        </div>
+      </div>
+
+      <!-- 面積公式 -->
+      <h3 class="sub-title" id="area-formula">三角形／多邊形面積的向量表示法</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">公式：以原點為頂點的三角形面積</div>
+          <p>設 \(\vec a=(a_1,a_2)\)，\(\vec b=(b_1,b_2)\) 為 \(\triangle OAB\) 中 \(O\) 出發的兩邊向量，則三角形面積為：</p>
+          \[\text{Area}(\triangle OAB)=\frac12\,|a_1b_2-a_2b_1|\]
+          <p style="margin-top:0.4rem;">若三角形頂點是任意三點 \(A(x_1,y_1)\)、\(B(x_2,y_2)\)、\(C(x_3,y_3)\)（不一定含原點），則先取 \(\vec u=\overrightarrow{AB}=(x_2-x_1,y_2-y_1)\)，\(\vec v=\overrightarrow{AC}=(x_3-x_1,y_3-y_1)\)，再代入同一公式：</p>
+          \[\text{Area}(\triangle ABC)=\frac12\,|u_1v_2-u_2v_1|\]
+        </div>
+
+        <div class="box box-link">
+          <div class="box-title">🔗 這個公式從哪裡來？與內積的關係</div>
+          <p>設兩向量夾角為 \(\theta\)，三角形面積本可寫成 \(\dfrac12|\vec a||\vec b|\sin\theta\)。利用 \(\sin^2\theta=1-\cos^2\theta\) 及內積的幾何定義 \(\cos\theta=\dfrac{\vec a\cdot\vec b}{|\vec a||\vec b|}\)，可以證明 \(|\vec a||\vec b|\sin\theta=|a_1b_2-a_2b_1|\)。這代表 Ch6 的內積與 Ch7 的面積公式，其實是同一組向量資訊（大小與夾角）的兩種不同代數呈現方式——內積抓「\(\cos\theta\) 的部分」，面積公式抓「\(\sin\theta\) 的部分」。</p>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例3：求以 \(A(1,1)\)、\(B(4,2)\)、\(C(2,6)\) 為頂點的三角形面積。</div>
+          <div class="ex-step">\(\vec u=\overrightarrow{AB}=(4-1,\ 2-1)=(3,1)\)</div>
+          <div class="ex-step">\(\vec v=\overrightarrow{AC}=(2-1,\ 6-1)=(1,5)\)</div>
+          <div class="ex-step">\(\text{Area}=\dfrac12|3\times5-1\times1|=\dfrac12|15-1|=\dfrac12\times14=7\)</div>
+          <div class="ex-ans">答：三角形面積為 7</div>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">💡 推廣：多邊形面積（鞋帶公式，選讀）</div>
+          <p>三角形面積公式可推廣為一般多邊形的「鞋帶公式」（Shoelace Formula）：頂點依序為 \((x_1,y_1),(x_2,y_2),\dots,(x_n,y_n)\)（逆時針排列），面積為 \(\dfrac12\left|\sum_{i=1}^{n}(x_iy_{i+1}-x_{i+1}y_i)\right|\)（下標循環，\(x_{n+1}=x_1\)）。學測較少直接考多邊形版本，但理解其源自三角形面積公式的疊加，有助於面對「四邊形分割成兩個三角形求面積」的變化題型。</p>
+        </div>
+      </div>
+
+      <!-- 直線的向量方程式 -->
+      <h3 class="sub-title" id="line-vector">直線的向量方程式與參數式</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">定義：直線的向量參數式</div>
+          <p>一條直線可由「線上一點 \(A\)」與「方向向量 \(\vec d=(d_1,d_2)\)」唯一決定。直線上任一點 \(P\) 的位置向量 \(\vec r\) 可表示為：</p>
+          \[\vec r=\vec a+t\vec d\quad(t\in\mathbb{R})\]
+          <p style="margin-top:0.4rem;">拆成坐標分量，就是熟悉的<strong>參數式</strong>：</p>
+          \[\begin{cases}x=x_0+td_1\\y=y_0+td_2\end{cases}\]
+          <p style="margin-top:0.4rem;">消去參數 \(t\)（由兩式分別解出 \(t=\dfrac{x-x_0}{d_1}=\dfrac{y-y_0}{d_2}\)），即可還原成 W04–W05 學過的直線一般式 \(ax+by+c=0\)。</p>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例4：求過點 \(A(2,1)\)、方向向量 \(\vec d=(3,-2)\) 的直線向量方程式、參數式，並化為一般式。</div>
+          <div class="ex-step">向量方程式：\(\vec r=(2,1)+t(3,-2)\)</div>
+          <div class="ex-step">參數式：\(x=2+3t,\quad y=1-2t\)</div>
+          <div class="ex-step">消去 \(t\)：由 \(t=\dfrac{x-2}{3}=\dfrac{y-1}{-2}\)，得 \(-2(x-2)=3(y-1)\)</div>
+          <div class="ex-step">展開：\(-2x+4=3y-3\implies2x+3y-7=0\)</div>
+          <div class="ex-ans">答：一般式為 \(2x+3y-7=0\)（可觀察到法向量 \((2,3)\) 恰與方向向量 \((3,-2)\) 互相垂直，兩者內積 \(2\times3+3\times(-2)=0\)，這是直線「方向向量」與「法向量」的固定關係）</div>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">💡 方向向量與法向量的垂直關係</div>
+          <p>直線一般式 \(ax+by+c=0\) 的<strong>法向量</strong>是 \((a,b)\)，<strong>方向向量</strong>則可取 \((-b,a)\) 或 \((b,-a)\)（與 W14 學過的「垂直向量交換分量變號」技巧一致）。這代表只要知道直線的一般式，不需重新推導就能立刻寫出方向向量，反之亦然，兩者可快速互相轉換。</p>
+        </div>
+      </div>
+
+      <!-- 物理應用 -->
+      <h3 class="sub-title" id="physics-app">向量在物理情境的應用：力與速度合成</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">應用情境：力的合成與分解</div>
+          <p>物理上「兩個力同時作用在一點」，其合力即為兩力向量的<strong>向量和</strong>；若已知合力要拆解成兩個特定方向的分力，則是向量加法的逆過程（分解）。這與本週學到的向量加法坐標公式完全相同，只是把「向量」換成「力」（單位：牛頓 N）。</p>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例5：某物體同時受兩力作用：\(\vec F_1=(3,4)\) N，\(\vec F_2=(-1,2)\) N。求合力大小與方向（與 x 軸正向的夾角）。</div>
+          <div class="ex-step">合力：\(\vec F=\vec F_1+\vec F_2=(3-1,\ 4+2)=(2,6)\) N</div>
+          <div class="ex-step">合力大小：\(|\vec F|=\sqrt{2^2+6^2}=\sqrt{40}=2\sqrt{10}\) N</div>
+          <div class="ex-step">方向：\(\tan\theta=\dfrac{6}{2}=3\)，即 \(\theta=\tan^{-1}3\approx71.6°\)（與 x 軸正向夾角）</div>
+          <div class="ex-ans">答：合力約 \(2\sqrt{10}\approx6.32\) N，方向約與 x 軸夾 \(71.6°\)</div>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例6：船在靜水中速度為 \(\vec v_1=(4,0)\)（沿 x 軸方向，單位 km/h），水流速度為 \(\vec v_2=(0,3)\)。求船相對於岸邊的實際合速度與速率。</div>
+          <div class="ex-step">合速度：\(\vec v=\vec v_1+\vec v_2=(4,0)+(0,3)=(4,3)\)</div>
+          <div class="ex-step">合速率：\(|\vec v|=\sqrt{4^2+3^2}=\sqrt{25}=5\) km/h</div>
+          <div class="ex-ans">答：合速度為 \((4,3)\)，合速率為 5 km/h（此為經典的「過河船速」問題，是向量加法在物理科最常見的應用情境之一）</div>
+        </div>
+
+        <div class="box box-link">
+          <div class="box-title">🔗 與作功的再次連結：內積在物理應用中的角色</div>
+          <p>力的合成用<strong>向量加法</strong>；而「一個力對位移做了多少功」則要用<strong>內積</strong> \(W=\vec F\cdot\vec d\)（見 W14 講義）。這兩個物理量分別對應向量的兩種基本運算，是本週與上週內容在應用層次上的直接呼應，也是學測跨科整合題偏好的命題方向。</p>
+        </div>
+      </div>
+
+      <!-- 兩直線交點 -->
+      <h3 class="sub-title" id="line-intersect">向量法解兩直線交點問題</h3>
+      <div class="card">
+        <div class="box box-def">
+          <div class="box-title">方法：聯立兩直線的參數式求交點</div>
+          <p>給定兩條直線的向量參數式 \(\vec r_1=\vec a_1+s\vec d_1\)、\(\vec r_2=\vec a_2+t\vec d_2\)，交點滿足 \(\vec a_1+s\vec d_1=\vec a_2+t\vec d_2\)。拆成 \(x\)、\(y\) 兩個分量方程式，聯立求出 \(s\)（或 \(t\)），代回即得交點坐標。</p>
+        </div>
+
+        <div class="worked-example">
+          <div class="ex-q">例7：直線 \(L_1\): \(\vec r=(1,1)+s(2,1)\)，直線 \(L_2\): \(\vec r=(0,4)+t(1,-1)\)。求 \(L_1\)、\(L_2\) 的交點。</div>
+          <div class="ex-step">\(L_1\) 分量：\(x=1+2s,\ y=1+s\)；\(L_2\) 分量：\(x=t,\ y=4-t\)</div>
+          <div class="ex-step">聯立 \(x\)：\(1+2s=t\)；聯立 \(y\)：\(1+s=4-t\implies s+t=3\)</div>
+          <div class="ex-step">代入消去 \(t=1+2s\)：\(s+(1+2s)=3\implies3s=2\implies s=\dfrac23\)</div>
+          <div class="ex-step">代回 \(L_1\)：\(x=1+2\times\dfrac23=\dfrac73\)，\(y=1+\dfrac23=\dfrac53\)</div>
+          <div class="ex-ans">答：交點為 \(\left(\dfrac73,\dfrac53\right)\)（可代回 \(L_2\) 的參數式驗算：\(t=1+2\times\frac23=\frac73\)，\(y=4-\frac73=\frac53\)，吻合）</div>
+        </div>
+
+        <div class="box box-tip">
+          <div class="box-title">💡 向量法 vs. 一般式聯立法：什麼時候用哪個？</div>
+          <p>若題目本身就以「線上一點＋方向向量」給出直線（常見於幾何動點問題），直接用向量參數式聯立最自然；若題目給的是一般式 \(ax+by+c=0\)，則直接聯立方程組通常更快，不必特意轉換成向量形式。兩種方法本質相同，考試時依題目給定的形式選擇較省步驟的一種即可。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== Ch1–Ch7 全冊重點速查表 ===== -->
+    <section id="fullreview">
+      <div class="chapter-banner chrev">
+        第三冊A 整冊複習（收官）
+        <div class="ch-sub">迎接週六 08/30 數學A全卷模擬考（100分鐘，涵蓋 Ch1–Ch7 全範圍）</div>
+      </div>
+      <div class="card">
+        <div class="box box-warn">
+          <div class="box-title">📌 本週六數學A全卷模擬考涵蓋第三冊A全範圍（Ch1–Ch7）</div>
+          <p>這是暑假衝刺期第一次數學科的整冊模擬考，考前請務必逐章自我檢核下表，特別留意「三角函數與向量的綜合題」（如：用內積求兩直線夾角、用和差角公式化簡向量夾角）——這類跨章節整合題型是模擬考與學測的常見出題手法。</p>
+        </div>
+      </div>
+
+      <h3 class="sub-title" id="q-ch1">Ch1 三角函數圖形</h3>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>核心公式／概念</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>\(y=A\sin(B(x-C))+D\)</td><td>振幅 \(|A|\)、週期 \(\dfrac{2\pi}{|B|}\)、相位平移 \(C\)、垂直平移 \(D\)</td></tr>
+            <tr><td>正弦、餘弦、正切圖形</td><td>對稱性、單調區間、與單位圓的對應關係</td></tr>
+            <tr><td>圖形變換</td><td>伸縮（改變 \(A\)、\(B\)）、平移（改變 \(C\)、\(D\)）的先後順序不可搞混</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <h3 class="sub-title" id="q-ch2">Ch2 和差角公式</h3>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>核心公式</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>\(\sin(A\pm B)=\sin A\cos B\pm\cos A\sin B\)</td><td>正弦和差角</td></tr>
+            <tr><td>\(\cos(A\pm B)=\cos A\cos B\mp\sin A\sin B\)</td><td>餘弦和差角（符號與正弦相反）</td></tr>
+            <tr><td>\(\sin2A=2\sin A\cos A\)</td><td>二倍角公式（正弦）</td></tr>
+            <tr><td>\(\cos2A=\cos^2A-\sin^2A=2\cos^2A-1=1-2\sin^2A\)</td><td>二倍角公式（餘弦，三種等價形式）</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <h3 class="sub-title" id="q-ch3">Ch3 指數函數</h3>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>核心公式／概念</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>\(y=a^x\)（\(a>0,a\neq1\)）</td><td>\(a>1\) 遞增；\(0<a<1\) 遞減；恆過 \((0,1)\)，圖形永遠在 x 軸上方</td></tr>
+            <tr><td>指數律</td><td>\(a^m\cdot a^n=a^{m+n}\)，\((a^m)^n=a^{mn}\)，\(a^{-n}=1/a^n\)</td></tr>
+            <tr><td>指數方程式／不等式</td><td>化同底後比較指數；\(0<a<1\) 時不等號方向要反轉</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <h3 class="sub-title" id="q-ch4">Ch4 對數函數</h3>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>核心公式／概念</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>\(y=\log_a x\)</td><td>與 \(y=a^x\) 互為反函數，圖形對稱於 \(y=x\)；恆過 \((1,0)\)</td></tr>
+            <tr><td>對數律</td><td>\(\log_a(MN)=\log_aM+\log_aN\)，\(\log_a\dfrac{M}{N}=\log_aM-\log_aN\)，\(\log_aM^k=k\log_aM\)</td></tr>
+            <tr><td>換底公式</td><td>\(\log_ab=\dfrac{\log_cb}{\log_ca}\)</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <h3 class="sub-title" id="q-ch5">Ch5 平面向量的運算</h3>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>核心公式</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>\(\overrightarrow{AB}=(x_2-x_1,y_2-y_1)\)</td><td>終點減起點</td></tr>
+            <tr><td>\(\vec a\pm\vec b=(a_1\pm b_1,\ a_2\pm b_2)\)</td><td>分量分別加減</td></tr>
+            <tr><td>\(k\vec a=(ka_1,ka_2)\)</td><td>平行判準：\(a_1b_2-a_2b_1=0\)</td></tr>
+            <tr><td>\(M=\dfrac{\vec a+\vec b}{2}\)</td><td>中點公式（分點公式的特例）</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <h3 class="sub-title" id="q-ch6">Ch6 平面向量的內積</h3>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>核心公式</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>\(\vec a\cdot\vec b=a_1b_1+a_2b_2=|\vec a||\vec b|\cos\theta\)</td><td>代數與幾何兩種定義</td></tr>
+            <tr><td>\(\vec a\perp\vec b\iff\vec a\cdot\vec b=0\)</td><td>正交判準</td></tr>
+            <tr><td>\(\text{proj}_{\vec b}\vec a=\dfrac{\vec a\cdot\vec b}{|\vec b|}\)</td><td>投影量（帶號純量）</td></tr>
+            <tr><td>\(|\vec a\pm\vec b|^2=|\vec a|^2\pm2\vec a\cdot\vec b+|\vec b|^2\)</td><td>展開恆等式</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <h3 class="sub-title" id="q-ch7">Ch7 平面向量的應用（本週）</h3>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>核心公式</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>\(\vec p=\dfrac{n\vec a+m\vec b}{m+n}\)</td><td>分點公式（\(\overline{AP}:\overline{PB}=m:n\)，係數交叉配對）</td></tr>
+            <tr><td>\(\vec g=\dfrac{\vec a+\vec b+\vec c}{3}\)</td><td>三角形重心公式</td></tr>
+            <tr><td>\(\text{Area}=\dfrac12|a_1b_2-a_2b_1|\)</td><td>三角形面積（坐標／向量分量直接算）</td></tr>
+            <tr><td>\(\vec r=\vec a+t\vec d\)</td><td>直線的向量參數式；法向量與方向向量互相垂直</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <div class="box box-tip" style="margin-top:1rem;">
+        <div class="box-title">💡 全冊複習策略：三條主線各自獨立，但常在計算題中被綜合命題</div>
+        <p>第三冊A的七章可歸納成三條主線：<strong>①三角函數（Ch1–Ch2）②指數對數函數（Ch3–Ch4）③向量（Ch5–Ch7）</strong>。三條主線彼此的計算方法互不相同，但學測與模擬考的計算題經常把它們「串」在一起考，例如：已知向量夾角，用和差角公式化簡角度；或用對數解「向量長度成等比數列」的應用題。複習時除了逐章複習公式，也建議額外找 3–5 題「跨章綜合題」練習，熟悉這種混合出題風格。</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 知識連結圖 ===== -->
+    <section id="km">
+      <h2 class="section-title">&#128279; 知識連結圖</h2>
+      <div class="km-container">
+        <p style="text-align:center; font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">第三冊A 七章的整體結構，以及本週 Ch7 如何統整前六章的工具：</p>
+        <div class="km-grid" style="align-items:center; margin-bottom:1.2rem;">
+          <div class="km-node linked">W14 Ch5–Ch6<br><span style="font-weight:400; font-size:0.78rem;">向量運算・內積</span></div>
+          <div class="km-arrow">→</div>
+          <div class="km-node central">W15 Ch7<br>向量的應用</div>
+          <div class="km-arrow">→</div>
+          <div class="km-node future">週六：全卷模擬考<br><span style="font-weight:400; font-size:0.78rem;">Ch1–Ch7 全範圍</span></div>
+        </div>
+        <div class="tree-visual">
+          <div class="tv-root">第三冊A 七章總覽（W12–W15）</div>
+          <ul class="tv-children">
+            <li class="tv-item">
+              <span class="tv-node tv-l1">主線一：三角函數（Ch1–Ch2，W12）</span>
+              <span class="tv-desc">圖形性質＋和差角、二倍角公式</span>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">主線二：指數與對數函數（Ch3–Ch4，W13）</span>
+              <span class="tv-desc">互為反函數、圖形對稱、方程式與不等式</span>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">主線三：向量（Ch5–Ch7，W14–W15）</span>
+              <span class="tv-desc">運算與內積 → 本週統整應用</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l2">分點公式</span><span class="tv-desc">線性組合的應用：中點、重心、任意比例分點</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">面積公式</span><span class="tv-desc">內積幾何定義的「另一半」（sinθ 而非 cosθ）</span></li>
+                <li class="tv-item"><span class="tv-node tv-l2">直線向量方程式</span><span class="tv-desc">與 W04–W05 坐標幾何一般式互相轉換</span></li>
+                <li class="tv-item"><span class="tv-node tv-l3">物理應用：力與速度合成（向量加法）、作功（內積）</span></li>
+              </ul>
+            </li>
+            <li class="tv-item">
+              <span class="tv-node tv-l1">後續銜接</span>
+              <span class="tv-desc">本週完成第三冊A收官</span>
+              <ul class="tv-children">
+                <li class="tv-item"><span class="tv-node tv-l3">週六：數學A全卷模擬考（Ch1–Ch7）</span></li>
+                <li class="tv-item"><span class="tv-node tv-l3">高二下第四冊A：空間向量（平面向量推廣至三維）——學測範圍，W27 複習</span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 常見錯誤 ===== -->
+    <section id="mistakes">
+      <h2 class="section-title">&#9888;&#65039; 常見錯誤</h2>
+      <div class="card">
+        <div class="box box-warn">
+          <div class="box-title">錯誤1：分點公式係數沒有交叉配對，比例算反</div>
+          <p>\(\overline{AP}:\overline{PB}=m:n\) 時，公式是 \(\vec p=\dfrac{n\vec a+m\vec b}{m+n}\)（\(\vec a\) 配 \(n\)，\(\vec b\) 配 \(m\)，交叉配對）。把係數直接對應（\(\vec a\) 配 \(m\)）會得到比例顛倒的錯誤點。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤2：面積公式忘記取絕對值，得到負面積</div>
+          <p>\(\text{Area}=\dfrac12|a_1b_2-a_2b_1|\) 一定要加絕對值——若頂點的排列方向是順時針，\(a_1b_2-a_2b_1\) 會算出負值，但面積不可能是負的，務必記得取絕對值。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤3：算三角形面積時，用錯的兩個向量（沒有共同起點）</div>
+          <p>面積公式 \(\dfrac12|u_1v_2-u_2v_1|\) 的 \(\vec u\)、\(\vec v\) 必須是<strong>從同一個頂點出發</strong>的兩邊（如 \(\overrightarrow{AB}\)、\(\overrightarrow{AC}\)），不能誤用 \(\overrightarrow{AB}\) 與 \(\overrightarrow{BC}\)（不同起點），否則算出的不是三角形面積。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤4：直線參數式與一般式轉換時，方向向量與法向量搞混</div>
+          <p>一般式 \(ax+by+c=0\) 的<strong>法向量</strong>是 \((a,b)\)，<strong>方向向量</strong>則需垂直於法向量，可取 \((-b,a)\)。若直接把 \((a,b)\) 當成方向向量代入參數式，會得到一條垂直於原直線的錯誤直線。</p>
+        </div>
+        <div class="box box-warn">
+          <div class="box-title">錯誤5：整冊複習時，忽略跨章節綜合題的可能性</div>
+          <p>模擬考與學測計算題常把三角函數（角度）與向量（內積求夾角）綜合命題，例如「已知兩向量夾角滿足某三角函數方程式，求向量分量」。複習時不要把七章視為互相獨立的孤立單元，建議額外練習跨章綜合題型，適應這種混合出題風格。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 學測考點提醒 ===== -->
+    <section id="examfocus">
+      <h2 class="section-title">&#127919; 學測考點提醒</h2>
+      <div class="card">
+        <div class="box box-link">
+          <div class="box-title">歷屆學測命題趨勢</div>
+          <ul class="content-list">
+            <li>分點公式（尤其是中點、三等分點）常與坐標幾何（求特定點坐標）綜合出題，是計算題的常見開頭小題</li>
+            <li>三角形面積的向量算法，比傳統「找底找高」更快，是選擇題與計算題都愛考的效率型解法，務必練到直覺反應</li>
+            <li>直線的向量參數式與一般式的互相轉換，常出現在「給參數式判斷是否平行／垂直」的選擇題型</li>
+            <li>向量在物理情境（力、速度合成）的應用題，常以「跨科整合」形式出現在自然科或數學科的情境題中</li>
+            <li>整冊而言，第三冊A的計算題常見「三角函數＋向量」或「指數對數＋向量長度」的跨章綜合題，是近年學測數學A的命題趨勢之一</li>
+          </ul>
+        </div>
+        <div class="box box-tip">
+          <div class="box-title">解題策略提醒</div>
+          <p>面對 Ch7 應用題，第一步先判斷題目屬於「分點」「面積」還是「直線方程式」三類之一，再選用對應公式；面對整冊複習與模擬考時，建議先花 5 分鐘快速瀏覽全卷，把屬於同一主線（三角函數／指數對數／向量）的題目在腦中歸類，再依熟悉度排序作答順序，優先拿下有把握的題型分數，最後再處理跨章綜合的難題。</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 重點整理 ===== -->
+    <section id="summary">
+      <h2 class="section-title">&#128200; 重點整理</h2>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+        <table>
+          <thead><tr><th>主題</th><th>核心公式／概念</th><th>學測考頻</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>分點公式</td>
+              <td>\(\vec p=\dfrac{n\vec a+m\vec b}{m+n}\)（係數交叉配對）</td>
+              <td><span class="chip chip-gold">★★★★★</span></td>
+            </tr>
+            <tr>
+              <td>三角形重心公式</td>
+              <td>\(\vec g=\dfrac{\vec a+\vec b+\vec c}{3}\)</td>
+              <td><span class="chip chip-gold">★★★</span></td>
+            </tr>
+            <tr>
+              <td>三角形面積（向量法）</td>
+              <td>\(\text{Area}=\dfrac12|a_1b_2-a_2b_1|\)</td>
+              <td><span class="chip chip-gold">★★★★★</span></td>
+            </tr>
+            <tr>
+              <td>直線的向量參數式</td>
+              <td>\(\vec r=\vec a+t\vec d\)；法向量⊥方向向量</td>
+              <td><span class="chip chip-gold">★★★★</span></td>
+            </tr>
+            <tr>
+              <td>向量法解交點</td>
+              <td>聯立兩參數式的 \(x,y\) 分量</td>
+              <td><span class="chip chip-gold">★★★</span></td>
+            </tr>
+            <tr>
+              <td>物理應用（力、速度合成）</td>
+              <td>合力／合速度＝向量和；作功＝內積</td>
+              <td><span class="chip chip-gold">★★★★</span></td>
+            </tr>
+            <tr>
+              <td>第三冊A整冊（Ch1–Ch7）</td>
+              <td>三角函數・指數對數函數・向量三條主線</td>
+              <td><span class="chip chip-red">週六全卷模擬考</span></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ===== 自我檢測 ===== -->
+    <section id="quiz">
+      <h2 class="section-title">&#9997; 自我檢測（共 8 題）</h2>
+      <div class="box box-link">
+        <div class="box-title">作答說明</div>
+        <p>以下 8 題中，第 1–5 題聚焦本週 Ch7 向量的應用（分點公式、面積公式、直線向量方程式、物理應用），第 6–8 題為 Ch1–Ch6 的跨章綜合複習題，作為週六全卷模擬考前的暖身練習。建議計時作答（每題 2–3 分鐘）後再對照詳解。難度以 <span class="diff-badge diff-easy">易</span> <span class="diff-badge diff-medium">中</span> <span class="diff-badge diff-hard">難</span> 標示。</p>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>設 \(A(2,3)\)，\(B(10,7)\)，\(P\) 在 \(\overline{AB}\) 上且 \(\overline{AP}:\overline{PB}=3:1\)，求 \(P\) 坐標。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\((4,4)\)</li>
+          <li>\((8,6)\)</li>
+          <li>\((6,5)\)</li>
+          <li>\((9.5,6.5)\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(m=3,n=1\)，\(\vec p=\dfrac{1\times(2,3)+3\times(10,7)}{4}=\dfrac{(2,3)+(30,21)}{4}=\dfrac{(32,24)}{4}=(8,6)\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>三角形頂點 \(A(0,0)\)，\(B(5,0)\)，\(C(2,4)\)，求其面積。<span class="diff-badge diff-easy">易</span></div>
+        <ol>
+          <li>\(8\)</li>
+          <li>\(10\)</li>
+          <li>\(12\)</li>
+          <li>\(20\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(\vec a=\overrightarrow{AB}=(5,0)\)，\(\vec b=\overrightarrow{AC}=(2,4)\)，\(\text{Area}=\dfrac12|5\times4-0\times2|=\dfrac12\times20=10\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span>直線 \(L\) 過點 \((1,2)\)，方向向量為 \((2,5)\)，求其一般式。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\(5x-2y-1=0\)</li>
+          <li>\(5x+2y-9=0\)</li>
+          <li>\(2x-5y+8=0\)</li>
+          <li>\(2x+5y-12=0\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：A</strong><br>
+            法向量與方向向量 \((2,5)\) 垂直，可取法向量 \((5,-2)\)，直線式為 \(5(x-1)-2(y-2)=0\implies5x-5-2y+4=0\implies5x-2y-1=0\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span>兩力 \(\vec F_1=(6,-2)\) N、\(\vec F_2=(-1,5)\) N 同時作用於一點，求合力大小。<span class="diff-badge diff-easy">易</span></div>
+        <ol>
+          <li>\(3\)</li>
+          <li>\(5\)</li>
+          <li>\(\sqrt{34}\)</li>
+          <li>\(7\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：C</strong><br>
+            合力 \(\vec F=(6-1,\ -2+5)=(5,3)\)，大小 \(=\sqrt{5^2+3^2}=\sqrt{34}\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span>三角形三頂點 \(A(1,2)\)，\(B(5,2)\)，\(C(3,8)\)，求其重心 \(G\)。<span class="diff-badge diff-easy">易</span></div>
+        <ol>
+          <li>\((2,4)\)</li>
+          <li>\((3,4)\)</li>
+          <li>\((4,3)\)</li>
+          <li>\((3,4.5)\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(\vec g=\dfrac{(1,2)+(5,2)+(3,8)}{3}=\dfrac{(9,12)}{3}=(3,4)\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">6</span>【Ch2 綜合】已知 \(\sin\alpha=\dfrac35\)（\(\alpha\) 為銳角），求 \(\cos2\alpha\)。<span class="diff-badge diff-medium">中</span></div>
+        <ol>
+          <li>\(\dfrac{7}{25}\)</li>
+          <li>\(-\dfrac{7}{25}\)</li>
+          <li>\(\dfrac{9}{25}\)</li>
+          <li>\(\dfrac{24}{25}\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：A</strong><br>
+            \(\cos2\alpha=1-2\sin^2\alpha=1-2\times\dfrac{9}{25}=1-\dfrac{18}{25}=\dfrac{7}{25}\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">7</span>【Ch4 綜合】解方程式 \(\log_2(x+1)=3\)。<span class="diff-badge diff-easy">易</span></div>
+        <ol>
+          <li>\(x=6\)</li>
+          <li>\(x=7\)</li>
+          <li>\(x=8\)</li>
+          <li>\(x=9\)</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            \(\log_2(x+1)=3\implies x+1=2^3=8\implies x=7\)。
+          </div>
+        </details>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">8</span>【Ch6–Ch7 綜合】設 \(\vec a=(2,1)\)，\(\vec b=(1,3)\)。求以 \(O\)、\(A\)、\(B\)（\(\vec a=\overrightarrow{OA}\)，\(\vec b=\overrightarrow{OB}\)）為頂點的三角形面積，並判斷 \(\vec a\)、\(\vec b\) 是否垂直。<span class="diff-badge diff-hard">難</span></div>
+        <ol>
+          <li>面積 \(2.5\)；垂直</li>
+          <li>面積 \(2.5\)；不垂直</li>
+          <li>面積 \(5\)；垂直</li>
+          <li>面積 \(5\)；不垂直</li>
+        </ol>
+        <details>
+          <summary>查看解析</summary>
+          <div class="answer">
+            <strong>答案：B</strong><br>
+            面積：\(\dfrac12|2\times3-1\times1|=\dfrac12|6-1|=\dfrac12\times5=2.5\)。<br>
+            內積：\(\vec a\cdot\vec b=2\times1+1\times3=2+3=5\neq0\)，故不垂直。本題同時運用 Ch6 內積判準與 Ch7 面積公式，是典型的跨章綜合題。
+          </div>
+        </details>
+      </div>
+
+      <div class="box box-tip" style="margin-top:1.5rem;">
+        <div class="box-title">訂正與複習建議</div>
+        <ul class="content-list">
+          <li>分點公式與面積公式是本週最重要的兩個新公式，請務必背熟並多加練習，尤其留意分點公式的「係數交叉配對」與面積公式的「絕對值」兩個易錯點</li>
+          <li>第 6–8 題若答錯，代表對應章節（Ch2 和差角、Ch4 對數、Ch6 內積）仍需回頭複習，建議重讀 W12–W14 講義的對應段落</li>
+          <li>週六全卷模擬考前，建議再快速瀏覽一次本講義「Ch1–Ch7 全冊重點速查表」，並重做 W12、W13、W14 各週自我檢測中答錯的題目，做最後的查漏補缺</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top:3rem; padding-top:1.5rem; border-top:2px solid var(--border); text-align:center; font-size:0.82rem; color:var(--text-muted);">
+      <p>W15 數學A科講義｜第三冊A Ch7 平面向量的應用 ＋ 整冊複習（收官）</p>
+      <p style="margin-top:0.3rem;">高二理工組 · 學測備考 · 暑假黃金衝刺期 第 8 週</p>
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>

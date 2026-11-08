@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W22 國文科學習講義｜台灣現代小說二篇＋成語修辭總整理</title>
+  <style>
+    /* ===================== CSS Reset & Base ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: "Microsoft JhengHei", "蘋方-繁", "PingFang TC", "Noto Sans TC", sans-serif;
+      background: #fdf6f0;
+      color: #2c2c2c;
+      line-height: 1.8;
+    }
+
+    /* ===================== CSS Variables ===================== */
+    :root {
+      --primary:       #c0392b;
+      --primary-dark:  #96281b;
+      --primary-light: #e74c3c;
+      --primary-bg:    #fdecea;
+      --accent:        #8e44ad;
+      --accent-bg:     #f5eef8;
+      --gold:          #b7860b;
+      --gold-bg:       #fef9e7;
+      --teal:          #1a7a6e;
+      --teal-bg:       #e8f8f5;
+      --ink:           #2c2c2c;
+      --muted:         #6b6b6b;
+      --border:        #e0d0cd;
+      --card-bg:       #ffffff;
+      --shadow:        0 2px 12px rgba(192,57,43,0.10);
+    }
+
+    /* ===================== Layout ===================== */
+    .page-wrapper { display: flex; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      min-width: 240px;
+      background: linear-gradient(180deg, #96281b 0%, #c0392b 40%, #e74c3c 100%);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 0 0 2rem 0;
+      box-shadow: 3px 0 14px rgba(0,0,0,0.15);
+      z-index: 100;
+    }
+    .sidebar-header {
+      background: rgba(0,0,0,0.20);
+      padding: 1.4rem 1rem 1.2rem 1rem;
+      text-align: center;
+    }
+    .sidebar-header .subject-badge {
+      display: inline-block;
+      background: #fff;
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1.1rem;
+      border-radius: 20px;
+      padding: 0.2rem 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+    .sidebar-header p { font-size: 0.78rem; opacity: 0.88; line-height: 1.5; }
+    .sidebar nav { padding: 1rem 0; }
+    .sidebar nav a {
+      display: block;
+      padding: 0.45rem 1.1rem;
+      color: rgba(255,255,255,0.90);
+      text-decoration: none;
+      font-size: 0.85rem;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .sidebar nav a:hover {
+      background: rgba(255,255,255,0.15);
+      border-left-color: #fff;
+      color: #fff;
+    }
+    .nav-section {
+      padding: 0.6rem 1.1rem 0.2rem 1.1rem;
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      opacity: 0.65;
+      text-transform: uppercase;
+    }
+    .nav-indent { padding-left: 1.8rem !important; font-size: 0.80rem !important; }
+
+    /* Main content */
+    .main-content {
+      flex: 1;
+      padding: 2rem 2.5rem 4rem 2.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* ===================== Page Header ===================== */
+    .page-header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: "說";
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 9rem;
+      opacity: 0.10;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .page-header .week-tag {
+      background: rgba(255,255,255,0.22);
+      display: inline-block;
+      padding: 0.2rem 0.9rem;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1px;
+    }
+    .page-header h1 { font-size: 1.85rem; font-weight: 900; margin-bottom: 0.4rem; }
+    .page-header .subtitle { font-size: 0.95rem; opacity: 0.88; }
+    .meta-row {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.1rem;
+      flex-wrap: wrap;
+    }
+    .meta-chip {
+      background: rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 0.22rem 0.9rem;
+      font-size: 0.80rem;
+    }
+
+    /* ===================== Section Titles ===================== */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 1.30rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin: 2.5rem 0 1.2rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--primary);
+    }
+    .section-title .icon { font-size: 1.3rem; }
+
+    .sub-section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 1.6rem 0 0.8rem 0;
+      padding-left: 0.8rem;
+      border-left: 4px solid var(--primary);
+    }
+    .sub-sub-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1.2rem 0 0.5rem 0;
+    }
+
+    /* ===================== Cards ===================== */
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* ===================== Info Boxes ===================== */
+    .box {
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      font-size: 0.93rem;
+    }
+    .box-key   { background: var(--primary-bg); border-left: 5px solid var(--primary); }
+    .box-warn  { background: #fff8e1; border-left: 5px solid #f39c12; }
+    .box-tip   { background: var(--teal-bg); border-left: 5px solid var(--teal); }
+    .box-link  { background: var(--accent-bg); border-left: 5px solid var(--accent); }
+    .box-gold  { background: var(--gold-bg); border-left: 5px solid var(--gold); }
+    .box-title { font-weight: 700; margin-bottom: 0.4rem; }
+
+    /* ===================== Original Text ===================== */
+    .original-text {
+      background: #fffaf7;
+      border: 1px solid #e8d5c8;
+      border-radius: 10px;
+      padding: 1.4rem 1.8rem;
+      font-size: 1.02rem;
+      line-height: 2.2;
+      color: #2c2c2c;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .original-text::before {
+      content: "原文";
+      position: absolute;
+      top: -0.7rem;
+      left: 1.2rem;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .original-text.excerpt::before { content: "原文（節錄重點段落）"; }
+    .original-text p { margin-bottom: 0.6rem; }
+    .original-text p:last-child { margin-bottom: 0; }
+    .original-text .om { color: var(--muted); font-size: 0.86rem; }
+    .original-text .stanza-break { height: 0.6rem; }
+
+    /* Key terms underline */
+    .kw {
+      border-bottom: 2px solid var(--primary);
+      color: var(--primary-dark);
+      font-weight: 600;
+      cursor: default;
+    }
+    .kw-gold {
+      border-bottom: 2px solid var(--gold);
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .kw-teal {
+      border-bottom: 2px solid var(--teal);
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    /* ===================== Glossary Table ===================== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.91rem;
+      margin: 0.8rem 0;
+    }
+    thead tr {
+      background: var(--primary);
+      color: #fff;
+    }
+    thead th {
+      padding: 0.65rem 1rem;
+      text-align: left;
+      font-weight: 700;
+    }
+    tbody tr:nth-child(even) { background: #fdf2f2; }
+    tbody tr:hover { background: var(--primary-bg); }
+    tbody td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tbody td:first-child { font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+
+    /* ===================== Translation Block ===================== */
+    .translation-block {
+      background: #f0f7f5;
+      border: 1px solid #b2d8d0;
+      border-radius: 10px;
+      padding: 1.3rem 1.6rem;
+      font-size: 0.93rem;
+      line-height: 1.95;
+      color: #1c4a43;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .translation-block::before {
+      content: "白話語譯（重點）";
+      position: absolute;
+      top: -0.7rem;
+      left: 1.2rem;
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    /* ===================== Analysis Points ===================== */
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 700px) { .analysis-grid { grid-template-columns: 1fr; } }
+    .analysis-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+    .analysis-item h4 { color: var(--primary-dark); font-size: 0.92rem; margin-bottom: 0.5rem; }
+    .analysis-item p, .analysis-item ul { font-size: 0.88rem; }
+    .analysis-item ul { padding-left: 1.2rem; }
+    .analysis-item li { margin-bottom: 0.3rem; }
+
+    /* ===================== Comparison Table ===================== */
+    .compare-table thead tr { background: var(--accent); }
+    .compare-table tbody td:first-child { color: var(--accent); }
+
+    /* ===================== Essay Frame (國寫) ===================== */
+    .essay-frame {
+      background: #fffaf7;
+      border: 1px solid #e8d5c8;
+      border-radius: 10px;
+      padding: 1.3rem 1.6rem;
+      margin: 1rem 0;
+      font-size: 0.92rem;
+    }
+    .essay-frame .ef-part { margin-bottom: 0.9rem; }
+    .essay-frame .ef-part:last-child { margin-bottom: 0; }
+    .essay-frame .ef-label {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.1rem 0.6rem;
+      border-radius: 8px;
+      margin-bottom: 0.35rem;
+    }
+    .essay-frame .ef-model {
+      background: #f0f7f5;
+      border: 1px solid #b2d8d0;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      color: #1c4a43;
+      line-height: 2.0;
+      font-size: 0.92rem;
+    }
+
+    /* ===================== Quiz Section ===================== */
+    .quiz-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .quiz-item .q-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 1.8rem;
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-right: 0.5rem;
+    }
+    .quiz-item .q-text { font-size: 0.94rem; font-weight: 600; margin-bottom: 0.7rem; }
+    .quiz-item ol { padding-left: 1.5rem; font-size: 0.92rem; }
+    .quiz-item li { margin-bottom: 0.3rem; list-style-type: upper-alpha; }
+    details { margin-top: 0.7rem; }
+    summary {
+      cursor: pointer;
+      background: var(--primary-bg);
+      color: var(--primary-dark);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-block;
+      user-select: none;
+    }
+    summary:hover { background: var(--primary); color: #fff; }
+    details[open] summary { background: var(--primary); color: #fff; }
+    .answer-box {
+      background: #fef9e7;
+      border: 1px solid #f0d060;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-top: 0.6rem;
+      font-size: 0.90rem;
+    }
+    .answer-box .correct { color: #27ae60; font-weight: 700; }
+
+    /* ===================== Knowledge Map ===================== */
+    .k-map {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .k-map-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .k-node {
+      background: var(--primary-bg);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-align: center;
+    }
+    .k-node.center {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.95rem;
+      padding: 0.7rem 1.4rem;
+    }
+    .k-node.teal {
+      background: var(--teal-bg);
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+    .k-node.gold {
+      background: var(--gold-bg);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .k-node.accent {
+      background: var(--accent-bg);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .k-arrow { font-size: 1.4rem; color: var(--muted); }
+
+    /* ===================== Tag badges ===================== */
+    .tag {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 10px;
+      margin: 0.15rem;
+    }
+    .tag-red   { background: #fdecea; color: var(--primary); border: 1px solid var(--primary); }
+    .tag-teal  { background: var(--teal-bg); color: var(--teal); border: 1px solid var(--teal); }
+    .tag-gold  { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold); }
+    .tag-purple{ background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent); }
+
+    /* ===================== Exam highlight ===================== */
+    .exam-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.5rem;
+      border-radius: 8px;
+      vertical-align: middle;
+      margin-left: 0.3rem;
+    }
+
+    /* ===================== Divider ===================== */
+    .divider {
+      border: none;
+      border-top: 2px dashed var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* ===================== TOC ===================== */
+    .toc {
+      background: var(--gold-bg);
+      border: 1px solid #f0c040;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .toc h3 { color: var(--gold); margin-bottom: 0.8rem; font-size: 1rem; }
+    .toc ol { padding-left: 1.5rem; font-size: 0.90rem; }
+    .toc li { margin-bottom: 0.3rem; }
+    .toc a { color: var(--primary-dark); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; color: var(--primary); }
+
+    /* ===================== Weakness note template ===================== */
+    .wk-table td:first-child { white-space: normal; }
+    .wk-blank { color: var(--muted); font-style: italic; }
+
+    /* ===================== Piece banner ===================== */
+    .piece-banner {
+      color: #fff;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .piece-banner .pb-kicker { font-size: 0.78rem; opacity: 0.8; margin-bottom: 0.3rem; }
+    .piece-banner .pb-title { font-size: 1.4rem; font-weight: 900; letter-spacing: 2px; }
+    .piece-banner .pb-meta { font-size: 0.88rem; opacity: 0.88; margin-top: 0.3rem; }
+
+    /* ===================== Responsive ===================== */
+    @media (max-width: 820px) {
+      .sidebar { display: none; }
+      .main-content { padding: 1.2rem 1rem 3rem 1rem; }
+    }
+
+    /* ===================== Scrollbar ===================== */
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.35); border-radius: 4px; }
+
+    /* Print */
+    @media print {
+      .sidebar { display: none; }
+      .main-content { padding: 0; max-width: 100%; }
+      .page-header { background: #c0392b !important; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="subject-badge">國 文</div>
+      <p>W22 台灣現代小說二篇<br>＋成語與修辭總整理<br>高三上・理工組</p>
+    </div>
+    <nav>
+      <div class="nav-section">Overview</div>
+      <a href="#overview">本週學習總覽</a>
+      <a href="#method">現代小說閱讀方法</a>
+      <a href="#history">台灣文學分期速覽</a>
+
+      <div class="nav-section">小說一：一桿「稱仔」</div>
+      <a href="#n1-author" class="nav-indent">作者與時代背景</a>
+      <a href="#n1-plot" class="nav-indent">情節結構表</a>
+      <a href="#n1-text" class="nav-indent">重點段落節錄與賞析</a>
+      <a href="#n1-analysis" class="nav-indent">人物・主題・象徵</a>
+      <a href="#n1-exam" class="nav-indent">學測考點</a>
+
+      <div class="nav-section">小說二：兒子的大玩偶</div>
+      <a href="#n2-author" class="nav-indent">作者與時代背景</a>
+      <a href="#n2-plot" class="nav-indent">情節結構與敘事技巧</a>
+      <a href="#n2-text" class="nav-indent">關鍵場景解析</a>
+      <a href="#n2-analysis" class="nav-indent">人物・主題・象徵</a>
+      <a href="#n2-exam" class="nav-indent">學測考點</a>
+
+      <div class="nav-section">整合與統整</div>
+      <a href="#compare">兩篇小說比較</a>
+
+      <div class="nav-section">語文知識</div>
+      <a href="#idiom-1" class="nav-indent">成語：形近易錯</a>
+      <a href="#idiom-2" class="nav-indent">成語：意近易混</a>
+      <a href="#idiom-3" class="nav-indent">成語：常見誤用</a>
+      <a href="#idiom-4" class="nav-indent">成語：出處與典故</a>
+      <a href="#rhetoric" class="nav-indent">修辭十五格總表</a>
+      <a href="#rhetoric-diff" class="nav-indent">修辭易混辨析</a>
+
+      <div class="nav-section">收尾</div>
+      <a href="#kmap">知識連結圖</a>
+      <a href="#weak">個人弱點筆記模板</a>
+      <a href="#quiz">隨堂自我測驗</a>
+      <a href="#next">下週預告</a>
+    </nav>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main-content">
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="week-tag">第 22 週學習單元・第三階段（第二輪主題強化）</div>
+      <h1>W22 國文科｜台灣文學：現代小說二篇</h1>
+      <div class="subtitle">賴和〈一桿「稱仔」〉、黃春明〈兒子的大玩偶〉｜語文知識：成語與修辭總整理</div>
+      <div class="meta-row">
+        <span class="meta-chip">高三上 · 理工組</span>
+        <span class="meta-chip">日期：10/12–10/18</span>
+        <span class="meta-chip">台灣文學・小說單元</span>
+        <span class="meta-chip">距學測約 102 天</span>
+      </div>
+    </header>
+
+    <!-- TOC -->
+    <div class="toc" id="toc">
+      <h3>目錄 Table of Contents</h3>
+      <ol>
+        <li><a href="#overview">本週學習總覽與目標</a></li>
+        <li><a href="#method">現代小說閱讀方法（四要素 ＋ 敘事觀點）</a></li>
+        <li><a href="#history">台灣文學分期速覽</a></li>
+        <li><a href="#n1-author">賴和〈一桿「稱仔」〉｜作者與時代背景</a></li>
+        <li><a href="#n1-plot">賴和〈一桿「稱仔」〉｜情節結構表</a></li>
+        <li><a href="#n1-text">賴和〈一桿「稱仔」〉｜重點段落節錄與賞析</a></li>
+        <li><a href="#n1-analysis">賴和〈一桿「稱仔」〉｜人物・主題・象徵</a></li>
+        <li><a href="#n1-exam">賴和〈一桿「稱仔」〉｜學測考點</a></li>
+        <li><a href="#n2-author">黃春明〈兒子的大玩偶〉｜作者與時代背景</a></li>
+        <li><a href="#n2-plot">黃春明〈兒子的大玩偶〉｜情節結構與敘事技巧</a></li>
+        <li><a href="#n2-text">黃春明〈兒子的大玩偶〉｜關鍵場景解析</a></li>
+        <li><a href="#n2-analysis">黃春明〈兒子的大玩偶〉｜人物・主題・象徵</a></li>
+        <li><a href="#n2-exam">黃春明〈兒子的大玩偶〉｜學測考點</a></li>
+        <li><a href="#compare">兩篇小說比較分析</a></li>
+        <li><a href="#idiom-1">語文知識・成語（四大題型）</a></li>
+        <li><a href="#rhetoric">語文知識・修辭十五格總表</a></li>
+        <li><a href="#kmap">知識連結圖</a></li>
+        <li><a href="#weak">個人弱點筆記模板</a></li>
+        <li><a href="#quiz">隨堂自我測驗（10 題）</a></li>
+        <li><a href="#next">下週預告</a></li>
+      </ol>
+    </div>
+
+    <!-- ========== OVERVIEW ========== -->
+    <section id="overview">
+      <h2 class="section-title"><span class="icon">📖</span>本週學習總覽</h2>
+      <div class="card">
+        <p>本週（10/12–10/18）承接上週 W21 的現代詩精讀，把現代文學的主戰場從「詩」推進到「<strong>小說</strong>」，並且明確鎖定<strong>台灣文學</strong>這條軸線。所選兩篇分別是台灣新文學運動的起點之作——賴和〈一桿「稱仔」〉（1926），以及一九六〇年代末鄉土文學的代表作——黃春明〈兒子的大玩偶〉（1968）。兩篇相隔四十餘年，主角同樣是被時代壓在最底層的小人物，一個面對的是日治時期的殖民暴力，一個面對的是經濟起飛期的城鄉擠壓，正好可以串成一條「<strong>台灣小人物書寫</strong>」的完整脈絡。</p>
+        <p style="margin-top:0.8rem;">下半場則是語文知識的第二輪整理：<strong>成語</strong>與<strong>修辭</strong>。這兩塊是學測國文第一大題（選擇題）最穩定的送分區，也是國寫最直接能夠加分的工具——修辭觀念熟了，讀小說時對「作者為什麼這樣寫」的敏感度也會同步提高，兩個單元並非各自獨立。</p>
+      </div>
+
+      <div class="box box-link">
+        <div class="box-title">🔗 與前幾週的關係</div>
+        <p style="font-size:0.91rem;">W17–W20 完成古文 30 篇的第二輪重讀與文化基本教材（論孟）重點精讀；W21 轉入現代文學，以六首現代詩建立「意象、結構、主題、技巧」的分析方法。本週把同一套 close reading 方法搬到小說上，差別在於小說多了<strong>情節</strong>與<strong>敘事觀點</strong>兩個維度——詩讀的是「一瞬間的意象」，小說讀的是「一段時間裡人物怎麼被改變」。W21 練過的意象分析（如〈鄉愁〉的四個具體物件）在本週仍然有用：〈一桿「稱仔」〉的「稱仔」與〈兒子的大玩偶〉的「小丑妝」，本質上就是兩個承載全篇主題的核心意象。</p>
+      </div>
+
+      <h3 class="sub-section-title">學習目標</h3>
+      <div class="box box-key">
+        <div class="box-title">✅ 完成本週學習後，你應能：</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li>說出兩篇小說的作者、發表年代、文學史定位，以及各自對應的台灣社會背景</li>
+          <li>用「人物・情節・場景・敘事觀點」四個角度拆解一篇陌生的現代小說</li>
+          <li>分析「稱仔」與「小丑妝」兩個核心象徵如何承載全篇主題，並能舉出文本證據</li>
+          <li>辨識第三人稱全知、第三人稱限知、意識流內心獨白三種敘事方式在文本中的效果差異</li>
+          <li>正確判讀 60 則學測高頻成語的字形、字義與使用情境，避免四大類常見誤用</li>
+          <li>辨認 15 種修辭格，並能區分最容易混淆的五組（譬喻／轉化、借代／象徵、映襯／對比、排比／類疊、設問／激問）</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-section-title">本週兩篇速覽</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>篇名</th><th>作者／年代</th><th>核心衝突</th><th>一句話定位</th></tr></thead>
+          <tbody>
+            <tr><td>一桿「稱仔」</td><td>賴和・1926</td><td>小民 vs. 殖民公權力</td><td>台灣新文學第一篇控訴殖民體制不公的寫實小說</td></tr>
+            <tr><td>兒子的大玩偶</td><td>黃春明・1968</td><td>尊嚴 vs. 生存</td><td>鄉土文學代表作，寫小人物為家庭戴上面具、失去自我的悲哀</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 關於本週的文本呈現方式</div>
+        <p style="font-size:0.91rem;">兩篇皆為數千字的短篇小說，篇幅遠超過一份講義可以完整容納的範圍，因此本講義採<strong>「重點段落節錄 ＋ 逐段賞析 ＋ 完整情節結構表」</strong>的方式處理：情節結構表讓你掌握全篇脈絡，節錄段落則挑出最具命題價值的關鍵場景。〈兒子的大玩偶〉為現行著作權保護中的作品，本講義僅作教學性的短句引用與場景解析，<strong>務必自行閱讀課本或作品集全文</strong>，講義只是幫你抓重點的地圖，不能取代原著。</p>
+      </div>
+    </section>
+
+    <!-- ========== METHOD ========== -->
+    <section id="method">
+      <h2 class="section-title"><span class="icon">🎯</span>現代小說閱讀方法</h2>
+
+      <h3 class="sub-section-title">一、小說四要素</h3>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>① 人物（character）</h4>
+          <ul>
+            <li>主角的「身分」通常就是主題的鑰匙：佃農之子、廣告人，都是社會最底層的代表。</li>
+            <li>命題重點不在「他做了什麼」，而在「<strong>他為什麼變成這樣</strong>」。</li>
+            <li>注意「扁平人物」（巡警、戲院老闆）往往是體制的化身，不是個人。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>② 情節（plot）</h4>
+          <ul>
+            <li>拆成五段：開端 → 發展 → 高潮 → 轉折 → 結局。</li>
+            <li>留意「<strong>轉折點</strong>」：主角的價值觀在哪一刻被推翻。</li>
+            <li>台灣現代小說常用「開放式結局」，把判斷權交還讀者。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>③ 場景（setting）</h4>
+          <ul>
+            <li>時代背景＝衝突的來源：日治警察政治、1960s 城鄉移動。</li>
+            <li>空間安排有意義：市場（謀生）、衙門（權力）、街道（展示）、家（真實自我）。</li>
+            <li>節慶時間（除夕、元旦）常被拿來做<strong>反諷</strong>。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>④ 敘事觀點（point of view）</h4>
+          <ul>
+            <li>第三人稱全知：敘事者知道所有人的想法，可自由評論。</li>
+            <li>第三人稱限知：只跟著一個人物的視角走，讀者與主角同步受限。</li>
+            <li>內心獨白／意識流：直接呈現角色腦中未整理的念頭與回憶。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="box box-tip">
+        <div class="box-title">💡 三個必問的問題（讀任何一篇小說都適用）</div>
+        <ol style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>誰在說這個故事？</strong>（敘事觀點）──決定了你能知道多少、被引導往哪裡同情。</li>
+          <li><strong>主角想要什麼？誰擋住他？</strong>（核心衝突）──衝突的對象若是「制度」而非「某個壞人」，就是社會寫實小說。</li>
+          <li><strong>結尾時，誰改變了？</strong>（主題）──若主角無力改變、只能被碾過，作者要批判的通常是整個結構。</li>
+        </ol>
+      </div>
+
+      <h3 class="sub-section-title">二、命題形式：學測怎麼考現代小說</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>題型</th><th>問法</th><th>解題關鍵</th></tr></thead>
+          <tbody>
+            <tr><td>情節理解</td><td>「下列關於文中情節的敘述，正確的是？」</td><td>回文本核對因果，勿用常識推測</td></tr>
+            <tr><td>人物心理</td><td>「畫線處顯示主角當時的心情是？」</td><td>看前後動作與環境描寫，不看單句字面</td></tr>
+            <tr><td>象徵詮釋</td><td>「文中『稱仔』最可能象徵？」</td><td>找出該物件在全篇出現的每一次及其變化</td></tr>
+            <tr><td>敘事技巧</td><td>「本文敘事觀點的效果是？」</td><td>問自己：換成第一人稱會失去什麼</td></tr>
+            <tr><td>跨文本比較</td><td>「甲乙兩文對『尊嚴』的處理有何不同？」</td><td>先各自歸納一句主旨，再比對差異點</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ========== HISTORY ========== -->
+    <section id="history">
+      <h2 class="section-title"><span class="icon">🗺️</span>台灣文學分期速覽</h2>
+      <div class="box box-link">
+        <div class="box-title">🔗 為什麼要背分期？</div>
+        <p style="font-size:0.91rem;">學測不會直接考「請說明台灣文學分期」，但會考「甲文與乙文寫作年代先後」「本文最可能寫於哪個時期」這類需要<strong>背景判斷</strong>的題目。判斷線索通常來自：使用的語言（文言／白話／台語詞彙）、故事中的權力角色（日警／地主／工廠老闆）、以及主角的處境（土地被奪／進城打工）。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>時期</th><th>年代</th><th>特色</th><th>代表作家</th></tr></thead>
+          <tbody>
+            <tr><td>日治・台灣新文學</td><td>1920s–1930s</td><td>白話文運動、反殖民、寫實批判，帶有啟蒙色彩</td><td>賴和、楊逵、呂赫若、吳濁流</td></tr>
+            <tr><td>戰後初期・反共懷鄉</td><td>1950s</td><td>大陸來台作家的懷鄉題材，官方文藝政策主導</td><td>林海音、潘人木</td></tr>
+            <tr><td>現代主義</td><td>1960s</td><td>受西方影響，重內心世界、意識流、疏離感</td><td>白先勇、王文興、七等生</td></tr>
+            <tr><td>鄉土文學</td><td>1960s末–1970s</td><td>回歸本土，寫農村與小鎮小人物在現代化下的處境</td><td>黃春明、王禎和、陳映真</td></tr>
+            <tr><td>解嚴後・多元書寫</td><td>1980s–</td><td>女性、原住民、眷村、環境等多元議題</td><td>李昂、夏曼・藍波安、朱天心</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-gold">
+        <div class="box-title">📌 本週兩篇在時間軸上的位置</div>
+        <p style="font-size:0.91rem;">〈一桿「稱仔」〉屬<strong>日治・台灣新文學</strong>（1926），〈兒子的大玩偶〉屬<strong>鄉土文學</strong>（1968）。一頭一尾，剛好框出台灣現代小說最常被命題的兩個時期，中間的現代主義（白先勇〈遊園驚夢〉等）則可在 W23 錯題複習時自行補讀。</p>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ========== 小說一 ========== -->
+    <div class="piece-banner" style="background:linear-gradient(90deg, var(--primary-dark), var(--primary));">
+      <div class="pb-kicker">台灣現代小說第一篇｜賴和・1926年・台灣新文學</div>
+      <div class="pb-title">一桿「稱仔」</div>
+      <div class="pb-meta">一根借來的秤，秤出的是一個殖民地小民連活下去都不被允許的世界</div>
+    </div>
+
+    <section id="n1-author">
+      <h2 class="section-title"><span class="icon">✍️</span>作者與時代背景</h2>
+      <div class="card">
+        <h3 class="sub-sub-title">賴和（1894–1943）</h3>
+        <ul style="padding-left:1.3rem; font-size:0.93rem;">
+          <li><strong>身分</strong>：彰化人，本業是醫師（人稱「彰化媽祖」，因為他常免費為窮人看病），同時是作家、社會運動者。</li>
+          <li><strong>地位</strong>：被尊為「<span class="kw">台灣新文學之父</span>」「台灣的魯迅」。他主編《台灣民報》文藝欄，提攜楊逵、呂赫若等後進，是 1920 年代台灣白話文學的推手。</li>
+          <li><strong>創作特色</strong>：以白話文寫作（其中夾雜台語詞彙與日語行政用語），題材集中在殖民統治下的庶民苦難，筆調冷靜、結尾往往留下沉重的空白。</li>
+          <li><strong>其他代表作</strong>：〈鬥鬧熱〉（台灣第一篇白話小說之一）、〈豐作〉、〈惹事〉、新詩〈南國哀歌〉（寫霧社事件）。</li>
+        </ul>
+      </div>
+
+      <div class="box box-key">
+        <div class="box-title">🕰️ 作品背景：1920 年代的台灣</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>警察政治</strong>：日治時期基層巡警權力極大，可以臨檢、告發、動用「違警例」處罰，是殖民統治最貼近庶民的一張面孔。小說中巡警的索賄與刁難，正是這套體制的日常。</li>
+          <li><strong>度量衡制度</strong>：1920 年代總督府推行度量衡規則，民間舊秤被視為違法工具。制度本身看似「現代化」，但實際運作卻成為取締與勒索的藉口——這正是小說最尖銳的諷刺：<strong>秦得參違反的是「法」，被踐踏的卻是「理」</strong>。</li>
+          <li><strong>糖業會社的剝削</strong>：小說開頭交代秦得參一家的窮困，與製糖會社壟斷土地、壓低甘蔗收購價直接相關，這是當時「第一憨，種甘蔗給會社磅」諺語的社會現實。</li>
+          <li><strong>發表資訊</strong>：1925 年 12 月 4 日夜完稿，1926 年 2 月刊於《台灣民報》第 92、93 號。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="n1-plot">
+      <h2 class="section-title"><span class="icon">🧩</span>情節結構表</h2>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th style="width:12%;">階段</th><th style="width:44%;">情節內容</th><th style="width:44%;">寫作作用</th></tr></thead>
+          <tbody>
+            <tr><td>開端</td><td>介紹鎮南威麗村的貧苦農民，聚焦秦得參一家：父早逝、母改嫁、家貧輟學、成年後贌田耕作仍難維生。</td><td>先鋪陳「窮」不是個人懶惰，而是<strong>結構性的貧困</strong>，為後面的悲劇建立必然性。</td></tr>
+            <tr><td>發展一</td><td>為改善生計，向嫂子借金花典當籌本錢，又向鄰居借一桿秤，開始在市場賣菜。</td><td>「借」是關鍵字：本錢是借的、工具是借的，說明他連謀生的最低條件都不屬於自己。</td></tr>
+            <tr><td>發展二</td><td>生意漸有起色，一家人對過年抱有微小的期待。</td><td>製造「短暫的希望」，讓接下來的摧毀更具衝擊力（<strong>抑揚對比</strong>）。</td></tr>
+            <tr><td>高潮</td><td>年關將近，巡警到攤前取菜，秦得參以「不用問價、拿去就好」應對；巡警卻挑剔秤具，指其違反度量衡規則，當場<strong>折斷秤仔</strong>並將他帶走。</td><td>全篇最核心的場景。衝突表面是「秤準不準」，實質是<strong>索賄不遂後的報復</strong>，暴露殖民公權力的任意性。</td></tr>
+            <tr><td>轉折</td><td>秦得參被拘，妻子驚慌奔走衙門，靠一名尚有童心的小使協助，繳錢贖人。夫妻在散市後的街上相遇，四周傳來辭年的爆竹聲。</td><td>爆竹聲＝全村的年節喜氣，與主角的屈辱形成強烈<strong>反諷</strong>；妻子典當金花的錢反而拿去繳罰款，等於「借來的希望」被制度收回。</td></tr>
+            <tr><td>結局</td><td>除夕圍爐，孩子睡下作夢，秦得參在屋內踱步，喃喃自語「人不像個人，畜生，誰願意做」，懷抱著最後的覺悟。元旦清晨，秦家傳出叫喊哀嚎；同時市上盛傳一名夜巡警吏被殺在道上。</td><td><strong>留白式結局</strong>：作者不明寫秦得參做了什麼、結果如何，只用兩則並置的「傳聞」讓讀者自行縫合，力量遠大於直述。</td></tr>
+            <tr><td>後記</td><td>作者說明此事並非台灣獨有，凡強權行使之地都會發生，並提及受法國作家法朗士作品啟發而寫。</td><td>把個案<strong>提升為普世的強權批判</strong>，避免被讀成單一的地方新聞。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="n1-text">
+      <h2 class="section-title"><span class="icon">📜</span>重點段落節錄與賞析</h2>
+      <div class="box box-tip">
+        <div class="box-title">💡 使用說明</div>
+        <p style="font-size:0.91rem;">以下依情節順序節錄四處最具命題價值的段落（賴和作品已屬公共領域）。每段後附「<strong>賞析</strong>」，說明該段的寫作手法與可能的命題角度。讀時請特別注意：賴和的白話文帶有 1920 年代初期的過渡性色彩，句法偶有文白夾雜、詞序倒裝，遇到拗口處先抓主詞與動作即可。</p>
+      </div>
+
+      <h3 class="sub-section-title">節錄一｜開篇：結構性的貧困</h3>
+      <div class="original-text excerpt">
+        <p>鎮南威麗村裡，住的人家，大都是勤儉、耐苦、平和、從順的農民。村中除了包辦官業的幾家勢豪，從事公職的幾家下級官吏，其餘都是窮苦的占多數。</p>
+      </div>
+      <div class="box box-key">
+        <div class="box-title">🔍 賞析</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>開篇即以<strong>對比</strong>切開村莊：「勢豪／下級官吏」對「窮苦的占多數」，兩句話就畫出殖民地社會的階級結構。</li>
+          <li>「勤儉、耐苦、平和、從順」四個形容詞看似褒揚，實則暗含批判——<span class="kw">從順</span>正是統治者最希望被統治者具備的美德。作者先立下這個「順民」形象，才能在結尾以秦得參的反抗震撼讀者。</li>
+          <li><span class="exam-badge">命題點</span>常考「作者以『勤儉、耐苦、平和、從順』形容村民，用意為何」，答案方向是「為後文的爆發作反襯，並暗示順從並不能換得安穩」。</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-section-title">節錄二｜高潮：稱仔被折斷</h3>
+      <div class="original-text excerpt">
+        <p>「大人要的，不用問價，肯要我的東西，就算運氣好。」參說。他就擇幾莖好的，用稻草貫著，恭敬地獻給他。</p>
+        <p>「稱仔不好罷，兩斤就兩斤，何須打扣？」巡警變色地說。<br>「不，還新新呢！」參泰然地回答。<br>「拿過來！」巡警赫怒了。</p>
+        <p>「不去嗎？」巡警怒叱著。「不去？畜生！」撲的一聲，巡警把稱仔打斷擲棄，隨抽出胸前的小帳子，把參的名姓、住處，記下。氣憤憤地，回警署去。</p>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 閱讀提醒</div>
+        <p style="font-size:0.91rem;">此處為節錄，中間省略數輪對話。<strong>請務必對照課本原文逐句讀過一次</strong>，特別留意三件事：①秦得參如何一再退讓（不問價、恭敬奉上）；②巡警堅持「稱稱看」的用意——秤過就算買賣，不算白拿，他要的其實是「白拿而不落人口實」；③秤被折斷的那一瞬間，敘事者完全不寫秦得參的情緒，只寫巡警的動作與登記名姓的細節。</p>
+      </div>
+      <div class="box box-key">
+        <div class="box-title">🔍 賞析</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>衝突的錯位</strong>：巡警真正想要的是白拿或收賄，出口卻是「秤不合規定」。作者刻意讓「法律語言」與「勒索動機」錯開，諷刺力道最強——<span class="kw">法成為工具，而非正義</span>。</li>
+          <li><strong>折斷秤仔的動作</strong>是全篇的象徵核心：秤＝公平的度量、也是秦得參的生計來源，更是他向鄰人借來的（意即他必須賠償）。一折三傷，一個動作同時摧毀公平、生計與人際信用。</li>
+          <li><strong>語言的權力差</strong>：秦得參說台語、稱對方「大人」，巡警用制度語言（規則、法律）壓人。語言不對等就是權力不對等，這是殖民書寫的典型手法。</li>
+          <li><span class="exam-badge">命題點</span>「文中巡警折斷稱仔的行為，最能說明什麼」→ 答案應指向「公權力的任意行使／法律淪為報復工具」，而非「巡警個人脾氣不好」。</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-section-title">節錄三｜除夕之夜：最後的覺悟</h3>
+      <div class="original-text excerpt">
+        <p>圍過爐，孩子們因明早要絕早起來開正各已睡下，在作他們幸福的夢。參尚在室內踱來蹀去。經他妻子幾次的催促，他總沒有聽見似的，心裡只在想，總覺有一種，不明瞭的悲哀，只不住漏出幾聲的嘆息，「人不像個人，畜生，誰願意做。這是什麼世間？活著倒不若死了快樂。」他喃喃地獨語著，忽又回憶到他母親死時，快樂的容貌。他已懷抱著最後的覺悟。</p>
+      </div>
+      <div class="box box-key">
+        <div class="box-title">🔍 賞析</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>對比密度極高</strong>：孩子「幸福的夢」／父親「不明瞭的悲哀」；「圍爐」的團圓意象／「踱來蹀去」的焦躁；除夕的喜慶／自語的絕望。三重對比疊在一小段裡，是全篇情緒的臨界點。</li>
+          <li>「<span class="kw">人不像個人，畜生，誰願意做</span>」是全篇最著名的一句，它指出小說真正的主題不是「錢」而是「<strong>尊嚴</strong>」——被罰款事小，被當成不是人才是致命的。</li>
+          <li>「回憶到他母親死時，快樂的容貌」極為驚悚：<strong>死亡在此被寫成解脫</strong>，暗示主角已把死視為可接受的選項，為結尾留下伏筆。</li>
+          <li>「他已懷抱著最後的覺悟」一句故意<strong>不說明覺悟的內容</strong>，這是留白手法，也讓結局的兩則傳聞有了因果連結的空間。</li>
+          <li><span class="exam-badge">命題點</span>「『他已懷抱著最後的覺悟』最可能指？」→ 指他決意以自己的方式反抗（與結尾警吏被殺、秦家哭聲呼應），而非單純想開了或決定認命。</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-section-title">節錄四｜結局：兩則並置的傳聞</h3>
+      <div class="original-text excerpt">
+        <p>元旦，參的家裡，忽譁然發生一陣叫喊、哀嗚、啼哭。隨後，又聽著說：「什麼都沒有嗎？」「只銀紙備辦在，別的什麼都沒有。」</p>
+        <p>同時，市上亦盛傳著，一個夜巡的警吏，被殺在道上。</p>
+      </div>
+      <div class="translation-block">
+        <strong>情節還原（作者刻意不寫出來的部分）</strong>：元旦清晨秦家的哭喊，加上家中只備有「銀紙」（喪葬用的紙錢）而無其他年貨，暗示秦得參已死；市上同時傳出夜巡警吏被殺的消息，兩件事並置，讀者自然推得：秦得參在除夕夜的「最後覺悟」，就是與巡警同歸於盡。作者全程不下判斷、不描寫殺人過程，只並列兩則「傳聞」。
+      </div>
+      <div class="box box-key">
+        <div class="box-title">🔍 賞析</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>蒙太奇式的並置</strong>：兩段之間沒有任何連接詞說明因果，只用「同時」把兩個畫面剪在一起，由讀者完成推論。這是全篇藝術成就最高之處。</li>
+          <li><strong>反諷到極點的時間安排</strong>：元旦是一年之始、最該喜慶的日子，卻成為喪家的開端。與前文「辭年的爆竹聲」形成貫串全篇的節慶反諷。</li>
+          <li><strong>「銀紙」這個物件</strong>取代了所有直述——年貨沒有、只有紙錢，一個細節寫盡貧窮與死亡。這是典型的「<span class="kw-teal">以物寫事</span>」。</li>
+          <li><strong>後記的功能</strong>：作者自述受法朗士啟發，並指出「凡強權行使的地上，總會發生」，把個案上升為對強權的普遍控訴，同時也巧妙避開直接指名殖民政府的政治風險。</li>
+          <li><span class="exam-badge">命題點</span>「本文結尾採用開放式敘述，其效果為何？」→ ①讓讀者參與推論，衝擊更深；②避開直接控訴的審查風險；③使個人悲劇上升為普遍的制度批判。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="n1-analysis">
+      <h2 class="section-title"><span class="icon">🔬</span>人物・主題・象徵</h2>
+
+      <h3 class="sub-section-title">人物分析</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>人物</th><th>性格與處境</th><th>在主題中的功能</th></tr></thead>
+          <tbody>
+            <tr><td>秦得參</td><td>老實、退讓、吃苦耐勞；面對巡警一再忍氣吞聲，最後在尊嚴被徹底碾碎時爆發</td><td>殖民地順民的代表。他的爆發證明：壓迫若無止境，最順從的人也會反抗</td></tr>
+            <tr><td>妻子</td><td>勤儉、務實，典當金花籌錢，奔走衙門救夫</td><td>寫出家庭連帶受害；她的無力更凸顯體制之強</td></tr>
+            <tr><td>巡警</td><td>索賄不成便報復，以法律之名行私怨之實</td><td>不是個人反派，而是<strong>制度的化身</strong>（扁平人物）</td></tr>
+            <tr><td>衙門小使</td><td>十四歲少年，尚有童心，誠懇替婦人設法</td><td>作者唯一留下的一絲人性亮光，反襯成人世界的冷酷</td></tr>
+            <tr><td>鄰人</td><td>借秤給秦得參，事後議論紛紛</td><td>代表庶民的同情與無能為力</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">核心象徵：「稱仔」</h3>
+      <div class="k-map">
+        <div class="k-node center">一桿「稱仔」</div>
+        <div class="k-arrow">↓</div>
+        <div class="k-map-row">
+          <div class="k-node">公平正義的度量</div>
+          <div class="k-node teal">謀生的唯一工具</div>
+          <div class="k-node gold">向人借來的＝不屬於自己</div>
+        </div>
+        <div class="k-arrow">↓</div>
+        <div class="k-node accent">折斷 ＝ 公平被折斷、生計被折斷、做人的底線被折斷</div>
+      </div>
+      <div class="box box-gold">
+        <div class="box-title">📌 為什麼篇名要加引號？</div>
+        <p style="font-size:0.91rem;">「稱仔」是台語用詞（秤），加上引號一方面標示方言詞，另一方面也暗示這不只是一根具體的秤——<strong>引號讓它同時是實物與象徵</strong>。答題時若問「篇名的用意」，可答：以最平凡的謀生工具為題，將個人遭遇聚焦於「公平是否存在」這個核心叩問。</p>
+      </div>
+
+      <h3 class="sub-section-title">主題與寫作手法</h3>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>主題一：殖民體制下的不公</h4>
+          <p>法律由統治者制定與解釋，庶民無從辯駁（秦得參坦言「不曾讀過法律」）。真正的罪不在秤，而在<strong>被統治者沒有話語權</strong>。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>主題二：尊嚴重於生存</h4>
+          <p>錢可以借、罰款可以繳，但「人不像個人」無法忍受。小說把衝突從經濟層次提升到<strong>人格層次</strong>。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>手法一：反諷（irony）</h4>
+          <p>年節愈熱鬧，悲劇愈刺眼；「元旦」與「銀紙」並列，喜與喪同框。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>手法二：留白與並置</h4>
+          <p>不寫殺人、不寫死亡，只並列兩則傳聞，由讀者補完，力道更強。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>手法三：冷靜的第三人稱敘事</h4>
+          <p>敘事者幾乎不抒情、不評論，讓事件本身說話，這種「<strong>零度敘事</strong>」是寫實主義的標記。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>手法四：細節寫實</h4>
+          <p>金花、三塊錢、銀紙、爆竹聲——全部是具體可數的日常物，使控訴落地而不空洞。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="n1-exam">
+      <h2 class="section-title"><span class="icon">🎯</span>學測考點整理</h2>
+      <div class="box box-key">
+        <div class="box-title">✅ 必背重點（一定要能脫口而出）</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li>賴和＝台灣新文學之父，彰化人，醫師，主編《台灣民報》文藝欄，被稱「台灣的魯迅」。</li>
+          <li>〈一桿「稱仔」〉1926 年發表於《台灣民報》，主角<strong>秦得參</strong>，衝突對象是<strong>巡警</strong>，關鍵物件是<strong>借來的秤</strong>。</li>
+          <li>名句：「人不像個人，畜生，誰願意做。這是什麼世間？活著倒不若死了快樂。」</li>
+          <li>結局手法：<strong>開放式／留白並置</strong>，以「元旦哭聲」＋「警吏被殺」兩則傳聞收束。</li>
+          <li>後記關鍵句意：強權行使之地必有此類悲劇——<strong>批判對象是強權本身，不限於日本殖民者</strong>。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 常見誤答</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>把主題答成「批評警察個人操守不良」——錯，應是批判<strong>制度</strong>。</li>
+          <li>把結局答成「秦得參被判死刑」——文本並未交代，只有兩則傳聞。</li>
+          <li>把「勤儉、耐苦、平和、從順」讀成純粹讚美——忽略了其中的反諷鋪墊。</li>
+          <li>把「稱仔」只解釋為「生財工具」——漏掉「公平」這層最核心的象徵。</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ========== 小說二 ========== -->
+    <div class="piece-banner" style="background:linear-gradient(90deg, var(--accent), #a569bd);">
+      <div class="pb-kicker">台灣現代小說第二篇｜黃春明・1968年・鄉土文學</div>
+      <div class="pb-title">兒子的大玩偶</div>
+      <div class="pb-meta">為了養家而把自己塗成小丑，卻換來親生兒子只認得那張假臉</div>
+    </div>
+
+    <section id="n2-author">
+      <h2 class="section-title"><span class="icon">✍️</span>作者與時代背景</h2>
+      <div class="card">
+        <h3 class="sub-sub-title">黃春明（1935– ）</h3>
+        <ul style="padding-left:1.3rem; font-size:0.93rem;">
+          <li><strong>身分</strong>：宜蘭羅東人，小說家、劇作家、兒童文學工作者。曾任教師、記者、廣告企劃，豐富的基層經歷直接成為小說素材。</li>
+          <li><strong>地位</strong>：<span class="kw">鄉土文學</span>最具代表性的小說家之一，與王禎和、陳映真並稱。作品以小鎮與農村的小人物為主角，筆調兼具悲憫與幽默。</li>
+          <li><strong>創作特色</strong>：①寫「被時代甩下的人」；②大量使用台灣話語感與生活細節；③善用<strong>內心獨白與回憶插敘</strong>呈現人物意識流動；④結尾常在不動聲色處給出最重的一擊。</li>
+          <li><strong>其他代表作</strong>：〈看海的日子〉、〈鑼〉、〈蘋果的滋味〉、〈莎喲娜啦・再見〉、〈魚〉。</li>
+          <li><strong>影劇改編</strong>：1983 年〈兒子的大玩偶〉與〈小琪的那一頂帽子〉、〈蘋果的滋味〉合拍為三段式電影，由吳念真編劇，侯孝賢等導演執導，是台灣新電影運動的起點之作。</li>
+        </ul>
+      </div>
+
+      <div class="box box-key">
+        <div class="box-title">🕰️ 作品背景：1960 年代末的台灣</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>經濟轉型期</strong>：農業社會邁向工業化，鄉鎮人口大量外移，傳統行業快速被淘汰。坤樹的「廣告人」工作正是一種夾縫中臨時發明出來的生計。</li>
+          <li><strong>三明治人（sandwich-man）</strong>：人身前後各掛一塊廣告牌沿街行走的宣傳方式，源自西方，在台灣小鎮曾短暫出現。這個職業的荒謬性——<strong>把人當看板用</strong>——正是小說的核心隱喻。</li>
+          <li><strong>都市新媒介的衝擊</strong>：故事後段，戲院改用三輪車掛喇叭與海報做宣傳，坤樹的工作被更「現代」的手段取代，逼使他必須轉行，也才有了卸妝後的那一幕。</li>
+          <li><strong>發表資訊</strong>：1968 年 2 月刊於《文學季刊》第六期，1969 年收入同名小說集。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="n2-plot">
+      <h2 class="section-title"><span class="icon">🧩</span>情節結構與敘事技巧</h2>
+
+      <h3 class="sub-section-title">情節結構表</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th style="width:12%;">階段</th><th style="width:44%;">情節內容</th><th style="width:44%;">寫作作用</th></tr></thead>
+          <tbody>
+            <tr><td>開端</td><td>小鎮街頭出現一個穿著小丑裝、背掛電影廣告牌的怪人，頂著烈日來回走動，被鎮民指指點點。</td><td>先以<strong>旁人的眼光</strong>呈現主角，製造陌生感與距離，讀者與鎮民一樣先看到「怪物」而非「父親」。</td></tr>
+            <tr><td>回憶一</td><td>插敘：坤樹失業、妻子阿珠懷孕想打胎，他為了留住孩子，向戲院自薦模仿外國的 sandwich-man，把自己扮成廣告人。</td><td>交代動機，把「荒謬的職業」翻轉成<strong>父愛的證明</strong>，讀者對他的觀感由此逆轉。</td></tr>
+            <tr><td>發展</td><td>日復一日在烈日下行走，忍受鎮上熟人的訕笑、親戚的鄙夷；濃妝成為他躲避羞恥的保護色，也讓他與人群徹底隔開。</td><td>妝＝面具＝防護罩，這一層層意義在此累積，為結局的翻轉儲存能量。</td></tr>
+            <tr><td>轉折</td><td>戲院改以三輪車宣傳，坤樹的廣告人工作被取代，他改做踩三輪車的工作，終於可以不必化妝。</td><td>表面上是「解脫」，實則埋下最深的陷阱——<strong>他即將失去被兒子辨認的資格</strong>。</td></tr>
+            <tr><td>高潮</td><td>卸妝後回家，兒子阿龍看著這張陌生的臉大哭，怎麼哄都不肯讓他抱。</td><td>全篇最痛的一擊：親生兒子只認得「面具」，不認得「人」。</td></tr>
+            <tr><td>結局</td><td>坤樹默默走到鏡前，拿起粉塊，再次往自己臉上塗抹。</td><td><strong>無言的動作結尾</strong>。不寫心情、不寫對話，一個動作道盡父愛與自我消失的雙重意義。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">敘事技巧：三條時間線交織</h3>
+      <div class="box box-link">
+        <div class="box-title">🔗 這篇小說「不是照時間順序說故事」</div>
+        <p style="font-size:0.91rem;">全篇以<strong>坤樹在街上行走的那一天</strong>為現在時間軸，但他一邊走一邊回想，於是不斷插入過去的片段（失業、勸阿珠留下孩子、第一次上妝、被親戚羞辱……）。作者刻意不用「他想起」之類的提示詞，而是讓現在與回憶直接接壤，這就是<strong>意識流</strong>式的內心獨白。閱讀時若覺得「怎麼突然跳走了」，多半就是進入了回憶段落。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table class="compare-table">
+          <thead><tr><th>敘事層</th><th>內容</th><th>效果</th></tr></thead>
+          <tbody>
+            <tr><td>現在：街頭行走</td><td>烈日、汗水、腳步、旁人的目光</td><td>身體的煎熬具象化，讓讀者「感覺得到熱」</td></tr>
+            <tr><td>過去：回憶插敘</td><td>失業、阿珠要打胎、自薦當廣告人、親戚的冷眼</td><td>補足動機，使荒謬行為獲得情感正當性</td></tr>
+            <tr><td>內心：獨白與自問</td><td>對尊嚴的掙扎、對妻兒的愧疚與疼惜</td><td>讀者直接進入主角腦中，同情不是被說服，而是被經歷</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-tip">
+        <div class="box-title">💡 敘事觀點小提醒</div>
+        <p style="font-size:0.91rem;">本篇採<strong>第三人稱限知觀點</strong>（貼著坤樹走），與〈一桿「稱仔」〉的第三人稱全知冷敘不同。限知觀點的好處是：讀者只知道坤樹知道的事，因此結尾兒子不認得他的那一刻，讀者所受的衝擊與坤樹同步。這是很典型的比較題材料。</p>
+      </div>
+    </section>
+
+    <section id="n2-text">
+      <h2 class="section-title"><span class="icon">📜</span>關鍵場景解析</h2>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 本篇為著作權保護中的作品</div>
+        <p style="font-size:0.91rem;">以下不作長段引用，改以<strong>場景還原＋分析</strong>的方式處理，並僅在必要處引用極短的關鍵語句。請務必搭配課本或《兒子的大玩偶》作品集閱讀全文，一邊讀一邊在書上標記下列四個場景的位置。</p>
+      </div>
+
+      <h3 class="sub-section-title">場景一｜烈日下的行走（開篇）</h3>
+      <div class="box box-key">
+        <div class="box-title">🔍 場景還原與賞析</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>小說一開始並未介紹主角是誰，而是先寫出一個滑稽裝扮的身影在鎮上緩慢移動，路人看熱鬧、孩子跟在後面起鬨。<strong>先「物化」再「還原」</strong>，是本篇最重要的結構設計。</li>
+          <li>厚重的妝、笨重的廣告牌、正午的太陽、汗水——作者把身體感官寫得極細，讀者先感覺到「熱與累」，才慢慢知道他為什麼要受這種罪。</li>
+          <li><span class="exam-badge">命題點</span>「作者開篇不直接說明主角身分，用意為何？」→ 讓讀者先以旁觀者的眼光取笑他，再在得知真相後反省自己的目光，產生<strong>道德衝擊</strong>。</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-section-title">場景二｜為了孩子而決定上妝（回憶）</h3>
+      <div class="box box-key">
+        <div class="box-title">🔍 場景還原與賞析</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>失業、阿珠懷孕，經濟壓力讓她考慮拿掉孩子；坤樹為了保住這個孩子，接受了戲院這份「把自己變成廣告」的工作。</li>
+          <li>此處是全篇的<strong>因果核心</strong>：所有荒謬、屈辱，都來自一個極其單純的動機——<strong>讓孩子活下來</strong>。</li>
+          <li>作者安排他「主動自薦」而非被迫受僱，這一筆很關鍵：<strong>屈辱是自己選的</strong>，父愛因此更沉重，也更難回頭。</li>
+          <li><span class="exam-badge">命題點</span>「坤樹從事廣告人工作的根本原因」→ 並非「找不到別的工作」這麼表層，而是「為了留住孩子、撐起家庭」。</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-section-title">場景三｜妝作為面具</h3>
+      <div class="box box-key">
+        <div class="box-title">🔍 場景還原與賞析</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>被熟人認出、被親戚當面羞辱時，厚厚的妝反而成了保護：<strong>別人看不見他的表情，他也可以假裝那不是自己</strong>。</li>
+          <li>這裡形成本篇最精采的辯證——<span class="kw">面具既是屈辱的來源，也是承受屈辱的憑藉</span>。戴久了，面具便長進了皮膚裡。</li>
+          <li>對照 W21 現代詩單元學過的「意象承載情感」：妝在這裡就是一個不斷累積意義的核心意象，每出現一次，意義就厚一層。</li>
+          <li><span class="exam-badge">命題點</span>「小丑妝在文中的多重意義」→ ①謀生的工具；②抵擋羞恥的面具；③使他被異化、失去自我的枷鎖；④兒子辨認父親的唯一依據。</li>
+        </ul>
+      </div>
+
+      <h3 class="sub-section-title">場景四｜結局：重新塗抹自己的臉</h3>
+      <div class="box box-key">
+        <div class="box-title">🔍 場景還原與賞析</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>工作轉換後，坤樹終於能以自己的臉回家，卻換來兒子阿龍的陌生與大哭。最後他走向鏡子，重新往臉上抹粉。</li>
+          <li><strong>動作結尾的力量</strong>：全篇沒有一句「他很難過」，但這個動作讓讀者自行讀出所有情緒——這與〈一桿「稱仔」〉的留白結尾異曲同工。</li>
+          <li><strong>雙重悲劇</strong>：①為了家人，他必須繼續當「不是自己的人」；②連最親的兒子，認得的也只是那張假臉。<span class="kw-teal">人被自己的角色吃掉了</span>。</li>
+          <li><strong>篇名的反諷</strong>：「兒子的大玩偶」聽起來溫馨，實際上殘酷——父親在兒子眼中不是「爸爸」，而是一個可以逗樂的「玩偶」。標題本身就是全篇主題的濃縮。</li>
+          <li><span class="exam-badge">命題點</span>「結尾坤樹再次上妝，最可能的心境為何？」→ 認命而心酸的父愛，接受自己必須以「角色」而非「本人」的身分活著；<strong>不是</strong>「因為喜歡逗兒子開心」這種表層解釋。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="n2-analysis">
+      <h2 class="section-title"><span class="icon">🔬</span>人物・主題・象徵</h2>
+
+      <h3 class="sub-section-title">人物分析</h3>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th>人物</th><th>性格與處境</th><th>在主題中的功能</th></tr></thead>
+          <tbody>
+            <tr><td>坤樹</td><td>自卑而堅韌，把屈辱往肚裡吞；愛家卻拙於表達</td><td>被現代化與貧窮夾擊的父親，尊嚴與責任衝突的具象化</td></tr>
+            <tr><td>阿珠</td><td>務實、心疼丈夫，曾因現實想放棄孩子，後與丈夫相互支撐</td><td>寫出貧窮夫妻間笨拙卻真實的情感，避免小說淪為單人獨白</td></tr>
+            <tr><td>阿龍（兒子）</td><td>稚齡，只認得「有妝的爸爸」</td><td>結尾的引爆點，也是全篇最殘酷的「純真之刃」</td></tr>
+            <tr><td>鎮民／親戚</td><td>訕笑、議論、鄙夷</td><td>代表社會目光，是坤樹必須戴上面具的真正原因</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-section-title">核心象徵：「小丑妝」</h3>
+      <div class="k-map">
+        <div class="k-node center">小丑妝／廣告牌</div>
+        <div class="k-arrow">↓</div>
+        <div class="k-map-row">
+          <div class="k-node">謀生工具</div>
+          <div class="k-node teal">抵擋羞恥的面具</div>
+          <div class="k-node gold">自我被角色取代的異化</div>
+          <div class="k-node accent">兒子辨認父親的唯一依據</div>
+        </div>
+        <div class="k-arrow">↓</div>
+        <div class="k-node center">結尾重新上妝 ＝ 主動放棄「做自己」，換取「做爸爸」</div>
+      </div>
+
+      <h3 class="sub-section-title">主題與寫作手法</h3>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>主題一：尊嚴與生存的兩難</h4>
+          <p>要活下去就必須放棄體面；要保住體面就養不活家人。小人物的悲哀不在做錯選擇，而在<strong>沒有不痛的選項</strong>。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>主題二：勞動的異化</h4>
+          <p>人被當成「會走路的看板」使用，最後連自己都認同了這個身分——這是現代社會把人工具化的縮影。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>主題三：無言的父愛</h4>
+          <p>全篇沒有一句煽情告白，愛全部藏在「繼續走下去」與「再抹一次粉」的動作裡。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>手法一：意識流與插敘</h4>
+          <p>現在與回憶交錯推進，讀者一邊看他走路、一邊補齊他的人生。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>手法二：反諷的篇名與結局</h4>
+          <p>「大玩偶」的親暱稱呼下，是父親被物化的事實；結局的溫柔動作底下，是最深的無奈。</p>
+        </div>
+        <div class="analysis-item">
+          <h4>手法三：感官細節寫實</h4>
+          <p>汗、粉、太陽、腳步聲、孩子的哭聲——鄉土文學的「土味」來自具體可感的身體經驗。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="n2-exam">
+      <h2 class="section-title"><span class="icon">🎯</span>學測考點整理</h2>
+      <div class="box box-key">
+        <div class="box-title">✅ 必背重點</div>
+        <ul style="padding-left:1.3rem; font-size:0.92rem;">
+          <li>黃春明＝宜蘭羅東人，<strong>鄉土文學</strong>代表作家；〈兒子的大玩偶〉1968 年發表於《文學季刊》。</li>
+          <li>主角<strong>坤樹</strong>、妻<strong>阿珠</strong>、子<strong>阿龍</strong>；職業是模仿西方 <strong>sandwich-man</strong> 的「廣告的」。</li>
+          <li>敘事：第三人稱<strong>限知</strong>觀點 ＋ 意識流插敘，現在與回憶交錯。</li>
+          <li>核心象徵：<strong>小丑妝</strong>（工具／面具／異化／辨識符號）。</li>
+          <li>結局：卸妝後兒子不認得他，他<strong>重新上妝</strong>——以動作作結，不寫情緒。</li>
+          <li>1983 年改編為電影，是台灣新電影運動的代表作之一。</li>
+        </ul>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 常見誤答</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li>把主題答成「父子情深的溫馨故事」——漏掉異化與尊嚴的批判層次。</li>
+          <li>把敘事觀點答成「第一人稱」——本篇是第三人稱貼著坤樹的限知視角。</li>
+          <li>把結尾解釋成「他決定繼續做廣告人」——他已改行，重新上妝只為了讓兒子認得他。</li>
+          <li>把小丑妝只答成「工作服裝」——忽略面具與異化的象徵層。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== COMPARE ========== -->
+    <section id="compare">
+      <h2 class="section-title"><span class="icon">⚖️</span>兩篇小說比較分析</h2>
+      <div class="card" style="padding:0;">
+        <table class="compare-table">
+          <thead><tr><th style="width:16%;">比較項目</th><th style="width:42%;">一桿「稱仔」（賴和・1926）</th><th style="width:42%;">兒子的大玩偶（黃春明・1968）</th></tr></thead>
+          <tbody>
+            <tr><td>文學分期</td><td>日治・台灣新文學</td><td>鄉土文學</td></tr>
+            <tr><td>壓迫來源</td><td>殖民統治的公權力（巡警、法規）</td><td>貧窮與現代化的社會結構（就業、輿論）</td></tr>
+            <tr><td>核心物件</td><td>借來的秤（公平的象徵）</td><td>小丑妝（面具與異化的象徵）</td></tr>
+            <tr><td>敘事觀點</td><td>第三人稱全知，冷靜近乎零度</td><td>第三人稱限知，貼近主角意識流動</td></tr>
+            <tr><td>時間結構</td><td>大致順敘，由貧困鋪陳到爆發</td><td>現在與回憶交錯，插敘頻繁</td></tr>
+            <tr><td>主角的反應</td><td>由忍讓到玉石俱焚的<strong>激烈反抗</strong></td><td>默默承受、以自我消失換取家庭延續的<strong>無言妥協</strong></td></tr>
+            <tr><td>結局手法</td><td>兩則傳聞並置，留白給讀者推論</td><td>一個上妝的動作收束，情緒全部留白</td></tr>
+            <tr><td>情感基調</td><td>悲憤、控訴</td><td>悲憫、心酸中帶溫度</td></tr>
+            <tr><td>共同點</td><td colspan="2">①主角都是社會底層的小人物；②衝突對象都是「結構」而非個人；③都以<strong>留白</strong>作結，不直接說出主題；④都用一個具體物件承載全篇象徵；⑤都寫「<strong>尊嚴</strong>」如何被現實一點一點磨掉。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-gold">
+        <div class="box-title">📌 跨文本比較題的標準答法（三步驟）</div>
+        <ol style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>先各自一句話定主旨</strong>：甲文寫殖民體制下公平的蕩然無存；乙文寫貧窮父親以失去自我換取家庭生存。</li>
+          <li><strong>指出相同層</strong>：同為小人物、同以物件象徵、同用留白結尾。</li>
+          <li><strong>指出差異層並說明效果</strong>：甲文的反抗是向外爆發（殺警），乙文的反抗是向內消解（再上妝）；前者控訴力強，後者感染力深。</li>
+        </ol>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ========== 成語 ========== -->
+    <section id="idiom-1">
+      <h2 class="section-title"><span class="icon">📚</span>語文知識・成語（一）形近易錯</h2>
+      <div class="box box-link">
+        <div class="box-title">🔗 成語在學測怎麼考？</div>
+        <p style="font-size:0.91rem;">學測國文的成語題有四種固定型態：①<strong>字形</strong>（選出沒有錯別字的一組）；②<strong>字義／語境</strong>（選出使用最恰當的一項）；③<strong>褒貶誤用</strong>（好話用在壞處或反之）；④<strong>對象誤用</strong>（用在不該用的人身上）。以下四張表依序對應這四型，建議先蓋住右欄自測。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th style="width:22%;">正確寫法</th><th style="width:20%;">常見錯字</th><th style="width:58%;">辨別關鍵</th></tr></thead>
+          <tbody>
+            <tr><td>再接再<strong>厲</strong></td><td>再接再勵</td><td>「厲」原指磨快刀刃（磨礪），鬥雞前磨喙再戰，非「勉勵」之勵</td></tr>
+            <tr><td><strong>甘</strong>拜下風</td><td>甘敗下風</td><td>「甘」為心甘情願；敗與否非重點，重點是心服</td></tr>
+            <tr><td>川流不<strong>息</strong></td><td>穿流不息</td><td>如河川流動不停，故從「川」不從「穿」</td></tr>
+            <tr><td>一<strong>籌</strong>莫展</td><td>一愁莫展</td><td>「籌」是計策、籌碼，指想不出一點辦法</td></tr>
+            <tr><td>不<strong>脛</strong>而走</td><td>不徑而走</td><td>「脛」是小腿，沒有腿卻能跑，形容消息傳得快</td></tr>
+            <tr><td>破<strong>釜</strong>沉舟</td><td>破斧沉舟</td><td>「釜」是鍋子，砸鍋沉船表示不留退路</td></tr>
+            <tr><td>入木三<strong>分</strong></td><td>入目三分</td><td>典出王羲之書法力透木板，形容筆力或見解深刻</td></tr>
+            <tr><td>委<strong>曲</strong>求全</td><td>委屈求全</td><td>此處「曲」指曲折遷就；「委屈」是心情，不可混用</td></tr>
+            <tr><td>變本加<strong>厲</strong></td><td>變本加利</td><td>同「厲」＝猛烈、嚴重，指情況比原先更嚴重</td></tr>
+            <tr><td>厲<strong>兵</strong>秣馬</td><td>勵兵秣馬</td><td>磨利兵器、餵飽馬匹，備戰之意</td></tr>
+            <tr><td>名<strong>副</strong>其實</td><td>名符其實</td><td>「副」為相稱、符合；此為教育部推薦用字</td></tr>
+            <tr><td>走<strong>投</strong>無路</td><td>走頭無路</td><td>「投」是投奔，無處可投奔</td></tr>
+            <tr><td>雪中送<strong>炭</strong></td><td>雪中送碳</td><td>送的是取暖的木炭，非化學元素碳</td></tr>
+            <tr><td>meticulous：一<strong>絲</strong>不苟</td><td>一司不苟</td><td>「絲」極細微，連極小處都不馬虎</td></tr>
+            <tr><td>張<strong>皇</strong>失措</td><td>張慌失措</td><td>「皇」通「惶」，慌張的樣子</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="idiom-2">
+      <h2 class="section-title"><span class="icon">📚</span>語文知識・成語（二）意近易混</h2>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th style="width:26%;">易混成語組</th><th style="width:74%;">差異辨析與例句</th></tr></thead>
+          <tbody>
+            <tr><td>不以為意 ／ 不以為然</td><td><strong>不以為意</strong>＝不放在心上；<strong>不以為然</strong>＝不認為對（有否定的立場）。例：他對別人的批評不以為意（沒在意）／我對這個提案不以為然（不贊成）。</td></tr>
+            <tr><td>目不暇給 ／ 應接不暇</td><td>前者側重<strong>東西太多看不完</strong>（多用於景物、展品）；後者側重<strong>事情太多應付不來</strong>（多用於人事往來）。</td></tr>
+            <tr><td>首當其衝 ／ 首屈一指</td><td>前者＝<strong>最先受到攻擊或災難</strong>（貶義處境）；後者＝<strong>排名第一</strong>（褒義）。兩者完全不同，最常被誤用。</td></tr>
+            <tr><td>身無長物 ／ 一無是處</td><td>前者＝<strong>除必需品外別無多餘之物</strong>，形容清貧（中性／褒）；後者＝<strong>毫無優點</strong>（純貶）。</td></tr>
+            <tr><td>差強人意 ／ 不盡人意</td><td><strong>差強人意</strong>＝大致還能使人滿意（略帶肯定），不是「差得讓人不滿意」。</td></tr>
+            <tr><td>空穴來風 ／ 無中生有</td><td>「空穴來風」本義指<strong>事出有因</strong>（有洞才會進風），現代多被誤用為「毫無根據」。學測若考本義，須選「事情並非毫無根據」。</td></tr>
+            <tr><td>危言危行 ／ 危言聳聽</td><td><strong>危言危行</strong>＝說正直的話、做正直的事（褒）；<strong>危言聳聽</strong>＝故意說嚇人的話（貶）。</td></tr>
+            <tr><td>每下愈況 ／ 每況愈下</td><td>本義「每下愈況」出自《莊子》，指<strong>越往下檢驗越能看出真實情況</strong>；今多用「每況愈下」表示情況越來越糟。</td></tr>
+            <tr><td>萬人空巷 ／ 門可羅雀</td><td><strong>萬人空巷</strong>＝家家戶戶都出來了，形容<strong>盛況熱鬧</strong>（非「巷子空無一人」）；<strong>門可羅雀</strong>才是門庭冷清。</td></tr>
+            <tr><td>大快人心 ／ 大失所望</td><td>「大快人心」專用於<strong>壞人受到懲罰</strong>時眾人的痛快，不可用於一般好事。</td></tr>
+            <tr><td>曾幾何時 ／ 曾經滄海</td><td><strong>曾幾何時</strong>＝沒過多久（時間副詞）；<strong>曾經滄海</strong>＝見過大世面，眼界高。</td></tr>
+            <tr><td>屢試不爽 ／ 屢戰屢敗</td><td>「爽」＝差錯。<strong>屢試不爽</strong>＝每次試都沒有差錯（褒），不是「試了很多次都不痛快」。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="idiom-3">
+      <h2 class="section-title"><span class="icon">📚</span>語文知識・成語（三）褒貶與對象誤用</h2>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th style="width:20%;">成語</th><th style="width:16%;">褒貶</th><th style="width:64%;">正確用法與常見誤用</th></tr></thead>
+          <tbody>
+            <tr><td>始作俑者</td><td>貶</td><td>指<strong>開創惡例的人</strong>。誤用：「他是這項慈善活動的始作俑者」（應用「發起人」）。</td></tr>
+            <tr><td>罄竹難書</td><td>貶</td><td>形容<strong>罪狀極多</strong>。誤用於形容功勞或美景之多。</td></tr>
+            <tr><td>無所不為</td><td>貶</td><td>什麼壞事都做。誤用：「他能力強，無所不為」（應為「無所不能」）。</td></tr>
+            <tr><td>趨之若鶩</td><td>貶</td><td>像鴨子般成群奔去，多指<strong>盲目追逐不當事物</strong>。褒義場合應用「蜂擁而至」也需謹慎。</td></tr>
+            <tr><td>彈冠相慶</td><td>貶</td><td>原指官員為同黨得勢而互相慶賀，帶<strong>結黨營私</strong>意味，非一般恭喜。</td></tr>
+            <tr><td>抛磚引玉</td><td>謙・對己</td><td>只能<strong>用於自己</strong>先發言。誤用：「請您先拋磚引玉」（對他人使用即失禮）。</td></tr>
+            <tr><td>蓬蓽生輝</td><td>謙・對己</td><td>指他人來訪使<strong>自己家</strong>增光。不可說「您家蓬蓽生輝」。</td></tr>
+            <tr><td>忝列門牆</td><td>謙・對己</td><td>謙稱自己有幸成為某人學生。</td></tr>
+            <tr><td>不情之請</td><td>謙・對己</td><td>自己提出請求時的客套語，不可用來形容別人的要求。</td></tr>
+            <tr><td>敬謝不敏</td><td>謙・對己</td><td>婉拒他人請託的自謙語，不可用於責備他人推辭。</td></tr>
+            <tr><td>汗牛充棟</td><td>中性</td><td>形容<strong>藏書極多</strong>，只能用於書籍，不可形容人多或物品多。</td></tr>
+            <tr><td>美輪美奐</td><td>褒</td><td>專形容<strong>房屋建築</strong>高大華麗，不可形容衣服、風景、舞蹈。</td></tr>
+            <tr><td>巧奪天工</td><td>褒</td><td>形容<strong>人工技藝</strong>勝過天然，不可形容天然景物本身（那應用「鬼斧神工」）。</td></tr>
+            <tr><td>令尊／令堂／家父／家母</td><td>敬謙</td><td>「令」字冠於<strong>對方</strong>親屬；「家」字用於<strong>自己</strong>長輩；「舍」字用於自己平輩或晚輩（舍弟、舍妹）。</td></tr>
+            <tr><td>七月流火</td><td>中性</td><td>出自《詩經》，指大火星西沉、<strong>天氣轉涼</strong>，非「七月很熱」。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="idiom-4">
+      <h2 class="section-title"><span class="icon">📚</span>語文知識・成語（四）出處與典故</h2>
+      <div class="box box-tip">
+        <div class="box-title">💡 為什麼要記出處？</div>
+        <p style="font-size:0.91rem;">學測常把成語題與古文閱讀綁在一起（例如題幹引《史記》某段，問下列何者最適合形容文中人物）。記得典故來源，等於同時複習了古文 30 篇的內容，一舉兩得。下表刻意挑選與你前幾週重讀過的古文直接相關的成語。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th style="width:20%;">成語</th><th style="width:22%;">出處</th><th style="width:58%;">典故與用法</th></tr></thead>
+          <tbody>
+            <tr><td>貪得無厭</td><td>《左傳》</td><td>與〈燭之武退秦師〉中「夫晉，何厭之有」同源，「厭」＝滿足。</td></tr>
+            <tr><td>東道主</td><td>《左傳・燭之武退秦師》</td><td>鄭在秦之東，願為秦「東道主」供應往來所需，今泛指接待賓客的主人。</td></tr>
+            <tr><td>天下為公</td><td>《禮記・禮運》</td><td>出自〈大同與小康〉，指政權屬於全民而非一家一姓。</td></tr>
+            <tr><td>鰥寡孤獨</td><td>《禮記・禮運》</td><td>同出〈大同與小康〉，指社會上最需照顧的四種人。</td></tr>
+            <tr><td>螳臂當車</td><td>《莊子》</td><td>比喻不自量力。與莊子寓言式說理風格相關。</td></tr>
+            <tr><td>游刃有餘</td><td>《莊子・養生主》</td><td>庖丁解牛，比喻技藝純熟、處事從容。</td></tr>
+            <tr><td>朝三暮四</td><td>《莊子・齊物論》</td><td>本指玩弄手法欺瞞，今多誤用為「反覆無常」。</td></tr>
+            <tr><td>四面楚歌</td><td>《史記・項羽本紀》</td><td>比喻陷入孤立無援的絕境。</td></tr>
+            <tr><td>破釜沉舟</td><td>《史記・項羽本紀》</td><td>比喻下定決心，不留退路。</td></tr>
+            <tr><td>指鹿為馬</td><td>《史記・秦始皇本紀》</td><td>趙高試探群臣，比喻顛倒是非。</td></tr>
+            <tr><td>先發制人</td><td>《漢書》</td><td>搶先行動以制伏對方。</td></tr>
+            <tr><td>老驥伏櫪</td><td>曹操〈龜雖壽〉</td><td>比喻年老仍有雄心壯志。</td></tr>
+            <tr><td>青出於藍</td><td>《荀子・勸學》</td><td>比喻學生勝過老師、後人超越前人。</td></tr>
+            <tr><td>鍥而不捨</td><td>《荀子・勸學》</td><td>不斷雕刻不放棄，比喻恆心毅力。</td></tr>
+            <tr><td>不入虎穴，焉得虎子</td><td>《後漢書・班超傳》</td><td>比喻不冒險就無法成功。</td></tr>
+            <tr><td>醉翁之意不在酒</td><td>歐陽脩〈醉翁亭記〉</td><td>比喻本意不在表面之事。</td></tr>
+            <tr><td>妄自菲薄</td><td>諸葛亮〈出師表〉</td><td>過分看輕自己。</td></tr>
+            <tr><td>三顧茅廬</td><td>諸葛亮〈出師表〉</td><td>誠心再三邀請賢才。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ========== 修辭 ========== -->
+    <section id="rhetoric">
+      <h2 class="section-title"><span class="icon">🎨</span>語文知識・修辭十五格總表</h2>
+      <div class="box box-link">
+        <div class="box-title">🔗 修辭與本週小說的連結</div>
+        <p style="font-size:0.91rem;">修辭不是背名詞而已——本週兩篇小說最重要的手法「<strong>反諷</strong>」「<strong>象徵</strong>」「<strong>映襯</strong>」都在下表中。讀完表後，請回頭找出：〈一桿「稱仔」〉的「元旦／銀紙」屬於哪一格？〈兒子的大玩偶〉的篇名又屬於哪一格？（答案：映襯中的對襯＋反諷；篇名為反諷。）</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table>
+          <thead><tr><th style="width:14%;">修辭格</th><th style="width:30%;">定義</th><th style="width:56%;">例句與辨識線索</th></tr></thead>
+          <tbody>
+            <tr><td>譬喻</td><td>以乙物說明甲物，兩者本質不同而有相似點</td><td>明喻（像、如、似）：「那河畔的金柳，<strong>是</strong>夕陽中的新娘」為隱喻（用「是」）；略喻省略喻詞；借喻只出現喻體。<br><strong>線索</strong>：本體、喻體、喻詞三者出現幾個，決定次分類。</td></tr>
+            <tr><td>轉化（比擬）</td><td>把甲物當乙物來寫</td><td>擬人：「風在哭泣」；擬物：「他像條蟲似地縮起來」；形象化：把抽象寫成具體，「時間從指縫間溜走」。<br><strong>線索</strong>：非人之物出現了人的動作／情緒＝擬人。</td></tr>
+            <tr><td>借代</td><td>不直說本名，改以相關事物代替</td><td>「布衣」代平民、「杏壇」代教育界、「汗青」代史冊、「巾幗」代女子。<br><strong>線索</strong>：兩者有<strong>實際相關性</strong>（特徵、材料、部分代全體）。</td></tr>
+            <tr><td>象徵</td><td>以具體事物寄寓抽象概念，意義較固定而深遠</td><td>「稱仔」象徵公平；「小丑妝」象徵面具與異化；梅花象徵堅貞。<br><strong>線索</strong>：該物在全篇<strong>反覆出現</strong>並承載主題。</td></tr>
+            <tr><td>映襯</td><td>把相反或相對的事物並列以強化效果</td><td>反襯：以樂景寫哀情（除夕爆竹聲 vs. 秦家的屈辱）；對襯：兩者對舉（「朱門酒肉臭，路有凍死骨」）。</td></tr>
+            <tr><td>排比</td><td>三個以上結構相似的句子並列</td><td>「勤儉、耐苦、平和、從順」；「必也正名乎……」<br><strong>線索</strong>：結構相似＋數量三個以上。</td></tr>
+            <tr><td>類疊</td><td>同一字詞句反覆出現</td><td>疊字（輕輕的）、類字（隔開重複）、疊句、類句。<br><strong>與排比之別</strong>：類疊重複的是<strong>同樣的字詞</strong>，排比重複的是<strong>結構</strong>。</td></tr>
+            <tr><td>層遞</td><td>依大小、輕重、先後等次序層層推進</td><td>「修身、齊家、治國、平天下」；〈鄉愁〉四段時間遞進。</td></tr>
+            <tr><td>設問</td><td>用問句引起注意</td><td>提問（自問自答）、激問（答案在反面，即反問）、懸問（無答案）。<br>「這是什麼世間？」＝激問，答案是「不該有的世間」。</td></tr>
+            <tr><td>誇飾</td><td>超越客觀事實的誇大或縮小</td><td>「白髮三千丈」；「求佛五百年」。</td></tr>
+            <tr><td>雙關</td><td>一語兼含兩義</td><td>諧音雙關：「東邊日出西邊雨，道是無晴（情）卻有晴（情）」；語義雙關：「兒子的大玩偶」同時指玩具與父親。</td></tr>
+            <tr><td>頂真</td><td>前句結尾作為後句開頭</td><td>「歸來見天子，天子坐明堂」。</td></tr>
+            <tr><td>倒裝</td><td>語序顛倒以求強調或聲律</td><td>「甚矣，吾衰也」＝「吾衰也甚矣」。</td></tr>
+            <tr><td>婉曲</td><td>不直言，改以委婉含蓄的方式表達</td><td>以「百年之後」代死亡；〈一桿「稱仔」〉結尾以傳聞代替直述。</td></tr>
+            <tr><td>引用</td><td>援引古語、典故、詩文以增強說服力</td><td>明引（點明出處）、暗引（化用而不點明）。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="rhetoric-diff">
+      <h2 class="section-title"><span class="icon">🔍</span>修辭易混五組辨析</h2>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <h4>① 譬喻 vs. 轉化</h4>
+          <ul>
+            <li><strong>譬喻</strong>：甲「像」乙，兩者<strong>並存</strong>，你仍知道甲是甲。</li>
+            <li><strong>轉化</strong>：甲「變成」乙，直接<strong>取代</strong>，甲被當作乙來描寫。</li>
+            <li>「月光像水」＝譬喻；「月光流過窗台」＝轉化（月光被當成水在流）。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>② 借代 vs. 象徵</h4>
+          <ul>
+            <li><strong>借代</strong>：純粹<strong>換名字</strong>，一對一替換（布衣＝平民）。</li>
+            <li><strong>象徵</strong>：承載<strong>抽象意涵</strong>，意義開放而深遠（稱仔＝公平）。</li>
+            <li>判斷法：能直接換回本名的是借代；換回去會失去意義的是象徵。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>③ 映襯 vs. 對偶</h4>
+          <ul>
+            <li><strong>映襯</strong>：重點在<strong>意義相反</strong>，不要求字數句式整齊。</li>
+            <li><strong>對偶</strong>：重點在<strong>形式工整</strong>（字數相等、詞性相對），意義可正可反。</li>
+            <li>兩者可同時存在，例如「朱門酒肉臭，路有凍死骨」既對偶又映襯。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>④ 排比 vs. 類疊</h4>
+          <ul>
+            <li><strong>排比</strong>：重複的是<strong>句型結構</strong>，內容各異，至少三項。</li>
+            <li><strong>類疊</strong>：重複的是<strong>相同字詞</strong>，可只重複兩次。</li>
+            <li>「輕輕的我走了，正如我輕輕的來」＝類疊（重複「輕輕的」）。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>⑤ 設問三型</h4>
+          <ul>
+            <li><strong>提問</strong>：自問<strong>自答</strong>（「何以知其然也？蓋……」）。</li>
+            <li><strong>激問</strong>：問而<strong>不答</strong>，答案在反面（「燕雀安知鴻鵠之志哉？」）。</li>
+            <li><strong>懸問</strong>：作者自己也<strong>沒有答案</strong>（「這是什麼世間？」）。</li>
+          </ul>
+        </div>
+        <div class="analysis-item">
+          <h4>⑥ 反諷（補充）</h4>
+          <ul>
+            <li>字面意義與實際意義<strong>相反</strong>，或情境結果與期待<strong>相反</strong>。</li>
+            <li>言辭反諷：「你真行」（實為責備）。</li>
+            <li>情境反諷：元旦＝新生，秦家卻備銀紙辦喪；篇名溫馨，故事殘酷。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== KMAP ========== -->
+    <section id="kmap">
+      <h2 class="section-title"><span class="icon">🗺️</span>知識連結圖</h2>
+      <div class="k-map">
+        <div class="k-node center">W22：台灣現代小說 ＋ 語文知識</div>
+        <div class="k-arrow">↓</div>
+        <div class="k-map-row">
+          <div class="k-node">小說四要素<br>人物・情節・場景・觀點</div>
+          <div class="k-node teal">兩篇文本<br>稱仔 ／ 大玩偶</div>
+          <div class="k-node gold">成語四型<br>字形・字義・褒貶・對象</div>
+          <div class="k-node accent">修辭十五格<br>＋易混五組</div>
+        </div>
+        <div class="k-arrow">↓</div>
+        <div class="k-map-row">
+          <div class="k-node teal">共同主題：小人物的尊嚴</div>
+          <div class="k-node gold">共同手法：象徵 ＋ 留白 ＋ 反諷</div>
+        </div>
+        <div class="k-arrow">↓</div>
+        <div class="k-node center">應用：閱讀測驗跨文本比較題 ＋ 國寫取材與修辭運用</div>
+      </div>
+      <div class="box box-tip">
+        <div class="box-title">💡 與前後週的縱向連結</div>
+        <ul style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>← W21</strong>：現代詩的意象分析方法，在本週升級為小說的象徵分析（單一意象 → 貫串全篇的核心象徵）。</li>
+          <li><strong>← W17–W20</strong>：古文 30 篇的典故，正是本週「成語出處」表的知識來源，複習成語等於二度複習古文。</li>
+          <li><strong>→ W23</strong>：下週進行國寫知性題練習 2 與古文錯題複習，本週整理的修辭格將直接成為國寫的表達工具。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== WEAK ========== -->
+    <section id="weak">
+      <h2 class="section-title"><span class="icon">📓</span>個人弱點筆記模板</h2>
+      <div class="box box-warn">
+        <div class="box-title">⚠️ 使用方式</div>
+        <p style="font-size:0.91rem;">承接 W17 起建立的弱點筆記習慣。本週請至少填滿三列，並在下週（W23 古文錯題複習週）回頭檢查一次。灰字為示範，請換成你自己的盲點。</p>
+      </div>
+      <div class="card" style="padding:0;">
+        <table class="wk-table">
+          <thead><tr><th style="width:16%;">類別</th><th style="width:34%;">我的盲點（具體寫）</th><th style="width:34%;">正確內容／訂正</th><th style="width:16%;">回顧日期</th></tr></thead>
+          <tbody>
+            <tr><td>小說情節</td><td class="wk-blank">例：記不清〈一桿「稱仔」〉中秤是借來的還是自己買的</td><td class="wk-blank">本錢來自典當嫂子的金花，秤是向鄰居借的——兩者都不屬於他</td><td class="wk-blank">＿＿／＿＿</td></tr>
+            <tr><td>象徵詮釋</td><td class="wk-blank">例：說不出小丑妝的四層意義</td><td class="wk-blank">工具／面具／異化／兒子辨認父親的依據</td><td class="wk-blank">＿＿／＿＿</td></tr>
+            <tr><td>敘事觀點</td><td class="wk-blank">例：分不清全知與限知</td><td class="wk-blank">全知＝敘事者知道所有人的想法（稱仔）；限知＝只跟著一人（大玩偶）</td><td class="wk-blank">＿＿／＿＿</td></tr>
+            <tr><td>作家與年代</td><td class="wk-blank">例：把黃春明誤歸現代主義</td><td class="wk-blank">黃春明＝鄉土文學；現代主義代表為白先勇、王文興、七等生</td><td class="wk-blank">＿＿／＿＿</td></tr>
+            <tr><td>成語字形</td><td class="wk-blank">＿＿＿＿＿</td><td class="wk-blank">＿＿＿＿＿</td><td class="wk-blank">＿＿／＿＿</td></tr>
+            <tr><td>成語誤用</td><td class="wk-blank">例：把「首當其衝」用成「排名第一」</td><td class="wk-blank">首當其衝＝最先受害；首屈一指＝排名第一</td><td class="wk-blank">＿＿／＿＿</td></tr>
+            <tr><td>修辭辨析</td><td class="wk-blank">例：分不清借代與象徵</td><td class="wk-blank">能換回本名＝借代；換回去就失去意義＝象徵</td><td class="wk-blank">＿＿／＿＿</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ========== QUIZ ========== -->
+    <section id="quiz">
+      <h2 class="section-title"><span class="icon">✍️</span>隨堂自我測驗（10 題）</h2>
+      <div class="box box-tip">
+        <div class="box-title">💡 作答提醒</div>
+        <p style="font-size:0.91rem;">建議限時 15 分鐘完成，先全部作答再看解析。錯題請立刻抄進上方弱點筆記。</p>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">1</span>關於賴和〈一桿「稱仔」〉的敘述，下列何者<strong>最不恰當</strong>？</div>
+        <ol>
+          <li>秦得參的悲劇源於個別巡警的品行不良，與制度無關</li>
+          <li>「稱仔」是向鄰居借來的，象徵他連謀生工具都不屬於自己</li>
+          <li>結尾以兩則並置的傳聞收束，留白給讀者推論</li>
+          <li>文中以年節的喜慶氣氛反襯主角的屈辱，形成強烈反諷</li>
+        </ol>
+        <details><summary>看解答</summary>
+          <div class="answer-box"><span class="correct">答案：(A)</span><br>巡警的索賄與刁難之所以能得逞，靠的是殖民體制賦予的權力與度量衡法規的解釋權，作者批判的是<strong>整個制度</strong>，後記「凡強權行使的地上，總會發生」也證明主題超越個人品行。(B)(C)(D) 皆正確。</div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">2</span>「人不像個人，畜生，誰願意做。這是什麼世間？活著倒不若死了快樂。」這段獨白最能顯示主角的何種心理？</div>
+        <ol>
+          <li>對貧窮的單純抱怨</li>
+          <li>尊嚴被徹底踐踏後產生的絕望與決絕</li>
+          <li>對妻子催促的不耐煩</li>
+          <li>希望來世投胎為富貴人家</li>
+        </ol>
+        <details><summary>看解答</summary>
+          <div class="answer-box"><span class="correct">答案：(B)</span><br>關鍵在「人不像個人」——痛苦的根源是<strong>人格</strong>而非金錢；「活著倒不若死了快樂」則已透露死志，緊接著「他已懷抱著最後的覺悟」，為結尾伏筆。</div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">3</span>〈一桿「稱仔」〉結尾寫秦家元旦傳出哭聲，家中「只銀紙備辦在」，其作用為何？</div>
+        <ol>
+          <li>說明秦家節儉，不願浪費金錢買年貨</li>
+          <li>以具體物件暗示喪事已發生，同時寫盡貧窮，屬「以物寫事」的留白手法</li>
+          <li>表現台灣民間過年祭祖的習俗</li>
+          <li>暗示秦得參逃亡在外，家人正在祈福</li>
+        </ol>
+        <details><summary>看解答</summary>
+          <div class="answer-box"><span class="correct">答案：(B)</span><br>銀紙為喪葬用紙錢，與「元旦」的喜慶時間並置，形成最強烈的反諷；作者不直述死亡，而以一件物品完成敘事。</div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">4</span>關於〈兒子的大玩偶〉的敘事方式，下列何者正確？</div>
+        <ol>
+          <li>採第一人稱回憶錄形式，由坤樹晚年回顧一生</li>
+          <li>採第三人稱全知觀點，敘事者不斷評論人物是非</li>
+          <li>採第三人稱限知觀點，以坤樹走在街上的一天為現在時間軸，穿插回憶</li>
+          <li>採書信體，由阿珠寫給坤樹的信構成</li>
+        </ol>
+        <details><summary>看解答</summary>
+          <div class="answer-box"><span class="correct">答案：(C)</span><br>本篇貼著坤樹的意識走，現在的行走與過去的回憶交錯推進，讀者所知與坤樹同步，因此結尾兒子不認得他的衝擊也與主角同步發生。</div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">5</span>〈兒子的大玩偶〉結尾，坤樹在兒子哭鬧後重新往臉上抹粉，最適當的解讀是？</div>
+        <ol>
+          <li>他打算重操舊業，繼續當廣告人賺錢</li>
+          <li>他認為化妝很有趣，想逗兒子玩</li>
+          <li>他發現只有戴上那張臉才能被兒子認得，於是以放棄「做自己」換取「做爸爸」</li>
+          <li>他想嚇唬兒子，讓他停止哭鬧</li>
+        </ol>
+        <details><summary>看解答</summary>
+          <div class="answer-box"><span class="correct">答案：(C)</span><br>他已改行踩三輪車，重新上妝並非為了工作；這個動作同時呈現無言的父愛與「人被角色取代」的異化悲哀，是全篇主題的收束點。</div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">6</span>比較兩篇小說主角面對壓迫的反應，下列敘述何者<strong>正確</strong>？</div>
+        <ol>
+          <li>兩人皆選擇激烈反抗，最終同歸於盡</li>
+          <li>秦得參由忍讓轉為激烈反抗；坤樹則選擇默默承受，以自我消失換取家庭延續</li>
+          <li>兩人皆默默承受，未曾有任何改變</li>
+          <li>秦得參選擇逃離家鄉；坤樹選擇向戲院抗議</li>
+        </ol>
+        <details><summary>看解答</summary>
+          <div class="answer-box"><span class="correct">答案：(B)</span><br>一個向外爆發（控訴力強），一個向內消解（感染力深），這正是兩篇最值得比較之處。</div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">7</span>下列各組成語，<strong>用字完全正確</strong>的是？</div>
+        <ol>
+          <li>再接再勵／甘敗下風／穿流不息</li>
+          <li>破釜沉舟／不脛而走／一籌莫展</li>
+          <li>委屈求全／走頭無路／變本加利</li>
+          <li>名符其實／入目三分／張慌失措</li>
+        </ol>
+        <details><summary>看解答</summary>
+          <div class="answer-box"><span class="correct">答案：(B)</span><br>(A) 應為再接再<strong>厲</strong>／<strong>甘</strong>拜下風／<strong>川</strong>流不息；(C) 應為<strong>委曲</strong>求全／走<strong>投</strong>無路／變本加<strong>厲</strong>；(D) 應為名<strong>副</strong>其實／入<strong>木</strong>三分／張<strong>皇</strong>失措。</div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">8</span>下列成語使用<strong>最恰當</strong>的是？</div>
+        <ol>
+          <li>這位企業家熱心公益，是這項獎學金計畫的始作俑者</li>
+          <li>他的義舉罄竹難書，令人敬佩</li>
+          <li>這棟新落成的圖書館美輪美奐，成為校園新地標</li>
+          <li>老師學識淵博，請您先拋磚引玉，為我們開場</li>
+        </ol>
+        <details><summary>看解答</summary>
+          <div class="answer-box"><span class="correct">答案：(C)</span><br>「美輪美奐」專形容<strong>建築</strong>高大華麗，用於圖書館恰當。(A)「始作俑者」為貶義，指開創惡例者；(B)「罄竹難書」形容罪狀極多；(D)「拋磚引玉」是自謙語，只能用於自己。</div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">9</span>「那河畔的金柳，是夕陽中的新娘」與「鄉愁是一枚小小的郵票」兩句所使用的主要修辭，分別是？</div>
+        <ol>
+          <li>借代／象徵</li>
+          <li>譬喻（隱喻）／譬喻（隱喻）</li>
+          <li>映襯／誇飾</li>
+          <li>類疊／排比</li>
+        </ol>
+        <details><summary>看解答</summary>
+          <div class="answer-box"><span class="correct">答案：(B)</span><br>前句以「是」連接本體（金柳）與喻體（新娘），為隱喻；後句同樣以「是」連接本體（鄉愁）與喻體（郵票），也是隱喻，效果是把抽象的鄉愁化為具體可見的郵票。判斷時先看有沒有「本體＋是＋喻體」：有就是隱喻。</div>
+        </details>
+      </div>
+
+      <div class="quiz-item">
+        <div class="q-text"><span class="q-num">10</span>〈一桿「稱仔」〉以除夕、元旦的節慶時間安排悲劇，〈兒子的大玩偶〉以溫馨的篇名包裝殘酷的內容。兩者共同運用的手法是？</div>
+        <ol>
+          <li>頂真</li>
+          <li>層遞</li>
+          <li>反諷（情境與意義的落差）</li>
+          <li>倒裝</li>
+        </ol>
+        <details><summary>看解答</summary>
+          <div class="answer-box"><span class="correct">答案：(C)</span><br>兩者都利用「表面的美好」與「實際的殘酷」之間的落差製造張力：節慶愈喜氣，屈辱愈刺眼；篇名愈溫馨，父親被物化的事實愈沉重。</div>
+        </details>
+      </div>
+
+      <div class="box box-key" style="margin-top:1.5rem;">
+        <div class="box-title">📊 測驗結果參考</div>
+        <p style="font-size:0.91rem;">9–10 題正確：本週目標達成，可直接進入 W23 的國寫與錯題複習。<br>
+        6–8 題正確：把錯題對應的段落回頭重讀一次，並補寫弱點筆記。<br>
+        5 題以下：先重讀兩篇小說的「情節結構表」與「學測考點整理」，再重做一次測驗。</p>
+      </div>
+    </section>
+
+    <!-- ========== NEXT ========== -->
+    <section id="next">
+      <h2 class="section-title"><span class="icon">➡️</span>下週預告與本週作業</h2>
+      <div class="box box-link">
+        <div class="box-title">🔗 W23（10/19–10/25）國文進度：國寫知性題練習 2 ＋ 古文錯題複習</div>
+        <p style="font-size:0.91rem;">下週回到國寫與古文。本週整理的<strong>修辭十五格</strong>會直接成為國寫的表達工具，而本週兩篇小說中的「小人物尊嚴」主題，也是國寫知性題極常見的素材來源——若下週題目觸及「勞動的價值」「制度與個人」「被看見與被忽略的人」，坤樹與秦得參都是現成的例證，請先把兩則故事濃縮成各 80 字以內的可引用版本。</p>
+      </div>
+      <div class="box box-warn">
+        <div class="box-title">📌 本週三項必做作業</div>
+        <ol style="padding-left:1.3rem; font-size:0.91rem;">
+          <li><strong>讀完兩篇原著全文</strong>（本講義只是地圖）。閱讀時在書上標出：①主角第一次退讓處；②衝突爆發處；③結尾留白處。</li>
+          <li><strong>成語自測</strong>：蓋住四張成語表的右欄各測一次，把不會的抄成小卡，通勤時複習。</li>
+          <li><strong>修辭實作</strong>：從兩篇小說中各找出三處修辭並標明格式（建議找映襯、象徵、反諷各一），寫進弱點筆記。</li>
+        </ol>
+      </div>
+      <div class="box box-gold">
+        <div class="box-title">🗓️ 跨科排程提醒</div>
+        <p style="font-size:0.91rem;">本週數學進度為排列組合與機率複習、數據分析進階；物理為歷屆試題 30 題精選；化學為有機化學官能基反應歸納，並於<strong>週末安排化學模擬考（含化學一、二全範圍）</strong>。國文的兩篇小說閱讀建議排在週一至週三晚上（閱讀量大但不需大量計算，適合安排在疲勞度較高的時段），成語與修辭表則適合利用零碎時間翻閱，把週末完整時段讓給化學模擬考。</p>
+      </div>
+    </section>
+
+    <div style="text-align:center; color:var(--muted); font-size:0.82rem; padding:2rem 0 0;">
+      W22 國文科學習講義｜台灣文學：現代小說二篇 ＋ 成語與修辭總整理<br>
+      台灣高中學測備考 · 高三上・理工組 · 第三階段：第二輪主題強化 · 10/12–10/18
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
